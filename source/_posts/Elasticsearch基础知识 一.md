@@ -7,7 +7,7 @@ id: 279
 categories:
   - 笔记
 date: 2017-07-16 17:11:30
-;;;
+---
 
 ## 1. 安装Elasticsearch
 [Elasticsearch2.4.2下载地址](https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/zip/elasticsearch/2.4.2/elasticsearch-2.4.2.zip

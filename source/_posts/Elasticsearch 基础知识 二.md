@@ -7,7 +7,7 @@ id: 283
 categories:
   - 笔记
 date: 2017-07-16 18:16:12
-;;;
+---
 
 ## 1. 概念
 * 节点：一个运行中的 Elasticsearch 实例

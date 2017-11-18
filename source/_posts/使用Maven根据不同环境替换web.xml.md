@@ -1,0 +1,76 @@
+---
+title: 使用Maven根据不同环境替换web.xml
+tags:
+  - Maven
+id: 275
+categories:
+  - 笔记
+date: 2017-01-03 13:52:43
+---
+
+在pom.xml增加使用`maven-war-plugin`插件：
+```xml
+    ......
+    <profiles>
+        <profile>
+            <id>product</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <deploy.type>product</deploy.type>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <deploy.type>dev</deploy.type>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <deploy.type>test</deploy.type>
+            </properties>
+        </profile>
+    </profiles>
+    ......
+    <build>
+    ......
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources.${deploy.type}</directory>
+                <excludes>
+                    <exclude>WEB-INF</exclude>
+                    <exclude>WEB-INF/**.*</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        ......
+        <plugins>
+            ......
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/resources.${deploy.type}/WEB-INF</directory>
+                            <filtering>true</filtering>
+                            <targetPath>WEB-INF</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+            ......
+        </plugins>
+    ......
+    </build>
+```
+![](http://ww1.sinaimg.cn/mw690/3d6ce2f1jw1fbdebl5h7lj208j04v3yq.jpg)
