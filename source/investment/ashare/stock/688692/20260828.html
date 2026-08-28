@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-28 达梦数据 (688692) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(168,85,247,0.22), rgba(56,189,248,0.16), rgba(245,158,11,0.10));
+    border: 1px solid rgba(168,85,247,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(168,85,247,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #c084fc, #38bdf8, #fbbf24);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #c084fc; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(56,189,248,0.10));
+    border: 1px solid rgba(168,85,247,0.40); border-left: 5px solid #c084fc;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#c084fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(168,85,247,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(168,85,247,0.18), rgba(245,158,11,0.10), rgba(56,189,248,0.08));
+    border:1px solid rgba(168,85,247,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#c084fc; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#fbbf24,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:820px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(168,85,247,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(168,85,247,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #c084fc; }
+  .conclusion-item .num { display:inline-block; background:#c084fc; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🗄️ 达梦数据 (688692) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">国产数据库市场份额首次登顶 · 信创核心壁垒 · 但 Q2 业绩失速 + 治理冲击 — 持有观察等待验证</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>持有观察</b>（估值偏高 + Q2 业绩冲击 + 治理事件未完全消化）</span>
+      <span class="badge badge-source">📅 数据日期：2026-08-27（最近交易日）</span>
+      <span class="badge badge-source">📊 股价 215.35 元 · 总市值 243.86 亿 · PE-TTM 46.44x · PB 7.0x</span>
+      <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 等 11 方法论 × 12 模块</span>
+      <span class="badge badge-success">✅ 2025 中国数据库市场份额首次登顶（赛迪顾问）</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-08-27）：</strong><br>
+    ✅ 股价 <span class="info">215.35 元</span>，总市值 <span class="info">243.86 亿元</span>，每股净资产 <span class="info">34.32 元</span> · 来源：搜狐证券/新浪财经（2026-08-26 附近快照）<br>
+    ✅ 财务基准：<span class="ok">2025 年报</span>营收 <span class="ok">13.06 亿（+25.03%）</span>、归母 <span class="ok">5.17 亿（+42.83%）</span>；<span class="ok">2026H1</span>营收 <span class="ok">7.13 亿（+36.27%）</span>、归母 <span class="info">2.21 亿（+7.99%）</span>、扣非 <span class="info">2.09 亿（+10.91%）</span><br>
+    ✅ <span class="danger">2026Q2 单季归母净利 6961 万元、同比 -34.65%</span>（市场 8 月 26 日大跌 9.33% 已 price in），<span class="warn">经营性现金流 451.34 万元（同比 -52.86%）</span><br>
+    ✅ 应收账款 2026Q1 末 <span class="warn">6.07 亿元</span>，占 2025 归母 116.19%；<span class="ok">现金及现金等价物 30.12 亿元</span>，<span class="ok">总负债 4.37 亿元</span>，账面结构极健康<br>
+    ✅ 关键事件：<span class="danger">2025-08-19 董事兼总经理皮宇被留置</span>（已于 <span class="ok">2025-11-30 解除</span>），副总经理陈文同步被调查（后续解除）；实控人冯裕才质押率仅 <span class="ok">0.42%</span><br>
+    ✅ 行业地位：赛迪顾问《2025-2026 年中国平台软件市场研究年度报告》显示 2025 年达梦在中国数据库管理系统市场份额<span class="ok">首次超越国外厂商、位列第一</span><br>
+    ⚠️ 数据局限：52 周区间、北向资金近 30 日、公募/社保/QFII 持仓变化、MA60/120/250 等技术指标 <span class="danger">未独立核验</span>；同业（人大金仓/OceanBase/TiDB）2025-2026 完整财务数据 <span class="warn">未独立全口径核验</span>，仅作定性比较
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🗄️</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：国产数据库龙头护城河深厚（巴菲特 7 分），但估值偏高（格雷厄姆/林奇 3 分）+ Q2 业绩失速 + 治理事件余波未消 —— 持有观察，等待加仓信号</h3>
+      <p>
+        达梦数据在 <b style="color:#34d399">巴菲特护城河（7 分）、马克斯周期（5 分）、邓普顿逆向（5 分）</b>框架下得分较高（国产数据库市场份额首登榜首 + 信创核心壁垒 + 总经理留置事件已解除）；在 <b style="color:#fbbf24">费雪成长（5 分）、林奇 PEG（3 分）、格雷厄姆深度价值（3 分）</b>框架下中性偏低（PE-TTM 46.44x 偏高、Q2 单季净利 -34.65%、行业进入深水区）。综合 <b style="color:#fbbf24">4.7/10 分 = 持有观察</b>。<br><br>
+        <b style="color:#c084fc">最终倾向：</b>采纳 <b style="color:#34d399">巴菲特护城河 + 马克斯周期</b> 框架作为长期视角主线（信创替代 + 国产数据库龙头），用 <b style="color:#fbbf24">格雷厄姆价格纪律</b> 作为仓位与买点约束；避免按题材股追高、避免按短期博弈逻辑满仓。<b style="color:#fbbf24">明确的加仓信号：</b>股价回落至 170 元以下 + Q3 业绩验证（净利同比不再下滑）+ 应收账款占比下降。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-08-27 · 来源：搜狐证券/新浪财经/东方财富/公司公告</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">达梦数据</div>
+      <div class="change">代码 688692</div>
+      <div class="label">科创板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:17px;">软件开发</div>
+      <div class="change">数据库 / 信创</div>
+      <div class="label">申万二级计算机</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:15px;">2024-06-12</div>
+      <div class="change">上市 ~2 年</div>
+      <div class="label">总股本 1.13 亿股</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">总市值</div>
+      <div class="value">243.86 亿</div>
+      <div class="change">现金 30.12 亿</div>
+      <div class="label">搜狐/新浪快照</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">当前股价</div>
+      <div class="value">215.35 元</div>
+      <div class="change">每股净资产 34.32</div>
+      <div class="label">PB 7.0x（偏高）</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">偏高</div>
+      <div class="name">PE-TTM</div>
+      <div class="value">46.44 x</div>
+      <div class="change">高于软件行业中位</div>
+      <div class="label">PE-2026E 约 35-40x</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高分红</div>
+      <div class="name">中期分红</div>
+      <div class="value">10派7元</div>
+      <div class="change">分红率 35.86%</div>
+      <div class="label">科创板罕见力度</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">极充裕</div>
+      <div class="name">现金及等价物</div>
+      <div class="value">30.12 亿</div>
+      <div class="change">占总市值 12.4%</div>
+      <div class="label">募资 + 经营积累</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">极低</div>
+      <div class="name">总负债</div>
+      <div class="value">4.37 亿</div>
+      <div class="change">资产负债率 ~1.8%</div>
+      <div class="label">无有息债务</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">纯软件</div>
+      <div class="name">毛利率</div>
+      <div class="value">95.36%</div>
+      <div class="change">2026H1 口径</div>
+      <div class="label">典型软件公司</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">数据缺口</div>
+      <div class="name">52 周区间</div>
+      <div class="value" style="font-size:14px;">未独立核验</div>
+      <div class="change">需 Wind/iFinD</div>
+      <div class="label">数据不足</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">5 日跌</div>
+      <div class="name">近期表现</div>
+      <div class="value">-4.14%</div>
+      <div class="change">十日 -2.93%</div>
+      <div class="label">Q2 业绩冲击</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">数据缺口</div>
+      <div class="name">近 1 月/1 年</div>
+      <div class="value" style="font-size:14px;">未独立核验</div>
+      <div class="change">需 Wind/iFinD</div>
+      <div class="label">数据不足</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">风险敞口</div>
+      <div class="name">应收账款</div>
+      <div class="value">6.07 亿</div>
+      <div class="change">占 2025 净利 116%</div>
+      <div class="label">2026Q1 末</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">持有观察</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （国产数据库龙头护城河深 + 但估值偏高 + Q2 业绩失速 + 治理事件余波未消）
+    </div>
+    <div class="comment">
+      达梦数据在 <b style="color:#34d399">巴菲特护城河（7 分）</b>框架下得分最高（市场份额首登榜首 + 信创核心壁垒 + 毛利率 95%）；<b style="color:#fbbf24">马克斯周期（5 分）、邓普顿逆向（5 分）、费雪成长（5 分）</b>中性（行业进入深水区 + 治理冲击已被市场消化但余波未消）；<b style="color:#f87171">格雷厄姆（3 分）、林奇 PEG（3 分）、博格（3 分）</b>偏低（PE 46.44x 偏高、PB 7.0x 高、PEG > 1.5）。综合 <b style="color:#fbbf24">4.7/10 分 = 持有观察</b>。<br><br>
+      <b style="color:#c084fc">核心定位：</b>国产数据库管理软件市场份额第一（赛迪顾问 2025-2026 报告），信创核心标的，毛利率 95.36%、研发投入 22.56%；实控人冯裕才是国内数据库领域泰斗级人物；2025 年全年 +42.83% 增长但 2026Q2 单季 -34.65% 出现分化，8 月 26 日股价单日跌 9.33%。<br><br>
+      <b style="color:#fca5a5">操作总则：</b>不建议当前重仓买入（估值偏高 + Q2 失速 + 治理事件余波）；观望加仓信号：股价回落至 170 元以下 + Q3 业绩验证 + 经营现金流回升；如已持仓建议减仓至 ≤ 3% 等待验证。
+    </div>
+  </div>
+
+  <div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+  <div class="safety-bar">
+    <div class="safety-title">📐 达梦数据估值区间（PE 视角 · 数据日期 2026-08-27）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">&lt; 30x · 深度价值（机会区）</div>
+      <div class="safety-seg seg-current">30–50x · 合理偏高（当前）</div>
+      <div class="safety-seg seg-over">&gt; 50x · 透支/高估</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>深度价值区</strong> · 净利 7 亿+ × 30x</span>
+      <span><strong>当前</strong> · PE-TTM 46.44x</span>
+      <span><strong>透支区</strong> · PE-2027E 净利 6.5 亿 × 50x+</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 同业 5 家可比公司估值对比表（数据日期 2026-08-27）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>主营</th><th>2025 营收(亿)</th><th>2025 归母(亿)</th><th>市值(亿)</th><th>综合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:#c084fc">达梦数据</b></td><td class="hl">688692</td><td>国产数据库第一</td><td class="ok">13.06</td><td class="ok">5.17</td><td class="warn">243.86</td><td class="warn">PE 46x · PB 7x · 估值偏高</td></tr>
+        <tr><td>OceanBase（蚂蚁）</td><td class="hl">未上市</td><td>分布式数据库</td><td class="warn">数据不足</td><td class="warn">数据不足</td><td class="warn">数据不足</td><td class="warn">2025 独立分拆传闻</td></tr>
+        <tr><td>TiDB（PingCAP）</td><td class="hl">未上市</td><td>NewSQL</td><td class="warn">数据不足</td><td class="warn">数据不足</td><td class="warn">数据不足</td><td class="warn">海外为主</td></tr>
+        <tr><td>人大金仓</td><td class="hl">电科太极</td><td>国产数据库</td><td class="warn">数据不足</td><td class="warn">数据不足</td><td class="warn">数据不足</td><td class="warn">未独立披露</td></tr>
+        <tr><td>openGauss（华为）</td><td class="hl">开源</td><td>开源数据库</td><td class="warn">—</td><td class="warn">—</td><td class="warn">—</td><td class="warn">非营利项目</td></tr>
+        <tr><td>创意信息（300366）</td><td class="hl">300366</td><td>数据库 + 5G</td><td class="warn">数据不足</td><td class="warn">数据不足</td><td class="warn">约 50-70</td><td class="warn">业务多元</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">结论：</b>数据库可比公司多数未独立上市或数据未充分披露，<b style="color:#fbbf24">难做严格 PE/PB 同业对比</b>。达梦数据作为科创板独立上市的"国产数据库第一股"，享有稀缺性溢价；但 PE-TTM 46.44x、PB 7.0x 已显著高于软件行业历史中枢（PE 中位约 30-35x、PB 约 4-5x）。从格雷厄姆视角看，<b style="color:#fbbf24">当前估值并非"安全边际型"</b>，而是"稀缺性溢价 + 龙头溢价"型；邓普顿视角下，最坏时刻未到（Q2 失速），逆向入场尚未成立，需等待 Q3-Q4 业绩验证。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>安全边际测算：以当前价买入，未来 12 个月下行空间</h3>
+      <p>
+        <b style="color:#fbbf24">基准情景（2026E 归母 6.0 亿 / PE 35-40x）：</b>合理市值 210-240 亿 → <b style="color:#fca5a5">合理价 186-212 元（-14% ~ -2%）</b><br>
+        <b style="color:#fbbf24">乐观情景（2026E 7.5 亿 / PE 40-45x）：</b>合理市值 300-338 亿 → <b style="color:#34d399">合理价 265-298 元（+23% ~ +38%）</b><br>
+        <b style="color:#fbbf24">保守情景（2026E 4.5 亿 / PE 28-35x）：</b>合理市值 126-158 亿 → <b style="color:#f87171">合理价 111-140 元（-48% ~ -35%）</b><br>
+        <b style="color:#fca5a5">综合判断：</b>PE-TTM 46.44x 与 2026E 净利高度敏感（4.5-7.5 亿区间对应 PE 32x-54x），<b style="color:#fbbf24">12 个月目标价波动区间可达 ±40%</b>。Q2 单季净利 -34.65% 是 2026 全年净利能否站上 6 亿的关键测试。隐蔽资产：<b style="color:#c084fc">30.12 亿元现金及等价物（占总市值 12.4%）、自主可控技术底座、信创客户资源、研发团队</b>，账面价值未充分反映；如出现极端估值压缩，现金垫可提供一定下行保护。
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:14px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:14px; color:#fbbf24; margin-bottom:24px;">
+    📊 <b>估值结论：合理偏高（PE 46x/PB 7x 高于软件行业中位 + 现金垫提供保护 + 龙头稀缺性溢价，但非安全边际型） —— 估值结论高度依赖 2026 全年净利能否站稳 6 亿</b>
+  </div>
+
+  <div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+  <div class="dashboard">
+    <div class="index-card danger">
+      <div class="tag danger">偏贵</div>
+      <div class="name">PEG (PE/3Y 增速)</div>
+      <div class="value">~1.85</div>
+      <div class="change">PE 46 / 净利增速 ~25%</div>
+      <div class="label">林奇 PEG > 1.5</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">营收高增</div>
+      <div class="name">营收 2Y CAGR</div>
+      <div class="value">~25-36%</div>
+      <div class="change">2024-2025 + 2026H1</div>
+      <div class="label">国产替代驱动</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">净利分化</div>
+      <div class="name">净利 2026H1 vs 2025</div>
+      <div class="value">+7.99%</div>
+      <div class="change">Q2 单季 -34.65%</div>
+      <div class="label">拐点信号待观察</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">结构</div>
+      <div class="name">主营业务驱动</div>
+      <div class="value">信创替代</div>
+      <div class="change">+ 国产数据库</div>
+      <div class="label">+ 一体机放量</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高研发</div>
+      <div class="name">研发强度</div>
+      <div class="value">22.56%</div>
+      <div class="change">2026H1 占营收</div>
+      <div class="label">护城河持续加固</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">周期中段</div>
+      <div class="name">成长定位</div>
+      <div class="value">中速成长</div>
+      <div class="change">深水区博弈</div>
+      <div class="label">非高速复利</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h3>成长性判断：中速成长 + 净利分化 —— 信创替代逻辑成立，但行业进入"存量博弈"深水区</h3>
+      <p>
+        2024 营收约 10.45 亿、2025 营收 <b style="color:#34d399">13.06 亿（+25.03%）</b>、归母 <b style="color:#34d399">5.17 亿（+42.83%）</b>；2026H1 营收 <b style="color:#34d399">7.13 亿（+36.27%）</b>、归母 <b style="color:#fbbf24">2.21 亿（+7.99%）</b>、扣非 <b style="color:#fbbf24">2.09 亿（+10.91%）</b>。Q2 单季净利同比 <b style="color:#fca5a5">-34.65%</b>，是 2026 全年增速能否维持的关键测试。<br>
+        增长动力来源：(1)<b style="color:#34d399">信创替代加速</b>（党政已完成 80%，金融/能源/医疗/制造仍处早期）；(2)新一代产品 DM9 + 达梦启云 V4.0 + DAMENG PAI V2.0 一体机规模化推广；(3)国产数据库市场份额 2025 年首次登顶（赛迪顾问）；(4)AI 原生与多模融合技术演进。但行业已进入"淘汰赛"深水区，竞争加剧、收入增速放缓、应收账款规模较高是中期挑战。<br>
+        <b style="color:#fbbf24">⚠️ 数据局限：</b>2023 年完整数据需独立核验；扣除股份支付后净利同比 +41.44%（剔除影响后真实增速更健康）；行业天花板（信创核心市场约 500-800 亿规模）有待观察。<br>
+        <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1)2026 中报、三季报、年报兑现；(2)DM9 一体机订单转化率；(3)金融/能源行业深水替代节奏；(4)AI 数据库新产品商业化进展。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+  <div class="table-card">
+    <div class="table-title">🛡️ 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>自主可控技术壁垒</b></td><td class="ok">极强</td><td>完全自主原创代码、原始创新团队、研发强度 22.56%，党政信创核心壁垒</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>市场份额 / 网络效应</b></td><td class="ok">强</td><td>2025 年中国数据库管理软件市场份额首次登顶（赛迪顾问），十余年市占率第一</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>客户粘性 / 转换成本</b></td><td class="ok">强</td><td>服务国家电网、建设银行、中国人保、中国航信、中国移动等关键基础设施，迁移成本极高</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>品牌 / 央企信任</b></td><td class="warn">中等</td><td>信创核心标杆、中国电子（央企）旗下中国软件 + 中电金投合计 21.85% 持股背书</td><td class="warn">⭐⭐⭐</td></tr>
+        <tr><td><b>成本 / 规模优势</b></td><td class="ok">强</td><td>毛利率 95.36%（纯软件），规模效应明显</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>生态 / 渠道</b></td><td class="warn">中等</td><td>2026H1 一体机销售 2.71 亿带动成本 +67%，生态扩张但 ROIC 短期承压</td><td class="warn">⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">高</div>
+      <div class="name">毛利率</div>
+      <div class="value">95.36%</div>
+      <div class="change">2026H1 口径</div>
+      <div class="label">典型纯软件</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">净利率</div>
+      <div class="name">净利率</div>
+      <div class="value">~31%</div>
+      <div class="change">2025 口径 5.17/13.06</div>
+      <div class="label">结构稳定</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">现金转换</div>
+      <div class="name">经营现金流/净利</div>
+      <div class="value">极低</div>
+      <div class="change">2026H1 仅 451 万</div>
+      <div class="label">应收账款扩张</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">第一名</div>
+      <div class="name">行业地位</div>
+      <div class="value">第一名</div>
+      <div class="change">国产数据库首次登顶</div>
+      <div class="label">赛迪顾问 2025</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高研发</div>
+      <div class="name">研发强度</div>
+      <div class="value">22.56%</div>
+      <div class="change">2026H1 占营收</div>
+      <div class="label">持续投入护城河</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">护城河结论</div>
+      <div class="name">综合评级</div>
+      <div class="value" style="font-size:16px;">宽阔护城河</div>
+      <div class="change">信创核心标的</div>
+      <div class="label">复利型生意</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>护城河结论：宽阔护城河 + 国产数据库龙头 —— 信创核心壁垒 + 央企背书 + 持续高研发投入</h3>
+      <p>
+        达梦数据在 <b style="color:#34d399">自主可控技术、市场份额、客户粘性、成本优势</b>四个维度具备强护城河，<b style="color:#fbbf24">品牌、生态</b>两个维度为中等。<b style="color:#34d399">毛利率 95.36%</b> 是纯软件典型水平；<b style="color:#c084fc">中国电子（央企）旗下中国软件 + 中电金投合计 21.85% 持股</b> 提供关键信任背书；研发强度 <b style="color:#34d399">22.56%</b> 持续加固护城河。<br>
+        <b style="color:#fca5a5">护城河侵蚀风险：</b>OceanBase/华为 openGauss/阿里 PolarDB 在金融云原生场景分流客户；AI 原生数据库（如 DuckDB/ClickHouse 等开源）冲击 OLAP 场景；商业开源模式（达梦 vs 友商）定价权博弈；央企客户集中度高带来的议价压力。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div>
+      <div>2024 / 2025 / 2026H1</div>
+      <div>格雷厄姆 + 凯恩斯视角</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入（亿）</div>
+      <div class="fin-val ok">10.45 / 13.06 / 7.13</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/ +25.03% / +36.27%</b>，信创替代加速，<b style="color:#34d399">营收增速持续</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（亿）</div>
+      <div class="fin-val warn">3.62 / 5.17 / 2.21（H1）</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/ +42.83% / +7.99%</b>，Q2 单季 <b style="color:#fca5a5">-34.65%</b> 出现分化，<b style="color:#fbbf24">需 Q3 验证</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">扣非归母净利（亿）</div>
+      <div class="fin-val warn">数据不足 / 4.90 / 2.09（H1）</div>
+      <div class="fin-comment">扣非同比 <b style="color:#34d399">+10.91%</b>，<b style="color:#34d399">核心盈利仍正增长</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流（亿）</div>
+      <div class="fin-val down">数据不足 / 数据不足 / 0.0451（H1）</div>
+      <div class="fin-comment">H1 同比 <b style="color:#fca5a5">-52.86%</b>，<b style="color:#fca5a5">备货采购 + 薪酬税费支付增加</b>，现金质量需关注</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">自由现金流（亿）</div>
+      <div class="fin-val warn">未独立核验</div>
+      <div class="fin-comment">数据不足，待 2026 年报披露后跟踪</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val ok">数据不足 / 极低 / ~1.8%</div>
+      <div class="fin-comment">总负债 4.37 亿，<b style="color:#34d399">几乎全为流动负债，无有息债务</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">现金及等价物（亿）</div>
+      <div class="fin-val ok">募资到账 / 30+ / 30.12（H1）</div>
+      <div class="fin-comment"><b style="color:#34d399">占总市值 12.4%</b>，现金垫极厚实</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款余额（亿）</div>
+      <div class="fin-val warn">数据不足 / 数据不足 / 6.07（Q1末）</div>
+      <div class="fin-comment"><b style="color:#fbbf24">占 2025 归母 116.19%</b>，央企客户回款周期长，<b style="color:#fbbf24">需关注账龄结构</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">毛利率</div>
+      <div class="fin-val ok">高 / 95%+ / 95.36%</div>
+      <div class="fin-comment"><b style="color:#34d399">典型纯软件水平</b>，结构稳定</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">研发投入（亿）</div>
+      <div class="fin-val ok">数据不足 / 数据不足 / 1.61（H1）</div>
+      <div class="fin-comment">研发占比 <b style="color:#34d399">22.56%</b>，<b style="color:#34d399">持续高强度投入护城河</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流 / 净利润</div>
+      <div class="fin-val down">数据不足 / 数据不足 / ~0.02x（H1）</div>
+      <div class="fin-comment">H1 经营现金流仅 <b style="color:#fca5a5">451 万</b>，远低于净利润，<b style="color:#fca5a5">现金转换效率需关注</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">商誉 / 总资产</div>
+      <div class="fin-val ok">数据不足 / 极低 / 极低</div>
+      <div class="fin-comment">纯软件公司，<b style="color:#34d399">无商誉减值风险</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">分红力度</div>
+      <div class="fin-val ok">首次中期 / 首次中期 / 10 派 7 元（H1）</div>
+      <div class="fin-comment">分红率 <b style="color:#34d399">35.86%</b>，<b style="color:#34d399">科创板罕见高分红力度</b></div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">💰</div>
+    <div class="text">
+      <h3>财务质量判断：财务健康（账面结构极优，但现金流转换效率承压）</h3>
+      <p>
+        公司账面 <b style="color:#34d399">现金 30.12 亿元</b>、<b style="color:#34d399">总负债仅 4.37 亿</b>、<b style="color:#34d399">无有息债务</b>，整体资产负债结构极为健康；毛利率 <b style="color:#34d399">95.36%</b>、研发占比 <b style="color:#34d399">22.56%</b> 体现典型纯软件 + 高研发特征。主要瑕疵在于 <b style="color:#fbbf24">应收账款体量 6.07 亿</b>（央企客户回款周期长）、<b style="color:#fca5a5">2026H1 经营现金流仅 451 万元（同比 -52.86%）</b>，反映扩张期备货采购 + 薪酬税费支付增加，现金转换效率需要后续季度持续跟踪。<br>
+        <b style="color:#7dd3fc">后续验证重点：</b>2026 中报、三季报披露后，<b style="color:#fbbf24">应收账款余额变化、计提是否进一步正常化、经营现金流是否回升</b> 是财务质量验证的核心。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+  <div class="table-card">
+    <div class="table-title">🧭 管理层与治理关键事项</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>实控人背景</b></td><td>冯裕才（中国数据库领域泰斗级人物）+ 一致行动人<b style="color:#c084fc">韩朱忠、皮宇、陈文、周淳、王婷、付铨、孙巍琳</b>，与 <b style="color:#c084fc">8 家合伙企业</b>（梦裕科技、曙天云、得特贝斯、数聚云、惠梦源、数安科技、数聚通、梦达惠佳）保持一致</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>央企背书</b></td><td>中国软件 + 中电金投 <b style="color:#c084fc">合计 21.85%</b> 持股（中国电子信息产业集团旗下），构成中国电子旗下数据库整合平台</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>治理事件</b></td><td>2025-08-19 <b style="color:#fca5a5">董事兼总经理皮宇被湖北省应城市监察委员会立案调查 + 留置</b>；副总经理陈文同步被调查；公司治理一度承压</td><td class="danger">⭐⭐</td></tr>
+        <tr><td><b>事件进展</b></td><td>2025-11-30 皮宇被 <b style="color:#34d399">解除留置</b>并恢复工作；陈文后续解除；公司经营未受重大影响</td><td class="ok">⭐⭐⭐</td></tr>
+        <tr><td><b>实控人质押</b></td><td>冯裕才质押比例 <b style="color:#34d399">0.42%</b>（2026-08-21 附近，仅 48 万股、1 笔），<b style="color:#34d399">温和区间</b></td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权激励</b></td><td>2026 年披露股份支付费用对净利润影响明显（剔除后净利同比 +41.44%），激励计划覆盖核心团队</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>研发持续性</b></td><td>研发强度 22.56%（H1）持续高投入，研发人员占比稳定</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股东回报</b></td><td>2026H1 中期分红 <b style="color:#34d399">10 派 7 元</b>，分红率 <b style="color:#34d399">35.86%</b>，<b style="color:#34d399">科创板罕见力度</b></td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">治理结论：基本可信但余波未消。</b>主要加分项：实控人冯裕才是国内数据库领域泰斗级人物 + 央企（中国电子）背景 + 实控人质押率极低 + 高分红力度 + 事件已解除并恢复工作；扣分项：<b style="color:#fca5a5">2025-08 总经理 + 副总经理被立案调查事件</b>虽已解除，但<b style="color:#fca5a5">市场对治理透明度的信心修复需要时间</b>，是 8 月 26 日股价单日跌 9.33% 的重要诱因之一。
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+  <div class="grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+    <div class="table-card">
+      <div class="table-title">📈 行业周期定位：信创替代中段偏后</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        数据库行业当前位于 <b style="color:#fbbf24">"信创替代中段偏后 + 行业淘汰赛深水区"</b>。党政领域数据库已完成 80% 国产替代，但金融、能源、医疗、制造等关键行业仍处早期阶段（替代率 20-40%）。2025 年达梦市场份额首次超越国外厂商登顶第一，标志行业从"国产替代"进入"存量博弈与高质量发展并行"新阶段。<br><br>
+        <b style="color:#7dd3fc">未来 3-5 年增长动力：</b>(1)金融、能源、医疗、制造等关键行业深水替代加速；(2)AI 原生数据库（DM9、达梦启云 V4.0 等）商业化推广；(3)数据库一体机（DAMENG PAI V2.0）放量；(4)海外市场拓展（达梦已布局东南亚、中东）；(5)与云厂商协同（混合云部署）。但行业竞争加剧、收入增速放缓、应收账款规模较高是中期挑战。
+      </p>
+    </div>
+    <div class="table-card">
+      <div class="table-title">🏛️ 政策环境与产业链位置</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        <b style="color:#34d399">政策环境"持续鼓励"：</b>2025-2026 年国务院、发改委、工信部密集发布信创 2.0 政策，明确党政、金融、能源、电信、交通、教育、医疗等关键行业国产替代时间表；国资委明确 2027 年央企信创替代基本完成；信创采购预算持续扩大；地方信创补贴政策密集出台。<br><br>
+        <b style="color:#c084fc">产业链位置：</b>数据库处于 IT 基础设施核心层（上游为服务器/操作系统/芯片厂商，下游为应用软件/最终客户），是信创替代难度最大、技术门槛最高的赛道之一。议价能力受制于下游央企/金融客户的集中度（议价能力中等）和上游国产化进度（已基本完成）。<br><br>
+        <b style="color:#fbbf24">行业判断：周期中段偏后 + 结构性机会（非趋势性扩张）。</b>政策长期支持，但行业从"政策驱动"转向"技术驱动"，内部分化加剧。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 截至 2026-08-27 技术结构</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>52 周高/低</td><td class="warn">数据未独立核验</td><td>数据缺口，需 Wind/iFinD</td></tr>
+        <tr><td>MA60 / MA120 / MA250</td><td class="warn">数据未独立核验</td><td>数据缺口，需 Wind/iFinD</td></tr>
+        <tr><td>MACD / BOLL</td><td class="warn">数据未独立核验</td><td>数据缺口，需 Wind/iFinD</td></tr>
+        <tr><td>近期成交量趋势</td><td class="warn">8 月 26 日单日跌 9.33%、主力净流出 9.04 亿</td><td>Q2 业绩冲击后短期恐慌</td></tr>
+        <tr><td>北向资金近 30 日净流入/流出</td><td class="warn">未独立核验</td><td>数据缺口，需 Wind/iFinD</td></tr>
+        <tr><td>融资融券</td><td class="mid">融资余额 7.42 亿，占流通市值 4.64%（近一年 40% 分位）</td><td>杠杆参与度中等偏低</td></tr>
+        <tr><td>股东户数</td><td class="mid">1.19 万户（2026-06-30），较上期 +6.66%</td><td>筹码分散化，散户化加剧</td></tr>
+        <tr><td>实控人质押率</td><td class="ok">0.42%（2026-08-21 附近）</td><td>温和区间，无控制权风险</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术面与资金流判断：弱势（Q2 业绩冲击 + 主力资金退潮 + 题材退潮）</h3>
+      <p>
+        <b style="color:#fbbf24">关键支撑位</b>200-210 元区间（8 月 26 日低点附近 + 历史密集成交区）；<b style="color:#fbbf24">压力位</b>240-260 元区间（2026 年 7 月高点 + Q2 预告前后高点）。若 Q3 业绩兑现 + 经营现金流回升，向上修复 240 元打开 265-280 元空间；若 Q3 业绩继续疲弱，可能下探 170-190 元。<br><br>
+        <b style="color:#7dd3fc">资金面：</b>2026-08-26 主力资金净流出 <b style="color:#fca5a5">9.04 亿元</b>，单日跌幅 9.33% 已反映 Q2 业绩 + 治理事件余波的双重冲击；融资余额 7.42 亿（占流通市值 4.64%）处于近一年 40% 分位水平，杠杆参与度中等偏低；股东户数 1.19 万户（较上期 +6.66%），筹码分散化。<b style="color:#34d399">实控人质押率仅 0.42%，无控制权风险。</b><br><br>
+        <b style="color:#fca5a5">综合判断：</b>当前处于"业绩分化 + 市场重新定价 + 题材退潮"的状态，需以 <b style="color:#fbbf24">Q3 业绩兑现</b> 和 <b style="color:#fbbf24">经营现金流改善</b> 作为后续催化剂，技术面弱势。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论打分 · Top 3 匹配</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">费雪成长</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">林奇 PEG</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">PEG 投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">邓普顿逆向</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">博格指数</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">马克斯周期</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 巴菲特护城河投资</div>
+      <div class="method-author">沃伦·巴菲特 · "经济护城河"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">国产数据库市场份额第一（赛迪顾问 2025）+ 信创核心壁垒 + 完全自主原创技术 + 毛利率 95.36% + 央企（中国电子）背书 + 客户高度集中（国家电网、建行、人保等关键基础设施）+ 实控人冯裕才泰斗级人物 + 高研发强度 22.56%。"宽阔护城河"标的，巴菲特框架下得分最高。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">🥈 马克斯周期投资</div>
+      <div class="method-author">霍华德·马克斯 · "周期永远存在"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">信创替代周期中段偏后，党政已完成 80% 但金融/能源/医疗/制造仍处早期；2025 年达梦首次登顶标志行业从"国产替代"转向"存量博弈与高质量发展并行"深水区；行业进入淘汰赛，竞争加剧、收入增速放缓；公司处于"第二增长曲线"（DM9、一体机、AI 原生）启动期。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">🥈 邓普顿逆向投资</div>
+      <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">2025-08 总经理皮宇被留置事件是巨大阴影（虽然已解除）；8 月 26 日股价单日跌 9.33% 已部分 price in 治理事件余波 + Q2 业绩失速；逆向要素部分存在（事件驱动型机会），但行业最坏时刻是否已到、Q3 业绩能否企稳都需要验证。逆向入场条件：股价回落至 170 元以下 + Q3 业绩兑现。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">4. 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "15 问"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">营收 CAGR 25-36%，研发持续高强度投入（22.56%），管理层背景极强（冯裕才泰斗），但净利波动巨大（+42.83% → +7.99% → Q2 -34.65%）使"复利机器"得分打折；行业进入淘汰赛深水区，未来增速不确定性上升；非典型费雪"持续高速成长"股。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">5. 格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score bad">3 / 10</div>
+      <div class="method-desc">账面现金 30.12 亿（占总市值 12.4%）+ 无有息债务 + 总负债仅 4.37 亿，资产负债结构极优；但 PE-TTM 46.44x、PB 7.0x 显著高于软件行业中位，估值并非"安全边际型"，而是"稀缺性溢价 + 龙头溢价"型；Q2 业绩失速使估值锚定更困难。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">6. 博格 / 凯恩斯 / 西蒙斯 / 达里奥 / 索罗斯</div>
+      <div class="method-author">综合辅助视角</div>
+      <div class="method-score bad">3-5 / 10</div>
+      <div class="method-desc">博格：非宽基指数、不适合被动持有（3 分）；凯恩斯：信创题材 8 月底游资退潮、主力净流出 9 亿（4 分）；西蒙斯：Q2 业绩冲击动量信号负面（3 分）；达里奥：高估值科技股不适合组合稳定器（3 分）；索罗斯：业绩冲击后市场预期重塑，反身性典型（4 分）。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>巴菲特护城河 7 分（强护城河）vs 格雷厄姆深度价值 3 分（估值偏高）→ "好公司但贵价格"</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突点：</strong>费雪成长 5 分（高研发 + 持续增长）vs 林奇 PEG 3 分（PEG > 1.5）→ "成长真实但估值偏贵"</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>冲突点：</strong>邓普顿逆向 5 分（事件冲击后机会）vs 凯恩斯选美 4 分（题材退潮）→ "逆向窗口取决于 Q3 业绩兑现"</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">巴菲特护城河 + 马克斯周期</strong> 的"长期信创主线"为视角，叠加 <strong style="color:#fbbf24">格雷厄姆"价格纪律"</strong> 作为仓位约束；当前评级 <strong style="color:#fbbf24">持有观察</strong>，明确加仓信号：股价回落至 170 元以下 + Q3 业绩兑现 + 经营现金流回升</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>综合得分：4.7 / 10</strong>，对应评级：<strong style="color:#fbbf24">持有观察</strong>（估值偏高 + Q2 业绩失速 + 治理事件余波未消，等待 Q3 验证）</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和现金流做决策</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 仓位与分批建仓</div>
+      <div class="strategy-content">
+        <table class="compare-table" style="margin-bottom:10px;">
+          <thead>
+            <tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:#fbbf24">观察仓</b></td><td><b style="color:#7dd3fc">200-215 元</b>区间（当前价位附近），Q2 业绩已兑现、等待 Q3 验证</td><td class="warn">≤ 1%</td></tr>
+            <tr><td><b style="color:#fbbf24">第一批加仓</b></td><td><b style="color:#7dd3fc">170-190 元</b>区间（仅在 Q3 业绩验证 + 经营现金流回升）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第二批加仓</b></td><td><b style="color:#7dd3fc">140-160 元</b>区间（仅在 2026 年报披露 + 全年净利站稳 6 亿）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">上限</b></td><td>单股 ≤ 5%，组合中科创板软件合计 ≤ 10%</td><td class="ok">建议 ≤ 3%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位（先减仓至 ≤ 1%）</div>
+      <div class="strategy-content">
+        <strong>硬止损：</strong>收盘有效跌破 <strong class="hl-danger">150 元（约 -30%）</strong>，或 2026 三季报归母净利同比继续下滑 > 10%，<strong class="hl-danger">先减仓至 ≤ 1% 而非等待目标价</strong>。<br><br>
+        <strong>软止损：</strong>2026 三季报应收账款余额较 H1 末继续走高 > 20%；实控人冯裕才或一致行动人出现大额减持或新增大额股权质押；中国电子（中国软件 + 中电金投）大幅减持。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead>
+            <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">150-180 元</td><td class="warn">220-250 元</td><td class="ok">300-340 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">180-220 元</td><td class="ok">260-290 元</td><td class="ok">380-420 元</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2026E 净利 6 亿 × PE 35-40x；乐观假设：2026E 7.5 亿 × PE 40-45x；保守假设：2026E 4.5 亿 × PE 28-32x。</p>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong class="hl-info">中线（6-12 个月）</strong>，等待 2026 中报、三季报、年报兑现；若 2026 全年净利突破 6.5 亿元且经营现金流回升至 1 亿+，可考虑切换为 <strong class="hl-purple">长线（&gt;12 月）</strong>。<br><br>
+        <strong>短线（&lt;3 月）</strong>不推荐——业绩拐点 + 治理事件修复逻辑需要 2-3 个季度验证。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-ok">归母净利润与扣非净利润</strong>同比/环比（业绩兑现度，<b style="color:#fbbf24">重点关注 Q3 是否企稳</b>）<br>
+        2. <strong class="hl-warn">经营现金流 / 营业收入比</strong>（现金转换质量验证）<br>
+        3. <strong class="hl-info">应收账款余额与账龄结构</strong>（央企客户回款周期）
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 1%）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">2026 三季报归母净利同比继续下滑 > 10%</strong>（业绩拐点逻辑被打破）<br>
+        2. <strong class="hl-danger">OceanBase / 华为 openGauss / 阿里 PolarDB</strong>在党政或金融信创领域市占率反超达梦<br>
+        3. <strong class="hl-danger">实控人冯裕才或一致行动人</strong>出现大额减持或新增大额股权质押；中国电子（中国软件 + 中电金投）大幅减持
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. Q2 业绩失速 + Q3/Q4 业绩持续承压</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3/Q4 归母净利同比继续下滑 > 10%；股份支付费用正常化后真实净利仍疲弱<br>
+        <strong>影响幅度：</strong>目标价下修 30-50%，评级可能从持有观察下调至减持<br>
+        <strong>应对策略：</strong>每季度跟踪 Q3/Q4 业绩兑现度；如 Q3 净利仍同比下滑 > 10% 立即减仓
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 治理事件余波 + 央企股东减持</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>实控人冯裕才或一致行动人出现大额减持/质押；中国电子（中国软件 + 中电金投）大幅减持；新的治理事件曝光<br>
+        <strong>影响幅度：</strong>估值溢价收窄，治理折价加深；股价短期下跌 15-30%<br>
+        <strong>应对策略：</strong>关注公告、定期报告"股东情况"、东方财富质押快照；如出现大额减持立即减仓
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 3. 现金流转换效率持续承压</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026H1 经营现金流仅 451 万元（同比 -52.86%）的趋势在 H2 继续；应收账款余额较年初继续走高 > 20%<br>
+        <strong>影响幅度：</strong>净利润质量受质疑，估值锚定困难；现金转换比恶化可能预示 2027 年净利含金量下降<br>
+        <strong>应对策略：</strong>每半年跟踪经营现金流绝对值与同比；2026 年报披露后重点验证经营现金流/净利润比
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 4. 行业竞争加剧 + OceanBase/openGauss/PolarDB 分流</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>OceanBase 在金融云原生场景市占率持续上升；华为 openGauss 在党政/电信领域获得更多份额；阿里 PolarDB 在电商/物流场景分流；AI 原生数据库（开源项目）冲击 OLAP 场景<br>
+        <strong>影响幅度：</strong>市场份额第一地位受威胁；毛利率与定价权承压<br>
+        <strong>应对策略：</strong>跟踪各厂商季度市占率变化、央企客户采购公告、达梦新一代产品（DM9）订单转化率
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 5. 估值偏高 + 高位接盘风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>PE-TTM 持续 45x+ 而 2026 全年净利未能站稳 6 亿；市场风格切换（信创题材降温）<br>
+        <strong>影响幅度：</strong>股价回归软件行业中位 PE（30-35x），合理价回落至 150-180 元区间<br>
+        <strong>应对策略：</strong>坚持格雷厄姆价格纪律，估值偏高时减仓而非加仓；分批建仓降低择时风险
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 来源与复核记录</div>
+
+  <div class="data-note">
+    <strong>📌 主要数据来源（截至 2026-08-27）：</strong><br>
+    ✅ 公司公告：<span class="ok">2025 年年度报告</span>（2026-04 披露，营收 13.06 亿、归母 5.17 亿）、<span class="ok">2026 Q1 报告</span>（2026-04-25，营收 4.11 亿、归母 1.51 亿）、<span class="ok">2026 半年报</span>（2026-08-25，营收 7.13 亿、归母 2.21 亿、扣非 2.09 亿）、<span class="ok">2026 中期分红预案</span>（10 派 7 元）<br>
+    ✅ 股价/市值快照：<span class="info">搜狐证券</span>（215.35 元、243.86 亿、现金 30.12 亿、总负债 4.37 亿）、<span class="info">富途牛牛</span>（08/24 233.67 元、PE-TTM 46.44x）、<span class="info">中财网</span>（PB 7.0x、EPS 5.03 元、每股净资产 34.32 元）；快照时点不完全一致<br>
+    ✅ 股权/质押：<span class="info">东方财富</span>（2026-08-21 附近质押比例 0.42%、股东户数 1.19 万户）、<span class="info">中财网</span>（中国软件 2141.13 万股、冯裕才 865.19 万股、中电金投 463.39 万股，2026-03-31 口径）<br>
+    ✅ 治理事件：<span class="warn">2025-08-19 皮宇被留置公告</span>、<span class="ok">2025-11-30 解除留置公告</span>、<span class="info">央广财经/新浪财经</span>相关报道<br>
+    ✅ 行业地位：<span class="ok">赛迪顾问《2025-2026 年中国平台软件市场研究年度报告》</span>（达梦首次登顶）、<span class="info">墨天轮数据库流行度榜单</span>（2025 月度排名）<br>
+    ✅ 业绩分析：<span class="info">经济观察网 2026-08-26 报道</span>（Q2 单季净利 -34.65% 详细拆解）、<span class="info">东方财富 2026-08-26 蓝鲸财经</span>（现金流 +52.21%/+53.39% 费用分析）<br>
+    ✅ 同业：<span class="warn">人大金仓/OceanBase/TiDB/openGauss/PolarDB/TDSQL</span> 2025-2026 完整财务数据 <span class="danger">未独立核验</span>，仅作定性比较<br>
+    ⚠️ 数据局限：52 周区间完整数据、近 1 月/1 年涨跌、北向资金近 30 日、公募/社保/QFII 持仓变化、MA60/120/250 等技术指标 <span class="danger">未独立核验</span>；2026 中报现金流、应收账款余额需待公司公告完整披露<br>
+    📊 <strong style="color:#fbbf24">所有价格、市值、估值、机构持仓快照均存在口径与时点差异；本页不构成买卖承诺。预测区间的差异足以令 12 个月目标价产生 ±40% 的波动，请以风险揭示为先。</strong>
+  </div>
+
+  <div class="footer">
+    达梦数据（688692）｜报告截止日 2026-08-28（周五）｜11 种方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（巨潮资讯/新浪财经/东方财富/搜狐证券/经济观察网/蓝鲸财经）+ 公开行业政策文件 + 赛迪顾问行业报告
+  </div>
+
+</div>
+</body>
+</html>

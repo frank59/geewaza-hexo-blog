@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-27 华能水电(600025) · 11 种方法论综合分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  /* 头部 */
+  .header { background: linear-gradient(135deg, rgba(14,165,233,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.35); border-radius: 20px; padding: 36px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .header::before { content:""; position:absolute; top:-80px; left:-60px; width:280px; height:280px;
+    background: radial-gradient(circle, rgba(239,68,68,0.18), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 34px; font-weight: 700; background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; margin-bottom: 14px; position: relative; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+  .badge { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 6px; }
+  .badge-source { background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.35); }
+  .badge-warning { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.35); }
+  .badge-success { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.35); }
+  .badge-purple { background: rgba(168,85,247,0.15); color: #c084fc; border: 1px solid rgba(192,132,252,0.35); }
+
+  /* 数据说明 */
+  .data-note { border: 1px dashed rgba(148,163,184,0.3); border-radius: 12px; padding: 14px 18px;
+    font-size: 12px; color: #94a3b8; margin-bottom: 20px; line-height: 1.8; }
+  .data-note strong { color: #cbd5e1; }
+  .ok { color: #34d399; } .warn { color: #fbbf24; } .danger { color: #f87171; }
+
+  /* 主题横幅 */
+  .theme-banner { display: flex; align-items: center; gap: 16px; border-left: 5px solid #0ea5e9;
+    background: rgba(14,165,233,0.08); border-radius: 12px; padding: 18px 20px; margin-bottom: 8px; }
+  .theme-banner .icon { font-size: 32px; }
+  .theme-banner h3 { font-size: 17px; color: #f1f5f9; margin-bottom: 4px; }
+  .theme-banner p { font-size: 13px; color: #cbd5e1; }
+
+  /* 章节标题 */
+  .section-title { font-size: 22px; font-weight: 700; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: #f1f5f9; }
+
+  /* 数据卡 */
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 8px; }
+  .index-card { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.2);
+    border-radius: 12px; padding: 18px 16px; position: relative; transition: transform .2s, box-shadow .2s; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+  .index-card .name { color: #94a3b8; font-size: 12px; margin-bottom: 6px; }
+  .index-card .value { font-size: 22px; font-weight: 700; }
+  .index-card .change { font-size: 12px; margin-top: 4px; color: #cbd5e1; }
+  .index-card .label { font-size: 11px; color: #64748b; margin-top: 6px; }
+  .index-card.ok { border-top: 3px solid #34d399; } .index-card.ok .value { color: #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; } .index-card.danger .value { color: #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; } .index-card.warn .value { color: #fbbf24; }
+  .index-card.mid { border-top: 3px solid #38bdf8; } .index-card.mid .value { color: #38bdf8; }
+
+  /* 表格 */
+  .fin-table { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.2);
+    border-radius: 12px; padding: 8px 20px; margin-bottom: 8px; }
+  .fin-row { display: grid; grid-template-columns: 1.2fr 1.2fr 2.6fr; gap: 12px; padding: 11px 4px;
+    border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { color: #94a3b8; font-size: 12px; font-weight: 700; }
+  .fin-name { color: #cbd5e1; }
+  .fin-val { font-weight: 700; color: #38bdf8; }
+  .fin-val.up { color: #34d399; } .fin-val.down { color: #f87171; } .fin-val.warn { color: #fbbf24; }
+  .fin-comment { color: #94a3b8; font-size: 12px; }
+
+  /* 评分 */
+  .score-table { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 8px; }
+  .score-item { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.2);
+    border-radius: 10px; padding: 16px 14px; text-align: center; }
+  .score-num { font-size: 34px; font-weight: 900; letter-spacing: 2px; }
+  .score-num.good { color: #34d399; } .score-num.mid { color: #38bdf8; }
+  .score-num.warn { color: #fbbf24; } .score-num.bad { color: #f87171; }
+  .score-name { font-size: 12px; color: #cbd5e1; margin: 6px 0; }
+  .score-bar { height: 6px; background: rgba(148,163,184,0.15); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 3px; }
+  .score-fill.good { background: #34d399; } .score-fill.mid { background: #38bdf8; }
+  .score-fill.warn { background: #fbbf24; } .score-fill.bad { background: #f87171; }
+  .score-out { font-size: 10px; color: #64748b; margin-top: 6px; }
+
+  /* 风险卡 */
+  .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 8px; }
+  .risk-card { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.2);
+    border-left: 4px solid #ef4444; border-radius: 12px; padding: 18px; }
+  .risk-title { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+  .risk-desc { font-size: 12px; color: #94a3b8; line-height: 1.7; }
+  .risk-desc b { color: #cbd5e1; }
+  .risk-pos { font-size: 11px; color: #fbbf24; margin-top: 8px; }
+
+  /* 结论 */
+  .final-verdict { text-align: center; background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.12), rgba(245,158,11,0.10));
+    border: 1px solid rgba(56,189,248,0.3); border-radius: 16px; padding: 28px; margin-bottom: 8px; }
+  .final-verdict h2 { font-size: 18px; color: #cbd5e1; margin-bottom: 12px; }
+  .rating { display: inline-block; font-size: 36px; font-weight: 900; letter-spacing: 6px;
+    background: rgba(14,165,233,0.25); color: #38bdf8; padding: 10px 34px; border-radius: 12px; }
+  .comment { font-size: 13px; color: #94a3b8; margin-top: 12px; }
+
+  .conclusion { border-left: 3px solid #f87171; padding: 8px 20px; background: rgba(30,41,59,0.4);
+    border-radius: 12px; margin-bottom: 8px; }
+  .conclusion-title { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 10px; }
+  .conclusion-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #cbd5e1; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; background: rgba(239,68,68,0.85);
+    color: #fff; border-radius: 50%; text-align: center; line-height: 22px; font-size: 12px; font-weight: 700; }
+
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px;
+    padding: 16px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .risk-grid { grid-template-columns: 1fr; }
+    .score-table { grid-template-columns: repeat(3, 1fr); }
+    .fin-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>⚡ 华能水电(600025) · 11 种方法论综合分析</h1>
+    <div class="subtitle">全国第二大水电龙头 · 澜沧江全流域开发权持有者 · 红利防御 vs 估值不便宜 · 数据截至 2026-08-26 收盘</div>
+    <div class="badges">
+      <span class="badge badge-source">📅 数据截至 2026-08-26</span>
+      <span class="badge badge-success">✅ 财务健康 · 现金流/净利 2.24</span>
+      <span class="badge badge-warning">⚠️ 2026H1 归母净利 -5.05%</span>
+      <span class="badge badge-purple">🧠 综合评级：谨慎买入</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源：</strong>行情估值<span class="ok">富途/东方财富/雪球/新浪</span>（截至 2026-08-26 收盘 9.68 元，多源交叉验证）· 财务<span class="ok">2025 年报、2026 半年报及一季报</span> · 研报<span class="ok">华源证券等</span>。<br>
+    ⚠️ 部分指标（PE/PB 历史分位、均线精确值、北向持股）<span class="warn">无免费精确口径，已按估算标注</span>；🔴 <span class="danger">历史业绩不代表未来，本报告不构成投资建议</span>。
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>核心定性：稀缺水电资产遭遇"盈利小年"，估值不便宜、成长不性感，胜在确定性与现金流</h3>
+      <p>2026H1 发电量创历史同期新高（+3.98%），但来水偏枯 + 高电价电站量价齐降 + 折旧增加，归母净利 43.76 亿元同比 -5.05%。长期逻辑（装机扩张、水光互补、市场化报价能力）未破坏，但 PE-TTM 约 21 倍、PB 约 2.7 倍安全边际不足，仅适合"红利思维 + 分批低吸"。</p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 一、基础画像（30 秒速览）</div>
+  <div class="dashboard">
+    <div class="index-card mid"><div class="name">当前股价 / 涨跌</div><div class="value">9.68 元</div><div class="change">2026-08-26 收盘 · 8-27 盘中 9.66~9.84</div><div class="label">52 周区间 8.85 ~ 10.46 元</div></div>
+    <div class="index-card mid"><div class="name">总市值 / 流通市值</div><div class="value">1,803 亿</div><div class="change">总股本 186.31 亿股 · 全流通</div><div class="label">上市 2017-12-15 · 沪市主板</div></div>
+    <div class="index-card warn"><div class="name">PE-TTM / PE-2026E</div><div class="value">21.2 / 20.2</div><div class="change">PE-静 21.2（2025 净利 85.04 亿）</div><div class="label">PE-2026E 基于华源证券 89.30 亿预测</div></div>
+    <div class="index-card warn"><div class="name">PB / 股息率</div><div class="value">2.69 / 2.12%</div><div class="change">每股派息 0.205 元（2025 年度）</div><div class="label">分红率 44.9% · 分红总额 38.19 亿</div></div>
+    <div class="index-card mid"><div class="name">近 1 月 / 近 1 年涨跌</div><div class="value">+2.0% / 数据不足</div><div class="change">7-08 收盘 9.49 → 8-26 收盘 9.68（7 周口径）</div><div class="label">现价距 52 周高点 -7.5%、距低点 +9.4%</div></div>
+  </div>
+
+  <div class="section-title">🎯 二、综合评级（一句话定位）</div>
+  <div class="final-verdict">
+    <h2>华能水电 · 多方法论综合裁决</h2>
+    <div class="rating">谨慎买入</div>
+    <div class="comment">依据：稀缺水电资产 + 现金流 2 倍净利 + 央企增持（红利防御），但估值处于历史中高分位、2026 年盈利小幅负增长（成长不足）——只宜"分批低吸 + 长期持有"，不宜追高。</div>
+  </div>
+
+  <div class="section-title">🎚️ 三、估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>指标</div><div>数值</div><div>解读</div></div>
+    <div class="fin-row"><div class="fin-name">PE-TTM 近 5 年分位</div><div class="fin-val warn">约 55%~70%（估算）</div><div class="fin-comment">近 5 年 PE-TTM 大致区间 13~24 倍，当前 21.2 倍处中高位；估值分位无免费精确口径，按区间推算（来源：历史行情推算）</div></div>
+    <div class="fin-row"><div class="fin-name">PB 近 5 年分位</div><div class="fin-val warn">约 60%~75%（估算）</div><div class="fin-comment">近 5 年 PB 大致区间 1.4~3.0，当前 2.69 偏高；2025-10 定增价 9.23 元为下方重要锚点</div></div>
+    <div class="fin-row"><div class="fin-name">安全边际（12 个月下行测算）</div><div class="fin-val danger">-10% ~ -20%</div><div class="fin-comment">若 2026E 净利 89 亿且 PE 回落至 18 倍 → 约 8.6 元（-11%）；悲观情形（净利 85 亿 × 17 倍）→ 约 7.8 元（-20%）。当前价买入缺乏格雷厄姆式安全边际（来源：基于一致预期测算）</div></div>
+    <div class="fin-row"><div class="fin-name">隐蔽资产 / 清算价值</div><div class="fin-val mid">澜沧江全流域开发权</div><div class="fin-comment">持有澜沧江干流全部水能资源开发权，上游西藏段（托巴、古水、如美等）为未兑现的"期权性"资源；账面重资产清晰，无显著表外资产</div></div>
+  </div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>可比公司</div><div>PE-TTM / PB</div><div>备注</div></div>
+    <div class="fin-row"><div class="fin-name">长江电力 600900</div><div class="fin-val">约 19~20 / 约 2.9</div><div class="fin-comment">股息率 3.68%、ROE 15.9%（2025），水电标杆，估值与股息均优于华能水电（来源：公开数据，2026 年中）</div></div>
+    <div class="fin-row"><div class="fin-name">华能水电 600025</div><div class="fin-val warn">21.2 / 2.69</div><div class="fin-comment">本报告标的（截至 2026-08-26）</div></div>
+    <div class="fin-row"><div class="fin-name">国投电力 600886</div><div class="fin-val">约 16 / 1.69</div><div class="fin-comment">水+火+新能源组合，估值更低（来源：公开数据，2026 年中）</div></div>
+    <div class="fin-row"><div class="fin-name">川投能源 600674</div><div class="fin-val">约 19 / 1.64</div><div class="fin-comment">雅砻江参股为主，PB 显著更低（来源：公开数据，2026 年中）</div></div>
+    <div class="fin-row"><div class="fin-name">纯水电板块均值</div><div class="fin-val">PE-TTM 21.2 / PB 2.72</div><div class="fin-comment">华能水电处于行业均值水平，不便宜也不极端</div></div>
+  </div>
+  <div class="conclusion"><div class="conclusion-title">📌 估值维度判断</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>偏贵（相对自身历史与可比公司）：</b>PE/PB 均处近 5 年中高分位，股息率 2.12% 低于长江电力，安全边际不足；当前不属于"深度折价"，邓普顿式极端便宜条件尚未出现。</p></div>
+  </div>
+
+  <div class="section-title">🚀 四、成长性维度（费雪 + 林奇）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>指标</div><div>数值</div><div>解读</div></div>
+    <div class="fin-row"><div class="fin-name">PEG（PE-2026E / 3 年净利 CAGR）</div><div class="fin-val danger">约 3.8</div><div class="fin-comment">2026E PE 20.2 ÷ 2025→2028E 净利 CAGR 约 5.3%（85.04→99.35 亿）——远超林奇 PEG&lt;1 标准，成长定价偏贵（来源：华源证券）</div></div>
+    <div class="fin-row"><div class="fin-name">营收 CAGR（2022→2025）</div><div class="fin-val mid">约 +4.1%</div><div class="fin-comment">2022 约 236 亿 → 2025 年 265.95 亿；2023→2025 两年 CAGR 约 6.4%（来源：年报）</div></div>
+    <div class="fin-row"><div class="fin-name">归母净利 CAGR（2022→2025）</div><div class="fin-val mid">约 +2.4%</div><div class="fin-comment">2023 年 76 亿 → 2024 年 82.97 亿（+8.6%）→ 2025 年 85.04 亿（+2.5%），低速爬坡（来源：年报）</div></div>
+    <div class="fin-row"><div class="fin-name">主营业务驱动力</div><div class="fin-val warn">量增为主 · 价降拖累</div><div class="fin-comment">装机扩张带动发电量（2026H1 +3.98%），但综合结算电价 -3.6%（水电降 0.6 分/千瓦时），折旧增加吞噬利润——"量升利降"（来源：2026 半年报）</div></div>
+    <div class="fin-row"><div class="fin-name">未来 12-24 个月催化剂</div><div class="fin-val mid">4 项</div><div class="fin-comment">① 澜上来水修复（2027 年概率提升）；② 托巴水电站及新能源机组转固放量；③ 现货市场优化报价能力兑现（2026-04 云南大型水电现货均价 0.488 元 vs 全省 0.444 元）；④ 财务费用随融资成本下降</div></div>
+  </div>
+  <div class="conclusion"><div class="conclusion-title">📌 成长性维度判断</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>稳定增长（低速）+ 短期周期波动：</b>3 年净利 CAGR 仅 2.4%~5.8%，无爆发式成长；2026 年处于来水+电价+折旧三重压制的小年，2027 年基数效应下有望回归正增长。</p></div>
+  </div>
+
+  <div class="section-title">🛡️ 五、护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>维度</div><div>数值</div><div>解读</div></div>
+    <div class="fin-row"><div class="fin-name">护城河类型</div><div class="fin-val up">牌照 + 资源 + 成本优势</div><div class="fin-comment">澜沧江干流全流域唯一开发主体（行政性稀缺资源），大水电度电成本极低、大坝寿命近百年——费雪式"难以复制"的资产</div></div>
+    <div class="fin-row"><div class="fin-name">ROE（2025 加权）</div><div class="fin-val warn">约 11%</div><div class="fin-comment">低于 15% 优秀线；长江电力为 15.9%，差距来自更高电价与更成熟资产（来源：公司年报、公开数据）</div></div>
+    <div class="fin-row"><div class="fin-name">ROIC（估算）</div><div class="fin-val danger">约 6%~8%</div><div class="fin-comment">重资产+高杠杆行业共性，远低于 15% 优秀线，是水电估值天花板的核心原因（估算值，无免费精确口径）</div></div>
+    <div class="fin-row"><div class="fin-name">毛利率 / 净利率稳定性</div><div class="fin-val up">56%±2pct / 33%±2pct</div><div class="fin-comment">2024 年毛利率 56.13%、2025 年约 56.98%，净利率 35.82%→34.66%，波动极低，A 股最稳盈利结构之一（来源：年报）</div></div>
+    <div class="fin-row"><div class="fin-name">行业地位</div><div class="fin-val up">全国第二大水电公司</div><div class="fin-comment">总装机 37.26 GW（2026H1 新增 305.24 万千瓦），仅次于长江电力（来源：半年报、公开数据）</div></div>
+  </div>
+  <div class="conclusion"><div class="conclusion-title">📌 护城河判断</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>宽阔护城河（资源端）：</b>全流域开发权 + 百年期低成本资产构成极深壁垒；但<b>护城河宽阔 ≠ 资本回报优秀</b>，ROE 11%、ROIC 6%~8% 决定其适合"收息型"而非"复利型"持有。</p></div>
+  </div>
+
+  <div class="section-title">💰 六、财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>指标（最近 3 年）</div><div>数值</div><div>解读</div></div>
+    <div class="fin-row"><div class="fin-name">营业收入（YoY）</div><div class="fin-val">2023 约 235 亿 / 2024 248.8 亿(+6.1%) / 2025 265.95 亿(+6.9%) / 2026H1 131.47 亿(+1.5%)</div><div class="fin-comment">连续 3 年正增长（来源：公司年报、半年报）</div></div>
+    <div class="fin-row"><div class="fin-name">归母净利润（YoY）</div><div class="fin-val">2023 约 76 亿 / 2024 82.97 亿(+8.6%) / 2025 85.04 亿(+2.5%) / 2026H1 43.76 亿(-5.1%)</div><div class="fin-comment">2026 上半年转负，主因来水偏枯+电价下行+折旧（来源：公司年报、半年报）</div></div>
+    <div class="fin-row"><div class="fin-name">经营现金流（2025）</div><div class="fin-val up">190.49 亿元（+8.52%）</div><div class="fin-comment">水电"现金奶牛"属性极强（来源：2025 年报）</div></div>
+    <div class="fin-row"><div class="fin-name">经营现金流 / 净利润</div><div class="fin-val up">2.24 倍</div><div class="fin-comment">远大于 1，盈利含金量优秀（2025 年口径）</div></div>
+    <div class="fin-row"><div class="fin-name">资产负债率</div><div class="fin-val warn">60.16%（2026H1）</div><div class="fin-comment">较年初降 0.97pct；水电高杠杆为行业常态，主要为长期借款</div></div>
+    <div class="fin-row"><div class="fin-name">有息负债</div><div class="fin-val warn">以长期借款为主</div><div class="fin-comment">精确余额口径未获取；公司称 2026H1 综合融资成本同比降低（来源：半年报）</div></div>
+    <div class="fin-row"><div class="fin-name">应收 / 存货周转</div><div class="fin-val up">极低（行业特性）</div><div class="fin-comment">电费即时结算、无实物存货，精确天数数据不足</div></div>
+    <div class="fin-row"><div class="fin-name">商誉 / 总资产</div><div class="fin-val up">&lt;1%（占比极小）</div><div class="fin-comment">远低于 10% 健康线，无减值风险</div></div>
+  </div>
+  <div class="conclusion"><div class="conclusion-title">📌 财务质量判断</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>财务健康：</b>现金流质量优秀（现金流/净利 2.24）、商誉近零、毛利率净利率极稳；扣分项为 60% 资产负债率与高有息负债规模——但这是重资产水电的经营模式，非财务瑕疵。</p></div>
+  </div>
+
+  <div class="section-title">🧑‍💼 七、管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>维度</div><div>情况</div><div>解读</div></div>
+    <div class="fin-row"><div class="fin-name">实控人与持股</div><div class="fin-val">国务院国资委</div><div class="fin-comment">华能集团直接持股 90.72 亿股（约 48.7%）；2026-08 一致行动人增持完成后合计 48.77%（来源：公司公告）</div></div>
+    <div class="fin-row"><div class="fin-name">减持 / 违规 / 质押</div><div class="fin-val up">近 3 年无减持、反而增持</div><div class="fin-comment">8-21 披露股东增持 1250.16 万股；公开检索未见重大违规处罚与大股东质押风险</div></div>
+    <div class="fin-row"><div class="fin-name">研发投入</div><div class="fin-val warn">占比极低（&lt;1%）</div><div class="fin-comment">水电运营型央企的行业共性，不构成短板；公司在水光互补、全国产控制系统等工程技术上保持领先（来源：行业公开报道）</div></div>
+    <div class="fin-row"><div class="fin-name">股权激励</div><div class="fin-val warn">无</div><div class="fin-comment">央企体系内激励普遍缺位，管理层利益绑定弱于民企，费雪视角的减分项</div></div>
+    <div class="fin-row"><div class="fin-name">业绩承诺完成</div><div class="fin-val mid">2025 定增无业绩承诺</div><div class="fin-comment">2025-10 定增募资 58.25 亿元（发行价 9.23 元），用于增强澜沧江上游公司资本实力与项目建设，属资产注入性质，无对赌条款（来源：公司公告）</div></div>
+  </div>
+  <div class="conclusion"><div class="conclusion-title">📌 治理判断</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>基本可信：</b>治理规范、无减持违规、股东真金白银增持；减分项为无股权激励，激励约束机制弱化。</p></div>
+  </div>
+
+  <div class="section-title">🌊 八、行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>维度</div><div>判断</div><div>解读</div></div>
+    <div class="fin-row"><div class="fin-name">周期阶段</div><div class="fin-val warn">盈利周期底部徘徊</div><div class="fin-comment">2026 年为来水偏枯 + 电价下行 + 折旧爬坡的"三杀"小年；来水呈气候周期，2027 年基数修复概率较大</div></div>
+    <div class="fin-row"><div class="fin-name">政策环境</div><div class="fin-val warn">中性（改革阵痛期）</div><div class="fin-comment">2026-01 水电上网电价全面市场化（除保障居民农业外全部入市）：短期压制低价水电电价，长期利好调节能力强的高电价机组（来源：发改委/地方通知）</div></div>
+    <div class="fin-row"><div class="fin-name">未来 3-5 年空间</div><div class="fin-val mid">低增速 + 结构升级</div><div class="fin-comment">澜沧江上游（西藏段）开发 + 新能源装机（2026H1 新增 305 万千瓦、+53.4%）+ 水光互补，净利预计低至中个位数年化增长（来源：半年报、机构预测）</div></div>
+    <div class="fin-row"><div class="fin-name">产业链位置</div><div class="fin-val mid">上游（发电端）</div><div class="fin-comment">发电侧龙头，掌握最廉价、最稳定的电源资源，在电力市场化中具备报价主动权</div></div>
+  </div>
+  <div class="conclusion"><div class="conclusion-title">📌 行业周期判断</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>周期底部机会（中等置信度）：</b>盈利处于来水小年+改革阵痛双重底部区域，行业长期趋势平稳向上，适合马克斯式"在悲观中逐步布局"，但政策改革路径存在不确定性。</p></div>
+  </div>
+
+  <div class="section-title">📈 九、技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>维度</div><div>情况</div><div>解读</div></div>
+    <div class="fin-row"><div class="fin-name">均线位置</div><div class="fin-val warn">均线束附近（估算）</div><div class="fin-comment">股价 9.68 元位于 60/120/250 日均线集中区域（约 9.3~9.7 元，估算值）附近，均线纠缠、无明确多头排列，呈宽幅震荡格局</div></div>
+    <div class="fin-row"><div class="fin-name">主力资金（近 5 日）</div><div class="fin-val up">净流入 4,545.97 万</div><div class="fin-comment">截至 2026-08-25；8-26 主力净流出 1,805 万，融资余额 15.65 亿元，杠杆资金温和（来源：新浪/搜狐财经）</div></div>
+    <div class="fin-row"><div class="fin-name">机构持仓</div><div class="fin-val mid">主力高度控盘</div><div class="fin-comment">2026-03-31 前十大流通股东合计持股 92.75%；北向持股、公募/社保/QFII 变动无免费精确口径（来源：同花顺 F10）</div></div>
+    <div class="fin-row"><div class="fin-name">成交量趋势</div><div class="fin-val warn">温和缩量</div><div class="fin-comment">近 3 个月日成交约 3 亿元、换手率 0.04%~0.2%，筹码高度锁定，缺乏趋势动能</div></div>
+    <div class="fin-row"><div class="fin-name">支撑 / 压力</div><div class="fin-val mid">支撑 8.85 / 9.23 · 压力 10.0 / 10.46</div><div class="fin-comment">8.85 为 52 周低点（2026-06-26）、9.23 为定增价心理锚；10 元整数关口与 52 周高点 10.46 构成上方阻力</div></div>
+  </div>
+  <div class="conclusion"><div class="conclusion-title">📌 技术面判断</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>正常偏弱：</b>无趋势的区间震荡，量能萎缩、筹码锁定，技术面不提供买入加速信号；9.2 元下方为"定增价下方"黄金坑区域，10 元上方压力明确。</p></div>
+  </div>
+
+  <div class="section-title">🧭 十、多方法论视角下的最终评级</div>
+  <div class="score-table">
+    <div class="score-item"><div class="score-num bad">4</div><div class="score-name">格雷厄姆<br>深度价值</div><div class="score-bar"><div class="score-fill bad" style="width:40%"></div></div><div class="score-out">无安全边际 / 10</div></div>
+    <div class="score-item"><div class="score-num warn">5</div><div class="score-name">费雪<br>成长投资</div><div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div><div class="score-out">成长质量好、速度慢 / 10</div></div>
+    <div class="score-item"><div class="score-num bad">3</div><div class="score-name">林奇<br>PEG</div><div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div><div class="score-out">PEG≈3.8 偏贵 / 10</div></div>
+    <div class="score-item"><div class="score-num mid">6</div><div class="score-name">邓普顿<br>逆向投资</div><div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div><div class="score-out">盈利小年布局窗口 / 10</div></div>
+    <div class="score-item"><div class="score-num good">7</div><div class="score-name">博格<br>指数投资</div><div class="score-bar"><div class="score-fill good" style="width:70%"></div></div><div class="score-out">红利核心资产长期持有 / 10</div></div>
+    <div class="score-item"><div class="score-num mid">6</div><div class="score-name">马克斯<br>周期投资</div><div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div><div class="score-out">来水+政策双重底部 / 10</div></div>
+  </div>
+  <div class="conclusion">
+    <div class="conclusion-title">📌 最适合的 2-3 种方法论与冲突处理</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>最适合：博格（长期红利复利）+ 马克斯（周期定位）+ 邓普顿（逆势收集）。</b>理由：水电是"类债券"的永续现金资产，适合指数化长期持有；当前恰逢来水+电改双重悲观期，符合邓普顿"极度悲观中买入"与马克斯"钟摆低位布局"的框架。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>结论冲突：</b>格雷厄姆/林奇维度给出"贵"（PE 21、PB 2.7、PEG 3.8、股息率仅 2.1%），博格/邓普顿维度给出"可长期持有"。<b>最终倾向：</b>承认当前不便宜、无深度价值机会，但资产稀缺性与现金流确定性允许控制仓位下分批布局——以"红利思维"而非"捡烟蒂思维"参与。</p></div>
+  </div>
+
+  <div class="section-title">🎯 十一、操作策略与建议（核心输出）</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>项目</div><div>策略</div><div>说明</div></div>
+    <div class="fin-row"><div class="fin-name">建议仓位</div><div class="fin-val mid">≤ 8%（目标 5%~8%）</div><div class="fin-comment">凯恩斯+博格原则：单股不超过总组合 10%；考虑其与长江电力等水电/红利持仓的相关性，合并敞口建议 ≤ 15%</div></div>
+    <div class="fin-row"><div class="fin-name">买入策略（分 4 批）</div><div class="fin-val mid">9.2~9.4 / 8.9~9.1 / 8.6~8.8 / 8.2~8.5 元</div><div class="fin-comment">每批 25% 计划仓位，批间间隔 2~4 周或股价每跌 3% 触发下一批；定增价 9.23 元下方加大力度；不追 9.7 元以上</div></div>
+    <div class="fin-row"><div class="fin-name">止损位</div><div class="fin-val danger">8.2 元（-15%）或总回撤 -15%</div><div class="fin-comment">跌破 8.2 元（52 周低点下方约 7%）意味着来水/电价/政策逻辑可能恶化，无条件减半仓重估</div></div>
+    <div class="fin-row"><div class="fin-name">目标价</div><div class="fin-val up">12 个月 10.5 元 / 24 个月 11.3 元</div><div class="fin-comment">12 个月：2026E 净利 89.3 亿 × 22 倍 PE ≈ 10.5 元（+8.5%）；24 个月：2027E 净利 93.5 亿 × 22.5 倍 ≈ 11.3 元（+17%），与金罗盘目标价 11.27 元（增持）基本一致</div></div>
+    <div class="fin-row"><div class="fin-name">持有周期</div><div class="fin-val up">长线（&gt;12 个月）</div><div class="fin-comment">水电价值靠"现金流复利 + 股息再投"兑现，短中线无超额催化；年股息 2.1% 为持有安全垫</div></div>
+    <div class="fin-row"><div class="fin-name">关键监测指标（每季度）</div><div class="fin-val mid">3 项</div><div class="fin-comment">① 季度发电量及澜上乌弄龙断面来水；② 综合结算电价/云南现货月度均价；③ 在建工程转固进度与折旧、财务费用变化</div></div>
+    <div class="fin-row"><div class="fin-name">卖出信号（3 条）</div><div class="fin-val danger">触发任一即减仓</div><div class="fin-comment">① PE-TTM 超 25 倍或股息率跌破 1.6%（股价约 12.8 元以上）且来水正常；② 现金流/净利持续低于 1 或分红率连续两年低于 40%；③ 电价政策明显不利或资本开支失控（负债率重回 65% 以上）</div></div>
+  </div>
+
+  <div class="section-title">🚩 十二、核心风险揭示（5 条）</div>
+  <div class="risk-grid">
+    <div class="risk-card"><div class="risk-title">🔻 风险 1：来水持续偏枯</div>
+      <div class="risk-desc"><b>触发条件：</b>澜沧江上游来水较常年再偏枯 1 成以上且持续 2 个季度。<b>影响幅度：</b>年净利 -5%~-10%。<b>应对：</b>跟踪云南水库蓄能与汛期气象，恶化时暂停加仓。</div></div>
+    <div class="risk-card"><div class="risk-title">⚡ 风险 2：电价市场化改革冲击</div>
+      <div class="risk-desc"><b>触发条件：</b>云南中长期/现货均价持续低于 0.44 元/千瓦时。<b>影响幅度：</b>营收 -2%~-4%。<b>应对：</b>每季度跟踪结算电价，连续 3 季度下行则下调预测与仓位。</div></div>
+    <div class="risk-card"><div class="risk-title">🏗️ 风险 3：新机组折旧吞噬利润</div>
+      <div class="risk-desc"><b>触发条件：</b>托巴电站及大批新能源机组 2026-2027 年转固，折旧集中释放。<b>影响幅度：</b>2026H1 已致净利 -5%，未来 2 年增速被压制。<b>应对：</b>验证"量补价"能否对冲折旧。</div></div>
+    <div class="risk-card"><div class="risk-title">📉 风险 4：红利风格逆转与估值收缩</div>
+      <div class="risk-desc"><b>触发条件：</b>市场风险偏好切换或长端利率上行。<b>影响幅度：</b>PE 从 21 倍收缩至 16~17 倍，对应股价约 7.8~8.2 元（-15%~-20%）。<b>应对：</b>严格执行分批纪律，不追高，股息率 2.5%+（股价 ≤8.2 元）再加仓。</div></div>
+    <div class="risk-card"><div class="risk-title">🏦 风险 5：财务杠杆与利率风险</div>
+      <div class="risk-desc"><b>触发条件：</b>负债率 60%+ 背景下利率上行或资本开支超预期。<b>影响幅度：</b>每 100bp 利率上行约影响净利 3%~5%（估算）。<b>应对：</b>跟踪融资成本，负债率重回 65% 以上则警惕。</div></div>
+    <div class="risk-card"><div class="risk-title">⚠️ 补充：数据披露限制</div>
+      <div class="risk-desc">PE/PB 历史分位、均线精确值、北向持股、ROIC 等无免费精确口径，相关结论为<b>区间估算并已标注</b>；决策前请以 Wind/同花顺 iFinD 复核。</div></div>
+  </div>
+
+  <div class="section-title">📌 十三、核心结论（收束）</div>
+  <div class="conclusion">
+    <div class="conclusion-title">📌 华能水电(600025) · 核心结论 5 条</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>资产优质、价格平庸：</b>全国第二大水电公司 + 澜沧江全流域开发权 + 现金流/净利 2.24 倍，但 PE-TTM 21.2、PB 2.69、股息率 2.12% 均不占优，格雷厄姆安全边际缺失。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>2026 是盈利小年：</b>发电量创历史同期新高（+3.98%）但归母净利 -5.05%，来水偏枯 + 电价 -3.6% + 折旧三重压制，短期业绩动能弱。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>周期底部信号初现：</b>盈利与电价预期均处悲观区，央企股东真金白银增持，符合邓普顿/马克斯"低位收集"框架——但估值未到极端便宜，仅适合分批而非重仓。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>操作纪律：</b>仓位 ≤8%，分 4 批在 9.4→8.2 元区间建仓，止损 8.2 元，目标价 12 个月 10.5 元 / 24 个月 11.3 元，长线持有吃股息复利。</p></div>
+    <div class="conclusion-item"><span class="num">5</span><p><b>最需跟踪的三件事：</b>澜沧江来水、云南市场化电价、新机组折旧进度——三者决定 2027 年利润修复的斜率，每季度财报验证。</p></div>
+  </div>
+
+  <div class="footer">
+    📅 数据日期：2026-08-26 收盘（8-27 盘中价 9.66~9.84 元） · 📊 数据来源：公司 2025 年报 / 2026 半年报 / 2026 一季报、华源证券研报、富途牛牛、东方财富、雪球、新浪财经、搜狐财经、北极星电力网<br>
+    ⚠️ 免责说明：本报告基于公开可验证数据与 11 种经典投资方法论推演，所有"数据不足/估算"处均已明确标注；历史业绩不代表未来，本报告不构成任何投资建议；市场有风险，决策需谨慎。
+  </div>
+</div>
+</body>
+</html>
