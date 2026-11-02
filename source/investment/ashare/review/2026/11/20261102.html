@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-11-02 A股复盘 · 文化传媒掀涨停潮，创业板指涨近2%</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(14,165,233,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.35); border-radius: 20px;
+    padding: 36px; margin-bottom: 24px; position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; left: -10%;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.30) 0%, transparent 70%);
+  }
+  .header h1 {
+    font-size: 32px; font-weight: 700;
+    background: linear-gradient(90deg, #34d399, #38bdf8, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 10px; position: relative;
+  }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; }
+  .badges { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+  .badge { display: inline-block; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .badge-success { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.35); }
+  .badge-warning { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.35); }
+  .badge-source { background: rgba(14,165,233,0.18); color: #38bdf8; border: 1px solid rgba(14,165,233,0.35); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.35); }
+  .section-title { font-size: 22px; font-weight: 700; margin: 32px 0 16px; padding-left: 14px; border-left: 4px solid #34d399; color: #f1f5f9; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .theme-banner {
+    background: linear-gradient(135deg, rgba(16,185,129,0.10), rgba(14,165,233,0.06));
+    border-left: 5px solid #34d399; border-radius: 12px;
+    padding: 20px 24px; margin-bottom: 24px; display: flex; gap: 16px; align-items: center;
+  }
+  .theme-banner .icon { font-size: 32px; }
+  .theme-banner .text h3 { color: #f1f5f9; font-size: 17px; margin-bottom: 6px; }
+  .theme-banner .text p { color: #cbd5e1; font-size: 13px; }
+  .data-note {
+    background: rgba(15,23,42,0.4); border: 1px dashed rgba(148,163,184,0.30);
+    border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
+    font-size: 13px; color: #cbd5e1; line-height: 1.7;
+  }
+  .data-note strong { color: #f1f5f9; }
+  .ok { color: #34d399; } .warn-text { color: #fbbf24; } .danger-text { color: #fca5a5; } .info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; position: relative; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card .tag { position: absolute; top: 12px; right: 12px; font-size: 10px; padding: 2px 8px; border-radius: 6px; font-weight: 600; }
+  .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: #94a3b8; font-size: 13px; margin-bottom: 8px; font-weight: 600; }
+  .index-card .code { color: #64748b; font-size: 11px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 6px; }
+  .index-card.ok .change { color: #6ee7b7; }
+  .index-card.info .change { color: #7dd3fc; }
+  .index-card .label { color: #cbd5e1; font-size: 12px; margin-top: 10px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20); border-radius: 12px; padding: 20px; }
+  .stat-card.up { border-top: 3px solid #34d399; }
+  .stat-card.info { border-top: 3px solid #38bdf8; }
+  .stat-card.warn { border-top: 3px solid #fbbf24; }
+  .stat-card .stat-name { color: #94a3b8; font-size: 13px; margin-bottom: 8px; font-weight: 600; }
+  .stat-card .stat-value { font-size: 24px; font-weight: 700; }
+  .stat-card.up .stat-value { color: #34d399; }
+  .stat-card.info .stat-value { color: #38bdf8; }
+  .stat-card.warn .stat-value { color: #fbbf24; }
+  .stat-card .stat-detail { color: #cbd5e1; font-size: 12px; margin-top: 8px; line-height: 1.5; }
+  .flow-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 1fr 1.4fr; gap: 12px; padding: 14px 18px; align-items: center; border-bottom: 1px dashed rgba(148,163,184,0.15); }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; }
+  .flow-rank { font-size: 18px; font-weight: 800; color: #fbbf24; }
+  .flow-name { color: #f1f5f9; font-size: 14px; font-weight: 600; }
+  .flow-val { color: #34d399; font-size: 15px; font-weight: 700; }
+  .flow-bar { height: 6px; background: rgba(16,185,129,0.20); border-radius: 3px; position: relative; }
+  .flow-bar .fill { height: 100%; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 3px; }
+  .flow-sub { color: #94a3b8; font-size: 11px; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20); border-radius: 12px; padding: 20px; position: relative; border-left: 4px solid #34d399; transition: transform 0.2s; }
+  .mainline-card:hover { transform: translateY(-3px); }
+  .mainline-card.rank-1 { border-left-color: #fbbf24; }
+  .mainline-card.rank-2 { border-left-color: #38bdf8; }
+  .mainline-card.rank-3 { border-left-color: #c084fc; }
+  .mainline-card.defend { border-left-color: #ef4444; background: rgba(239,68,68,0.06); }
+  .mainline-rank { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; border-radius: 50%; background: rgba(251,191,36,0.20); color: #fbbf24; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+  .mainline-card .title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; padding-right: 40px; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { background: rgba(168,85,247,0.18); color: #c084fc; padding: 3px 9px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-desc { color: #cbd5e1; font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+  .mainline-desc b { color: #f1f5f9; }
+  .ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .ladder-tag { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20); border-radius: 10px; padding: 14px; text-align: center; }
+  .ladder-tag.lv-1 { border-top: 3px solid #f87171; }
+  .ladder-tag.lv-2 { border-top: 3px solid #fbbf24; }
+  .ladder-tag.lv-3 { border-top: 3px solid #38bdf8; }
+  .ladder-tag.lv-4 { border-top: 3px solid #c084fc; }
+  .ladder-tag .lv-num { font-size: 20px; font-weight: 800; color: #fbbf24; margin-bottom: 6px; }
+  .ladder-tag .lv-label { font-size: 11px; color: #94a3b8; margin-bottom: 8px; }
+  .ladder-tag .lv-stocks { font-size: 12px; color: #cbd5e1; line-height: 1.5; }
+  .conclusion { background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; border-left: 3px solid #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+  .conclusion-item:last-child { margin-bottom: 0; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(52,211,153,0.20); color: #34d399; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+  .conclusion.warn .conclusion-item .num { background: rgba(251,191,36,0.20); color: #fbbf24; }
+  .conclusion.info .conclusion-item .num { background: rgba(56,189,248,0.20); color: #38bdf8; }
+  .conclusion-item p { color: #cbd5e1; font-size: 13px; line-height: 1.6; margin: 0; }
+  .conclusion-item p b { color: #f1f5f9; }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 16px; border-top: 1px solid rgba(148,163,184,0.10); }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines { grid-template-columns: 1fr; }
+    .ladder { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🚀 2026-11-02 A股复盘 · 文化传媒掀涨停潮，创业板指涨近2%</h1>
+    <div class="subtitle">指数数据 · 成交 · 涨跌数 · 数据日期 2026-11-02（周一收盘）</div>
+    <div class="badges">
+      <span class="badge badge-success">🟢 普涨格局</span>
+      <span class="badge badge-source">📅 2026-11-02</span>
+      <span class="badge badge-source">📊 同花顺 / 证券时报</span>
+      <span class="badge badge-purple">🧠 AI+文化传媒主线</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据口径与双源验证：</strong><br>
+    ✅ 已验证数据 <span class="ok">绿色高亮</span>：五大指数涨跌幅、成交额、主力资金流向（同花顺 + 证券时报双源核验）<br>
+    ⚠️ <span class="warn-text">数据说明</span>：前两个交易日复盘文档缺失，模块④主线板块仅呈现今日数据<br>
+    🔴 <span class="danger-text">风险提示</span>：本报告所有数据均来自公开渠道，不构成投资建议
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🎬</div>
+    <div class="text">
+      <h3>核心定性：AI+文化传媒主升浪，影视院线掀涨停潮</h3>
+      <p>DeepSeek Super-agent架构开源 + 火山引擎Seedance影视计划 + 10月195款游戏版号获批，三重催化共振。创业板金融科技ETF单日暴涨10.58%，人工智能板块获主力净流入146亿元。全市场超4600股上涨，成交额放量至1.80万亿元。</p>
+    </div>
+  </div>
+
+  <div class="section-title ok">📊 一、五大核心指数表现</div>
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">涨</div>
+      <div class="name">上证指数</div>
+      <div class="code">1A0001</div>
+      <div class="value">+1.08%</div>
+      <div class="change">高开高走</div>
+      <div class="label">权重股企稳，白酒茅台重回1400元</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">涨</div>
+      <div class="name">深证成指</div>
+      <div class="code">399001</div>
+      <div class="value">+1.63%</div>
+      <div class="change">强势上行</div>
+      <div class="label">科技成长领涨，传媒板块大爆发</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">涨</div>
+      <div class="name">创业板指</div>
+      <div class="code">399006</div>
+      <div class="value">+1.87%</div>
+      <div class="change">高开高走</div>
+      <div class="label">金融科技ETF暴涨10.58%带动</div>
+    </div>
+    <div class="index-card info">
+      <div class="tag info">涨</div>
+      <div class="name">北证50</div>
+      <div class="code">899050</div>
+      <div class="value">+0.58%</div>
+      <div class="change">小幅跟涨</div>
+      <div class="label">流动性改善，小盘股活跃</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">涨</div>
+      <div class="name">科创50</div>
+      <div class="code">1B0688</div>
+      <div class="value">+3.11%</div>
+      <div class="change">强势领涨</div>
+      <div class="label">AI算力+半导体概念持续活跃</div>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 二、市场交易与资金信号</div>
+  <div class="market-stats">
+    <div class="stat-card up">
+      <div class="stat-name">三市成交额</div>
+      <div class="stat-value">1.80万亿</div>
+      <div class="stat-detail">较上日<span class="ok">放量1075亿</span>，连续3日站上1.7万亿</div>
+    </div>
+    <div class="stat-card up">
+      <div class="stat-name">上涨个股数</div>
+      <div class="stat-value">4600+</div>
+      <div class="stat-detail">全市场普涨，超<span class="ok">90%</span>个股上涨</div>
+    </div>
+    <div class="stat-card info">
+      <div class="stat-name">领涨 vs 领跌</div>
+      <div class="stat-value" style="font-size: 18px;">文化传媒 > 游戏 > 影视</div>
+      <div class="stat-detail">AI应用主线爆发；<span class="danger-text">贵金属、银行领跌</span></div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-name">ETF领涨 / 领跌</div>
+      <div class="stat-value" style="font-size: 16px;">金融科技<span class="ok">+10.58%</span></div>
+      <div class="stat-detail">标普油气<span class="danger-text">-3.75%</span>，黄金ETF<span class="danger-text">-2.61%</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">📈 三、主力资金净流入板块 TOP3</div>
+  <div class="flow-table">
+    <div class="flow-row header">
+      <div>排名</div><div>板块名称</div><div>主力净流入</div><div>涨停股数</div><div>板块表现</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank">1</div>
+      <div class="flow-name">人工智能</div>
+      <div class="flow-val">+146.47亿</div>
+      <div class="flow-sub">57股涨停 / 976股上涨</div>
+      <div class="flow-bar"><div class="fill" style="width: 100%"></div></div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank">2</div>
+      <div class="flow-name">AI应用</div>
+      <div class="flow-val">+128.93亿</div>
+      <div class="flow-sub">57股涨停 / 977股上涨</div>
+      <div class="flow-bar"><div class="fill" style="width: 88%"></div></div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank">3</div>
+      <div class="flow-name">DeepSeek概念</div>
+      <div class="flow-val">+128.26亿</div>
+      <div class="flow-sub">36股涨停 / 686股上涨</div>
+      <div class="flow-bar"><div class="fill" style="width: 87%"></div></div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 四、今日主线板块与逻辑</div>
+  <div class="mainlines">
+    <div class="mainline-card rank-1">
+      <div class="mainline-rank">1</div>
+      <div class="title">文化传媒</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 领涨</span>
+        <span class="mainline-tag">AI影视</span>
+        <span class="mainline-tag info">版号催化</span>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>板块低开高走掀涨停潮，芒果超媒、海看股份"20cm"涨停，中信出版、冰川网络等二十余股涨停。<br>
+        <b>催化：</b>① AI漫剧概念持续活跃；② 火山引擎发布Seedance影视合作计划，单项目激励最高100万元；③ 海外短剧付费应用前十榜单中国厂商占9席，活跃用户突破1.5亿。<br>
+        <b>个股：</b>芒果超媒(300413)、海看股份(301262)、中信出版(300788)、冰川网络(300533)
+      </div>
+    </div>
+    <div class="mainline-card rank-2">
+      <div class="mainline-rank">2</div>
+      <div class="title">游戏</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 领涨</span>
+        <span class="mainline-tag">版号获批</span>
+        <span class="mainline-tag info">AI+游戏</span>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>板块持续走高，电魂网络、巨人网络、大晟文化等股涨停，富春股份、冰川网络涨幅居前。<br>
+        <b>催化：</b>国家新闻出版署发布2026年10月国产网络游戏审批信息，10月共195款游戏版号获批（国产183款、进口12款）。<br>
+        <b>个股：</b>电魂网络(603258)、巨人网络(002558)、大晟文化(600892)、富春股份(300299)
+      </div>
+    </div>
+    <div class="mainline-card rank-3">
+      <div class="mainline-rank">3</div>
+      <div class="title">影视院线</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 领涨</span>
+        <span class="mainline-tag">AI长内容</span>
+        <span class="mainline-tag info">真人+AI</span>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>板块集体爆发，华智数媒、捷成股份、博纳影业、中视传媒、上海电影等多股涨停。<br>
+        <b>催化：</b>① 爱奇艺跑通"真人+AI"网络电影商业模式；② 腾讯视频将"真人为主、AI为辅"作为核心路线。<br>
+        <b>个股：</b>华智数媒(300426)、捷成股份(300182)、博纳影业(001330)、上海电影(601595)
+      </div>
+    </div>
+    <div class="mainline-card defend">
+      <div class="mainline-rank" style="background: rgba(239,68,68,0.20); color: #fca5a5;">⚠</div>
+      <div class="title">贵金属 / 银行</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag danger">🔽 领跌</span>
+        <span class="mainline-tag">防御板块</span>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>贵金属板块走势低迷，山金国际、赤峰黄金跌幅居前。银行板块震荡走低，上海银行盘中跌超9%。<br>
+        <b>逻辑：</b>① 美表态希望"和平"结束伊朗战争，地缘风险缓解压制黄金避险需求；② 央行启动互换便利操作招标，资金从防御板块流向进攻板块。<br>
+        <b>个股：</b>山金国际(000975)、赤峰黄金(600988)、上海银行(601229)
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🔥 五、涨停天梯榜</div>
+  <div class="ladder">
+    <div class="ladder-tag lv-1">
+      <div class="lv-num">6连板</div>
+      <div class="lv-label">最高板</div>
+      <div class="lv-stocks">青岛食品(001219)</div>
+    </div>
+    <div class="ladder-tag lv-2">
+      <div class="lv-num">4连板</div>
+      <div class="lv-label">高位股</div>
+      <div class="lv-stocks">澳洋健康(002172)</div>
+    </div>
+    <div class="ladder-tag lv-3">
+      <div class="lv-num">3连板</div>
+      <div class="lv-label">中位股</div>
+      <div class="lv-stocks">东方海洋(002086)<br>桂林三金(002275)<br>阳光照明(600261)</div>
+    </div>
+    <div class="ladder-tag lv-4">
+      <div class="lv-num">2连板</div>
+      <div class="lv-label">低位股</div>
+      <div class="lv-stocks">合百集团(000417)<br>红太阳(000525)<br>皇台酒业(000995)</div>
+    </div>
+  </div>
+
+  <div class="section-title ok">✅ 六、盘面核心结论</div>
+  <div class="conclusion ok">
+    <div class="conclusion-title">📌 结论 1：AI+文化传媒主升浪确立</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><b>板块层面：</b>文化传媒板块大涨超6%，掀涨停潮，芒果超媒、海看股份20cm涨停。影视院线、游戏板块同步爆发。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><b>资金层面：</b>人工智能板块获主力资金净流入146.47亿元，57股涨停，976股上涨，为今日资金流入最大板块。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><b>催化层面：</b>DeepSeek Super-agent架构开源 + 火山引擎Seedance影视计划 + 10月195款游戏版号获批，三重催化共振。</p>
+    </div>
+  </div>
+  <div class="conclusion warn">
+    <div class="conclusion-title">📌 结论 2：防御板块走弱，资金切换明显</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><b>贵金属板块：</b>走势低迷，山金国际、赤峰黄金跌幅居前。美表态希望和平结束伊朗战争，地缘风险缓解压制黄金避险需求。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><b>银行板块：</b>震荡走低，上海银行盘中跌超9%。资金从防御板块流向进攻板块（科技、金融）。</p>
+    </div>
+  </div>
+  <div class="conclusion info">
+    <div class="conclusion-title">📌 结论 3：政策面持续发力，市场信心提振</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><b>央行互换便利：</b>明日启动第三次证券、基金、保险公司互换便利操作招标，超30家机构申报，催化金融科技ETF单日暴涨10.58%。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><b>市场情绪：</b>全市场超4600只个股上涨，成交额放量至1.80万亿元，连续3日站上1.7万亿，市场信心明显提振。</p>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源：</strong><br>
+    ✅ <a href="https://stock.10jqka.com.cn/20261102/c681350755.shtml" style="color: #38bdf8;">同花顺A股收评（2026-11-02 15:00:51）</a><br>
+    ✅ <a href="https://stock.10jqka.com.cn/20261102/c681350775.shtml" style="color: #38bdf8;">同花顺ETF收评（2026-11-02 15:02:11）</a><br>
+    ✅ <a href="https://www.stcn.com/article/detail/4317402.html" style="color: #38bdf8;">证券时报收评（2026-11-02 15:07:09）</a>
+  </div>
+
+  <div class="footer">
+    📅 数据日期：2026-11-02（周一收盘）· 下一个交易日：2026-11-03（周二）<br>
+    📊 数据来源：同花顺 / 证券时报<br>
+    ⚠️ 免责声明：本报告所有数据均来自公开渠道，不构成投资建议。投资者据此操作，风险自担。
+  </div>
+
+</div>
+</body>
+</html>
