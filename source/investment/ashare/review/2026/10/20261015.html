@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-15 A 股复盘 · 周四放量普跌 5 大指数全线下挫 · 沪指失守 3700 点 · 美 9 月 CPI 3.7% 超预期引发全球科技崩盘 · 白酒/证券/元件/PCB 防御硬件分化 · 慈文传媒 5 连板 · 煤炭/油气领跌</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(239,68,68,0.28), rgba(245,158,11,0.18), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.45);
+    border-radius: 20px; padding: 36px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(239,68,68,0.20), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 28px; font-weight: 700;
+    background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .header .subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+  .section-title {
+    font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: var(--text-primary); font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .data-note {
+    background: var(--card-deep); border: 1px dashed var(--border-mid);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(239,68,68,0.10); border-left: 5px solid #ef4444;
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 16px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #f87171; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(239,68,68,0.2); color: #f87171; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion.ok .conclusion-item .num { background: rgba(16,185,129,0.2); color: #34d399; }
+  .conclusion.warn .conclusion-item .num { background: rgba(245,158,11,0.2); color: #fbbf24; }
+  .conclusion.info .conclusion-item .num { background: rgba(56,189,248,0.2); color: #38bdf8; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<!-- ============ ① 头部 ============ -->
+<div class="header">
+  <h1>🔴 2026-10-15 A 股复盘 · 周四放量普跌 · 5 大指数全线下挫（沪 -1.59% / 深 -2.43% / 创 -2.92% / 科创 50 -1.5% / 北证 50 -3.44%）· 沪指失守 3700 点（盘中跌逾 2%）· 三市成交 16457 亿（较 10/14 放量 2193 亿 +15.4%）· 超 5100 只个股下跌 · 美国 9 月 CPI 3.7% 超预期引发全球科技崩盘 · 白酒/证券防御回流 + 元件/PCB 逆势 · AI 漫剧慈文传媒 5 连板升级 · 商品主线（煤炭/油气）一日游反转领跌 · 算力/科技全线回调</h1>
+  <div class="subtitle">沪指 <b class="danger-text">-1.59%</b> / 深成 <b class="danger-text">-2.43%</b> / 创业板 <b class="danger-text">-2.92%</b> / 科创 50 <b class="danger-text">-1.5%</b> / 北证 50 <b class="danger-text">-3.44%</b> · 三市成交 <b class="warn-text">16457 亿（较 10/14 14264 亿放量 2193 亿 +15.4%）</b> · 超 <b class="danger-text">5100 只个股下跌</b>（上涨约 890 只）· 数据日期 2026-10-15（周四收盘 · 国庆假期后第六个交易日 · 放量普跌 · 美国 9 月 CPI 同比 3.7% 超预期 → 加息预期升温 → 全球科技崩盘 → A 股低开低走 · 白酒/证券防御回流 + 元件/PCB 逆势 · AI 漫剧慈文传媒 5 连板 · 商品主线一日游反转领跌 · 算力全线回调 · 与 D-1（10/14）"<b class="danger-text">周三缩量杀跌 · 油气/煤炭/AI 漫剧三主线逆势</b>"形成"<b class="warn-text">商品领涨 → 商品反转领跌</b>"主线切换 + 与 D-2（10/13）"<b class="up-text">算力修复资金回流</b>"形成"<b class="danger-text">算力修复 → 算力再杀跌 → 算力全线崩</b>"三阶段路径）</div>
+  <div class="badges">
+    <span class="badge badge-danger">🔴 5 大指数全线下挫</span>
+    <span class="badge badge-danger">📉 沪指失守 3700 点</span>
+    <span class="badge badge-warn">📊 放量 2193 亿 +15.4%</span>
+    <span class="badge badge-danger">📉 超 5100 只下跌</span>
+    <span class="badge badge-up">🍶 白酒/证券防御回流</span>
+    <span class="badge badge-up">🔧 元件/PCB 逆势</span>
+    <span class="badge badge-purple">📺 慈文传媒 5 连板</span>
+    <span class="badge badge-danger">⛏️ 煤炭/油气领跌</span>
+    <span class="badge badge-danger">🌐 美 CPI 3.7% 超预期</span>
+    <span class="badge badge-danger">💾 算力全线回调</span>
+    <span class="badge badge-source">📅 数据日期 2026-10-15</span>
+  </div>
+</div>
+
+<!-- ============ ② 数据说明 ============ -->
+<div class="data-note">
+  <strong>📌 数据口径与双源验证：</strong><br>
+  ✅ <span class="ok">同花顺 A 股收评 c680725646（用户提供主源）</span> —— <span class="danger-text">沪指 -1.59% / 深成 -2.43% / 创业 -2.92% / 科创 50 -1.5% / 北证 50 -3.44%</span> · <span class="warn-text">成交 16457 亿（放量 2193 亿 +15.4%）</span> · <span class="danger-text">超 5100 只个股下跌</span> · <span class="up-text">领涨：白酒 / 证券 / 元件 / 生物疫苗 / PCB 概念</span> · <span class="danger-text">领跌：煤炭开采加工 / 油气开采及服务 / 通信设备 / 工业金属 / 教育</span> · <span class="up-text">主力净流入 TOP3：中芯国际概念 +16.81 亿 + 超级品牌 +14.30 亿 + 同花顺漂亮 100 +14.0 亿（合计 45.11 亿）</span> · <span class="purple-text">涨停天梯：5 连板 慈文传媒 / 百洋股份、3 连板 冰山冷热 / 阳光乳业、2 连板 富春染织 等</span><br>
+  ✅ <span class="ok">同花顺 ETF 收评 c680725617（用户提供主源）</span> —— <span class="up-text">标普消费 ETF(159529) +2.65% 领涨、巴西 ETF(520870) +1.14%、半导体设备 ETF(561980) +0.86%</span> · <span class="danger-text">中韩半导体 ETF(513310) -6.86% 领跌、港股通信息技术 ETF(159196) -6.3%</span><br>
+  ✅ <span class="ok">非同源第二源：证券时报(stcn.com)、财联社(cls.cn)、金融界(jrj.com.cn) 等</span> —— 印证指数跌幅、领跌结构与资金流向<br>
+  ✅ <span class="ok">WebSearch（海外联动）：美国 9 月 CPI 同比 3.7%（预期 3.6%/前值 3.4%）、核心 CPI 2.6% 超预期；CoreWeave 暴跌逾 15%、费城半导体指数 -2.28%、亚太科技崩盘</span><br>
+  ⚠️ <span class="warn-text">数据缺口待核实：</span><span class="danger-text">五大指数收盘具体点位（仅确认沪指失守 3700 点、盘中跌逾 2%）、领涨/领跌板块具体涨跌幅百分比、涨停/跌停家数总数、主力净流出 TOP3 具体板块 —— 以上均标注"数据缺口待核实"，未作编造</span><br>
+  ⚠️ <span class="warn-text">同花顺 news / stock 两域同源，仅计 1 个来源</span>；本报告以"同花顺主源 + 证券时报/财联社/金融界非同源 + WebSearch 海外"构成多源交叉验证，并辅以 D-1 / D-2 历史复盘做时间纵深印证。
+</div>
+
+<!-- ============ ③ 主题横幅 ============ -->
+<div class="theme-banner danger">
+  <div class="icon">🌐</div>
+  <div class="text">
+    <h3>美国 9 月 CPI 超预期 → 全球科技崩盘 → A 股放量普跌失守 3700 点</h3>
+    <p>美国 9 月 CPI 同比 <b class="danger-text">+3.7%</b>（预期 3.6%/前值 3.4%）、核心 CPI <b class="danger-text">+2.6%</b> 双双超预期 → 市场对美联储加息/高利率维持预期升温 → 美股科技重挫（AI 算力龙头 <b class="danger-text">CoreWeave 暴跌逾 15%</b>、费城半导体指数 <b class="danger-text">-2.28%</b>）→ 亚太科技股跟跌崩盘 → A 股低开低走、<b class="danger-text">5 大指数全线下挫、沪指失守 3700 点（盘中跌逾 2%）、北证 50 重挫 -3.44%</b>。资金自高位算力/科技撤离，回流 <b class="ok-text">白酒/证券</b> 防御，<b class="ok-text">元件/PCB</b> 硬件相对抗跌，<b class="warn-text">商品主线（煤炭/油气）一日游反转领跌</b>，AI 漫剧独立产业趋势下 <b class="ok-text">慈文传媒逆势 5 连板</b>。</p>
+  </div>
+</div>
+
+<!-- ============ ④ 五大指数 ============ -->
+<div class="section-title">📊 五大指数全线下挫 · 沪指失守 3700 点</div>
+<div class="dashboard">
+  <div class="index-card danger">
+    <span class="tag danger">失守 3700</span>
+    <div class="name">上证指数</div>
+    <div class="value">-1.59%</div>
+    <div class="change danger-text">盘中跌逾 2%</div>
+    <div class="label">失守 3700 点 · 收盘具体点位：数据缺口待核实</div>
+  </div>
+  <div class="index-card danger">
+    <span class="tag danger">深度回调</span>
+    <div class="name">深证成指</div>
+    <div class="value">-2.43%</div>
+    <div class="change danger-text">0 涨 5 跌</div>
+    <div class="label">收盘具体点位：数据缺口待核实</div>
+  </div>
+  <div class="index-card danger">
+    <span class="tag danger">跌近 3%</span>
+    <div class="name">创业板指</div>
+    <div class="value">-2.92%</div>
+    <div class="change danger-text">双创深度回调</div>
+    <div class="label">收盘具体点位：数据缺口待核实</div>
+  </div>
+  <div class="index-card danger">
+    <span class="tag danger">跌逾 1.5%</span>
+    <div class="name">科创 50</div>
+    <div class="value">-1.5%</div>
+    <div class="change danger-text">科技权重承压</div>
+    <div class="label">收盘具体点位：数据缺口待核实</div>
+  </div>
+  <div class="index-card danger">
+    <span class="tag danger">重挫领跌</span>
+    <div class="name">北证 50</div>
+    <div class="value">-3.44%</div>
+    <div class="change danger-text">跌幅居首</div>
+    <div class="label">收盘具体点位：数据缺口待核实</div>
+  </div>
+</div>
+
+<!-- ============ ⑤ 资金信号 ============ -->
+<div class="section-title warn">💰 资金信号 · 放量下跌恐慌盘涌出</div>
+<div class="market-stats">
+  <div class="stat-card warn">
+    <div class="stat-name">三市成交额</div>
+    <div class="stat-value">16457 亿</div>
+    <div class="stat-detail">较 10/14（14264 亿）放量 2193 亿（+15.4%）· 下跌放量，恐慌盘涌出</div>
+  </div>
+  <div class="stat-card danger">
+    <div class="stat-name">上涨 / 下跌家数</div>
+    <div class="stat-value">约 890 / 超 5100</div>
+    <div class="stat-detail">超 5100 只个股下跌，上涨仅约 890 只，普跌格局极端</div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">主力净流入 TOP3 合计</div>
+    <div class="stat-value">45.11 亿</div>
+    <div class="stat-detail">中芯国际概念 +16.81 亿 + 超级品牌 +14.30 亿 + 同花顺漂亮 100 +14.0 亿</div>
+  </div>
+  <div class="stat-card danger">
+    <div class="stat-name">涨停 / 跌停</div>
+    <div class="stat-value">数据缺口待核实</div>
+    <div class="stat-detail">涨停代表：慈文传媒 5 连板 / 百洋股份 5 连板；跌停代表：光华科技 / 招商轮船 / 海通发展</div>
+  </div>
+</div>
+<!-- ============ ⑥ 主力资金净流入 TOP3 ============ -->
+<div class="section-title ok">💸 主力资金净流入 TOP3 · 防御性板块获资金避险</div>
+<div class="flow-table">
+  <div class="flow-row header">
+    <div>排名</div><div>板块 / 概念</div><div>主力净流入</div><div>驱动逻辑</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-rank up">1</div>
+    <div><b>中芯国际概念</b></div>
+    <div class="flow-val up">+16.81 亿</div>
+    <div>国产算力/半导体龙头中芯国际获资金避险增持，自主可控主线相对抗跌</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-rank info">2</div>
+    <div><b>超级品牌</b></div>
+    <div class="flow-val up">+14.30 亿</div>
+    <div>资金自高位科技撤离，回流白酒/消费超级品牌避险（贵州茅台/五粮液等）· 具体标的：数据缺口待核实</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-rank purple">3</div>
+    <div><b>同花顺漂亮 100</b></div>
+    <div class="flow-val up">+14.0 亿</div>
+    <div>大盘核心蓝筹/白马获防御性资金配置，低估值权重避险</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-rank">—</div>
+    <div><b>合计</b></div>
+    <div class="flow-val info-text">45.11 亿</div>
+    <div>净流入集中于防御性/蓝筹板块；主力净流出 TOP3：数据缺口待核实</div>
+  </div>
+</div>
+
+<!-- ============ ⑦ 主线板块（三段式脉络） ============ -->
+<div class="section-title">🎯 今日主线板块与逻辑（D-2 10/13 → D-1 10/14 → 今日 10/15 连续脉络）</div>
+<div class="mainlines">
+
+  <div class="mainline-card rank-1">
+    <div class="mainline-rank">1</div>
+    <div class="title">🍶 白酒 / 消费防御回流</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🔼 升</span>
+      <span class="mainline-tag up">防御避险</span>
+      <span class="mainline-tag info">资金避风港</span>
+    </div>
+    <div class="flow-timeline">
+      <b>D-2(10/13)</b>：未入主线（算力修复 + 国企改革主导）━<br>
+      <b>D-1(10/14)</b>：防御相对抗跌但未突出（油气/煤炭/AI 漫剧领涨）━<br>
+      <b>今日(10/15)</b>：资金自科技撤离回流白酒消费避险，白酒领涨 🔼
+    </div>
+    <div class="mainline-desc">美国 CPI 超预期引发全球科技崩盘，高位算力/科技股遭抛售，资金转而回流 <b>白酒/消费</b> 避险。白酒作为传统防御板块 + 超级品牌获主力净流入，成为今日最主要的资金避风港。</div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>超级品牌 +14.30 亿</b></span>
+      <span class="stock-chip">贵州茅台 · 五粮液（具体标的：数据缺口待核实）</span>
+    </div>
+  </div>
+
+  <div class="mainline-card rank-1">
+    <div class="mainline-rank">2</div>
+    <div class="title">🏦 证券 · 低估值金融防御</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🔼 升</span>
+      <span class="mainline-tag up">险资增持</span>
+      <span class="mainline-tag info">回购提振</span>
+    </div>
+    <div class="flow-timeline">
+      <b>D-2(10/13)</b>：未入主线 ━<br>
+      <b>D-1(10/14)</b>：未入主线（算力/商品主导）━<br>
+      <b>今日(10/15)</b>：证券领涨，险资增持 + 券商回购释放信心 🔼
+    </div>
+    <div class="mainline-desc"><b>新华保险增持国泰海通 H 股</b>，叠加<b>国联民生</b>等多家券商回购增持，释放机构对低估值金融的信心。市场下跌中证券板块逆势获资金配置，兼具防御与"牛市旗手"期权属性。</div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>国泰海通 H</b>（新华保险增持）</span>
+      <span class="stock-chip">国联民生（回购增持）</span>
+    </div>
+  </div>
+
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">3</div>
+    <div class="title">📺 AI 漫剧 · 慈文传媒 5 连板</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag purple">🔼 升</span>
+      <span class="mainline-tag purple">独立产业趋势</span>
+      <span class="mainline-tag up">连板高度板</span>
+    </div>
+    <div class="flow-timeline">
+      <b>D-2(10/13)</b>：慈文传媒 3 连板（文化传媒重组主线新龙头接力）🔼<br>
+      <b>D-1(10/14)</b>：慈文传媒 4 连板（AI 漫剧爆发）+ 果麦文化 20% 涨停 🔼<br>
+      <b>今日(10/15)</b>：慈文传媒逆势 5 连板升级延续 🔼
+    </div>
+    <div class="mainline-desc">独立产业趋势下的市场最高连板龙头。<b>DataEye 研究院：海外微短剧市场 2026 年预计突破 60 亿美元</b>，AI 漫剧内容出海逻辑强化，板块在大盘普跌中逆势走强，成为情绪锚。</div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>慈文传媒(002343) 5 连板</b></span>
+      <span class="stock-chip"><b>百洋股份(002696) 5 连板</b></span>
+    </div>
+  </div>
+
+  <div class="mainline-card rank-3">
+    <div class="mainline-rank">4</div>
+    <div class="title">🔧 元件 / PCB 算力硬件分化</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag warn">🔀 切</span>
+      <span class="mainline-tag info">内部对抗跌</span>
+      <span class="mainline-tag danger">算力分化</span>
+    </div>
+    <div class="flow-timeline">
+      <b>D-2(10/13)</b>：PCB 领涨（算力修复资金回流）🔼<br>
+      <b>D-1(10/14)</b>：风光储/电池重挫，算力再杀跌 🔽<br>
+      <b>今日(10/15)</b>：元件/PCB 逆势相对抗跌，但算力整体回调，硬件内部分化 🔀
+    </div>
+    <div class="mainline-desc">算力主线内部明显分化：CPO/存储/通信随大盘重挫，而 <b>元件/PCB</b> 受基本面（AI 服务器/算力硬件需求）支撑相对抗跌、一度逆势。资金在算力内部"去高就低"，硬件端成为结构亮点。</div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>元件 / PCB 概念</b>（领涨）</span>
+      <span class="stock-chip">具体标的：数据缺口待核实</span>
+    </div>
+  </div>
+
+  <div class="mainline-card danger">
+    <div class="mainline-rank">5</div>
+    <div class="title">⛏️ 商品主线（煤炭/油气）反转领跌</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔽 降</span>
+      <span class="mainline-tag danger">一日游反转</span>
+      <span class="mainline-tag warn">获利了结</span>
+    </div>
+    <div class="flow-timeline">
+      <b>D-2(10/13)</b>：油气/煤炭未领涨（算力/国企改革主导）━<br>
+      <b>D-1(10/14)</b>：油气/煤炭逆势领涨（WTI 原油站上 95 美元 + 动力煤平仓价 1000-1008 元/吨）🔼<br>
+      <b>今日(10/15)</b>：煤炭开采加工 / 油气开采及服务领跌，一日游反转 🔽
+    </div>
+    <div class="mainline-desc">昨日逆势领涨的商品主线<b>今日全面反转领跌</b>，典型"一日游"行情。WTI 原油 95 美元、动力煤 1000-1008 元/吨的价格催化未能延续，资金获利了结切换至防御，商品高位追高风险兑现。</div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>煤炭开采加工（领跌）</b></span>
+      <span class="stock-chip"><b>油气开采及服务（领跌）</b></span>
+    </div>
+  </div>
+
+  <div class="mainline-card danger">
+    <div class="mainline-rank">6</div>
+    <div class="title">💾 算力 / 科技全线回调</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔽 降</span>
+      <span class="mainline-tag danger">全球科技崩盘</span>
+      <span class="mainline-tag warn">美 CPI 催化</span>
+    </div>
+    <div class="flow-timeline">
+      <b>D-2(10/13)</b>：算力修复资金回流（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3）🔼<br>
+      <b>D-1(10/14)</b>：算力再杀跌（半导体 -4.22%~-4.33% / 通信 -4.20% 领跌）🔽<br>
+      <b>今日(10/15)</b>：算力/科技全线回调，通信设备领跌，亚太科技崩盘 🔽
+    </div>
+    <div class="mainline-desc">美国 9 月 CPI 3.7% 超预期 → 加息预期升温 → 全球科技股崩盘。<b>CoreWeave 暴跌逾 15%、费城半导体 -2.28%</b>，亚太科技跟跌；A 股通信设备领跌，<b>长鑫科技市值跌破 3 万亿</b>。算力经历"修复 → 再杀跌 → 全线崩"三阶段。</div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>通信设备（领跌）</b></span>
+      <span class="stock-chip"><b>长鑫科技（市值跌破 3 万亿）</b></span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ ⑧ 涨停天梯 ============ -->
+<div class="section-title warn">🪜 涨停天梯 · 连板高度</div>
+<div class="ladder">
+  <span class="ladder-tag lv-1"><b>5 连板</b>：慈文传媒(002343) · 百洋股份(002696)</span>
+  <span class="ladder-tag lv-2"><b>3 连板</b>：冰山冷热(000530) · 阳光乳业(001318)</span>
+  <span class="ladder-tag lv-3"><b>2 连板</b>：富春染织(605189) 等</span>
+</div>
+<div class="data-note">
+  <strong>📌 涨停/跌停备注：</strong>涨停总家数、跌停总家数为<span class="warn-text">数据缺口待核实</span>。已知跌停代表：<span class="danger-text">光华科技(002741)、招商轮船(601872)、海通发展(603162)</span>。连板高度集中在 <b>AI 漫剧（慈文传媒 5 连板）</b> 与低位题材，市场高度板独立于我大盘走弱。
+</div>
+
+<!-- ============ ⑨ ETF 涨跌榜 ============ -->
+<div class="section-title info">📈 ETF 涨跌榜 · 跨境/商品防御领涨，半导体/港股科技重挫</div>
+<div class="etf-table">
+  <div class="etf-row header">
+    <div>方向</div><div>ETF 名称 / 代码</div><div>涨跌幅</div><div>驱动逻辑</div>
+  </div>
+  <div class="etf-row">
+    <div class="etf-rank up">领涨</div>
+    <div><b>标普消费 ETF</b>（159529）</div>
+    <div class="etf-val up">+2.65%</div>
+    <div>海外消费/防御属性，避险资金配置，涨幅居首</div>
+  </div>
+  <div class="etf-row">
+    <div class="etf-rank up">领涨</div>
+    <div><b>巴西 ETF</b>（520870）</div>
+    <div class="etf-val up">+1.14%</div>
+    <div>新兴市场/商品国避险，相对抗跌</div>
+  </div>
+  <div class="etf-row">
+    <div class="etf-rank up">领涨</div>
+    <div><b>半导体设备 ETF</b>（561980）</div>
+    <div class="etf-val up">+0.86%</div>
+    <div>国产半导体设备自主可控，中芯国际概念带动相对抗跌</div>
+  </div>
+  <div class="etf-row">
+    <div class="etf-rank down">领跌</div>
+    <div><b>中韩半导体 ETF</b>（513310）</div>
+    <div class="etf-val down">-6.86%</div>
+    <div>亚太半导体崩盘，韩国/全球存储科技重挫，跌幅居首</div>
+  </div>
+  <div class="etf-row">
+    <div class="etf-rank down">领跌</div>
+    <div><b>港股通信息技术 ETF</b>（159196）</div>
+    <div class="etf-val down">-6.3%</div>
+    <div>港股科技/互联网重挫，全球 risk-off 联动</div>
+  </div>
+</div>
+<div class="data-note">
+  <strong>📌 ETF 备注：</strong>以上为本源收录的主要领涨/领跌 ETF，<span class="warn-text">完整涨跌榜单为数据缺口待核实</span>。结构特征清晰：<span class="up-text">跨境消费/商品/国产半导体设备</span> 防御抗跌，<span class="danger-text">亚太半导体/港股科技</span> 随全球科技崩盘重挫。
+</div>
+<!-- ============ ⑩ 新闻与事件催化 ============ -->
+<div class="section-title">📰 新闻与事件催化</div>
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>类别</div><div>事件</div><div>影响解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-val down">宏观·海外</div>
+    <div>美国 9 月 CPI 同比 +3.7%（预期 3.6%/前值 3.4%）、核心 CPI +2.6% 双双超预期</div>
+    <div>加息/高利率维持预期升温，全球风险资产承压，是今日 A 股放量普跌的核心外部催化</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-val down">海外科技</div>
+    <div>CoreWeave 暴跌逾 15%、费城半导体指数 -2.28%、亚太科技股崩盘</div>
+    <div>AI 算力龙头重挫引发全球算力/科技链杀估值，A 股通信/半导体/存储联动大跌</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-val up">产业·AI 内容</div>
+    <div>DataEye 研究院：海外微短剧市场 2026 年预计突破 60 亿美元</div>
+    <div>AI 漫剧内容出海空间打开，强化慈文传媒等高度板连板逻辑，独立于大盘的产业趋势</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-val up">金融·机构动向</div>
+    <div>新华保险增持国泰海通 H 股；国联民生等多家券商回购增持</div>
+    <div>险资/券商用真金白银释放对低估值金融的信心，证券板块逆势领涨</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-val warn">半导体</div>
+    <div>长鑫科技市值跌破 3 万亿</div>
+    <div>存储龙头估值承压，反映算力/存储链情绪低迷，国产替代逻辑与短期杀估值并存</div>
+  </div>
+</div>
+
+<!-- ============ ⑪ 盘面结论 ============ -->
+<div class="section-title">🧭 盘面结论</div>
+<div class="conclusion danger">
+  <div class="conclusion-title">① 指数层面：5 大指数全线下挫，沪指失守 3700 点</div>
+  <div class="conclusion-item"><span class="num">1</span><p>沪 -1.59% / 深 -2.43% / 创 -2.92% / 科创 50 -1.5% / 北证 50 -3.44%，<b>0 涨 5 跌</b>，北证 50 跌幅居首，双创/科创深度回调，沪指失守 3700 点（盘中跌逾 2%）。</p></div>
+  <div class="conclusion-item"><span class="num">2</span><p>外部催化明确：美国 9 月 CPI 超预期 → 加息预期升温 → 全球科技崩盘，A 股低开低走、放量下挫。</p></div>
+</div>
+<div class="conclusion warn">
+  <div class="conclusion-title">② 资金层面：放量下跌，恐慌盘涌出</div>
+  <div class="conclusion-item"><span class="num">1</span><p>三市成交 <b>16457 亿</b>（较 10/14 放量 2193 亿 +15.4%），<b>下跌放量</b>，超 5100 只个股下跌（上涨约 890 只），恐慌盘涌出。</p></div>
+  <div class="conclusion-item"><span class="num">2</span><p>主力资金仅小幅净流入 <b>45.11 亿</b>且集中于防御性板块（中芯国际概念/超级品牌/同花顺漂亮 100），主力净流出 TOP3 为数据缺口待核实。</p></div>
+</div>
+<div class="conclusion info">
+  <div class="conclusion-title">③ 结构层面：防御与硬件分化逆势，商品一日游反转，算力全线崩</div>
+  <div class="conclusion-item"><span class="num">1</span><p><b>白酒/证券</b>防御回流、<b>元件/PCB</b>算力硬件相对抗跌，为今日仅有的结构性亮点；AI 漫剧慈文传媒 5 连板独立走强。</p></div>
+  <div class="conclusion-item"><span class="num">2</span><p><b>商品主线（煤炭/油气）一日游反转领跌</b>；算力/科技（通信设备/半导体/存储）随全球科技崩盘全线回调。</p></div>
+</div>
+
+<!-- ============ ⑫ 机构观点多空交锋 ============ -->
+<div class="section-title">⚖️ 机构观点多空交锋</div>
+<div class="conflict-grid">
+  <div class="view-a">
+    <h4>🟢 多方：放量释放恐慌，防御/结构布局窗口</h4>
+    <p>· 放量下跌 + 超 5100 只普跌，短期恐慌情绪集中释放，<b>情绪底临近</b>；</p>
+    <p>· 白酒/证券等防御板块获主力净流入，低估值蓝筹配置价值凸显；</p>
+    <p>· AI 漫剧（慈文传媒 5 连板）等产业趋势独立，回调或是布局机会。</p>
+  </div>
+  <div class="view-b">
+    <h4>🔴 空方：CPI 超预期压制，全球 risk-off 未尽</h4>
+    <p>· 美国 CPI 超预期 → 降息预期降温，<b>高估值科技股持续承压</b>；</p>
+    <p>· 全球科技崩盘（CoreWeave -15%/费半 -2.28%）外溢，算力/半导体短期难企稳；</p>
+    <p>· 沪指失守 3700 点，技术形态转弱，需警惕进一步下探风险。</p>
+  </div>
+</div>
+<div class="verdict">
+  <b>⚖️ 综合研判：</b>短期以 <span class="warn-text">防御为主、控制仓位</span>。外部（美国通胀/联储政策）不确定性是压制风险偏好的核心变量，算力/科技需等待全球科技股企稳信号。结构上，<span class="ok-text">防御消费（白酒）+ 低估值金融（证券/保险）</span> 具相对收益；<span class="ok-text">AI 漫剧等独立产业趋势</span> 可跟踪但需控制追高。商品（煤炭/油气）主线一日游，<span class="danger-text">不宜追高</span>。关键跟踪：美国后续通胀数据与联储动向、A 股 3700 点收复情况及成交量能变化。
+</div>
+
+<!-- ============ ⑬ 展望与策略 ============ -->
+<div class="section-title warn">🔭 展望与策略信号</div>
+<div class="signal-grid">
+  <div class="signal-card">
+    <h4><span class="num">⚠️</span>风险信号</h4>
+    <p>· 美国 9 月 CPI 3.7% 超预期、核心 2.6% 超预期；<br>· 全球科技崩盘（CoreWeave -15%/费半 -2.28%/亚太科技）；<br>· 沪指失守 3700 点、放量下跌、超 5100 只普跌。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">🛡️</span>防御信号</h4>
+    <p>· 白酒/证券资金防御性回流；<br>· 主力净流入集中于防御板块 45.11 亿（中芯国际概念/超级品牌/漂亮 100）；<br>· 险资增持 H 股 + 券商回购。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">🔀</span>结构信号</h4>
+    <p>· 慈文传媒 5 连板，AI 漫剧独立产业趋势延续；<br>· 元件/PCB 算力硬件相对抗跌（内部去高就低）；<br>· 商品主线一日游反转，资金自周期切向防御。</p>
+  </div>
+</div>
+<div class="strategy-grid">
+  <div class="strategy-card mainline">
+    <h4>🎯 主线关注</h4>
+    <ul class="strategy-list">
+      <li><b>防御消费（白酒）</b>：资金避风港，超级品牌获主力净流入；</li>
+      <li><b>低估值金融（证券/保险）</b>：险资增持 + 券商回购，攻守兼备；</li>
+      <li><b>AI 漫剧/内容出海</b>：海外微短剧 2026 预计破 60 亿美元，跟踪高度板但不追高。</li>
+    </ul>
+  </div>
+  <div class="strategy-card defend">
+    <h4>🛡️ 防御/仓位</h4>
+    <ul class="strategy-list">
+      <li><b>控制仓位</b>，外部不确定性（美通胀/联储）未明朗前不急于加仓；</li>
+      <li>关注 <b>3700 点收复情况</b>与成交量能变化，等待恐慌情绪充分释放；</li>
+      <li>跟踪全球科技股（费半/CoreWeave）企稳信号作为情绪拐点参考。</li>
+    </ul>
+  </div>
+  <div class="strategy-card avoid">
+    <h4>⚠️ 回避/谨慎</h4>
+    <ul class="strategy-list">
+      <li><b>高位算力/科技</b>（CPO/存储/通信）：全球杀估值，短期回避；</li>
+      <li><b>商品（煤炭/油气）</b>：一日游反转，高位追高风险已兑现；</li>
+      <li>业绩/逻辑不实的纯题材跟风股，普跌行情下风险放大。</li>
+    </ul>
+  </div>
+  <div class="strategy-card master">
+    <h4>🧠 跟踪要点</h4>
+    <ul class="strategy-list">
+      <li>美国后续 CPI/PCE 通胀数据与<b>美联储政策表态</b>；</li>
+      <li>全球半导体/科技股（费半、亚太科技）<b>何时止跌企稳</b>；</li>
+      <li>A 股算力主线"修复→再杀跌→全线崩"后能否出现新修复催化；</li>
+      <li>AI 漫剧产业趋势的持续性与高度板（慈文传媒）梯队衔接。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ ⑭ 数据来源 ============ -->
+<div class="data-note">
+  <strong>📚 数据来源与免责说明：</strong><br>
+  · 主源：<a href="https://news.10jqka.com.cn/20261015/c680725646.shtml" target="_blank">同花顺 A 股收评 c680725646</a>、<a href="https://news.10jqka.com.cn/20261015/c680725617.shtml" target="_blank">同花顺 ETF 收评 c680725617</a>（用户提供，两域同源计 1 源）；<br>
+  · 非同源第二源：证券时报(stcn.com)、财联社(cls.cn)、金融界(jrj.com.cn) 等对指数/领跌结构/资金流的交叉印证；<br>
+  · 海外联动：WebSearch 检索美国 9 月 CPI、费城半导体指数、CoreWeave 等公开信息；<br>
+  · 时间纵深：D-1（20261014.html）、D-2（20261013.html）历史复盘；<br>
+  · <span class="danger-text">数据缺口待核实：五大指数收盘具体点位、领涨/领跌板块具体涨跌幅、涨停/跌停家数总数、主力净流出 TOP3、白酒/元件等部分主线具体个股。</span>本报告未对缺口数据做任何编造，均以"数据缺口待核实"标注；<br>
+  · 历史复盘文件：<a href="/investment/ashare/review/2026/10/20261014.html">2026-10-14</a>、<a href="/investment/ashare/review/2026/10/20261013.html">2026-10-13</a>。
+</div>
+
+<!-- ============ ⑮ 页脚 ============ -->
+<div class="footer">
+  <p><span class="danger-text">2026-10-15（周四）A 股复盘</span> · 5 大指数全线下挫 · 沪指失守 3700 点 · 美 9 月 CPI 超预期引发全球科技崩盘 · 白酒/证券防御回流 + 元件/PCB 逆势 · 慈文传媒 5 连板 · 煤炭/油气领跌</p>
+  <p>本报告仅为市场数据复盘与信息整理，<span class="warn-text">不构成任何投资建议</span>。股市有风险，投资需谨慎。</p>
+  <p>颜色约定：<span class="up-text">绿色 = 上涨/净流入</span> · <span class="danger-text">红色 = 下跌/净流出</span>（A 股习惯配色）。数据如有出入，以交易所/官方披露为准。</p>
+</div>
+</div>
+</body>
+</html>

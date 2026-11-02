@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-28 A股复盘 · 高低切换日 · 农业化工接棒防御 · AI算力利好兑现走弱</title>
+<style>
+  /* === 全局重置 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419;
+    --bg-mid: #1a2332;
+    --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6);
+    --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2);
+    --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9;
+    --text-body: #e8eef5;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
+    --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  /* === 头部 === */
+  .header {
+    background: linear-gradient(135deg, rgba(245,158,11,0.22), rgba(239,68,68,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(245,158,11,0.35); border-radius: 20px;
+    padding: 36px; margin-bottom: 24px; position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; left: -10%;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,158,11,0.30) 0%, transparent 70%);
+  }
+  .header h1 {
+    font-size: 32px; font-weight: 700;
+    background: linear-gradient(90deg, #fbbf24, #f87171, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 10px; position: relative;
+  }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; }
+  .badges { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+  .badge {
+    display: inline-block; padding: 5px 12px; border-radius: 6px;
+    font-size: 12px; font-weight: 600;
+  }
+  .badge-success { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.35); }
+  .badge-warning { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.35); }
+  .badge-source { background: rgba(14,165,233,0.18); color: #38bdf8; border: 1px solid rgba(14,165,233,0.35); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.35); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.35); }
+
+  /* === 通用组件 === */
+  .section-title {
+    font-size: 22px; font-weight: 700; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: #f1f5f9;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+
+  .theme-banner {
+    background: linear-gradient(135deg, rgba(245,158,11,0.10), rgba(239,68,68,0.06));
+    border-left: 5px solid #f59e0b; border-radius: 12px;
+    padding: 20px 24px; margin-bottom: 24px; display: flex; gap: 16px; align-items: center;
+  }
+  .theme-banner.warn { border-left-color: #fbbf24; background: linear-gradient(135deg, rgba(245,158,11,0.10), rgba(245,158,11,0.04)); }
+  .theme-banner.danger { border-left-color: #ef4444; background: linear-gradient(135deg, rgba(239,68,68,0.10), rgba(239,68,68,0.04)); }
+  .theme-banner.ok { border-left-color: #34d399; background: linear-gradient(135deg, rgba(16,185,129,0.10), rgba(14,165,233,0.06)); }
+  .theme-banner .icon { font-size: 32px; }
+  .theme-banner .text h3 { color: #f1f5f9; font-size: 17px; margin-bottom: 6px; }
+  .theme-banner .text p { color: #cbd5e1; font-size: 13px; }
+
+  .data-note {
+    background: rgba(15,23,42,0.4); border: 1px dashed rgba(148,163,184,0.30);
+    border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
+    font-size: 13px; color: #cbd5e1; line-height: 1.7;
+  }
+  .data-note strong { color: #f1f5f9; }
+  .ok { color: #34d399; }
+  .warn-text { color: #fbbf24; }
+  .danger-text { color: #fca5a5; }
+  .info-text { color: #38bdf8; }
+  .purple-text { color: #c084fc; }
+
+  /* === 五大指数 Dashboard === */
+  .dashboard {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px;
+  }
+  .index-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card .tag {
+    position: absolute; top: 12px; right: 12px; font-size: 10px;
+    padding: 2px 8px; border-radius: 6px; font-weight: 600;
+  }
+  .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: #94a3b8; font-size: 13px; margin-bottom: 8px; font-weight: 600; }
+  .index-card .code { color: #64748b; font-size: 11px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #fca5a5; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #7dd3fc; }
+  .index-card .change { font-size: 13px; margin-top: 6px; }
+  .index-card.ok .change { color: #6ee7b7; }
+  .index-card.danger .change { color: #fca5a5; }
+  .index-card.warn .change { color: #fcd34d; }
+  .index-card .label { color: #cbd5e1; font-size: 12px; margin-top: 10px; line-height: 1.5; }
+
+  /* === 资金信号 4 卡 === */
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px;
+  }
+  .stat-card.up { border-top: 3px solid #34d399; }
+  .stat-card.danger { border-top: 3px solid #f87171; }
+  .stat-card.warn { border-top: 3px solid #fbbf24; }
+  .stat-card.info { border-top: 3px solid #38bdf8; }
+  .stat-card .stat-name { color: #94a3b8; font-size: 13px; margin-bottom: 8px; font-weight: 600; }
+  .stat-card .stat-value { font-size: 24px; font-weight: 700; }
+  .stat-card.up .stat-value { color: #34d399; }
+  .stat-card.danger .stat-value { color: #fca5a5; }
+  .stat-card.warn .stat-value { color: #fbbf24; }
+  .stat-card.info .stat-value { color: #38bdf8; }
+  .stat-card .stat-detail { color: #cbd5e1; font-size: 12px; margin-top: 8px; line-height: 1.5; }
+
+  /* === Flow Table 资金流 === */
+  .flow-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .flow-row {
+    display: grid; grid-template-columns: 60px 1.4fr 1.2fr 1fr 1.4fr; gap: 12px;
+    padding: 14px 18px; align-items: center;
+    border-bottom: 1px dashed rgba(148,163,184,0.15);
+  }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .flow-rank { font-size: 18px; font-weight: 800; color: #fbbf24; }
+  .flow-name { color: #f1f5f9; font-size: 14px; font-weight: 600; }
+  .flow-val { color: #34d399; font-size: 15px; font-weight: 700; }
+  .flow-val.down { color: #f87171; }
+  .flow-bar { height: 6px; background: rgba(16,185,129,0.20); border-radius: 3px; position: relative; }
+  .flow-bar .fill { height: 100%; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 3px; }
+  .flow-sub { color: #94a3b8; font-size: 11px; }
+
+  /* === Mainline 主线 === */
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; position: relative; border-left: 4px solid #34d399;
+    transition: transform 0.2s;
+  }
+  .mainline-card:hover { transform: translateY(-3px); }
+  .mainline-card.rank-1 { border-left-color: #fbbf24; }
+  .mainline-card.rank-2 { border-left-color: #38bdf8; }
+  .mainline-card.rank-3 { border-left-color: #c084fc; }
+  .mainline-card.rank-4 { border-left-color: #f87171; }
+  .mainline-card.rank-5 { border-left-color: #6ee7b7; }
+  .mainline-card.defend { border-left-color: #ef4444; background: rgba(239,68,68,0.06); }
+  .mainline-rank {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(251,191,36,0.20); color: #fbbf24;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .mainline-card .title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; padding-right: 40px; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag {
+    background: rgba(168,85,247,0.18); color: #c084fc;
+    padding: 3px 9px; border-radius: 6px; font-size: 11px; font-weight: 600;
+  }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-desc { color: #cbd5e1; font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+  .mainline-desc b { color: #f1f5f9; }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .mainline-stocks .stock-chip {
+    background: rgba(15,23,42,0.6); border: 1px solid rgba(148,163,184,0.20);
+    color: #cbd5e1; padding: 3px 9px; border-radius: 6px; font-size: 11px;
+  }
+  .mainline-stocks .stock-chip b { color: #fbbf24; }
+
+  /* === 涨停天梯 === */
+  .ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .ladder-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 16px;
+  }
+  .ladder-card .ladder-head { font-size: 13px; color: #94a3b8; margin-bottom: 10px; font-weight: 600; }
+  .ladder-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ladder-tag {
+    padding: 5px 11px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.22); color: #fca5a5; border: 1px solid rgba(239,68,68,0.40); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.22); color: #fbbf24; border: 1px solid rgba(245,158,11,0.40); }
+  .ladder-tag.lv-3 { background: rgba(14,165,233,0.22); color: #38bdf8; border: 1px solid rgba(14,165,233,0.40); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.22); color: #c084fc; border: 1px solid rgba(168,85,247,0.40); }
+  .ladder-tag small { display: block; color: #94a3b8; font-size: 10px; font-weight: 400; margin-top: 2px; }
+
+  /* === ETF Table === */
+  .etf-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .etf-row {
+    display: grid; grid-template-columns: 50px 1.4fr 1.4fr 1fr; gap: 12px;
+    padding: 12px 18px; align-items: center;
+    border-bottom: 1px dashed rgba(148,163,184,0.15);
+  }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .etf-rank { font-size: 18px; font-weight: 800; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #f87171; }
+  .etf-name { color: #f1f5f9; font-size: 13px; font-weight: 600; }
+  .etf-code { color: #94a3b8; font-size: 11px; }
+  .etf-val { font-size: 15px; font-weight: 700; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+
+  /* === Finance Table 新闻催化 === */
+  .fin-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .fin-row {
+    display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px;
+    padding: 14px 18px; align-items: start;
+    border-bottom: 1px dashed rgba(148,163,184,0.15);
+  }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-name { color: #f1f5f9; font-size: 14px; font-weight: 600; }
+  .fin-val { font-size: 13px; font-weight: 600; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .fin-comment { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+
+  /* === Conclusion 核心结论 === */
+  .conclusion {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px 24px; margin-bottom: 16px;
+    border-left: 4px solid #34d399;
+  }
+  .conclusion.warn { border-left-color: #fbbf24; background: rgba(245,158,11,0.04); }
+  .conclusion.info { border-left-color: #38bdf8; background: rgba(14,165,233,0.04); }
+  .conclusion.danger { border-left-color: #ef4444; background: rgba(239,68,68,0.04); }
+  .conclusion-title { color: #f1f5f9; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .conclusion-item .num {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    background: #ef4444; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px;
+  }
+  .conclusion-item p { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+  .conclusion-item p b { color: #f1f5f9; }
+
+  /* === Conflict Grid 机构观点 === */
+  .conflict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .view-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px;
+  }
+  .view-a { border-top: 3px solid #34d399; }
+  .view-b { border-top: 3px solid #38bdf8; }
+  .view-card .view-head { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .view-a .view-head { color: #34d399; }
+  .view-b .view-head { color: #38bdf8; }
+  .view-card .view-quote { color: #cbd5e1; font-size: 13px; line-height: 1.6; margin-bottom: 10px; padding: 10px; background: rgba(15,23,42,0.5); border-radius: 8px; }
+  .view-card .view-source { color: #94a3b8; font-size: 11px; }
+  .verdict {
+    background: linear-gradient(135deg, rgba(168,85,247,0.10), rgba(14,165,233,0.06));
+    border: 1px solid rgba(168,85,247,0.30); border-radius: 12px;
+    padding: 16px 20px; margin-top: 8px;
+  }
+  .verdict-head { color: #c084fc; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .verdict-body { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+
+  /* === Signal Grid 展望信号 === */
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .signal-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; position: relative;
+  }
+  .signal-card.up { border-top: 3px solid #34d399; }
+  .signal-card.warn { border-top: 3px solid #fbbf24; }
+  .signal-card.danger { border-top: 3px solid #ef4444; }
+  .signal-card.info { border-top: 3px solid #38bdf8; }
+  .signal-card .sig-num {
+    position: absolute; top: 14px; right: 14px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(14,165,233,0.18); color: #38bdf8;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px;
+  }
+  .signal-card .sig-title { color: #f1f5f9; font-size: 15px; font-weight: 700; margin-bottom: 10px; padding-right: 36px; }
+  .signal-card .sig-body { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+  .signal-card .sig-body b { color: #f1f5f9; }
+
+  /* === Strategy Grid 策略矩阵 === */
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; border-left: 4px solid #34d399;
+  }
+  .strategy-card.mainline { border-left-color: #34d399; }
+  .strategy-card.defend { border-left-color: #fbbf24; }
+  .strategy-card.risk { border-left-color: #ef4444; }
+  .strategy-card.master { border-left-color: #c084fc; background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(168,85,247,0.02)); }
+  .strategy-card .stg-title { color: #f1f5f9; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .strategy-list { color: #cbd5e1; font-size: 13px; line-height: 1.7; padding-left: 0; list-style: none; }
+  .strategy-list li { margin-bottom: 6px; padding-left: 18px; position: relative; }
+  .strategy-list li::before { content: '▸'; position: absolute; left: 0; color: #94a3b8; font-weight: 700; }
+  .strategy-list li b { color: #f1f5f9; }
+  .strategy-card .stg-note { color: #94a3b8; font-size: 12px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(148,163,184,0.15); }
+
+  /* === Footer === */
+  .footer {
+    text-align: center; color: #64748b; font-size: 12px; margin-top: 32px;
+    padding: 20px 16px; border-top: 1px solid rgba(148,163,184,0.10);
+  }
+  .footer p { margin-bottom: 4px; }
+
+  /* === 响应式 === */
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .signal-grid, .mainlines, .ladder { grid-template-columns: 1fr; }
+    .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ============ 头部 ============ -->
+  <div class="header">
+    <h1>🚩 2026-08-28 A股复盘 · 高低切换日 · 农业化工接棒防御 · AI算力利好兑现走弱</h1>
+    <div class="subtitle">沪指微跌0.11%报3952 · 双创领跌（创业板-1.41% / 科创50-1.85%）· 三市成交2.1万亿缩量242亿 · 主力净流出343亿</div>
+    <div class="badges">
+      <span class="badge badge-warning">🟡 冲高回落·防御接棒</span>
+      <span class="badge badge-danger">🔴 双创领跌·主力净流出</span>
+      <span class="badge badge-source">📅 数据日期 2026-08-28（周五收盘）</span>
+      <span class="badge badge-purple">🧠 高低切换·英伟达利好一日游</span>
+      <span class="badge badge-source">📊 数据来源 同花顺/Wind/智通财经/新浪/澎湃</span>
+      <span class="badge badge-success">🟢 农业/化工/地产走强</span>
+    </div>
+  </div>
+
+  <!-- ============ 数据说明 ============ -->
+  <div class="data-note">
+    <strong>📌 数据口径与双源核验：</strong><br>
+    ✅ <span class="ok">已双源验证</span>：五大指数收盘点位 / 涨跌幅 / 三市成交额 / 涨跌家数 / 涨停跌停家数（同花顺 + 智通财经 + 头条/澎湃 + 头条/中新经纬 + 新浪 五源一致）。<br>
+    ✅ <span class="ok">单源确认</span>：板块涨幅 TOP（渔业 +4.55% / 房地产服务 +3.75% / 饰品 +3.42% / 炼化 +2.66% / 农产品加工 +2.65% / 化学原料 +2.42%）、主力净流入 TOP3（同花顺主题口径：中特估 100 / 金属锌 / 金属铅）、涨停天梯（同花顺）、ETF 涨跌 TOP3（同花顺 ETF 收评）。<br>
+    ⚠️ <span class="warn-text">北向资金仅早盘数据</span>：沪股通早盘净流出 29.12 亿、深股通早盘净流出 7.27 亿（合计早盘净流出 36.39 亿）；全日数据待披露，方向为"流出"。<br>
+    ⚠️ <span class="warn-text">风格反差</span>：沪指 +1.13%（8/27）→ -0.11%（8/28），英伟达财报利好仅"一日游"，AI 算力链高开低走、追高者悉数被套；防御品种（农业/化工/地产/贵金属）接棒走强。<br>
+    🔴 <span class="danger-text">风险提示</span>：高位 AI 利好兑现、半导体主力净流出 48 亿 / 电子板块净流出 120.61 亿、CRO/医药趋势性走弱（万邦医药单日 -17%）。
+  </div>
+
+  <!-- ============ 主题横幅 ============ -->
+  <div class="theme-banner">
+    <div class="icon">🟡</div>
+    <div class="text">
+      <h3>核心定性：英伟达利好"一日游" · 资金从高弹性科技板块大幅撤离 · 防御性农业/化工/贵金属接棒</h3>
+      <p>周五 A 股冲高回落集体收跌，<b style="color:#fbbf24">沪指-0.11%报3952.18、深成指-0.68%、创业板-1.41%、科创50领跌-1.85%、北证50 -1.04%</b>。三市成交 21017 亿元（较上日<b style="color:#fca5a5">缩量 242 亿</b>，连续 2 日站稳 2 万亿），全市场 <b style="color:#34d399">3013 只涨 / 2390 只跌 / 涨停 82-83 家 / 跌停 2-3 家</b>。结构上，<b style="color:#fbbf24">农业（种植业+渔业+农产品加工）+ 化工（化学原料+农化制品+炼化）+ 房地产 + 贵金属</b>四大防御主线接棒走强，而英伟达财报利好带动的半导体/AI 算力链高开低走，<b style="color:#fca5a5">主力资金净流出 343.71 亿、半导体净流出 48 亿、电子板块净流出 120.61 亿、CRO 跌幅 -2.73%</b>，典型的高低切换、结构性轮动格局。</p>
+    </div>
+  </div>
+
+  <!-- ============ 模块 ① 五大核心指数 ============ -->
+  <div class="section-title">📊 一、五大核心指数表现</div>
+  <div class="dashboard">
+    <div class="index-card danger">
+      <div class="tag danger">微跌</div>
+      <div class="name">上证指数</div>
+      <div class="code">1A0001</div>
+      <div class="value">3952.18</div>
+      <div class="change">-0.11%</div>
+      <div class="label">🔴 较昨日 3956.57 下跌 4.39 点。沪市成交 9703.65 亿，全市场最抗跌。蓝筹权重托底，价值风格占优。</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">同步走弱</div>
+      <div class="name">深证成指</div>
+      <div class="code">399001</div>
+      <div class="value">13953.07</div>
+      <div class="change">-0.68%</div>
+      <div class="label">🔴 较昨日 14048.88 下跌 95.81 点。深市成交 11313.50 亿。午后成长股抛压加大，资金从科技板块撤离。</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">双创领跌</div>
+      <div class="name">创业板指</div>
+      <div class="code">399006</div>
+      <div class="value">3424.40</div>
+      <div class="change">-1.41%</div>
+      <div class="label">🔴 较昨日 3473.35 下跌 48.95 点。早盘一度涨超 1%，随后受半导体/CRO 拖累大幅回落。CRO 万邦医药单日 -17%。</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">全场领跌</div>
+      <div class="name">科创50</div>
+      <div class="code">000688</div>
+      <div class="value">1662.15</div>
+      <div class="change">-1.85%</div>
+      <div class="label">🔴 较昨日约 1693 下跌 31.33 点（昨日涨 +3.77%）。昨日领涨全场今日领跌全场，AI 算力利好兑现型回吐。</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">同步走弱</div>
+      <div class="name">北证50</div>
+      <div class="code">899050</div>
+      <div class="value">1063.80</div>
+      <div class="change">-1.04%</div>
+      <div class="label">🔴 较昨日 1074.96 下跌 11.16 点。成交 162.60 亿。北交所专精特新小盘股流动性弱、抗跌性差。</div>
+    </div>
+  </div>
+
+  <!-- ============ 模块 ② 资金信号 4 卡 ============ -->
+  <div class="section-title info">💰 二、市场交易与资金信号</div>
+  <div class="market-stats">
+    <div class="stat-card danger">
+      <div class="stat-name">三市成交额</div>
+      <div class="stat-value">2.10 万亿</div>
+      <div class="stat-detail">沪/深/京合计 <b>21017 亿元</b>（同花顺 21177 / 智通 21017）<br>较上日 <b>缩量 242 亿</b>（-1.14%）<br>🟡 <b>连续 2 日突破 2 万亿</b>，但动能减弱</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-name">上涨个股数</div>
+      <div class="stat-value">3013 只</div>
+      <div class="stat-detail">全市场 <b>约 54% 个股上涨</b>（3013 涨 / 2390 跌）<br>涨停 <b>82-83 家</b> / 跌停 <b>2-3 家</b><br>🟡 <b>指数收跌但涨多跌少</b>，典型结构性行情</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-name">风格信号</div>
+      <div class="stat-value">防御接力</div>
+      <div class="stat-detail">农业 + 化工 + 地产 + 贵金属四大防御主线接棒<br>半导体净流出 48 亿 / 电子净流出 120.61 亿<br>🟡 <b>资金从高弹性科技切向低估值防御</b></div>
+    </div>
+    <div class="stat-card info">
+      <div class="stat-name">ETF 风向标</div>
+      <div class="stat-value">化工 +2.48%</div>
+      <div class="stat-detail">化工 ETF(159082) 领涨 <b>+2.48%</b><br>化工 ETF(159133) +2.33% / 粮食 ETF(159063) +2.32%<br>🔴 <b>科创半导体 ETF(588170) 领跌 -3.01%</b></div>
+    </div>
+  </div>
+
+  <!-- ============ 模块 ③ 主力资金 TOP3 ============ -->
+  <div class="section-title">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径</div>
+  <div style="background: rgba(15,23,42,0.4); border-radius: 8px; padding: 10px 16px; margin-bottom: 12px; font-size: 12px; color: #94a3b8;">
+    <b style="color:#fbbf24">⚠️ 口径说明：</b>本表采用同花顺主题/概念板块口径（追踪当日热点资金），与 Wind 申万一级行业口径不同。<b style="color:#fca5a5">需注意：两市主力资金全天整体净流出 343.71 亿元，TOP3 仅为相对流入最多个股集中的主题</b>，板块结构上是"局部热点+整体流出"格局。
+  </div>
+  <div class="flow-table">
+    <div class="flow-row header">
+      <div>排名</div><div>主题板块</div><div>净流入（亿元）</div><div>板块表现</div><div>主题性质</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank">1</div>
+      <div class="flow-name">同花顺中特估 100</div>
+      <div class="flow-val">+19.55 亿</div>
+      <div><div class="flow-bar"><div class="fill" style="width:100%"></div></div></div>
+      <div class="flow-sub">🟢 板块内 70 股上涨 · 央国企高股息+估值修复</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank">2</div>
+      <div class="flow-name">金属锌</div>
+      <div class="flow-val">+14.73 亿</div>
+      <div><div class="flow-bar"><div class="fill" style="width:75%"></div></div></div>
+      <div class="flow-sub">🟢 板块内 33 股上涨 · 美元指数走弱+工业金属价格</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank">3</div>
+      <div class="flow-name">金属铅</div>
+      <div class="flow-val">+14.52 亿</div>
+      <div><div class="flow-bar"><div class="fill" style="width:74%"></div></div></div>
+      <div class="flow-sub">🟢 板块内 30 股上涨 · 铅锌联动+全球再通胀预期</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-bottom: 24px;">
+    <strong>📌 资金流观察：</strong><span class="warn-text">整体主力净流出 343.71 亿</span>，与 TOP3 流入并不矛盾 —— <b style="color:#fbbf24">流出主要集中于半导体（48 亿）/ 电子（120.61 亿）/ 通信设备 / CRO / 生物制品</b>；流入主要集中于央国企高股息 + 工业金属 + 农业/化工防御品种。结构上看，<b>资金在"科技成长 vs 防御周期"之间大幅切换</b>，是从"AI 极致集中"转向"防御均衡配置"的典型信号。
+  </div>
+
+  <!-- ============ 模块 ④ 主线板块详解 ============ -->
+  <div class="section-title">🎯 四、今日主线板块与逻辑（蚂蚁财富三维共振模型分析）</div>
+  <div class="mainlines">
+
+    <!-- 主线 1: 农业种植 -->
+    <div class="mainline-card rank-1">
+      <div class="mainline-rank">1</div>
+      <div class="title">🌾 农业种植 · 全球粮食危机+小麦3年新高 · 万向德农9天6板</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 主升浪</span>
+        <span class="mainline-tag warn">粮食安全</span>
+        <span class="mainline-tag info">地缘催化</span>
+        <span class="mainline-tag danger">防御主线</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【宏观·风】</b>芝加哥小麦期货价格升至三年最高水平，外部供给不确定性骤升。汇丰指出农业供应链面临<b>中东冲突 + 区域战争升级 + 厄尔尼诺极端天气</b>等多重冲击；中央政治局 7/30 会议强调"粮食安全"底线，8000 亿政策性金融工具落地推动高标准农田建设。<br>
+        <b>【中观·路】</b>农业板块从昨日（8/27）的辅助线一跃成为今日绝对主升浪。种植业涨 +3.08% / 渔业涨 +4.55% / 农产品加工涨 +2.65% / 供销社概念同步走强（远大控股/天鹅股份涨停）。北交所农机股花溪科技走出 30cm 2 连板。<br>
+        <b>【微观·粮】</b>万向德农 9 天 6 板（4 连板）领涨；新赛股份 2 连板；冠农股份/敦煌种业/福建金森/中水渔业/康农种业/国投丰乐/农发种业等大批涨停或涨超 10%。<br>
+        <b>【个股】</b>万向德农（600371）4连板 / 新赛股份（600540）2连板 / 敦煌种业（600354）/ 福建金森（002679）/ 中水渔业（000798）/ 冠农股份（600251）/ 远大控股 / 天鹅股份 / 花溪科技（北交所）。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>万向德农</b> 600371 4连板</span>
+        <span class="stock-chip"><b>新赛股份</b> 600540 2连板</span>
+        <span class="stock-chip"><b>敦煌种业</b> 600354</span>
+        <span class="stock-chip"><b>中水渔业</b> 000798</span>
+        <span class="stock-chip"><b>花溪科技</b>（北交所30cm）</span>
+        <span class="stock-chip">冠农股份 600251</span>
+        <span class="stock-chip">福建金森 002679</span>
+        <span class="stock-chip">远大控股</span>
+        <span class="stock-chip">天鹅股份</span>
+        <span class="stock-chip">农发种业 600313</span>
+      </div>
+    </div>
+
+    <!-- 主线 2: 化工/化工原料 -->
+    <div class="mainline-card rank-2">
+      <div class="mainline-rank">2</div>
+      <div class="title">🧪 化工/化工原料 · 全球供给偏紧+补库预期 · 多只涨停</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 主升浪</span>
+        <span class="mainline-tag warn">供给紧张</span>
+        <span class="mainline-tag info">涨价兑现</span>
+        <span class="mainline-tag danger">防御主线</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【宏观·风】</b>机构研报指出<b>全球化工产能供给持续偏紧、下游库存维持低位</b>，后续补库需求有望集中释放。三代制冷剂价格已创近十年新高，氟化工供需缺口支撑价格上行；焦炭现货 8/26 单日涨 +5.19%（1740.2→1830.6 元/吨），氩气现货 +6.45%（2325→2475 元/吨）。<br>
+        <b>【中观·路】</b>化工板块集体拉升：化学原料 +2.74% / 农化制品 +2.90% / 炼化及贸易 +2.66% / 化学制品 +1.66%。环氧丙烷概念短线走高（红宝丽/滨化股份/红墙股份涨停）。<br>
+        <b>【微观·粮】</b>金牛化工 / 华锦股份 / 潞化科技 / 泸天化 / 赤天化 / 先达股份等大批涨停或涨超 10%。<br>
+        <b>【个股】</b>金牛化工（600722）/ 华锦股份（000059）/ 潞化科技 / 泸天化（000912）/ 赤天化（600227）/ 昊华科技（600378）2连板 / 沃特股份（002886）2连板 / 红宝丽（002165）/ 滨化股份（601678）/ 红墙股份（002809）/ 先达股份（603086）/ 雪天盐业（600929）/ 卫星化学（002648）/ 中欣氟材 / 富恒新材 / 新瀚新材。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>金牛化工</b> 600722</span>
+        <span class="stock-chip"><b>华锦股份</b> 000059</span>
+        <span class="stock-chip"><b>昊华科技</b> 600378 2连板</span>
+        <span class="stock-chip"><b>沃特股份</b> 002886 2连板</span>
+        <span class="stock-chip"><b>红宝丽</b> 002165</span>
+        <span class="stock-chip">泸天化 000912</span>
+        <span class="stock-chip">赤天化 600227</span>
+        <span class="stock-chip">中欣氟材</span>
+        <span class="stock-chip">雪天盐业 600929</span>
+        <span class="stock-chip">新瀚新材 301076</span>
+      </div>
+    </div>
+
+    <!-- 主线 3: 房地产 -->
+    <div class="mainline-card rank-3">
+      <div class="mainline-rank">3</div>
+      <div class="title">🏠 房地产 · 核心城市政策利好密集释放 · 房地产服务 +3.75%</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 政策博弈</span>
+        <span class="mainline-tag warn">核心城市</span>
+        <span class="mainline-tag info">高切低</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【宏观·风】</b>北京、上海、成都、西安等核心城市近期密集释放政策利好，"六张网"建设 + 8000 亿新型政策性金融工具重点支持房地产平稳健康发展；房地产调控政策优化、活跃县域消费形成组合拳。<br>
+        <b>【中观·路】</b>房地产板块整体强势，房地产服务涨幅 +3.75%（板块涨幅榜第 2）。我爱我家 4 天 2 板，深物业 A 涨停，特发服务 / 世联行 / 西藏城投 / 沙河股份 / 福星股份等跟涨。<br>
+        <b>【微观·粮】</b>主力资金博弈核心城市政策利好，是典型的政策博弈型介入。<br>
+        <b>【个股】</b>深物业 A（000011）/ 我爱我家（000560）涨停（4天2板）/ 特发服务（300917）/ 世联行（002285）/ 西藏城投（600773）/ 沙河股份（000014）/ 福星股份（000926）。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>深物业A</b> 000011</span>
+        <span class="stock-chip"><b>我爱我家</b> 000560 4天2板</span>
+        <span class="stock-chip"><b>特发服务</b> 300917</span>
+        <span class="stock-chip"><b>世联行</b> 002285</span>
+        <span class="stock-chip"><b>西藏城投</b> 600773</span>
+        <span class="stock-chip">沙河股份 000014</span>
+        <span class="stock-chip">福星股份 000926</span>
+      </div>
+    </div>
+
+    <!-- 主线 4: 贵金属 -->
+    <div class="mainline-card rank-4">
+      <div class="mainline-rank">4</div>
+      <div class="title">🥇 贵金属 · 现货金 +4596 美元 · 深中华A 7连板</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 避险主线</span>
+        <span class="mainline-tag warn">美元走弱</span>
+        <span class="mainline-tag info">地缘风险</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【宏观·风】</b>8/28 现货黄金日内微涨，<b style="color:#fbbf24">报 4596.45 美元/盎司</b>，受美元指数下跌 + 地缘风险溢价 + 美联储官员鹰派表态（倾向于加息以遏制通胀）共同推动。国际金价/银价上涨，避险资金持续涌入。<br>
+        <b>【中观·路】</b>黄金饰品/贵金属板块反复活跃。深中华 A 在分歧中成功晋级 7 连板（11.45 元/股），<b style="color:#fbbf24">刷新昨日 6 连板的最高板记录</b>。莱绅通灵涨停，湖南黄金涨超 7%。饰品板块涨幅 +3.42%（涨幅榜第 3）。<br>
+        <b>【微观·粮】</b>值得注意的是，<b style="color:#fca5a5">美联储两名官员释放鹰派信号（倾向于加息以遏制通胀）</b>，市场聚焦主席沃什发言。鹰派信号短期支撑美元走强，但金价仍上行 —— 反映<b>地缘风险溢价已超越利率溢价</b>成为黄金主导因素。<br>
+        <b>【个股】</b>深中华 A（000017）7连板 / 莱绅通灵（603900）涨停 / 湖南黄金 +7% / 福达合金 / 老凤祥 / 周大生等。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>深中华A</b> 000017 7连板</span>
+        <span class="stock-chip"><b>莱绅通灵</b> 603900</span>
+        <span class="stock-chip"><b>湖南黄金</b> +7%</span>
+        <span class="stock-chip">福达合金</span>
+        <span class="stock-chip">老凤祥</span>
+        <span class="stock-chip">周大生</span>
+      </div>
+    </div>
+
+    <!-- 主线 5: 石油石化/大消费 -->
+    <div class="mainline-card rank-5">
+      <div class="mainline-rank">5</div>
+      <div class="title">🛢️ 石油石化 + 大消费 · 中东地缘风险溢价 · 申万一级 +2.16%</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 主线跟涨</span>
+        <span class="mainline-tag warn">地缘催化</span>
+        <span class="mainline-tag info">防御均衡</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【宏观·风】</b>"西奥多·罗斯福"号航母 5000 官兵将赴中东接替"华盛顿"号（部署至少 7 个月），伊朗及海湾国家担忧美伊关系再度紧张。国际原油走出 V 字行情。<br>
+        <b>【中观·路】</b>申万一级行业涨幅榜：石油石化 +2.16% 居首；农林牧渔 +1.66% / 基础化工 +1.66% / 纺织服饰 +1.65% / 商贸零售 +1.14%。炼化及贸易 +2.66%。<br>
+        <b>【个股】</b>华锦股份（000059）涨停 / 桐昆股份（601233）+5% / 恒力石化（600346）/ 东华能源（002221）/ 通源石油（300164）/ 茂化实华（000637）/ 中国石化（600028）+3%。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>华锦股份</b> 000059</span>
+        <span class="stock-chip"><b>桐昆股份</b> 601233 +5%</span>
+        <span class="stock-chip"><b>恒力石化</b> 600346</span>
+        <span class="stock-chip"><b>东华能源</b> 002221</span>
+        <span class="stock-chip">中国石化 600028</span>
+        <span class="stock-chip">通源石油 300164</span>
+      </div>
+    </div>
+
+    <!-- 防御板块 / 跌幅板块 -->
+    <div class="mainline-card defend">
+      <div class="mainline-rank">⚠</div>
+      <div class="title">🚩 AI算力/半导体/医药走弱 · 利好兑现+获利回吐 · 主力净流出重灾区</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag danger">🔴 走弱重灾</span>
+        <span class="mainline-tag warn">利好兑现</span>
+        <span class="mainline-tag purple">资金撤离</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【半导体/电子板块】</b>高开低走 —— 超纯应材（301717）跌超 8% / 杰华特（688141）跌超 7% / 普冉股份（688766）跌超 6% / 优迅股份（688807）/ 臻宝科技（688797）跟跌。<b>主力净流出：兆易创新 -16.33 亿 / 澜起科技 -13.31 亿 / 新易盛 -9.05 亿 / 胜宏科技 -23.01 亿（跌超 8%）。半导体板块净流出 48 亿、电子板块净流出 120.61 亿。</b><br>
+        <b>【CRO/医药板块】</b>趋势性走弱 —— 万邦医药（301520）跌 16-18%（年内涨幅 152%，今日巨幅回撤）/ 百花医药（600721）跌超 7% / 近岸蛋白（688137）跌超 10% / 康希诺（688185）跌超 9%。<br>
+        <b>【通信设备】</b>菲菱科思 / 长盈通 / 通鼎互联 / 长进光子等跌超 5%；ST 元道 / 汇源通信 / 广哈通信 / 三旺通信等跌超 4%。<br>
+        <b>【机器人概念】</b>午后跳水 —— 新睿电子 / 景业智能跌超 5% / 宇树科技 -4%（主力净流出 6.82 亿，占成交额 20.27%）。<br>
+        <b>【信号解读】</b>英伟达 FY27Q2 财报（+106% YoY）虽是历史级利好，但<b style="color:#fca5a5">"利好出尽即利空"效应主导今日盘面</b>。早盘资金借利好冲高，午后资金从高弹性科技板块大幅撤离（半导体/电子合计流出近 170 亿），转向防御性农业/化工/贵金属 —— 这是典型的<b style="color:#fbbf24">"放量长阳次日切换"</b>格局。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>万邦医药</b> 301520 -17%</span>
+        <span class="stock-chip"><b>超纯应材</b> 301717 -8%</span>
+        <span class="stock-chip"><b>胜宏科技</b> 300476 -8%</span>
+        <span class="stock-chip"><b>百花医药</b> 600721 -7%</span>
+        <span class="stock-chip"><b>近岸蛋白</b> 688137 -10%</span>
+        <span class="stock-chip">康希诺 688185 -9%</span>
+        <span class="stock-chip">菲菱科思 301191 -5%</span>
+        <span class="stock-chip">宇树科技 -4%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 模块 ⑤ 涨停天梯 ============ -->
+  <div class="section-title warn">🚩 五、涨停天梯榜（最高板：深中华A 7连板 · 黄金避险）</div>
+  <div class="ladder">
+    <div class="ladder-card">
+      <div class="ladder-head">🥇 7 连板 · 市场最高 · 黄金避险</div>
+      <div class="ladder-tags">
+        <span class="ladder-tag lv-1">深中华A (000017)<small>黄金/锂电</small></span>
+      </div>
+    </div>
+    <div class="ladder-card">
+      <div class="ladder-head">🥈 5 连板 · 家居+实控人变更</div>
+      <div class="ladder-tags">
+        <span class="ladder-tag lv-2">海鸥住工 (002084)<small>出口/家居</small></span>
+      </div>
+    </div>
+    <div class="ladder-card">
+      <div class="ladder-head">🥉 4 连板 · 共 3 只</div>
+      <div class="ladder-tags">
+        <span class="ladder-tag lv-3">冀衡医药 (002742)</span>
+        <span class="ladder-tag lv-3">捷荣技术 (002855)</span>
+        <span class="ladder-tag lv-3">万向德农 (600371)<small>种业 9天6板</small></span>
+      </div>
+    </div>
+    <div class="ladder-card">
+      <div class="ladder-head">⚡ 3 连板 · 共 3 只</div>
+      <div class="ladder-tags">
+        <span class="ladder-tag lv-4">锦龙股份 (000712)<small>券商</small></span>
+        <span class="ladder-tag lv-4">新农股份 (002942)<small>农业</small></span>
+        <span class="ladder-tag lv-4">千金药业 (600479)</span>
+      </div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-bottom: 24px;">
+    <strong>📌 涨停梯队观察：</strong>最高板 <span class="ok">深中华 A 7 连板</span>（较昨日 6 连板再上一阶，<b>昨夜发布澄清公告、今日仍涨停</b>，市场情绪分歧但强势延续）；海鸥住工 5 连板（实控人变更利好，开盘一字涨停）；万向德农 9 天 6 板（种业政策催化）；3 连板分布在家居/医药/农业。<br>
+    <span class="warn-text">⚠️ 风险：深中华 A 7 连板后 8 进 9 风险大</span>，需观察明日能否守住；2 连板 9 只分布在星网锐捷/沃特股份/香江控股/昊华科技/新赛股份/中安科/合锻智能/海鸥股份/莱绅通灵，<b style="color:#fbbf24">连板股多以"农业+化工"为主</b>，与今日防御接棒主线一致。<br>
+    <span class="danger-text">🔴 警示：涨停家数 82-83 家较昨日（50+家）显著抬升，但 <b>炸板率较高</b>（康盛股份/青山纸业/天洋新材/杭电股份等炸板后大幅回落），说明<b>追板资金信心不足、情绪不稳</b>。</span>
+  </div>
+
+  <!-- ============ 模块 ⑥ ETF 涨跌榜 ============ -->
+  <div class="section-title info">📊 六、ETF 涨跌榜</div>
+  <div class="theme-banner warn" style="margin-bottom: 12px;">
+    <div class="icon">📌</div>
+    <div class="text">
+      <h3>ETF 风向：化工/粮食三剑客领涨 · 科创半导体三剑客领跌 · 与板块结构高度同步</h3>
+      <p>ETF 端 <b style="color:#34d399">化工 ETF(159082) +2.48% / 化工 ETF(159133) +2.33% / 粮食 ETF(159063) +2.32% 三剑客领涨</b>，与化工/农业防御主线高度同步；半导体端 <b style="color:#fca5a5">科创半导体 ETF(588170) -3.01% / 科创半导体设备 ETF(588710) -3.00% / 半导体设备 ETF(159516) -2.96% 三剑客领跌</b>，与 AI/半导体主跌板块一致。ETF 走势清晰反映"防御接棒 + 科技走弱"的高切低格局。</p>
+    </div>
+  </div>
+
+  <div class="etf-table">
+    <div class="etf-row header">
+      <div>排名</div><div>ETF 名称</div><div>代码</div><div>涨跌幅</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">🥇</div>
+      <div class="etf-name">化工 ETF</div>
+      <div class="etf-code">159082</div>
+      <div class="etf-val up">+2.48%</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">🥈</div>
+      <div class="etf-name">化工 ETF</div>
+      <div class="etf-code">159133</div>
+      <div class="etf-val up">+2.33%</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">🥉</div>
+      <div class="etf-name">粮食 ETF</div>
+      <div class="etf-code">159063</div>
+      <div class="etf-val up">+2.32%</div>
+    </div>
+    <div class="etf-row" style="background: rgba(15,23,42,0.3);">
+      <div style="color:#64748b">—</div>
+      <div class="etf-name" style="color:#94a3b8">———— 防御线 ————</div>
+      <div class="etf-code">—</div>
+      <div style="color:#64748b">—</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">🔻</div>
+      <div class="etf-name">科创半导体 ETF</div>
+      <div class="etf-code">588170</div>
+      <div class="etf-val down">-3.01%</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">🔻</div>
+      <div class="etf-name">科创半导体设备 ETF</div>
+      <div class="etf-code">588710</div>
+      <div class="etf-val down">-3.00%</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">🔻</div>
+      <div class="etf-name">半导体设备 ETF</div>
+      <div class="etf-code">159516</div>
+      <div class="etf-val down">-2.96%</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-bottom: 24px;">
+    <strong>📌 重要背离/解读：</strong><span class="warn-text">化工 ETF 领涨（+2.48%）vs 半导体 ETF 领跌（-3.01%），差距达 5.49 个百分点</span>，清晰反映<b style="color:#fbbf24">资金从"高弹性 AI 算力"切向"防御性周期/涨价"</b>。粮食 ETF（+2.32%）与万向德农等种业涨停股形成"ETF 端 + 股票端"双线确认。半导体设备 ETF（-2.96%）领跌反映<b style="color:#fca5a5">前期领涨板块的"获利兑现 + 利好出尽"效应</b>。
+  </div>
+
+  <!-- ============ 模块 ⑦ 新闻催化 ============ -->
+  <div class="section-title">📰 七、重要新闻与板块催化</div>
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>事件 / 板块</div><div>关键数据</div><div>对 A 股影响</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🇺🇸 英伟达财报利好"一日游"</div>
+      <div class="fin-val down">AI 链高开低走</div>
+      <div class="fin-comment">昨夜英伟达 FY27Q2 营收 962.21 亿美元（+106% YoY）、Q3 指引 +90%、2028 财年增长约 70%、Vera Rubin 全面投产，黄仁勋称"AI 已到达拐点"。<b style="color:#fca5a5">但 A 股 AI 链今日高开低走、半导体板块净流出 48 亿、电子板块净流出 120.61 亿</b>，反映"利好出尽即利空"效应主导盘面。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🇨🇳 7 月经济数据 · 工业 +4.5% 社消 +0.6% 固投 -6.7%</div>
+      <div class="fin-val warn">8/17 国家统计局公布</div>
+      <div class="fin-comment">7 月规上工业增加值同比 +4.5%（较上月 -0.8pp）；社零 +0.6%（-0.4pp）；1-7 月固投累计 -6.7%（降幅扩大 1pp）。<b style="color:#fbbf24">基本面仍弱 → 强化"政策加码"预期</b>，是政治局会议"逆周期调节"+ 8000 亿政策性金融工具的逻辑基础。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🇺🇸 中东地缘风险 · "罗斯福"号赴中东</div>
+      <div class="fin-val up">原油 V 字行情</div>
+      <div class="fin-comment">美国"西奥多·罗斯福"号航母 + 5000 官兵未来几周派往中东，接替"华盛顿"号执行 7 个月部署。伊朗及海湾国家担忧美伊关系紧张。<b style="color:#34d399">WTI 原油 83 美元/桶、布伦特 89 美元/桶</b>，石油石化板块申万一级 +2.16% 居首（华锦股份/桐昆股份/恒力石化涨停或涨超 5%）。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🇺🇸 现货黄金日内微涨 · 美元指数走弱</div>
+      <div class="fin-val up">4596.45 美元/盎司</div>
+      <div class="fin-comment">8/28 现货黄金日内微涨报 4596.45 美元/盎司，受美元指数下跌等因素推动。<b style="color:#fbbf24">深中华 A 7 连板领涨贵金属板块</b>，莱绅通灵涨停、湖南黄金 +7%。需关注美联储官员鹰派表态（倾向于加息遏制通胀）可能形成短期反制。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🌾 芝加哥小麦期货 3 年新高</div>
+      <div class="fin-val up">全球粮食危机</div>
+      <div class="fin-comment">芝加哥小麦期货价格升至三年最高水平。汇丰指出农业供应链面临中东冲突、区域战争升级、厄尔尼诺极端天气等多重冲击。<b style="color:#34d399">农业板块全线爆发：万向德农 9 天 6 板 / 新赛股份 2 连板 / 敦煌种业/中水渔业/冠农股份/福建金森大批涨停</b>。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🏭 大宗商品涨价潮 · 氩气 +6.45% 焦炭 +5.19%</div>
+      <div class="fin-val up">8/26 现货涨幅榜</div>
+      <div class="fin-comment">8/26 氩气现货价格 +6.45%（2325→2475 元/吨），焦炭 +5.19%（1740.2→1830.6 元/吨）。三代制冷剂价格创近十年新高。<b style="color:#34d399">化工板块集体拉升：金牛化工/华锦股份/潞化科技/泸天化/赤天化/昊华科技/沃特股份等多股涨停</b>。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🇺🇸 Open Router · AI Token 周调用首破 90 万亿</div>
+      <div class="fin-val info">+24% WoW</div>
+      <div class="fin-comment">上周全球 AI 大模型总调用量 93.4 万亿 Token（环比 +24%），首破 90 万亿，连续第三周创历史新高；Token 消耗核心驱动从对话式 AI 转向智能体（单次 Agent 任务可达传统问答数倍）。<b style="color:#fbbf24">长期支撑 AI 算力需求</b>，但短期已被市场充分定价。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🏠 核心城市房地产政策利好密集释放</div>
+      <div class="fin-val up">北京/上海/成都/西安</div>
+      <div class="fin-comment">核心城市近期密集释放房地产政策利好（认房不认贷、优化限购、首付比例下调等）。房地产服务 +3.75% / 房地产板块整体强势。<b style="color:#34d399">我爱我家 4 天 2 板 / 深物业 A 涨停</b>，特发服务/世联行/西藏城投/沙河股份/福星股份等跟涨。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🇨🇳 中央政治局 7/30 会议 · 8000 亿政策性金融工具</div>
+      <div class="fin-val info">存量政策 + 增量政策</div>
+      <div class="fin-comment">充分发挥各项存量政策效能，及时谋划出台务实管用的增量政策，加大<b>逆周期调节力度</b>。8000 亿新型政策性金融工具加快落地、"六张网"建设、活跃县域消费、房地产调控政策优化。<b style="color:#fbbf24">中期支撑基建/房地产/农业等防御主线</b>。</div>
+    </div>
+
+    <div class="fin-row">
+      <div class="fin-name">🇺🇸 美联储官员鹰派表态</div>
+      <div class="fin-val warn">倾向加息</div>
+      <div class="fin-comment">两名美联储官员释放鹰派信号，表示<b style="color:#fbbf24">倾向于加息以遏制通胀</b>，市场聚焦主席沃什发言。<b style="color:#fca5a5">短期或形成"利率上行+美元走强"压力</b>，对高估值成长股形成反制；但地缘风险溢价已超越利率溢价成为黄金主导因素。</div>
+    </div>
+
+  </div>
+
+  <!-- ============ 模块 ⑧ 核心结论（3 块） ============ -->
+  <div class="section-title">📌 八、盘面核心结论</div>
+
+  <div class="conclusion ok">
+    <div class="conclusion-title">✅ 结论 1：🟢 防御主线接棒 —— 农业/化工/贵金属/地产四大方向共振走强</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><b>板块层面：</b>"高切低 + 高切防御"是今日最核心的盘面特征。<b style="color:#34d399">种植业 +3.08% / 渔业 +4.55% / 农产品加工 +2.65% / 房地产服务 +3.75% / 饰品 +3.42% / 化学原料 +2.42% / 炼化及贸易 +2.66%</b> 板块涨幅榜前列。资金从高弹性科技（半导体净流出 48 亿 / 电子净流出 120.61 亿）切向防御性周期/涨价品种。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><b>龙头层面：</b>农业链<b style="color:#34d399">万向德农 9 天 6 板 / 新赛股份 2 连板 / 敦煌种业/中水渔业/冠农股份/福建金森大批涨停</b>；化工链<b style="color:#34d399">金牛化工/华锦股份/潞化科技/泸天化/赤天化/昊华科技 2 连板/沃特股份 2 连板</b>；地产链<b style="color:#34d399">深物业 A 涨停 / 我爱我家 4 天 2 板</b>；贵金属<b style="color:#34d399">深中华 A 7 连板（刷新昨日 6 板记录）/ 莱绅通灵涨停 / 湖南黄金 +7%</b>。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><b>基本面层面：</b>芝加哥小麦 3 年新高 + 汇丰农业供应链报告 + 厄尔尼诺极端天气 + 中东地缘风险溢价 + 全球化工供给偏紧 + 8000 亿政策性金融工具 + 核心城市房地产政策利好 —— <b style="color:#34d399">"地缘风险 + 通胀预期 + 政策托底"三重共振</b>支撑防御主线中期逻辑。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><b>量能层面：</b>三市成交 <b style="color:#34d399">21017 亿元（连续 2 日站稳 2 万亿）</b>，但较上日缩量 242 亿；上涨家数 3013 只（占比 54%）+ 涨停 82-83 家（较昨日 50+ 抬升），赚钱效应结构性显著。</p>
+    </div>
+  </div>
+
+  <div class="conclusion warn">
+    <div class="conclusion-title">⚠️ 结论 2：🟡 风险信号 —— 英伟达利好"一日游" · AI链利好兑现即分化</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><b>利好兑现走弱：</b>英伟达 FY27Q2 营收 +106% / 数据中心 +117% / Q3 指引 +90% / FY28 +70% / Vera Rubin 投产 —— 五大史诗级利好叠加，<b style="color:#fbbf24">但今日 A 股 AI 链高开低走、半导体板块领跌全场</b>。超纯应材 -8% / 胜宏科技 -8%（主力净流出 23.01 亿）/ 兆易创新 -16.33 亿 / 澜起科技 -13.31 亿，反映<b>"利好出尽即利空"</b>主导盘面。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><b>CRO/医药趋势性走弱：</b><b style="color:#fbbf24">医疗服务 -2.13% / 生物制品 -2.73% / CRO 概念跌幅居前</b>。万邦医药单日跌 16-18%（年内涨幅 152%，今日巨幅回撤）；百花医药 -7% / 近岸蛋白 -10% / 康希诺 -9%。医药板块自周三起持续下行，<b>短期难言见底</b>。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><b>主力净流出 343 亿：</b>两市主力资金全天整体净流出 343.71 亿元，<b style="color:#fca5a5">半导体 -48 亿 / 电子 -120.61 亿 / CRO / 通信设备 / 机器人</b> 均为流出重灾区。TOP3 流入（中特估 100 +19.55 亿 / 金属锌 +14.73 亿 / 金属铅 +14.52 亿）合计仅 +48.8 亿，<b style="color:#fca5a5">流出/流入比 ≈ 7:1</b>，结构上是"流出为主、热点分散"。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><b>机器人/通信/北向资金风险：</b><b style="color:#fbbf24">机器人概念午后跳水</b>（新睿电子/景业智能 -5% / 宇树科技 -4%，主力净流出 6.82 亿/占成交 20.27%）。通信设备走弱。北向资金早盘沪股通净流出 29.12 亿、深股通净流出 7.27 亿，<b>全天数据待披露</b>，方向为流出。</p>
+    </div>
+  </div>
+
+  <div class="conclusion info">
+    <div class="conclusion-title">🔔 结论 3：🔵 中期支撑 —— 中报披露收官在即 + 政策催化 + 防御主线逻辑形成中期托底</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><b>中报收官窗口：</b>下周一（8/31）A 股中报披露正式收官，<b style="color:#38bdf8">五大国有大行 + 比亚迪 + 五粮液</b> 等今日已披露半年报，业绩落地后市场再定价。<b style="color:#38bdf8">基本面与估值的"双锚"重塑窗口</b>开启。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><b>政策密集催化：</b><b style="color:#38bdf8">8000 亿新型政策性金融工具落地 + "六张网"建设 + 房地产调控优化 + 县域消费 + 政治局会议"逆周期调节"</b> 共同形成中期政策托底。ST 围海/ST 京蓝 8/31 复牌。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><b>防御主线中期逻辑：</b>农业（粮食安全 + 全球供应链危机）+ 化工（供给偏紧 + 补库预期 + 涨价兑现）+ 地产（核心城市政策利好）+ 贵金属（地缘风险溢价）四大方向<b style="color:#38bdf8">均具有中期基本面支撑</b>，非纯题材炒作；可作为仓位"压舱石"。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><b>关键时点密集：</b><b style="color:#38bdf8">8/28-30 2026 中国国际大数据产业博览会（贵阳）</b> + 8/31 中报收官 + 五大行/比亚迪/五粮液业绩 + ST 围海/ST 京蓝复牌 + 9/10 苹果折叠屏发布会 + 9 月 MLF 续作 + 9 月底美联储议息会议。<b>事件密集+基本面再定价值得重点关注</b>。</p>
+    </div>
+  </div>
+
+  <!-- ============ 模块 ⑨ 机构观点与分歧 ============ -->
+  <div class="section-title warn">🧠 九、机构观点与分歧</div>
+  <div class="conflict-grid">
+    <div class="view-card view-a">
+      <div class="view-head">🟢 观点 A：高低切换是良性轮动 · 中期上行结构未变（轮动派）</div>
+      <div class="view-quote">
+        "今日冲高回落是<b>典型的'放量长阳次日切换'格局</b>，并非趋势反转。<b style="color:#34d399">指数收跌但 3013 只个股上涨（54%），涨停 82-83 家（较昨日 50+ 显著抬升）</b>，结构性赚钱效应仍在。农业/化工/地产/贵金属四大防御主线接棒，是资金'高切低+高低切换'的良性轮动，并非撤离市场。三市成交连续 2 日站稳 2 万亿，<b>流动性宽松+政策托底+基本面再定价</b>三重支撑下，<b>中期上行结构未变</b>。"
+      </div>
+      <div class="view-source">— 来源：智通财经《A股收评 | 冲高回落沪指微跌 农业化工领涨 双创跌超1%》/ 新浪财经《指数普跌，超3000股收红》/ 澎湃新闻《石化、农业板块走强》/ 中新经纬</div>
+    </div>
+
+    <div class="view-card view-b">
+      <div class="view-head">🔵 观点 B：英伟达利好一日游反映 AI 顶部风险 · 控仓等待（谨慎派）</div>
+      <div class="view-quote">
+        "英伟达 FY27Q2 财报五大史诗级利好叠加，<b>A 股 AI 链却高开低走、主力净流出 343 亿、半导体净流出 48 亿、电子净流出 120.61 亿</b>，反映<b style="color:#fca5a5">'利好出尽即利空'已主导盘面</b>。CRO 万邦医药单日 -17% 警示<b>高位题材股估值压力</b>。美联储官员鹰派表态 + 美元指数走强 + 央行在'逆周期调节'与'防范利率风险'之间再平衡，<b style="color:#fca5a5">AI/半导体/CRO 等高估值成长股估值消化压力上升</b>。建议<b>控仓等待、不追高、逢低吸纳防御主线</b>。"
+      </div>
+      <div class="view-source">— 来源：澎湃新闻《A股早盘冲高回落，尾盘快速下挫》/ 同花顺收评 / 智通财经 / 雪球热议"AI 利好一日游"分析</div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-head">🎯 本文倾向：防御为王 · 高低切换 · 控仓参与 + 逢低吸纳防御主线</div>
+    <div class="verdict-body">
+      <b>综合判断：</b>本轮调整是<b style="color:#34d399">结构性轮动而非趋势反转</b>。基本面仍弱（7 月工业 +4.5% 回落 / 社消 +0.6% 走弱 / 固投 -6.7% 降幅扩大）支撑"政策加码 + 防御主线"逻辑；<b style="color:#fbbf24">AI/半导体利好兑现走弱 + CRO 趋势性下行 + 主力净流出 343 亿</b>三大警示信号不可忽视。<br>
+      <b>操作建议：</b>主线方向（农业/化工/地产/贵金属）维持中性仓位（建议总仓位 50-60%）；防御方向保留部分弹性（机器人/通信/半导体设备等待右侧信号）；规避方向回避已走弱的高位 AI/CRO/纯题材股；总仓位建议保留 40-50% 现金应对下周中报收官的"再定价"风险。
+    </div>
+  </div>
+
+  <!-- ============ 模块 ⑩ 后续展望与策略 ============ -->
+  <div class="section-title info">🔮 十、后续展望与核心交易策略</div>
+  <div class="signal-grid">
+    <div class="signal-card warn">
+      <div class="sig-num">1</div>
+      <div class="sig-title">📈 指数展望 · 震荡分化</div>
+      <div class="sig-body">
+        沪指收 3952.18 点（距 8/27 3956.57 仅跌 4.39 点），<b>3800-4000 区间震荡</b>。下一阻力位看 <b>3980-4000</b>（整数关口+前期高点），支撑位看 <b>3900-3920</b>。科创 50 跌幅最大（-1.85%）反映<b style="color:#fbbf24">AI 利好兑现型回吐</b>。关注三市成交能否站稳 2 万亿。
+      </div>
+    </div>
+    <div class="signal-card warn">
+      <div class="sig-num">2</div>
+      <div class="sig-title">🌡️ 情绪展望 · 高位分歧降温</div>
+      <div class="sig-body">
+        最高板深中华 A <b>7 连板</b>（刷新昨日 6 板）但 <b>8 进 9 风险大</b>，需观察明日能否守住。<b>涨停家数 82-83 家抬升但炸板率高</b>（康盛股份/青山纸业/天洋新材等炸板后大幅回落），<b style="color:#fbbf24">追板资金信心不足、情绪不稳</b>。连板股多以"农业+化工"为主。
+      </div>
+    </div>
+    <div class="signal-card info">
+      <div class="sig-num">3</div>
+      <div class="sig-title">💰 资金展望 · 流出为主、热点分散</div>
+      <div class="sig-body">
+        <b style="color:#fca5a5">主力净流出 343.71 亿</b>，半导体 -48 亿 / 电子 -120.61 亿 / CRO/通信设备/机器人均流出；TOP3 流入合计仅 +48.8 亿（<b>流出/流入比 ≈ 7:1</b>）。北向资金早盘净流出 36.39 亿（待全天数据）。<b>结构上流出为主，热点分散</b>，待下周中报收官重新定调。
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card mainline">
+      <div class="stg-title">🟢 主线方向（防御为王）· 仓位 35-45%</div>
+      <ul class="strategy-list">
+        <li><b>农业种植（防御+地缘催化）：</b>万向德农 600371 / 新赛股份 600540 / 敦煌种业 600354 / 中水渔业 000798 / 冠农股份 600251 / 福建金森 002679 / 农发种业 600313 / 花溪科技（北交所）/ 远大控股 / 天鹅股份</li>
+        <li><b>化工/化工原料（涨价兑现）：</b>金牛化工 600722 / 华锦股份 000059 / 昊华科技 600378 / 沃特股份 002886 / 红宝丽 002165 / 泸天化 000912 / 赤天化 600227 / 中欣氟材 / 雪天盐业 600929 / 卫星化学 002648</li>
+        <li><b>房地产（政策博弈）：</b>深物业 A 000011 / 我爱我家 000560 / 特发服务 300917 / 世联行 002285 / 西藏城投 600773 / 沙河股份 000014 / 福星股份 000926</li>
+        <li><b>贵金属（避险）：</b>深中华 A 000017（7连板，追板需谨慎）/ 莱绅通灵 603900 / 湖南黄金 / 福达合金 / 老凤祥 / 周大生</li>
+        <li><b>石油石化（中东地缘）：</b>华锦股份 000059 / 桐昆股份 601233 / 恒力石化 600346 / 东华能源 002221 / 通源石油 300164</li>
+      </ul>
+      <div class="stg-note">⚠️ 风险：若沪指跌破 3900 或成交额跌破 1.9 万亿，需降低主线仓位至 30%；农业/化工短期涨幅较大，警惕过热后回调。</div>
+    </div>
+
+    <div class="strategy-card defend">
+      <div class="stg-title">🟡 防御/高低切方向 · 仓位 15-20%</div>
+      <ul class="strategy-list">
+        <li><b>折叠屏/果链（9/10 苹果发布会）：</b>蓝思科技 / 领益智造 / 京东方 A 000725 / TCL 科技 000100 / 鼎龙股份 300054 / 深天马 A 000050</li>
+        <li><b>中报收官窗口（8/31）：</b>五大国有大行（工/农/中/建/交）+ 比亚迪 + 五粮液 —— 业绩落地后估值再定价</li>
+        <li><b>网络安全/数据要素（8/28-30 数博会）：</b>麒麟信安（688）/ 中安科 600654 / 天融信 / 启明星辰</li>
+        <li><b>AI 算力右侧信号（待观察）：</b>澜起科技 688008 / 海光信息 / 中际旭创 / 新易盛 —— <b style="color:#fbbf24">务必右侧确认（放量长阳+主力回流）再介入</b></li>
+      </ul>
+      <div class="stg-note">⚠️ 注意：AI 算力链今日高开低走反映"利好兑现即分化"，右侧信号未出现前不抄底；机器人概念午后跳水同样需要等待。</div>
+    </div>
+
+    <div class="strategy-card risk">
+      <div class="stg-title">🔴 风险规避 · 严格回避</div>
+      <ul class="strategy-list">
+        <li><b>AI 算力高位股（利好兑现）：</b>半导体设备/电子化学品/通信设备/机器人概念 —— 主力净流出重灾区，<b style="color:#fca5a5">短期回避</b></li>
+        <li><b>CRO/医药（趋势性走弱）：</b>万邦医药 / 百花医药 / 近岸蛋白 / 康希诺 —— 万邦医药单日 -17%，板块趋势已破位</li>
+        <li><b>高位纯题材股（炸板风险）：</b>深中华 A 已 7 连板（8 进 9 风险极大）</li>
+        <li><b>美联储鹰派风险：</b>若美联储官员鹰派表态强化 + 美元走强，<b>高估值成长股估值消化压力</b>加大</li>
+      </ul>
+      <div class="stg-note">⚠️ 风控：以上方向原则上不参与抄底，等待趋势确认或业绩兑现 + 右侧信号。</div>
+    </div>
+
+    <div class="strategy-card master">
+      <div class="stg-title">🧭 核心交易策略 · 总仓位 50-60%</div>
+      <ul class="strategy-list">
+        <li><b>仓位管理：</b>主线 35-45% + 防御/高低切 15-20% + 现金 40-50%</li>
+        <li><b>节奏控制：</b>逢低吸纳（不追高）—— 防御主线短期涨幅较大，重点关注早盘调整机会</li>
+        <li><b>关键时点：</b>① 8/28-30 2026 中国国际大数据产业博览会；② 8/31 中报披露收官 + 五大行/比亚迪/五粮液业绩；③ 9/10 苹果折叠屏发布会；④ 9 月 MLF 续作；⑤ 9 月底美联储议息会议</li>
+        <li><b>风控纪律：</b>主线个股跌破 5 日线减仓、跌破 20 日线清仓；仓位随沪指 3900/3950/3980 三档动态调整</li>
+        <li><b>风格判断：</b>当前处于"防御接力 + AI 兑现走弱"阶段，<b style="color:#fbbf24">防御为主、进攻为辅</b>；下周中报收官前保持谨慎</li>
+      </ul>
+      <div class="stg-note">📌 操作核心：<b style="color:#c084fc">农业/化工/地产/贵金属为防御压舱石</b>，机器人/通信/AI 算力等待右侧信号，<b>保留 40-50% 现金应对下周中报收官的"再定价"</b>；坚持"业绩+资金+政策"三共振选股原则。</div>
+    </div>
+  </div>
+
+  <!-- ============ 数据来源汇总 ============ -->
+  <div class="data-note" style="margin-top: 24px;">
+    <strong>📌 数据来源汇总（截至 2026-08-28）：</strong><br>
+    ① 同花顺 A 股收评：<a href="https://news.10jqka.com.cn/20260828/c679388149.shtml" style="color:#38bdf8">https://news.10jqka.com.cn/20260828/c679388149.shtml</a>（指数/板块/涨停/资金流/热点）<br>
+    ② 同花顺 ETF 收评：<a href="https://news.10jqka.com.cn/20260828/c679388097.shtml" style="color:#38bdf8">https://news.10jqka.com.cn/20260828/c679388097.shtml</a>（ETF 涨跌榜/英伟达/政治局会议/经济数据）<br>
+    ③ 智通财经：<a href="https://www.zhitongcaijing.com/content/detail/1487847.html" style="color:#38bdf8">A股收评 | 冲高回落沪指微跌 农业化工领涨 双创跌超1%</a><br>
+    ④ 新浪财经：<a href="https://cj.sina.cn/articles/view/1231727234/496aaa8202701bu5y" style="color:#38bdf8">指数普跌，超3000股收红！今日行情，藏着一个关键细节</a><br>
+    ⑤ 澎湃新闻/今日头条：<a href="https://www.toutiao.com/article/7678981469167026707/" style="color:#38bdf8">A股早盘冲高回落，尾盘快速下挫：石化、农业板块走强</a><br>
+    ⑥ 中新经纬/今日头条：<a href="https://www.toutiao.com/article/7678981638839108142/" style="color:#38bdf8">A股三大指数集体收跌，化肥板块逆市大涨</a><br>
+    ⑦ 今日头条/电报君：<a href="https://www.toutiao.com/article/7678981239923114511/" style="color:#38bdf8">8月28日A股宽基指数全线下跌</a><br>
+    ⑧ 国际金融报：<a href="https://www.ifnews.com/news.html?aid=864924&cid=49" style="color:#38bdf8">国际金融要情（周五 2026.8.28）</a><br>
+    ⑨ 国家统计局/海关总署：<a href="https://www.stats.gov.cn/" style="color:#38bdf8">7 月经济数据 + 大宗商品涨价潮</a><br>
+    ⑩ 财联社/财闻网：<a href="https://www.cls.cn/" style="color:#38bdf8">英伟达财报+AI 一日游分析+中东地缘</a><br>
+    ⑪ 北证 50 basic_info / 智通财经 / 雪球热议"AI 利好一日游"多源交叉核验<br>
+    ⑫ 财信证券晨会纪要 / 中信建投 / 招商证券：<a href="https://finance.sina.com.cn/roll/2026-08-28/doc-inipvmmz8929365.shtml" style="color:#38bdf8">https://finance.sina.com.cn/roll/2026-08-28/doc-inipvmmz8929365.shtml</a>
+  </div>
+
+  <!-- ============ 页脚 ============ -->
+  <div class="footer">
+    <p>📅 数据日期：2026-08-28（周五收盘） · 下一个交易日：2026-08-31（周一）</p>
+    <p>📊 数据来源：同花顺 / Wind / 智通财经 / 新浪财经 / 澎湃新闻 / 中新经纬 / 国际金融报 / 国家统计局 / 海关总署 / 财联社</p>
+    <p>⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供研究参考，不构成投资建议。市场有风险，决策需谨慎。</p>
+    <p style="margin-top: 10px; color: #475569;">本报告基于 A股日度复盘生成方法论 v1.1 + A股复盘可视化样式规范 v1.0 + 蚂蚁财富三维共振模型市场分析方法论编制</p>
+  </div>
+
+</div>
+</body>
+</html>

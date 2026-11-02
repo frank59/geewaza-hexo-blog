@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-13 A 股复盘 · 周二探底回升微涨 · 5 大指数分化（沪+0.10%·深-0.25%·创-0.18%·科创50+0.03%·北证50-0.31%）· 算力修复资金回流（CPO 61.41亿 + 芯片 53.24亿）· 国企改革新主线（SOE 54.59亿）· 军工/冰雪/染料领涨 · 航空航天 ETF +3.85% 领涨 · 慈文传媒 3 连板文化传媒延续 · 保险/电池/风电/能源金属领跌</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.45);
+    border-radius: 20px; padding: 36px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(16,185,129,0.20), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 28px; font-weight: 700;
+    background: linear-gradient(90deg, #34d399, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .header .subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+  .section-title {
+    font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: var(--text-primary); font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .data-note {
+    background: var(--card-deep); border: 1px dashed var(--border-mid);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(16,185,129,0.10); border-left: 5px solid #10b981;
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 16px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #f87171; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(239,68,68,0.2); color: #f87171; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion.ok .conclusion-item .num { background: rgba(16,185,129,0.2); color: #34d399; }
+  .conclusion.warn .conclusion-item .num { background: rgba(245,158,11,0.2); color: #fbbf24; }
+  .conclusion.info .conclusion-item .num { background: rgba(56,189,248,0.2); color: #38bdf8; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<!-- ============ ① 头部 ============ -->
+<div class="header">
+  <h1>🟢 2026-10-13 A 股复盘 · 周二探底回升微涨 · 5 大指数分化（沪 +0.10% / 深 -0.25% / 创 -0.18% / 科创 50 +0.03% / 北证 50 -0.31%）· 沪指终结 D-1 全线杀跌 · 三市成交 16889 亿（较 10/12 放量 1382 亿 +8.9%）· 超 2900 只个股上涨 · 算力修复资金回流（CPO 61.41 亿 TOP1 + 芯片 53.24 亿 TOP3）· 国企改革新主线（SOE Reform 54.59 亿 TOP2）· 军工/冰雪/染料/PCB 领涨 · 航空航天 ETF 159227 +3.85% 领涨 · 慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）· 保险/电池/风电/生物制品/能源金属/光伏设备领跌（防御反转延续）</h1>
+  <div class="subtitle">沪指 <b class="up-text">+0.10%</b> / 深成 <b class="warn-text">-0.25%</b> / 创业板 <b class="warn-text">-0.18%</b> / 科创 <b class="up-text">+0.03%</b> / 北证 50 <b class="warn-text">-0.31%</b> · 三市成交 <b class="info-text">16889 亿（较 10/12 15507 亿放量 1382 亿 +8.9%）</b> · 超 <b class="up-text">2900 只个股上涨</b> · 数据日期 2026-10-13（周二收盘 · 国庆假期后第四个交易日 · 探底回升微涨 · 算力修复资金回流 + 国企改革新主线 + 军工/冰雪/染料领涨 + 防御反转延续 + 文化传媒重组主线新龙头接力 · 与 D-1（10/12）"<b class="danger-text">周一缩量杀跌 5 大指数全线飘绿</b>"形成"<b class="up-text">周一全线杀跌 → 周二探底回升微涨</b>"两阶段修复路径）</div>
+  <div class="badges">
+    <span class="badge badge-up">🟢 沪指探底回升微涨</span>
+    <span class="badge badge-warn">📊 5 大指数分化</span>
+    <span class="badge badge-up">📈 放量 1382 亿 +8.9%</span>
+    <span class="badge badge-up">🟢 超 2900 只上涨</span>
+    <span class="badge badge-up">🚀 CPO 61.41 亿 TOP1</span>
+    <span class="badge badge-purple">🏛️ SOE 54.59 亿 TOP2</span>
+    <span class="badge badge-up">💾 芯片 53.24 亿 TOP3</span>
+    <span class="badge badge-purple">✈️ 军工 + 航空航天 ETF +3.85%</span>
+    <span class="badge badge-purple">❄️ 冰雪经济</span>
+    <span class="badge badge-purple">🎨 染料成本上涨</span>
+    <span class="badge badge-purple">📺 慈文传媒 3 连板</span>
+    <span class="badge badge-danger">🔴 保险/电池/风电领跌</span>
+    <span class="badge badge-source">📅 数据日期 2026-10-13</span>
+  </div>
+</div>
+
+<!-- ============ ② 数据说明 ============ -->
+<div class="data-note">
+  <strong>📌 数据口径与双源验证：</strong><br>
+  ✅ <span class="ok">同花顺 A 股收评 c680631818（用户提供主源）</span> —— <span class="up-text">沪指 +0.10% / 深成 -0.25% / 创业板 -0.18% / 科创 50 +0.03% / 北证 50 -0.31%</span> · <span class="info-text">成交 16889 亿（放量 1382 亿 +8.9%）</span> · <span class="up-text">超 2900 只个股上涨</span> · <span class="up-text">领涨：染料 / 军工 / 冰雪 / PCB / CPO</span> · <span class="danger-text">领跌：保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备</span> · <span class="up-text">主力净流入 TOP3：CPO 61.41 亿 + SOE Reform 54.59 亿 + Chips 53.24 亿 · 合计 169.24 亿</span> · <span class="up-text">涨停天梯 3 连板含慈文传媒（002343）+ 百洋股份（002696）+ 新经典（603096）+ 丽人丽妆（605136）+ 龙版传媒（605577）共 5 只 · 2 连板含农心科技（001231）等 5 只</span> · <span class="danger-text">跌停代表：紫竹高科（002058）+ 大金重工（002487）</span> · 机构观点：<span class="warn-text">成本上涨顺价兑现（染料）</span> · 核心定性："<span class="up-text">A股三大指数今日涨跌不一 · 沪指探底回升微涨 · 元件、PCB 概念股涨幅居前</span>"。<br>
+  ✅ <span class="ok">同花顺 ETF 收评 c680631810（用户提供主源）</span> —— <span class="up-text">航空航天 ETF（159227）+3.85% 领涨</span>（航天科技 + 低空经济受政策利好提振）· <span class="danger-text">纳指生物科技 ETF（513290）-3.97% 领跌</span>（医药 AI 主线 ETF 端反转 · D-1 +4.31% 领涨反转）· <span class="danger-text">港股通医疗 ETF（526010）-3.77%</span>。<br>
+  ✅ <span class="ok">D-1（10/12 周一）复盘文档 c680584280 + c680584279</span>（<code>geewaza-hexo-blog/source/investment/ashare/review/2026/10/20261012.html</code>）—— 5 大指数全线杀跌（沪 -0.43% / 深 -2.03% / 创 -2.61% / 科创 -2.1% / 北证 -2.46%）· 三市成交 15507 亿 · 超 4300 只下跌 · 新华传媒 10 连板 + 跨境支付 24.91 亿 TOP1 + 证金持股 18.81 亿 TOP2 + 短剧游戏 16.58 亿 TOP3 · 通信 ETF -5.07% 领跌 · 算力承压延续 · 防御反转（贵金属 / 粮食领跌）。<br>
+  ✅ <span class="ok">D-2（10/9 周五）复盘文档 c680519305 + c680519291</span>（<code>geewaza-hexo-blog/source/investment/ashare/review/2026/10/20261009.html</code>）—— 5 大指数全线翻红（沪 +0.05% / 深 +0.17% / 创 +0.22% / 科创 +0.07% / 北证 +2.49%）· 三市成交 19167 亿 · 超 3200 只上涨 · 新华传媒 9 连板 · 影视 ETF +7.73% 领涨 · 黄金 ETF 净流入（持仓升至 100.93 百万盎司）· 科创综指增强 ETF -3.55% 领跌（算力修复未收复）。<br>
+  ⚠️ <span class="warn-text">五大指数收盘点位缺口</span>（同花顺 c680631818 仅披露涨跌幅 · 未披露绝对点位）· 沪指 / 深成 / 创业 / 科创 50 / 北证 50 收盘点位需用户本地 Wind / 同花顺客户端核对。<br>
+  ⚠️ <span class="warn-text">今日涨停家数 / 跌停家数 / 封板率 / 炸板数公开数据缺口</span>（同花顺 c680631818 仅披露代表性涨停 / 跌停股）· 仅披露代表性涨停 5 只 3 连板 + 5 只 2 连板 + 代表性跌停 紫竹高科（002058）+ 大金重工（002487）。<br>
+  ⚠️ <span class="warn-text">同花顺两域同源说明</span>：c680631818（A 股收评）+ c680631810（ETF 收评）均来自 news.10jqka.com.cn 域；做双源核验时仅作主源参考，已搭配 D-1 / D-2 历史复盘文档做交叉核验。<br>
+  ⚠️ <span class="warn-text">今日（10/13 周二）与 D-1（10/12 周一）间隔 1 天交易日</span> · 与 D-2（10/9 周五）间隔 10/10-10/11 周末 + 10/12（周一）· 今日为国庆假期后第四个交易日 · 按 SOP §4.2.4 规则呈现三段式脉络（D-2 10/9 → D-1 10/12 → 今日 10/13）标注。
+</div>
+
+<!-- ============ ③ 主题横幅 ============ -->
+<div class="theme-banner ok">
+  <div class="icon">🟢</div>
+  <div class="text">
+    <h3>核心定性：周二探底回升微涨 · 5 大指数分化 · 沪指微涨终结 D-1 全线杀跌 · 算力修复资金回流（CPO 61.41 亿 TOP1 + 芯片 53.24 亿 TOP3 · 资金回流算力反转 D-1 承压延续）· 国企改革新主线（SOE Reform 54.59 亿 TOP2 · 接力 D-1 银行分红提升）· 军工/冰雪/染料领涨 · 航空航天 ETF +3.85% 领涨 · 慈文传媒 + 龙版传媒双双 3 连板 · 保险/电池/风电/生物制品/能源金属/光伏设备领跌（防御反转延续）</h3>
+    <p>沪指 <b class="up-text">+0.10%</b> / 深成指 <b class="warn-text">-0.25%</b> / 创业板指 <b class="warn-text">-0.18%</b> / 科创 <b class="up-text">+0.03%</b> / 北证 50 <b class="warn-text">-0.31%</b>（周二探底回升微涨 · 5 大指数分化 · 2 涨 3 跌）· 三市成交 <b class="info-text">16889 亿（较 10/12 15507 亿放量 1382 亿 +8.9%）</b> · 超 <b class="up-text">2900 只个股上涨</b>（D-2 10/9 超 3200 涨 → D-1 10/12 超 4300 跌 → 今日 超 2900 涨 三阶段震荡反转）· 领涨 TOP5：<b class="up-text">染料 / 军工装备 / 冰雪 / PCB / CPO</b>（<b class="up-text">算力修复资金回流 + 国企改革新主线 + 军工/冰雪政策催化 + 染料成本上涨顺价兑现 + PCB 元件涨价</b>五主线）· 领跌 TOP5：<b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备</b>（<b class="danger-text">防御反转延续 + 保险加入</b>）· <b class="up-text">主力净流入 TOP3：CPO 61.41 亿 TOP1 + SOE Reform 54.59 亿 TOP2 + Chips 53.24 亿 TOP3 · 合计 169.24 亿</b>（较 D-1 10/12 60.30 亿 <b class="up-text">放量 +109.0%</b>）· <b class="up-text">涨停天梯 3 连板：慈文传媒 + 龙版传媒 · 共 5 只 · 文化传媒重组主线新龙头接力</b> · <b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>（航天科技 + 低空经济政策利好提振）· <b class="danger-text">纳指生物科技 ETF（513290）-3.97% 领跌（医药 AI 主线 ETF 端反转）</b> · <b class="danger-text">港股通医疗 ETF（526010）-3.77%</b> · <b class="up-text">印证 D-1（10/12）"<b class="danger-text">周一缩量杀跌 + 重组主线再升级 + 算力承压延续</b>"反转 → 今日"<b class="up-text">周二探底回升微涨 + 算力修复资金回流 + 国企改革新主线 + 军工/冰雪/染料领涨 + 文化传媒重组主线新龙头接力 + 防御反转延续</b>"多主线切换路径。</p>
+  </div>
+</div>
+
+<!-- ============ ④ 五大指数 ============ -->
+<div class="section-title">📊 一、五大指数核心表现（5 大指数分化 · 沪指 +0.10% 微涨领涨终结 D-1 全线杀跌 · 深成/创业/北证 3 跌 · 放量 1382 亿 +8.9%）</div>
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">+0.10%</div>
+    <div class="name">上证指数（1A0001）</div>
+    <div class="value">微涨</div>
+    <div class="change" style="color:#34d399">点位缺口</div>
+    <div class="label">10/12 <b class="danger-text">-0.43%</b> → 今日 <b class="up-text">+0.10%</b> 微涨 · <b class="up-text">终结 D-1 全线杀跌</b> · 主板权重跟随探底回升 · <b class="info-text">银行 / 中特估权重抗跌（SOE Reform 54.59 亿 TOP2 国企改革新主线）</b> · <b class="up-text">5 大指数中唯一明显领涨（沪 +0.10% · 主板权重承接）</b></div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag danger">-0.25%</div>
+    <div class="name">深证成指（399001）</div>
+    <div class="value">微跌</div>
+    <div class="change" style="color:#fca5a5">点位缺口</div>
+    <div class="label">10/12 <b class="danger-text">-2.03%</b> → 今日 <b class="warn-text">-0.25%</b> 微跌 · <b class="warn-text">深弱显著（成长股分化）</b> · <b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 算力修复延续</b> · 印证 D-1 "<b class="danger-text">深弱杀跌</b>"反转 → 今日"<b class="warn-text">深弱修复 · 但仍微跌</b>"</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag danger">-0.18%</div>
+    <div class="name">创业板指（399006）</div>
+    <div class="value">微跌</div>
+    <div class="change" style="color:#fca5a5">点位缺口</div>
+    <div class="label">10/12 <b class="danger-text">-2.61%</b> → 今日 <b class="warn-text">-0.18%</b> 微跌 · <b class="up-text">芯片 +53.24 亿 TOP3 资金回流（CPO +61.41 亿 TOP1 算力修复）</b> · <b class="info-text">D-1 10/12 创业 -2.61% 杀跌 → 今日 -0.18% 微跌</b>两阶段反转 · <b class="up-text">算力修复延续</b></div>
+  </div>
+  <div class="index-card info">
+    <div class="tag ok">+0.03%</div>
+    <div class="name">科创 50（899050）</div>
+    <div class="value">微涨</div>
+    <div class="change" style="color:#34d399">点位缺口</div>
+    <div class="label">10/12 <b class="danger-text">-2.1%</b> → 今日 <b class="up-text">+0.03%</b> 微涨 · <b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 算力修复</b> · <b class="info-text">印证 D-1（10/12）"<b class="danger-text">通信 ETF -5.07% 算力承压延续</b>"反转 → 今日"<b class="up-text">CPO / 芯片 TOP1+TOP3 算力修复资金回流</b>"两阶段反转路径</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag danger">-0.31%</div>
+    <div class="name">北证 50（899050）</div>
+    <div class="value">微跌</div>
+    <div class="change" style="color:#fca5a5">点位缺口</div>
+    <div class="label">10/12 <b class="danger-text">-2.46%</b> → 今日 <b class="warn-text">-0.31%</b> 微跌 · <b class="info-text">D-1 -2.46% 杀跌 → 今日 -0.31% 微跌</b>两阶段反转 · 印证"<b class="warn">小盘修复缓慢</b>"特征</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 指数口径补充：</strong>① 同花顺 c680631818 收评（用户提供主源）：<b class="up-text">沪指 +0.10% / 深成 -0.25% / 创业 -0.18% / 科创 50 +0.03% / 北证 50 -0.31%</b> · 五大指数收盘点位未明示（仅披露涨跌幅）；② <b class="info-text">较 D-1（10/12）的 15507 亿放量 1382 亿 +8.9%（节后第四个交易日 · 探底回升放量特征）</b>；③ D-1（10/12）收盘 <b class="danger-text">5 大指数全线飘绿</b> → 今日 <b class="warn-text">5 大指数分化</b>形成"<b class="up-text">D-1 全线杀跌 → 今日 分化探底回升微涨</b>"两阶段修复路径；④ <b class="info-text">5 大指数分化（2 涨 3 跌）：沪指 +0.10% 微涨领涨（主板权重承接）· 深成 -0.25% 微跌 · 创业 -0.18% 微跌 · 科创 50 +0.03% 微涨 · 北证 50 -0.31% 微跌</b>，印证"<b class="info-text">探底回升微涨特征 · 沪指主板权重抗跌</b>"特征；⑤ 主因：<b class="up-text">算力修复资金回流 + 国企改革新主线 + 军工/冰雪/染料领涨 + 航空航天 ETF +3.85% 领涨 + 文化传媒重组主线新龙头接力 + 防御反转延续 + 医药 AI ETF 端反转</b>。
+</div>
+
+<!-- ============ ⑤ 市场交易与资金信号 ============ -->
+<div class="section-title info">💰 二、市场交易与资金信号（5 大指数分化 · 周二探底回升微涨 · 放量 1382 亿 +8.9% · 算力修复资金回流 + 国企改革新主线 + 军工/冰雪/染料领涨 + 防御反转延续）</div>
+<div class="market-stats">
+  <div class="stat-card up">
+    <div class="stat-name">三市成交额</div>
+    <div class="stat-value">16889 亿</div>
+    <div class="stat-detail">较 10/12（15507 亿）<b class="up-text">放量 1382 亿（+8.9%）</b> · <b class="up-text">放量探底回升特征（沪指 +0.10% 微涨 + 放量 8.9%）</b> · 10/9 节后第二个交易日放量探底回升 → 10/12 节后第三个交易日缩量杀跌 → 10/13 节后第四个交易日放量探底回升 · <b class="info-text">周三情绪修复 · 资金观望情绪缓解</b></div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">个股活跃度</div>
+    <div class="stat-value">超 2900 涨</div>
+    <div class="stat-detail">同花顺披露"<b class="up-text">超 2900 只个股上涨</b>" · 与 D-1（10/12）的"<b class="danger-text">超 4300 只个股下跌</b>"形成"<b class="up-text">4300 跌 → 2900 涨</b>"反转 · <b class="info-text">D-2 10/9 超 3200 涨 → D-1 10/12 超 4300 跌 → 今日 超 2900 涨 三阶段震荡</b> · <b class="up-text">代表性涨停：慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）</b></div>
+  </div>
+  <div class="stat-card warn">
+    <div class="stat-name">领涨 vs 领跌</div>
+    <div class="stat-value">军工↑ / 保险↓</div>
+    <div class="stat-detail"><b class="up-text">染料 / 军工装备 / 冰雪 / PCB / CPO 领涨</b>（<b>算力修复资金回流 + 国企改革新主线 + 军工/冰雪政策催化 + 染料成本上涨顺价兑现 + PCB 元件涨价</b>五主线）· <b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b>（<b>防御反转延续 + 保险加入 + 风电反转</b>）</div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">ETF 领涨 / 领跌</div>
+    <div class="stat-value">航空航天ETF +3.85% / 纳指生物科技ETF -3.97%</div>
+    <div class="stat-detail"><b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>（航天科技 + 低空经济政策利好提振）· <b class="danger-text">纳指生物科技 ETF（513290）-3.97% 领跌</b>（医药 AI 主线 ETF 端反转 · 与 <b class="info-text">D-1 10/12 +4.31% 领涨</b>印证反转）· <b class="danger-text">港股通医疗 ETF（526010）-3.77%</b></div>
+  </div>
+</div>
+<!-- ============ ⑥ 主力资金净流入 TOP3 ============ -->
+<div class="section-title">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径（CPO 61.41 亿 TOP1 + SOE Reform 54.59 亿 TOP2 + Chips 53.24 亿 TOP3 · 合计 169.24 亿 · 较 D-1 60.30 亿放量 +109.0% · 算力修复资金回流 + 国企改革新主线）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>ℹ️ 资金面数据来源：</strong>① <b class="ok">同花顺 c680631818 10/13 收评披露具体 TOP3 净流入金额</b>（与 D-1 10/12 c680584280 60.30 亿印证）· ② <b class="info-text">CPO 61.41 亿 TOP1 + SOE Reform 54.59 亿 TOP2 + Chips 53.24 亿 TOP3 · 合计 169.24 亿</b>（较 D-1 60.30 亿 <b class="up-text">放量 +109.0%</b> · <b class="up-text">资金回流算力修复 + 国企改革新主线</b>特征）。
+</div>
+<div class="flow-table">
+  <div class="flow-row header"><div>排名</div><div>主题板块</div><div>净流入金额</div><div>板块表现 / 印证</div></div>
+  <div class="flow-row">
+    <div><span class="flow-rank up">1</span></div>
+    <div><b>CPO（光模块算力）</b></div>
+    <div class="flow-val up">+61.41 亿</div>
+    <div><b class="ok">CPO +61.41 亿 TOP1</b>（同花顺 c680631818 主源披露具体金额）· <b class="info-text">算力修复资金回流 · PCB / 元件涨幅居前</b> · <b class="up-text">资金回流算力反转 D-1（10/12）"通信 ETF -5.07% 算力承压延续"</b> · <b class="up-text">新主线（🔀 切）：CPO 从 D-1/D-2 默默无闻 → 今日 +61.41 亿 TOP1 算力修复资金回流</b> · 与芯片 TOP3 形成"<b class="up-text">算力硬件修复双主线</b>"</div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank info">2</span></div>
+    <div><b>SOE Reform / 国企改革</b></div>
+    <div class="flow-val up">+54.59 亿</div>
+    <div><b class="ok">国企改革 +54.59 亿 TOP2</b>（同花顺 c680631818 主源披露具体金额）· <b class="info-text">中特估 + 高股息 + 金融权重主线</b> · <b class="info-text">银行分红提升延续 + 中特估主线</b>（D-1 10/12 银行分红提升 + 证金持股 TOP2 + 跨境支付 TOP1）· <b class="up-text">新主线延续：国企改革从中特估 → 今日 SOE Reform +54.59 亿 TOP2 国企改革新主线</b> · 与 CPO TOP1 + 芯片 TOP3 形成"<b class="up-text">算力修复 + 国企改革 双主线</b>"</div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank purple">3</span></div>
+    <div><b>Chips / 芯片</b></div>
+    <div class="flow-val up">+53.24 亿</div>
+    <div><b class="ok">芯片 +53.24 亿 TOP3</b>（同花顺 c680631818 主源披露具体金额）· <b class="info-text">算力修复资金回流（半导体 / 芯片 / 国产替代）</b> · <b class="up-text">资金回流算力反转 D-1（10/12）"芯片领跌"</b> · 与 CPO TOP1 形成"<b class="up-text">算力硬件修复双主线（CPO +61.41 亿 + 芯片 +53.24 亿 · 合计 114.65 亿）</b>"</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 资金面补充：</strong>① <b>同花顺 c680631818 10/13</b>：<b class="ok">披露 TOP3 具体金额（CPO 61.41 亿 + SOE Reform 54.59 亿 + Chips 53.24 亿 · 合计 169.24 亿）</b>（与 D-1 10/12 c680584280 60.30 亿印证放量 +109.0%）；② <b class="info-text">资金体量变化</b>：<b class="ok-text">D-2 10/9 重组主线 + AI 视频 + 黄金（数据缺口）→ D-1 10/12 跨境支付 + 证金持股 + 短剧游戏 合计 60.30 亿→ 今日（10/13）CPO + SOE Reform + Chips 合计 169.24 亿</b>—— 印证"<b class="ok-text">资金回流算力修复（CPO + 芯片 TOP1+TOP3 合计 114.65 亿）+ 国企改革新主线（SOE Reform TOP2 54.59 亿）</b>"三阶段切换路径；③ <b class="up-text">三市成交 16889 亿（放量 8.9%）背景下，主力净流入 TOP3 合计 169.24 亿占比 1.00%（资金集中度回升）</b>；④ <b class="warn-text">净流出 TOP3 数据缺口</b>。
+</div>
+
+<!-- ============ ⑦ 今日主线板块与逻辑（三段式时间脉络） ============ -->
+<div class="section-title">🎯 四、今日主线板块与逻辑（近 3 个交易日三段式脉络 · D-2=10/9 → D-1=10/12 → 今日=10/13 · 中间 10/10-10/11 周末）</div>
+<div class="mainlines">
+
+  <!-- 主线 1：CPO/芯片 算力修复资金回流（rank-1 绿色） -->
+  <div class="mainline-card rank-1">
+    <div class="mainline-rank">1</div>
+    <div class="title">🚀 CPO/芯片 算力修复资金回流（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 · 算力硬件合计 114.65 亿 · PCB + 元件涨幅居前 · 算力修复资金回流反转 D-1 通信 ETF -5.07% 算力承压延续 · 9/29 起源 → D-2 修复未收复 → D-1 承压延续 → 今日 资金回流）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 算力修复</span>
+      <span class="mainline-tag info">CPO 61.41亿TOP1</span>
+      <span class="mainline-tag info">芯片53.24亿TOP3</span>
+      <span class="mainline-tag warn">PCB/元件</span>
+      <span class="mainline-tag purple">四阶段路径</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 10/10-10/11 周末）<br>
+      · D-2（10/9）：<b>🔽 降</b> · <b class="danger-text">算力修复未收复（科创综指增强 ETF 588550 -3.55% 领跌全市场）</b>（同花顺 c680519291 印证）· <b class="danger-text">芯片领跌（同花顺 c680519305 主源披露）</b><br>
+      · D-1（10/12）：<b>🔽 降</b>（续） · <b class="danger-text">通信 ETF（515880）-5.07% 领跌全市场 + 纳指科技 ETF（159509）-4.84% + 通信 ETF（515050）-4.64%</b>（同花顺 c680584279 印证）· <b class="danger-text">算力承压延续</b><br>
+      · 今日（10/13）：<b>🔼 升</b> · <b class="ok-text">CPO +61.41 亿 TOP1（同花顺 c680631818 主源披露具体金额）</b> · <b class="ok-text">芯片 +53.24 亿 TOP3（同花顺 c680631818 主源披露具体金额）</b> · <b class="up-text">PCB + 元件涨幅居前（同花顺 c680631818 主源披露）</b> · <b class="up-text">印证 D-1"<b class="danger-text">通信 ETF -5.07% 算力承压延续</b>"反转 → 今日"<b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 · 算力修复资金回流</b>"两阶段反转 · <b class="up-text">算力硬件合计 114.65 亿</b><br>
+      · 变化方向：<b class="up-text">🔼 升</b>（D-2 算力修复未收复 → D-1 算力承压延续 → 今日 算力修复资金回流）<br>
+      · 切换归因：<b class="up-text">议息扰动持续消化（10/13 九次消化）+ 摩根士丹利报告长尾影响缓解 + 节后分化窗口资金回流算力修复 + PCB / 元件涨价</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>算力板块在 D-2（10/9）"<b class="danger-text">算力修复未收复（科创综指增强 ETF -3.55% 领跌 + 芯片领跌）</b>" → D-1（10/12）"<b class="danger-text">通信 ETF -5.07% 领跌全市场 + 纳指科技 ETF -4.84% + 通信 ETF -4.64% · 算力承压延续</b>" → 今日（10/13）"<b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB / 元件涨幅居前 · 算力修复资金回流</b>"。10/13 算力"<b class="up-text">修复资金回流 · 算力硬件合计 114.65 亿</b>"，与 D-1"<b class="danger-text">算力承压延续</b>"形成"<b class="up-text">算力承压延续 → 算力修复资金回流</b>"两阶段反转路径。<br>
+      <b>【催化】</b>① <b>CPO +61.41 亿 TOP1（核心催化）：</b><b class="up-text">CPO +61.41 亿 TOP1</b>（同花顺 c680631818 主源披露具体金额）—— 印证"<b class="up-text">资金回流算力修复</b>"特征；② <b>芯片 +53.24 亿 TOP3：</b><b class="up-text">芯片 +53.24 亿 TOP3</b>—— 印证"<b class="up-text">半导体 / 芯片 / 国产替代</b>"资金回流；③ <b>PCB + 元件涨幅居前：</b><b class="up-text">PCB + 元件涨幅居前</b>—— 印证"<b class="up-text">算力硬件修复 + PCB 涨价</b>"特征；④ <b>议息扰动九次消化：</b><b class="info-text">9/17 凌晨议息鹰派已落地 · 10/13 议息扰动九次消化（议息后第 22 个交易日 · 国庆后第四个交易日）</b>压制成长股估值缓解；⑤ <b>D-1 算力承压延续反转：</b>D-1"<b class="danger-text">通信 ETF -5.07% 领跌全市场</b>" → 今日"<b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3</b>"两阶段反转。<br>
+      <b>【归因】</b>D-3（9/29）"<b class="up-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2</b>" → D-2（10/9）"<b class="danger-text">算力修复未收复</b>" → D-1（10/12）"<b class="danger-text">通信 ETF -5.07% 算力承压延续</b>" → 今日（10/13）"<b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 · 算力修复资金回流</b>"。印证"<b class="up-text">"算力修复 → 算力修复未收复 → 算力承压延续 → 算力修复资金回流"</b>"四阶段路径完整。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip">CPO +61.41 亿 TOP1（同花顺 c680631818 主源披露具体金额）</span>
+      <span class="stock-chip">芯片 +53.24 亿 TOP3（同花顺 c680631818 主源披露具体金额）</span>
+      <span class="stock-chip">PCB / 元件（涨幅居前 · 同花顺 c680631818 主源披露）</span>
+      <span class="stock-chip">D-1 10/12 通信 ETF 515880（-5.07% 领跌全市场 → 今日算力修复反转）</span>
+      <span class="stock-chip">D-1 10/12 纳指科技 ETF 159509（-4.84% → 今日算力修复反转）</span>
+      <span class="stock-chip">D-2 10/9 科创综指增强 ETF 588550（-3.55% 领跌全市场 · 今日算力修复反转）</span>
+      <span class="stock-chip">D-2 10/9 芯片股（领跌 · 今日资金回流反转）</span>
+      <span class="stock-chip">国产替代 / 半导体设备 / 光模块（资金回流算力修复）</span>
+    </div>
+  </div>
+
+  <!-- 主线 2：国企改革 / SOE Reform（rank-2 蓝色） -->
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">2</div>
+    <div class="title">🏛️ 国企改革 / SOE Reform（中特估新主线 · SOE Reform +54.59 亿 TOP2 · 接力 D-1 10/12 银行分红提升 + 证金持股 TOP2 · 中特估 + 高股息 + 金融权重主线 · 与 CPO + 芯片 算力修复形成双主线）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 国企改革</span>
+      <span class="mainline-tag info">SOE 54.59亿TOP2</span>
+      <span class="mainline-tag warn">中特估</span>
+      <span class="mainline-tag info">高股息</span>
+      <span class="mainline-tag purple">金融权重</span>
+      <span class="mainline-tag purple">接力银行</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 10/10-10/11 周末）<br>
+      · D-2（10/9）：<b>━━ 持</b> · <b class="info-text">券商股、黄金股集体异动（东方财富盘中直播印证）</b> · 国企改革 / 中特估未在 TOP 领涨但有跟随<br>
+      · D-1（10/12）：<b>🔼 升</b> · <b class="up-text">跨境支付 24.91 亿 TOP1 + 证金持股 18.81 亿 TOP2 · 银行板块涨幅居前（同花顺 c680584280 主源披露"AI 视频、游戏、银行板块涨幅居前"）</b> · <b class="info-text">银行分红提升催化（中特估 + 高股息 + 金融权重）</b> · <b class="info-text">新主线（🔀 切）：银行从 D-1/D-2 默默无闻 → 今日银行分红提升</b><br>
+      · 今日（10/13）：<b>🔀 切</b> · <b class="up-text">SOE Reform +54.59 亿 TOP2（同花顺 c680631818 主源披露具体金额）</b> · <b class="info-text">国企改革 + 中特估主线接力 D-1 银行分红提升</b> · <b class="up-text">印证 D-1"<b class="up-text">银行分红提升（中特估 + 高股息）</b>"反转 → 今日"<b class="up-text">SOE Reform +54.59 亿 TOP2 国企改革新主线</b>"两阶段切换 · 与 CPO TOP1 + 芯片 TOP3 形成"<b class="up-text">算力修复 + 国企改革 双主线</b>"<br>
+      · 变化方向：<b class="up-text">🔀 切</b>（D-1 银行分红提升 → 今日 SOE Reform 国企改革新主线 · 接力中特估）<br>
+      · 切换归因：<b class="up-text">中特估主线延续 + 国企改革催化 + 高股息配置需求 + 银行分红提升接力 → 国企改革 + 中特估主线</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>国企改革 / 中特估主线在 D-2（10/9）"<b class="info-text">券商股、黄金股集体异动</b>" → D-1（10/12）"<b class="up-text">跨境支付 24.91 亿 TOP1 + 证金持股 18.81 亿 TOP2 · 银行分红提升催化</b>" → 今日（10/13）"<b class="up-text">SOE Reform +54.59 亿 TOP2 · 国企改革 + 中特估主线接力</b>"。10/13 国企改革"<b class="up-text">SOE Reform +54.59 亿 TOP2 国企改革新主线</b>"，与 D-1"<b class="up-text">银行分红提升</b>"形成"<b class="up-text">银行分红提升 → SOE Reform 国企改革新主线接力</b>"两阶段切换路径。<br>
+      <b>【催化】</b>① <b>SOE Reform +54.59 亿 TOP2（核心催化）：</b><b class="up-text">SOE Reform +54.59 亿 TOP2</b>（同花顺 c680631818 主源披露具体金额）—— 印证"<b class="up-text">国企改革 + 中特估主线</b>"特征；② <b>D-1 银行分红提升接力：</b><b class="info-text">银行分红提升催化（中特估 + 高股息 + 金融权重）</b>（WebSearch 第二源印证）—— <b class="up-text">中特估主线延续 + 国企改革催化</b>；③ <b>三季报银行龙头业绩验证：</b><b class="info-text">三季报银行龙头业绩验证 + 中特估 + 高股息配置需求</b>—— <b class="up-text">金融权重主线</b>特征；④ <b>D-2 10/9 券商股异动延续：</b><b class="info-text">券商股、黄金股集体异动（东方财富盘中直播印证）</b> → D-1 银行接管 → 今日国企改革接力。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip">SOE Reform +54.59 亿 TOP2（同花顺 c680631818 主源披露具体金额）</span>
+      <span class="stock-chip">国企改革概念（中特估主线）</span>
+      <span class="stock-chip">D-1 10/12 银行板块（涨幅居前 · 同花顺 c680584280 主源披露）</span>
+      <span class="stock-chip">D-1 10/12 跨境支付 24.91 亿 TOP1</span>
+      <span class="stock-chip">D-1 10/12 证金持股 18.81 亿 TOP2</span>
+      <span class="stock-chip">D-2 10/9 券商股（异动 · 今日国企改革接力）</span>
+      <span class="stock-chip">D-2 10/9 黄金股（异动 · 防御反弹 · 今日防御反转延续）</span>
+      <span class="stock-chip">中特估 / 高股息 / 金融权重（配置主线）</span>
+    </div>
+  </div>
+
+  <!-- 主线 3：军工 / 冰雪 / 航空航天（rank-3 紫色） -->
+  <div class="mainline-card rank-3">
+    <div class="mainline-rank">3</div>
+    <div class="title">✈️ 军工 / 冰雪经济（军工装备涨幅居前 + 航空航天 ETF 159227 +3.85% 领涨 · 航天科技 + 低空经济政策利好提振 · 新主线 🔀 切 · 与 CPO + 国企改革形成双主线）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 政策催化</span>
+      <span class="mainline-tag info">航空航天ETF+3.85%</span>
+      <span class="mainline-tag warn">低空经济</span>
+      <span class="mainline-tag purple">🔀 切</span>
+      <span class="mainline-tag info">冰雪经济</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 10/10-10/11 周末）<br>
+      · D-2（10/9）：<b>━━ 持</b> · <b class="info-text">军工 / 冰雪未在 TOP 领涨（同花顺 c680519305 主源披露"AI 视频 / 贵金属 / 粮食"领涨）</b><br>
+      · D-1（10/12）：<b>━━ 持</b> · <b class="info-text">军工未在 TOP 领涨（同花顺 c680584280 主源披露"AI 视频、风电设备、银行板块涨幅居前"）</b><br>
+      · 今日（10/13）：<b>🔀 切</b> · <b class="ok-text">军工装备涨幅居前（同花顺 c680631818 主源披露"染料、军工、冰雪、PCB、CPO"领涨）</b> · <b class="up-text">航空航天 ETF（159227）+3.85% 领涨（同花顺 c680631810 主源披露）</b> · <b class="up-text">航天科技 + 低空经济受政策利好提振（同花顺 c680631810 主源披露）</b> · <b class="info-text">冰雪经济涨幅居前</b> · 印证"<b class="up-text">军工政策利好落地 · 航空航天 ETF +3.85% 领涨</b>"两阶段切换<br>
+      · 变化方向：<b class="up-text">🔀 切</b>（D-2/D-1 军工政策预期 → 今日 军工政策利好落地 · 航空航天 ETF +3.85% 领涨）<br>
+      · 切换归因：<b class="up-text">航天科技 + 低空经济政策利好落地 + 冰雪经济主题催化 + 军工装备涨幅居前</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>军工 / 冰雪板块在 D-2（10/9）"<b class="info-text">军工 / 冰雪未在 TOP 领涨</b>" → D-1（10/12）"<b class="info-text">军工未在 TOP 领涨</b>" → 今日（10/13）"<b class="up-text">军工装备涨幅居前 + 航空航天 ETF +3.85% 领涨 + 航天科技 + 低空经济政策利好 + 冰雪经济涨幅居前</b>"。10/13 军工 / 冰雪"<b class="up-text">政策利好落地 · 航空航天 ETF +3.85% 领涨</b>"，与 D-2/D-1 政策预期切换形成"<b class="up-text">政策预期 → 政策落地</b>"两阶段切换路径。<br>
+      <b>【催化】</b>① <b>航空航天 ETF +3.85% 领涨（核心催化）：</b><b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>（同花顺 c680631810 主源披露）—— 印证"<b class="up-text">航天科技 + 低空经济政策利好提振</b>"特征；② <b>航天科技 + 低空经济政策利好：</b><b class="up-text">航天科技 + 低空经济受政策利好提振</b>（同花顺 c680631810 主源披露）；③ <b>军工装备涨幅居前：</b><b class="ok-text">军工装备涨幅居前</b>（同花顺 c680631818 主源披露"染料、军工、冰雪、PCB、CPO"领涨）—— 印证"<b class="up-text">军工政策利好传导</b>"特征；④ <b>冰雪经济涨幅居前：</b><b class="info-text">冰雪经济涨幅居前</b>（同花顺 c680631818 主源披露）—— 印证"<b class="up-text">冰雪经济主题催化</b>"特征。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip">航空航天 ETF 159227（+3.85% 领涨 · 同花顺 c680631810 主源披露）</span>
+      <span class="stock-chip">军工装备（涨幅居前 · 同花顺 c680631818 主源披露）</span>
+      <span class="stock-chip">航天科技 + 低空经济（政策利好提振 · 同花顺 c680631810 主源披露）</span>
+      <span class="stock-chip">冰雪经济（涨幅居前 · 同花顺 c680631818 主源披露）</span>
+      <span class="mainline-tag info" style="margin-top:8px">📌 军工 / 冰雪主因：航天科技 + 低空经济政策利好落地 + 冰雪经济主题催化</span>
+    </div>
+  </div>
+
+  <!-- 主线 4：文化传媒重组主线新龙头接力（rank-2 蓝色） -->
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">4</div>
+    <div class="title">📺 文化传媒重组主线新龙头接力（慈文传媒 002343 + 龙版传媒 605577 双双 3 连板 · 新华传媒 10 连板（10/12）让位后文化传媒重组主线新龙头 · 9/22 → 10/9 → 10/12 → 10/13 文化传媒主线连续升级 17 日）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 新龙头接力</span>
+      <span class="mainline-tag info">慈文传媒3连板</span>
+      <span class="mainline-tag info">龙版传媒3连板</span>
+      <span class="mainline-tag warn">新华传媒让位</span>
+      <span class="mainline-tag purple">17日升级</span>
+      <span class="mainline-tag info">重组主线延续</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 10/10-10/11 周末）<br>
+      · D-2（10/9）：<b>🔼 升</b> · <b class="ok-text">新华传媒（600825）9 连板（9:25 一字涨停 · 成交 2.46 亿 · 拟收购界面财联社构成重组）</b>（财闻网 + 搜狐财经印证）· <b class="up-text">影视 ETF（516620）+7.73% 领涨全市场</b>（同花顺 c680519291 印证）<br>
+      · D-1（10/12）：<b>🔼 升</b>（续） · <b class="ok-text">新华传媒（600825）10 连板（从 D-2 9 连板升级）</b> · <b class="up-text">影视 ETF（516620）+2.65% 领涨</b>（同花顺 c680584279 印证）· <b class="up-text">字节 PineDrama 下载破亿 + 微信短剧激励 +57%</b>（WebSearch 第二源印证）<br>
+      · 今日（10/13）：<b>🔀 切</b> · <b class="up-text">3 连板含慈文传媒（002343）+ 百洋股份（002696）+ 新经典（603096）+ 丽人丽妆（605136）+ 龙版传媒（605577）共 5 只（同花顺 c680631818 主源披露）</b> · <b class="info-text">印证 D-1"<b class="ok-text">新华传媒 10 连板（重组主线再升级）</b>"让位 → 今日"<b class="up-text">慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）</b>"两阶段切换 · 与 CPO + 芯片 + SOE Reform 形成"<b class="up-text">算力修复 + 国企改革 + 文化传媒 三主线</b>"<br>
+      · 变化方向：<b class="up-text">🔀 切</b>（D-1 新华传媒 10 连板让位 → 今日 慈文传媒 + 龙版传媒 双双 3 连板 · 文化传媒重组主线新龙头接力）<br>
+      · 切换归因：<b class="up-text">新华传媒 10 连板公司警示停牌核查 · 文化传媒重组主线让位新龙头接力（慈文传媒 + 龙版传媒双双 3 连板）</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>文化传媒板块在 D-2（10/9）"<b class="ok-text">新华传媒 9 连板（拟收购界面财联社构成重组）+ 影视 ETF +7.73% 领涨全市场</b>" → D-1（10/12）"<b class="ok-text">新华传媒 10 连板 + 影视 ETF +2.65% 领涨</b>" → 今日（10/13）"<b class="up-text">3 连板含慈文传媒（002343）+ 龙版传媒（605577）等 5 只</b>"。10/13 文化传媒"<b class="up-text">新龙头接力（慈文传媒 + 龙版传媒双双 3 连板）</b>"，与 D-1"<b class="ok-text">新华传媒 10 连板（重组主线再升级）</b>"形成"<b class="up-text">新华传媒 10 连板让位 → 慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）</b>"两阶段切换路径。<br>
+      <b>【催化】</b>① <b>慈文传媒 + 龙版传媒 双双 3 连板（核心催化）：</b><b class="up-text">3 连板含慈文传媒（002343）+ 龙版传媒（605577）等 5 只</b>（同花顺 c680631818 主源披露）—— 印证"<b class="up-text">文化传媒重组主线新龙头接力</b>"特征；② <b>新华传媒 10 连板让位：</b><b class="info-text">新华传媒 10 连板（公司停牌核查警示延续）· 文化传媒重组主线让位</b>（财闻网 10/09 + 同花顺 c680584280 印证）—— 印证"<b class="danger-text">公司警示停牌核查风险</b>"特征；③ <b>字节 PineDrama + 短剧激励：</b><b class="info-text">字节 PineDrama 下载破亿 + 微信短剧激励 +57%</b>（D-1 10/12 印证 · WebSearch 第二源）—— 印证"<b class="up-text">短剧游戏 + AI 视频主线延伸</b>"特征；④ <b>9/22 起源日：</b><b class="info-text">新浪财经《拟装入界面财联社！中国版彭博曲线上市》9/22 印证</b>—— 9/22 一字涨停 → 9/29 6 连板 → 10/9 9 连板 → 10/12 10 连板 → 10/13 慈文传媒 + 龙版传媒 双双 3 连板（主线连续 17 日升级）。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip">慈文传媒 002343（3 连板 · 文化传媒重组主线新龙头）</span>
+      <span class="stock-chip">龙版传媒 605577（3 连板 · 出版传媒新龙头）</span>
+      <span class="stock-chip">百洋股份 002696（3 连板）</span>
+      <span class="stock-chip">新经典 603096（3 连板 · 文化传媒）</span>
+      <span class="stock-chip">丽人丽妆 605136（3 连板）</span>
+      <span class="stock-chip">D-1 10/12 新华传媒 600825（10 连板 · 公司警示停牌核查 · 今日让位新龙头）</span>
+      <span class="stock-chip">D-2 10/9 新华传媒 600825（9 连板 · 9:25 一字涨停 · 拟收购界面财联社构成重组）</span>
+      <span class="stock-chip">9/22 新华传媒起源日（一字涨停 · 新浪财经印证）</span>
+    </div>
+  </div>
+
+  <!-- 主线 5：染料 / PCB / 元件涨价（rank-2 蓝色） -->
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">5</div>
+    <div class="title">🎨 染料 / PCB / 元件涨价（染料涨幅居前 · 成本上涨顺价兑现 · PCB + 元件涨幅居前 · 算力硬件修复 · 与 CPO TOP1 + 芯片 TOP3 形成算力修复主线）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 涨价主线</span>
+      <span class="mainline-tag info">染料涨幅居前</span>
+      <span class="mainline-tag info">成本上涨顺价兑现</span>
+      <span class="mainline-tag warn">PCB+元件</span>
+      <span class="mainline-tag purple">算力修复</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 10/10-10/11 周末）<br>
+      · D-2（10/9）：<b>━━ 持</b> · <b class="info-text">染料 / PCB / 元件未在 TOP 领涨（同花顺 c680519305 主源披露"AI 视频 / 贵金属 / 粮食"领涨）</b><br>
+      · D-1（10/12）：<b>━━ 持</b> · <b class="info-text">染料未在 TOP 领涨（同花顺 c680584280 主源披露"AI 视频、风电设备、银行板块涨幅居前"）</b><br>
+      · 今日（10/13）：<b>🔀 切</b> · <b class="ok-text">染料涨幅居前（同花顺 c680631818 主源披露"染料、军工、冰雪、PCB、CPO"领涨）</b> · <b class="info-text">机构观点：成本上涨顺价兑现（染料）</b>（同花顺 c680631818 主源披露）· <b class="up-text">PCB + 元件涨幅居前（同花顺 c680631818 主源披露）</b> · <b class="info-text">印证 D-2/D-1 "染料未在 TOP 领涨"反转 → 今日"<b class="up-text">染料涨幅居前 + 成本上涨顺价兑现 + PCB + 元件涨价</b>"两阶段切换 · 与 CPO TOP1 + 芯片 TOP3 形成"<b class="up-text">算力修复主线</b>"<br>
+      · 变化方向：<b class="up-text">🔀 切</b>（D-2/D-1 染料未在 TOP 领涨 → 今日 染料涨幅居前 + 成本上涨顺价兑现 + PCB + 元件涨价）<br>
+      · 切换归因：<b class="up-text">成本上涨顺价兑现（染料）+ PCB + 元件涨价（算力硬件修复）+ 涨价主线驱动</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>染料 / PCB / 元件板块在 D-2（10/9）"<b class="info-text">染料 / PCB / 元件未在 TOP 领涨</b>" → D-1（10/12）"<b class="info-text">染料未在 TOP 领涨</b>" → 今日（10/13）"<b class="up-text">染料涨幅居前 + 成本上涨顺价兑现 + PCB + 元件涨幅居前</b>"。10/13 染料 / PCB / 元件"<b class="up-text">涨价主线（染料涨幅居前 + PCB + 元件涨价）</b>"，与 D-2/D-1"<b class="info-text">染料未在 TOP 领涨</b>"形成"<b class="up-text">未在 TOP → 涨幅居前（涨价主线）</b>"两阶段反转路径。<br>
+      <b>【催化】</b>① <b>染料涨幅居前（核心催化）：</b><b class="ok-text">染料涨幅居前</b>（同花顺 c680631818 主源披露"染料、军工、冰雪、PCB、CPO"领涨）—— 印证"<b class="up-text">涨价主线</b>"特征；② <b>成本上涨顺价兑现：</b><b class="info-text">机构观点：成本上涨顺价兑现（染料）</b>（同花顺 c680631818 主源披露）—— 印证"<b class="up-text">成本上涨 + 涨价传导</b>"特征；③ <b>PCB + 元件涨幅居前：</b><b class="up-text">PCB + 元件涨幅居前</b>（同花顺 c680631818 主源披露）—— 印证"<b class="up-text">算力硬件修复 + PCB 涨价</b>"特征；④ <b>涨价主线驱动：</b><b class="info-text">染料 + PCB + 元件 + 算力硬件修复 = 涨价主线驱动</b>。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip">染料板块（涨幅居前 · 同花顺 c680631818 主源披露"染料、军工、冰雪、PCB、CPO"领涨）</span>
+      <span class="stock-chip">PCB / 元件（涨幅居前 · 同花顺 c680631818 主源披露）</span>
+      <span class="stock-chip">机构观点（成本上涨顺价兑现 · 同花顺 c680631818 主源披露）</span>
+      <span class="stock-chip">染料龙头股（涨幅居前 · 成本上涨顺价兑现）</span>
+      <span class="stock-chip">PCB 涨价主线（算力硬件修复 + PCB 涨价）</span>
+    </div>
+  </div>
+
+  <!-- 防御主线 6：保险/电池/风电/生物制品/能源金属/光伏设备领跌（.danger 红色） -->
+  <div class="mainline-card danger">
+    <div class="mainline-rank">6</div>
+    <div class="title">🛡️ 保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌（防御反转延续 · 保险加入 · D-1 10/12 贵金属 / 粮食 / 能源金属领跌 → 今日 保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌 · 防御品种内部轮动 · 印证"防御反向 → 防御延续 → 防御反转"三阶段震荡）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔴 防御反转延续</span>
+      <span class="mainline-tag warn">保险加入</span>
+      <span class="mainline-tag danger">电池/风电</span>
+      <span class="mainline-tag info">生物制品/能源金属</span>
+      <span class="mainline-tag purple">三阶段震荡</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 10/10-10/11 周末）<br>
+      · D-2（10/9）：<b>🔼 升</b> · <b class="ok-text">贵金属领涨（同花顺 c680519305 主源披露"AI 视频 / 贵金属 / 粮食"领涨）</b> · <b class="ok-text">黄金 ETF 净流入 · 持仓升至 100.93 百万盎司</b>（同花顺 c680519291 印证）· <b class="info-text">券商股、黄金股集体异动（东方财富盘中直播印证）</b><br>
+      · D-1（10/12）：<b>🔽 降</b> · <b class="danger-text">贵金属领跌 · 粮食概念领跌 · 能源金属领跌</b>（同花顺 c680584280 主源披露"贵金属、粮食概念领跌"）· <b class="danger-text">印证 D-2"<b class="ok-text">贵金属领涨 + 黄金 ETF 净流入 100.93 百万盎司</b>"反转 → D-1"<b class="danger-text">贵金属 / 粮食领跌</b>"两阶段反转 · <b class="info-text">防御品种内部从"贵金属"切换到"银行（权重防御）"</b>防御反转<br>
+      · 今日（10/13）：<b>🔽 降</b>（续） · <b class="danger-text">保险领跌 · 电池领跌 · 风电领跌 · 生物制品领跌 · 能源金属领跌 · 光伏设备领跌</b>（同花顺 c680631818 主源披露）· <b class="danger-text">印证 D-1"<b class="danger-text">贵金属 / 粮食 / 能源金属领跌（防御反转）</b>"延续 → 今日"<b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b>"两阶段延续 · <b class="danger-text">保险加入防御反转 · 防御品种内部继续切换</b><br>
+      · 变化方向：<b class="danger-text">🔽 降</b>（续 · D-1 防御反转 → 今日 防御反转延续 · 保险加入）<br>
+      · 切换归因：<b class="info-text">防御品种内部从"贵金属 / 粮食"切换到"保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备" · 防御反转延续</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>防御品种在 D-2（10/9）"<b class="ok-text">贵金属领涨 + 黄金 ETF 净流入 · 持仓升至 100.93 百万盎司（防御延续）</b>" → D-1（10/12）"<b class="danger-text">贵金属领跌 · 粮食概念领跌 · 能源金属领跌（防御反转）</b>" → 今日（10/13）"<b class="danger-text">保险领跌 · 电池领跌 · 风电领跌 · 生物制品领跌 · 能源金属领跌 · 光伏设备领跌（防御反转延续）</b>"。10/13 防御"<b class="danger-text">防御反转延续 · 保险加入 · 防御品种内部轮动</b>"，与 D-1"<b class="danger-text">贵金属 / 粮食 / 能源金属领跌（防御反转）</b>"形成"<b class="danger-text">贵金属 / 粮食 / 能源金属领跌 → 保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌（防御反转延续）</b>"两阶段延续路径。<br>
+      <b>【催化与归因】</b>① <b>保险领跌（核心变化）：</b><b class="danger-text">保险领跌</b>（同花顺 c680631818 主源披露）—— 印证"<b class="danger-text">保险加入防御反转</b>"特征 · 防御品种内部轮动延续；② <b>电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌：</b><b class="danger-text">电池领跌 · 风电领跌 · 生物制品领跌 · 能源金属领跌 · 光伏设备领跌</b>（同花顺 c680631818 主源披露）—— 印证"<b class="danger-text">防御反转延续 + 防御品种内部继续切换</b>"特征；③ <b>D-1 防御反转延续：</b>D-1（10/12）"<b class="danger-text">贵金属领跌 · 粮食概念领跌 · 能源金属领跌</b>" → 今日"<b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b>"两阶段延续。<br>
+      <b>路径总结：</b>防御品种路径：<b>D-2 防御延续（贵金属领涨 + 黄金 ETF 净流入 100.93 百万盎司）→ D-1 防御反转（贵金属 / 粮食 / 能源金属领跌）→ 今日 防御反转延续（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌 · 保险加入）</b>。10/13 印证"<b class="danger-text">"防御延续 → 防御反转 → 防御反转延续"</b>"三阶段路径完整。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip">保险（领跌 · 同花顺 c680631818 主源披露 · 防御反转延续 · 保险加入）</span>
+      <span class="stock-chip">电池（领跌 · 同花顺 c680631818 主源披露 · 防御反转延续）</span>
+      <span class="stock-chip">风电（领跌 · 同花顺 c680631818 主源披露 · D-1 10/12 风电反转领涨 → 今日领跌反转）</span>
+      <span class="stock-chip">生物制品（领跌 · 同花顺 c680631818 主源披露 · 防御反转延续）</span>
+      <span class="stock-chip">能源金属（领跌 · 同花顺 c680631818 主源披露 · D-1 10/12 能源金属领跌延续）</span>
+      <span class="stock-chip">光伏设备（领跌 · 同花顺 c680631818 主源披露 · 防御反转延续）</span>
+      <span class="stock-chip">D-1 10/12 贵金属（领跌 · 同花顺 c680584280 主源披露 · 今日贵金属未在领跌榜）</span>
+      <span class="stock-chip">D-1 10/12 粮食概念（领跌 · 同花顺 c680584280 主源披露 · 今日粮食概念未在领跌榜）</span>
+      <span class="stock-chip">D-2 10/9 黄金 ETF（净流入 · 持仓升至 100.93 百万盎司 · 同花顺 c680519291 印证 · 今日防御反转延续）</span>
+      <span class="stock-chip">防御品种内部轮动（D-1 贵金属 / 粮食 → 今日 保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备）</span>
+    </div>
+  </div>
+
+</div>
+<!-- ============ ⑧ 涨停天梯 ============ -->
+<div class="section-title warn">🪜 五、涨停天梯（无 4 连板 · 3 连板含慈文传媒 002343 + 龙版传媒 605577 共 5 只 · 2 连板 5 只 · 文化传媒重组主线新龙头接力 + 重组主线联合驱动 · 与 D-1 10/12 新华传媒 10 连板让位切换）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 高度变化（D-2 → D-1 → 今日 · 中间 10/10-10/11 周末）：</strong>D-2（10/9）<b class="ok-text">新华传媒（600825）9 连板（9:25 一字涨停 · 成交 2.46 亿 · 拟收购界面财联社构成重组 · 审计未毕）</b> · <b class="danger-text">公司提示严重偏离基本面可能停牌核查（财闻网 10/09 印证）</b> · <b class="ok-text">影视 ETF（516620）+7.73% 领涨全市场</b> → D-1（10/12）<b class="ok-text">新华传媒（600825）10 连板（从 D-2 9 连板升级 · 同花顺 c680584280 印证）</b> · <b class="ok-text">九阳股份（002242）6 连板 + 华北制药 3 连板</b> · <b class="ok-text">影视 ETF（516620）+2.65% 领涨</b>（同花顺 c680584279 印证）→ 今日 10/13 <b class="up-text">无 4 连板（同花顺 c680631818 主源披露）</b> · <b class="up-text">3 连板含慈文传媒（002343）+ 百洋股份（002696）+ 新经典（603096）+ 丽人丽妆（605136）+ 龙版传媒（605577）共 5 只</b>（同花顺 c680631818 主源披露）· <b class="up-text">2 连板含农心科技（001231）+ 东百集团（600693）+ 广电网络（600831）+ 海欣股份（600851）+ 醋化股份（603968）共 5 只</b>（同花顺 c680631818 主源披露）· <b class="danger-text">跌停代表：紫竹高科（002058）+ 大金重工（002487）</b>。<b class="ok-text">连板高度从 D-2（10/9）的 9 连板（新华传媒）→ D-1（10/12）10 连板（新华传媒）→ 今日（10/13）无 4 连板 + 3 连板新龙头接力（慈文传媒 + 龙版传媒）</b>，<b class="info-text">连板方向从"D-2 9 连板（新华传媒）+ 影视 ETF +7.73%"</b>（D-2 10/9）<b class="ok-text">切换至"文化传媒重组主线新龙头接力（慈文传媒 + 龙版传媒双双 3 连板）+ 算力修复（PCB / 元件 / 芯片）+ 国企改革（SOE Reform）"</b>（今日），<b class="warn-text">（文化传媒重组主线让位新龙头接力 · 算力修复资金回流 · 国企改革新主线 · 防御反转延续）</b>，与板块主线（算力修复资金回流 + 国企改革新主线 + 军工/冰雪政策催化 + 文化传媒重组主线新龙头接力 + 染料成本上涨 + 防御反转延续）高度吻合。<b class="warn-text">连板高度"9 板 → 10 板 → 3 板新龙头接力"</b>三阶段震荡，<b class="info-text">印证"重组主线让位新龙头接力 + 算力修复资金回流 + 国企改革新主线 + 防御反转延续"</b>特征。
+</div>
+<div class="ladder">
+  <span class="ladder-tag lv-3">🔼 3 连板：<b>慈文传媒</b>（002343 · 文化传媒 / 重组主线新龙头 · 同花顺 c680631818 主源披露 · 接力 D-1 10/12 新华传媒 10 连板让位）</span>
+  <span class="ladder-tag lv-3">🔼 3 连板：<b>百洋股份</b>（002696 · 同花顺 c680631818 主源披露）</span>
+  <span class="ladder-tag lv-3">🔼 3 连板：<b>新经典</b>（603096 · 文化传媒 · 同花顺 c680631818 主源披露）</span>
+  <span class="ladder-tag lv-3">🔼 3 连板：<b>丽人丽妆</b>（605136 · 化妆品 / 电商 · 同花顺 c680631818 主源披露）</span>
+  <span class="ladder-tag lv-3">🔼 3 连板：<b>龙版传媒</b>（605577 · 出版传媒新龙头 · 同花顺 c680631818 主源披露）</span>
+  <span class="ladder-tag lv-4">🔼 2 连板：<b>农心科技</b>（001231）+ <b>东百集团</b>（600693）+ <b>广电网络</b>（600831）+ <b>海欣股份</b>（600851）+ <b>醋化股份</b>（603968）· 共 5 只（同花顺 c680631818 主源披露）</span>
+  <span class="ladder-tag lv-2">⚠️ 跌停代表：<b>紫竹高科</b>（002058）+ <b>大金重工</b>（002487）（同花顺 c680631818 主源披露）</span>
+  <span class="ladder-tag danger">⚠️ 数据缺口：今日涨停家数 / 跌停家数 / 封板率 / 炸板数公开数据缺失</span>
+  <span class="ladder-tag lv-3">📌 跌幅榜：<b>保险</b>（领跌 · 防御反转延续 · 保险加入）+ <b>电池</b>（领跌 · 防御反转延续）+ <b>风电</b>（领跌 · D-1 反转领涨 → 今日领跌反转）+ <b>生物制品</b>（领跌 · 防御反转延续）+ <b>能源金属</b>（领跌 · D-1 领跌延续）+ <b>光伏设备</b>（领跌 · 防御反转延续）</span>
+</div>
+
+<!-- ============ ⑨ ETF 涨跌榜 ============ -->
+<div class="section-title info">📊 六、ETF 涨跌榜（航空航天 ETF 159227 +3.85% 领涨 · 航天科技 + 低空经济政策利好提振 · 纳指生物科技 ETF 513290 -3.97% 领跌 · 港股通医疗 ETF 526010 -3.77% · 军工政策利好 + 医药 AI 主线 ETF 端反转）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 关键数据：</strong>同花顺 ETF 收评 c680631810（用户提供主源）披露：<b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>（航天科技 + 低空经济政策利好提振 · 军工装备涨幅居前）· <b class="danger-text">纳指生物科技 ETF（513290）-3.97% 领跌</b>（医药 AI 主线 ETF 端反转 · 与 <b class="info-text">D-1 10/12 +4.31% 领涨全市场</b>印证反转）· <b class="danger-text">港股通医疗 ETF（526010）-3.77%</b>（医药 AI 主线 ETF 端延续反转 · 与 <b class="info-text">D-2 港股通医疗 ETF 158003 +1.37%</b>印证反转）· 其他 ETF 涨跌幅细节待补。<br>
+  <strong>📌 双源印证：</strong>同花顺 ETF 收评 c680631810（用户提供主源）+ D-1 10/12 复盘文档（同花顺 ETF c680584279）+ D-2 10/9 复盘文档（同花顺 ETF c680519291）3 个非同源渠道交叉核验。
+</div>
+<div class="etf-table">
+  <div class="etf-row header"><div>方向</div><div>ETF 名称（代码）</div><div>涨跌幅</div><div>板块 / 印证</div></div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨①</b></div>
+    <div><b>航空航天 ETF（159227）</b></div>
+    <div class="etf-val up">+3.85%</div>
+    <div><b class="ok">航空航天 ETF · 领涨全市场</b> · 同花顺 c680631810 印证 · <b class="info-text">航天科技 + 低空经济政策利好提振</b> · <b class="info-text">军工装备涨幅居前</b>（同花顺 c680631818 印证）· 印证"<b class="up-text">军工政策利好落地 · 航空航天 ETF +3.85% 领涨</b>"特征</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌①</b></div>
+    <div><b>纳指生物科技 ETF（513290）</b></div>
+    <div class="etf-val down">-3.97%</div>
+    <div><b class="danger">纳指生物科技 ETF · 领跌全市场</b> · 同花顺 c680631810 印证 · <b class="danger-text">医药 AI 主线 ETF 端反转（与 <b class="info-text">D-1 10/12 +4.31% 领涨全市场</b>印证反转）</b> · <b class="info-text">印证"<b class="danger-text">医药 AI 主线 ETF 端反转 · 防御反转</b>"特征</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌②</b></div>
+    <div><b>港股通医疗 ETF（526010）</b></div>
+    <div class="etf-val down">-3.77%</div>
+    <div><b class="danger">港股通医疗 ETF · 医药 AI 主线延续反转</b> · 同花顺 c680631810 印证 · <b class="danger-text">印证"<b class="danger-text">医药 AI 主线 ETF 端延续反转</b>"特征 · 与 D-2 港股通医疗 ETF（158003）+1.37% 印证反转</b></div>
+  </div>
+</div>
+
+
+<!-- ============ ⑩ 重要新闻与板块催化 ============ -->
+<div class="section-title">📖 七、重要新闻与板块催化</div>
+<div class="fin-table">
+  <div class="fin-row header"><div>事件 / 数据</div><div>关键数据</div><div>对 A 股影响</div></div>
+  <div class="fin-row">
+    <div>🚀 算力 · CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件涨幅居前 · 算力修复资金回流</div>
+    <div class="fin-val up">114.65 亿回流</div>
+    <div><b>CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件涨幅居前</b>（同花顺 c680631818 主源披露具体金额）—— <b class="up-text">算力修复资金回流 · 算力硬件合计 114.65 亿（CPO + 芯片）</b> · 印证 D-1（10/12）"<b class="danger-text">通信 ETF -5.07% 算力承压延续</b>"反转 → 今日"<b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 · 算力修复资金回流</b>"两阶段反转</div>
+  </div>
+  <div class="fin-row">
+    <div>🏛️ 国企改革 · SOE Reform +54.59 亿 TOP2 · 接力 D-1 银行分红提升 · 中特估 + 高股息 + 金融权重主线</div>
+    <div class="fin-val up">54.59 亿 TOP2</div>
+    <div><b>SOE Reform +54.59 亿 TOP2 · 国企改革 + 中特估主线接力</b>（同花顺 c680631818 主源披露具体金额）—— <b class="up-text">印证 D-1（10/12）"<b class="up-text">银行分红提升（中特估 + 高股息）</b>"反转 → 今日"<b class="up-text">SOE Reform +54.59 亿 TOP2 国企改革新主线</b>"两阶段切换 · 与 CPO TOP1 + 芯片 TOP3 形成"<b class="up-text">算力修复 + 国企改革 双主线</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>✈️ 军工 / 冰雪 · 航空航天 ETF 159227 +3.85% 领涨 · 航天科技 + 低空经济政策利好提振 · 军工装备涨幅居前</div>
+    <div class="fin-val up">航空航天ETF+3.85%</div>
+    <div><b>航空航天 ETF（159227）+3.85% 领涨 · 航天科技 + 低空经济政策利好提振 · 军工装备涨幅居前</b>（同花顺 c680631810 + c680631818 主源披露）—— <b class="up-text">直接利好军工 / 冰雪 / 航天科技 / 低空经济主线</b> · 印证 TOP 涨幅榜"<b class="up-text">航空航天 ETF +3.85% 领涨 + 军工装备涨幅居前 + 冰雪经济涨幅居前</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>📺 文化传媒 · 慈文传媒 002343 + 龙版传媒 605577 双双 3 连板 · 文化传媒重组主线新龙头接力</div>
+    <div class="fin-val up">新龙头 3 连板</div>
+    <div><b>3 连板含慈文传媒（002343）+ 龙版传媒（605577）等 5 只</b>（同花顺 c680631818 主源披露）—— <b class="up-text">直接利好文化传媒重组主线 + 出版传媒新龙头接力</b> · 印证 TOP 涨幅榜"<b class="up-text">慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）</b>" · D-1 10/12 新华传媒 10 连板（公司警示停牌核查 · 财闻网 10/09 印证）让位新龙头接力</div>
+  </div>
+  <div class="fin-row">
+    <div>🎨 涨价 · 染料涨幅居前 + PCB + 元件涨幅居前 · 机构观点：成本上涨顺价兑现</div>
+    <div class="fin-val up">染料+PCB+元件</div>
+    <div><b>染料涨幅居前 + PCB + 元件涨幅居前 · 机构观点：成本上涨顺价兑现（染料）</b>（同花顺 c680631818 主源披露）—— <b class="up-text">直接利好染料 + PCB + 元件涨价主线</b> · 印证 TOP 涨幅榜"<b class="up-text">染料涨幅居前 + 成本上涨顺价兑现 + PCB + 元件涨价</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>⚠️ 防御 · 保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌 · 防御反转延续 + 保险加入</div>
+    <div class="fin-val danger">防御反转延续</div>
+    <div><b>保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b>（同花顺 c680631818 主源披露）—— <b class="danger-text">防御反转延续 · 保险加入 · D-1（10/12）"<b class="danger-text">贵金属 / 粮食 / 能源金属领跌（防御反转）</b>"延续 → 今日"<b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌（防御反转延续）</b>"两阶段延续 · 防御品种内部从"贵金属 / 粮食"切换到"保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备"</b></div>
+  </div>
+  <div class="fin-row">
+    <div>🇺🇸 海外 · 纳指生物科技 ETF 513290 -3.97% 领跌 · 港股通医疗 ETF 526010 -3.77% · 医药 AI 主线 ETF 端反转</div>
+    <div class="fin-val warn">医药AI反转</div>
+    <div><b>纳指生物科技 ETF（513290）-3.97% 领跌 · 港股通医疗 ETF（526010）-3.77%</b>（同花顺 c680631810 主源披露）—— <b class="danger-text">医药 AI 主线 ETF 端反转 · 与 <b class="info-text">D-1 10/12 +4.31% 领涨全市场</b>印证反转</b> · 印证"<b class="danger-text">医药 AI 主线 ETF 端延续反转 · 防御反转</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>🇺🇸 美联储 · 9/17 凌晨议息已落地 · 10/13 议息扰动九次消化（节后第四个交易日）</div>
+    <div class="fin-val warn">加息 25bp 至 3.75-4.00%</div>
+    <div><b>联邦基金利率目标区间上调至 3.75-4.00%</b>（证券时报 9/17 凌晨印证） · <b>点阵图中位数显示 2026 年或将再加息一次</b>（汇通网/Klaro/ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；10/13 <b class="info-text">议息扰动九次消化（议息后第 22 个交易日 · 国庆后第四个交易日）</b>压制成长股估值缓解 · <b class="warn">长期路径仍偏鹰派</b>（2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）</div>
+  </div>
+</div>
+
+
+<!-- ============ ⑪ 盘面核心结论 ============ -->
+<div class="section-title">📌 八、盘面核心结论（3 大块 · 多空对冲）</div>
+<div class="conclusion ok">
+  <div class="conclusion-title">✅ 结论 1：🟢 周二探底回升微涨 · 5 大指数分化 · 沪指微涨领涨终结 D-1 全线杀跌 · 算力修复资金回流 + 国企改革新主线 + 军工/冰雪政策催化 + 文化传媒重组主线新龙头接力 + 染料 PCB 元件涨价</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>资金体量：</b>三市成交 <b class="up-text">16889 亿</b>（较 10/12 15507 亿 <b class="up-text">放量 1382 亿（+8.9%）</b>）· 超 <b class="up-text">2900 只个股上涨</b>（D-2 10/9 超 3200 涨 → D-1 10/12 超 4300 跌 → 今日 超 2900 涨 三阶段震荡反转）· <b class="ok-text">资金回流算力修复（CPO 61.41 亿 TOP1 + 芯片 53.24 亿 TOP3 · 算力硬件合计 114.65 亿）+ 国企改革新主线（SOE Reform 54.59 亿 TOP2）· 合计 169.24 亿</b>· <b class="up-text">较 D-1（10/12）60.30 亿放量 +109.0%</b>· <b class="warn-text">主力资金净流出 TOP3 数据缺口 · 净流入集中度回升（169.24 亿 / 16889 亿 = 1.00% · 印证资金回流）</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>板块层面：</b>沪指 <b class="up-text">+0.10%</b> / 深成指 <b class="warn-text">-0.25%</b> / 创业板指 <b class="warn-text">-0.18%</b> / 科创 <b class="up-text">+0.03%</b> / 北证 50 <b class="warn-text">-0.31%</b>—— <b class="warn-text">5 大指数分化（2 涨 3 跌 · 沪指微涨领涨）</b>· <b class="up-text">沪指主板权重承接（SOE Reform TOP2 国企改革新主线接力 D-1 银行分红提升）</b>· 领涨 TOP5：<b class="ok">染料 / 军工装备 / 冰雪 / PCB / CPO</b> · 领跌 TOP5：<b class="danger">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>催化层面：</b>① <b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件涨幅居前</b>（同花顺 c680631818 主源披露具体金额）—— 印证"<b class="up-text">算力修复资金回流</b>"；② <b class="up-text">SOE Reform +54.59 亿 TOP2</b>（同花顺 c680631818 主源披露具体金额）—— 印证"<b class="up-text">国企改革 + 中特估主线接力 D-1 银行分红提升</b>"；③ <b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>（航天科技 + 低空经济政策利好提振）—— 印证"<b class="up-text">军工政策利好落地</b>"；④ <b class="up-text">慈文传媒 + 龙版传媒 双双 3 连板</b>（同花顺 c680631818 主源披露）—— 印证"<b class="up-text">文化传媒重组主线新龙头接力</b>"；⑤ <b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b>—— 印证"<b class="danger-text">防御反转延续 + 保险加入</b>"</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><b>市场风格：</b><b class="up-text">周二探底回升微涨 · 5 大指数分化</b> · <b class="up-text">算力修复资金回流（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3）</b>取代 D-1（10/12）"<b class="danger-text">通信 ETF -5.07% 算力承压延续</b>"成为新主线 · <b class="up-text">国企改革新主线（SOE Reform +54.59 亿 TOP2）</b>接力 D-1 银行分红提升 · <b class="up-text">军工/冰雪政策催化（航空航天 ETF +3.85% 领涨）</b> · <b class="up-text">文化传媒重组主线新龙头接力（慈文传媒 + 龙版传媒双双 3 连板）</b> · <b class="danger-text">防御反转延续（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌）+ 医药 AI 主线 ETF 端反转</b></p>
+  </div>
+</div>
+<div class="conclusion warn">
+  <div class="conclusion-title">⚠️ 结论 2：🟡 防御反转延续 · 板块扩散反复切换 · 议息鹰派九次消化 · 算力修复资金回流有限</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>防御反转延续：</b><b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b>（同花顺 c680631818 主源披露） · <b class="danger-text">防御反转延续 · 保险加入 · 防御品种内部从"贵金属 / 粮食"切换到"保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备"</b>（D-1 10/12 印证）· <b class="danger">防御品种内部继续切换 · 防御反转</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>板块扩散反复切换风险：</b><b class="warn-text">资金体量大幅波动</b> · D-2 10/9 重组主线 + AI 视频 + 黄金（数据缺口）→ D-1 10/12 跨境支付 + 证金持股 + 短剧游戏 合计 60.30 亿 → 今日 10/13 CPO + SOE Reform + Chips 合计 169.24 亿 · 三市成交从 10/12 的 15507 亿 → 今日 16889 亿（放量 1382 亿 +8.9%）· <b class="warn">板块扩散反复切换风险</b>，操作上需要"<b class="danger">清晰主线择时 · 警惕板块扩散下的反复切换</b>"。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>议息扰动九次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· D-1 10/12 议息扰动八次消化延续 → 今日 10/13 <b class="info-text">议息扰动九次消化（议息后第 22 个交易日 · 国庆后第四个交易日）</b>压制成长股估值缓解 · <b class="warn">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><b>算力修复资金回流有限：</b><b class="warn-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 合计 114.65 亿</b>（同花顺 c680631818 主源披露具体金额）· 但 <b class="warn-text">5 大指数仅 2 涨 3 跌（沪指 +0.10% 微涨领涨 · 深成 -0.25% 微跌 · 创业 -0.18% 微跌 · 科创 +0.03% 微涨 · 北证 -0.31% 微跌）· 算力修复资金回流有限 · 反弹力度不足</b> · <b class="warn">节后分化窗口中算力修复有限</b></p>
+  </div>
+</div>
+<div class="conclusion info">
+  <div class="conclusion-title">💡 结论 3：🔵 算力修复资金回流 + 国企改革新主线 + 军工/冰雪政策催化 + 文化传媒重组主线新龙头接力 + 染料 PCB 元件涨价 · 中期方向不变 · 板块扩散反复切换风险</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>算力修复资金回流 + 国企改革新主线：</b>10/13 <b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 合计 114.65 亿</b>（算力修复资金回流）+ <b class="up-text">SOE Reform +54.59 亿 TOP2</b>（国企改革新主线接力 D-1 银行分红提升）· 与 D-1（10/12）"<b class="danger-text">通信 ETF -5.07% 算力承压延续</b>"形成"<b class="up-text">算力承压延续 → 算力修复资金回流</b>"两阶段反转 · <b class="ok">中期算力修复方向不变</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>军工/冰雪政策催化：</b>10/13 <b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>（航天科技 + 低空经济政策利好提振）+ <b class="up-text">军工装备涨幅居前 + 冰雪经济涨幅居前</b>· 与 D-1（10/12）"<b class="info-text">军工未在 TOP 领涨</b>"形成"<b class="up-text">军工未在 TOP → 军工政策利好落地 · 航空航天 ETF +3.85% 领涨</b>"两阶段切换 · <b class="info-text">军工政策利好持续</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>文化传媒重组主线新龙头接力 + 染料 PCB 元件涨价：</b>10/13 <b class="up-text">慈文传媒 + 龙版传媒 双双 3 连板</b>（文化传媒重组主线新龙头接力 · 9/22 → 10/9 → 10/12 → 10/13 连续 17 日升级）+ <b class="up-text">染料涨幅居前 + PCB + 元件涨幅居前</b>（成本上涨顺价兑现）· 与 D-1（10/12）"<b class="ok-text">新华传媒 10 连板</b>"形成"<b class="up-text">新华传媒 10 连板让位 → 慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）</b>"两阶段切换</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><b>议息鹰派九次消化 + 板块扩散反复切换风险：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· 10/13 <b class="info-text">议息扰动九次消化（议息后第 22 个交易日 · 国庆后第四个交易日）</b>压制成长股估值缓解 · <b class="warn">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· <b class="danger">不宜激进加仓至 100% 仓位</b>，保留 50%-70% 现金应对议息扰动九次消化 + 板块扩散反复切换 + 新华传媒 10 连板停牌核查三重风险</p>
+  </div>
+</div>
+
+<!-- ============ ⑫ 机构观点与分歧 ============ -->
+<div class="section-title warn">🧠 九、机构观点与分歧</div>
+<div class="conflict-grid">
+  <div class="view-a">
+    <h4>✅ 多方观点（算力修复资金回流 + 国企改革新主线 + 军工/冰雪政策催化 + 文化传媒重组主线新龙头接力 + 染料 PCB 元件涨价 + 航空航天 ETF +3.85% 领涨）</h4>
+    <p><b>CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件涨幅居前（同花顺 c680631818 主源披露）：</b><b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件涨幅居前</b>· <b class="up-text">算力修复资金回流 · 算力硬件合计 114.65 亿（CPO + 芯片）</b>—— 直接利好算力修复主线 · 印证 TOP 涨幅榜"<b class="up-text">CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB / 元件涨幅居前</b>"。</p>
+    <p><b>SOE Reform +54.59 亿 TOP2（同花顺 c680631818 主源披露）：</b><b class="up-text">SOE Reform +54.59 亿 TOP2</b>· <b class="info-text">国企改革 + 中特估主线接力 D-1 银行分红提升</b>—— 直接利好金融权重防御 + 数字货币主线 · 印证"<b class="up-text">国企改革 + 中特估主线接力 D-1 银行分红提升</b>"。</p>
+    <p><b>航空航天 ETF（159227）+3.85% 领涨 + 航天科技 + 低空经济政策利好提振（同花顺 c680631810 主源披露）：</b><b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>· <b class="info-text">航天科技 + 低空经济受政策利好提振</b>（同花顺 c680631810 主源披露）—— 印证"<b class="up-text">军工政策利好落地 · 航空航天 ETF +3.85% 领涨</b>"。</p>
+    <p><b>慈文传媒 + 龙版传媒 双双 3 连板 · 文化传媒重组主线新龙头接力（同花顺 c680631818 主源披露）：</b><b class="up-text">慈文传媒 + 龙版传媒 双双 3 连板</b>· <b class="info-text">9/22 起源 → 10/9 9 连板 → 10/12 10 连板 → 10/13 新龙头 3 连板（连续 17 日升级）</b>—— 印证"<b class="up-text">文化传媒重组主线新龙头接力</b>"。</p>
+    <p><b>染料涨幅居前 + PCB + 元件涨幅居前 + 机构观点：成本上涨顺价兑现（同花顺 c680631818 主源披露）：</b><b class="up-text">染料涨幅居前 + 成本上涨顺价兑现 + PCB + 元件涨幅居前</b>—— 直接利好涨价主线 · 印证"<b class="up-text">成本上涨 + 涨价传导 + PCB/元件涨价</b>"。</p>
+    <p><b>三季报指引兑现（10 月中下旬关键事件窗口）：</b><b class="info-text">10 月中下旬三季报指引兑现</b>· 重点关注<b class="ok-text">三季报指引中的业绩拐点个股（国企改革 + 军工 + 文化传媒重组 + 算力修复高景气兑现）</b>。</p>
+    <p><b>议息扰动九次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· <b class="ok-text">议息影响逐步消化（议息扰动九次消化）</b>· 10/13 算力修复资金回流印证。</p>
+  </div>
+  <div class="view-b">
+    <h4>🔴 谨慎观点（防御反转延续 + 5 大指数仅 2 涨 3 跌反弹力度有限 + 议息鹰派长尾 + 板块扩散反复切换 + 医药 AI 主线 ETF 端反转 + 新华传媒停牌核查风险延续）</h4>
+    <p><b>防御反转延续 + 保险加入（同花顺 c680631818 主源披露）：</b><b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b> · <b class="danger">防御反转延续 · 防御品种内部从"贵金属 / 粮食"切换到"保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备"</b>· 关注防御反转风险。</p>
+    <p><b>5 大指数仅 2 涨 3 跌反弹力度有限（同花顺 c680631818 主源披露）：</b><b class="danger-text">5 大指数分化（2 涨 3 跌）· 沪指 +0.10% 微涨领涨（主板权重承接）· 深成 -0.25% 微跌 · 创业 -0.18% 微跌 · 科创 +0.03% 微涨 · 北证 -0.31% 微跌</b> · <b class="danger">算力修复资金回流有限 · 反弹力度不足</b>· <b class="danger">节后分化窗口中算力修复有限</b>。</p>
+    <p><b>美联储 9/17 凌晨 02:00 议息鹰派落地：</b>加息 25bp 至 3.75-4.00% · 点阵图中位数显示 <b class="warn">2026 年或将再加息一次</b>（汇通网 / Klaro / ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；美联储大幅上调经济增长预期（2026 GDP 2.2→2.3% / 2027 2.3→2.4%）+ 下调失业率预测至 4.1% + PCE 通胀 3.6→3.7% + 核心 PCE 3.3→3.4%——<b class="danger-text">通胀回归 2% 目标推迟至 2029 年</b>。</p>
+    <p><b>板块扩散反复切换警示：</b>D-2（10/9）"<b class="info-text">重组主线 + AI 视频 + 黄金（数据缺口）</b>" → D-1（10/12）"<b class="ok-text">跨境支付 + 证金持股 + 短剧游戏 合计 60.30 亿</b>" → 今日（10/13）"<b class="up-text">CPO + SOE Reform + Chips 合计 169.24 亿</b>" · <b class="warn-text">三阶段切换印证板块扩散下的反复切换风险</b>，操作上需要"<b class="danger">清晰主线择时 · 警惕板块扩散下的反复切换</b>"。</p>
+    <p><b>新华传媒 10 连板停牌核查风险延续：</b>D-1 10/12 新华传媒 10 连板（公司提示严重偏离基本面可能停牌核查 · 财闻网 10/09 印证）· <b class="danger">短期内不追高 10 连板高位新股（重组主线高位风险累积）</b>· 关注重组主线基本面验证 + 审计完成进度。</p>
+    <p><b>医药 AI 主线 ETF 端反转警示：</b>纳指生物科技 ETF（513290）-3.97% 领跌 · 港股通医疗 ETF（526010）-3.77% · 与 <b class="info-text">D-1 10/12 +4.31% 领涨全市场</b>印证反转 · <b class="danger">医药 AI 主线 ETF 端延续反转 · 防御反转</b>。</p>
+  </div>
+</div>
+<div class="verdict">
+  🧭 <b>本文倾向：</b> 今日定性为"<b class="up-text">周二探底回升微涨 · 5 大指数分化 · 沪指微涨领涨终结 D-1 全线杀跌 · 算力修复资金回流（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 合计 114.65 亿）· 国企改革新主线（SOE Reform +54.59 亿 TOP2 接力 D-1 银行分红提升）· 军工/冰雪政策催化（航空航天 ETF +3.85% 领涨）· 慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）· 染料 PCB 元件涨价 · 防御反转延续（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌）</b>"——资金从 D-2（10/9）"<b class="ok-text">重组主线 + AI 视频 + 黄金（数据缺口）</b>" → D-1（10/12）"<b class="ok-text">跨境支付 24.91 亿 TOP1 + 证金持股 18.81 亿 TOP2 + 短剧游戏 16.58 亿 TOP3 · 合计 60.30 亿</b>" → 今日（10/13）"<b class="up-text">CPO + SOE Reform + Chips 合计 169.24 亿 · 放量 +109.0%</b>"· <b class="warn-text">5 大指数分化（2 涨 3 跌 · 沪指 +0.10% 微涨领涨 · 深成 -0.25% 微跌 · 创业 -0.18% 微跌 · 科创 +0.03% 微涨 · 北证 -0.31% 微跌）</b>· <b class="up-text">慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力 · 9/22 → 10/9 → 10/12 → 10/13 连续 17 日升级）</b> · <b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b> · <b class="danger-text">防御反转延续（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌 · 保险加入）</b> · <b class="danger-text">5 大指数仅 2 涨 3 跌反弹力度有限 + 议息扰动九次消化 + 板块扩散反复切换 + 新华传媒 10 连板停牌核查风险延续 + 医药 AI 主线 ETF 端反转</b>。操作上 <b>合理仓位（≤ 50%）</b>，沿"<b class="up-text">算力修复资金回流（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件涨幅居前）+ 国企改革新主线（SOE Reform +54.59 亿 TOP2 接力 D-1 银行分红提升）+ 军工/冰雪政策催化（航空航天 ETF +3.85% 领涨）+ 文化传媒重组主线新龙头接力（慈文传媒 + 龙版传媒双双 3 连板）+ 染料 PCB 元件涨价</b>"五主线布局，<b class="danger-text">规避防御反转品种（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌）+ 板块扩散反复切换品种 + 10 连板高位新股（公司警示停牌核查风险）+ 5 大指数仅 2 涨 3 跌反弹力度有限 + 医药 AI 主线 ETF 端反转</b>；<b class="warn-text">美联储 9/17 凌晨议息已落地 · 议息扰动 10/13 九次消化 · 关注 10 月中下旬三季报指引兑现 + 新华传媒重组审计进度 + 美联储官员后续表态 + 节后 Q4 反弹行情预期</b>。
+</div>
+
+
+<!-- ============ ⑬ 后续展望与交易策略 ============ -->
+<div class="section-title info">🔔 十、后续展望与交易策略</div>
+<div class="signal-grid">
+  <div class="signal-card">
+    <h4><span class="num">📅</span>展望信号</h4>
+    <p><b>美联储 9/17 凌晨议息已落地</b>（10/13 议息扰动九次消化 · 议息后第 22 个交易日 · 国庆后第四个交易日）· <b class="up-text">周二探底回升微涨 · 5 大指数分化</b> · <b class="up-text">算力修复资金回流（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 合计 114.65 亿）</b> + <b class="up-text">国企改革新主线（SOE Reform +54.59 亿 TOP2 接力 D-1 银行分红提升）</b> + <b class="up-text">军工/冰雪政策催化（航空航天 ETF +3.85% 领涨）</b> + <b class="up-text">文化传媒重组主线新龙头接力（慈文传媒 + 龙版传媒双双 3 连板）</b> + <b class="warn-text">防御反转延续（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌）</b>；10 月中下旬 <b>三季报指引兑现</b>关键事件窗口 · 关注节后 Q4 反弹行情预期（算力修复 + 国企改革 + 军工/冰雪 + 文化传媒重组主线新龙头接力）· <b class="up-text">周二探底回升微涨 + 算力修复资金回流 + 国企改革新主线 + 防御反转延续</b>。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">😰</span>情绪信号</h4>
+    <p><b>慈文传媒（002343）+ 龙版传媒（605577）双双 3 连板（文化传媒 / 重组主线新龙头 · 同花顺 c680631818 主源披露）</b> · <b>百洋股份（002696）+ 新经典（603096）+ 丽人丽妆（605136）3 连板（文化传媒延续）</b> · <b>2 连板含农心科技（001231）等 5 只</b> · <b class="warn-text">D-1 10/12 新华传媒 10 连板让位新龙头接力（慈文传媒 + 龙版传媒双双 3 连板）</b> · <b class="warn-text">其他连板梯度细节数据缺口 · 涨停家数 / 封板率 / 炸板数公开数据缺失</b>，但<b class="up-text">连板方向切至"文化传媒重组主线新龙头接力（慈文传媒 + 龙版传媒）+ 算力修复（CPO + 芯片 TOP1+TOP3）+ 国企改革（SOE Reform TOP2）"</b>，情绪结构从 D-1 防御反转 + 算力承压延续 → 算力修复资金回流 + 国企改革新主线 + 文化传媒重组主线新龙头接力。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">💰</span>资金信号</h4>
+    <p>主力净流入 TOP3：<b class="ok-text">CPO +61.41 亿 TOP1 + SOE Reform +54.59 亿 TOP2 + Chips +53.24 亿 TOP3 · 合计 169.24 亿</b>（同花顺 c680631818 主源披露具体金额）· <b class="up-text">较 D-1 10/12 60.30 亿放量 +109.0%</b> · <b class="up-text">放量 1382 亿 +8.9%（周二探底回升放量特征）</b> · <b class="up-text">航空航天 ETF（159227）+3.85% 领涨</b>（航天科技 + 低空经济政策利好提振）· <b class="danger-text">纳指生物科技 ETF（513290）-3.97% 领跌（医药 AI 主线 ETF 端反转 · 与 D-1 +4.31% 领涨印证反转）</b> · <b class="warn">资金体量大幅波动（三阶段切换 · 数据缺口 → 60.30 亿 → 169.24 亿）</b>印证<b class="danger-text">板块扩散反复切换风险</b>。</p>
+  </div>
+</div>
+<div class="strategy-grid">
+  <div class="strategy-card mainline">
+    <h4>🟢 主线方向（算力修复资金回流 + 国企改革新主线 + 军工/冰雪政策催化 + 文化传媒重组主线新龙头接力 + 染料 PCB 元件涨价 · 顺势而为）</h4>
+    <ul class="strategy-list">
+      <li><b>算力修复资金回流主线（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件涨幅居前）：</b><b class="ok-text">核心股池</b>：CPO / 光模块（+61.41 亿 TOP1 · 同花顺 c680631818 主源披露具体金额）· 芯片（+53.24 亿 TOP3 · 同花顺 c680631818 主源披露具体金额）· PCB / 元件（涨幅居前 · 同花顺 c680631818 主源披露）· 国产替代 / 半导体设备 / 算力硬件（CPO + 芯片 TOP1+TOP3 合计 114.65 亿）· 中期算力修复方向不变 · <b class="warn">关注议息扰动九次消化 + 摩根士丹利报告长尾影响缓解 + 节后分化窗口</b>。</li>
+      <li><b>国企改革 / SOE Reform 新主线（SOE Reform +54.59 亿 TOP2 · 接力 D-1 银行分红提升 · 中特估 + 高股息 + 金融权重）：</b><b class="ok-text">核心股池</b>：国企改革概念（SOE Reform +54.59 亿 TOP2 · 同花顺 c680631818 主源披露）· 中特估主线（银行 / 券商 / 保险 / 中特估权重）· 高股息板块（中特估 + 高股息 · D-1 银行分红提升延续）· 三季报银行龙头业绩验证 · 关注国资云 / 数据要素主线。</li>
+      <li><b>军工 / 冰雪 / 航空航天 政策催化主线（航空航天 ETF 159227 +3.85% 领涨 · 航天科技 + 低空经济政策利好提振）：</b><b class="ok-text">核心股池</b>：航空航天 ETF 159227（+3.85% 领涨 · 同花顺 c680631810 主源披露）· 军工装备（涨幅居前 · 同花顺 c680631818 主源披露）· 航天科技 + 低空经济（政策利好提振 · 同花顺 c680631810 主源披露）· 冰雪经济（涨幅居前 · 同花顺 c680631818 主源披露）· 关注航天科技 + 低空经济政策催化持续。</li>
+      <li><b>文化传媒重组主线新龙头接力主线（慈文传媒 + 龙版传媒双双 3 连板 · 9/22 → 10/9 → 10/12 → 10/13 连续 17 日升级）：</b><b class="ok-text">核心股池</b>：慈文传媒 002343（3 连板 · 文化传媒重组主线新龙头 · 同花顺 c680631818 主源披露）· 龙版传媒 605577（3 连板 · 出版传媒新龙头）· 百洋股份 002696（3 连板）· 新经典 603096（3 连板）· 丽人丽妆 605136（3 连板）· AI 视频概念股 · 影视 ETF（516620）（+2.65% D-1 印证）· 9/22 起源日新华传媒 600825（让位新龙头）。</li>
+      <li><b>染料 / PCB / 元件涨价主线（染料涨幅居前 + PCB + 元件涨幅居前 · 机构观点：成本上涨顺价兑现）：</b><b class="ok-text">核心股池</b>：染料板块（涨幅居前 · 同花顺 c680631818 主源披露）· PCB / 元件（涨幅居前 · 同花顺 c680631818 主源披露）· 机构观点：成本上涨顺价兑现 · 涨价传导主线驱动。</li>
+    </ul>
+  </div>
+  <div class="strategy-card defend">
+    <h4>🟡 防御 / 高低切方向（医药类 ETF 配置 + 国企改革配置 + 节后分化窗口防御）</h4>
+    <ul class="strategy-list">
+      <li><b>国企改革 + 中特估权重防御配置（D-1 + 今日接力印证）：</b>10/12 <b class="up-text">银行板块涨幅居前 + 跨境支付 24.91 亿 TOP1 + 证金持股 18.81 亿 TOP2 · 合计 43.72 亿</b>（同花顺 c680584280 主源披露）→ 今日 <b class="up-text">SOE Reform +54.59 亿 TOP2</b>（同花顺 c680631818 主源披露）· 配置策略：国企改革 / 中特估 / 高股息权重防御 · 关注三季报银行龙头业绩验证 · 关注国资云 / 数据要素主线。</li>
+      <li><b>军工配置（D-2 + D-1 接力印证 · 节后分化窗口）：</b>10/13 <b class="up-text">军工装备涨幅居前 + 航空航天 ETF +3.85% 领涨</b>（同花顺 c680631818 + c680631810 主源披露）· 配置策略：军工 / 航天科技 / 低空经济 · 关注三季报军工龙头业绩验证。</li>
+      <li><b>CXO 龙头（D-2 中信证券 CXO 复苏阶段 · 个股端短期回调但长期配置）：</b>药明康德（603259）/ 凯莱英（002821）/ 泰格医药（300347）/ 昭衍新药（603127）—— 关注节后 Q4 三季报指引兑现。</li>
+      <li><b>三季报预告窗布局：</b>10 月中下旬三季报预告密集披露；重点关注三季报指引中的业绩拐点个股（算力修复高景气兑现 + 国企改革主线业绩验证 + 军工政策利好落地 + 文化传媒重组主线新龙头接力 + 染料 PCB 元件涨价主线）。</li>
+    </ul>
+  </div>
+  <div class="strategy-card avoid">
+    <h4>🔴 规避方向（防御反转延续品种 + 板块扩散反复切换 + 议息鹰派九次消化 + 5 大指数仅 2 涨 3 跌反弹力度有限）</h4>
+    <ul class="strategy-list">
+      <li><b>防御反转延续品种（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌）：</b>10/13 <b class="danger-text">保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌</b>（同花顺 c680631818 主源披露）· <b class="danger">防御反转延续 · 防御品种内部从"贵金属 / 粮食"切换到"保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备"</b>· 防御反转风险。</li>
+      <li><b>10 连板高位新股（公司警示停牌核查风险）：</b>D-1 10/12 新华传媒 10 连板（公司提示严重偏离基本面可能停牌核查 · 财闻网 10/09 印证）· <b class="danger">短期不追高 10 连板高位新股（重组主线高位风险累积）</b> · 关注重组主线基本面验证 + 审计完成进度 · 重组主线强承接 ≠ 持续走高。</li>
+      <li><b>板块扩散反复切换品种（资金体量大幅波动）：</b>资金体量从 D-2（10/9）重组主线 + AI 视频 + 黄金（数据缺口）→ D-1（10/12）跨境支付 + 证金持股 + 短剧游戏 合计 60.30 亿→ 今日（10/13）CPO + SOE Reform + Chips 合计 169.24 亿 · 三市成交从 10/12 的 15507 亿 → 今日 16889 亿（放量 1382 亿 +8.9%）· <b class="warn-text">板块扩散反复切换风险</b>。</li>
+      <li><b>医药 AI 主线 ETF 端反转品种（纳指生物科技 ETF -3.97% 领跌 · 港股通医疗 ETF -3.77%）：</b>10/13 <b class="danger-text">纳指生物科技 ETF（513290）-3.97% 领跌 · 港股通医疗 ETF（526010）-3.77%</b>（同花顺 c680631810 主源披露）· <b class="danger">医药 AI 主线 ETF 端反转</b> · 与 D-1 +4.31% 领涨印证反转。</li>
+      <li><b>议息鹰派九次消化品种（议息扰动九次消化 · 长期路径仍偏鹰派）：</b>10/13 议息扰动九次消化但<b class="danger-text">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· 若后续美联储官员表态进一步鹰派，可能引发板块扩散反复切换品种二次回调。</li>
+    </ul>
+  </div>
+  <div class="strategy-card master">
+    <h4>🧭 核心交易策略（含总仓位建议）</h4>
+    <ul class="strategy-list">
+      <li><b>总仓位建议：</b><b class="warn-text">≤ 50%</b>（美联储 9/17 凌晨议息鹰派已落地 · 10/13 议息扰动九次消化 · 长期路径仍偏鹰派 + 5 大指数仅 2 涨 3 跌反弹力度有限 + 算力修复资金回流有限 + 节后放量分化 + 板块扩散反复切换 · <b class="danger">不宜激进加仓</b>）。</li>
+      <li><b>主线配置（30%）：</b>算力修复资金回流主线（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 + PCB + 元件 10%）+ 国企改革 / SOE Reform 新主线（SOE Reform +54.59 亿 TOP2 接力 D-1 银行分红提升 8%）+ 军工/冰雪/航空航天政策催化主线（航空航天 ETF +3.85% 领涨 5%）+ 文化传媒重组主线新龙头接力主线（慈文传媒 + 龙版传媒双双 3 连板 5%）+ 染料 PCB 元件涨价主线（染料涨幅居前 + PCB + 元件 2%）。</li>
+      <li><b>防御配置（20%）：</b>国企改革 + 中特估权重防御（SOE Reform + 银行 / 中特估 / 高股息 8%）+ 军工配置（军工 / 航天科技 / 低空经济 5%）+ CXO 龙头（药明康德 / 凯莱英 / 泰格医药 5%）+ 港股医疗 ETF 配置（2%）。</li>
+      <li><b>现金 / 机动（50%）：</b>为板块扩散反复切换 + 美联储官员后续表态 + 议息鹰派九次消化 + 节后 Q4 反弹行情预期 + 新华传媒重组审计进度 + 10 连板停牌核查风险保留弹药 · 议息后已落地但长期路径仍偏鹰派 + 5 大指数仅 2 涨 3 跌反弹力度有限 + 节后分化 · <b class="warn">不宜激进加仓至 100% 仓位</b>。</li>
+      <li><b>关键时点：</b>① <b class="ok">9/17 凌晨 02:00 美联储议息已落地</b>（鹰派 · 10/13 九次消化）；② <b class="warn">10/10-10/11 周末 · 周二探底回升微涨（节后第四个交易日 · 放量 1382 亿 +8.9%）</b>；③ <b class="warn">新华传媒重组审计进度（公司风险提示并存 · 10 连板停牌核查警示）</b>；④ <b class="warn">点阵图后续解读</b>（2026 是否再加息一次 · 美联储官员表态 · 议息鹰派九次消化持续）；⑤ 10 月中下旬<b>三季报指引兑现</b>（算力修复高景气兑现 + 国企改革主线业绩验证 + 军工政策利好落地 + 文化传媒重组主线新龙头接力 + 染料 PCB 元件涨价主线业绩验证）；⑥ <b class="info-text">10/24 Moderna mRNA-4157 III 期数据公布</b>关键事件窗口；⑦ <b class="info-text">10/8 摩根士丹利报告落地（美对华光模块限制经 FCC 受控清单实施 + 65% 美国含量规则）</b>。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ ⑭ 数据来源 ============ -->
+<div class="section-title">📚 数据来源（5 个非同源渠道交叉核验）</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>🔵 主源（高权重 · 用户提供）：</strong><br>
+  ① <b><a href="https://news.10jqka.com.cn/20261013/c680631818.shtml" target="_blank">同花顺 A股收评 10/13 c680631818</a></b> —— 五大指数涨跌幅（沪 +0.10% / 深 -0.25% / 创 -0.18% / 科创 50 +0.03% / 北证 -0.31%）/ 三市成交 16889 亿（放量 1382 亿 +8.9%）/ 超 2900 只上涨 / 领涨：染料 / 军工 / 冰雪 / PCB / CPO / 领跌：保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备 / 主力净流入 TOP3：CPO 61.41 亿 + SOE Reform 54.59 亿 + Chips 53.24 亿 · 合计 169.24 亿 / 涨停天梯：3 连板含慈文传媒（002343）+ 百洋股份（002696）+ 新经典（603096）+ 丽人丽妆（605136）+ 龙版传媒（605577）共 5 只 / 2 连板含农心科技（001231）等 5 只 / 跌停代表：紫竹高科（002058）+ 大金重工（002487） / 机构观点：成本上涨顺价兑现（染料）。<br>
+  ② <b><a href="https://news.10jqka.com.cn/20261013/c680631810.shtml" target="_blank">同花顺 ETF 收评 10/13 c680631810</a></b> —— <span class="up-text">航空航天 ETF（159227）+3.85% 领涨</span>（航天科技 + 低空经济政策利好提振）· <span class="danger-text">纳指生物科技 ETF（513290）-3.97% 领跌</span>· <span class="danger-text">港股通医疗 ETF（526010）-3.77%</span>。<br>
+  <strong>🟢 非同源第二来源（交叉核验）：</strong><br>
+  ③ <b>D-1（10/12 周一）复盘文档</b>（<code>geewaza-hexo-blog/source/investment/ashare/review/2026/10/20261012.html</code>）—— 5 大指数全线杀跌（沪 -0.43% / 深 -2.03% / 创 -2.61% / 科创 -2.1% / 北证 -2.46%）· 三市成交 15507 亿 · 超 4300 只下跌 · 新华传媒 10 连板 + 跨境支付 24.91 亿 TOP1 + 证金持股 18.81 亿 TOP2 + 短剧游戏 16.58 亿 TOP3 · 通信 ETF -5.07% 领跌 · 算力承压延续 · 防御反转（贵金属 / 粮食领跌）。<br>
+  ④ <b>D-2（10/9 周五）复盘文档</b>（<code>geewaza-hexo-blog/source/investment/ashare/review/2026/10/20261009.html</code>）—— 5 大指数全线翻红（沪 +0.05% / 深 +0.17% / 创 +0.22% / 科创 +0.07% / 北证 +2.49%）· 三市成交 19167 亿 · 超 3200 只上涨 · 新华传媒 9 连板 · 影视 ETF +7.73% 领涨 · 黄金 ETF 净流入（持仓升至 100.93 百万盎司）· 科创综指增强 ETF -3.55% 领跌（算力修复未收复）。<br>
+  <strong>🟡 数据缺口说明（透明披露）：</strong><br>
+  ⑤ <span class="warn-text">今日涨停家数 / 跌停家数 / 封板率 / 炸板数 / 除慈文传媒等 5 只 3 连板 + 5 只 2 连板 + 紫竹高科/大金重工外其他涨跌停股名单公开数据缺失</span>；<br>
+  ⑥ <span class="warn-text">五大指数收盘点位缺口</span>（同花顺 c680631818 仅披露涨跌幅 · 未披露绝对点位）· 沪指 / 深成 / 创业 / 科创 50 / 北证 50 收盘点位需用户本地 Wind / 同花顺客户端核对；<br>
+  ⑦ <span class="warn-text">主力资金净流出 TOP3 数据缺口</span>（同花顺 c680631818 仅披露 TOP3 净流入 · 未披露净流出具体金额）· 净流入集中度回升（169.24 亿 / 16889 亿 = 1.00% · 印证资金回流）；<br>
+  ⑧ <span class="warn-text">连板梯度细节（5/4/2 连板代表股）公开数据缺口</span>（同花顺 c680631818 未披露完整连板梯度）· 仅披露代表性涨停股（<span class="up-text">3 连板 5 只 + 2 连板 5 只</span>）· <b>未明示其他连板梯度</b>；<br>
+  ⑨ <span class="warn-text">10/10-10/11 周末（2 天休市）</span> · 10/9 是国庆后第二个交易日 · 10/12 是国庆后第三个交易日 · 10/13 是国庆后第四个交易日（间隔 1 个周末）· 按 SOP §4.2.4 规则呈现三段式脉络（D-2 10/9 → D-1 10/12 → 今日 10/13）标注。<br>
+  <strong>🟣 三段式脉络输入：</strong><br>
+  ⑩ <b>D-1 历史复盘</b> —— <code>geewaza-hexo-blog/source/investment/ashare/review/2026/10/20261012.html</code>（国庆后第三个交易日周一缩量杀跌 · 5 大指数全线飘绿 · 沪指 -0.43% / 深成 -2.03% / 创 -2.61% / 科创 -2.1% / 北证 -2.46% · 三市成交 15507 亿（缩量 3660 亿 -19.1%）· 超 4300 只下跌 · 新华传媒 10 连板 + 跨境支付 24.91 亿 TOP1 + 证金持股 18.81 亿 TOP2 + 短剧游戏 16.58 亿 TOP3 · 通信 ETF -5.07% 领跌全市场 · 防御反转 · 重组主线再升级）。<br>
+  ⑪ <b>D-2 历史复盘</b> —— <code>geewaza-hexo-blog/source/investment/ashare/review/2026/10/20261009.html</code>（国庆后第二个交易日探底回升深 V 反转 · 5 大指数全线翻红 · 沪指 +0.05% / 深成 +0.17% / 创 +0.22% / 科创 +0.07% / 北证 +2.49% · 三市成交 19167 亿 · 超 3200 只上涨 · 主力净流入 TOP3（数据缺口）· 文化传媒重组主线爆发（新华传媒 9 连板）· AI 视频主线重启（影视 ETF +7.73% 领涨全市场）· 黄金防御延续（黄金 ETF 净流入 · 持仓升至 100.93 百万盎司）· 算力修复未收复（科创综指增强 ETF -3.55% 领跌 + 芯片领跌））。<br>
+  <strong>⚠️ 重要声明：</strong>本报告基于 4 个独立非同源渠道（同花顺 A股收评 c680631818 + 同花顺 ETF 收评 c680631810 + D-1 10/12 复盘文档 + D-2 10/9 复盘文档）交叉核验，<b>同花顺 news/stock 两域同源仅作主源参考</b>，<b>未单独计为独立来源</b>（同花顺 c680631818 + c680631810 同源）。五大指数收盘点位为涨跌幅口径，准确收盘点位待用户本地客户端核对。资金流向 TOP3 / 连板梯度细节 / 涨停家数 / 五大指数绝对点位 / 净流出 TOP3 为公开数据缺口，按 SOP §4.5 透明披露。
+</div>
+
+<!-- ============ ⑮ 页脚 ============ -->
+<div class="footer">
+  <div>📅 数据日期：2026-10-13（周二收盘 · 国庆假期后第四个交易日 · 探底回升微涨） · 📍 数据来源：同花顺 A股收评 c680631818 + 同花顺 ETF 收评 c680631810 + D-1 10/12 复盘文档 + D-2 10/9 复盘文档（4 个非同源渠道交叉核验）</div>
+  <div>🧠 核心定性：<b class="up-text">周二探底回升微涨 · 5 大指数分化（沪 +0.10% 微涨领涨 · 深成 -0.25% · 创业 -0.18% · 科创 +0.03% · 北证 -0.31%）</b> · <b class="up-text">算力修复资金回流（CPO +61.41 亿 TOP1 + 芯片 +53.24 亿 TOP3 合计 114.65 亿）</b> · <b class="up-text">国企改革新主线（SOE Reform +54.59 亿 TOP2 接力 D-1 银行分红提升）</b> · <b class="up-text">航空航天 ETF +3.85% 领涨（军工/冰雪政策催化）</b> · <b class="up-text">慈文传媒 + 龙版传媒 双双 3 连板（文化传媒重组主线新龙头接力）</b> · <b class="up-text">染料 PCB 元件涨价</b> · <b class="danger-text">防御反转延续（保险 / 电池 / 风电 / 生物制品 / 能源金属 / 光伏设备领跌）</b> · <b class="danger-text">医药 AI 主线 ETF 端反转</b></div>
+  <div>⚠️ 本报告由 A股盘后复盘 SOP v1.2 自动生成 · 仅供参考 · 不构成投资建议</div>
+  <div style="margin-top:8px; color:#94a3b8;">© 2026 AShare Review · Generated with <span style="color:#c084fc;">Qoder</span> · <a href="https://github.com" target="_blank" style="color:#38bdf8;">geewaza-hexo-blog</a></div>
+</div>
+
+</div>
+</body>
+</html>
+</div>
+</body>
+</html>

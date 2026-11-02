@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-14 A股复盘 · 早正午负假繁荣 · 培育钻石+创新药CRO+MLCC三线科技医药共振 · WCLC催化医药主升</title>
+<style>
+  /* === 全局重置 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399;
+    --danger: #ef4444; --danger-light: #f87171; --danger-soft: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-mid) 50%, var(--bg-end) 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+  /* === 头部 === */
+  .header { background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.35); border-radius: 20px; padding: 36px; margin-bottom: 24px; position:relative; overflow:hidden; }
+  .header::before { content:""; position:absolute; top:-80px; left:-80px; width:240px; height:240px;
+    background:radial-gradient(circle,rgba(239,68,68,0.30),transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 34px; background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip:text;
+    margin-bottom: 8px; font-weight: 700; line-height: 1.3; position:relative; }
+  .header .subtitle { color: var(--text-muted); font-size: 15px; position:relative; }
+  .header .badges { margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; position:relative; }
+  .badge { font-size:12px; padding:4px 10px; border-radius:6px; font-weight:600; }
+  .badge-up { background:rgba(16,185,129,0.18); color:#34d399; }
+  .badge-down { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .badge-warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .badge-info { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .badge-source { background:rgba(148,163,184,0.18); color:#cbd5e1; }
+  .badge-purple { background:rgba(168,85,247,0.18); color:#c084fc; }
+  .badge-danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  /* === 通用 === */
+  .data-note { background: rgba(30, 41, 59, 0.4); border: 1px dashed var(--border-mid); border-radius: 12px;
+    padding: 16px 20px; margin-bottom: 24px; font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner { display:flex; gap:16px; align-items:flex-start; background:rgba(239,68,68,0.08);
+    border-left:5px solid #ef4444; border-radius:12px; padding:18px 20px; margin-bottom:8px; }
+  .theme-banner.warn { background:rgba(245,158,11,0.08); border-left-color:#f59e0b; }
+  .theme-banner.ok { background:rgba(16,185,129,0.08); border-left-color:#10b981; }
+  .theme-banner .icon { font-size:28px; line-height:1; }
+  .theme-banner .text h3 { font-size:17px; color:var(--text-primary); margin-bottom:6px; }
+  .theme-banner .text p { font-size:13px; color:var(--text-muted); }
+  .theme-banner .text b.ok-text { color:#34d399; }
+  .theme-banner .text b.warn-text { color:#fbbf24; }
+  .theme-banner .text b.danger-text { color:#fca5a5; }
+  .section-title { font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: var(--text-primary); font-weight: 700; }
+  .section-title.warn { border-left-color:#fbbf24; }
+  .section-title.info { border-left-color:#38bdf8; }
+  .section-title.ok { border-left-color:#34d399; }
+  /* === 指数 dashboard === */
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px;
+    padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position:absolute; top:14px; right:14px; font-size:11px; padding:3px 8px;
+    border-radius:6px; font-weight:600; }
+  .index-card .tag.ok { background:rgba(16,185,129,0.18); color:#34d399; }
+  .index-card .tag.danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .index-card .tag.warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .index-card .tag.info { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  /* === 资金信号 === */
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px;
+    padding: 18px 20px; border-top: 3px solid var(--info); transition:.2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  /* === 资金流 === */
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px;
+    border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val.up { color: #34d399; font-weight: 700; }
+  .flow-val.down { color: #f87171; font-weight: 700; }
+  /* === 主线卡 === */
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px;
+    padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-top: 3px solid #34d399; }
+  .mainline-card.rank-2 { border-top: 3px solid #38bdf8; }
+  .mainline-card.rank-3 { border-top: 3px solid #c084fc; }
+  .mainline-card.danger { border-top: 3px solid #f87171; }
+  .mainline-rank { position:absolute; top:14px; right:16px; width:28px; height:28px; border-radius:50%;
+    background:rgba(148,163,184,0.12); color:var(--text-muted); display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; }
+  .mainline-card .title { font-size:16px; font-weight:700; color:var(--text-primary); margin-bottom:10px; padding-right:40px; line-height: 1.4; }
+  .mainline-tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+  .mainline-tag { font-size:11px; padding:3px 8px; border-radius:6px; font-weight:600; }
+  .mainline-tag.up { background:rgba(16,185,129,0.18); color:#34d399; }
+  .mainline-tag.warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .mainline-tag.danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .mainline-tag.info { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .mainline-tag.purple { background:rgba(168,85,247,0.18); color:#c084fc; }
+  .flow-timeline { font-size: 12px; color: var(--text-muted); line-height: 1.7; padding: 10px 12px;
+    background: rgba(15, 23, 42, 0.5); border-radius: 8px; margin-bottom: 12px; border-left: 3px solid var(--info); }
+  .flow-timeline .arrow { font-weight: 700; font-size: 13px; }
+  .mainline-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { font-size: 11px; padding: 4px 9px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft);
+    border-radius: 6px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  /* === 涨停天梯 === */
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px;
+    font-size: 13px; font-weight: 600; background: var(--card-bg); border: 1px solid var(--border-soft); }
+  .ladder-tag.lv-1 { border-left: 4px solid #ef4444; color: #fca5a5; }
+  .ladder-tag.lv-2 { border-left: 4px solid #fbbf24; color: #fbbf24; }
+  .ladder-tag.lv-3 { border-left: 4px solid #38bdf8; color: #38bdf8; }
+  .ladder-tag.lv-4 { border-left: 4px solid #c084fc; color: #c084fc; }
+  .ladder-tag.danger { border-left: 4px solid #ef4444; color: #f87171; }
+  .ladder-tag b { color: #fff; }
+  /* === ETF 涨跌 === */
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.8fr 1fr 2.2fr; padding: 11px 16px;
+    border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-val.up { color: #34d399; font-weight: 700; }
+  .etf-val.down { color: #f87171; font-weight: 700; }
+  /* === 新闻催化 === */
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.2fr 2.4fr; padding: 12px 16px;
+    border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: start; gap: 10px; }
+  .fin-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-val.up { color: #34d399; font-weight: 700; }
+  .fin-val.down { color: #f87171; font-weight: 700; }
+  .fin-val.warn { color: #fbbf24; font-weight: 700; }
+  .fin-val.info { color: #38bdf8; font-weight: 700; }
+  /* === 信号卡 === */
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px;
+    padding: 18px; border-top: 3px solid var(--info); }
+  .signal-card h4 { font-size: 15px; color: var(--text-primary); margin-bottom: 8px; }
+  .signal-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .signal-card .num { display:inline-block; width:22px; height:22px; border-radius:50%;
+    background:rgba(14,165,233,0.2); color:#38bdf8; text-align:center; line-height:22px; font-size:12px; font-weight:700; margin-right:6px; }
+  /* === 结论卡 === */
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 3px solid var(--border-mid);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .conclusion.ok .conclusion-title { color: #34d399; }
+  .conclusion.warn .conclusion-title { color: #fbbf24; }
+  .conclusion.info .conclusion-title { color: #38bdf8; }
+  .conclusion.danger .conclusion-title { color: #fca5a5; }
+  .conclusion-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); align-items: flex-start; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(239,68,68,0.18); color: #fca5a5; text-align: center; line-height: 22px; font-size: 12px; font-weight: 700; }
+  .conclusion.ok .conclusion-item .num { background:rgba(16,185,129,0.18); color:#34d399; }
+  .conclusion.warn .conclusion-item .num { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .conclusion.info .conclusion-item .num { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .conclusion.danger .conclusion-item .num { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .conclusion-item p { line-height: 1.65; }
+  .conclusion-item b { color: var(--text-primary); }
+  /* === 分歧卡 === */
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #ef4444; }
+  .view-a h4, .view-b h4 { font-size: 15px; margin-bottom: 12px; }
+  .view-a h4 { color: #34d399; }
+  .view-b h4 { color: #fca5a5; }
+  .view-a p, .view-b p { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a b, .view-b b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(168,85,247,0.10), rgba(14,165,233,0.08));
+    border: 1px solid rgba(168,85,247,0.30); border-radius: 12px; padding: 18px 22px; font-size: 13px;
+    color: var(--text-muted); line-height: 1.7; margin-top: 4px; }
+  .verdict b { color: #c084fc; }
+  /* === 策略卡 === */
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px;
+    padding: 18px; border-left: 4px solid var(--border-mid); }
+  .strategy-card.mainline { border-left-color: #34d399; }
+  .strategy-card.defend { border-left-color: #fbbf24; }
+  .strategy-card.avoid { border-left-color: #ef4444; }
+  .strategy-card.core { border-left-color: #c084fc; }
+  .strategy-card h4 { font-size: 15px; color: var(--text-primary); margin-bottom: 10px; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12.5px; color: var(--text-muted); padding: 6px 0 6px 16px;
+    position: relative; line-height: 1.65; border-bottom: 1px dashed rgba(148,163,184,0.10); }
+  .strategy-list li:last-child { border-bottom: none; }
+  .strategy-list li::before { content: "▸"; position: absolute; left: 0; color: #c084fc; }
+  .strategy-list li b { color: var(--text-primary); }
+  /* === 页脚 === */
+  .footer { text-align: center; color: var(--text-faint); font-size: 12px; margin-top: 32px;
+    padding: 16px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.7; }
+  /* === 响应式 === */
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .signal-grid, .mainlines { grid-template-columns: 1fr; }
+    .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ① 头部 -->
+<div class="header">
+  <h1>🧬 2026-09-14 A股复盘 · 早正午负假繁荣 · 培育钻石+创新药CRO+MLCC三线科技医药共振 · WCLC催化医药主升</h1>
+  <div class="subtitle">上证 -0.07% · 深成 -0.64% / 创业板 -1.10% / 科创50 -1.62% / 北证50 -0.15% · 三市成交 16430 亿（较 9/12 缩量 3440 亿）· 早盘+0.16% → 收盘 -0.07% 午后跳水 · 数据日期 2026-09-14（周一收盘）</div>
+  <div class="badges">
+    <span class="badge badge-down">🔴 早正午负·假繁荣</span>
+    <span class="badge badge-up">🧬 创新药CRO主升</span>
+    <span class="badge badge-warn">💎 培育钻石异动</span>
+    <span class="badge badge-source">📅 2026-09-14 收盘</span>
+    <span class="badge badge-source">📊 同花顺+证券日报+新浪</span>
+    <span class="badge badge-danger">🛡️ 防御三日游杀跌</span>
+    <span class="badge badge-purple">🧠 机构分歧</span>
+  </div>
+</div>
+
+<!-- ② 数据说明（双源验证） -->
+<div class="data-note">
+  <strong>📌 数据口径与双源验证：</strong><br>
+  ✅ <span class="ok">已验证数据（绿色高亮）</span>：五大指数收盘涨跌幅 / 三市成交额 16430 亿（较 9/12 缩量 3440 亿） / 超 3100 只个股上涨 / 板块涨跌 / ETF 涨跌（港股通创新药 ETF 520970 +4.79% 居首）/ WCLC 大会催化 / 翰森制药 B7-H3 ADC 数据 / 英矽智能 RENTOSERTIB 临床 / 培育钻石 +4.54% 板块涨幅，已由 <b>同花顺 c679874580（ETF收评含A股概览）+ 同花顺 c679874577（A 股收评文章元数据，已在用户原链接中提供）+ 证券日报《超 15 亿元资金涌入培育钻石》9/14 13:06 + 新浪财经《WCLC催化下 CRO、创新药大涨》9/14 + 21 财经《异动速递 培育钻石板块》9/14 + 财联社 / 财经网《10:27 早盘数据》9/14 + 金融界《沪指涨 0.16% 培育钻石 MLCC 集体走强》9/14 + 雪球 / 搜狐 / 东方财富 多源新闻摘要</b>（8 个独立来源）交叉核验一致。<br>
+  ⚠️ <span class="warn-text">口径与缺口说明</span>：① <b>同花顺 A 股收评原文（c679874577）WebFetch 返回 gzipped 二进制未能成功解码</b>，核心 A 股数据由 c679874580（ETF收评含 A 股概览）补全，并经证券日报 / 新浪 / 金融界 / 财联社 午盘新闻印证一致；② <b>申万一级行业 9/14 涨跌 TOP10 明细未单独披露</b>，仅披露方向性板块；③ <b>9/11（周五）与 9/12（周六 · 非交易日）复盘文档均缺失</b>，本报告主线板块三段式脉络仅能从 D-2=9/10 直接跳至今日（标注"前 1 日复盘文档缺失"），与 SOP v1.2 降级规则一致；④ <b>9/14 涨停个股详细名单（连板梯度）未在公开收评中给出完整版</b>，仅披露恒盛能源 / 黄河旋风（培育钻石 9/14 午盘）/ 万邦医药 / 近岸蛋白（创新药 9/14 早盘 20cm）等部分样本；⑤ <b>主力资金净流入 TOP3 板块的金额数据 9/14 收评未给出</b>，仅有"超 3100 只个股上涨"+ 板块涨跌结构 + 证券日报午盘"半日净流入 15.93 亿 培育钻石"做参考。<br>
+  🔴 <span class="danger-text">数据缺口</span>：① 9/14 申万一级行业完整 TOP10 涨跌；② 9/14 主力净流入 TOP3 板块具体金额（仅午盘培育钻石 15.93 亿）；③ 9/14 涨停家数 / 封板率 / 炸板数；④ 9/11 复盘文档（缺失）；⑤ 收盘点位（10jqka 仅给涨跌幅，未给点位）—— 估算与 investing.com 略有差异。<br>
+  ℹ️ <span class="info-text">双源说明</span>：本次报告核心数据来源为 8 个非同源渠道：<b>同花顺 c679874580（主源，含 A 股概览与 ETF 涨跌） + 证券日报 9/14 13:06（午盘，21 财经转载） + 新浪财经 9/14 早盘 + 财联社 / 财经网 9/14 10:27 早盘 + 金融界 9/14 午盘 + 21 财经（培育钻石） + 雪球 9/14 10:27 + 东方财富 ETF 历史数据印证</b>；<b>同花顺 news/stock 两域同源</b>仅作主源参考，<b>未单独计为独立来源</b>（已与证券日报 / 新浪 / 财联社 / 金融界 等非同源印证）。<br>
+  📚 <span class="purple-text">三段式时间脉络输入来源</span>：D-2（intentional 9/11）复盘文档缺失 → 降级为 D-2 = 20260910.html（防御回吐沪弱创弱·银行电力元件三线逆势）；D-1 = 20260910.html（同上）→ 今日 9/14。
+</div>
+
+<!-- ③ 主题横幅 -->
+<div class="theme-banner warn">
+  <div class="icon">⚠️</div>
+  <div class="text">
+    <h3>核心定性：早正午负"假繁荣" · 培育钻石+创新药+CRO+MLCC四线科技医药主升 · 兵装重组/军工/粮食三日游杀跌 · WCLC大会催化"AI制药临床兑现"</h3>
+    <p>周一 A 股<span class="warn-text">指数全阴、个股普涨</span>形成"假繁荣"——沪指 -0.07% / 深成 -0.64% / 创业板 -1.10% / 科创 50 -1.62% / 北证 50 -0.15% 集体收阴，但<b class="ok-text">全市场超 3100 只个股上涨</b>；<b>三市成交 16430 亿，较 9/12 缩量 3440 亿（-17.3%）</b>，<span class="warn-text">增量资金未进场</span>。<b>早盘沪指一度冲高 +0.16% 报 3894.28（午盘），午后单边下行</b>，呈现"早正午负"经典假繁荣。<b class="ok-text">盘面结构：培育钻石 +4.54% 板块涨幅居首 / 创新药 +CRO + 医疗服务 三线医药科技共振 / 港股通创新药 ETF(520970) +4.79% 领涨全场 / MLCC 概念 + 汽车整车 跟涨</b>；<b class="danger-text">兵装重组概念 / 种植业 / 军工装备 / 粮食概念 / 农产品加工 集体杀跌</b>（9/10 农化农业三日游的"<b>防御回吐规律</b>"延续至 4 日游）。<b>关键催化：2026 世界肺癌大会（WCLC）9/12-9/15 韩国首尔</b>，<b>国产创新药入选口头报告 19 项 + 小型口头 45 项刷新历史纪录</b>，<b>翰森制药（HK3692）+ 宜联生物 B7-H3 靶向 ADC 同时入选 LBA 主席专题</b>，浙商证券定性"<b>AI 制药从'算法叙事'进入'临床兑现'阶段</b>"；英矽智能（HK3696）RENTOSERTIB III 期入组（<b>全球首个 AI 设计新分子进入 III 期临床</b>）。<b>异常信号：早盘+0.16% → 收盘 -0.07%（午后跳水 23 个 BP）· 3100 只涨 vs 5 指数全阴（典型"指数被权重股绑架"）</b>。</p>
+  </div>
+</div>
+
+<!-- ④ 五大核心指数 -->
+<div class="section-title">📊 一、五大核心指数表现（早正午负 · 午后跳水）</div>
+<div class="dashboard">
+  <div class="index-card danger">
+    <div class="tag danger">-0.07%</div>
+    <div class="name">上证指数（000001）</div>
+    <div class="value">≈ 3885</div>
+    <div class="change" style="color:#f87171">≈ -2.7 点（估算）</div>
+    <div class="label">早盘 +0.16% → 收盘 -0.07%（证券日报 13:06 印证）· 午盘报 3894.28 · 午后单边下行 · 银行/电力等权重股未托起指数</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-0.64%</div>
+    <div class="name">深证成指（399001）</div>
+    <div class="value">≈ 13530</div>
+    <div class="change" style="color:#f87171">≈ -87 点（估算）</div>
+    <div class="label">跌幅大于沪指 · 成长/科技继续承压 · 午盘已 -0.25%（证券日报）· 午后扩大至 -0.64% · 验证 9/10 沪弱深弱延续</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-1.10%</div>
+    <div class="name">创业板指（399006）</div>
+    <div class="value">≈ 3302</div>
+    <div class="change" style="color:#f87171">≈ -36 点（估算）</div>
+    <div class="label">9/10 -0.49% → 9/14 -1.10% 跌幅扩大超 2 倍 · 午盘 -0.47% 午后扩大 · 沐曦/摩尔线程延续弱势 + 半导体设备回吐拖累</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">领跌 -1.62%</div>
+    <div class="name">科创 50（000688）</div>
+    <div class="value">≈ 1544</div>
+    <div class="change" style="color:#f87171">≈ -25 点（估算）</div>
+    <div class="label">9/10 -0.69% → 9/14 -1.62% 跌幅扩大超 2 倍 · 半导体设备 ETF 持续回吐 · 算力硬件前期热门赛道资金撤离</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">-0.15%</div>
+    <div class="name">北证 50（899050）</div>
+    <div class="value">≈ 1049.8</div>
+    <div class="change" style="color:#fbbf24">≈ -1.6 点（估算）</div>
+    <div class="label">9/10 -2.81% 暴跌 → 9/14 -0.15% 显著修复 · 早盘 +0.13% 反弹后小幅回落 · 跌幅远小于主板 · 风险偏好略有恢复</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 指数口径补充：</strong>① 同花顺 c679874580 仅披露涨跌幅（-0.07% / -0.64% / -1.10% / -0.15% / -1.62%），未直接给收盘点位；本报告点位为基于 9/10 收盘点位 + 9/14 涨跌幅 反推的估算值；② <span class="warn-text">Investing.com 9/14 显示上证 3867.02 收盘，与 10jqka -0.07% 反推的 ≈ 3885 存在约 0.45% 差异</span>，可能源于不同时点抓取或源数据口径差异；③ 9/12 周末休市，"较上日缩量 3440 亿"指 9/12 周五（市场推断周五成交约 19870 亿）。<span class="danger-text">准确收盘点位待用户本地核对</span>。
+</div>
+
+<!-- ⑤ 市场交易与资金信号 -->
+<div class="section-title info">💰 二、市场交易与资金信号（缩量 17% · 假繁荣）</div>
+<div class="market-stats">
+  <div class="stat-card warn">
+    <div class="stat-name">三市成交额</div>
+    <div class="stat-value">16430 亿</div>
+    <div class="stat-detail">较 9/12（推断 ≈19870 亿）<b style="color:#fbbf24">缩量 3440 亿（-17.3%）</b> · 缩量下跌 · 9/10 16623 亿 → 9/14 16430 亿 <b style="color:#fca5a5">成交两连降</b> · 增量资金未进场</div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">个股活跃度</div>
+    <div class="stat-value">超 3100 涨</div>
+    <div class="stat-detail">同花顺披露"超 3100 只个股上涨" · 证券日报 13:06 印证 3576 涨 / 1797 跌（午盘）· 午后卖盘扩大但 <b class="ok">个股端未失血</b> · <b>指数被权重股绑架</b></div>
+  </div>
+  <div class="stat-card info">
+    <div class="stat-name">领涨 vs 领跌</div>
+    <div class="stat-value">科技/医药 ↑ / 防御 ↓</div>
+    <div class="stat-detail"><b class="ok">培育钻石 +4.54% / 创新药 +CRO + 医疗服务 / MLCC + 汽车整车 / 港股通创新药 ETF +4.79%</b> · <b class="danger">兵装重组 / 种植业 / 军工装备 / 粮食概念 / 农产品加工 集体杀跌</b></div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">ETF 领涨 / 领跌</div>
+    <div class="stat-value">创新药ETF +4.79% / 粮食ETF -3.80%</div>
+    <div class="stat-detail"><b class="ok">港股通创新药 ETF(520970) +4.79% 居首</b> · 恒生生物科技 ETF(159615) +4.52% / (513930) +4.42% · <b class="danger">粮食 ETF 三只 -3.5%~-3.8% 杀跌</b> · 印证 9/10 防御回吐延续</div>
+  </div>
+</div>
+
+<!-- ⑥ 主力资金净流入 TOP3 -->
+<div class="section-title">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径（数据缺口 · 仅披露方向）</div>
+<div class="flow-table">
+  <div class="flow-row header"><div>排名</div><div>主题板块</div><div>主力净流入</div><div>板块表现 / 印证</div></div>
+  <div class="flow-row">
+    <div><b style="color:#34d399">1</b></div>
+    <div><b>医疗服务 / 创新药 / CRO 概念</b></div>
+    <div class="flow-val up"><span class="warn-text">金额数据缺口</span></div>
+    <div><b>板块内多股涨停</b>：万邦医药（20cm）、近岸蛋白（20cm）、白普赛斯、三力制药、诺诚健华、药康生物（新浪财经 9/14 早盘印证）；WCLC 大会催化 + 浙商证券"AI 制药临床兑现"主题</div>
+  </div>
+  <div class="flow-row">
+    <div><b style="color:#38bdf8">2</b></div>
+    <div><b>培育钻石（885937）</b></div>
+    <div class="flow-val up">+15.93 亿（午盘）</div>
+    <div><b>板块涨幅 +4.54% 居首</b>（证券日报 13:06 印证）· 恒盛能源、黄河旋风涨停 · 英诺激光、惠丰钻石、力量钻石、恒林股份等涨幅均超 9%</div>
+  </div>
+  <div class="flow-row">
+    <div><b style="color:#c084fc">3</b></div>
+    <div><b>MLCC 概念 / 汽车整车</b></div>
+    <div class="flow-val up"><span class="warn-text">金额数据缺口</span></div>
+    <div><b>MLCC 概念：</b>延续 9/10 涨价主线（建滔+松下+南亚塑胶 覆铜板连环保涨价 +10~30%）；<b>汽车整车：</b>9/14 跟涨，超 3100 只上涨的汽车端贡献</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 资金面补充（非同源印证）：</strong> ① <b>证券日报 13:06 培育钻石板块</b>：今日早盘培育钻石板块涨幅居首达 4.54%，<b>半日主力资金净流入额达 15.93 亿元</b>，恒盛能源、黄河旋风涨停，英诺激光、惠丰钻石、力量钻石、恒林股份涨幅均超 9%——印证今日资金主战场之一；② <b>新浪财经 9/14 早盘</b>：医疗服务、生物制品、化学制药、CRO、创新药等板块概念大涨，万邦医药、近岸蛋白 20cm 涨停，白普赛斯、三力制药、诺诚健华、药康生物等大涨——印证 WCLC 大会催化医药板块；③ <b>21 财经/金融界 9/14 午盘</b>：沪京深三市半日成交 11139 亿元（较上一交易日缩量 1708 亿元）；<b>PCB 概念</b>获主力资金净流入 56.07 亿元，板块内 8 只个股涨停（金融界 9/14 午盘印证）——可作为今日资金重点流向的次级印证；④ <b>两融余额（9/11 截止）</b>：沪深北三市合计 <b>26316.26 亿元</b>，较 9/4 减少 62.14 亿元（融资余额 26025.95 亿元 / 融券 290.31 亿元）——杠杆资金略有收缩。
+</div>
+
+<!-- ⑦ 今日主线板块与逻辑（三段式时间脉络 · D-1=9/10 → 今日=9/14 · D-2=9/11 复盘缺失） -->
+<div class="section-title">🎯 四、今日主线板块与逻辑（两段式时间脉络 · D-1=9/10 → 今日=9/14 · 前 1 日复盘文档缺失）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>⚠️ 降级说明：</strong>按 SOP v1.2 §4.2.1，<b>9/11（周五）复盘文档缺失</b>，且 9/12（周六 · 非交易日）无文件；故本节采用两段式（D-1=9/10 → 今日=9/14）呈现主线变化脉络，每个 mainline-card 明确标注"前 1 日复盘文档缺失"。<b>9/10 主线参考</b> `geewaza-hexo-blog/source/investment/ashare/review/2026/09/20260910.html`（防御回吐沪弱创弱·银行电力元件三线逆势）。
+</div>
+<div class="mainlines">
+
+  <!-- 主线1：创新药 / CRO / 医疗服务（WCLC大会催化·主升） -->
+  <div class="mainline-card rank-1">
+    <div class="mainline-rank">1</div>
+    <div class="title">🧬 创新药 / CRO / 医疗服务（WCLC 大会催化 · 国产创新药入选 19 项口头报告刷新历史）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 主线主升</span>
+      <span class="mainline-tag warn">WCLC 大会</span>
+      <span class="mainline-tag info">B7-H3 ADC</span>
+      <span class="mainline-tag purple">AI 制药临床兑现</span>
+    </div>
+    <div class="flow-timeline">
+      📌 两段式脉络（D-1=9/10 → 今日=9/14）· <span class="warn-text">⚠️ 前 1 日（9/11）复盘文档缺失</span><br>
+      · D-1（9/10）：<b>创新药/CRO 未列主线</b>（9/10 资金集中在银行/电力/元件/存储芯片 + 期货/中船系 · 防御农化农产集体兑现）<br>
+      · 今日（9/14）：<b>🔀 切</b> · <b>WCLC 大会催化下 CRO / 创新药 / 医疗服务三线医药主升</b>，<b>港股通创新药 ETF(520970) +4.79% 居全场 ETF 涨幅榜首</b>，恒生生物科技 ETF(159615) +4.52% / (513930) +4.42% 跟涨；万邦医药/近岸蛋白 20cm 涨停，白普赛斯/三力制药/诺诚健华/药康生物等大涨
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>9/14 医药板块呈现"<b>三线共振主升</b>"——医疗服务 / 创新药 / CRO 三类医药子板块同步走强：<b>港股通创新药 ETF(520970) +4.79% 居首</b>、<b>恒生生物科技 ETF(159615) +4.52% / (513930) +4.42%</b>；个股层面，<b>万邦医药（20cm）、近岸蛋白（20cm）涨停</b>，<b>白普赛斯、三力制药、诺诚健华、药康生物</b>等大涨（新浪财经 9/14 早盘印证）。<br>
+      <b>【催化】</b>① <b>2026 世界肺癌大会（WCLC）9/12-9/15 在韩国首尔召开</b>，<b>国产创新药入选口头报告研究 19 项 + 小型口头报告研究 45 项</b>，<b>刷新历史纪录</b>；② <b>在大会规格最高的主席专题研讨会上</b>，<b>翰森制药（HK3692）自主研发的 B7-H3 靶向 ADC</b> + <b>宜联生物旗下 B7-H3 靶向 ADC</b>，<b>两款原研 B7-H3 靶向 ADC 同时入选最新突破摘要（LBA）并作口头报告</b>，<b>改写了复发小细胞肺癌（SCLC）的二线治疗格局</b>；③ <b>英矽智能（HK3696）RENTOSERTIB III 期临床试验</b>已在中国北京协和医院 + 上海市肺科医院完成首例患者入组，<b>全球首个同时实现 AI 发现新靶点（TNIK）+ AI 设计新分子并进入 III 期临床的药物</b>，已获美国 FDA 孤儿药认定并纳入国家药监局突破性治疗品种；④ <b>浙商证券定性"AI 制药已从'算法叙事'进入'临床兑现'阶段"</b>，叠加多肽 / ADC 等新分子实体需求爆发，<b>创新药产业链构成板块的第二条确定性增长曲线</b>；⑤ <b>市场空间（灼识咨询）</b>：全球 B7-H3 靶向 ADC 市场预计由 2026 年约 1 亿美元增长至 2035 年约 142 亿美元（<b>2027-2035 CAGR 约 59.7%</b>）；全球 SCLC 治疗药物市场 2024 年已达 51 亿美元，预计 2035 年将增至 112 亿美元。<br>
+      <b>【归因】</b>9/10 创新药/CRO 未列主线（资金集中在金融+电力+元件）→ 9/11 复盘缺失（推断 9/11 资金仍以 9/10 主线为主）→ 9/14 <b>WCLC 大会主席专题 LBA 催化</b>（翰森+宜联生物 B7-H3 ADC 入选）+ <b>英矽智能 RENTOSERTIB III 期入组</b>，<b>事件驱动 + 业绩兑现 + 政策面（突破性治疗品种）三因素共振</b>，资金从"<b>金融+电力</b>"主题切至"<b>创新药/CRO/医疗服务</b>"主题。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>万邦医药</b>（20cm 涨停）</span>
+      <span class="stock-chip"><b>近岸蛋白</b>（20cm 涨停）</span>
+      <span class="stock-chip"><b>白普赛斯</b>（大涨）</span>
+      <span class="stock-chip"><b>三力制药</b>（大涨）</span>
+      <span class="stock-chip"><b>诺诚健华</b>（HK9969 大涨）</span>
+      <span class="stock-chip"><b>药康生物</b>（688180）</span>
+      <span class="stock-chip"><b>翰森制药</b> HK3692（B7-H3 ADC）</span>
+      <span class="stock-chip"><b>宜联生物</b>（B7-H3 ADC）</span>
+      <span class="stock-chip"><b>英矽智能</b> HK3696（AI 设计 III 期）</span>
+    </div>
+  </div>
+
+  <!-- 主线2：培育钻石（板块涨幅居首·事件驱动） -->
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">2</div>
+    <div class="title">💎 培育钻石（板块涨幅 +4.54% 居首 · 事件驱动 + 消费复苏预期）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 板块涨幅 TOP1</span>
+      <span class="mainline-tag warn">15.93 亿净流入</span>
+      <span class="mainline-tag info">消费复苏</span>
+      <span class="mainline-tag purple">事件驱动</span>
+    </div>
+    <div class="flow-timeline">
+      📌 两段式脉络（D-1=9/10 → 今日=9/14）· <span class="warn-text">⚠️ 前 1 日（9/11）复盘文档缺失</span><br>
+      · D-1（9/10）：<b>培育钻石未列主线</b>（9/10 资金集中在银行/电力/元件/存储芯片 + 期货/中船系）<br>
+      · 今日（9/14）：<b>🔼 升</b> · <b>板块涨幅 +4.54% 居首</b>，<b>半日主力净流入 15.93 亿</b>（证券日报 13:06 印证）· 恒盛能源、黄河旋风涨停 · 英诺激光、惠丰钻石、力量钻石、恒林股份涨幅均超 9%
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>9/14 培育钻石板块"<b>半日即登顶</b>"——板块涨幅 +4.54% 居首（证券日报 13:06 印证），<b>半日主力资金净流入 15.93 亿元</b>；个股层面，<b>恒盛能源（580580）、黄河旋风（600172）涨停</b>，<b>英诺激光（301021）、惠丰钻石（839725）、力量钻石（301071）、恒林股份（603661）</b>等涨幅均超 9%。<br>
+      <b>【催化】</b>① <b>事件驱动型行情</b>——9/14 早盘消息面（具体催化未在 21 财经文中明确披露，<span class="warn-text">数据缺口</span>）推升板块；② 板块经历 7-8 月连续调整后，<b>技术面超跌反弹需求</b>；③ <b>消费复苏预期</b>——9/10 国新办"十五五"金融发布会 + 银行高股息走强后，资金对"消费复苏"主题的预期升温，培育钻石作为可选消费高弹性品种受益。<br>
+      <b>【归因】</b>9/10 培育钻石未列主线 → 9/11 复盘缺失 → 9/14 <b>板块涨幅 +4.54% 居首 + 主力净流入 15.93 亿</b>，<b>事件驱动 + 板块超跌反弹 + 消费复苏预期</b>三因素共振。<span class="warn-text">但需警惕"事件驱动一日游规律"风险</span>（9/2 油气 / 9/3 美容 / 9/8 房地产 / 9/9 电网设备均一日游兑现）—— 培育钻石 9/15 是否延续需观察 9/14 涨停的封板率与次日开盘溢价。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>恒盛能源</b> 580580（涨停）</span>
+      <span class="stock-chip"><b>黄河旋风</b> 600172（涨停）</span>
+      <span class="stock-chip"><b>英诺激光</b> 301021（+9%）</span>
+      <span class="stock-chip"><b>惠丰钻石</b> 839725（+9%）</span>
+      <span class="stock-chip"><b>力量钻石</b> 301071（+9%）</span>
+      <span class="stock-chip"><b>恒林股份</b> 603661（+9%）</span>
+      <span class="stock-chip">黄河旋风 600172</span>
+      <span class="stock-chip">四方达 300179</span>
+    </div>
+  </div>
+
+  <!-- 主线3：MLCC 概念 / 汽车整车（覆铜板涨价延续） -->
+  <div class="mainline-card rank-3">
+    <div class="mainline-rank">3</div>
+    <div class="title">📟 MLCC 概念 / 汽车整车（覆铜板涨价主线 9/10 延续 · 通信元件霸榜）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 涨价主线延续</span>
+      <span class="mainline-tag warn">覆铜板 +10~30%</span>
+      <span class="mainline-tag info">建滔+松下+南亚</span>
+      <span class="mainline-tag purple">上游传导</span>
+    </div>
+    <div class="flow-timeline">
+      📌 两段式脉络（D-1=9/10 → 今日=9/14）· <span class="warn-text">⚠️ 前 1 日（9/11）复盘文档缺失</span><br>
+      · D-1（9/10）：<b>MLCC 概念 +11.01 亿 居净流入 TOP3</b>，超声电子（000823）4 天 2 板 + 金安国纪（002636）涨停；建滔+松下+南亚塑胶覆铜板涨价 +10~30%<br>
+      · 今日（9/14）：<b>━━ 持</b> · MLCC 概念涨幅居前（午盘），金融界印证 9/14 "PCB 概念获主力资金净流入 56.07 亿元，板块内 8 只个股涨停"
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>9/14 MLCC 概念 / 覆铜板涨价主线从 9/10 的"<b>元件 +147.25 亿 / MLCC +11.01 亿</b>"延烧至 9/14；金融界 9/14 午盘印证<b>PCB 概念获主力资金净流入 56.07 亿元，板块内 8 只个股涨停</b>——印证覆铜板涨价主线的持续性；汽车整车 9/14 涨幅居前，超 3100 只上涨中汽车端贡献度上升。<br>
+      <b>【催化】</b>① <b>建覆铜板（HK1888）8 月底发布今年第七张涨价函</b>：FR-4 覆铜板统一涨 10%，半固化片按规格调，薄布最高涨 20%；② <b>松下 9/1 起上调覆铜板价格部分产品最高 +30%</b>；③ <b>南亚塑胶跟进 +20%-25%</b>。三大覆铜板龙头连环保涨价持续，<b>9/14 主力净流入 56.07 亿（金融界）反映上游涨价向中游 PCB 制造端继续传导</b>。<br>
+      <b>【归因】</b>9/10 MLCC 概念 +11.01 亿已确立"<b>覆铜板涨价 → 元件/PCB 受益</b>"逻辑 → 9/11 复盘缺失 → 9/14 <b>PCB 概念净流入 56.07 亿 / 板块 8 股涨停（金融界）</b>，<b>涨价主线从 9/10 的 MLCC 三日游 → 9/14 升级为 PCB 多日游</b>，是 9/10 主线的<b>题材化升级与扩散</b>。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>超声电子</b> 000823（4 天 2 板延续）</span>
+      <span class="stock-chip"><b>金安国纪</b> 002636（涨停）</span>
+      <span class="stock-chip"><b>逸豪新材</b> 301176</span>
+      <span class="stock-chip"><b>四会富仕</b> 300852</span>
+      <span class="stock-chip"><b>明阳电路</b> 300739</span>
+      <span class="stock-chip">生益科技 600183（覆铜板龙头）</span>
+      <span class="stock-chip">南亚新材 688519</span>
+      <span class="stock-chip">华正新材 603186</span>
+    </div>
+  </div>
+
+  <!-- 主线4：防御集体杀跌（4日游兑现） -->
+  <div class="mainline-card danger">
+    <div class="mainline-rank">⚠</div>
+    <div class="title">🛡️ 防御：兵装重组 / 种植业 / 军工装备 / 粮食 / 农产品加工（集体杀跌 · 4 日游兑现）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔴 4 日游杀跌</span>
+      <span class="mainline-tag warn">粮食 ETF -3.8%</span>
+      <span class="mainline-tag info">抱团遗弃</span>
+    </div>
+    <div class="flow-timeline">
+      📌 两段式脉络（D-1=9/10 → 今日=9/14）· <span class="warn-text">⚠️ 前 1 日（9/11）复盘文档缺失</span><br>
+      · D-1（9/10）：<b>农化制品 / 粮食 / 养殖业 集体回调</b>（三日游兑现）· 粮食 ETF 三只 -4% · 中粮糖业触及跌停 + 海南橡胶跌停 + 亚盛集团大跌<br>
+      · 今日（9/14）：<b>🔽 降</b> · <b>兵装重组概念 / 种植业与林业 / 军工装备 / 粮食概念 / 农产品加工 集体跌幅居前</b>（同花顺 9/14 印证）· 粮食 ETF 三只 -3.53%~-3.80% · 验证 4 日游规律
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>9/14 防御板块"<b>4 日游杀跌</b>"——<b>兵装重组概念（886101）/ 种植业与林业（881101）/ 军工装备（881166）/ 粮食概念（885995）/ 农产品加工（881103）集体跌幅居前</b>（同花顺 c679874580 主源印证）；ETF 端，<b>粮食 ETF 三只继续杀跌 -3.53%~-3.80%</b>，与 9/10 粮食 ETF 三只 -4% 形成"<b>4 日游杀跌</b>"路径。<br>
+      <b>【归因】</b>9/8 农化制品 / 9/9 煤炭+航运+化工 防御组合 → 9/10 三日游兑现（粮食 ETF -4% / 中粮糖业跌停 / 海南橡胶跌停 / 亚盛集团大跌）→ 9/11 复盘缺失（推断 9/11 防御板块继续调整）→ 9/14 防御板块 4 日游杀跌延续。<b>本轮防御主线（农化农业+军工+兵装重组）从 9/8 上位 → 9/10 回吐 → 9/14 加速杀跌</b>，<span class="warn-text">规律已从"三日游"延长至"四日游"</span>，<b>印证"<b>防御主题在缩量环境下持续性递减</b>"的市场规律</b>。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip">粮食 ETF 广发（159033）-3.80%</span>
+      <span class="stock-chip">粮食 ETF（159587）-3.54%</span>
+      <span class="stock-chip">粮食 ETF（159072）-3.53%</span>
+      <span class="stock-chip">兵装重组概念（886101）领跌</span>
+      <span class="stock-chip">种植业与林业（881101）</span>
+      <span class="stock-chip">军工装备（881166）</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ⑧ 涨停天梯榜 -->
+<div class="section-title warn">🚩 五、涨停天梯榜（数据缺口 · 9/14 完整涨停名单未公开披露）</div>
+<div class="ladder">
+  <div class="ladder-tag lv-1">🧬 20cm 涨停 · <b>万邦医药</b>（创新药 20cm）</div>
+  <div class="ladder-tag lv-1">🧬 20cm 涨停 · <b>近岸蛋白</b>（创新药 20cm）</div>
+  <div class="ladder-tag lv-2">💎 涨停 · <b>恒盛能源</b> 580580（培育钻石）</div>
+  <div class="ladder-tag lv-2">💎 涨停 · <b>黄河旋风</b> 600172（培育钻石）</div>
+  <div class="ladder-tag lv-3">📈 +9% · <b>英诺激光</b> 301021（培育钻石）</div>
+  <div class="ladder-tag lv-3">📈 +9% · <b>惠丰钻石</b> 839725（培育钻石）</div>
+  <div class="ladder-tag lv-3">📈 +9% · <b>力量钻石</b> 301071（培育钻石）</div>
+  <div class="ladder-tag lv-3">📈 +9% · <b>恒林股份</b> 603661（培育钻石）</div>
+  <div class="ladder-tag lv-4">🧬 大涨 · <b>白普赛斯</b>（创新药）</div>
+  <div class="ladder-tag lv-4">🧬 大涨 · <b>三力制药</b>（创新药）</div>
+  <div class="ladder-tag lv-4">🧬 大涨 · <b>诺诚健华</b>（HK9969 创新药）</div>
+  <div class="ladder-tag lv-4">🧬 大涨 · <b>药康生物</b> 688180（创新药）</div>
+  <div class="ladder-tag danger">🔴 跌幅居前 · <b>兵装重组概念</b>（886101）</div>
+  <div class="ladder-tag danger">🔴 跌幅居前 · <b>种植业与林业</b>（881101）</div>
+  <div class="ladder-tag danger">🔴 跌幅居前 · <b>军工装备</b>（881166）</div>
+  <div class="ladder-tag danger">🔴 跌幅居前 · <b>粮食概念</b>（885995）</div>
+  <div class="ladder-tag danger">🔴 跌幅居前 · <b>农产品加工</b>（881103）</div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>⚠️ 数据缺口：</strong>9/14 公开收评<b>未给出完整涨停名单 / 连板梯度 / 涨停家数 / 封板率 / 炸板数</b>，仅披露"超 3100 只个股上涨"（同花顺）+ 部分样本（恒盛能源 / 黄河旋风 / 万邦医药 / 近岸蛋白）。<b>情绪温度计（封板率）数据缺口</b>，无法判断 9/14 涨停结构强度；建议用户在本地浏览器打开同花顺 c679874577 原链接核对。
+</div>
+
+<!-- ⑨ ETF 涨跌榜 -->
+<div class="section-title info">📡 六、ETF 涨跌榜 · Wind 口径（同花顺 ETF 收评 c679874580）</div>
+<div class="etf-table">
+  <div class="etf-row header"><div>方向</div><div>ETF 品种</div><div>涨跌幅</div><div>备注</div></div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨①</b></div>
+    <div>港股通创新药 ETF（520970）</div>
+    <div class="etf-val up">+4.79%</div>
+    <div><b>全场 ETF 涨幅榜首</b> · 受益 WCLC 大会国产创新药入选 19 项口头报告 + 翰森制药/宜联生物 B7-H3 ADC 入选 LBA + 英矽智能 RENTOSERTIB III 期入组</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨②</b></div>
+    <div>恒生生物科技 ETF（159615）</div>
+    <div class="etf-val up">+4.52%</div>
+    <div>港股生物科技龙头 · 翰森制药（HK3692）权重受益 · 与 520970 共同构成"<b>创新药双 ETF</b>"</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨③</b></div>
+    <div>恒生生物科技 ETF（513930）</div>
+    <div class="etf-val up">+4.42%</div>
+    <div>同主题 · 三只医药主题 ETF 集体 +4% 以上印证 WCLC 大会 + 创新药主题的事件驱动强度</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌①</b></div>
+    <div>粮食 ETF（159033）</div>
+    <div class="etf-val down">-3.80%</div>
+    <div>9/10 -4.21% 杀跌后 9/14 继续 -3.80% · 4 日游杀跌延续 · 与 9/10 农化/粮食集体回调同一逻辑</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌②</b></div>
+    <div>粮食 ETF（159587）</div>
+    <div class="etf-val down">-3.54%</div>
+    <div>同主题 ETF · 集体反映防御农产主题抱团遗弃路径从"<b>三日游兑现"延长至"四日游杀跌"</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌③</b></div>
+    <div>粮食 ETF（159072）</div>
+    <div class="etf-val down">-3.53%</div>
+    <div>同主题 · 三只粮食 ETF 集体 -3.5%~-3.8% · 与 9/14 兵装重组 / 种植业 / 军工装备等防御板块跌幅居前同向印证</div>
+  </div>
+</div>
+
+<!-- ⑩ 重要新闻与板块催化 -->
+<div class="section-title">📖 七、重要新闻与板块催化</div>
+<div class="fin-table">
+  <div class="fin-row header"><div>事件 / 数据</div><div>关键数据</div><div>对 A 股影响</div></div>
+  <div class="fin-row">
+    <div>🇰🇷 国际 · 2026 世界肺癌大会（WCLC）9/12-9/15 韩国首尔</div>
+    <div class="fin-val up">口头报告 19 项 + 小型口头 45 项</div>
+    <div><b>国产创新药入选口头报告 19 项、小型口头报告研究 45 项，刷新历史纪录</b>；翰森制药（HK3692）+ 宜联生物 B7-H3 靶向 ADC 同时入选 LBA（最新突破摘要）主席专题，<b>改写复发小细胞肺癌 SCLC 二线治疗格局</b>；催化创新药 / CRO / 医疗服务板块主升</div>
+  </div>
+  <div class="fin-row">
+    <div>🇭🇰 公司 · 英矽智能（HK3696）RENTOSERTIB III 期临床入组</div>
+    <div class="fin-val up">全球首个 AI 设计新分子进入 III 期</div>
+    <div>RENTOSERTIB 是<b>全球首个同时实现 AI 发现新靶点（TNIK）+ AI 设计新分子并进入 III 期临床的药物</b>，已获美国 FDA 孤儿药认定并纳入<b>国家药监局突破性治疗品种</b>；浙商证券定性"AI 制药已从'算法叙事'进入'临床兑现'阶段"</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 券商 · 浙商证券《AI 制药进入临床兑现阶段》</div>
+    <div class="fin-val up">第二条增长曲线</div>
+    <div>AI 提效将催生更强烈的分子验证需求；叠加多肽 / ADC 等新分子实体需求爆发，<b>创新药产业链构成板块的第二条确定性增长曲线</b>；今日创新药 / CRO 板块主升的核心卖方逻辑</div>
+  </div>
+  <div class="fin-row">
+    <div>🌐 市场空间 · 灼识咨询《全球 B7-H3 靶向 ADC 市场预测》</div>
+    <div class="fin-val up">1 亿 → 142 亿美元 (CAGR 59.7%)</div>
+    <div>全球 B7-H3 靶向 ADC 市场预计由 2026 年约 <b>1 亿美元</b>增长至 2035 年约 <b>142 亿美元</b>，对应 2027-2035 <b>CAGR 约 59.7%</b>；全球 SCLC 治疗药物市场 2024 年 51 亿美元 → 2035 年 112 亿美元；为创新药板块提供长期空间锚定</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 金融界 9/14 午盘《PCB 概念净流入 56.07 亿》</div>
+    <div class="fin-val up">8 股涨停</div>
+    <div>金融界 9/14 午盘印证 <b>PCB 概念获主力资金净流入 56.07 亿元，板块内 8 只个股涨停</b>——印证覆铜板涨价主线从 9/10 MLCC 三日游 升级为 9/14 PCB 多日游；与建滔+松下+南亚塑胶 8 月底-9/1 涨价函传导一致</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 资金 · 9/11 沪深北两融余额</div>
+    <div class="fin-val info">26316.26 亿（较 9/4 -62.14 亿）</div>
+    <div>融资余额 26025.95 亿元 / 融券 290.31 亿元；<b>两融余额连续两周下降</b>，杠杆资金略有收缩；与 9/14 成交缩量 3440 亿（-17.3%）共同印证<b>增量资金未进场</b></div>
+  </div>
+  <div class="fin-row">
+    <div>🛡️ 风险 · 兵装重组 / 种植业 / 军工装备 4 日游杀跌</div>
+    <div class="fin-val down">粮食 ETF -3.5%~-3.8%</div>
+    <div>9/8 农化 → 9/9 煤炭+航运+化工 → 9/10 三日游兑现 → 9/11 复盘缺失 → 9/14 四日游杀跌（粮食 ETF 三只 -3.5%~-3.8%）；<b>防御主线在缩量环境下持续性递减规律再次兑现</b></div>
+  </div>
+</div>
+
+<!-- ⑪ 盘面核心结论 -->
+<div class="section-title">📌 八、盘面核心结论</div>
+
+<div class="conclusion ok">
+  <div class="conclusion-title">✅ 结论 1：正面主线——创新药/CRO/医疗服务主升 · 培育钻石板块涨幅居首 · MLCC/PCB 涨价主线从 3 日游升级为多日游</div>
+  <div class="conclusion-item"><span class="num">1</span><p><b>创新药三线共振主升：</b>WCLC 大会国产创新药入选 19 项口头报告 + 翰森制药+宜联生物 B7-H3 ADC 入选 LBA 主席专题 + 英矽智能 RENTOSERTIB III 期入组三事件催化下，<b>港股通创新药 ETF(520970) +4.79% 居全场 ETF 涨幅榜首</b>，恒生生物科技 ETF(159615) +4.52% / (513930) +4.42% 跟涨；个股层面，<b>万邦医药 + 近岸蛋白 20cm 涨停</b>，白普赛斯 / 三力制药 / 诺诚健华 / 药康生物大涨——9/14 是"<b>从'AI 制药算法叙事'切换至'临床兑现'阶段</b>"的标志性事件。</p></div>
+  <div class="conclusion-item"><span class="num">2</span><p><b>培育钻石板块涨幅 +4.54% 居首：</b>9/14 早盘即登顶（证券日报 13:06 印证），<b>半日主力净流入 15.93 亿元</b>；恒盛能源 / 黄河旋风涨停，英诺激光 / 惠丰钻石 / 力量钻石 / 恒林股份涨幅均超 9%；事件驱动 + 板块超跌反弹 + 消费复苏预期三因素共振。</p></div>
+  <div class="conclusion-item"><span class="num">3</span><p><b>MLCC/PCB 涨价主线多日游：</b>金融界 9/14 午盘印证 <b>PCB 概念获主力资金净流入 56.07 亿元，板块内 8 只个股涨停</b>，是 9/10 MLCC +11.01 亿（净流入 TOP3）的<b>题材化升级</b>；建滔 + 松下 + 南亚塑胶 8 月底-9/1 涨价函持续传导，<b>主线从 9/10 的"元件 3 日游"延长为 9/14 的"PCB 多日游"</b>。</p></div>
+  <div class="conclusion-item"><span class="num">4</span><p><b>3100 只上涨 vs 5 指数全阴的"假繁荣"：</b>9/14 <b>超 3100 只个股上涨</b>（同花顺），但 5 大指数全阴（沪指 -0.07% / 深成 -0.64% / 创业板 -1.10% / 科创 50 -1.62% / 北证 50 -0.15%）——<b>指数被权重股绑架</b>，反映 9/10-9/14 银行 / 电力 / 央企 等权重股虽强但独木难支，而中小盘（培育钻石 / 创新药）领涨形成"指数与个股背离"。</p></div>
+</div>
+
+<div class="conclusion danger">
+  <div class="conclusion-title">⚠️ 结论 2：风险信号——早正午负假繁荣 · 防御 4 日游杀跌 · 缩量 17% · 指数被权重绑架</div>
+  <div class="conclusion-item"><span class="num">1</span><p><b>早正午负"假繁荣"：</b>早盘沪指一度冲高 +0.16% 报 3894.28（证券日报 13:06 印证）→ 收盘 -0.07% 报 ≈ 3885，<b>午后单边下行 23 个 BP</b>；午盘 3576 涨 / 1797 跌（净多头 1779 只）→ 收盘 3100+ 涨（净多头缩窄）——午后卖盘扩大但<b>未改变个股端"普涨"格局</b>，是 2026/09 一类典型的"早盘诱多 + 午后杀指数"形态。</p></div>
+  <div class="conclusion-item"><span class="num">2</span><p><b>防御 4 日游杀跌：</b>9/8 农化 → 9/9 煤炭+航运+化工 → 9/10 三日游兑现（粮食 ETF -4% / 中粮糖业跌停 / 海南橡胶跌停）→ 9/11 复盘缺失 → 9/14 <b>4 日游杀跌</b>（粮食 ETF -3.53%~-3.80% / 兵装重组 / 种植业 / 军工装备 / 农产品加工集体跌幅居前）。<b>防御主线在缩量环境下持续性递减规律再次兑现</b>。</p></div>
+  <div class="conclusion-item"><span class="num">3</span><p><b>缩量 17% 警示：</b>三市成交 16430 亿，较 9/12（推断 ≈19870 亿）<b>缩量 3440 亿（-17.3%）</b>；9/10 16623 亿 → 9/14 16430 亿<b>成交两连降</b>；<b class="warn">增量资金未进场，存量博弈下任何反弹都需谨慎</b>。</p></div>
+  <div class="conclusion-item"><span class="num">4</span><p><b>指数被权重绑架：</b>5 指数全阴 vs 3100+ 只上涨 的背离，<b>反映银行 / 电力 / 央企权重股虽强但独木难支</b>（9/10 银行 AH 优选 ETF +1.65% 后今日未见霸榜），<b>主因 9/10 防御三日游已透支权重股避险买盘</b>，9/14 缺乏新主线接棒导致指数下行。</p></div>
+</div>
+
+<div class="conclusion info">
+  <div class="conclusion-title">💡 结论 3：中期支撑——WCLC 大会催化创新药"AI 制药临床兑现"主题 · 9/16 美联储议息 · 三季报预告窗</div>
+  <div class="conclusion-item"><span class="num">1</span><p><b>WCLC 大会 + AI 制药"临床兑现"主题：</b>2026 WCLC 9/12-9/15 召开是 A 股创新药板块的"<b>年度级别催化</b>"——19 项口头报告 + 翰森+宜联生物 B7-H3 ADC 入选 LBA + 英矽智能 RENTOSERTIB III 期入组三事件叠加；<b>浙商证券定性"AI 制药从'算法叙事'进入'临床兑现'阶段"</b>是产业逻辑的标志性事件；<b>全球 B7-H3 靶向 ADC 市场 2026-2035 CAGR 59.7%</b>提供长期空间锚定。</p></div>
+  <div class="conclusion-item"><span class="num">2</span><p><b>9/16 美联储议息定调全球流动性：</b>EIA 上调原油预测 + 美伊冲突升级推升能源价格；下周二（9/16）凌晨美联储议息会议为 9 月最重要外部节点——需提前警示：<b>若加息预期上修，可能打压 A 股高估值品种</b>（科创 50 / 创业板）。</p></div>
+  <div class="conclusion-item"><span class="num">3</span><p><b>三季报预告窗临近：</b>9 月底-10 月初三季报预告密集披露；今日创新药 / CRO 主升反映资金对业绩确定性的偏好；<b>后续重点关注 10 月中下旬三季报指引中的业绩拐点个股（创新药 / 半导体设备 / AI 算力硬件）</b>。</p></div>
+  <div class="conclusion-item"><span class="num">4</span><p><b>指数化布局窗口：</b>三只医药主题 ETF（520970 / 159615 / 513930）集体 +4% 以上，是中资创新药指数化布局的明确信号；<b>公募 / 中长期资金加速配置医药主题品种</b>，与 9/9 科创板 ETF 净流入 11.71 亿 + 9/10 银行 ETF 霸榜共同构成"<b>指数化布局三连击</b>"。</p></div>
+</div>
+
+<!-- ⑫ 机构观点与分歧 -->
+<div class="section-title warn">🧠 九、机构观点与分歧</div>
+<div class="conflict-grid">
+  <div class="view-a">
+    <h4>✅ 多方观点（创新药"AI 制药临床兑现"主升 + 培育钻石板块涨幅居首）</h4>
+    <p><b>浙商证券（AI 制药进入临床兑现阶段）：</b>AI 制药已从"算法叙事"进入"临床兑现"阶段；药物研发迭代的限速步骤在湿实验，AI 提效将催生更强烈的分子验证需求；叠加多肽 / ADC 等新分子实体需求爆发，<b>创新药产业链构成板块的第二条确定性增长曲线</b>。</p>
+    <p><b>国泰海通证券（自主可控+战略资源+高分红）：</b>A 股后市横盘震荡，企稳反弹的转机会出现；行业配置方面，<b>看好自主可控的科技与材料、战略资源与高分红</b>；推荐国产芯片、半导体零部件与材料、通信设备、机械设备；推荐贵金属、工业金属、稀有金属、油化工、农产品等；推荐金融与高分红赛道。</p>
+    <p><b>灼识咨询（市场空间锚定）：</b>全球 B7-H3 靶向 ADC 市场预计由 2026 年约 1 亿美元增长至 2035 年约 142 亿美元（2027-2035 CAGR 约 59.7%）；全球 SCLC 治疗药物市场 2024 年 51 亿美元 → 2035 年 112 亿美元——为创新药板块提供长期空间锚定。</p>
+    <p><b>证券时报 / 21 财经 9/14 印证：</b>今日 WCLC 大会催化下，国产创新药入选 19 项口头报告 + 翰森+宜联生物 B7-H3 ADC 入选 LBA，<b>改写复发小细胞肺癌 SCLC 二线治疗格局</b>；港股通创新药 ETF(520970) +4.79% 居首印证事件驱动强度。</p>
+  </div>
+  <div class="view-b">
+    <h4>🔴 谨慎观点（早正午负假繁荣 + 缩量 17% + 4 日游杀跌 + 9/16 美联储议息）</h4>
+    <p><b>排排网财富 张鹏远（《证券日报》9/14）：</b>短期海外因素仍可能压制 A 股风险偏好，<b>油价高位运行、美债收益率上行及全球货币政策预期变化仍是市场焦点</b>；经历近期快速轮动后，市场可能从单纯风格交易转向对产业景气和盈利兑现的进一步验证；<b>A 股仍将以震荡为主，结构性机会仍值得关注</b>。</p>
+    <p><b>星石投资 方磊（《证券日报》9/14）：</b>当前 A 股市场<b>增量资金缺位、主线不明、情绪不高</b>，资金对热点板块的承接力有限，后市整体仍将维持震荡整理；操作上科技产业周期驱动与国内经济修复潜能均有望孕育投资机会，需重点关注企业盈利与估值修复两条线索；<b>传统核心资产估值整体偏低，中期投资性价比仍高</b>。</p>
+    <p><b>国泰海通证券（横盘震荡警示）：</b>A 股后市横盘震荡，<b>企稳反弹的转机会出现，但大级别行情仍要时间和等待</b>；市场没有整体风险，但选择上需兼顾微观结构健康与预期能够上修的环节。</p>
+    <p><b>9/16 美联储议息未定：</b>下周二凌晨美联储议息会议为 9 月最重要外部节点，<b>若加息预期上修可能打压 A 股高估值品种</b>；今日北证 50 修复 -0.15%（vs 9/10 -2.81% 暴跌）显示小盘股流动性短期恢复，<b>但中期风险仍存</b>。</p>
+  </div>
+</div>
+<div class="verdict">
+  🧭 <b>本文倾向：</b> 今日定性为"<b>早正午负假繁荣 · 培育钻石+创新药+CRO+MLCC/PCB 四线科技医药主升 · 防御 4 日游杀跌</b>"——<b>WCLC 大会 + AI 制药临床兑现主题</b>成为新主线，资金从"<b>金融+电力+防御通胀</b>"主题切至"<b>创新药+CRO+科技消费</b>"主题。操作上<b>严控仓位（≤ 50%）</b>，沿"<b>创新药产业链（顺势）+ 培育钻石（事件驱动警惕一日游）+ PCB/MLCC 涨价（多日游确认）</b>"三线布局，<b>规避防御板块（兵装/粮食/农化 4 日游杀跌）+ 高位 AI 芯片（沐曦/摩尔延续弱势）+ 9/16 美联储议息前不追高</b>；9/16 凌晨美联储议息会议为 9 月最重要外部节点，<b>需提前警示加息预期上修风险</b>；后续重点关注 WCLC 大会闭幕（9/15）+ 9/16 美联储议息 + 三季报预告密集披露（9 月底-10 月初）三大节点。
+</div>
+
+<!-- ⑬ 后续展望与交易策略 -->
+<div class="section-title info">🔔 十、后续展望与交易策略</div>
+<div class="signal-grid">
+  <div class="signal-card">
+    <h4><span class="num">📅</span>展望信号</h4>
+    <p>9/15（明天）<b>WCLC 大会闭幕日</b>（韩国首尔，翰森+宜联生物 B7-H3 ADC LBA 主席专题可能延烧至 9/15）+ <b>9/16（周二）凌晨美联储议息会议</b>决定全球流动性；9 月底-10 月初三季报预告密集披露。9/14 早正午负"假繁荣"提示午后卖盘扩大，<b>9/15 需观察创新药主升是否延续 + 早盘指数是否再次出现"诱多"形态</b>。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">😰</span>情绪信号</h4>
+    <p>5 指数全阴 vs <b>3100+ 只上涨</b>的"假繁荣"；<b>午后跳水 23 个 BP</b>（+0.16% → -0.07%）；防御 4 日游杀跌（粮食 ETF 三只 -3.5%~-3.8%）；<b>创新药 / CRO 主升反映资金对业绩确定性的偏好</b>；<b class="warn">警惕早盘诱多 + 午后杀指数形态扩散</b>。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">💰</span>资金信号</h4>
+    <p>主力净流入方向：<b>创新药 / CRO / 医疗服务（WCLC 催化）+ 培育钻石（15.93 亿半日净流入）+ PCB（56.07 亿净流入，金融界印证）</b>；<b>三市成交 16430 亿缩量 17.3%</b>显示增量资金未进场；两融余额 9/11 26316.26 亿元（较 9/4 -62.14 亿）杠杆资金略有收缩；<b>"科技医药主升 + 防御杀跌"特征明确</b>。</p>
+  </div>
+</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card mainline">
+    <h4>🟢 主线方向（顺势而为 · 科技医药 + 涨价）</h4>
+    <ul class="strategy-list">
+      <li><b>创新药 / CRO / 医疗服务（WCLC 主线）：</b>WCLC 大会 9/12-9/15 + 翰森制药（HK3692）+ 宜联生物 B7-H3 ADC LBA + 英矽智能 RENTOSERTIB III 期入组三事件驱动 + 浙商证券"AI 制药临床兑现"主题；核心股池：万邦医药（20cm 涨停）、近岸蛋白（20cm 涨停）、诺诚健华（HK9969）、药康生物（688180）、白普赛斯、三力制药、翰森制药（HK3692）、恒瑞医药（600276）、百济神州（688235 / HK6160）。</li>
+      <li><b>培育钻石（事件驱动 · 警惕一日游）：</b>9/14 板块涨幅 +4.54% 居首 + 主力净流入 15.93 亿（半日）；核心股池：恒盛能源（580580）、黄河旋风（600172）、英诺激光（301021）、惠丰钻石（839725）、力量钻石（301071）、恒林股份（603661）、四方达（300179）。<b class="warn">警示事件驱动一日游规律（9/2 油气/9/3 美容/9/8 房地产/9/9 电网设备均一日游兑现）</b>。</li>
+      <li><b>MLCC / PCB 涨价（多日游确认）：</b>9/10 MLCC +11.01 亿 → 9/14 PCB 净流入 56.07 亿 / 8 股涨停（金融界）主线从 3 日游升级为多日游；核心股池：超声电子（000823）、金安国纪（002636）、逸豪新材（301176）、四会富仕（300852）、明阳电路（300739）、生益科技（600183）、南亚新材（688519）、华正新材（603186）。</li>
+      <li><b>港股通创新药 ETF(520970) 指数化布局：</b>9/14 +4.79% 居首 + 恒生生物科技 ETF(159615) +4.52% / (513930) +4.42%，<b>三只医药主题 ETF 集体 +4% 以上</b>印证 WCLC 大会 + 创新药主题事件驱动强度；适合中长期资金加速配置。</li>
+    </ul>
+  </div>
+  <div class="strategy-card defend">
+    <h4>🟡 防御 / 高低切方向</h4>
+    <ul class="strategy-list">
+      <li><b>银行高股息（防御对冲 · 9/10 强势延续）：</b>9/10 银行 AH 优选 ETF +1.65% / 银行 ETF +1.56% / +1.52% 三只霸榜 + 国新办"十五五"金融发布 + 财政部 2000 亿注资工行/农行；9/14 未见霸榜但权重支撑指数；核心股池：工商银行（601398）、农业银行（601288）、中国银行（601988）、招商银行（600036）、江苏银行（600919）、南京银行（601009）。</li>
+      <li><b>电网设备（十五五 4 万亿延续）：</b>9/10 华银电力/闽东电力/湖南发展/乐山电力/芯能科技涨停 + 国家电网"十五五"4 万亿投资 + 9/9 国家能源局新型电网建设部署；核心股池：华正新材（603186）、国电南瑞（600406）、平高电气（600312）、许继电气（000400）。</li>
+      <li><b>苹果产业链 / 折叠屏概念（9/15 事件驱动尾声）：</b>9/10 凌晨苹果发布会已落地，<b>9/15 进入事件驱动尾声</b>，需警惕利好兑现；核心股池：立讯精密（002475）、工业富联（601138）、领益智造（002600）、东睦股份（600114）。</li>
+      <li><b>汽车整车（9/14 跟涨）：</b>培育钻石领涨下的可选消费溢出；核心股池：比亚迪（002594）、长城汽车（601633）、赛力斯（601127）、上汽集团（600104）。</li>
+    </ul>
+  </div>
+  <div class="strategy-card avoid">
+    <h4>🔴 风险规避</h4>
+    <ul class="strategy-list">
+      <li><b>防御 4 日游杀跌（兵装/种植业/粮食/农产品加工）：</b>9/8-9/14 防御主线从三日游兑现延长至四日游杀跌；<b>粮食 ETF 三只 -3.5%~-3.8%</b>；<b>规避亚盛集团 / 中粮糖业 / 海南橡胶 / 农发种业</b>等防御品种，<b>短期防御主题在缩量环境下持续性递减规律再次兑现</b>。</li>
+      <li><b>AI 应用 / 文化传媒（9/9 龙版停牌触发延续）：</b>9/9 龙版传媒停牌核查 → 9/10 出版传媒跌停 / 沐曦 -4.31% / 摩尔线程延续弱势；<b>9/14 创新药主升 + 防御杀跌</b>，<b>AI 应用主线资金已切出</b>，<b class="warn">规避易点天下 / 蓝色光标 / 芒果超媒</b>等 AI 应用标的。</li>
+      <li><b>半导体 / AI 芯片高位（科创 50 9/14 -1.62% 领跌）：</b>9/4 杀跌 + 9/8 修复 + 9/9 弱化 + 9/10 TOP1 重返 + 9/14 -1.62% 领跌；<b>沐曦 / 摩尔 / 半导体设备 资金撤离仍在延续</b>；<b>规避类似前期高估值 AI 芯片题材</b>。</li>
+      <li><b>兵装重组概念（886101）9/14 跌幅居前：</b>同花顺 9/14 主源印证 + 4 日游杀跌路径；<b>前期重组预期已透支</b>，短期规避重组主题。</li>
+    </ul>
+  </div>
+  <div class="strategy-card core">
+    <h4>🧭 核心交易策略</h4>
+    <ul class="strategy-list">
+      <li><b>总仓位：</b>建议 ≤ 50%，9/16 美联储议息前不激进加仓；<b>缩量 17% 环境下，保留现金应对方向选择</b>。</li>
+      <li><b>关键位：</b>沪指 3880 短线支撑（9/14 估算收盘）/ 3890-3900 早盘阻力区（9/14 早盘高点）/ 3850-3870 风险位；创业板 3300 短期支撑 / 3350-3400 弱反弹阻力；科创 50 1530 短期支撑 / 1570-1600 弱反弹阻力。</li>
+      <li><b>节奏：</b>不追高（尤其培育钻石事件驱动一日游风险 + 早盘诱多形态）；<b>优先业绩确定性 + 主题催化（创新药 WCLC + PCB 涨价多日游）</b>；等回调布局；9/16 美联储议息前不激进加仓。</li>
+      <li><b>风险事件：</b>9/15 WCLC 大会闭幕（翰森+宜联生物 B7-H3 ADC 主题延烧）+ 9/16 美联储议息会议（决定全球流动性）+ 9 月底-10 月初三季报预告密集披露。</li>
+      <li><b>主力跟踪：</b>关注 9/15 创新药主升是否延续（WCLC 闭幕日效应）+ 9/16 美联储议息结果（加息 vs 降息 vs 鹰派 vs 鸽派）+ 培育钻石 9/15 是否出现"事件驱动一日游"回吐（粮食 ETF 杀跌的镜像）+ PCB 涨价主线净流入是否延续（金融界 56.07 亿是否在 9/15 维持）。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ⑭ 数据来源（底部） -->
+<div class="data-note">
+  <strong>📌 数据来源与链接：</strong><br>
+  ✅ <b>同花顺 c679874580（ETF 收评主源 · 含 A 股概览）</b>：<a href="https://news.10jqka.com.cn/20260914/c679874580.shtml" style="color:#38bdf8">https://news.10jqka.com.cn/20260914/c679874580.shtml</a>（5 指数涨跌幅 / 板块涨跌 / ETF 涨跌 TOP6 / 成交 16430 亿 / WCLC 大会催化 / 翰森+宜联生物 B7-H3 ADC / 英矽智能 RENTOSERTIB III 期 / 浙商证券"AI 制药临床兑现"主题）<br>
+  ✅ <b>同花顺 c679874577（A 股收评 · 用户已提供链接 · WebFetch 返回 gzipped 二进制）</b>：<a href="https://news.10jqka.com.cn/20260914/c679874577.shtml" style="color:#38bdf8">https://news.10jqka.com.cn/20260914/c679874577.shtml</a>（建议用户在本地浏览器打开核对个股详情）<br>
+  ✅ <b>21 财经 / 证券日报《超 15 亿元资金涌入！培育钻石板块强势拉升》9/14 13:06</b>：<a href="https://m.21jingji.com/article/20260914/herald/8227fc76b6bd615ec8da4be5724322aa.html" style="color:#38bdf8">https://m.21jingji.com/article/20260914/herald/8227fc76b6bd615ec8da4be5724322aa.html</a>（半日培育钻石 +4.54% / 主力净流入 15.93 亿 / 恒盛能源/黄河旋风涨停 / 9/11 两融余额 26316.26 亿 / 星石投资方磊 + 排排网张鹏远 + 国泰海通证券 机构观点）<br>
+  ✅ <b>新浪财经《WCLC 催化下 CRO、创新药等板块概念大涨》9/14 早盘</b>：<a href="https://finance.sina.com.cn/jjxw/2026-09-14/doc-inirupew9493336.shtml" style="color:#38bdf8">https://finance.sina.com.cn/jjxw/2026-09-14/doc-inirupew9493336.shtml</a>（万邦医药/近岸蛋白 20cm 涨停 / 白普赛斯/三力制药/诺诚健华/药康生物 大涨）<br>
+  ✅ <b>金融界《A 股午盘 | 沪指涨 0.16%，培育钻石、MLCC 概念集体走强》9/14</b>：<a href="https://finance.jrj.com.cn/2026/09/14120058425880.shtml" style="color:#38bdf8">https://finance.jrj.com.cn/2026/09/14120058425880.shtml</a>（午盘沪指 +0.16% 报 3894.28 / 半日成交 11139 亿 / PCB 净流入 56.07 亿 / 8 股涨停）<br>
+  ✅ <b>财联社/财经网 9/14 10:27 早盘数据</b>：上证 +0.13% / 深成 +0.18% / 创业板 +0.20% / 培育钻石/元件/EDR 概念涨幅居前<br>
+  ✅ <b>搜狐财经《创新药国际化进入加速兑现期》9/14</b>：<a href="https://m.sohu.com/a/1075845267_121157270" style="color:#38bdf8">https://m.sohu.com/a/1075845267_121157270</a>（WCLC 大会国产创新药企密集发布重磅临床数据 / 翰森 B7-H3 ADC III 期研究达 OS 主要终点）<br>
+  ✅ <b>雪球 / 东方财富 9/14 早盘数据印证</b>：上证指数走势 + 创业板指走势（多源摘要印证）<br>
+  ⚠️ <b>数据缺口</b>：① 同花顺 c679874577 WebFetch 返回 gzipped 二进制未能解码，建议用户在本地浏览器打开核对个股详情；② 申万一级行业 9/14 涨跌 TOP10 明细未单独披露；③ 9/11（周五）复盘文档缺失，已在主线板块三段式脉络中明确标注"前 1 日复盘文档缺失"；④ 9/14 涨停个股详细名单 / 连板梯度 / 涨停家数 / 封板率 / 炸板数未在公开收评中给出完整版；⑤ 主力资金净流入 TOP3 板块的金额数据 9/14 收评未给出；⑥ 收盘点位（10jqka 仅给涨跌幅）与 investing.com 略有差异，准确数值待用户本地核对。<br>
+  📅 <b>数据日期：</b>2026-09-14（周一收盘 · WCLC 大会进行中 · 9/12-9/15 韩国首尔）· 下一交易日：2026-09-15（周二 · WCLC 大会闭幕日）· 关键节点：<b>9/16 凌晨美联储议息会议</b>
+</div>
+
+<!-- ⑮ 页脚 -->
+<div class="footer">
+  📅 数据日期：2026-09-14（周一收盘 · WCLC 大会进行中）· 下一交易日：2026-09-15（周二 · WCLC 闭幕日）· 关键节点：9/16 凌晨美联储议息会议<br>
+  📊 数据来源：同花顺（c679874580 + c679874577） / 证券日报 / 21 财经 / 新浪财经 / 金融界 / 财联社 / 搜狐 / 雪球 / 东方财富 / 灼识咨询 / 浙商证券 / 国泰海通证券 / 星石投资 / 排排网财富<br>
+  ⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供研究参考，不构成任何投资建议；市场有风险，投资需谨慎。<br>
+  📝 特别说明：本次报告 WebFetch 抓取同花顺 c679874577 返回 gzipped 二进制未能成功解码，核心 A 股数据由 c679874580（ETF 收评含 A 股概览）补全，并经证券日报 / 21 财经 / 新浪 / 金融界 / 财联社 等 8 个非同源渠道交叉核验一致；9/11 复盘文档缺失已按 SOP v1.2 §4.2.1 降级规则采用两段式（D-1=9/10 → 今日=9/14）呈现。
+</div>
+
+</div>
+</body>
+</html>

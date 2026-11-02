@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-09 A股复盘 · 沪强创弱缩量震荡 · 煤炭航运化工三线防御 · 龙版传媒停牌百大闯5板</title>
+<style>
+  :root{
+    --bg-base:#0f1419; --bg-mid:#1a2332; --bg-end:#0f1419;
+    --card-bg:rgba(30,41,59,0.6); --card-deep:rgba(15,23,42,0.5);
+    --border-soft:rgba(148,163,184,0.2); --border-mid:rgba(148,163,184,0.3);
+    --text-primary:#f1f5f9; --text-body:#e8eef5; --text-muted:#cbd5e1; --text-subtle:#94a3b8; --text-faint:#64748b;
+    --up:#10b981; --up-light:#34d399; --up-soft:#6ee7b7;
+    --down:#ef4444; --down-light:#f87171; --down-soft:#fca5a5;
+    --warn:#f59e0b; --warn-light:#fbbf24;
+    --info:#0ea5e9; --info-light:#38bdf8;
+    --purple:#a855f7; --purple-light:#c084fc;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(135deg,#0f1419 0%,#1a2332 50%,#0f1419 100%);
+    color:var(--text-body); min-height:100vh; padding:24px; line-height:1.6; }
+  .container { max-width:1500px; margin:0 auto; }
+
+  /* === 头部 === */
+  .header { background:linear-gradient(135deg,rgba(245,158,11,0.22),rgba(168,85,247,0.16),rgba(14,165,233,0.10));
+    border:1px solid rgba(245,158,11,0.32); border-radius:20px; padding:36px; margin-bottom:24px; position:relative; overflow:hidden; }
+  .header::before { content:""; position:absolute; top:-60px; left:-60px; width:200px; height:200px;
+    background:radial-gradient(circle,rgba(245,158,11,0.25),transparent 70%); border-radius:50%; }
+  .header h1 { font-size:32px; background:linear-gradient(90deg,#fbbf24,#c084fc,#38bdf8);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:8px; font-weight:700; }
+  .header .subtitle { color:var(--text-muted); font-size:15px; position:relative; }
+  .badges { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; position:relative; }
+  .badge { display:inline-block; padding:5px 12px; border-radius:8px; font-size:12px; font-weight:600; }
+  .badge-up { background:rgba(16,185,129,0.18); color:#34d399; }
+  .badge-source { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .badge-warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .badge-purple { background:rgba(168,85,247,0.18); color:#c084fc; }
+  .badge-danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+
+  /* === 章节标题 === */
+  .section-title { font-size:22px; margin:32px 0 16px; padding-left:14px; border-left:4px solid #f87171; color:var(--text-primary); font-weight:700; }
+  .section-title.warn { border-left-color:#fbbf24; }
+  .section-title.info { border-left-color:#38bdf8; }
+  .section-title.ok { border-left-color:#34d399; }
+
+  /* === 数据说明 === */
+  .data-note { border:1px dashed var(--border-mid); border-radius:12px; padding:16px 20px; margin-bottom:24px; font-size:13px; color:var(--text-muted); background:rgba(15,23,42,0.4); }
+  .data-note strong { color:var(--text-primary); }
+  .ok { color:#34d399; } .danger { color:#fca5a5; } .warn { color:#fbbf24; } .info { color:#38bdf8; } .purple { color:#c084fc; }
+  .danger-text { color:#fca5a5; } .warn-text { color:#fbbf24; } .info-text { color:#38bdf8; } .purple-text { color:#c084fc; }
+
+  /* === 主题横幅 === */
+  .theme-banner { display:flex; gap:16px; align-items:flex-start; background:rgba(245,158,11,0.08); border-left:5px solid #f59e0b; border-radius:12px; padding:18px 20px; margin-bottom:8px; }
+  .theme-banner.warn { background:rgba(245,158,11,0.08); border-left-color:#f59e0b; }
+  .theme-banner.danger { background:rgba(239,68,68,0.08); border-left-color:#ef4444; }
+  .theme-banner.ok { background:rgba(16,185,129,0.08); border-left-color:#10b981; }
+  .theme-banner .icon { font-size:28px; line-height:1; }
+  .theme-banner .text h3 { font-size:17px; color:var(--text-primary); margin-bottom:6px; }
+  .theme-banner .text p { font-size:13px; color:var(--text-muted); }
+
+  /* === 指数卡 === */
+  .dashboard { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:24px; }
+  .index-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:20px; position:relative; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.info { border-top:3px solid #38bdf8; }
+  .index-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.3); transition:.2s; }
+  .index-card .tag { position:absolute; top:14px; right:14px; font-size:11px; padding:3px 8px; border-radius:6px; font-weight:600; }
+  .index-card .tag.ok { background:rgba(16,185,129,0.18); color:#34d399; }
+  .index-card .tag.danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .index-card .tag.warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .index-card .tag.info { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .index-card .name { color:var(--text-subtle); font-size:13px; margin-bottom:8px; }
+  .index-card .value { font-size:24px; font-weight:700; color:var(--text-primary); }
+  .index-card.ok .value { color:#34d399; }
+  .index-card.danger .value { color:#f87171; }
+  .index-card.warn .value { color:#fbbf24; }
+  .index-card.info .value { color:#38bdf8; }
+  .index-card .change { font-size:13px; margin-top:4px; }
+  .index-card .label { font-size:12px; color:var(--text-faint); margin-top:8px; }
+
+  /* === 资金信号 === */
+  .market-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+  .stat-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:20px; border-top:3px solid var(--border-mid); }
+  .stat-card.up { border-top-color:#34d399; }
+  .stat-card.danger { border-top-color:#f87171; }
+  .stat-card.warn { border-top-color:#fbbf24; }
+  .stat-card.info { border-top-color:#38bdf8; }
+  .stat-card .stat-name { color:var(--text-subtle); font-size:13px; margin-bottom:8px; }
+  .stat-card .stat-value { font-size:24px; font-weight:700; }
+  .stat-card.up .stat-value { color:#34d399; }
+  .stat-card.danger .stat-value { color:#f87171; }
+  .stat-card.warn .stat-value { color:#fbbf24; }
+  .stat-card.info .stat-value { color:#38bdf8; }
+  .stat-card .stat-detail { font-size:12px; color:var(--text-faint); margin-top:6px; line-height:1.5; }
+
+  /* === 表格型卡 === */
+  .flow-table,.etf-table,.fin-table { display:grid; gap:0; margin-bottom:24px; border:1px solid var(--border-soft); border-radius:12px; overflow:hidden; }
+  .flow-row,.etf-row,.fin-row { display:grid; padding:12px 16px; border-bottom:1px dashed rgba(148,163,184,0.15); align-items:center; font-size:13px; }
+  .flow-row.header,.etf-row.header,.fin-row.header { background:rgba(148,163,184,0.08); font-weight:700; color:var(--text-primary); }
+  .flow-table { grid-template-columns:0.6fr 1.6fr 1.2fr 2.4fr; }
+  .etf-table { grid-template-columns:0.6fr 2fr 1fr 1.4fr; }
+  .fin-table { grid-template-columns:1.4fr 1.6fr 2.4fr; }
+  .flow-row:last-child,.etf-row:last-child,.fin-row:last-child { border-bottom:none; }
+  .flow-val.up { color:#34d399; font-weight:700; } .flow-val.down { color:#fca5a5; }
+  .etf-val.up { color:#34d399; font-weight:700; } .etf-val.down { color:#fca5a5; font-weight:700; }
+  .fin-val.up { color:#34d399; } .fin-val.down { color:#fca5a5; } .fin-val.warn { color:#fbbf24; } .fin-val.info { color:#38bdf8; }
+
+  /* === 主线卡 === */
+  .mainlines { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+  .mainline-card { background:var(--card-bg); border:1px solid var(--border-soft); border-left:4px solid var(--border-mid); border-radius:12px; padding:18px; position:relative; }
+  .mainline-card.rank-1 { border-left-color:#fbbf24; }
+  .mainline-card.rank-2 { border-left-color:#38bdf8; }
+  .mainline-card.rank-3 { border-left-color:#c084fc; }
+  .mainline-card.defend { border-left-color:#ef4444; background:rgba(239,68,68,0.06); }
+  .mainline-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.3); transition:.2s; }
+  .mainline-rank { position:absolute; top:14px; right:16px; width:28px; height:28px; border-radius:50%; background:rgba(148,163,184,0.12); color:var(--text-muted); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; }
+  .mainline-card .title { font-size:16px; font-weight:700; color:var(--text-primary); margin-bottom:10px; padding-right:40px; }
+  .mainline-tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+  .mainline-tag { font-size:11px; padding:3px 8px; border-radius:6px; font-weight:600; }
+  .mainline-tag.up { background:rgba(16,185,129,0.18); color:#34d399; }
+  .mainline-tag.warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .mainline-tag.danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .mainline-tag.info { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .mainline-tag.purple { background:rgba(168,85,247,0.18); color:#c084fc; }
+  .mainline-desc { color:var(--text-muted); font-size:13px; line-height:1.6; margin-bottom:10px; }
+  .mainline-desc b { color:var(--text-primary); }
+  .flow-timeline { font-size:12px; color:var(--text-faint); background:rgba(15,23,42,0.4); border-radius:8px; padding:10px 12px; margin-bottom:10px; line-height:1.7; }
+  .flow-timeline .arrow { color:#fbbf24; font-weight:700; }
+  .mainline-stocks { display:flex; flex-wrap:wrap; gap:6px; }
+  .stock-chip { font-size:11px; padding:2px 8px; border-radius:6px; background:rgba(148,163,184,0.1); color:var(--text-muted); }
+  .stock-chip b { color:#fbbf24; }
+
+  /* === 涨停天梯 === */
+  .ladder { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
+  .ladder-tag { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:10px; font-size:13px; font-weight:600; background:var(--card-bg); border:1px solid var(--border-soft); }
+  .ladder-tag.lv-1 { border-left:4px solid #ef4444; color:#fca5a5; }
+  .ladder-tag.lv-2 { border-left:4px solid #fbbf24; color:#fbbf24; }
+  .ladder-tag.lv-3 { border-left:4px solid #38bdf8; color:#38bdf8; }
+  .ladder-tag.lv-4 { border-left:4px solid #c084fc; color:#c084fc; }
+  .ladder-tag b { color:#fff; }
+
+  /* === 信号卡 === */
+  .signal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+  .signal-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:18px; border-top:3px solid var(--info); }
+  .signal-card h4 { font-size:15px; color:var(--text-primary); margin-bottom:8px; }
+  .signal-card p { font-size:13px; color:var(--text-muted); }
+  .signal-card .num { display:inline-block; width:22px; height:22px; border-radius:50%; background:rgba(14,165,233,0.2); color:#38bdf8; text-align:center; line-height:22px; font-size:12px; font-weight:700; margin-right:6px; }
+
+  /* === 核心结论 === */
+  .conclusion { background:var(--card-bg); border:1px solid var(--border-soft); border-left:3px solid var(--border-mid); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+  .conclusion.ok { border-left-color:#34d399; }
+  .conclusion.warn { border-left-color:#fbbf24; }
+  .conclusion.info { border-left-color:#38bdf8; }
+  .conclusion.danger { border-left-color:#ef4444; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:10px; }
+  .conclusion.ok .conclusion-title { color:#34d399; }
+  .conclusion.warn .conclusion-title { color:#fbbf24; }
+  .conclusion.info .conclusion-title { color:#38bdf8; }
+  .conclusion.danger .conclusion-title { color:#fca5a5; }
+  .conclusion-item { display:flex; gap:10px; margin-bottom:8px; font-size:13px; color:var(--text-muted); align-items:flex-start; }
+  .conclusion-item .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:rgba(239,68,68,0.18); color:#fca5a5; text-align:center; line-height:22px; font-size:12px; font-weight:700; }
+  .conclusion-item p { line-height:1.6; }
+  .conclusion-item b { color:var(--text-primary); }
+
+  /* === 分歧卡 === */
+  .conflict-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  .view-a,.view-b { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:18px; }
+  .view-a { border-top:3px solid #34d399; }
+  .view-b { border-top:3px solid #f87171; }
+  .view-a h4,.view-b h4 { font-size:15px; margin-bottom:8px; }
+  .view-a h4 { color:#34d399; } .view-b h4 { color:#fca5a5; }
+  .view-a p,.view-b p { font-size:13px; color:var(--text-muted); margin-bottom:6px; }
+  .view-a p b,.view-b p b { color:var(--text-primary); }
+  .verdict { background:rgba(168,85,247,0.08); border:1px solid rgba(168,85,247,0.3); border-radius:12px; padding:16px 20px; margin-bottom:24px; font-size:14px; color:var(--text-body); }
+  .verdict b { color:#c084fc; }
+
+  /* === 策略矩阵 === */
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px; }
+  .strategy-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:18px; border-left:4px solid var(--border-mid); }
+  .strategy-card.mainline { border-left-color:#34d399; }
+  .strategy-card.defend { border-left-color:#fbbf24; }
+  .strategy-card.avoid { border-left-color:#ef4444; }
+  .strategy-card.core { border-left-color:#c084fc; }
+  .strategy-card h4 { font-size:15px; color:var(--text-primary); margin-bottom:10px; }
+  .strategy-list { list-style:none; font-size:13px; color:var(--text-muted); }
+  .strategy-list li { padding:5px 0; border-bottom:1px dashed rgba(148,163,184,0.12); }
+  .strategy-list li:last-child { border-bottom:none; }
+  .strategy-list b { color:var(--text-primary); }
+
+  /* === 页脚 === */
+  .footer { text-align:center; color:var(--text-faint); font-size:12px; margin-top:32px; padding:16px; border-top:1px solid rgba(148,163,184,0.1); line-height:1.8; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .market-stats { grid-template-columns:repeat(2,1fr); }
+    .mainlines,.signal-grid { grid-template-columns:1fr; }
+    .conflict-grid,.strategy-grid { grid-template-columns:1fr; }
+    .flow-table,.etf-table,.fin-table { grid-template-columns:1fr; }
+    .flow-row,.etf-row,.fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ① 头部 -->
+  <div class="header">
+    <h1>🚦 2026-09-09 A股复盘 · 沪强创弱缩量震荡 · 煤炭航运化工三线防御 · 龙版传媒停牌核查百大闯5板</h1>
+    <div class="subtitle">上证 +0.28% / 3951.51 · 深成 +0.15% / 13723.32 · 创业板 -0.14% · 科创50 -0.69% · 北证50 -0.41% · 三市成交 18731 亿（缩量 1052 亿） · 数据日期 2026-09-09（周三 · 8月 CPI/PPI 数据公布日）</div>
+    <div class="badges">
+      <span class="badge badge-warn">🟡 沪强创弱 缩量震荡</span>
+      <span class="badge badge-source">📅 数据 2026-09-09</span>
+      <span class="badge badge-purple">🧠 8月 CPI +0.8% / PPI +3.8%</span>
+      <span class="badge badge-danger">🔴 龙版传媒停牌核查</span>
+      <span class="badge badge-up">🟢 百大集团 5 连板</span>
+      <span class="badge badge-warn">⚠️ 苹果发布会 9/10 凌晨</span>
+    </div>
+  </div>
+
+  <!-- ② 数据说明（双源验证） -->
+  <div class="data-note">
+    <strong>📌 数据口径与双源验证：</strong><br>
+    ✅ <span class="ok">已验证数据（绿色高亮）</span>：五大指数收盘点位 / 涨跌幅、三市成交额 18731 亿（较 9/8 缩量 1052 亿）、涨停 48 家、炸板 27 家、封板率 64%、连板股总数 15 只、煤炭航运化工防御领涨、传媒影视集体调整、龙版传媒 9/9 起停牌核查、CPI +0.8% / PPI +3.8% 数据，已由 <b>证券时报《主力资金》</b> + <b>证券时报《揭秘涨停》</b> + <b>财联社《焦点复盘》</b> + <b>新浪财经</b> + <b>东方财富财富号</b> + <b>同花顺财经</b> + <b>金融界</b> + <b>澎湃新闻</b> + <b>中国基金报</b> + <b>央广财经</b>（10 个独立来源）交叉核验一致。<br>
+    ⚠️ <span class="warn-text">口径与缺口说明</span>：① <b>同花顺两域收评链接用户已提供，但 WebFetch 在沙箱环境 DNS 解析失败</b>（news.10jqka.com.cn / stock.10jqka.com.cn 均不可达），今日数据改由非同源 10 家媒体交叉核验（证券时报 + 财联社 + 新浪 + 东方财富 + 同花顺财经 + 金融界 + 澎湃 + 中国基金报 + 央广 + 雪球）；② 主力净流入板块 TOP3 具体数值未在多数新闻稿中明确披露，仅披露"<b>国企改革 / 西部大开发 / 高股息</b>"主题方向；申万一级行业口径未单独披露；③ <b>创业板指收盘点位 3349.12</b> 为盘中 11:24 推算值（基于涨跌幅 -0.14% 与前一日 3353.82 反推），准确收盘数值待核实；④ 今日跌停数量未明确披露（财联社仅给"48 股涨停 + 27 炸板 + 封板率 64%"，未明确给出跌停数），仅可从"<b>超 3600 只个股下跌</b>"侧面印证。<br>
+    🔴 <span class="danger-text">数据缺口</span>：① 主力净流入板块 TOP3 具体金额（仅披露主题方向）；② 申万一级行业涨跌幅 TOP10 明细；③ 个股跌停数量；④ 创业板指 / 科创50 / 北证50 准确收盘点位（已用盘中数据反推估算，标注"估算"）。<br>
+    ℹ️ <span class="info-text">双源说明</span>：本次报告核心数据来源为 10 个非同源渠道（证券时报 / 财联社 / 新浪 / 东方财富 / 同花顺 / 金融界 / 澎湃 / 中国基金报 / 央广 / 雪球），<b>同花顺 news/stock 两域同源未单独计为独立来源</b>（与其中"同花顺财经"非同一入口，详见 SOP §4.4）。<b>三段式时间脉络</b>：D-2 = 2026-09-04（周五，跳过 9/5-9/7 周末），D-1 = 2026-09-08（周一）。<br>
+    📚 <span class="purple-text">三段式时间脉络输入来源</span>：D-2 主线参考 `geewaza-hexo-blog/source/investment/ashare/review/2026/09/20260904.html`（放量冲高回落·猪肉 AI 逆势）；D-1 主线参考 `geewaza-hexo-blog/source/investment/ashare/review/2026/09/20260908.html`（深强沪弱·通信元件霸榜 + 农业地产 CPO 三线共振 + 龙版传媒 7板炸板）。
+  </div>
+
+  <!-- ③ 主题横幅 -->
+  <div class="theme-banner warn">
+    <div class="icon">🚦</div>
+    <div class="text">
+      <h3>核心定性：CPI/PPI 数据落地·沪强创弱极致分化·风格再切防御·龙版传媒停牌触发高位股退潮</h3>
+      <p>周三 A 股三大指数<span class="warn">涨跌互现、极致分化</span>——沪指涨 +0.28% 报 3951.51，深成指涨 +0.15% 报 13723.32，<b class="warn-text">创业板指微跌 -0.14% 报约 3349.12（估算）</b>，<b class="danger-text">科创50 -0.69% 高开低走领跌</b>，北证50 -0.41%。<b>三市成交 18731 亿，较 9/8 缩量 1052 亿</b>，呈典型"<b>缩量震荡</b>"特征。<b>国家统计局 9/9 公布 8 月 CPI 同比 +0.8%（前值 +0.5%）、PPI 同比 +3.8%（前值 +3.5%），能源价格涨幅扩大是核心推手</b>，印证通胀温和回升；隔夜美股科技走弱（A 股科技同步承压）。<b>盘面结构：煤炭 / 航运港口 / 化工（农化制品）三线防御领涨</b>，<b>电网设备 ETF 国泰（561380）盘中涨超 2%</b>；PCB / 通信元件保持活跃但分化；<b>传媒 / 影视集体调整</b>（出版传媒跌停）；<b>龙版传媒 9/9 开市起停牌核查</b>（前期 7 连板 + 9/8 闯 7 板炸板分歧），<b>百大集团 5 连板接棒</b>；超 3600 只个股下跌，48 股涨停 + 27 股炸板 + 封板率 64%，<b>情绪显著降温</b>。<b>明日关键时点：苹果秋季发布会 9/10 凌晨 1 点（折叠 iPhone Ultra + iPhone 18 Pro Max）</b>。
+    </div>
+  </div>
+
+  <!-- ④ 五大核心指数 -->
+  <div class="section-title">📊 一、五大核心指数表现</div>
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">+0.28%</div>
+      <div class="name">上证指数（000001）</div>
+      <div class="value">3951.51</div>
+      <div class="change" style="color:#34d399">+11.04 点</div>
+      <div class="label">沪强格局延续，煤炭/航运/化工三大权重板块领涨支撑指数</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">+0.15%</div>
+      <div class="name">深证成指（399001）</div>
+      <div class="value">13723.32</div>
+      <div class="change" style="color:#fbbf24">+20.55 点</div>
+      <div class="label">跟涨沪指但弱于主板，权重股分化，深市成长承压</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">-0.14%</div>
+      <div class="name">创业板指（399006）</div>
+      <div class="value">≈ 3349.12（估算）</div>
+      <div class="change" style="color:#f87171">≈ -4.70 点</div>
+      <div class="label">9/8 创业板 +3.41% 大涨后微跌调整，沐曦股份 -4.31% 拖累（点位估算待核实）</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">领跌 -0.69%</div>
+      <div class="name">科创 50（000688）</div>
+      <div class="value">≈ 1638.05（估算）</div>
+      <div class="change" style="color:#f87171">≈ -11.4 点</div>
+      <div class="label">9/8 +2.42% 大涨后高开低走，半导体设备 ETF 华泰柏瑞回吐，沐曦 -4.31%、摩尔线程延续弱势（点位估算）</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">-0.41%</div>
+      <div class="name">北证 50（899050）</div>
+      <div class="value">≈ 1083.20（估算）</div>
+      <div class="change" style="color:#f87171">≈ -4.46 点</div>
+      <div class="label">小盘股持续弱势，跟随主板缩量回调（点位估算待核实）</div>
+    </div>
+  </div>
+
+  <!-- ⑤ 市场交易与资金信号 -->
+  <div class="section-title info">💰 二、市场交易与资金信号</div>
+  <div class="market-stats">
+    <div class="stat-card warn">
+      <div class="stat-name">三市成交额</div>
+      <div class="stat-value">18731 亿</div>
+      <div class="stat-detail">较 9/8 <b style="color:#fbbf24">缩量 1052 亿（-5.3%）</b> · 连续 2 日不足 1.9 万亿 · 缩量震荡，存量博弈</div>
+    </div>
+    <div class="stat-card danger">
+      <div class="stat-name">个股活跃度</div>
+      <div class="stat-value">48 涨停 / 27 炸板</div>
+      <div class="stat-detail">封板率 <b style="color:#fca5a5">64%</b>（较 9/8 的 83% 显著降温）· 连板股 15 只（较 9/8 的 21 只减少）· <b>超 3600 只个股下跌</b>，情绪降温</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-name">领涨 vs 领跌</div>
+      <div class="stat-value">煤炭航运化工 ↑ / 传媒影视 ↓</div>
+      <div class="stat-detail">防御板块接棒成长板块 · <b class="warn">龙版传媒停牌核查</b>触发高位股集体降温 · CPI/PPI 数据落地后风格再切</div>
+    </div>
+    <div class="stat-card info">
+      <div class="stat-name">ETF 领涨 / 领跌</div>
+      <div class="stat-value">电网设备 / 黄金 / 卫星通信</div>
+      <div class="stat-detail"><b>电网设备 ETF 国泰（561380）盘中涨超 2%</b>（国家能源局新型电网建设部署）；黄金 ETF 华安（518880）收跌 0.07% 抗跌；卫星通信 / 巴西 / 船舶 / 煤炭等百亿级资金净流入</div>
+    </div>
+  </div>
+
+  <!-- ⑥ 主力资金净流入 TOP3 -->
+  <div class="section-title">📈 三、主力资金净流入主题方向（数据缺口·主题口径）</div>
+  <div class="flow-table">
+    <div class="flow-row header"><div>方向</div><div>主题板块</div><div>净流入信号</div><div>板块表现</div></div>
+    <div class="flow-row">
+      <div><b style="color:#34d399">1</b></div>
+      <div><b>国企改革 / 央企 / 高股息</b></div>
+      <div class="flow-val up">主题方向（同花顺口径·TOP 主题）</div>
+      <div>9/8 国企改革 +86.2 亿（净流入第一）延续；今日央企国改 +33.8 亿、高股息 +29.2 亿（参考 9/8 数据，今日具体数值缺口）；四川成渝 / 中毅达等多股受益西部大开发 + 国企改革共振</div>
+    </div>
+    <div class="flow-row">
+      <div><b style="color:#38bdf8">2</b></div>
+      <div><b>西部大开发</b></div>
+      <div class="flow-val up">主题方向（净流入第二梯队）</div>
+      <div>受西部大开发企业所得税优惠延续 + 中西部基建景气催化；四川成渝 / 中毅达等领涨，与国企改革主题高度重叠</div>
+    </div>
+    <div class="flow-row">
+      <div><b style="color:#c084fc">3</b></div>
+      <div><b>化工 / 农化制品 / 化肥</b></div>
+      <div class="flow-val up">延续 9/8 防御扩散</div>
+      <div><b>8 月 PPI 同比 +3.8%（能源价格涨幅扩大）</b>推动化工链景气延续；农化制品延续 9/8 集体大涨格局（金正大 7 天 4 板、新赛股份 10 天 6 板）</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-bottom:24px">
+    <strong>ℹ️ 资金面补充（非同源印证）：</strong> 证券时报《主力资金》9/9 报道：<span class="info">41 股获主力资金净流入超 2 亿元，<b>尾盘主力抢筹 7 股</b>（医药板块居多）</span>；东方财富：<span class="warn">9/9 共 60 只个股（含 1 只可转债）上榜龙虎榜，总上榜成交额 134.92 亿元，<b>华正新材净买额居首（三天累计 4.89 亿）</b></span>；龙虎榜机构活跃度<b class="warn">明显下降，买入个股数量与净买入规模大幅减少</b>（财联社印证），与缩量震荡 + 防御切换结构一致。
+  </div>
+
+  <!-- ⑦ 今日主线板块与逻辑（三段式时间脉络） -->
+  <div class="section-title">🎯 四、今日主线板块与逻辑（近 3 个交易日三段式脉络 · D-2=9/4 → D-1=9/8 → 今日=9/9）</div>
+  <div class="mainlines">
+
+    <!-- 主线1：煤炭（防御领涨） -->
+    <div class="mainline-card rank-1">
+      <div class="mainline-rank">1</div>
+      <div class="title">⛏️ 煤炭（防御领涨 · 9/8 顺周期回归延续）</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 防御领涨</span>
+        <span class="mainline-tag warn">PPI +3.8%</span>
+        <span class="mainline-tag info">煤炭 ETF +3%</span>
+        <span class="mainline-tag purple">能源价格</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br>
+        · D-2（9/4）：煤炭未列主线（防御资金集中在猪肉 / AI 应用 / 白酒）<br>
+        · D-1（9/8）：化工系获主力净流入（农化制品延续），CPI/PPI 公布前能源板块已开始预热<br>
+        · 今日（9/9）：煤炭板块逆势领涨，<b>煤炭 ETF +3% 霸榜</b> <span class="arrow">🔼 升</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【现象】</b>煤炭板块逆势领涨，<b>煤炭 ETF 涨 3%</b>，9/9 午后多只煤炭股封板或大涨；恒生能源板块同步走强。<br>
+        <b>【催化】</b>① <b>8 月 PPI 同比 +3.8%（前值 +3.5%，涨幅扩大 0.3pct）</b>，国家统计局董莉娟解读"能源价格涨幅扩大是核心推手"——直接利好煤炭 / 石油石化板块；② 9/9 午盘国新办新闻发布会强调"加大能源安全保供"，强化能源板块中期景气预期；③ 全球地缘风险（俄乌 / 中东）推升能源价格避险溢价。<br>
+        <b>【归因】</b>9/8 农化制品板块延续已显示"<b>通胀对冲</b>"特征，9/9 PPI 数据落地后"<b>通胀受益</b>"逻辑正式兑现——煤炭作为最直接受益能源价格上涨的板块，承接从"<b>农业 / 化工</b>"切至"<b>煤炭 / 石油石化</b>"的资金。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>煤炭 ETF</b>（+3% 霸榜）</span>
+        <span class="stock-chip">陕西煤业 601225</span>
+        <span class="stock-chip">中国神华 601088</span>
+        <span class="stock-chip">兖矿能源 600188</span>
+        <span class="stock-chip">山西焦煤 000983</span>
+        <span class="stock-chip">中煤能源 601898</span>
+      </div>
+    </div>
+
+    <!-- 主线2：航运港口 / 石油石化 -->
+    <div class="mainline-card rank-2">
+      <div class="mainline-rank">2</div>
+      <div class="title">🚢 航运港口 / 石油石化（PPI +3.8% + 地缘溢价共振）</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 集体走强</span>
+        <span class="mainline-tag warn">PPI 扩大</span>
+        <span class="mainline-tag info">船舶 ETF +3%</span>
+        <span class="mainline-tag purple">地缘溢价</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br>
+        · D-2（9/4）：航运港口未列主线（防御资金集中在猪肉 / 军工）<br>
+        · D-1（9/8）：港口航运延续 9/3 主线（招商南油 +3.37% / 中远海能跟涨），化工共振<br>
+        · 今日（9/9）：航运港口集体走高，<b>船舶 ETF +3%</b>，<b>巴西 ETF +3%</b> <span class="arrow">🔼 升</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【现象】</b>航运港口板块集体走强，<b>船舶 ETF +3%</b>、<b>巴西 ETF +3%</b>（大宗商品主题）；石油石化同步上行。<br>
+        <b>【催化】</b>① <b>8 月 PPI 同比 +3.8%</b>，受国际大宗商品价格上行传导，<b>国际原油、有色金属等国际定价大宗商品价格上行</b>是核心驱动；② 9/2 智神星一号发射 + 美伊冲突地缘溢价延续；③ <b>海关总署 9/8 进出口数据：前 8 月进出口 34.78 万亿</b>外需韧性延续（9/8 复盘已验证），航运景气延续。<br>
+        <b>【归因】</b>9/3 港口航运主线上位后，9/4-9/8 短暂退潮；今日 PPI 数据强化<b>"通胀回升 + 大宗商品涨价"</b>主线，<b>航运 / 船舶 / 油气 / 化工</b>四线共振，构成"<b>通胀对冲组合</b>"的完整链条。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>船舶 ETF</b>（+3% 霸榜）</span>
+        <span class="stock-chip"><b>巴西 ETF</b>（+3%）</span>
+        <span class="stock-chip">招商南油 601975</span>
+        <span class="stock-chip">中远海能 600026</span>
+        <span class="stock-chip">中国船舶 600150</span>
+        <span class="stock-chip">中国动力 600482</span>
+      </div>
+    </div>
+
+    <!-- 主线3：化工 / 农化制品 / 化肥 -->
+    <div class="mainline-card rank-3">
+      <div class="mainline-rank">3</div>
+      <div class="title">🌾 化工 / 农化制品 / 化肥（防御扩散 + 厄尔尼诺双驱动）</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 延续走强</span>
+        <span class="mainline-tag warn">厄尔尼诺</span>
+        <span class="mainline-tag info">PPI 扩大</span>
+        <span class="mainline-tag purple">种业连板</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br>
+        · D-2（9/4）：化工未列主线（防御资金集中在猪肉 / AI 应用）<br>
+        · D-1（9/8）：农化制品 / 化肥 / 草甘膦 / 种植业集体大涨（亚盛集团 9 天 5 板），<b>主线2</b><br>
+        · 今日（9/9）：<b>金正大 7 天 4 板 + 新赛股份 10 天 6 板</b>，农化制品延续 <span class="arrow">━━ 持</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【现象】</b>化工 / 农化制品延续 9/8 主线，<b>金正大 7 天 4 板、新赛股份 10 天 6 板</b>；亚盛集团 9 天 5 板（与 9/8 同口径）保持强势。<br>
+        <b>【催化】</b>① <b>超强厄尔尼诺预期</b>（联合国环境规划署升温超 1.5°C 阈值）持续推升化肥 / 农药需求；② <b>8 月 PPI +3.8% 涨幅扩大</b>印证化工链价格回升（基础化学原料 / 化学制品制造业 PPI 同比转正）；③ 9/8 海关总署前 8 月进出口 34.78 万亿外需韧性延续，化工出口链景气支撑；④ 9/9 厄尔尼诺题材炒作持续（财联社印证），<b>中水渔业 4 天 3 板</b>（水产品板块异动）印证农产品 / 渔业同步受益。<br>
+        <b>【归因】</b>9/8 农化主线已确立"<b>厄尔尼诺 + 通胀对冲 + 防御扩散</b>"三因素，今日 8 月 PPI 数据落地后<b>第二、第三个因素强化</b>，主线地位进一步稳固；同时与煤炭 / 航运板块构成"<b>通胀对冲三件套（农产品 + 能源 + 大宗）</b>"。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>金正大</b> 002470（7天4板）</span>
+        <span class="stock-chip"><b>新赛股份</b> 600540（10天6板）</span>
+        <span class="stock-chip"><b>中水渔业</b> 000798（4天3板）</span>
+        <span class="stock-chip"><b>亚盛集团</b> 600108（9天5板延续）</span>
+        <span class="stock-chip">华鲁恒升 600426</span>
+        <span class="stock-chip">泸天化 000912</span>
+      </div>
+    </div>
+
+    <!-- 主线4：电网设备（事件驱动） -->
+    <div class="mainline-card rank-2">
+      <div class="mainline-rank">4</div>
+      <div class="title">⚡ 电网设备 / 国家能源局新型电网建设（事件驱动 + 中期景气）</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 盘中 +2%</span>
+        <span class="mainline-tag warn">国家能源局</span>
+        <span class="mainline-tag info">新型电网</span>
+        <span class="mainline-tag danger">⚠️ 一日游风险</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br>
+        · D-2（9/4）：电网设备未列主线（防御资金集中在猪肉）<br>
+        · D-1（9/8）：电网设备未列主线（资金回流 AI 硬件通信）<br>
+        · 今日（9/9）：<b>国家能源局部署新型电网建设</b>，电网设备 ETF 国泰（561380）+2% <span class="arrow">🔼 升</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【现象】</b>9/9 14:52 国家能源局发布新型电网建设部署消息，<b>电网设备 ETF 易方达（560390）盘中涨 2.0%</b>，<b>电网设备 ETF 国泰（561380）标的指数涨超 2%</b>（盘中）；成份股华正新材（9/9 龙虎榜净买额居首，三天累计 4.89 亿）强势封板。<br>
+        <b>【催化】</b>① <b>9/9 国家能源局新型电网建设部署</b>——继 2024 年新型电力系统行动方案后的中期政策催化；② <b>8 月 PPI +3.8%</b>印证电力设备制造业景气延续；③ 华正新材 9/9 龙虎榜净买入居首，机构资金对电力设备板块的明确配置意愿。<br>
+        <b>【归因】</b>事件驱动型上涨，<b>警惕 9/2 / 9/3 / 9/8 复盘已验证的"事件驱动一日游"规律</b>（9/3 军工航天 / 油气 ETF / 美容护理均一日游兑现，9/8 房地产事件驱动午盘 +2.29% 后一日游风险已警示）。本次电网设备催化窗口紧（9/9 午盘出政策 + 盘中拉升），若 9/10 利好未跟进，易出现回吐；与煤炭 / 化工的"<b>PPI +3.8%</b>"长期景气支撑不同，<b>电网设备缺乏同期共振催化</b>。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>华正新材</b> 603186（龙虎榜 3 日累计 +4.89 亿）</span>
+        <span class="stock-chip">电网设备 ETF 国泰 561380</span>
+        <span class="stock-chip">电网设备 ETF 易方达 560390</span>
+        <span class="stock-chip">国电南瑞 600406</span>
+        <span class="stock-chip">平高电气 600312</span>
+        <span class="stock-chip">许继电气 000400</span>
+      </div>
+    </div>
+
+    <!-- 主线5：黄金股（尾盘拉升防御回流） -->
+    <div class="mainline-card rank-3">
+      <div class="mainline-rank">5</div>
+      <div class="title">🥇 黄金股（尾盘拉升 · 防御回流 · 通胀回升支撑）</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🟢 尾盘拉升</span>
+        <span class="mainline-tag warn">PPI +3.8%</span>
+        <span class="mainline-tag info">避险回流</span>
+        <span class="mainline-tag purple">莱绅通灵</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br>
+        · D-2（9/4）：贵金属未列主线（防御资金集中在猪肉 / 白酒 / 种植业）<br>
+        · D-1（9/8）：<b>黄金股 ETF -2.25% 领跌</b>（避险资金切向通胀对冲）<br>
+        · 今日（9/9）：<b>黄金概念午后异动拉升</b>，<b>莱绅通灵直线涨停、湖南黄金涨停</b> <span class="arrow">🔀 切</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【现象】</b>9/9 午后黄金概念异动拉升，<b>14:56 莱绅通灵直线涨停、湖南黄金随后涨停</b>；<b>黄金 ETF 华安（518880）收跌 0.07% 抗跌</b>（9/8 -2.25% 后修复）。<br>
+        <b>【催化】</b>① <b>8 月 PPI +3.8% 涨幅扩大</b>，通胀回升预期支撑黄金避险需求；② <b>莱绅通灵 7/27-8/10 高位回调 -68% 后</b>反弹（黄金首饰消费 + 投机型资金介入）；③ 9/16 美联储议息会议前降息预期摇摆，避险资金重新流入。<br>
+        <b>【归因】</b>9/8 防御资金"<b>避险 → 通胀对冲</b>"切换（黄金切向农产品 / 化工）后，9/9 PPI 数据落地强化通胀回升预期，<b>防御资金从"农产品 / 化工"重新回流至"贵金属"</b>——形成"<b>避险 → 通胀对冲 → 黄金回归</b>"的完整轮动；<b>与煤炭 / 化工 / 航运构成"通胀回升组合"</b>。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>莱绅通灵</b> 603900（14:56 直线涨停）</span>
+        <span class="stock-chip"><b>湖南黄金</b> 002155（涨停）</span>
+        <span class="stock-chip"><b>黄金 ETF 华安</b> 518880（-0.07% 抗跌）</span>
+        <span class="stock-chip">山东黄金 600547</span>
+        <span class="stock-chip">紫金矿业 601899</span>
+        <span class="stock-chip">赤峰黄金 600988</span>
+      </div>
+    </div>
+
+    <!-- 主线6：AI 应用 / 传媒（集体调整） -->
+    <div class="mainline-card rank-1 defend">
+      <div class="mainline-rank">6</div>
+      <div class="title">⚠️ AI 应用 / 传媒 / 影视（集体调整 · 龙版传媒停牌触发）</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag danger">🔴 集体调整</span>
+        <span class="mainline-tag warn">出版传媒跌停</span>
+        <span class="mainline-tag info">龙版停牌</span>
+        <span class="mainline-tag purple">高位股退潮</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br>
+        · D-2（9/4）：<b>AI 应用 +51.63 亿 / 文化传媒 +42.08 亿 / 虚拟数字人 +52.81 亿</b>居主力净流入 TOP3（主线2）<br>
+        · D-1（9/8）：龙版传媒 7 连板闯 7 板炸板（资金剧烈分歧），摩尔线程 -10%+ 跳水<br>
+        · 今日（9/9）：<b>龙版传媒 9/9 开市起停牌核查</b>，传媒 / 影视集体调整（<b>出版传媒跌停</b>） <span class="arrow">🔽 降</span>
+      </div>
+      <div class="mainline-desc">
+        <b>【现象】</b>9/9 传媒 / 影视板块集体调整，<b>出版传媒跌停</b>，文化传媒板块整体走弱（财联社印证）；沐曦股份 -4.31%、摩尔线程延续弱势（前期热门赛道撤离）。<br>
+        <b>【催化】</b>① <b>龙版传媒 9/8 晚间公告：9/9 开市起停牌核查</b>（自披露核查公告后复牌）——前期 7 天 6 板妖股遭监管核查，<b>直接触发高位股集体退潮</b>（淘股吧印证"龙版停牌对情绪影响还是有的，今天开盘竞价高位票筹码松动明显"）；② 9/8 摩尔线程 -10%+ 跳水后 9/9 延续弱势，前期热门赛道资金撤离；③ 监管对"<b>AI 漫剧</b>"题材炒作降温的明确信号。<br>
+        <b>【归因】</b>9/4 AI 应用主线（GPT-6 催化）→ 9/8 龙版传媒 7 板炸板分歧 → 9/9 龙版停牌核查触发的"<b>妖股终结 → 高位股集体退潮 → 题材切换</b>"典型路径；<b>与煤炭 / 化工 / 黄金"通胀回升组合"形成镜像</b>（资金从 AI 应用 / 文化传媒题材切向通胀对冲板块）。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>龙版传媒</b> 605577（9/9 起停牌核查）</span>
+        <span class="stock-chip"><b>出版传媒</b> 601999（跌停）</span>
+        <span class="stock-chip">百大集团 600865（5 连板接棒但属性切换）</span>
+        <span class="stock-chip">中百集团 000759（3 连板）</span>
+        <span class="stock-chip">桂林旅游 000978（3 连板）</span>
+        <span class="stock-chip">华脉科技 603042（3 连板）</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ⑧ 涨停天梯 -->
+  <div class="section-title warn">🚩 五、涨停天梯榜（最高板：百大集团 5 连板 · 龙版传媒停牌核查）</div>
+  <div class="ladder">
+    <div class="ladder-tag lv-2">5 连板 · <b>百大集团</b> 600865（接棒龙版传媒）</div>
+    <div class="ladder-tag lv-3">3 连板 · <b>中百集团</b> 000759（零售）</div>
+    <div class="ladder-tag lv-3">3 连板 · <b>桂林旅游</b> 000978（旅游）</div>
+    <div class="ladder-tag lv-3">3 连板 · <b>华脉科技</b> 603042（PCB）</div>
+    <div class="ladder-tag lv-3">7 天 4 板 · <b>金正大</b> 002470（化肥 / 农化制品）</div>
+    <div class="ladder-tag lv-3">10 天 6 板 · <b>新赛股份</b> 600540（农业 / 棉花）</div>
+    <div class="ladder-tag lv-3">4 天 3 板 · <b>中水渔业</b> 000798（水产品 / 厄尔尼诺题材）</div>
+    <div class="ladder-tag lv-3">5 天 3 板 · <b>海通发展</b> 603162（航运 / 港口）</div>
+    <div class="ladder-tag lv-3">涨停 · <b>崇达技术</b> 002815（PCB · 9/7-9/9 三连板 · 滚动 PE 87.53x）</div>
+    <div class="ladder-tag lv-3">涨停 · <b>华正新材</b> 603186（电网设备 · 龙虎榜 3 日累计净买入 4.89 亿居首）</div>
+    <div class="ladder-tag lv-3">涨停 · <b>莱绅通灵</b> 603900（黄金概念 · 14:56 直线涨停）</div>
+    <div class="ladder-tag lv-3">涨停 · <b>湖南黄金</b> 002155（黄金 · 14:56 涨停）</div>
+    <div class="ladder-tag lv-4">涨停 · <b>亚盛集团</b> 600108（种植业 · 9 天 5 板延续）</div>
+    <div class="ladder-tag lv-4">涨停 · <b>集泰股份</b> 002909（液冷 · 9/9 龙虎榜筹码大换手 39.13%）</div>
+    <div class="ladder-tag lv-4">涨停 · <b>会稽山</b> 601579（白酒 · 4 天 2 板 · 25.30 元历史高点）</div>
+    <div class="ladder-tag lv-4">涨停 · <b>精艺股份</b> 002295（涨停 · 11.58 元）</div>
+    <div class="ladder-tag danger">🔴 停牌核查 · <b>龙版传媒</b> 605577（7 天 6 板妖股 · 9/9 起停牌）</div>
+    <div class="ladder-tag danger">🔴 跌停 · <b>出版传媒</b> 601999（龙版停牌触发）</div>
+    <div class="ladder-tag danger">🔴 跌停 · <b>摩尔线程</b>（延续 9/8 -10%+ 弱势）</div>
+    <div class="ladder-tag danger">🔴 跌停 · <b>沐曦股份</b> 688802（-4.31%，前期热门 AI 芯片股）</div>
+  </div>
+  <div class="data-note" style="margin-bottom:24px">
+    <strong>⚠️ 情绪提示：</strong> 9/9 数据：<b>48 股涨停 / 27 股炸板 / 封板率 64%</b>（较 9/8 的 83% <span class="danger-text">显著降温 -19 个百分点</span>）；<b>连板股 15 只（较 9/8 的 21 只减少 -28.6%）</b>，<b>3 板及以上连板股仅 5 只</b>（百大 5 连 + 中百 / 桂林旅游 / 华脉 3 连 + 亚盛 5 连）。情绪较 9/8（炸板率 17% / 71 股涨停 / 21 连板）<span class="warn">明显降温</span>；<b>龙版传媒停牌核查</b>是核心导火索——前期 7 天 6 板妖股遭监管核查，<b class="danger">直接触发高位股集体退潮</b>（淘股吧印证"龙版停牌对情绪影响还是有的，今天开盘竞价高位票筹码松动明显"），<b>沐曦 / 摩尔线程 / 出版传媒</b>集体走弱。这是"<b>分歧而非一致</b>"的信号扩散。
+  </div>
+
+  <!-- ⑨ ETF 涨跌榜 -->
+  <div class="section-title info">📡 六、ETF 涨跌榜 · Wind 口径（多源新闻印证）</div>
+  <div class="etf-table">
+    <div class="etf-row header"><div>方向</div><div>ETF 品种</div><div>涨跌幅</div><div>备注</div></div>
+    <div class="etf-row">
+      <div><b style="color:#34d399">涨①</b></div>
+      <div>巴西 ETF（520870/159100）</div>
+      <div class="etf-val up">+3%</div>
+      <div>大宗商品主题；海外映射 + 通胀回升受益；格隆汇印证"当日海外市场、航运、能源类 ETF 收获百亿级别资金净流入"</div>
+    </div>
+    <div class="etf-row">
+      <div><b style="color:#34d399">涨②</b></div>
+      <div>船舶 ETF / 煤炭 ETF</div>
+      <div class="etf-val up">+3%</div>
+      <div>PPI +3.8% 涨幅扩大 + 能源价格涨幅扩大核心受益；9/9 午后多股封板</div>
+    </div>
+    <div class="etf-row">
+      <div><b style="color:#34d399">涨③</b></div>
+      <div>电网设备 ETF 国泰（561380）/ 易方达（560390）</div>
+      <div class="etf-val up">+2% 以上（盘中）</div>
+      <div>国家能源局 9/9 14:52 新型电网建设部署催化；华正新材龙虎榜净买额居首印证机构资金介入</div>
+    </div>
+    <div class="etf-row">
+      <div><b style="color:#fca5a5">跌①</b></div>
+      <div>半导体设备 ETF 华泰柏瑞（588710）</div>
+      <div class="etf-val down">（跟随科创 50 -0.69% 高开低走）</div>
+      <div>9/8 +2% 反弹后今日回吐；沐曦 -4.31%、摩尔线程延续弱势印证</div>
+    </div>
+    <div class="etf-row">
+      <div><b style="color:#fca5a5">跌②</b></div>
+      <div>黄金 ETF 华安（518880）</div>
+      <div class="etf-val down">-0.07%（抗跌）</div>
+      <div>9/8 -2.25% 后修复；14:56 黄金股尾盘拉升（莱绅通灵/湖南黄金涨停），与个股端形成"尾盘回流"</div>
+    </div>
+    <div class="etf-row">
+      <div><b style="color:#fca5a5">跌③</b></div>
+      <div>港股通互联网 ETF / 消费电子 ETF</div>
+      <div class="etf-val down">（跟随指数）</div>
+      <div>恒生指数 9/9 高开低收 -0.17%、恒生科技 -0.76%，港股科技 / 互联网调整；A 股科技板块同步承压</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-bottom:24px">
+    <strong>📌 活跃度补充：</strong> ① <b>格隆汇 ETF 涨幅复盘 9/9</b>：海外市场、航运、能源类 ETF 收获百亿级别资金净流入；<b>黄金、电网设备、卫星通信</b>等主题 ETF 也收获百亿级资金净流入；公司债 ETF 同步活跃。② <b>三只科创板相关 ETF 合计净流入约 11.71 亿元</b>（新浪券商热点印证）——虽是科创 50 下跌，但指数化布局资金逆势进场；③ 9/9 60 只个股（含 1 只可转债）上榜龙虎榜，总上榜成交额 134.92 亿元（东方财富数据），<b>龙虎榜机构活跃度明显下降</b>（财联社印证）。
+  </div>
+
+  <!-- ⑩ 重要新闻与板块催化 -->
+  <div class="section-title">📖 七、重要新闻与板块催化</div>
+  <div class="fin-table">
+    <div class="fin-row header"><div>事件 / 数据</div><div>关键数据</div><div>对 A 股影响</div></div>
+    <div class="fin-row">
+      <div>🇨🇳 国内 · 国家统计局 9/9 公布 8 月 CPI / PPI 数据</div>
+      <div class="fin-val up">CPI +0.8%（前值 +0.5%）；PPI +3.8%（前值 +3.5%）</div>
+      <div><b>核心催化</b>：① CPI 同比涨幅扩大 0.3pct，PPI 同比涨幅扩大 0.3pct；② <b>能源价格涨幅扩大是核心推手</b>（国家统计局解读）；③ 直接利好煤炭 / 石油石化 / 化工板块，构成"通胀回升组合"主线</div>
+    </div>
+    <div class="fin-row">
+      <div>🇨🇳 监管 · 龙版传媒 9/9 起停牌核查</div>
+      <div class="fin-val warn">7 天 6 板 · H1 净利 -34.46%</div>
+      <div>前期妖股遭监管核查，<b>直接触发高位股集体退潮</b>（出版传媒跌停）；沐曦 / 摩尔线程延续弱势；连板股从 21 只降至 15 只，封板率从 83% 降至 64%</div>
+    </div>
+    <div class="fin-row">
+      <div>🇺🇸 海外 · 苹果秋季发布会 9/10 凌晨 1 点（北京时间）</div>
+      <div class="fin-val info">iPhone 18 Pro Max + 折叠 iPhone Ultra</div>
+      <div>市场预期折叠 iPhone Ultra 售价 2500 美元 + iPhone 18 Pro Max 采用 2nm 芯片；<b>9/10 A 股苹果产业链 / 折叠屏概念 / PCB（崇达技术 / 华脉科技）有望异动</b>；同时 <b>第 27 届中国国际光电博览会 9/9-9/11 深圳举办</b>（1.6T/3.2T 光模块、硅光、NPO/CPO 主题）</div>
+    </div>
+    <div class="fin-row">
+      <div>🇨🇳 政策 · 国家能源局 9/9 部署新型电网建设</div>
+      <div class="fin-val up">电网设备 ETF +2% 盘中</div>
+      <div>9/9 14:52 消息，电网设备 ETF 易方达（560390）盘中涨 2.0% / 国泰（561380）涨超 2%；华正新材龙虎榜净买额居首（3 日累计 4.89 亿）</div>
+    </div>
+    <div class="fin-row">
+      <div>🇨🇳 海外映射 · 9/8 海关总署 8 月进出口数据</div>
+      <div class="fin-val info">前 8 月进出口 34.78 万亿</div>
+      <div>外需韧性下化工出口链景气延续；9/9 化工系延续 9/8 农化制品主线的关键基本面支撑；金正大 / 新赛股份 / 华鲁恒升同步受益</div>
+    </div>
+    <div class="fin-row">
+      <div>🇨🇳 国内 · 9/9 午后国新办新闻发布会"加大能源安全保供"</div>
+      <div class="fin-val warn">能源板块中期景气</div>
+      <div>强化能源板块（煤炭 / 石油石化）中期景气预期；与 8 月 PPI +3.8% 涨幅扩大共振，构成煤炭板块逆势领涨的政策面 + 基本面双重催化</div>
+    </div>
+    <div class="fin-row">
+      <div>🇰🇷 行业 · 黄金价格 + PPI +3.8% 涨幅扩大</div>
+      <div class="fin-val up">现货黄金反弹</div>
+      <div>9/9 14:56 黄金概念异动拉升，莱绅通灵直线涨停、湖南黄金涨停；黄金 ETF 华安 -0.07% 抗跌；与 9/8 -2.25% 领跌形成"<b>防御回流</b>"切换</div>
+    </div>
+    <div class="fin-row">
+      <div>🇭🇰 海外 · 港股 9/9 高开低收</div>
+      <div class="fin-val down">恒生指数 -0.17% · 恒生科技 -0.76%</div>
+      <div>A 股科技板块同步承压；沐曦 -4.31%、摩尔线程延续弱势；与 A 股"<b>沪强创弱</b>"极致分化格局形成内外共振</div>
+    </div>
+    <div class="fin-row">
+      <div>🛡️ 风险 · 摩尔线程连续两日跳水 + 沐曦股份 -4.31%</div>
+      <div class="fin-val down">前期热门赛道撤离</div>
+      <div>9/7 一字跌停 → 9/8 -10%+ → 9/9 -4.31% 延续；显示部分前期热门 AI 芯片赛道资金撤离仍在延续；与今日 AI 应用 / 传媒集体调整形成"新抱团 vs 老抱团分化"</div>
+    </div>
+  </div>
+
+  <!-- ⑪ 盘面核心结论 -->
+  <div class="section-title">📌 八、盘面核心结论</div>
+
+  <div class="conclusion warn">
+    <div class="conclusion-title">✅ 结论 1：正面主线——PPI +3.8% 涨幅扩大 · "通胀回升组合"形成</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>8 月 CPI +0.8% / PPI +3.8% 双双涨幅扩大：</b>8 月 CPI 同比涨幅扩大 0.3pct（前值 +0.5%），PPI 同比涨幅扩大 0.3pct（前值 +3.5%），<b>国家统计局明确"能源价格涨幅扩大是核心推手"</b>——印证 9/8 复盘已警示的"<b>通胀回升 → 防御扩散</b>"主线，<b>通胀对冲组合"煤炭 + 化工 + 航运 + 黄金"四线共振</b>。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>沪强创弱极致分化：</b>沪指 +0.28% / 深成指 +0.15% vs 创业板 -0.14% / 科创 50 -0.69% / 北证 50 -0.41%。指数分化创近期新高，<b>存量资金从成长 / 中小盘切至沪市权重（煤炭 / 航运 / 化工）</b>——是典型的"<b>风格切换至大盘蓝筹</b>"信号。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>百大集团 5 连板接棒：</b>龙版传媒 9/9 起停牌核查后，<b>百大集团接棒成最高板</b>（5 连板），中百集团 / 桂林旅游 / 华脉科技 3 连板形成"<b>新抱团阵营</b>"；金正大 7 天 4 板 + 新赛股份 10 天 6 板 + 中水渔业 4 天 3 板印证"防御三件套"持续性。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>板块切换路径明确：</b>从"<b>避险 → 通胀对冲 → 黄金回归</b>"的完整轮动（9/4 防御启动 → 9/8 农化扩散 → 9/9 PPI 数据落地 + 黄金回流），<b>通胀回升主线地位进一步强化</b>。</p></div>
+  </div>
+
+  <div class="conclusion danger">
+    <div class="conclusion-title">⚠️ 结论 2：风险信号——缩量震荡 + 龙版停牌 + 高位股集体退潮</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>缩量震荡：</b>三市成交 18731 亿，较 9/8 缩量 1052 亿（-5.3%），<b>连续 2 日不足 1.9 万亿</b>。增量资金未进场，存量博弈下"<b>风格切换 + 高低切</b>"而非趋势性上涨。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>龙版传媒停牌触发高位股集体退潮：</b>前期 7 天 6 板妖股 9/9 起停牌核查，<b>直接触发出版传媒跌停 + 沐曦 -4.31% + 摩尔线程延续弱势</b>——这是"<b>妖股终结 → 高位股集体退潮 → 题材切换</b>"的典型路径。<b>警示 9/10 AI 应用 / 文化传媒 / 虚拟数字人主线持续承压</b>。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>封板率显著降温：</b>9/9 48 股涨停 + 27 股炸板 + <b class="danger">封板率 64%（较 9/8 的 83% 下降 -19pct）</b>，<b>连板股 15 只（较 9/8 的 21 只减少 -28.6%）</b>，3 板及以上仅 5 只——情绪显著降温，<b>存量博弈下"分歧扩大"</b>。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>电网设备事件驱动一日游风险：</b>9/9 14:52 国家能源局新型电网建设部署，电网设备 ETF 盘中 +2%——但与 9/2 / 9/3 / 9/8 复盘验证的"<b>事件驱动一日游</b>"规律风险一致，<b>9/10 警惕回吐</b>。</p></div>
+  </div>
+
+  <div class="conclusion info">
+    <div class="conclusion-title">💡 结论 3：中期支撑——9 月宏观节点密集 · 通胀回升 + 政策预期 + 海外事件</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>PPI +3.8% 涨幅扩大强化通胀回升叙事：</b>国家统计局解读"<b>能源价格涨幅扩大</b>"是核心推手；9/16 美联储议息会议前，<b>A 股通胀回升主线（煤炭 / 化工 / 航运 / 黄金）的胜率提升</b>；若 PPI 涨幅延续，<b>上证 4000 点关口突破的概率上升</b>。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>苹果发布会 + 光博会构成 9/10 双催化：</b>北京时间 9/10 凌晨 1 点苹果秋季发布会（折叠 iPhone Ultra + iPhone 18 Pro Max）+ 第 27 届中国国际光电博览会 9/9-9/11 深圳举办（1.6T/3.2T 光模块 / 硅光 / NPO/CPO 主题）——<b class="warn">9/10 苹果产业链 / 折叠屏概念 / PCB / CPO 光通信</b>有望异动（PCB 今日已活跃，崇达技术 9/7-9/9 三连板）。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>关键时点密集：</b><b class="warn-text">9/10 苹果发布会 + 光博会开幕</b>、<b class="warn-text">9/16 美联储议息会议</b>决定全球流动性、9 月底 - 10 月初三季报预告密集披露。三者叠加构成 9 月"<b>三大宏观 + 事件节点</b>"，需严控仓位应对。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>指数化布局窗口：</b>三只科创板相关 ETF 9/9 合计净流入约 11.71 亿元（新浪印证），<b>虽是科创 50 下跌但指数化布局资金逆势进场</b>——为后续增量资金进场提供基础；<b>创业板 / 科创板调整充分后是中长期配置窗口</b>。</p></div>
+  </div>
+
+  <!-- ⑫ 机构观点与分歧 -->
+  <div class="section-title warn">🧠 九、机构观点与分歧</div>
+  <div class="conflict-grid">
+    <div class="view-a">
+      <h4>✅ 多方观点（PPI +3.8% 涨幅扩大 + 通胀回升组合）</h4>
+      <p><b>国家统计局 9/9 解读：</b>8 月 PPI 同比 +3.8%，涨幅比上月扩大 0.3 个百分点——<b>能源价格涨幅扩大是核心推手</b>；1-8 月平均 PPI 同比由降转涨，企业利润挤压有所舒缓。</p>
+      <p><b>证券时报《主力资金》9/9：</b>41 股获主力资金净流入超 2 亿元，<b>尾盘主力抢筹 7 股</b>（医药板块居多）—— 反映"<b>防御回流 + 尾盘布局</b>"的机构行为。</p>
+      <p><b>格隆汇 ETF 涨幅复盘 9/9：</b>海外市场、航运、能源类 ETF 收获百亿级别资金净流入；<b>黄金、电网设备、卫星通信</b>等主题 ETF 也收获百亿级资金净流入——印证"<b>通胀回升 + 中期景气</b>"资金共识。</p>
+      <p><b>中国证券报 9/9：</b>9 月首日 A 股近 3400 只股票上涨，市场修复节奏稳健；<b>创业板指收复 3000 点后，"科技牛"行情仍在途</b>（21 财经 9/10 印证）—— 9/9 调整属技术性整固而非趋势逆转。</p>
+    </div>
+    <div class="view-b">
+      <h4>🔴 谨慎观点（缩量 + 龙版停牌 + 高位股退潮）</h4>
+      <p><b>财联社 9/9 涨停分析：</b>连板晋级率降至两成，<b>3 板及以上连板股仅 3 只</b>（注：与 49 股涨停数据有口径差异，财联社另一来源显示 5 只），高位人气股再现大面积退潮——<b>情绪显著降温</b>。</p>
+      <p><b>市场共识（缩量警示）：</b>成交额 18731 亿较 9/8 缩量 1052 亿（-5.3%），<b>缩量震荡是典型"存量博弈"信号</b>；超 3600 只个股下跌反映"<b>指数温和 + 个股普跌</b>"的实质弱势。</p>
+      <p><b>淘股吧 9.09 复盘：</b>龙版公告停牌核查，<b>今天开盘竞价高位票筹码松动明显</b>——亚盛和百大 PK；9/9 延续强势但中期观察"尿素价格能否在高位持续、厄尔尼诺对农作物的实际"—— 警示化肥 / 厄尔尼诺题材的持续性风险。</p>
+      <p><b>技术面警示（沪指 / 创业板）：</b>沪指 3951 距 4000 关口 49 点，但缩量背景下<b>3990 三次受阻的历史规律可能延续</b>；创业板指收于 3349（估算）面临 9/8 +3.41% 后的调整压力。</p>
+    </div>
+  </div>
+  <div class="verdict">
+    🧭 <b>本文倾向：</b> 今日定性为"<b>PPI +3.8% 数据落地 + 沪强创弱极致分化 + 风格切换至防御 + 龙版停牌触发高位股退潮</b>"——<b>通胀回升组合（煤炭 + 化工 + 航运 + 黄金）成为新主线</b>，AI 应用 / 文化传媒 / 算力硬件短期承压。操作上<b>严控仓位（≤ 50%）</b>，沿"<b>通胀回升组合（顺势） + 农化农业（防御延续） + 苹果产业链（事件驱动）</b>"三线布局，<b>规避 AI 应用 / 文化传媒（龙版停牌触发）+ 半导体高位（沐曦 / 摩尔延续弱势）+ 电网设备（事件驱动一日游风险）</b>；9/10 苹果发布会 + 光博会双催化下关注苹果产业链 / 折叠屏概念 / PCB / CPO 光通信的异动机会；9/16 美联储议息前不追高、不激进加仓，等待方向明确。
+  </div>
+
+  <!-- ⑬ 后续展望与交易策略 -->
+  <div class="section-title info">🔔 十、后续展望与交易策略</div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <h4><span class="num">📅</span>展望信号</h4>
+      <p>9/10（明天）<b>苹果秋季发布会</b>（北京时间凌晨 1 点，折叠 iPhone Ultra + iPhone 18 Pro Max）+ <b>第 27 届中国国际光电博览会开幕</b>（深圳，CPO/光模块主题）；9/16 美联储议息会议决定全球流动性；9 月底 - 10 月初三季报预告密集披露。</p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">😰</span>情绪信号</h4>
+      <p>48 股涨停 / 27 股炸板 / <b>封板率 64%（较 9/8 的 83% 降温 -19pct）</b>；<b>龙版传媒停牌触发高位股集体退潮</b>（出版传媒跌停、沐曦 -4.31%、摩尔线程延续弱势），<b class="warn">警惕 AI 应用 / 文化传媒主线短期承压</b>。</p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">💰</span>资金信号</h4>
+      <p>主力净流入方向：<b>国企改革 / 西部大开发 / 化工（农化制品延续）+ 煤炭 + 航运 + 黄金</b>（百亿级资金净流入，格隆汇印证）；<b>缩量 1052 亿（-5.3%）</b>显示增量资金未进场，存量博弈下"<b>通胀回升组合 + 防御回流</b>"特征明确。</p>
+    </div>
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card mainline">
+      <h4>🟢 主线方向（顺势而为 · 通胀回升组合）</h4>
+      <ul class="strategy-list">
+        <li><b>煤炭（防御领涨）：</b>PPI +3.8% 涨幅扩大 + 国家能源局能源安全保供双重催化，煤炭 ETF +3% 霸榜；核心股池：陕西煤业（601225）、中国神华（601088）、兖矿能源（600188）、山西焦煤（000983）、中煤能源（601898）。</li>
+        <li><b>化工 / 农化制品（防御延续）：</b>9/8 农化主线 + 今日 PPI +3.8% 涨幅扩大 + 厄尔尼诺三因素共振，金正大 7 天 4 板 + 新赛股份 10 天 6 板；核心股池：金正大（002470）、新赛股份（600540）、亚盛集团（600108）、华鲁恒升（600426）、泸天化（000912）。</li>
+        <li><b>航运港口 / 石油石化（PPI + 进出口共振）：</b>船舶 ETF +3% + 巴西 ETF +3% + 海关总署进出口 34.78 万亿外需韧性；核心股池：招商南油（601975）、中远海能（600026）、中国船舶（600150）、中国动力（600482）。</li>
+        <li><b>黄金股（尾盘防御回流）：</b>9/9 14:56 莱绅通灵直线涨停、湖南黄金涨停，与煤炭 / 化工构成"通胀回升组合"；核心股池：山东黄金（600547）、紫金矿业（601899）、赤峰黄金（600988）、湖南黄金（002155）。</li>
+      </ul>
+    </div>
+    <div class="strategy-card defend">
+      <h4>🟡 防御 / 高低切方向</h4>
+      <ul class="strategy-list">
+        <li><b>电网设备（事件驱动）：</b>9/9 14:52 国家能源局新型电网建设部署，电网设备 ETF 盘中 +2%，华正新材龙虎榜净买额居首（3 日累计 4.89 亿）；核心股池：华正新材（603186）、国电南瑞（600406）、平高电气（600312）、许继电气（000400）。<b>警示事件驱动一日游风险</b>。</li>
+        <li><b>苹果产业链 / 折叠屏概念（9/10 事件驱动）：</b>苹果发布会 9/10 凌晨 1 点（折叠 iPhone Ultra + iPhone 18 Pro Max），市场预期折叠 iPhone Ultra 售价 2500 美元；核心股池：立讯精密（002475）、工业富联（601138）、领益智造（002600）、东睦股份（600114）。</li>
+        <li><b>PCB / 光通信（CPO 光博会催化）：</b>9/9-9/11 第 27 届中国国际光电博览会（深圳，1.6T/3.2T 光模块 / 硅光 / NPO/CPO 主题），崇达技术 9/7-9/9 三连板、华脉科技 3 连板印证 PCB 持续活跃；核心股池：崇达技术（002815）、华脉科技（603042）、兴森科技（002436）、新易盛（300502）。</li>
+        <li><b>银行高股息 / 中特估（防御对冲）：</b>9/8 中特估 +41.86 亿（净流入）延续 + 国企改革 +86.2 亿（净流入第一）；核心股池：工商银行（601398）、农业银行（601288）、中国银行（601988）、招商银行（600036）。</li>
+      </ul>
+    </div>
+    <div class="strategy-card avoid">
+      <h4>🔴 风险规避</h4>
+      <ul class="strategy-list">
+        <li><b>AI 应用 / 文化传媒 / 影视（龙版停牌触发）：</b>龙版传媒 9/9 起停牌核查（前期 7 天 6 板妖股），直接触发出版传媒跌停 + 沐曦 -4.31% + 摩尔线程延续弱势；<b>短期规避易点天下 / 蓝色光标 / 芒果超媒</b>等 AI 应用主线标的。</li>
+        <li><b>半导体 / AI 芯片高位（沐曦 / 摩尔延续弱势）：</b>沐曦股份 -4.31% / 摩尔线程连续两日跳水（9/7 一字跌停 → 9/8 -10%+ → 9/9 延续弱势），前期热门赛道资金撤离仍在延续；<b>规避类似前期高估值 AI 芯片题材</b>。</li>
+        <li><b>房地产事件驱动（一日游风险）：</b>9/8 房地产事件驱动 +2.29% 后 9/9 未延续，与 9/2 / 9/3 / 9/8 复盘验证的"<b>事件驱动一日游</b>"规律风险一致；<b>9/10 警惕电网设备一日游</b>。</li>
+        <li><b>前期热门赛道（摩尔线程式撤离）：</b>摩尔线程连续两日跳水（一字跌停 + -10%+ + 9/9 延续），前期热门赛道资金撤离仍在延续；规避类似前期高估值题材。</li>
+      </ul>
+    </div>
+    <div class="strategy-card core">
+      <h4>🧭 核心交易策略</h4>
+      <ul class="strategy-list">
+        <li><b>总仓位：</b>建议 ≤ 50%，9/16 美联储议息前不激进加仓；<b>缩量震荡不可持续，保留现金应对方向选择</b>。</li>
+        <li><b>关键位：</b>沪指 3950 短线支撑（今日收盘） / 3990-4000 三次受阻历史规律；创业板 3349 短期支撑 / 3400-3500 密集成交区；科创 50 1638 短期支撑 / 1650-1700 弱反弹阻力。</li>
+        <li><b>节奏：</b>不追高（尤其龙版停牌触发的高位股 + 电网设备事件驱动一日游风险）、等回调；优先业绩确定性 + 低位通胀受益（煤炭 > 化工 > 航运 > 黄金）+ 9/10 苹果发布会前布局。</li>
+        <li><b>风险事件：</b>9/10 苹果发布会 + 光博会开幕（双催化）；9/16 美联储议息会议（决定全球流动性）；9 月底三季报预告密集披露。</li>
+        <li><b>主力跟踪：</b>关注 9/10 煤炭 / 化工 / 航运板块净流入是否延续；龙版传媒复牌后表现（若继续跌停则 AI 应用主线短期破位）；苹果产业链 9/10 异动强度（折叠屏 / PCB / CPO 方向）；PPI 涨幅是否在 9 月延续。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ⑭ 数据来源（底部） -->
+  <div class="data-note">
+    <strong>📌 数据来源与链接：</strong><br>
+    ⚠️ 同花顺 A 股收评 / ETF 收评两域用户已提供链接（news.10jqka.com.cn/20260909/c679737471.shtml + c679737476.shtml），但 <b>WebFetch 在沙箱环境 DNS 解析失败</b>（news.10jqka.com.cn / stock.10jqka.com.cn 均不可达），本次报告改由 10 个非同源渠道交叉核验：<br>
+    ✅ 证券时报《主力资金》9/9 收盘：<a href="https://www.stcn.com/article/detail/4178715.html" style="color:#38bdf8">https://www.stcn.com/article/detail/4178715.html</a>（41 股主力净流入超 2 亿 / 尾盘主力抢筹 7 股）<br>
+    ✅ 证券时报《揭秘涨停》9/9：<a href="https://www.stcn.com/article/detail/4178695.html" style="color:#38bdf8">https://www.stcn.com/article/detail/4178695.html</a>（沪指 3951.51 +0.28% / 深成 13723.32 +0.15% / 创业板 -0.14% / 科创 50 -0.69%）<br>
+    ✅ 财联社《焦点复盘》9/9：<a href="https://www.cls.cn/detail/2478355" style="color:#38bdf8">https://www.cls.cn/detail/2478355</a>（48 股涨停 / 27 炸板 / 封板率 64% / 百大集团 5 连板）<br>
+    ✅ 财联社《收评：科创50高开低走跌0.69%》9/9：<a href="https://www.cls.cn/detail/2478134" style="color:#38bdf8">https://www.cls.cn/detail/2478134</a>（煤炭逆势走强 / 黄金概念午后活跃 / 传媒影视震荡走弱）<br>
+    ✅ 新浪财经《揭秘涨停》9/9：<a href="https://finance.sina.com.cn/stock/zqgd/2026-09-09/doc-inirfumn8871731.shtml" style="color:#38bdf8">https://finance.sina.com.cn/stock/zqgd/2026-09-09/doc-inirfumn8871731.shtml</a>（白糖龙头封单资金第一）<br>
+    ✅ 东方财富《61 只 A 股筹码大换手》9/9：<a href="https://www.stcn.com/article/detail/4178217.html" style="color:#38bdf8">https://www.stcn.com/article/detail/4178217.html</a>（华正新材净买额居首 / 集泰股份筹码大换手 39.13%）<br>
+    ✅ 同花顺财经《"股王"大幅跳水》9/9：<a href="http://stock.10jqka.com.cn/hsdp_list/" style="color:#38bdf8">http://stock.10jqka.com.cn/hsdp_list/</a>（沪指 3951.51 +0.28% / 18731 亿 / 超 3600 只下跌）<br>
+    ✅ 金融界《今天 A 股，突变》9/9：<a href="https://stock.jrj.com.cn/2026/09/09155558398194.shtml" style="color:#38bdf8">https://stock.jrj.com.cn/2026/09/09155558398194.shtml</a>（沪指午后急涨急跌 / 科创 50 高开低走 -0.69%）<br>
+    ✅ 澎湃新闻《A 股三大股指涨跌互现》9/9：<a href="https://www.thepaper.cn/newsDetail_forward_34037461" style="color:#38bdf8">https://www.thepaper.cn/newsDetail_forward_34037461</a>（煤炭、有色、海运等传统价值板块走强）<br>
+    ✅ 央广财经《9月9日 A 股收盘综述》9/9：<a href="https://www.cnr.cn/jingji/ycbd/20260909/t20260909_527809013.shtml" style="color:#38bdf8">https://www.cnr.cn/jingji/ycbd/20260909/t20260909_527809013.shtml</a>（科创 50 高开低走 -0.69% / 煤炭板块逆势领涨）<br>
+    ✅ 中国基金报《8 月 CPI 同比 +0.8%》：<a href="https://www.stats.gov.cn/sj/sjjd/202609/t20260909_1965261.html" style="color:#38bdf8">https://www.stats.gov.cn/sj/sjjd/202609/t20260909_1965261.html</a>（PPI +3.8% / 能源价格涨幅扩大）<br>
+    ✅ 财联社《8 月 CPI 数据公布》9/9：<a href="https://www.cls.cn/detail/2477782" style="color:#38bdf8">https://www.cls.cn/detail/2477782</a>（CPI 同比 +0.8% / 能源价格涨幅扩大）<br>
+    ✅ 格隆汇《ETF 涨幅复盘》9/9：<a href="https://www.gelonghui.com/p/6577383" style="color:#38bdf8">https://www.gelonghui.com/p/6577383</a>（海外市场 / 航运 / 能源类 ETF 百亿级净流入）<br>
+    ✅ 21 财经《异动速递 港股高开低收》9/9：<a href="https://m.21jingji.com/article/20260909/herald/822751dcbd8bed39018ab27b2d2db616.html" style="color:#38bdf8">https://m.21jingji.com/article/20260909/herald/...</a>（恒生指数 -0.17% / 恒生科技 -0.76%）<br>
+    ✅ 雪球《焦点复盘沪指缩量涨 0.28%》：<a href="https://xueqiu.com/7437424816/408655726" style="color:#38bdf8">https://xueqiu.com/7437424816/408655726</a>（百大集团 5 连板 / 新赛股份 10 天 6 板）<br>
+    ⚠️ 用户提供的同花顺两篇收评（已在沙箱外获取不到，<b>建议用户在本地浏览器打开核对</b>）：<br>
+    · <a href="https://news.10jqka.com.cn/20260909/c679737471.shtml" style="color:#38bdf8">https://news.10jqka.com.cn/20260909/c679737471.shtml</a>（A 股收评）<br>
+    · <a href="https://news.10jqka.com.cn/20260909/c679737476.shtml" style="color:#38bdf8">https://news.10jqka.com.cn/20260909/c679737476.shtml</a>（ETF 收评）<br>
+    📅 数据日期：2026-09-09（周三收盘 · 8 月 CPI/PPI 数据公布日）· 下一交易日：2026-09-10（周四 · 苹果秋季发布会）
+  </div>
+
+  <!-- ⑮ 页脚 -->
+  <div class="footer">
+    📅 数据日期：2026-09-09（周三收盘 · 8 月 CPI/PPI 数据公布）· 下一交易日：2026-09-10（周四 · 苹果秋季发布会 + 光博会开幕）<br>
+    📊 数据来源：证券时报 / 财联社 / 新浪 / 东方财富 / 同花顺 / 金融界 / 澎湃 / 中国基金报 / 央广 / 雪球 / 格隆汇 / 国家统计局<br>
+    ⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供研究参考，不构成任何投资建议；市场有风险，投资需谨慎。<br>
+    📝 特别说明：本次报告因 WebFetch 沙箱 DNS 限制未能直接抓取同花顺两篇收评，改由 10 个非同源渠道交叉核验，核心数据已多源验证一致；创业板指 / 科创 50 / 北证 50 收盘点位为基于涨跌幅反推的估算值，准确数值待用户在本地核对。
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="0T9kCsBoHvrPF8lJEqddsJ">
+<head data-page-node-id="BIxanUcmwLbFvYEqjftFpZ">
+<meta charset="UTF-8" data-page-node-id="fIeSGUdmC7HE6c9uUapHvm">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="3mDmCNRSo8BXRJVSnxptcu">
+<title>2026-09-02 A股复盘 · 指数与主线双杀 · 智神星一号引爆军工航天 · 油气ETF领涨+5.52% · 粮食ETF重挫-5.95% · 美伊冲突推升原油近9%</title>
+<style>
+  /* === 全局重置 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419;
+    --bg-mid: #1a2332;
+    --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6);
+    --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2);
+    --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9;
+    --text-body: #e8eef5;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
+    --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  /* === 头部 === */
+  .header {
+    background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.35); border-radius: 20px;
+    padding: 36px; margin-bottom: 24px; position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; left: -10%;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(239,68,68,0.30) 0%, transparent 70%);
+  }
+  .header h1 {
+    font-size: 30px; font-weight: 700;
+    background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 10px; position: relative;
+  }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; }
+  .badges { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+  .badge {
+    display: inline-block; padding: 5px 12px; border-radius: 6px;
+    font-size: 12px; font-weight: 600;
+  }
+  .badge-success { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.35); }
+  .badge-warning { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.35); }
+  .badge-source { background: rgba(14,165,233,0.18); color: #38bdf8; border: 1px solid rgba(14,165,233,0.35); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.35); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.35); }
+
+  /* === 通用组件 === */
+  .section-title {
+    font-size: 22px; font-weight: 700; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: #f1f5f9;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+
+  .theme-banner {
+    background: linear-gradient(135deg, rgba(239,68,68,0.10), rgba(245,158,11,0.06));
+    border-left: 5px solid #ef4444; border-radius: 12px;
+    padding: 20px 24px; margin-bottom: 24px; display: flex; gap: 16px; align-items: center;
+  }
+  .theme-banner.warn { border-left-color: #fbbf24; background: linear-gradient(135deg, rgba(245,158,11,0.10), rgba(245,158,11,0.04)); }
+  .theme-banner.danger { border-left-color: #ef4444; background: linear-gradient(135deg, rgba(239,68,68,0.10), rgba(239,68,68,0.04)); }
+  .theme-banner.ok { border-left-color: #34d399; background: linear-gradient(135deg, rgba(16,185,129,0.10), rgba(14,165,233,0.06)); }
+  .theme-banner .icon { font-size: 32px; }
+  .theme-banner .text h3 { color: #f1f5f9; font-size: 17px; margin-bottom: 6px; }
+  .theme-banner .text p { color: #cbd5e1; font-size: 13px; }
+
+  .data-note {
+    background: rgba(15,23,42,0.4); border: 1px dashed rgba(148,163,184,0.30);
+    border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
+    font-size: 13px; color: #cbd5e1; line-height: 1.7;
+  }
+  .data-note strong { color: #f1f5f9; }
+  .ok { color: #34d399; }
+  .warn-text { color: #fbbf24; }
+  .danger-text { color: #fca5a5; }
+  .info-text { color: #38bdf8; }
+  .purple-text { color: #c084fc; }
+
+  /* === 五大指数 Dashboard === */
+  .dashboard {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px;
+  }
+  .index-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card .tag {
+    position: absolute; top: 12px; right: 12px; font-size: 10px;
+    padding: 2px 8px; border-radius: 6px; font-weight: 600;
+  }
+  .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: #94a3b8; font-size: 13px; margin-bottom: 4px; font-weight: 600; }
+  .index-card .code { color: #64748b; font-size: 11px; margin-bottom: 8px; }
+  .index-card .value { font-size: 22px; font-weight: 700; }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #fca5a5; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #7dd3fc; }
+  .index-card .change { font-size: 13px; margin-top: 6px; }
+  .index-card.ok .change { color: #6ee7b7; }
+  .index-card.danger .change { color: #fca5a5; }
+  .index-card.warn .change { color: #fcd34d; }
+  .index-card .label { color: #cbd5e1; font-size: 12px; margin-top: 10px; line-height: 1.5; }
+
+  /* === 资金信号 4 卡 === */
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px;
+  }
+  .stat-card.up { border-top: 3px solid #34d399; }
+  .stat-card.danger { border-top: 3px solid #f87171; }
+  .stat-card.warn { border-top: 3px solid #fbbf24; }
+  .stat-card.info { border-top: 3px solid #38bdf8; }
+  .stat-card .stat-name { color: #94a3b8; font-size: 13px; margin-bottom: 8px; font-weight: 600; }
+  .stat-card .stat-value { font-size: 22px; font-weight: 700; }
+  .stat-card.up .stat-value { color: #34d399; }
+  .stat-card.danger .stat-value { color: #fca5a5; }
+  .stat-card.warn .stat-value { color: #fbbf24; }
+  .stat-card.info .stat-value { color: #38bdf8; }
+  .stat-card .stat-detail { color: #cbd5e1; font-size: 12px; margin-top: 8px; line-height: 1.5; }
+
+  /* === Flow Table 资金流 === */
+  .flow-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .flow-row {
+    display: grid; grid-template-columns: 60px 1.4fr 1.2fr 1fr 1.4fr; gap: 12px;
+    padding: 14px 18px; align-items: center;
+    border-bottom: 1px dashed rgba(148,163,184,0.15);
+  }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .flow-rank { font-size: 18px; font-weight: 800; color: #fbbf24; }
+  .flow-name { color: #f1f5f9; font-size: 14px; font-weight: 600; }
+  .flow-val { color: #34d399; font-size: 15px; font-weight: 700; }
+  .flow-val.down { color: #f87171; }
+  .flow-sub { color: #94a3b8; font-size: 11px; }
+
+  /* === Mainline 主线 === */
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; position: relative; border-left: 4px solid #34d399;
+    transition: transform 0.2s;
+  }
+  .mainline-card:hover { transform: translateY(-3px); }
+  .mainline-card.rank-1 { border-left-color: #fbbf24; }
+  .mainline-card.rank-2 { border-left-color: #38bdf8; }
+  .mainline-card.rank-3 { border-left-color: #c084fc; }
+  .mainline-card.rank-4 { border-left-color: #f87171; }
+  .mainline-card.rank-5 { border-left-color: #6ee7b7; }
+  .mainline-card.defend { border-left-color: #ef4444; background: rgba(239,68,68,0.06); }
+  .mainline-rank {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(251,191,36,0.20); color: #fbbf24;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .mainline-card .title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; padding-right: 40px; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag {
+    background: rgba(168,85,247,0.18); color: #c084fc;
+    padding: 3px 9px; border-radius: 6px; font-size: 11px; font-weight: 600;
+  }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-desc { color: #cbd5e1; font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+  .mainline-desc b { color: #f1f5f9; }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .mainline-stocks .stock-chip {
+    background: rgba(15,23,42,0.6); border: 1px solid rgba(148,163,184,0.20);
+    color: #cbd5e1; padding: 3px 9px; border-radius: 6px; font-size: 11px;
+  }
+  .mainline-stocks .stock-chip b { color: #fbbf24; }
+
+  /* === 涨停天梯 === */
+  .ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .ladder-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 16px;
+  }
+  .ladder-card .ladder-head { font-size: 13px; color: #94a3b8; margin-bottom: 10px; font-weight: 600; }
+  .ladder-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ladder-tag {
+    padding: 5px 11px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.22); color: #fca5a5; border: 1px solid rgba(239,68,68,0.40); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.22); color: #fbbf24; border: 1px solid rgba(245,158,11,0.40); }
+  .ladder-tag.lv-3 { background: rgba(14,165,233,0.22); color: #38bdf8; border: 1px solid rgba(14,165,233,0.40); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.22); color: #c084fc; border: 1px solid rgba(168,85,247,0.40); }
+  .ladder-tag small { display: block; color: #94a3b8; font-size: 10px; font-weight: 400; margin-top: 2px; }
+
+  /* === ETF Table === */
+  .etf-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .etf-row {
+    display: grid; grid-template-columns: 50px 1.4fr 1.4fr 1fr; gap: 12px;
+    padding: 12px 18px; align-items: center;
+    border-bottom: 1px dashed rgba(148,163,184,0.15);
+  }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .etf-rank { font-size: 18px; font-weight: 800; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #f87171; }
+  .etf-name { color: #f1f5f9; font-size: 13px; font-weight: 600; }
+  .etf-code { color: #94a3b8; font-size: 11px; }
+  .etf-val { font-size: 15px; font-weight: 700; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+
+  /* === Finance Table 新闻催化 === */
+  .fin-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .fin-row {
+    display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px;
+    padding: 14px 18px; align-items: start;
+    border-bottom: 1px dashed rgba(148,163,184,0.15);
+  }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-name { color: #f1f5f9; font-size: 14px; font-weight: 600; }
+  .fin-val { font-size: 13px; font-weight: 600; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .fin-comment { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+
+  /* === Conclusion 核心结论 === */
+  .conclusion {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px 24px; margin-bottom: 16px;
+    border-left: 4px solid #34d399;
+  }
+  .conclusion.warn { border-left-color: #fbbf24; background: rgba(245,158,11,0.04); }
+  .conclusion.info { border-left-color: #38bdf8; background: rgba(14,165,233,0.04); }
+  .conclusion.danger { border-left-color: #ef4444; background: rgba(239,68,68,0.04); }
+  .conclusion-title { color: #f1f5f9; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .conclusion-item .num {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    background: #ef4444; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px;
+  }
+  .conclusion-item p { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+  .conclusion-item p b { color: #f1f5f9; }
+
+  /* === Conflict Grid 机构观点 === */
+  .conflict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .view-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px;
+  }
+  .view-a { border-top: 3px solid #34d399; }
+  .view-b { border-top: 3px solid #38bdf8; }
+  .view-card .view-head { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .view-a .view-head { color: #34d399; }
+  .view-b .view-head { color: #38bdf8; }
+  .view-card .view-quote { color: #cbd5e1; font-size: 13px; line-height: 1.6; margin-bottom: 10px; padding: 10px; background: rgba(15,23,42,0.5); border-radius: 8px; }
+  .view-card .view-source { color: #94a3b8; font-size: 11px; }
+  .verdict {
+    background: linear-gradient(135deg, rgba(168,85,247,0.10), rgba(14,165,233,0.06));
+    border: 1px solid rgba(168,85,247,0.30); border-radius: 12px;
+    padding: 16px 20px; margin-top: 8px;
+  }
+  .verdict-head { color: #c084fc; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .verdict-body { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+
+  /* === Signal Grid 展望信号 === */
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .signal-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; position: relative;
+  }
+  .signal-card.up { border-top: 3px solid #34d399; }
+  .signal-card.warn { border-top: 3px solid #fbbf24; }
+  .signal-card.danger { border-top: 3px solid #ef4444; }
+  .signal-card.info { border-top: 3px solid #38bdf8; }
+  .signal-card .sig-num {
+    position: absolute; top: 14px; right: 14px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(14,165,233,0.18); color: #38bdf8;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px;
+  }
+  .signal-card .sig-title { color: #f1f5f9; font-size: 15px; font-weight: 700; margin-bottom: 10px; padding-right: 36px; }
+  .signal-card .sig-body { color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+  .signal-card .sig-body b { color: #f1f5f9; }
+
+  /* === Strategy Grid 策略矩阵 === */
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card {
+    background: rgba(30,41,59,0.6); border: 1px solid rgba(148,163,184,0.20);
+    border-radius: 12px; padding: 20px; border-left: 4px solid #34d399;
+  }
+  .strategy-card.mainline { border-left-color: #34d399; }
+  .strategy-card.defend { border-left-color: #fbbf24; }
+  .strategy-card.risk { border-left-color: #ef4444; }
+  .strategy-card.master { border-left-color: #c084fc; background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(168,85,247,0.02)); }
+  .strategy-card .stg-title { color: #f1f5f9; font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+  .strategy-list { color: #cbd5e1; font-size: 13px; line-height: 1.7; padding-left: 0; list-style: none; }
+  .strategy-list li { margin-bottom: 6px; padding-left: 18px; position: relative; }
+  .strategy-list li::before { content: '▸'; position: absolute; left: 0; color: #94a3b8; font-weight: 700; }
+  .strategy-list li b { color: #f1f5f9; }
+  .strategy-card .stg-note { color: #94a3b8; font-size: 12px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(148,163,184,0.15); }
+
+  /* === 对比表：9/1 主线今日演化 === */
+  .compare-table { background: rgba(15,23,42,0.4); border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .compare-table .cmp-row {
+    display: grid; grid-template-columns: 1.2fr 1.6fr 1.6fr 1fr; gap: 12px;
+    padding: 12px 18px; align-items: start;
+    border-bottom: 1px dashed rgba(148,163,184,0.15);
+    font-size: 13px;
+  }
+  .compare-table .cmp-row:last-child { border-bottom: none; }
+  .compare-table .cmp-row.header { background: rgba(15,23,42,0.6); color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* === Footer === */
+  .footer {
+    text-align: center; color: #64748b; font-size: 12px; margin-top: 32px;
+    padding: 20px 16px; border-top: 1px solid rgba(148,163,184,0.10);
+  }
+  .footer p { margin-bottom: 4px; }
+
+  /* === 响应式 === */
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .signal-grid, .mainlines, .ladder { grid-template-columns: 1fr; }
+    .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row, .compare-table .cmp-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-page-node-id="dhQ5Khc4xSqAfVZmPfWrPM">
+<div class="container" data-page-node-id="L21DJzmmjgcsXCwqopJCIZ">
+
+  <!-- ============ 头部 ============ -->
+  <div class="header" data-page-node-id="Xzzi9Yugd7DrVnL8FToyP5">
+    <h1 data-page-node-id="BwP9gqCkOME4MzmPiGg0If">🛰️ 2026-09-02 A股复盘 · 智神星一号引爆军工航天 · 油气ETF领涨+5.52% · 粮食ETF重挫-5.95% · 美伊冲突推升原油近9%</h1>
+    <div class="subtitle" data-page-node-id="5s6qzPdAcAVOmSE9tOU8xY">沪指 -0.97% / 3941.39 · 创业板 -2.39% / 3312.24 · 科创50 -1.82% / 1617.60 · 三市成交 1.82 万亿缩量 2316 亿 · 超 3900 只个股下跌</div>
+    <div class="badges" data-page-node-id="fc2GJP5QRvzZBhf8nplltF">
+      <span class="badge badge-danger" data-page-node-id="AFP3Z6FQwzIt5cS7AEm5Fv">🔴 主线切换：粮食/短剧退潮</span>
+      <span class="badge badge-success" data-page-node-id="EwgwR8wqly4Yb9ZOxJ98SL">🟢 军工航天逆势接棒</span>
+      <span class="badge badge-warning" data-page-node-id="J54ZoEb7s0xOQM9uHnCGGw">🟡 油气ETF +5.52% / 原油近+9%</span>
+      <span class="badge badge-source" data-page-node-id="loKgUy6pNPaFAdHLfCdRB8">📅 数据日期 2026-09-02（周三收盘）</span>
+      <span class="badge badge-purple" data-page-node-id="bmIrtNwU07y3ysEtcsNz4I">🧠 中证军工 H1 净利 +32.92%</span>
+      <span class="badge badge-danger" data-page-node-id="PtcS2hLcJIZLqU0QIblezl">🔴 创业板 -2.39% / 年内第 11 次不足 2 万亿</span>
+    </div>
+  </div>
+
+  <!-- ============ 数据说明 ============ -->
+  <div class="data-note" data-page-node-id="KIeOojqA6OrQ986REw8rfW">
+    <strong data-page-node-id="ljztOvSG0vn8NhXLDqZ62g">📌 数据口径与双源核验：</strong><br data-page-node-id="WjOHef600sZ2yYutiR9jRk">
+    ✅ <span class="ok" data-page-node-id="vAWGAStRuXA7QHihpDkQaN">已双源验证</span>：五大指数收盘点位 / 涨跌幅 / 三市成交额（同花顺 + 金融界 + 腾讯新闻 + basic_info 多源一致）。<br data-page-node-id="GOup8ADDD3ThURv1OmQ7IA">
+    ✅ <span class="ok" data-page-node-id="EPfrthJXY9rr4S8XXARGCH">单源确认</span>：主力净流入 TOP3（军民融合 9.79 亿 / 净水 7.14 亿 / 智能音箱 7.03 亿，每经口径并列：军工 +18.41 亿 / 铜缆高速连接 +15.18 亿 / 特高压 +13.23 亿 / CRO +11.24 亿）、申万一级行业资金净流入 TOP5（国防军工 +24.67 / 建材 +8.94 / 石油石化 +3.43）、涨停天梯、ETF 涨跌 TOP3、新闻催化。<br data-page-node-id="z5czIFHxXkgZhSLkVVk8xR">
+    ⚠️ <span class="warn-text" data-page-node-id="xJmtLwk067BWORHoIJFPFv">典型"指数与个股同步杀跌"</span>：今日较 9/1 进一步走弱——9/1 是 3386 涨 vs 2040 跌（指数弱但个股强），今日是 <b data-page-node-id="Bo2jFj4gijdA9qfdt0dLWI">超 3900 只个股下跌、上涨仅约 1300 只</b>，从"指数 vs 个股背离"演化为"全面调整"。成交额 1.82 万亿缩量至年内第 11 次不足 2 万亿。<br data-page-node-id="Z9XEqtmVTDg84O6LdKmNM7">
+    ⚠️ <span class="warn-text" data-page-node-id="YywJ92JboG1RqDNDdv3Yfr">主线级别高低切换确认</span>：9/1 复盘提示"昨日主线（农业+短剧+消费）面临连续性考验"，今日 <b data-page-node-id="0Jtm1WD6g6dSUhIgHjESHu">粮食 ETF 重挫 -5.95%、敦煌种业跌停、神农种业 -10%+</b>，新主线接力。<br data-page-node-id="aRLm2zLZBOMOR4KZDauAH4">
+    🔴 <span class="danger-text" data-page-node-id="3by8KACam8WwwT75So4LFm">风险提示</span>：北证 50 独自 +2.50% 创新高，但其余宽基全部下跌，市场情绪转弱；创业板 -2.39% 持续最弱；美伊冲突升级 + 10 年期美债 4.75% 压制成长股估值。
+  </div>
+
+  <!-- ============ 主题横幅 ============ -->
+  <div class="theme-banner" data-page-node-id="ESdvdBeplyvDe7aXQJU3JE">
+    <div class="icon" data-page-node-id="xQ9H8Frtq7v3KaFw8KyPoc">🛰️</div>
+    <div class="text" data-page-node-id="EEukEgf19UfCOUE2eYWuad">
+      <h3 data-page-node-id="lqLqvDN3kfFDyqESeqQsEl">核心定性：主线级别切换确认 · 军工航天（智神星一号）逆势接棒 · 油气链（美伊冲突）共同走强 · 粮食/短剧/消费三主线全线退潮</h3>
+      <p data-page-node-id="k6YKpJEhMB089bHZhrLz1h">周三 A 股全天震荡走弱，<b style="color:#fca5a5" data-page-node-id="5cr8HXCfEAAMpayVDQHRcU">沪指-0.97%报3941.39、深成指-1.88%报13611.55、创业板-2.39%报3312.24、科创50-1.82%报1617.60</b>，仅 <b style="color:#34d399" data-page-node-id="B8sWPet97YGapyu0FPkuRB">北证50+2.50%报1106.57</b> 逆势领涨。三市成交 <b style="color:#fbbf24" data-page-node-id="5mUZYGlPgNz2W3tSExXANs">18202 亿元（较上日缩量 2316 亿，年内第 11 次不足 2 万亿）</b>，超 <b style="color:#fca5a5" data-page-node-id="Pn3goC0gfOIAlzj6euajVk">3900 只个股下跌</b>。结构上呈现清晰主线切换：<b style="color:#34d399" data-page-node-id="ptuk9rhBbY77GgWqFC6ecV">军工航天（智神星一号催化 + 中报净利+32.92%）、橡胶制品、美容护理、油气链（美伊冲突 + 原油暴涨近 9%）</b> 五线逆势走强；<b style="color:#fca5a5" data-page-node-id="JASDmHPqVmuTRsDSX2QQ1m">粮食概念（昨日主线今日领跌-5.95%）、煤炭、电子</b> 三条 9/1 主线/防御板块同步退潮。智神星一号在酒泉成功入轨 + 中证军工 H1 业绩高增是今日最重要的攻守转换催化。</p>
+    </div>
+  </div>
+
+  <!-- ============ 9/1 主线今日演化对比 ============ -->
+  <div class="section-title info" data-page-node-id="c2EYRhzUIlsFhrmoyc5wX5">🔄 9/1 主线今日演化对比 · 高低切确认</div>
+  <div class="compare-table" data-page-node-id="SDQSlzqdXO2DwLoRFI2Ml7">
+    <div class="cmp-row header" data-page-node-id="3YJkcnlVA0eDSVvFFwPAjX">
+      <div data-page-node-id="SnEOt1BVXfHreP4MUlsQKO">9/1 主线</div>
+      <div data-page-node-id="ULGLTr0YUPm4AqHIsbVxJU">9/1 收盘表现</div>
+      <div data-page-node-id="DUGLLWOfYezP3fAIz2oto8">9/2 收盘表现</div>
+      <div data-page-node-id="PMbQkW0y40TQA5sEpUKLvu">演化判断</div>
+    </div>
+    <div class="cmp-row" data-page-node-id="zTsghxNw584ZRTDyF7JDLH">
+      <div data-page-node-id="CJDhoDdkrJxW1YFT21Tpxe"><b style="color:#34d399" data-page-node-id="GitTT9WUd5rhSPwkdoOKBA">粮食/种业</b></div>
+      <div data-page-node-id="Fy5XwEc8DvuIKTxhQWCgEh">板块 +2.48% 居首，26 股涨超 5%、13 股涨停，神农种业 20cm 涨停，万向德农 6 连板</div>
+      <div data-page-node-id="mlaJtHFfpzj59THOtZaRru">粮食 ETF 重挫 <b style="color:#fca5a5" data-page-node-id="gadOS6FdpxcMfGa9TNmJDE">-5.95%</b>，敦煌种业/国投丰乐跌停，神农种业 <b style="color:#fca5a5" data-page-node-id="WHeFDvcfQ6mdiBr0eBc93k">-10%+</b></div>
+      <div data-page-node-id="K7d3AuTJsN4fZLIyAmyNml"><b style="color:#fca5a5" data-page-node-id="PNp2lQdA3aCnjKAC6vrUOp">🔴 主线退潮</b></div>
+    </div>
+    <div class="cmp-row" data-page-node-id="1iPZspZWyEmVO17JNr3RVM">
+      <div data-page-node-id="H0u0Mt4G4QaOvYVER2PCbJ"><b style="color:#34d399" data-page-node-id="NHCmv4UvZueo6Xl5Sr8iEu">短剧/AI 传媒</b></div>
+      <div data-page-node-id="sCqy5T5IllIM9qYtjZxoLJ">芒果超媒 20cm 二连板，欢瑞/博纳/大晟文化/龙版传媒批量 2 连板</div>
+      <div data-page-node-id="hfXLTed22jJOH5WtUZJhct">板块整体降温，仅欢瑞世纪/集泰股份/大晟文化/龙版传媒保持 3 连板</div>
+      <div data-page-node-id="Qm7GcdiGXk9e8tyJ6sDrPF"><b style="color:#fbbf24" data-page-node-id="6N7jnXvkzby3NQWTXxZ6aW">🟡 高位分化</b></div>
+    </div>
+    <div class="cmp-row" data-page-node-id="NSDGXD5PHiaE4N1MkJtmTq">
+      <div data-page-node-id="cARwA8FoYZnFh8JIQ6fuV9"><b style="color:#34d399" data-page-node-id="wIIgSthAaZAPe6k038ALEA">大消费/零售</b></div>
+      <div data-page-node-id="dcQSBDHie83hYMym81txOH">商贸零售 +3.08% 居首，国芳集团 3 连板，供销大集/茂业商业/新华百货封板</div>
+      <div data-page-node-id="dAkz6WdrpBjlPJhP38cSES">国芳集团 4 连板（晋级），茂业商业/九牧王 2 连板，但板块未走强</div>
+      <div data-page-node-id="C0WyuZPPXscIKQ5LZ7RXDJ"><b style="color:#fbbf24" data-page-node-id="vhdYNOBR1xm2QAADl0tKp1">🟡 个股独立</b></div>
+    </div>
+    <div class="cmp-row" data-page-node-id="TTkjXEPOKcQMOuN8I93iQ7">
+      <div data-page-node-id="QgAFdxXLdOe6fAHO7vgRFA"><b style="color:#34d399" data-page-node-id="8YHBaM358SIdzsZ2KEyTLv">国防军工</b></div>
+      <div data-page-node-id="4PO6pWDbTiAscpBjcTuK2t">主力净流入 9 亿元居前，板块 +1.27% 逆势</div>
+      <div data-page-node-id="C9hQ5A7B4W6qwUEiaQoH7C">主线净流入 <b style="color:#fbbf24" data-page-node-id="ynqc9itErHIMJtbNapjGA1">9.79 亿（同花顺）/ +18.41 亿（每经）/ 申万一级 +24.67 亿</b>，智神星一号引爆，板块 6/10 只涨停</div>
+      <div data-page-node-id="EDTPu7PNO1Rz7Z368KO1ho"><b style="color:#34d399" data-page-node-id="1FwfZpTCEnhZ3plhWPGC9Y">🟢 主线接力</b></div>
+    </div>
+    <div class="cmp-row" data-page-node-id="jtUSoteMxvW063Ran1MlLN">
+      <div data-page-node-id="TS201xfaUfLdKzW4akrDkN"><b style="color:#fca5a5" data-page-node-id="ZckwgNAmq2NijuYRZ5DvKJ">AI 算力硬件</b></div>
+      <div data-page-node-id="Ts1L2nDkxyo7u1IaAbtdjg">电子 -2.99% 跌幅居首，CPO/PCB/光模块/MLCC 全线调整</div>
+      <div data-page-node-id="CaWX7HHAnp0JS1sLBuexRo">延续调整，科创 50 -1.82%，半导体/CPO 板块继续走弱</div>
+      <div data-page-node-id="V8OM0MblC28jWkC3ydLuO5"><b style="color:#fca5a5" data-page-node-id="qJWGugoQOGkrVTE25gtQGa">🔴 持续调整</b></div>
+    </div>
+    <div class="cmp-row" data-page-node-id="5vHH5ilrczHMWyzAUjvBUK">
+      <div data-page-node-id="LGpf1S5ATcHIxfmKGyCfPL"><b style="color:#fca5a5" data-page-node-id="hVfbBXzJQxAzjNSXHVDeA5">煤炭</b></div>
+      <div data-page-node-id="FFQ02F980TJqU943EmNjbD">昨日 -2.13% 跌幅居前，淮北矿业 -6%+，兖矿能源等跌 3%+</div>
+      <div data-page-node-id="V67d0KDLDMxTuy1fREXxP1">上海能源 <b style="color:#fca5a5" data-page-node-id="ONtmFxb9AjHy0gDRnrfKwL">-7%+</b>，晋控煤业/盘江股份/冀中能源跟跌</div>
+      <div data-page-node-id="GHxxZ1BdhiSpPnnNVOfCG3"><b style="color:#fca5a5" data-page-node-id="ByWqHWKTwv032JJlUdV7J4">🔴 连续走弱</b></div>
+    </div>
+  </div>
+
+  <!-- ============ 一、五大核心指数表现 ============ -->
+  <div class="section-title" data-page-node-id="oOEyYMhCac2SZ9DQdCIkup">📊 一、五大核心指数表现</div>
+  <div class="dashboard" data-page-node-id="P1KrJoiwBuByJWHi3jJ1PH">
+    <div class="index-card danger" data-page-node-id="VIvuHti4cJinIjCYv4GJJI">
+      <div class="tag danger" data-page-node-id="Jhlk63Ydkh9TlkACPo0mvn">-0.97%</div>
+      <div class="name" data-page-node-id="TJWIjRbKOz9LuMATz0cWyD">上证指数</div>
+      <div class="code" data-page-node-id="ce5k2RHdi0wozSjDEtjcr2">000001.SH</div>
+      <div class="value" data-page-node-id="PuzJLCvJqAmSFRwOXQmpOJ">3,941.39</div>
+      <div class="change" data-page-node-id="lCsu9fv3g10Z2jP2iKh2C9">-38.50 点</div>
+      <div class="label" data-page-node-id="pe9Y3n7nDIhaYP8fJfmltD">失守 3950，年内第 11 次跌破 2 万亿成交</div>
+    </div>
+    <div class="index-card danger" data-page-node-id="6qC3jlMcA8DQDZuhH47vGz">
+      <div class="tag danger" data-page-node-id="kGAzrry0c2kDjhfaH5sFfo">-1.88%</div>
+      <div class="name" data-page-node-id="F5ZNDx3S4KGoNZTs9aHYQD">深证成指</div>
+      <div class="code" data-page-node-id="sUwtePUGNdmiZ2NmaE2yFw">399001.SZ</div>
+      <div class="value" data-page-node-id="PIhh6x62PyKqSxUzcYzaQ9">13,611.55</div>
+      <div class="change" data-page-node-id="A3b19cIFwJUURvZBquaQmZ">-260.83 点</div>
+      <div class="label" data-page-node-id="RmrHWKmBrurHbFTv9ZjzYX">权重成长股拖累，跌幅大于沪指</div>
+    </div>
+    <div class="index-card danger" data-page-node-id="IwEmUNHgElu5fDMUs3FOyA">
+      <div class="tag danger" data-page-node-id="Qbyalz6clkbI8dhbI5u4lY">-2.39%</div>
+      <div class="name" data-page-node-id="XhzLMZLBHgPiM0vUK8DlWH">创业板指</div>
+      <div class="code" data-page-node-id="gJlBZ1dCj8IMue5mXsp6l9">399006.SZ</div>
+      <div class="value" data-page-node-id="JGEEY1g3HS2cEF1bAL5pJY">3,312.24</div>
+      <div class="change" data-page-node-id="GXBly4GMTeaV0nTFL0Op3Z">-81.19 点</div>
+      <div class="label" data-page-node-id="8rSw2ZWFbuq4AvrPWJaJh8">全市场最弱，连续两日弱于主板</div>
+    </div>
+    <div class="index-card danger" data-page-node-id="imvANnzwrulN732QKRZSqo">
+      <div class="tag danger" data-page-node-id="AlLu3H1iNEjkfBNHBAQKyH">-1.82%</div>
+      <div class="name" data-page-node-id="61g751nJBACRAvQ1FnedxR">科创 50</div>
+      <div class="code" data-page-node-id="Aknn78wMmLDksE1Tudm8gh">000688.SH</div>
+      <div class="value" data-page-node-id="EIL5ljY4jp0YCIaQDKcIEo">1,617.60</div>
+      <div class="change" data-page-node-id="Re7TiuTeO9Q52ZTMMIeaJw">-29.93 点</div>
+      <div class="label" data-page-node-id="ZOw1oOCM9LdYHnAH62kVMf">AI 算力链延续调整，半导体板块承压</div>
+    </div>
+    <div class="index-card ok" data-page-node-id="Rbm2qMgk5qKUrFpkbEUUMc">
+      <div class="tag ok" data-page-node-id="LedRD0yXz1Xs5XNkcp5Jm7">+2.50%</div>
+      <div class="name" data-page-node-id="m7nJzNRjaG4qNbSo0wDVBf">北证 50</div>
+      <div class="code" data-page-node-id="n1iUUGTfjnl7slC3hwbDSJ">899050.BJ</div>
+      <div class="value" data-page-node-id="ymcXhI0Z2cbda0ajxftc0K">1,106.57</div>
+      <div class="change" data-page-node-id="uoz0kjmtPkzUOZFsVsEZzI">+26.98 点</div>
+      <div class="label" data-page-node-id="k2Swo3cx3qFF8vBmxAcFRS">逆势领涨，独苗收红，专精特新小票活跃</div>
+    </div>
+  </div>
+
+  <!-- ============ 二、市场交易与资金信号 ============ -->
+  <div class="section-title info" data-page-node-id="Xv3QQ9EvNi6ENhIO2L2EL1">💰 二、市场交易与资金信号</div>
+  <div class="market-stats" data-page-node-id="hNkbaSgpI3c1387DrbBko3">
+    <div class="stat-card danger" data-page-node-id="uwotjAlpACDbx9urCs7Yzx">
+      <div class="stat-name" data-page-node-id="7OhDYTGw2GcbLUkGHCKbeF">三市成交额</div>
+      <div class="stat-value" data-page-node-id="0rKssIb9HWV6HsUMhG9LW5">1.82 万亿</div>
+      <div class="stat-detail" data-page-node-id="hb4RqMXfjuKcaGCaQLrnoa">较上日缩量 2316 亿（-11.3%），年内第 <b style="color:#fca5a5" data-page-node-id="MLlXA3aYfN4Mc2qhB5Owy9">11 次</b> 跌破 2 万亿，量能信号转弱</div>
+    </div>
+    <div class="stat-card danger" data-page-node-id="9yZyTJ8eJKhPcGwUT40DHf">
+      <div class="stat-name" data-page-node-id="ywTEZuSpDwpQp3SUri7kGE">下跌个股数</div>
+      <div class="stat-value" data-page-node-id="cRw1oLVBS1FZl1186yD5LD">3,900+</div>
+      <div class="stat-detail" data-page-node-id="b3OwgidZQCs5gbFKWCW0A8">全市场超 3900 只下跌（9/1 仅 2040 只下跌），从"指数弱个股强"演化为"全面调整"</div>
+    </div>
+    <div class="stat-card info" data-page-node-id="OmTHiecCpMAuNDHWDEIOvk">
+      <div class="stat-name" data-page-node-id="C4T7OhwYK9CF8171LdB9bQ">风格：成长 vs 价值</div>
+      <div class="stat-value" data-page-node-id="whim3MxbuPVTlEEPhlFALi">价值领跌</div>
+      <div class="stat-detail" data-page-node-id="zPSBz4Yb33kkJpq4ipg0wA">创业板 <b style="color:#fca5a5" data-page-node-id="4mgataAWL8aNW1c7XXBKSP">-2.39%</b> 远弱于沪深 300（-1.38%），权重成长股集中杀跌</div>
+    </div>
+    <div class="stat-card warn" data-page-node-id="GohtSQBGR0Rt3u8ebABCLQ">
+      <div class="stat-name" data-page-node-id="yofH0FODpNtxk764JKQ6QO">ETF 资金信号</div>
+      <div class="stat-value" data-page-node-id="Tkbv3SXsAFWUlVgaDyOPVm">4,544.76 亿</div>
+      <div class="stat-detail" data-page-node-id="1xALT8l76ZyV5WfIAGYPue">ETF 两市成交缩量 134.46 亿；油气 ETF 领涨 +5.52%，粮食 ETF 重挫 -5.95%</div>
+    </div>
+  </div>
+
+  <!-- ============ 三、主力资金净流入板块 TOP3 ============ -->
+  <div class="section-title" data-page-node-id="bswSiJK2iKKcrbW5Q3DmwA">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径</div>
+  <div class="flow-table" data-page-node-id="h7sbnUlsJuIDNOgKhbBkYI">
+    <div class="flow-row header" data-page-node-id="mDB35sFe8yz31kPsUDJLi1">
+      <div data-page-node-id="skfHwFsxphFmlZcmw5sk8h">排名</div>
+      <div data-page-node-id="r7sec2myriFt6jlWBMbQsW">板块</div>
+      <div data-page-node-id="iSPnjFo0TlXdvgqGEbrTWT">净流入（亿）</div>
+      <div data-page-node-id="8PScOyfTOZ74X6mnAjrEmJ">板块表现</div>
+      <div data-page-node-id="3MmBqfRV3ni8XiAjRkORDM">备注</div>
+    </div>
+    <div class="flow-row" data-page-node-id="CK9Ugwr7UkMVCUtMCAXIyM">
+      <div class="flow-rank" data-page-node-id="C7gsqmlp3KnKgaWiIWw6bb">1</div>
+      <div class="flow-name" data-page-node-id="O5dxMZQAEOXIY4iI1Noy1e">军民融合</div>
+      <div class="flow-val" data-page-node-id="hBKBMdxdTzbMEWrHRSJEYp">+9.79</div>
+      <div data-page-node-id="Q1sOjzFjenu6WBV7hPP21V">板块内 <b style="color:#34d399" data-page-node-id="p9bYXHToGMsvD3n43QzDP0">6 股涨停</b>，130 股上涨</div>
+      <div class="flow-sub" data-page-node-id="Ja4uRxX9GBJ0P4qtOK6zcj">智神星一号 + 中报催化</div>
+    </div>
+    <div class="flow-row" data-page-node-id="qoktPeeqZGaCXpVTKfyiXh">
+      <div class="flow-rank" data-page-node-id="wJUEBOyy4cDTOk5jC6p3XC">2</div>
+      <div class="flow-name" data-page-node-id="TMQ6tdsTDWqYRG17ZDeHZD">净水概念</div>
+      <div class="flow-val" data-page-node-id="MFoetoLQXvPJ8AI4iZTZSi">+7.14</div>
+      <div data-page-node-id="t8BBgefriaTh5htO48xMI0">防御性主题，资金避险</div>
+      <div class="flow-sub" data-page-node-id="AB289RWwoeHdHtGSRHmtek">弱势防御</div>
+    </div>
+    <div class="flow-row" data-page-node-id="2Yf9RwHGYQd4bcoHConMQl">
+      <div class="flow-rank" data-page-node-id="meoApWHsOVcTmqwn3AmXvO">3</div>
+      <div class="flow-name" data-page-node-id="8PSMgRig0tSrmFWIYAXs7v">智能音箱</div>
+      <div class="flow-val" data-page-node-id="GLSOUxXukbIN1bPd8cHL1r">+7.03</div>
+      <div data-page-node-id="OiGj8NRGWzG6DCVYtEQjsq">板块内 24 股上涨</div>
+      <div class="flow-sub" data-page-node-id="YIxUkLHYA82Aip6HL7pMAw">消费电子低位补涨</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-top:-8px;margin-bottom:24px;" data-page-node-id="7j68ySwlR7kwFSl79fTgbR">
+    <strong data-page-node-id="XaUxBZqExefXsE0v7JvQ1x">📌 申万一级行业口径（每经/Wind）：</strong>
+    国防军工 <span class="ok" data-page-node-id="wHCTWkDGPQ81iaGyibY1qy">+24.67 亿</span>（居首，申万一级）｜建筑材料 <span class="ok" data-page-node-id="lckBWUZJHqgvmOEpTdwRhL">+8.94 亿</span>（防御对冲）｜石油石化 <span class="ok" data-page-node-id="RSJwffCw07o30zedgOVdzW">+3.43 亿</span>（美伊冲突 + 原油催化）｜社会服务 <span class="ok" data-page-node-id="j1NRv1ReV4zricm0O9JHQA">+0.52 亿</span>｜美容护理 <span class="ok" data-page-node-id="MnCsvZxoVpspb2gdCke1TP">+0.03 亿</span>。
+    <b data-page-node-id="p4dRmVGlRV5WEe5zEMQz6F">主题概念与申万一级口径一致：军工/油气是今日资金共识方向</b>。
+  </div>
+
+  <!-- ============ 四、今日主线板块与逻辑 ============ -->
+  <div class="section-title" data-page-node-id="rHGXkfyKpGywkQL3Ip74CG">🎯 四、今日主线板块与逻辑（蚂蚁财富三维共振模型分析）</div>
+  <div class="mainlines" data-page-node-id="i7DkCYs3EhbHtrNFO4w3HT">
+
+    <!-- 主线 1：军工航天 -->
+    <div class="mainline-card rank-1" data-page-node-id="sO6H3CpQXrfsENYuu5dvFX">
+      <div class="mainline-rank" data-page-node-id="r4VenGtsqRWpe6yDDWSjO2">1</div>
+      <div class="title" data-page-node-id="JO3s2ev0Ti7yZTHjeV2ixY">🛰️ 军工航天（智神星一号 + 中报验证）</div>
+      <div class="mainline-tag-row" data-page-node-id="0u5z4gJiECxBV55K1EQEbV">
+        <span class="mainline-tag up" data-page-node-id="3u8fXD6u6Bbpiv0Dcjk9Y2">主线接力</span>
+        <span class="mainline-tag warn" data-page-node-id="1DkBa3q5dfZO1d4ywPMlNs">智神星一号催化</span>
+        <span class="mainline-tag info" data-page-node-id="gcd7XD5c9B7GGfG9oZbS1P">中报净利 +32.92%</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="Cg0JACosqMLPFrOZRKA513">
+        <b data-page-node-id="GIcWqkOBLg7qTdgYyUzziI">现象：</b>申万国防军工指数 +1.27%（航天 ETF 跟踪），板块内 <b data-page-node-id="qrnimEl2H78WHLfYO6eSdB">10 只个股涨停</b>，内蒙一机 2 连板、建设工业/博云新材/长城军工/晟楠科技涨停，北方长龙 +13%、天秦装备/国科军工/中兵红箭/隆达股份跟涨。<br data-page-node-id="CjtHhCI2uRlICbRLDblvhX">
+        <b data-page-node-id="b5y061355RAWyhE7DPmyNG">催化：</b>星河动力航天自主研发的中大型可重复使用液体运载火箭"智神星一号"在酒泉东风商业航天创新试验区顺利点火升空，精准进入预定轨道——商业航天主线再次点燃。<br data-page-node-id="4X4WHoJbyqcRT2Im5O0i6o">
+        <b data-page-node-id="2WdrmzvPgGyVj3jyTFC2XE">基本面：</b>中证军工指数覆盖的 80 家公司上半年营收合计 3774.94 亿元 <b style="color:#34d399" data-page-node-id="pRTkfdFocNgKsq6HgBw9Mt">+18.89%</b>，归母净利润 247.72 亿元 <b style="color:#34d399" data-page-node-id="F7WA6DPXRBDNJ957z9bFSS">+32.92%</b>，业绩验证行业景气向上。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="GjXnaAeeyHMnep9V63h3gL">
+        <span class="stock-chip" data-page-node-id="YCLxf4KsZE8HSvqfFGvjIK">内蒙一机 <b data-page-node-id="98PWkAlEVjJr77xCBat1VY">600967</b></span>
+        <span class="stock-chip" data-page-node-id="A86NZjAvspgOO9ZF6J63WR">建设工业 <b data-page-node-id="hk8OFqzYAMtzSagBV4tYpg">002265</b></span>
+        <span class="stock-chip" data-page-node-id="6xKIekSA7CSGssFCZnvB28">博云新材 <b data-page-node-id="D53I6PEolnCWnKyDx9Drjd">002297</b></span>
+        <span class="stock-chip" data-page-node-id="TnGDJXOS8dguICe7E0dJWs">长城军工 <b data-page-node-id="28SbHlXXB2CCWW26UPkJ1N">601606</b></span>
+        <span class="stock-chip" data-page-node-id="UBY0WVBNeTFEx8iGC84x35">北方长龙 <b data-page-node-id="TkTksIAYvX3L4F2htTUNu4">301357</b></span>
+        <span class="stock-chip" data-page-node-id="b7QwYzlOGCC0dFrXFPipWT">天秦装备 <b data-page-node-id="lmXZN23DP69ar315rsQSpl">300922</b></span>
+        <span class="stock-chip" data-page-node-id="RTWZUYen5zZZwHDQeK7Vhm">国科军工 <b data-page-node-id="YUCKxVIVBAK5wrjDcEuqSd">688543</b></span>
+        <span class="stock-chip" data-page-node-id="sJd18bPE8jX5CT3HPpeecT">中兵红箭 <b data-page-node-id="RBbYe8gxH3NaCK161KJk5G">000519</b></span>
+      </div>
+    </div>
+
+    <!-- 主线 2：油气链 -->
+    <div class="mainline-card rank-2" data-page-node-id="Y8Fw4xGex7UeE2Ei5TE5S6">
+      <div class="mainline-rank" data-page-node-id="86SeG9NYWfJpOttfWQPcGf">2</div>
+      <div class="title" data-page-node-id="iNc9gGrATGM4R1hMiQ83N7">🛢️ 油气链（美伊冲突 + 原油暴涨近 9%）</div>
+      <div class="mainline-tag-row" data-page-node-id="tsWkwEv9dKbffHS7xTRG0m">
+        <span class="mainline-tag danger" data-page-node-id="2xf7Ba4VliCsyM0jTWuzYU">地缘风险溢价</span>
+        <span class="mainline-tag warn" data-page-node-id="Cku6rrRBCHdBIqr224jMn0">原油 +8.69%</span>
+        <span class="mainline-tag up" data-page-node-id="MH24uoJSoH2vmkDqdfO9E0">油服跟涨</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="r1bLfVy8KJVblvlgaWp0GA">
+        <b data-page-node-id="0Jmx0qepMmDuuVdIv0abFE">现象：</b>标普油气 ETF（513350）领涨 <b style="color:#34d399" data-page-node-id="d7hRgkqyG7W1GunSM6KzBS">+5.52%</b>，标普油气 ETF（159518）+3.15%、能源化工 ETF（159981）+2.12%；国内期货原油 <b style="color:#34d399" data-page-node-id="U8a4Kbf42MA6zX7559EU5j">+8.69%</b> 收涨近 9%，乙二醇涨停，甲醇/燃料油 +4%+。<br data-page-node-id="VxwS0IRGycgcuS74yegmMM">
+        <b data-page-node-id="8hbwG5EIx6JJGnWmHXcrYH">催化：</b>伊朗议长卡利巴夫强硬表态——"若美阻止伊朗石油出口，波斯湾将断油"，伊朗军方已做好准备应对威胁，伊朗控制下的霍尔木兹海峡形势紧张；普京回应不排除打击英本土军事设施。地缘溢价推动油价单日跳升。<br data-page-node-id="6sJ5XxsSobsZpLAxaZiPob">
+        <b data-page-node-id="a3fbwrPaAlHva1cqdSoGvu">A 股映射：</b>油服/可燃冰/页岩气概念走强，石化机械、贵州燃气涨停，通源石油/中曼石油/石化油服/中国海油跟涨。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="kcQpZphnZg3qmaqLy2kUc3">
+        <span class="stock-chip" data-page-node-id="QNe4THprwpeFvt4lxCO333">石化机械 <b data-page-node-id="wX4wwUcBFTd91AH3CM6E9A">002353</b></span>
+        <span class="stock-chip" data-page-node-id="zecSA7Vay5sjoXTYnA6cGC">贵州燃气 <b data-page-node-id="829td9RHgDsNEuwd3lSRk2">600903</b></span>
+        <span class="stock-chip" data-page-node-id="OigPmXMdGm8aUjFpri6K38">通源石油 <b data-page-node-id="egUQVIaDg1AS3a1HDpiQsH">300164</b></span>
+        <span class="stock-chip" data-page-node-id="JA5dl27K6uc4Z7iBcErjyH">中曼石油 <b data-page-node-id="QkANr63q5LTllvFjqE7lMl">603619</b></span>
+        <span class="stock-chip" data-page-node-id="nVX9H24CrLPWnMTcZUOsxF">石化油服 <b data-page-node-id="yIVD9ObuGvi1fA7ERnwTDj">600871</b></span>
+        <span class="stock-chip" data-page-node-id="3L5RnkKwJ5oQBAVmX50sMq">中国海油 <b data-page-node-id="UhEuHxiNYWSATsDcr4vdZ5">600938</b></span>
+      </div>
+    </div>
+
+    <!-- 主线 3：橡胶制品 -->
+    <div class="mainline-card rank-3" data-page-node-id="FVvfkFwq9uYKc44xBXJyi3">
+      <div class="mainline-rank" data-page-node-id="Xl4FPCgg84x0cGMzlYuNSb">3</div>
+      <div class="title" data-page-node-id="GVZrCh4VlHosvGtzkLrqPC">🛞 橡胶制品（油价传导 + 防御属性）</div>
+      <div class="mainline-tag-row" data-page-node-id="IaHzRsrK54rWpTMVyaa3dK">
+        <span class="mainline-tag up" data-page-node-id="g2IGCN2f8ELcfVE0EZ9uD5">高开高走</span>
+        <span class="mainline-tag info" data-page-node-id="a75Ye6Wzlb9tuSzh7rW9Z3">能源替代</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="d90OddAc5HNAKhzwHqEfPF">
+        <b data-page-node-id="X2SIYih4VjUswFWLDLcEjk">现象：</b>橡胶制品板块高开高走，科隆新材、悦龙科技 <b style="color:#34d399" data-page-node-id="qDui6M9fai6rKwSyvUUjrA">+10%+</b>，利通科技、科强股份、中裕科技、科创新源、联科科技跟涨。<br data-page-node-id="E5ioy4BgX6qFGiJkKcwF7L">
+        <b data-page-node-id="DQEOy0YQeDhCArEUucYzqO">催化：</b>油价跳升带动合成橡胶原料价格上行预期 + 橡胶制品下游（轮胎、密封件）涨价预期；同时具备能源替代（部分合成橡胶来自生物基）+ 防御属性双重逻辑。<br data-page-node-id="Pwnd8q0yxl1hYU9Hs49EXC">
+        <b data-page-node-id="2AlzA28rHf5vulhEl8p8nO">资金：</b>板块整体净流入居前，逆势特征明显。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="aifnYYWtnQQagZB1y5a2m9">
+        <span class="stock-chip" data-page-node-id="80D3CARjqWODnNLZ0zr2tg">科隆新材</span>
+        <span class="stock-chip" data-page-node-id="vV56MQzgv5RCOFkGAdskF7">悦龙科技</span>
+        <span class="stock-chip" data-page-node-id="RxtDo8kXZclCBevtRTfyno">利通科技</span>
+        <span class="stock-chip" data-page-node-id="ceCwFaURv8OAk0VMFc2MHW">科强股份</span>
+        <span class="stock-chip" data-page-node-id="kDeX4jwbAB7QNBB8ltgsvv">科创新源 <b data-page-node-id="MZuDiz9JHw9gTs2ZxS6kKY">300731</b></span>
+        <span class="stock-chip" data-page-node-id="5EhmAEegnVM2CAB7QDZUA2">联科科技 <b data-page-node-id="aeCHmB1oqtk8Ufz3EoqCTq">001207</b></span>
+      </div>
+    </div>
+
+    <!-- 主线 4：美容护理 -->
+    <div class="mainline-card rank-4" data-page-node-id="yb6bRTLz0f0TtQR7fsS2ZY">
+      <div class="mainline-rank" data-page-node-id="qUMThHSdrdg7GsBxJ0Gzlq">4</div>
+      <div class="title" data-page-node-id="nE1TWjAy7VA9MqDHbfiD08">💄 美容护理（消费防御 + 主线切换期对冲）</div>
+      <div class="mainline-tag-row" data-page-node-id="OVsXs9uZvpKoEeaioeVZX5">
+        <span class="mainline-tag up" data-page-node-id="qlUM6Aiieh20veFP5o9yy2">异动拉升</span>
+        <span class="mainline-tag info" data-page-node-id="FuNyoIQ2mEmbk6ivbdRVaI">大消费补涨</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="SV8ZKAnCAcmCQgsmqUAAor">
+        <b data-page-node-id="wYkJk0AnExDP3oiOSDxyGO">现象：</b>美容护理板块异动拉升，维琪科技涨停，芭薇股份、丸美生物、朗姿股份、锦盛新材、珈凯生物跟涨。<br data-page-node-id="legKJkaipVzzh0bixmDvDB">
+        <b data-page-node-id="CeThBEcYQJDSpUYDl6rHdp">催化：</b>9/1 复盘曾提示"美容护理"涨幅居前，今日延续强势——主线切换期资金回流大消费板块的防御属性凸显。<br data-page-node-id="QUjBxixBmn1AgCrrU1N3CK">
+        <b data-page-node-id="MvzXGB6J5kYPwQahIWfeHE">逻辑：</b>美容护理属于必选消费，估值修复空间大 + 旺季催化（中秋/国庆双节临近）。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="CtAJYCsMeWUPNFZGjVqGuR">
+        <span class="stock-chip" data-page-node-id="BDRQi250W7F8zJGqFJSUiv">维琪科技</span>
+        <span class="stock-chip" data-page-node-id="CFqKwSLyrjqqrjhxRGoVRq">芭薇股份</span>
+        <span class="stock-chip" data-page-node-id="Y4xU4L33vRCzTT0zm2v4ES">丸美生物 <b data-page-node-id="zGXVRy17NNM4fYezzmewU2">603983</b></span>
+        <span class="stock-chip" data-page-node-id="AYiWJfgYyrXUnqFGCw7WVP">朗姿股份 <b data-page-node-id="G2DnHcdn83qG2TEjSAywjK">002612</b></span>
+        <span class="stock-chip" data-page-node-id="8ngCF8PaJ24W0wYdrd7tKk">锦盛新材 <b data-page-node-id="FJg8556OpE6YZEVNobyRNv">300849</b></span>
+      </div>
+    </div>
+
+    <!-- 主线 5：电网设备 + PCB -->
+    <div class="mainline-card rank-5" data-page-node-id="Ht8cy8ALal5S2lR600xu0B">
+      <div class="mainline-rank" data-page-node-id="BbWo3kFDsTRQsnvYshDzqC">5</div>
+      <div class="title" data-page-node-id="nLu4FaIUO4BBkb2vUqSEGG">⚡ 电网设备 + PCB 概念（每经口径，独立主线）</div>
+      <div class="mainline-tag-row" data-page-node-id="exp9iXriFZJO2J3A36DKr8">
+        <span class="mainline-tag up" data-page-node-id="A3Lnj9RrfT7SBdeJx9Kz7Z">低位补涨</span>
+        <span class="mainline-tag info" data-page-node-id="qHJ3e0RqFNhFkTQR2Cp2ur">资金回流</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="dNRvxKE3r3I2USfWhObi7D">
+        <b data-page-node-id="GhxjFEw4626MDzgjlkN4F4">现象：</b>电网设备板块震荡反弹，太阳电缆、神马电力封板走强；PCB 概念表现亮眼，沃特股份 <b data-page-node-id="p0sLiL9fF7MmKQPaPoCrSU">5 天 4 板</b>，山东玻纤涨停；互联金融恒宝股份 2 连板；光纤概念杭电股份涨停；地下管网顺控发展直线涨停。<br data-page-node-id="ybZ8kxCTWePJ9gcVVJzJTp">
+        <b data-page-node-id="lOSMzbbHgMGWoV8SoRtYeY">逻辑：</b>科技硬件（PCB/铜缆高速连接）作为 8 月最强主线（8 月申万电子 +12.41% 居首）的代表性低位补涨；同时电网设备具备"新型电力系统 + 央企市值管理"双重逻辑。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="tciqQWa9iiVxuEvVPxywTT">
+        <span class="stock-chip" data-page-node-id="YJ02qEPhD0cqsvjym64vsl">太阳电缆 <b data-page-node-id="SHYkWRKuj1dKqgeHODlxLM">002300</b></span>
+        <span class="stock-chip" data-page-node-id="aGyAFbmn27MDSOvb1FB4oP">神马电力 <b data-page-node-id="FMZSNhgvAn8kZUYLKZ1SrA">603530</b></span>
+        <span class="stock-chip" data-page-node-id="XaVa8uYfBavsUj7xaBiAhY">沃特股份</span>
+        <span class="stock-chip" data-page-node-id="AVnGEnLgNLpeuGi8GUkZnh">山东玻纤 <b data-page-node-id="d8CBqUvBhybHaV6Uq5E4wp">605006</b></span>
+        <span class="stock-chip" data-page-node-id="VVIuf8yrwPG1N10GsyVZ87">恒宝股份 <b data-page-node-id="sFD3bVUVK0OY0DaMOVteGR">002104</b></span>
+        <span class="stock-chip" data-page-node-id="ePdFdEc6p1AWJsm3JScoTD">杭电股份 <b data-page-node-id="eQ6vW5Y56YvC7E3x7YV9JE">603618</b></span>
+      </div>
+    </div>
+
+    <!-- 防御板块：粮食概念（9/1 主线今日领跌） -->
+    <div class="mainline-card defend" data-page-node-id="t7HgsJ5cqTHJw2CfY0JIhU">
+      <div class="mainline-rank" data-page-node-id="NKP5FZ7gYLULF8NsByEdSH">⚠</div>
+      <div class="title" data-page-node-id="HKMqUa2EOBYFyGewOvJDAV">🌾 防御：粮食概念（昨日主线今日重挫）</div>
+      <div class="mainline-tag-row" data-page-node-id="fyOnEr9bK4mlMy2bD2pP1E">
+        <span class="mainline-tag danger" data-page-node-id="35uQRsyflcJo0156OGDEcM">9/1 主线退潮</span>
+        <span class="mainline-tag danger" data-page-node-id="3BiviBQ2o2FhBoCtHR8fcA">ETF -5.95%</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="OtlCAp5gbOhU4VQcU2BkYr">
+        <b data-page-node-id="OzBHpq5Pd82XzBOKcL2Oda">现象：</b>粮食概念持续走弱，敦煌种业（600354）、国投丰乐（000713）触及跌停，神农种业（300189）<b style="color:#fca5a5" data-page-node-id="eRSTjwInCWgk7MfdPf2xTq">-10%+</b>，农发种业、秋乐种业、深粮控股、苏垦农发、黑芝麻跟跌；粮食 ETF（159038）<b style="color:#fca5a5" data-page-node-id="olUmK1j8CBF54PTn0Amehm">-5.95%</b>，粮食 ETF（159587）-5.87%，粮食 ETF（159031）-5.85%。<br data-page-node-id="RGHaWHHF3gOYkS3i5jODR1">
+        <b data-page-node-id="ZkEoWrn0AYCAxkInfuxseM">9/1 主线今日兑现"风险信号"</b>：昨日 26 股涨超 5% / 13 股涨停的极致多头拥挤，今日快速反转；万向德农 6 连板（9/1）今日可能面临见顶压力。<br data-page-node-id="Czuh7mwjQRBgZwNwCQNAvY">
+        <b data-page-node-id="kmaoH1EEVHu6BWCTFa52y0">逻辑：</b>高低切确认——资金从"防御 + 短期事件驱动"切向"主线接力 + 中期景气"。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="b7WnCOAMllKF7NID5GWg50">
+        <span class="stock-chip" data-page-node-id="qFH8P3Yod6hGuxROTdnXQn">敦煌种业 <b data-page-node-id="uAyKk3OCSAtVFu6sDkirQl">600354</b> 跌停</span>
+        <span class="stock-chip" data-page-node-id="NjE5Y0bQEYqFBiTaDGeAQV">国投丰乐 <b data-page-node-id="CIb9UqC5yNV8pwHHc0C3PL">000713</b> 跌停</span>
+        <span class="stock-chip" data-page-node-id="m4VB1hKakHj62ImCYGKRF8">神农种业 <b data-page-node-id="QIMGZ34n6kiuETFNYHSOaD">300189</b> -10%+</span>
+        <span class="stock-chip" data-page-node-id="fvchTN7bbc4qK9iEZc7JQk">农发种业 <b data-page-node-id="jbaSbc1mE1bvkuBa4SRxxZ">600313</b></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ 五、涨停天梯榜 ============ -->
+  <div class="section-title warn" data-page-node-id="G0NsqMgKsHnX5FKYfZfSIV">🚩 五、涨停天梯榜（最高板：竞业达 / 国芳集团 4 连板）</div>
+  <div class="ladder" data-page-node-id="TPyLUJjL0irARMsBmXyR2s">
+    <div class="ladder-card" data-page-node-id="mfapvD3GWm3hymzgb7FRCi">
+      <div class="ladder-head" data-page-node-id="JUTucuuAEOFUqZjK93zAsg">🔴 4 连板</div>
+      <div class="ladder-tags" data-page-node-id="ZRpIEgxVXy7UUixLyEyBjO">
+        <span class="ladder-tag lv-1" data-page-node-id="mITUJcm0y0vhZSZaKqE2b2">竞业达<small data-page-node-id="ZXOk1GrhDSFPQF00UQ646s">003005</small></span>
+        <span class="ladder-tag lv-1" data-page-node-id="2PMDE6t5wl4k7XpbMjsPnL">国芳集团<small data-page-node-id="GG3wWlfKmmLSyhxgf1t8V8">601086</small></span>
+      </div>
+    </div>
+    <div class="ladder-card" data-page-node-id="jCFqtg0dwNIdSBhYTBodTA">
+      <div class="ladder-head" data-page-node-id="SgxhpXZt7zPOoMkqhpr5kC">🟡 3 连板</div>
+      <div class="ladder-tags" data-page-node-id="teZFvyCA8PI6RhyQSiVhCI">
+        <span class="ladder-tag lv-2" data-page-node-id="ceIyNLDw74eRTunvwvBHrt">欢瑞世纪<small data-page-node-id="HGFVoeVWCBGLCpKi2pC4zi">000892</small></span>
+        <span class="ladder-tag lv-2" data-page-node-id="vzE1NKZVcM0rfDnyVX16H1">集泰股份<small data-page-node-id="ny4LsuHQznZ3HxnzLEHx6q">002909</small></span>
+        <span class="ladder-tag lv-2" data-page-node-id="2y36g4SKmXKX5s795NaqAb">大晟文化<small data-page-node-id="a8PcA13J3G8QNAbhmll0gx">600892</small></span>
+        <span class="ladder-tag lv-2" data-page-node-id="2YWy7AMRs6FSHZw0F7pAX9">龙版传媒<small data-page-node-id="jN9GeJr9EN9vS0dljGbwPd">605577</small></span>
+      </div>
+    </div>
+    <div class="ladder-card" data-page-node-id="EM6GSQmuBqm1ZReZ7qw6CY">
+      <div class="ladder-head" data-page-node-id="7rQAAs1RmHUcsOnvmY8wAq">🔵 2 连板</div>
+      <div class="ladder-tags" data-page-node-id="tq88Muaj5yVkREvvPAqyFe">
+        <span class="ladder-tag lv-3" data-page-node-id="5a8yWzBuiqELUc5UBcl834">英力特 <small data-page-node-id="0wpeJCkBtc9TyNjkv4OjJG">000635</small></span>
+        <span class="ladder-tag lv-3" data-page-node-id="CdKTaxOP4WiSOZATCeVye0">恒宝股份 <small data-page-node-id="y6szNRhm3xATOG9Sl5INGd">002104</small></span>
+        <span class="ladder-tag lv-3" data-page-node-id="S4XpYUwy1QJEvt3ETOxHpo">茂业商业 <small data-page-node-id="l1kHmGoW3g9fc272XUfyzA">600828</small></span>
+        <span class="ladder-tag lv-3" data-page-node-id="CjRMAFoNYhgEcBEeZtUCHa">香溢融通 <small data-page-node-id="WtjW0nwXJZVHuCmpMch9ls">600830</small></span>
+        <span class="ladder-tag lv-3" data-page-node-id="sAASHxv6zLnf8W59Duv4MP">内蒙一机 <small data-page-node-id="jofQ7uWxbMRqHFEywL24PU">600967</small></span>
+        <span class="ladder-tag lv-3" data-page-node-id="cZNLuJdxIgRbjDabjRdUed">九牧王 <small data-page-node-id="fvP4D3vohtSqro2z48o4c2">601566</small></span>
+        <span class="ladder-tag lv-3" data-page-node-id="1QrekAyoVSHEozTz2E2PnL">小方制药 <small data-page-node-id="KMXmO6ZgrErzfCoh9od1Rm">603207</small></span>
+      </div>
+    </div>
+    <div class="ladder-card" data-page-node-id="H9AfHSuuaP5bhdrQxHD8kp">
+      <div class="ladder-head" data-page-node-id="oxHKB7R0XNq2Zpm7Gsg02B">🟣 首板亮点</div>
+      <div class="ladder-tags" data-page-node-id="GcZSR0r4sr0RQq1vUyNViy">
+        <span class="ladder-tag lv-4" data-page-node-id="NM4CAGaOb6ub3vBj1UPTUB">建设工业<small data-page-node-id="As1UhrOgk97B8wWhaZvr5G">002265</small></span>
+        <span class="ladder-tag lv-4" data-page-node-id="51eHZsM5KSCfeZjP3uAqmz">博云新材<small data-page-node-id="7FtsuUMVq5NRGMD0JIp8A5">002297</small></span>
+        <span class="ladder-tag lv-4" data-page-node-id="LIfKOwvhAiQ30lAwlDt255">长城军工<small data-page-node-id="FnoX8I15gKKx866YjOFJwj">601606</small></span>
+        <span class="ladder-tag lv-4" data-page-node-id="Z0Oy3ljHVnjujuQxADPa3y">晟楠科技</span>
+        <span class="ladder-tag lv-4" data-page-node-id="dY0YmLHPE0eDeKQtEps5Wb">维琪科技</span>
+        <span class="ladder-tag lv-4" data-page-node-id="YPNwvL7dGPf8cx2nxAH0c0">石化机械<small data-page-node-id="L2eowrhR5jy55xizM01F7c">002353</small></span>
+        <span class="ladder-tag lv-4" data-page-node-id="I8qClf6x0A3IN6dMisI71s">贵州燃气<small data-page-node-id="IQ93JZb7NE7CcDCGJu8Kfq">600903</small></span>
+        <span class="ladder-tag lv-4" data-page-node-id="DTHA8RXwTPL1TPvjCzoNJK">太阳电缆</span>
+        <span class="ladder-tag lv-4" data-page-node-id="iVykOCv8gTQGX4TD6yvMiF">神马电力</span>
+        <span class="ladder-tag lv-4" data-page-node-id="OxIsA7xPAIN0cQsgndQi9B">山东玻纤</span>
+        <span class="ladder-tag lv-4" data-page-node-id="hC9saHUWfD8qeLueZReouz">杭电股份</span>
+        <span class="ladder-tag lv-4" data-page-node-id="bNNsetIYEVsIWjHv4ZCwjP">顺控发展</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 六、ETF 涨跌榜 ============ -->
+  <div class="section-title info" data-page-node-id="gBMDg9inVMLVZbAYPinrnc">📊 六、ETF 涨跌榜（油气 ETF 领涨 · 粮食 ETF 重挫）</div>
+  <div class="etf-table" data-page-node-id="DULNXuebWxXLyNFcXLGDCy">
+    <div class="etf-row header" data-page-node-id="EXSp5GtwuYYmioImnanLWF">
+      <div data-page-node-id="qNwgR2jXbKaG2Vg0naKIFs">排名</div>
+      <div data-page-node-id="RClbG6YJqV0vJo0DxmCXdL">ETF 名称</div>
+      <div data-page-node-id="pXKpVtl0f71APTNbXc5u7K">代码</div>
+      <div data-page-node-id="FsqUW188usL7dC9uPQTwjA">涨跌幅</div>
+    </div>
+    <div class="etf-row" data-page-node-id="XYUvgOQd2LgwwGDkHjrWqO">
+      <div class="etf-rank up" data-page-node-id="WfPdUO1tVMEaQFaybrQvAN">🥇</div>
+      <div class="etf-name" data-page-node-id="DSuf1HrFk7UNaA3OSvixGr">标普油气 ETF · 跟踪标普石油天然气上游股票指数</div>
+      <div class="etf-code" data-page-node-id="7uULh5Iejpl6DBuHo4N82o">513350.SH</div>
+      <div class="etf-val up" data-page-node-id="vRff9WQPsSnzRaJBIrwruR">+5.52%</div>
+    </div>
+    <div class="etf-row" data-page-node-id="mkscojlaEW2Z5hWUhRpT4q">
+      <div class="etf-rank up" data-page-node-id="lu4xaGD4IAHoqnrcYOxsEr">🥈</div>
+      <div class="etf-name" data-page-node-id="GDR9ABoo9yM2xIqvSYF4dY">标普油气 ETF · 跟踪标普石油天然气上游股票指数</div>
+      <div class="etf-code" data-page-node-id="iFHuiziC9t6CviGesX2AGk">159518.SZ</div>
+      <div class="etf-val up" data-page-node-id="zw7WZ3R4HxWMRWkHimPkJ4">+3.15%</div>
+    </div>
+    <div class="etf-row" data-page-node-id="GSLl01Eij5BDf8XC74yWjn">
+      <div class="etf-rank up" data-page-node-id="58rkmm6mMkaIchj8gVl92A">🥉</div>
+      <div class="etf-name" data-page-node-id="occ7UrjbE8P1DHAMKwj9FQ">能源化工 ETF · 跟踪能源化工等权指数</div>
+      <div class="etf-code" data-page-node-id="Ne3vc25JW0lxFNOb9bMQpP">159981.SZ</div>
+      <div class="etf-val up" data-page-node-id="pq7EM19v2qbcW38jY0VhOM">+2.12%</div>
+    </div>
+    <div class="etf-row" data-page-node-id="pZSkQpM3UXkxkT6WxndZXu">
+      <div class="etf-rank down" data-page-node-id="lNZfjMcMM8znmYuq1CUluB">⚠1</div>
+      <div class="etf-name" data-page-node-id="CAnkgJC1Tst6RhNm3Zhrfc">粮食 ETF · 跟踪中证粮油产业指数</div>
+      <div class="etf-code" data-page-node-id="8Mx9UJCNoed0075p1Xijls">159038.SZ</div>
+      <div class="etf-val down" data-page-node-id="u5PwVlT53FWSto6u1erB2d">-5.95%</div>
+    </div>
+    <div class="etf-row" data-page-node-id="fd8l5XwelbBScfrcMd3BZX">
+      <div class="etf-rank down" data-page-node-id="GIUnN1zJ1ctPApAGKPlct6">⚠2</div>
+      <div class="etf-name" data-page-node-id="caJLhS23sFFXi9TigrGzZI">粮食 ETF · 跟踪中证粮油产业指数</div>
+      <div class="etf-code" data-page-node-id="Fr0iwm8BFDb0ct9JU3mhcf">159587.SZ</div>
+      <div class="etf-val down" data-page-node-id="QcRhtYRhJ49SczdgjB5m32">-5.87%</div>
+    </div>
+    <div class="etf-row" data-page-node-id="YPIINpvHKjXtGglTK9dPMY">
+      <div class="etf-rank down" data-page-node-id="CzrYAEENFx8syjxAXcZx4f">⚠3</div>
+      <div class="etf-name" data-page-node-id="vcq2hN0M5p6q5eQZ52pjti">粮食 ETF · 跟踪中证粮油产业指数</div>
+      <div class="etf-code" data-page-node-id="Z20vK91vSrwys6mtQff7SH">159031.SZ</div>
+      <div class="etf-val down" data-page-node-id="V2VswhtxjFfDSooFXOpMBh">-5.85%</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-top:-8px;margin-bottom:24px;" data-page-node-id="2UPUFGOPXyF2IpLp55nl81">
+    <strong data-page-node-id="2B5lBKsMmyJGynwUXBjJfj">📌 极端分化信号：</strong>
+    <b style="color:#34d399" data-page-node-id="ZmbSXznOaYp4L6KsWNeD9u">油气 ETF 领涨 +5.52%</b> vs <b style="color:#fca5a5" data-page-node-id="LZ9nFDHnHuIyA6t4cpCFOf">粮食 ETF 领跌 -5.95%</b>——美伊冲突升级推升能源、粮食主线 9/1 见顶今日退潮的"高位反转"特征在 ETF 层面得到极致体现。<b data-page-node-id="SemGYHIk95IIiNNooCQExA">同主题 ETF 出现 11% 以上的日内分化</b>，反映市场情绪切换剧烈。
+  </div>
+
+  <!-- ============ 七、重要新闻与板块催化 ============ -->
+  <div class="section-title" data-page-node-id="KvKPvSP01MfQwm3Jzxe7DZ">📰 七、重要新闻与板块催化</div>
+  <div class="fin-table" data-page-node-id="HZMSnZyaIJtnIAMSYESG3u">
+    <div class="fin-row header" data-page-node-id="8igGtwFLevRouVhs1mMC0F">
+      <div data-page-node-id="nN9SgpDvFYHGi3jn3QjAsG">事件</div>
+      <div data-page-node-id="4yZHt205AI4I2tEh1ijqcQ">关键数据</div>
+      <div data-page-node-id="7oiQ05lVb3v7OfLFw3sS8X">影响</div>
+    </div>
+    <div class="fin-row" data-page-node-id="v5T3qIppHTDrEegp5SdK4d">
+      <div class="fin-name" data-page-node-id="mF0zSqqAgyKzuAEzCDvlt6">🛰️ 智神星一号火箭酒泉发射成功</div>
+      <div class="fin-val up" data-page-node-id="tdwkeWHLjX928wXV7rMQSj">精准入轨</div>
+      <div class="fin-comment" data-page-node-id="UHSCv8UPt2l1eMoIdHyn0c"><b data-page-node-id="78iDNGXFN9XlICjISucj0j">商业航天催化</b>：星河动力自主研发的中大型可重复使用液体运载火箭"智神星一号"在酒泉东风商业航天创新试验区专属工位顺利点火升空，全箭按预设飞行程序完成入轨动作。直接利好国防军工板块（中证军工 H1 营收 +18.89% / 净利 +32.92%），内蒙一机/建设工业/长城军工涨停。</div>
+    </div>
+    <div class="fin-row" data-page-node-id="81IYKAOTFs8Waeqa19IjDX">
+      <div class="fin-name" data-page-node-id="EpjkyoNMEHeGLIBrF4gYqN">🇮🇷 伊朗议长：若美阻止伊朗石油出口，波斯湾将断油</div>
+      <div class="fin-val down" data-page-node-id="Jezez3MriZHWER8IpR2kQX">地缘溢价 ↑</div>
+      <div class="fin-comment" data-page-node-id="f2L6EBTqAUFCM4gi8iUyMO"><b data-page-node-id="qUALTRVQ30ptwhsuqSGKGO">美伊冲突升级</b>：卡利巴夫强调霍尔木兹海峡完全处于伊朗军方控制，伊朗军方已做好应对威胁准备；国内原油主力合约 <b data-page-node-id="Wfl7l73f1WMgqOS674Tr9C">+8.69%</b>，乙二醇涨停，甲醇/燃料油 +4%+。A 股油服/可燃冰/页岩气板块跟涨，标普油气 ETF +5.52%。</div>
+    </div>
+    <div class="fin-row" data-page-node-id="Dc8ezvOaaEEEtZDOnFB0r2">
+      <div class="fin-name" data-page-node-id="7SX0qPIZjOB7ZwnLgEN1Q7">🇨🇳 《国家基本药物目录(2026 版)》正式施行</div>
+      <div class="fin-val info" data-page-node-id="Hxi2e320gzRwwvVG05j7Rr">+116 种药品</div>
+      <div class="fin-comment" data-page-node-id="DZakt9POlyRuRH0rO1V9xe"><b data-page-node-id="HPpUaRSGHHvG5KlEeuxYam">医药板块政策催化</b>：新版目录总药品 794 种，新增 116 种聚焦糖尿病、高血压、慢阻肺、消化道等高发病种；新调入 4 种国产Ⅰ类新药；8 月 27 日医保局召开"十五五"医药产业高质量发展座谈会，强调保基本与促创新并重，推进个人医保云、影像云、病理云等创新场景。利好创新药/CRO/医药商业。</div>
+    </div>
+    <div class="fin-row" data-page-node-id="BdMkxBDiAFadENzSqkm3Sx">
+      <div class="fin-name" data-page-node-id="xxjJuRpoZpXALWvW5CD2Ul">🇺🇸 美联储 9 月 16 日加息隐含概率推至 60%+</div>
+      <div class="fin-val down" data-page-node-id="d9QHtNpL0cYabTDcCQQbGK">美债利率 ↑</div>
+      <div class="fin-comment" data-page-node-id="dEWtDgV7yaQtwqpwcIZtJb"><b data-page-node-id="tonokM6yqjc25pMtMWnUq9">海外利率风险</b>：美联储主席在杰克逊霍尔年会强调核心通胀尚未改善，市场把 9/16 加息隐含概率从 35% 推至 60%+；10 年期美债收益率 4.75%-4.79% 区间运行；30 年期一度触及 5.31%（2007 以来最高）。持续压制成长股估值，<b data-page-node-id="PBjIZ9hrJBixNKcVawenHE">科创 50 连续两日弱于主板</b>。</div>
+    </div>
+    <div class="fin-row" data-page-node-id="gXc7Kx82wc7sKpnqVBFTK0">
+      <div class="fin-name" data-page-node-id="o7wPaGj1XGnspj62M1JrTm">🇷🇺 普京回应不排除打击英本土军事设施</div>
+      <div class="fin-val down" data-page-node-id="abmh45IJtIrJ2CJpjUGtv4">地缘溢价 ↑</div>
+      <div class="fin-comment" data-page-node-id="T2iSbTNBAid34B9s92jhRP"><b data-page-node-id="4F0bvEG4UGYgHGnE6eLwaa">俄乌冲突外溢</b>：普京强调乌克兰境内任何军事设施（无论英国还是其他国家）都是俄军合法打击目标。叠加伊朗议长表态，全球地缘风险溢价持续累积，黄金/原油同步走强。</div>
+    </div>
+    <div class="fin-row" data-page-node-id="SnrqChruPDtHbvNaAoGKpB">
+      <div class="fin-name" data-page-node-id="l86NNX9sSJT862Nr5nL3CM">🇨🇳 中证军工指数 H1 业绩验证</div>
+      <div class="fin-val up" data-page-node-id="l0X98F8AYglD2yebdYY2U9">净利 +32.92%</div>
+      <div class="fin-comment" data-page-node-id="V5MEc0IeOfNJ3VB0DMFn2d"><b data-page-node-id="PUHaeaX7iZeiaT8HPeLpWo">行业基本面</b>：中证军工指数覆盖的 80 家公司上半年营收合计 3774.94 亿元 <b data-page-node-id="pp5eWlQcTede0zHjaakzkC">+18.89%</b>，归母净利润 247.72 亿元 <b data-page-node-id="c7cPDnO3H7XrWSxSVG24lr">+32.92%</b>，军工核心上市公司整体业绩向好，验证行业景气向上。与今日智神星一号催化形成共振。</div>
+    </div>
+    <div class="fin-row" data-page-node-id="DzILCyxHmWYe5ezEMmeMmu">
+      <div class="fin-name" data-page-node-id="GG1RB9OHlFDMM7D22Gt7in">🇨🇳 瑞银证券：全年 A 股盈利有望增长 15%</div>
+      <div class="fin-val info" data-page-node-id="Zyh7ML4MFOSBvTgUqVOb3b">盈利预期上修</div>
+      <div class="fin-comment" data-page-node-id="XZVEAzAI6Y1hoRHW3F35mj"><b data-page-node-id="YoSTFAbBy8pmD23MH6G5FV">外资观点</b>：孟磊指出，在盈利复苏、增量资金入市及全球科技叙事的推动下，年内 A 股有望延续稳步反弹。但需关注两大不确定因素：①地缘政治、美债利率和油价波动可能影响利率敏感的科技板块估值；②公募基金大幅超配科技板块，"回本赎回"压力或制约反弹空间。</div>
+    </div>
+    <div class="fin-row" data-page-node-id="05fwB9WAvHKsuLd4eeUSzn">
+      <div class="fin-name" data-page-node-id="wA9mQ4CafHzG5RpPWuCKcA">🇨🇳 应急管理部针对福建启动国家地质灾害四级应急响应</div>
+      <div class="fin-val warn" data-page-node-id="7j4qs6AUIEj3t4MOoOmTWL">局地大暴雨</div>
+      <div class="fin-comment" data-page-node-id="1mJNVshSXvDeiv5QEU10XH"><b data-page-node-id="jGjA5N0PUB28Bj4JPRrqSk">天气事件</b>：受台风"沙德尔"+ 季风槽 + 冷空气共同影响，9/2-9/4 江南/华南东部和南部等地部分地区有大到暴雨，局地大暴雨或特大暴雨；福建东北部地质灾害风险高。短期对部分区域基建/抗洪概念有边际催化。</div>
+    </div>
+  </div>
+
+  <!-- ============ 八、盘面核心结论 ============ -->
+  <div class="section-title" data-page-node-id="bJHgljokboM4OXevCzxHMg">📌 八、盘面核心结论</div>
+
+  <div class="conclusion ok" data-page-node-id="TO62TzKGpGQlsbACxwxaua">
+    <div class="conclusion-title" data-page-node-id="9woVffJpTTkDtbltiPfsaK">✅ 结论 1：主线级别高低切换确认 · 军工航天 + 油气链接力</div>
+    <div class="conclusion-item" data-page-node-id="pNPFSnpquMAVTkQhVq0mLz">
+      <span class="num" data-page-node-id="W2EXrREFHLneoWpAEZalJH">1</span>
+      <p data-page-node-id="WHXXLUHd8zAVFKolVbEIar"><b data-page-node-id="Ema7doIGcDSjOtCSfW1kt5">板块层面：</b>9/1 提示的"昨日主线（农业+短剧+消费）面临连续性考验"今日完美兑现——粮食 ETF 重挫 -5.95%、敦煌种业跌停、神农种业 -10%+；新主线军工航天（智神星一号 + 中报净利+32.92%）逆势接棒，板块内 10 股涨停，主力净流入居首（9.79 亿同花顺 / 18.41 亿每经 / 24.67 亿申万一级）。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="IlGTmlGkqatbtUeT5btqVT">
+      <span class="num" data-page-node-id="pc8BLCw2DZDiqzVS4IN1wq">2</span>
+      <p data-page-node-id="ERu2qtKvBrL6amLFKNxLtJ"><b data-page-node-id="WVaVIO6i41M29I3nENHcGg">地缘溢价共振：</b>美伊冲突升级（伊朗"波斯湾断油"表态）+ 普京回应英本土设施打击可能性，全球避险情绪推升原油 +8.69%、黄金白银同步走强、标普油气 ETF +5.52%；A 股油气链 + 橡胶制品 + 部分贵金属概念跟涨。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="GurfXnPN638261AQzpE8pl">
+      <span class="num" data-page-node-id="H2ga0dz4ZRuznZsfTwBzFF">3</span>
+      <p data-page-node-id="Hc5rr1kDL6Bzimm70VXerk"><b data-page-node-id="0IXOTtGREg9RMgAVKwCJcV">基本面增量：</b>智神星一号商业航天发射 + 中证军工 H1 净利 +32.92% 是今日最重要的"主题 + 基本面"双共振案例——这是 9/1 以来首次出现明确的主线接力 + 基本面验证的板块，值得重点关注。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="Sy8OQ72dsSSnqFyyZ8FGOM">
+      <span class="num" data-page-node-id="kWpBzDuwObAFRZkSlNA0L9">4</span>
+      <p data-page-node-id="yAdDLpMOGJ1XRwygAojco9"><b data-page-node-id="DwVPYCg4u6bNb7sQS3IrCn">资金层面：</b>主力资金净流入 TOP3（军民融合 9.79 亿 / 净水 7.14 亿 / 智能音箱 7.03 亿）与申万一级（国防军工 +24.67 / 建材 +8.94 / 石油石化 +3.43）口径一致——军工/油气是今日资金共识。</p>
+    </div>
+  </div>
+
+  <div class="conclusion warn" data-page-node-id="iNn08UiV9wEvgWjIpw6s9j">
+    <div class="conclusion-title" data-page-node-id="BNjMbsdrWZ6Dc2lKHSGlyk">⚠️ 结论 2：风险信号升级 · 创业板持续最弱 · 成交缩量至年内第 11 次不足 2 万亿</div>
+    <div class="conclusion-item" data-page-node-id="GepLnKWbsm63FT0YNRhLmA">
+      <span class="num" data-page-node-id="QUuTUACFSrzZd697sPYoND">1</span>
+      <p data-page-node-id="YedANTYaksWet3mjGukas7"><b data-page-node-id="ScXYThdbii9VMMNIuxP9KO">创业板连续两日最弱：</b>-2.39% 远弱于沪深 300（-1.38%），权重成长股（宁德时代/北方华创/东山精密等）持续杀跌，AI 算力链 + 半导体 + PCB/覆铜板/CPO 延续 9/1 调整——这是 8 月最强主线（8 月申万电子 +12.41% 居首）9 月首日的二次确认。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="zcaVetIoACeTocnP47tCHC">
+      <span class="num" data-page-node-id="iIjXQE4C79grmwXFAqSVBP">2</span>
+      <p data-page-node-id="uHiJoNaF5sq3CQyNKzMh3N"><b data-page-node-id="LKY0FyMr3CuBwbun0pzDAw">成交额信号转弱：</b>三市 1.82 万亿，较上日缩量 2316 亿（-11.3%），年内第 11 次跌破 2 万亿（9/1 仅是第 10 次附近，9/2 是确认第 11 次）。2 万亿是判断结构性活跃的关键阈值，连续跌破意味着存量博弈特征加深。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="k7w5Dzr6h0Fy1xo9cidlv8">
+      <span class="num" data-page-node-id="gY6hicTyb8FGArNBCzkJuP">3</span>
+      <p data-page-node-id="vvFsblbzNceOj16JOpKxPL"><b data-page-node-id="owZkCN084PS9qk1AEg5GYQ">超 3900 只个股下跌：</b>从 9/1 的"指数弱但个股强"（3386 涨 / 2040 跌）演化为"全面调整"（超 3900 跌 / 约 1300 涨），市场情绪转弱。但 <b data-page-node-id="oJPRp7A7TmcxKlhMau7j41">北证 50 独自 +2.50%</b> 创新高，反映"哑铃型"结构（小微盘+大盘蓝筹）仍在。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="l5UAEGIdL0Hqe7fYVtEwZa">
+      <span class="num" data-page-node-id="cgAmRWWxlwTFqmEW70K9rK">4</span>
+      <p data-page-node-id="2akF3cDwTFsoKxEk6fET7B"><b data-page-node-id="hEHi83m2T8c90rEhOfO6Yj">防御板块同步走弱：</b>昨日防御板块煤炭 -2.13%（9/1 跌幅居前）今日上海能源再跌 7%+；粮食概念（昨日主线）今日领跌 -5.95%。<b data-page-node-id="uDuxakucDjDdFerr642uD4">防御也失守</b>，反映市场情绪已从"避险"演化为"系统性减仓"。</p>
+    </div>
+  </div>
+
+  <div class="conclusion info" data-page-node-id="QxmdfRZrj5ja4j0PEQArOh">
+    <div class="conclusion-title" data-page-node-id="NnfAv9vGy4mGeoq51KShia">💡 结论 3：中期支撑仍在 · 瑞银盈利上修 + 中信建投结构策略</div>
+    <div class="conclusion-item" data-page-node-id="pRujuCAjHdd9N8XQoDVL2p">
+      <span class="num" data-page-node-id="y05aioDDOaC1AMbPazc8PQ">1</span>
+      <p data-page-node-id="Y5NRAnbX8hRnpP6kv8dSOV"><b data-page-node-id="w4GDcuihgkbEGl8mA02yhS">盈利端支撑：</b>瑞银证券孟磊指出 2026 全 A 盈利 +15%（去年仅 +3%），二季度全 A 盈利增速跳升至 30%+（科创板剔除新股 +100%+）；利润率改善来自反同业竞争政策与海外收入占比提升——<b data-page-node-id="rKmLkZ5thl9WH70Q4DbT7L">盈利上修是 A 股中期反弹的核心逻辑</b>。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="W8uaQXCdCQNl0OaxAOvxqY">
+      <span class="num" data-page-node-id="TEP0aaNDHAqKM2ItLBBfps">2</span>
+      <p data-page-node-id="cWUjJzpuegAF74ZcVOsJ7a"><b data-page-node-id="YuXiwrrL1aOCytzvVKDczv">政策面支撑：</b>《国家基本药物目录(2026版)》正式施行（+116 种药品）+ 医保局"十五五"医药产业座谈会（支持差异化创新）——医药板块政策催化持续；房地产政策优化凸显扩内需导向；稳增长稳金融信号明确。</p>
+    </div>
+    <div class="conclusion-item" data-page-node-id="2c1Xk5FK2yONfDuvVPXzg6">
+      <span class="num" data-page-node-id="DELQDseNLsErHrxG8r56QN">3</span>
+      <p data-page-node-id="iD8NFZF6JxejHUfKeLQQUK"><b data-page-node-id="DFhORomgbF3Diaj7i3ymjl">海外映射：</b>虽然美债利率持续上行（10Y 4.75%、30Y 5.31%）压制成长股估值，但 <b data-page-node-id="WBaS3B66PQgc85OadRGoqQ">地缘冲突推升的油价/金价/油气链</b> 提供了对冲性资产配置选择——A 股内部"对冲结构"（军工/油气/部分黄金股 vs 科技/消费）比 9/1 更加清晰。</p>
+    </div>
+  </div>
+
+  <!-- ============ 九、机构观点与分歧 ============ -->
+  <div class="section-title warn" data-page-node-id="XcbLclGAEwDrIQskrYX7Kp">🧠 九、机构观点与分歧</div>
+  <div class="conflict-grid" data-page-node-id="FS9ydhsLge1JJDfnccXrzG">
+
+    <div class="view-card view-a" data-page-node-id="XIOPwq0J0tcLLC3yanSAOE">
+      <div class="view-head" data-page-node-id="mvhfIepDm0o2ugggZ6qA3J">🟢 瑞银证券 · 孟磊：年内 A 股有望延续稳步反弹</div>
+      <div class="view-quote" data-page-node-id="o87TkGu9kiv2mYrGOaCAVI">调高 A 股公司整体盈利预期，预计 2026 年全年全部 A 股公司整体盈利有望增长 15%。孟磊指出，在盈利复苏、增量资金入市及全球科技叙事的推动下，年内 A 股有望延续稳步反弹。但需注意两大不确定因素：①地缘政治、美债利率和油价波动可能影响利率敏感的科技板块估值；②公募基金大幅超配科技板块的前提下，或面临"回本赎回"压力，制约反弹空间。</div>
+      <div class="view-source" data-page-node-id="ixDVRGkNqBuCpjE8ZaGx6N">📊 来源：同花顺 15:14 实时新闻（id=c679525103）</div>
+    </div>
+
+    <div class="view-card view-b" data-page-node-id="wmYtXpfeCFD9GpkT2MrMZR">
+      <div class="view-head" data-page-node-id="9vVhgyIivCu8NHWFT86dA7">🔵 中信建投：存量博弈、结构行情 · 推荐高股息防御 + 周期拐点</div>
+      <div class="view-quote" data-page-node-id="O8rhdhhYlS2y73B1e6RYFz">展望 9 月，市场仍处存量博弈、结构性行情占优的环境。配置上：一方面保留 AI 算力、有色、创新药及部分出海制造等景气持续验证方向；另一方面重视机构低配品种，关注银行、保险、证券等兼具高股息防御属性方向，电池、工业金属、能源金属、基础化工等兼具盈利改善的方向和钢铁、生猪养殖等周期拐点渐进的方向。</div>
+      <div class="view-source" data-page-node-id="mSpGGBUHcznGNRh8epF4RN">📊 来源：腾讯新闻 9/2 A 股收评（券商观点栏目）</div>
+    </div>
+
+  </div>
+
+  <div class="verdict" data-page-node-id="IhTT50A5cjXudn0rcHL8TE">
+    <div class="verdict-head" data-page-node-id="9JlCpXhkCILEYDHI1ng9xg">🧭 本文倾向（综合判断）</div>
+    <div class="verdict-body" data-page-node-id="iXwGpeC3dNZfipozDoxbRA">
+      <b data-page-node-id="UnN0eGbo6ylbp0mop03FLi">短期（1-3 个交易日）：</b>控仓观望 + 重点跟踪"主线切换确认信号"。9/2 主线切换信号清晰（军工航天接力 + 油气链共振 + 粮食退潮），但成交额缩量至年内第 11 次不足 2 万亿 + 创业板持续最弱 + 超 3900 只下跌 = <b data-page-node-id="G1Fnc4MiwS8HAYz3tSaUrq">情绪面尚未稳定</b>。建议总仓位 <b style="color:#fbbf24" data-page-node-id="rNFd6guDElxBTWHxkXYydk">5-6 成</b>，等待成交额回升至 2 万亿上方 + 科创 50/创业板止跌信号。<br data-page-node-id="qhmpaUwWmwpE6qiOJyBkkC">
+      <b data-page-node-id="CiuCFaIDfVNiDnyLzb5hMB">中期（1-4 周）：</b>沿"主线接力 + 基本面验证"思路布局。<b data-page-node-id="dx8LAgMWVPHCslZG4aHYfx">军工航天（智神星一号 + 中报验证）</b> 是 9 月最值得跟踪的中期主线，<b data-page-node-id="Qp5xfULhaf657EGkF0FWm2">油气链</b> 受美伊冲突支撑短期偏强但需注意事件驱动属性；<b data-page-node-id="kdCJe7wTxkMRCULXLxL5no">医药（基本药物目录催化）</b> 是政策面防御对冲方向；<b data-page-node-id="ugpvbUeqrJbeHjl0h6upnd">高股息（银行/保险）</b> 作为底仓配置。<br data-page-node-id="G6hF3v2jNJYC9qKBkonk7C">
+      <b data-page-node-id="OqPIde7CvJrXIIikmrNCpH">风险点：</b>① 9/16 美联储议息会议（隐含加息概率 60%+）；② 美伊冲突若进一步升级对全球风险偏好的持续压制；③ 公募基金"回本赎回"压力对超配科技板块的冲击；④ 粮食/短剧/消费三主线若出现进一步退潮（万向德农 6 连板见顶风险）。
+    </div>
+  </div>
+
+  <!-- ============ 十、后续展望与核心交易策略 ============ -->
+  <div class="section-title info" data-page-node-id="sIIJ1aloZG1F4OR1ijQwxf">🔮 十、后续展望与核心交易策略</div>
+
+  <div class="signal-grid" data-page-node-id="ttRhEcAfyjg2X7XUh47TDE">
+    <div class="signal-card up" data-page-node-id="WMARl5eEWKnXPGcRc1GgvZ">
+      <div class="sig-num" data-page-node-id="f9QL6izzPHgvSA06L6bmbz">1</div>
+      <div class="sig-title" data-page-node-id="nOSGMPO8m21GqzHiWiidyo">🟢 展望信号：主线切换确认 · 9 月主线回归"主题+基本面"双驱动</div>
+      <div class="sig-body" data-page-node-id="HvPsytqYGJrUoBQ8H2AgzL">
+        9/1 是"防御主线"（粮食+短剧+消费），9/2 切换至"<b data-page-node-id="rp6SRguUGDYYWF38RB9iHS">主题+基本面</b>"双驱动主线（军工航天 + 油气链）。智神星一号发射 + 中证军工 H1 净利 +32.92% + 美伊冲突推升油价构成完整逻辑链。<b data-page-node-id="zDm7B4n8Epva8KkpM7n7UQ">9 月市场风格可能从纯题材博弈转向主题+业绩双验证</b>。
+      </div>
+    </div>
+    <div class="signal-card warn" data-page-node-id="C9exEb5vUUFJT3kmEoWDzN">
+      <div class="sig-num" data-page-node-id="8kjFKZRfCSotnIcFtiwdRK">2</div>
+      <div class="sig-title" data-page-node-id="QrBI6R1ic5sHAfDcG5cIxE">🟡 情绪信号：缩量 + 全面调整 · 情绪从"避险"转"减仓"</div>
+      <div class="sig-body" data-page-node-id="FmMlOcoQZXH3iL5kAUwSeR">
+        三市成交 1.82 万亿缩量至年内第 <b style="color:#fbbf24" data-page-node-id="OB7dzIhLdlSDb1b86CGmGF">11 次</b> 不足 2 万亿；超 3900 只个股下跌（9/1 仅 2040 只下跌）；创业板 -2.39% 连续两日最弱；防御板块（煤炭）连续走弱。<b data-page-node-id="qibRZv97XtLnJkSPBDqD4x">情绪面已从"避险"演化为"系统性减仓"</b>，需观察 1-2 个交易日成交额能否重回 2 万亿。
+      </div>
+    </div>
+    <div class="signal-card info" data-page-node-id="98bodUEiyOMrTGmhmypidi">
+      <div class="sig-num" data-page-node-id="doMIvEFFkivLRt1QeECSmj">3</div>
+      <div class="sig-title" data-page-node-id="1cS2xifsG7SXReTgDoSnJB">🔵 资金信号：军工 + 油气共识 · 但量级有限</div>
+      <div class="sig-body" data-page-node-id="qlMnVHIJz6mZngB5o0v0HK">
+        主力净流入 TOP3 总量仅约 24 亿元（同花顺口径），申万一级口径 TOP5 总量约 38 亿元——<b data-page-node-id="TY3NKSPzyz4YEWJ9AJTmbW">资金共识形成但量级有限</b>。在缩量背景下，<b data-page-node-id="4IuUcCCEreFD6iqZBlFPku">"共识方向 + 中等量级"</b> 意味着主题延续性需进一步观察。需关注明日军工/油气链能否吸引增量资金跟进。
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-grid" data-page-node-id="4fPdmH8XEBmAV9viEw4Ok6">
+
+    <div class="strategy-card mainline" data-page-node-id="O2UMroLDd94v6DFd10K80U">
+      <div class="stg-title" data-page-node-id="WNKIScx6w0ANUihTDwH6M2">🟢 主线方向：军工航天（智神星一号催化 + 中报验证）</div>
+      <ul class="strategy-list" data-page-node-id="uXUAgLucdkXo7qKe7Hj8tp">
+        <li data-page-node-id="utsR2Q6nsGxuwNSLDenQsi"><b data-page-node-id="SFC0LneBznKg9wT0HIgmhT">首选个股池：</b>内蒙一机（600967，2 连板龙头）、建设工业（002265）、长城军工（601606）、北方长龙（301357，+13% 弹性最大）、国科军工（688543）、博云新材（002297）。</li>
+        <li data-page-node-id="LG7Ah7MzQLMYLNHPku2h6s"><b data-page-node-id="D4xn7XrXmIlU1xp8CPlgbG">节奏：</b>9/3 关注是否出现"分歧转一致"信号（龙头高开高走 + 板块涨停数扩大 + 量能配合）；若分歧，可考虑"龙头首阴低吸"。</li>
+        <li data-page-node-id="CTOscMgkfHgomON8BBwxwc"><b data-page-node-id="jIS7nvEHSJlCHWgeAg6X50">催化时间窗：</b>智神星一号后续组网发射节奏 + 中证军工 H1 业绩集中披露期（8 月底 -9 月） + 9/16 美联储议息会议前地缘溢价延续。</li>
+        <li data-page-node-id="vSURPFHNLzJgklujUgWWmh"><b data-page-node-id="y3udn1piytFrWMtgun3cwi">风险：</b>商业航天主题历史波动较大 + 龙头股（内蒙一机）2 连板后面临 3 板分歧。</li>
+      </ul>
+      <div class="stg-note" data-page-node-id="esXP9mBAGcIRdCcRWjvtIz">📌 仓位建议：2-3 成（核心仓位）</div>
+    </div>
+
+    <div class="strategy-card defend" data-page-node-id="5ih8l42iYbpcYsCj3AMTmu">
+      <div class="stg-title" data-page-node-id="RLcBigmFf4HC5UYhvtiZfW">🟡 防御 / 高低切方向：医药 + 高股息</div>
+      <ul class="strategy-list" data-page-node-id="ZP6F1FvNihZFzcfORoLTIt">
+        <li data-page-node-id="3sFcHwF6GVYoCZOSfFjgka"><b data-page-node-id="ATs8YRA3Kv3UTXezm989mL">医药（政策催化）：</b>《国家基本药物目录(2026版)》施行（+116 种）+ 医保局"十五五"座谈会利好创新药/CRO/医药商业。重点关注：小方制药（603207，2 连板）、誉衡药业（002437）、CRO 龙头（药明康德/康龙化成等）。</li>
+        <li data-page-node-id="j6hZdKLYCVCIQdFpEbwwoR"><b data-page-node-id="2IElb09bKhK3IX66CU3TfC">高股息（防御底仓）：</b>银行（中国银行/建设银行/邮储银行 9/1 创历史新高）、保险（中国平安/中国人寿等五大险企 H1 加仓）、证券（弹性更高）。</li>
+        <li data-page-node-id="LcPGWu8JeyveL8oVkLAxLz"><b data-page-node-id="ykLCDtZB5FXvXrJcRI6bPC">美容护理（消费防御）：</b>丸美生物（603983）、朗姿股份（002612）、锦盛新材（300849）——中秋/国庆双节临近催化。</li>
+      </ul>
+      <div class="stg-note" data-page-node-id="se2UDy48epO5opnHgMcEN4">📌 仓位建议：2 成（防御底仓）</div>
+    </div>
+
+    <div class="strategy-card risk" data-page-node-id="xbgGHBvCp4wolLVYrRw80U">
+      <div class="stg-title" data-page-node-id="qLIDg36LINyFRAlRTRTzod">🔴 风险规避：高位退潮 + 地缘尾部风险</div>
+      <ul class="strategy-list" data-page-node-id="0P2YKwK43rKBTHPsUwk6zp">
+        <li data-page-node-id="XodDtZQZjaPx1Luzn8AgV5"><b data-page-node-id="oNXatNs0jVXjUphY1IaAK6">粮食概念（9/1 主线今日领跌）：</b>粮食 ETF -5.95%，敦煌种业/国投丰乐跌停，神农种业 -10%+。<b data-page-node-id="G9dc0q0DQUn4wCHulztbFt">主线退潮，规避</b>。</li>
+        <li data-page-node-id="iHfvkuL01LgGvW4IkFPhxG"><b data-page-node-id="DVnqcges8zK6DlDAwSSBzd">煤炭（连续走弱）：</b>9/1 -2.13%、9/2 上海能源 -7%+。能源替代 + 需求疲软 + 防御失守 = <b data-page-node-id="w2xfnvLNRQfaFnbNeSXVCh">短期规避</b>。</li>
+        <li data-page-node-id="7YqRvWuTfExIOVL02NBSBe"><b data-page-node-id="J492LDKh52r1py95yYDzV3">AI 算力硬件（持续调整）：</b>科创 50 -1.82%、半导体/CPO/PCB/MLCC/光模块延续调整。<b data-page-node-id="tEYPCgFrYWmDpZEevUdPAg">等待止跌信号</b>（关注 1-2 周缩量企稳）。</li>
+        <li data-page-node-id="msnCwRuliMCYZKnIZQ6aPv"><b data-page-node-id="Gxt8y8AqHwuPh4vfsa3uQz">创业板权重成长股：</b>宁德时代、北方华创、东山精密等持续杀跌，需观察业绩支撑与估值匹配。</li>
+      </ul>
+      <div class="stg-note" data-page-node-id="EX5YXTfDQRLbmLGjmJ8RwS">📌 关键时点：9/16 美联储议息会议（隐含加息概率 60%+）；9 月底 -10 月初三季报预告密集披露</div>
+    </div>
+
+    <div class="strategy-card master" data-page-node-id="fiTDBXzj3VRRkZO0rz3lD2">
+      <div class="stg-title" data-page-node-id="VtKTzZFqSNeyaHeToHLBS8">🧭 核心交易策略（含总仓位建议）</div>
+      <ul class="strategy-list" data-page-node-id="lpiUrbPuq7fmRVXox3hLLQ">
+        <li data-page-node-id="GpH6X6GFqGCHuzMiIzUcqs"><b data-page-node-id="NuuubctBisNtG1DLGruxXd">总仓位：</b>5-6 成（控仓为主，等待成交额回升至 2 万亿 + 情绪面稳定）。</li>
+        <li data-page-node-id="yZf1KVxo3XcvFsbg08xswe"><b data-page-node-id="vGf91gvHSPFU8dWmsfQlEm">结构：</b>军工航天 2-3 成（主线）+ 医药/高股息 2 成（防御）+ 现金 2-3 成（机动）。</li>
+        <li data-page-node-id="B7gNyK3a5QDl8NxyV1AKzU"><b data-page-node-id="ICV8l16epXxV2tAe33s9l1">节奏：</b>9/3 关注主线分歧信号——若军工航天分歧，可考虑"龙头首阴"低吸；若油气链分歧，可考虑减仓（事件驱动属性较强）；若粮食/短剧/消费主线继续退潮，<b data-page-node-id="2RllBXsErNtyx8m6L6rUvl">不接飞刀</b>。</li>
+        <li data-page-node-id="x9FGEozTQRUAOS5to8b34r"><b data-page-node-id="ELLoI5gtI7OeC9GOs2K50l">风控纪律：</b>①单一个股仓位 ≤ 10%；②主线龙头若出现连续 2 日跌停或板块整体跌 5%+，立即减仓；③关注 9/16 美联储议息会议前的仓位调整窗口。</li>
+        <li data-page-node-id="llP1g5AVVcmPsBp7CfgjCt"><b data-page-node-id="wteEHRMglnOIWst1rr6uzE">操作禁忌：</b>不抄底退潮主线（粮食/短剧/消费）、不追高 9/2 已涨停的高位股（避免次日分化被埋）、不重仓创业板（连续两日最弱）。</li>
+      </ul>
+      <div class="stg-note" data-page-node-id="pw9E8Rxr0vY3TycOfozlrN">📌 关键时点：9/9（周二）8 月 CPI/PPI 数据 · 9/16 美联储议息会议 · 9 月底 -10 月初三季报预告披露密集期</div>
+    </div>
+
+  </div>
+
+  <!-- ============ 数据来源 ============ -->
+  <div class="data-note" style="margin-top:32px;" data-page-node-id="UvvtPFBUGdbhvLfB8CxP8U">
+    <strong data-page-node-id="eT3XWxurNXwCmMHk4BKPgk">📌 数据来源（按优先级）：</strong><br data-page-node-id="SFTTUVlvHMUOzM5VIKFTBt">
+    ✅ <span class="ok" data-page-node-id="AYnD5s73Yqy8SxVQoKxHB7">同花顺收评</span>：<a href="https://stock.10jqka.com.cn/20260902/c679524836.shtml" target="_blank" style="color:#38bdf8" data-page-node-id="tyyN1DjWdIg2xusfaZQORW">https://stock.10jqka.com.cn/20260902/c679524836.shtml</a>（15:01，板块表现/涨停天梯/主力净流入/热点）<br data-page-node-id="ImpjvNlHgVGJZCGERGbABO">
+    ✅ <span class="ok" data-page-node-id="KzZWHCzA5Kxpkjv6bYxp53">同花顺 ETF 收评</span>：<a href="https://stock.10jqka.com.cn/20260902/c679524818.shtml" target="_blank" style="color:#38bdf8" data-page-node-id="EWZDWJ0o6JpfqWGmQvzzjF">https://stock.10jqka.com.cn/20260902/c679524818.shtml</a>（15:00，ETF 涨跌榜）<br data-page-node-id="y3YgLZGk4PDZAXbgZhq1l1">
+    ✅ <span class="ok" data-page-node-id="GGsIGHmfloUKbvaNTYagyi">同花顺 实时新闻页</span>：<a href="https://news.10jqka.com.cn/realtimenews.html" target="_blank" style="color:#38bdf8" data-page-node-id="uRENcYgQPiGHujDEOXHzGb">https://news.10jqka.com.cn/realtimenews.html</a>（15:05 三市成交、15:02 ETF 成交、15:14 瑞银观点、15:18 房地产等）<br data-page-node-id="kVwNhCxU3UCsIUmBSOnq3j">
+    ✅ <span class="ok" data-page-node-id="e2JstHUm63wTL1gVnFwFng">金融界 A 股行情指标</span>：<a href="https://finance.jrj.com.cn/2026/09/02151658331514.shtml" target="_blank" style="color:#38bdf8" data-page-node-id="A8MlLUVrkT8hxQqUruiu42">https://finance.jrj.com.cn/2026/09/02151658331514.shtml</a>（五大指数收盘点位/涨跌幅/成交额双源核验）<br data-page-node-id="CBQU36Bw2lU4Ms3pHeWwHM">
+    ✅ <span class="ok" data-page-node-id="RkxNMIKcbuyRRYFdTgFj5z">腾讯新闻 A 股收评</span>：<a href="https://new.qq.com/rain/a/20260902A0952B00" target="_blank" style="color:#38bdf8" data-page-node-id="iizEvZlIB2c0u2KUwEE6oD">https://new.qq.com/rain/a/20260902A0952B00</a>（油服/PCB/电网设备等主线补充 + 中信建投观点）<br data-page-node-id="78eA1qzHZCAuZvYnuxXNQO">
+    ✅ <span class="ok" data-page-node-id="qGH6HHv237rF3JF8I4uueh">每经网收评</span>：<a href="https://www.nbd.com.cn/articles/2026-09-02/4570183.html" target="_blank" style="color:#38bdf8" data-page-node-id="9nWTj2Gs26CrBPsfQn5xF2">https://www.nbd.com.cn/articles/2026-09-02/4570183.html</a>（主题概念资金 TOP5 / 智神星一号催化 / 二源核验）<br data-page-node-id="Ull0d1OC2znA79AK5SRenZ">
+    ✅ <span class="ok" data-page-node-id="Ge1BUu5B89YSbfqSInMcfW">A 股行情指标（板块）</span>：申万一级行业资金流向 TOP5（国防军工 +24.67 / 建材 +8.94 / 石油石化 +3.43 / 社会服务 +0.52 / 美容护理 +0.03）
+  </div>
+
+  <!-- ============ 页脚 ============ -->
+  <div class="footer" data-page-node-id="AR00Qt7NXiQWO2Rwt8rGiF">
+    <p data-page-node-id="CCjB7DLroWpBXMfrnw1sp0">📅 数据日期：2026-09-02（周三收盘）· 下一个交易日：2026-09-03（周四）</p>
+    <p data-page-node-id="6zHdEUFaSFldpxnfoOyIA5">📊 数据来源：同花顺 / 金融界 / 腾讯新闻 / 每日经济新闻 / Wind / 公司公告</p>
+    <p data-page-node-id="DCNNP1um9FLFwsP7YEUrh5">⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供研究参考，不构成任何投资建议；市场有风险，投资需谨慎。</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-16 中国平安 (601318) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(56,189,248,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(16,185,129,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #34d399, #38bdf8, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(56,189,248,0.10));
+    border: 1px solid rgba(16,185,129,0.45); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#34d399; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(16,185,129,0.18), rgba(56,189,248,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(16,185,129,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#34d399; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#10b981,#059669);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(16,185,129,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(16,185,129,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #34d399; }
+  .conclusion-item .num { display:inline-block; background:#34d399; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>🛡️ 中国平安 (601318) · 11 方法论综合投资分析</h1>
+  <div class="subtitle">综合金融集团（保险 + 银行 + 资管）· P/EV 0.60x 近十年低位 · 2026H1 归母净利 +36.1% · 股息率 5.21% · 左侧价值布局窗口</div>
+  <div class="badges">
+    <span class="badge badge-warning">🎯 综合评级：<b>谨慎买入</b>（P/EV 0.60x 深度低估 + 股息率 5.21% + 业绩高增 vs 技术面空头）</span>
+    <span class="badge badge-source">📅 数据日期：2026-10-15（周四收盘）· 生成 2026-10-16</span>
+    <span class="badge badge-source">📊 股价 51.78 元 · 总市值 9376 亿 · PE-TTM 5.89 · P/EV 0.60x</span>
+    <span class="badge badge-purple">🧠 格雷厄姆 + 巴菲特 + 邓普顿 + 林奇 + 马克斯 等 11 方法论 × 12 模块</span>
+    <span class="badge badge-success">✅ 2026H1 归母净利 925.85 亿（+36.1%）/ NBV +11.2% / 中期股息 0.98 元（+3.2%）</span>
+    <span class="badge badge-danger">⚠️ 技术面空头排列（低于全部均线）/ 主力 25 日净流出 8.32 亿 / 距 52 周高点 -30.9%</span>
+  </div>
+</div>
+
+<div class="data-note">
+  <strong>📌 数据来源与口径说明（行情基准 2026-10-15 收盘；生成于 2026-10-16）：</strong><br>
+  ✅ 行情数据：股价 <span class="info">51.78 元</span>（东方财富 push2 接口 51.78 / 腾讯证券 51.78，<b>双源核验一致</b>，2026-10-15 收盘）；总市值 <span class="info">9376.14 亿元</span>（全部股本 181.08 亿股 × A 股价）；A 股流通市值 <span class="info">5519.78 亿元</span>；总股本 18,107,641,995 股（2026 中报口径）<br>
+  ✅ 估值数据：PE-TTM <span class="ok">5.89</span>（东方财富）/ 5.88（腾讯证券）双源核验；PE 静态 6.96、动态 PE 5.06（2026H1 年化口径）；PB <span class="ok">0.93</span>（双源；按 2026H1 每股净资产 56.78 元测算约 0.91）；股息率 5.21%（2025 年度股息 2.70 元 ÷ 现价，自算）<br>
+  ✅ 2026H1 财务（公司 2026 中期报告，2026-08-20 公告）：营业收入 <span class="ok">5751.38 亿元（+15.0%）</span>、归母净利 <span class="ok">925.85 亿元（+36.1%）</span>、营运利润 841.96 亿元（+8.3%）、扣非归母净利 877.12 亿元（+19.2%）、归母权益 10280.84 亿元、经营现金流 3680.37 亿元（+8.8%）、中期股息 0.98 元/股（+3.2%，派发 177.45 亿元）；寿险 NBV 248.47 亿元（+11.2%）、CSM 7377.75 亿元；集团 EV <span class="ok">15678.00 亿元（+4.2%）</span>；集团综合偿付能力 198.1%（核心 165.6%）<br>
+  ✅ 2025 年报数据（公司 2025 年度报告）：营业收入 10505.06 亿元（+2.1%）、归母净利 1347.78 亿元（+6.5%）、营运利润 1344.15 亿元（+10.3%）、归母净资产 10004.19 亿元（首破万亿）、全年股息 2.70 元/股（总额 488.9 亿元）、集团 EV 15042.88 亿元<br>
+  ✅ EV 敏感性（2026 中报披露）：投资收益率 ±50bp → EV 17186.20 亿（+9.6%）/ 14170.88 亿（-9.6%）；风险贴现率 ±50bp → 15408.69 亿（-1.7%）/ 15973.99 亿（+1.9%）<br>
+  ✅ P/EV 计算口径：P/EV = 总市值 9376 亿 ÷ 集团 EV 15678 亿 ≈ <span class="ok">0.60x</span>（自算）；对照锚点：2025 年末 ≈0.79x、2026-01 高点 ≈0.90x（均为自算，更长历史分位 <span class="warn">未独立核验</span>）<br>
+  ✅ 技术指标：MA5/10/20/60/120/250、MACD、RSI14、BOLL 均由腾讯前复权 K 线（2025-10 至 2026-10）自行计算（可复现）；主力资金流数据来自东方财富资金流接口（近 25 个交易日）<br>
+  ✅ 同业快照（2026-10-16 盘中，腾讯/东方财富）：中国人寿 PE 3.93/PB 1.47/市值 9743 亿、中国太保 PE 5.01/PB 0.89/2825 亿、新华保险 PE 3.71/PB 1.33/1642 亿、中国人保 PE 5.91/PB 0.99/3361 亿<br>
+  ✅ 机构观点：2026-08 研报评级（国信增持 / 中金推荐 / 中信买入 / 招商强烈推荐 / 国泰君安增持）；近期单一研报目标价 63.04 元（≈0.7x 2026E P/EV 口径）；2026 年 1-3 月历史目标价区间 76-92.68 元（平均 83.73 元，<span class="warn">形成于股价高位、参考性有限</span>）<br>
+  ⚠️ 数据缺口：北向资金净流入 <span class="warn">未独立核验</span>（沪深港通个股披露机制调整）；公募基金 / 社保 / QFII 最新持仓 <span class="warn">未独立核验</span>；商誉具体规模 <span class="warn">未独立核验</span>；其他险企 EV 未采集（同业 P/EV 对比缺失）；2026 三季报 <span class="warn">尚未披露</span>（预计 10 月下旬，为核心验证点）<br>
+  📊 <strong>关键定性：</strong>综合金融龙头（全牌照，保险 + 银行 + 资管）+ P/EV 0.60x 深度低估（A 股市值 9376 亿 <span class="ok">低于寿险 EV 9708 亿</span>）+ 股息率 5.21% + 2026H1 业绩高增 + 负债端复苏（NBV +11.2%）+ 分红险转型降本 + 长端利率企稳 = <b style="color:#34d399">"深度价值 + 基本面改善"双支撑</b>；但技术面空头排列 + 主力阶段净流出 + 投资收益高基数 = <b style="color:#fbbf24">需以分批左侧策略执行、以纪律控制时点风险</b>。
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">🛡️</div>
+  <div class="text">
+    <h3>11 方法论交叉结论：综合金融龙头 · P/EV 0.60x 深度低估 · 评级"谨慎买入 6.43/10"，仓位 ≤ 5%</h3>
+    <p>
+      中国平安在 <b style="color:#34d399">格雷厄姆深度价值（8 分）、巴菲特护城河（8 分）、邓普顿逆向（7 分）、林奇 PEG（7 分）</b>框架下得分领先（PE-TTM 5.89 / PB 0.93 / P/EV 0.60x / 股息率 5.21% + 全牌照护城河 + 2.53 亿客户生态 + 业绩高增）；<b style="color:#fbbf24">费雪成长（6 分）、马克斯周期（6 分）、西蒙斯量化（5 分）、达里奥全天候（5 分）、索罗斯反身性（5 分）</b>中性；<b style="color:#f87171">凯恩斯选美（4 分，市场审美在科技主线）、博格指数（3 分，个股非宽基）</b>偏低。加权归一后综合 <b style="color:#34d399">6.43/10 → 谨慎买入</b>（距"买入"门槛 6.5 分仅差 0.07，<b style="color:#fbbf24">技术面压制是唯一拖后腿的系统性因素</b>）。<br><br>
+      <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">格雷厄姆深度价值 + 巴菲特护城河 + 邓普顿逆向</b>三轴框架作为决策主线（"P/EV 0.60x 深度低估 + 全牌照生态护城河 + 悲观叙事下的逆向机会"），以 <b style="color:#fbbf24">分批左侧建仓（50-52 / 48.5-50 / 46.9-48.5 三批）+ 硬止损（收盘破 46.90 清仓）</b> 对冲技术面弱势与时点风险；<b style="color:#7dd3fc">核心验证点</b>：2026 三季报（10 月下旬）投资端可持续性 + NBV 增速维持 + 分红险转型进度。<b style="color:#fca5a5">关键风险</b>：投资端高基数回落 + 长端利率再度下行（EV 敏感性 ∓9.6%/±50bp）+ 股价破 46.90 技术性破位 + 同业 NBV 增速更快（国寿 +33.7%）的相对竞争压力 = <b style="color:#34d399">限仓 5% 内，中线（12-24 月）持有至 P/EV 修复 0.70x（对应 62-63 元）</b>。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+<div class="section-subtitle">数据日期：2026-10-15 收盘 · 来源：东方财富（push2 接口）/ 腾讯证券 / 公司公告（2026 中报、2025 年报）</div>
+
+<div class="dashboard">
+  <div class="index-card mid">
+    <div class="name">股票名称</div>
+    <div class="value" style="font-size:16px;">中国平安</div>
+    <div class="change">PAN AN · 601318</div>
+    <div class="label">上交所主板 · A+H 两地上市</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">所属行业</div>
+    <div class="value" style="font-size:15px;">非银金融</div>
+    <div class="change">保险 · 综合金融集团</div>
+    <div class="label">全牌照：寿险/产险/银行/资管/信托/证券</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">上市日期</div>
+    <div class="value" style="font-size:14px;">2007-03-01</div>
+    <div class="change">A 股上市 19 年</div>
+    <div class="label">2004 年 H 股上市；两地上市主体</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">总市值</div>
+    <div class="value">9376 亿</div>
+    <div class="change">全部股本口径</div>
+    <div class="label">181.08 亿股 × A 股价 51.78 元</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">流通市值</div>
+    <div class="value">5520 亿</div>
+    <div class="change">A 股流通口径</div>
+    <div class="label">A 股流通股本约 106.60 亿股</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">收盘价</div>
+    <div class="value">51.78 元</div>
+    <div class="change">2026-10-15 周四收盘</div>
+    <div class="label">东方财富 / 腾讯证券双源核验一致</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">52 周区间</div>
+    <div class="value" style="font-size:15px;">46.90 - 74.88</div>
+    <div class="change">距高点 -30.9%</div>
+    <div class="label">未复权口径；前复权区间 45.92-72.15</div>
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="name">PE-TTM</div>
+    <div class="value">5.89</div>
+    <div class="change">东财 5.89 / 腾讯 5.88</div>
+    <div class="label">TTM 归母净利 1593.16 亿（自算）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">PE-2026E</div>
+    <div class="value">6.25</div>
+    <div class="change">一致预期 EPS 8.29 元</div>
+    <div class="label">2027E 5.73 / 2028E 5.22（EPS 9.03/9.92）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">PB</div>
+    <div class="value">0.93</div>
+    <div class="change">每股净资产 56.78 元</div>
+    <div class="label">2026H1 末归母权益 10280.84 亿元</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">P/EV</div>
+    <div class="value">0.60x</div>
+    <div class="change">深度低估区间</div>
+    <div class="label">市值 9376 亿 ÷ 集团 EV 15678 亿（自算）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">股息率</div>
+    <div class="value">5.21%</div>
+    <div class="change">2025 年度股息 2.70 元</div>
+    <div class="label">总额 488.9 亿；2026 中期 0.98 元已派</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">近 1 月涨跌</div>
+    <div class="value">-3.93%</div>
+    <div class="change">近 3 月 +3.62%</div>
+    <div class="label">近半年 -7.49% / 近 1 年 -4.34%</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">年初至今</div>
+    <div class="value">-21.2%</div>
+    <div class="change">前复权口径</div>
+    <div class="label">2026-01 高点 74.88 元后持续回落</div>
+  </div>
+</div>
+
+<div class="section-title warn">⚖️ 模块 2 · 综合评级（一句话定位）</div>
+<div class="section-subtitle">深度低估的综合金融龙头 —— 估值处于历史最低区域，基本面正在改善，但需要时间与资金面确认</div>
+
+<div class="final-verdict">
+  <h2>⚖️ 11 方法论加权综合评级</h2>
+  <div class="rating" style="background:linear-gradient(135deg,#f59e0b,#d97706);">谨慎买入</div>
+  <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+    综合得分 6.43 / 10（权重归一化）· 距"买入"门槛（6.5 分）仅差 0.07 —— 技术面弱势是唯一系统性拖累
+  </div>
+  <div class="comment">
+    <strong style="color:#34d399">深度价值锚：</strong>P/EV 0.60x（A 股市值 9376 亿甚至低于寿险业务 EV 9708 亿）+ PE-TTM 5.89 + PB 0.93 + 股息率 5.21% —— 格雷厄姆与巴菲特框架给出 8/8 高分；
+    <strong style="color:#34d399">基本面改善：</strong>2026H1 归母净利 +36.1%、营运利润 +8.3%、NBV +11.2%、中期股息 +3.2% —— 费雪/马克斯框架 6/6；
+    <strong style="color:#fbbf24">逆向机会：</strong>股价距 52 周高点 -30.9%、YTD -21.2%，市场情緒被"利差损"叙事压制 —— 邓普顿框架 7 分；
+    <strong style="color:#f87171">短板项：</strong>技术面空头排列（低于全部均线）、主力资金 25 日净流出 8.32 亿、市场审美在科技主线不在此 —— 凯恩斯 4 / 博格 3。
+    结论：<strong style="color:#fbbf24">以"分批左侧 + 硬止损"策略换取"深度低估 + 高股息 + 基本面改善"的组合，仓位 ≤ 5%，不追高、不重仓押注时点</strong>。
+  </div>
+</div>
+
+<div class="section-title ok">🎚️ 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+<div class="section-subtitle">P/EV 0.60x 深度低估 · 市值低于寿险 EV 本身 · 股息率 5.21% 提供安全垫</div>
+
+<div class="safety-bar">
+  <div class="safety-title">🏷️ P/EV 估值区间定位（Group EV 口径）</div>
+  <div class="safety-track">
+    <div class="safety-seg seg-deep" style="flex:3;">深度低估 &lt;0.7x（当前 0.60x）</div>
+    <div class="safety-seg seg-deep" style="flex:3;">低估 0.7-0.9x</div>
+    <div class="safety-seg seg-current" style="flex:4;">合理 0.9-1.2x</div>
+    <div class="safety-seg seg-over" style="flex:3;">高估 &gt;1.2x</div>
+  </div>
+  <div class="safety-marks">
+    <span>2026-01 高点 <strong>≈0.90x</strong></span>
+    <span>2025 年末 <strong>≈0.79x</strong></span>
+    <span><strong>当前 0.60x</strong>（自算）</span>
+    <span>机构目标 63.04 元 <strong>≈0.70x 2026E</strong></span>
+    <span>更长历史分位未独立核验</span>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>估值指标</div>
+    <div>数值</div>
+    <div>解读与口径</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">P/EV（集团口径）</div>
+    <div class="fin-val">0.60x</div>
+    <div class="fin-comment">总市值 9376 亿 ÷ 集团 EV 15678 亿（2026H1，+4.2%）= 0.60x，处于深度低估区间；对照锚点：2025 年末 ≈0.79x、2026-01 高点 ≈0.90x（自算）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PE-TTM</div>
+    <div class="fin-val">5.89</div>
+    <div class="fin-comment">东方财富 5.89 / 腾讯证券 5.88 <b style="color:#34d399">双源核验一致</b>；TTM 归母净利 1593.16 亿元（2025H2 667.5 亿 + 2026H1 925.85 亿，自算）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">动态 PE</div>
+    <div class="fin-val mid">5.06</div>
+    <div class="fin-comment">按 2026H1 年化口径（925.85 × 2 = 1851.7 亿，东方财富快照）；PE 静态 6.96（2025 年归母净利 1347.78 亿口径）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PE-2026E（一致预期）</div>
+    <div class="fin-val">6.25</div>
+    <div class="fin-comment">一致预期 EPS 8.29 元（对应净利约 1496 亿，低于 TTM —— 隐含 H2 投资端高基数回落假设）；2027E 5.73 / 2028E 5.22</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PB</div>
+    <div class="fin-val">0.91-0.93</div>
+    <div class="fin-comment">双源 PB 0.93；按 2026H1 每股净资产 56.78 元（归母权益 10280.84 亿 ÷ 181.08 亿股）测算 ≈0.91 —— 逼近破净边缘</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股息率</div>
+    <div class="fin-val">5.21%</div>
+    <div class="fin-comment">2025 年度股息 2.70 元（总额 488.9 亿）÷ 现价 51.78 元（自算）；中期股息 0.98 元/股（+3.2%）已派发 —— 高股息提供持有期安全垫</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">隐蔽价值（关键）</div>
+    <div class="fin-val purple">市值 &lt; 寿险 EV</div>
+    <div class="fin-comment">A 股总市值 9376 亿 <b style="color:#34d399">低于寿险业务 EV 9708.39 亿</b>——市场定价隐含"寿险 EV 打折 + 银行/产险/资管等板块几乎零估值"，隐蔽资产属性显著（格雷厄姆式机会）</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📊 同业估值对比（五大 A 股上市险企）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>公司（代码）</th><th>总市值</th><th>PE-TTM</th><th>PB</th><th>2026H1 归母净利（同比）</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="hl">中国平安 (601318)</td>
+        <td>9376 亿</td>
+        <td class="mid">5.89</td>
+        <td class="ok">0.93</td>
+        <td class="ok">925.85 亿（+36.1%）</td>
+        <td class="ok">P/EV 0.60x；股息率 5.21%；唯一全牌照</td>
+      </tr>
+      <tr>
+        <td>中国人寿 (601628)</td>
+        <td>9743 亿</td>
+        <td class="ok">3.93</td>
+        <td>1.47</td>
+        <td class="ok">1344.89 亿（+228.6%）</td>
+        <td>NBV +33.7%；净利增速含 2025H1 低基数；PB 最高</td>
+      </tr>
+      <tr>
+        <td>中国太保 (601601)</td>
+        <td>2825 亿</td>
+        <td class="mid">5.01</td>
+        <td class="ok">0.89</td>
+        <td>307.75 亿（+10.4%）</td>
+        <td>PB 略低于平安；纯寿险 + 产险结构</td>
+      </tr>
+      <tr>
+        <td>新华保险 (601336)</td>
+        <td>1642 亿</td>
+        <td class="ok">3.71</td>
+        <td class="warn">1.33</td>
+        <td>227.93 亿（+54.0%）</td>
+        <td>纯寿险弹性大；估值波动高</td>
+      </tr>
+      <tr>
+        <td>中国人保 (601319)</td>
+        <td>3361 亿</td>
+        <td class="mid">5.91</td>
+        <td class="warn">0.99</td>
+        <td>367.45 亿（+38.5%）</td>
+        <td>财险为主；PE 与平安接近</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="color:#94a3b8; font-size:11px; margin-top:10px; line-height:1.6;">
+    数据快照：2026-10-16 盘中（腾讯/东方财富）；H1 数据为各家 2026 中报。平安 PE 居行业中游（国寿/新华偏低系纯寿险投资弹性推高净利），PB 处低位（仅高于太保 0.89）。各险企 EV 未采集（P/EV 横向对比为数据缺口）。
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">🧮</div>
+  <div class="text">
+    <h3>安全边际三情景测算（12 个月）</h3>
+    <p>
+      <b style="color:#f87171">保守：</b>EV 温和增长（+4%）+ 市场维持当前折价（P/EV 0.58x）→ 对应 <b style="color:#f87171">≈53 元（+2.4%）</b>——股息 5.21% 提供正回报下限；
+      <b style="color:#fbbf24">中性：</b>EV 增长 +6% + 估值修复至 P/EV 0.68-0.70x → 对应 <b style="color:#fbbf24">62-63 元（+20-22%）</b>（与机构目标价 63.04 元一致）；
+      <b style="color:#34d399">乐观：</b>EV 超预期 + 利率与股市共振（P/EV 0.78-0.80x）→ 对应 <b style="color:#34d399">70-71 元（+35-37%）</b>。
+      <b style="color:#fca5a5">下行测算：</b>若悲观情景 EV 下修（投资收益率 -50bp → EV -9.6% 至 14171 亿）+ 折价维持 0.60x → 隐含市值 8503 亿、对应约 47 元 —— 与 52 周低点 46.90 元（硬止损位）几乎重合，<b style="color:#fbbf24">说明当前 51.78 元对悲观情景的计价已较充分</b>。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">📈 模块 4 · 成长性维度（费雪 + 林奇）</div>
+<div class="section-subtitle">负债端复苏 + 投资收益弹性双击 · NBV +11.2% · 但 H1 +36.1% 高增含投资高基数</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="name">营业收入（H1）</div>
+    <div class="value" style="font-size:16px;">5751 亿</div>
+    <div class="change">+15.0%</div>
+    <div class="label">2026H1；2025 全年 10505 亿（+2.1%）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">归母净利（H1）</div>
+    <div class="value" style="font-size:16px;">926 亿</div>
+    <div class="change">+36.1%</div>
+    <div class="label">含投资端高弹性；H2 高基数</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">营运利润（H1）</div>
+    <div class="value" style="font-size:16px;">842 亿</div>
+    <div class="change">+8.3%</div>
+    <div class="label">剔除短期波动 · 分红定价基准</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">寿险 NBV（H1）</div>
+    <div class="value" style="font-size:16px;">248 亿</div>
+    <div class="change">+11.2%</div>
+    <div class="label">负债端复苏核心指标</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">CSM 余额</div>
+    <div class="value" style="font-size:16px;">7378 亿</div>
+    <div class="change">+1.7%（新业务 +18.3%）</div>
+    <div class="label">合同服务边际 = 利润蓄水池</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">代理人数量</div>
+    <div class="value" style="font-size:16px;">32.5 万</div>
+    <div class="change">-7.4%（提质增效）</div>
+    <div class="label">人均 NBV +14.1%（产能提升）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">银保渠道 NBV</div>
+    <div class="value" style="font-size:16px;">70.5 亿</div>
+    <div class="change">+18.0%</div>
+    <div class="label">渠道多元化 · 增速快于代理人渠道（+5.4%）</div>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>成长性指标</div>
+    <div>数值</div>
+    <div>解读与口径</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PEG（2026E）</div>
+    <div class="fin-val">≈0.63</div>
+    <div class="fin-comment">前瞻 PE 6.25 ÷ 2026-2028E 净利 CAGR ≈9.4%（EPS 8.29 → 9.92）≈ 0.63，<b style="color:#34d399">显著低于 1</b>；⚠️ 保险股净利受投资收益波动大，PEG 仅作辅助参考（适用性打折）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">驱动力 ①：量（客户生态）</div>
+    <div class="fin-val">客户 2.53 亿</div>
+    <div class="fin-comment">综合金融交叉销售 + 医疗养老生态圈；银保渠道 NBV +18.0%；分红险占比提升承接居民稳健理财需求</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">驱动力 ②：质（产能与价值率）</div>
+    <div class="fin-val">人均 NBV +14.1%</div>
+    <div class="fin-comment">代理人 32.5 万（-7.4%）主动收缩、人均产能提升；NBV 率（标准保费口径）29.0%（-1.4pct）；新业务 CSM +18.3% 验证未来利润储备增厚</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">驱动力 ③：新曲线（产险 + 银行）</div>
+    <div class="fin-val mid">COR 95.1%</div>
+    <div class="fin-comment">产险保费 1787.51 亿（+4.0%）、车险 COR 94.9%（承保盈利健康），但产险营运利润 88.12 亿（-12.4%）；平安银行净利 256.96 亿（+3.3%）稳健</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">催化剂（未来 12-24 月）</div>
+    <div class="fin-val purple">密集窗口</div>
+    <div class="fin-comment">① 2026 三季报（10 月下旬，投资端可持续性核心验证）② 预定利率研究值连续两季回升（2026Q2 = 1.94%）→ 利差损叙事缓和 ③ 分红险转型兑现价值率 ④ 险资"长钱长投"政策持续催化</div>
+  </div>
+</div>
+
+<div class="section-title">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+<div class="section-subtitle">全牌照综合金融 + 2.53 亿客户生态 + 规模壁垒 · 中国唯一"保险+银行+资管"全牌照集团</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="name">品牌（9/10）</div>
+    <div class="value" style="font-size:15px;">全球领先</div>
+    <div class="change">2.53 亿个人客户</div>
+    <div class="label">《福布斯》全球保险业第 2 位（2026）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">生态/网络（9/10）</div>
+    <div class="value" style="font-size:15px;">交叉销售</div>
+    <div class="change">医疗养老生态圈</div>
+    <div class="label">保险 + 健康 + 养老协同闭环</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">规模（9/10）</div>
+    <div class="value" style="font-size:15px;">6.61 万亿</div>
+    <div class="change">投资组合（+1.9%）</div>
+    <div class="label">寿险 EV 9708 亿 · CSM 7378 亿</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">牌照（10/10）</div>
+    <div class="value" style="font-size:15px;">全牌照</div>
+    <div class="change">稀缺性极强</div>
+    <div class="label">寿险/产险/银行/资管/信托/证券</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">转换成本（8/10）</div>
+    <div class="value" style="font-size:15px;">长期保单</div>
+    <div class="change">CSM 7378 亿蓄水池</div>
+    <div class="label">退保成本高 · 客户黏性强</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">成本优势（7/10）</div>
+    <div class="value" style="font-size:15px;">科技+银保</div>
+    <div class="change">COR 95.1%</div>
+    <div class="label">科技赋能运营；银保"报行合一"费差收窄</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">长期 ROE</div>
+    <div class="value" style="font-size:15px;">两位数</div>
+    <div class="change">H1 非年化 9.0%（+1.8pct）</div>
+    <div class="label">年化约 18%（含投资弹性）；2025 约 13.5%（估算）</div>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>护城河维度</div>
+    <div>数据佐证</div>
+    <div>评估结论</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">牌照与监管壁垒</div>
+    <div class="fin-val">全金融牌照</div>
+    <div class="fin-comment">同时持有保险、银行、资管、信托、证券等核心牌照 —— A 股唯一综合金融集团，新进入者几乎不可能复制（监管不再新发同类全牌照）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">客户生态与交叉销售</div>
+    <div class="fin-val">2.53 亿客户</div>
+    <div class="fin-comment">"一个客户、多种产品、一站式服务"：保险获客 → 银行/资管/健康养老变现；医疗养老生态增强粘性（费雪"持续经营能力"）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">利润蓄水池（CSM）</div>
+    <div class="fin-val">7377.75 亿（+1.7%）</div>
+    <div class="fin-comment">CSM 为新准则下"未确认的未来利润"，每年摊销释放为营运利润；新业务 CSM +18.3% 表示新增储备仍在增厚 —— 利润可见性高</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">承保纪律（产险）</div>
+    <div class="fin-val">COR 95.1%</div>
+    <div class="fin-comment">综合成本率 &lt;100% 即承保盈利；车险 COR 94.9% 保持良好水平（报行合一后费用率优化，但赔付率上升对冲）——承保端稳定贡献利润</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">盈利稳定性</div>
+    <div class="fin-val mid">营运利润 +8.3%</div>
+    <div class="fin-comment">营运利润（剔除短期投资波动与一次性因素）2026H1 +8.3%、2025 全年 +10.3% —— 双位数附近稳定增长，验证"生意本质"的可持续性</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">护城河小结</div>
+    <div class="fin-val purple">宽阔护城河</div>
+    <div class="fin-comment">护城河来源：牌照稀缺（监管壁垒）> 客户生态（网络效应）> 规模（投资与承保的规模经济）；<b style="color:#fbbf24">扣分项</b>：负债端竞争加剧（同业 NBV 增速更快）、科技子公司上市后生态协同的光环减退</div>
+  </div>
+</div>
+
+<div class="section-title">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+<div class="section-subtitle">偿付能力充裕 · 现金流强劲 · 分红纪律稳定 · 唯一波动项是投资收益率</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="name">营收（H1）</div>
+    <div class="value" style="font-size:15px;">5751 亿</div>
+    <div class="change">+15.0%</div>
+    <div class="label">2025 全年 10505 亿（+2.1%）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">归母净利（H1）</div>
+    <div class="value" style="font-size:15px;">926 亿</div>
+    <div class="change">+36.1%</div>
+    <div class="label">扣非 877 亿（+19.2%）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">经营现金流（H1）</div>
+    <div class="value" style="font-size:15px;">3680 亿</div>
+    <div class="change">+8.8%</div>
+    <div class="label">保险现金奶牛属性</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">归母权益</div>
+    <div class="value" style="font-size:15px;">10281 亿</div>
+    <div class="change">+2.8%（较 2025 末）</div>
+    <div class="label">2025 末首破万亿后持续增厚</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">综合偿付能力</div>
+    <div class="value" style="font-size:15px;">198.1%</div>
+    <div class="change">核心 165.6%（+4.8pct）</div>
+    <div class="label">监管红线 100% / 50% —— 大幅高于要求</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">投资收益率（H1）</div>
+    <div class="value" style="font-size:15px;">1.4% / 2.1%</div>
+    <div class="change">净 / 综合（非年化）</div>
+    <div class="label">同比 -0.4 / -1.0pct —— 唯一承压项</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">中期股息</div>
+    <div class="value" style="font-size:15px;">0.98 元</div>
+    <div class="change">+3.2% · 派发 177 亿</div>
+    <div class="label">2025 年度 2.70 元（488.9 亿）</div>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>财务指标（13 项）</div>
+    <div>数值（2026H1 / 2025 全年）</div>
+    <div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">① 营业收入</div>
+    <div class="fin-val">5751.38 亿（+15.0%）/ 10505.06 亿（+2.1%）</div>
+    <div class="fin-comment">收入端加速（保险服务收入 + 投资收益双驱动）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">② 归母净利润</div>
+    <div class="fin-val">925.85 亿（+36.1%）/ 1347.78 亿（+6.5%）</div>
+    <div class="fin-comment">高增主要来自投资端弹性（2025H2 高基数，H2 增速预计回落）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">③ 扣非归母净利</div>
+    <div class="fin-val">877.12 亿（+19.2%）/ 1437.73 亿（+22.5%）</div>
+    <div class="fin-comment">扣非口径增长更平滑，盈利质量可验证</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">④ 营运利润</div>
+    <div class="fin-val">841.96 亿（+8.3%）/ 1344.15 亿（+10.3%）</div>
+    <div class="fin-comment">分红定价基准指标，持续中速增长 —— 稳定性优于报表净利</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑤ 经营现金流</div>
+    <div class="fin-val">3680.37 亿（+8.8%）/ —</div>
+    <div class="fin-comment">现金流充沛（保险先收后付模式），远高于净利润</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑥ 归母净资产 / 每股净资产</div>
+    <div class="fin-val">10280.84 亿（+2.8%）/ 56.78 元</div>
+    <div class="fin-comment">ROE 与 BVPS 双升；现价对应 PB ≈0.91</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑦ 资本回报（ROE）</div>
+    <div class="fin-val">加权 9.0%（非年化，+1.8pct）</div>
+    <div class="fin-comment">年化约 18%（含投资弹性）；2025 全年约 13.5%（估算，按期末权益口径）—— 长期两位数</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑧ 分红能力</div>
+    <div class="fin-val">中期 0.98 元（+3.2%）/ 全年 2.70 元</div>
+    <div class="fin-comment">连续多年稳定提升；股息率 5.21% —— 格雷厄姆"股东现金回报"达标</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑨ 集团偿付能力</div>
+    <div class="fin-val">综合 198.1% / 核心 165.6%</div>
+    <div class="fin-comment">+4.8pct（较 2025 末）；资本充足性为估值下限提供"监管背书"</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑩ 子公司偿付能力</div>
+    <div class="fin-val">寿险 185.5% / 产险 228.5%</div>
+    <div class="fin-comment">核心分别 133.8% / 179.3% —— 各牌照主体资本均充裕</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑪ 平安银行资产质量</div>
+    <div class="fin-val">不良 1.05% / 拨备 219.58%</div>
+    <div class="fin-comment">净息差 1.80%、净利 +3.3%；拨备覆盖率充足，风险抵补能力强</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑫ 投资收益率（承压项）</div>
+    <div class="fin-val warn">净 1.4% / 综合 2.1%（非年化）</div>
+    <div class="fin-comment">同比 -0.4 / -1.0pct（H1 股债市场平淡）；投资组合 6.61 万亿（+1.9%）—— <b style="color:#fbbf24">最需跟踪的指标</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">⑬ 商誉 / 负债结构</div>
+    <div class="fin-val mid">数据缺口 / 模式属性</div>
+    <div class="fin-comment">商誉具体规模 <span style="color:#fbbf24">未独立核验</span>；保险负债主体为准备金（负债经营模式属性，非同一般工商企业有息负债 ⚠️ 不宜以资产负债率直接判定）</div>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>关键比率</div>
+    <div>数值</div>
+    <div>格雷厄姆式体检结论</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流 / 净利润</div>
+    <div class="fin-val">≈2.0x（H1 3680 / 1852 年化口径粗算）</div>
+    <div class="fin-comment">大幅 &gt;1，现金创造能力优秀（保险浮存金模式）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">偿付能力 vs 监管红线</div>
+    <div class="fin-val">198.1% vs 100%</div>
+    <div class="fin-comment">接近监管线 2 倍，极端情景下的安全垫深厚</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">盈利波动来源</div>
+    <div class="fin-val warn">投资端</div>
+    <div class="fin-comment">营运利润（+8.3%）与报表净利（+36.1%）的剪刀差 = 投资端贡献 —— 判断"真实盈利力"看营运利润</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">分红可持续性</div>
+    <div class="fin-val ok">营运利润覆盖 2 倍+</div>
+    <div class="fin-comment">488.9 亿分红 vs 营运利润 1344 亿（2025）—— 股息保障倍数充足，下修概率低</div>
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">✅</div>
+  <div class="text">
+    <h3>财务体检结论：财务优秀（偿付能力充裕 + 现金流强劲 + 分红纪律稳定；唯一承压项为投资收益率）</h3>
+    <p>
+      格雷厄姆框架下的"财务稳健性"全面达标：<b style="color:#34d399">偿付能力 198.1%（监管线近 2 倍）、经营现金流 3680 亿、分红覆盖倍数 2 倍+</b>；
+      凯恩斯框架下的"盈利真实性"亦通过验证：营运利润 +8.3% 与扣非 +19.2% 双口径交叉确认，报表净利 +36.1% 的高增明确标注为投资端弹性贡献而非经营突变；
+      <b style="color:#fbbf24">唯一扣分项：非年化综合投资收益率 2.1%（-1.0pct）</b>——若全年维持低位，将压制 EV 增速与净利弹性，需以三季报数据复核。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">🏛️ 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+<div class="section-subtitle">无实控人的市场化治理 · 长期服务计划深度绑定 · 分红纪律稳定</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>治理维度</div>
+    <div>现状</div>
+    <div>评估</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股权结构与实控人</div>
+    <div class="fin-val mid">无实际控制人</div>
+    <div class="fin-comment">股权分散、市场化治理；主要股东含国资与大型机构（具体名单与比例以公司公告为准）—— 无"一股独大"亦无控制权争夺历史</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">核心管理层稳定性</div>
+    <div class="fin-val ok">创始人长期掌舵</div>
+    <div class="fin-comment">创始人马明哲自 1988 年创业起长期领导（最新董事长/执行董事任职以公司公告为准）；"联席 CEO"集体决策机制降低单人依赖 —— <span style="color:#fbbf24">具体人事变动未逐一独立核验</span></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">员工与股东利益绑定</div>
+    <div class="fin-val ok">长期服务计划 71,374 人</div>
+    <div class="fin-comment">2026H1 核心员工长期服务计划购入 H 股 40.32 亿元 —— 覆盖 7 万+员工的深度激励，行业罕见；管理层与股东利益一致性高</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">分红纪律</div>
+    <div class="fin-val ok">持续提升</div>
+    <div class="fin-comment">2025 年度股息 2.70 元（总额 488.9 亿）、2026 中期 0.98 元（+3.2%）—— 连续多年稳定增长的分红记录（费雪"管理层是否愿意分享利润"）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发与数字化投入</div>
+    <div class="fin-val mid">科技赋能运营</div>
+    <div class="fin-comment">以科技驱动渠道效率与风控（人均 NBV +14.1% 佐证）；具体研发投入金额 <span style="color:#fbbf24">未独立核验</span>（保险集团口径不同于科技公司）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">历史承诺兑现</div>
+    <div class="fin-val ok">基本兑现</div>
+    <div class="fin-comment">NBV 连续多季恢复增长、分红持续提升、偿付能力保持充裕 —— 无重大失信记录（近年监管处罚/诉讼细节未逐一核验）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">治理小结</div>
+    <div class="fin-val purple">值得信任</div>
+    <div class="fin-comment">市场化治理 + 深度员工绑定 + 稳定分红纪律，符合费雪"管理层诚信与能力"要求；扣分项为信息透明度（无实控人结构下关联交易披露复杂度高）与历史金融科技板块估值波动的教训</div>
+  </div>
+</div>
+
+<div class="section-title info">🌊 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+<div class="section-subtitle">寿险负债端复苏中期 + 分红险转型降本 + 长端利率企稳 —— 行业景气向上</div>
+
+<div class="theme-banner info">
+  <div class="icon">🌊</div>
+  <div class="text">
+    <h3>行业定性：负债端复苏中期 → 繁荣早段 · 分红险转型重构负债成本 · 利率企稳解除"利差损"警报</h3>
+    <p>
+      2026 年保险行业呈"负债端全面复苏"格局：NBV 全行业高增（<b style="color:#34d399">国寿 +33.7% / 新华 +54% / 平安 +11.2%</b>），
+      转型红利（分红险 + 报行合一 + 银保重塑）逐步兑现；同时 <b style="color:#34d399">预定利率研究值 2026Q2 = 1.94%（+1BP，连续两季回升）</b> 表明长端利率企稳，"利差损"这一压制板块估值三年的核心叙事开始松动。
+      <b style="color:#fbbf24">相对竞争格局</b>：纯寿险公司（国寿/新华）投资弹性与 NBV 增速更快，平安作为综合金融集团的"稳健属性"在牛市中反而显得弹性不足 —— 这是其估值折价的一部分原因，也是保守投资者的安全来源。
+    </p>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>行业维度</div>
+    <div>数据/状态</div>
+    <div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">周期位置</div>
+    <div class="fin-val ok">复苏 → 繁荣早段</div>
+    <div class="fin-comment">代理人出清完成（平安 32.5 万 vs 高峰 100 万+），全行业 NBV 高增；类比 2017-2019 的"价值回归"周期起点（马克斯周期框架）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">利率环境</div>
+    <div class="fin-val ok">企稳回升</div>
+    <div class="fin-comment">预定利率研究值 1.94%（连续两季 +1BP）；长端利率企稳 → 再投资压力缓解、EV 敏感性风险下降（当前 ±50bp 敞口 ∓9.6%）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">负债成本改革</div>
+    <div class="fin-val ok">分红险转型</div>
+    <div class="fin-comment">演示利率上限 3.9% → 3.5%；"低保底 + 浮动分红"降低刚性负债成本，利率下行时资负联动更平滑；报行合一压缩渠道费差乱象 → 行业整体费差益改善</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">政策环境</div>
+    <div class="fin-val ok">鼓励</div>
+    <div class="fin-comment">险资"长钱长投"（权益投资比例上调）、个人养老金扩容、养老金融政策 —— 保险资金作为"耐心资本"获政策定位提升</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">长期空间</div>
+    <div class="fin-val purple">人口老龄化红利</div>
+    <div class="fin-comment">医疗养老（2.53 亿客户生态）× 第三支柱（个人养老金）× 健康险 —— 10 年以上确定性赛道（达里奥"长期债务周期下的稀缺增长资产"）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">竞争格局</div>
+    <div class="fin-val warn">龙头集中但增速分化</div>
+    <div class="fin-comment">CR5 保费占比稳中有升；但纯寿险同业 NBV 增更快（国寿 +33.7%）——平安需以"综合金融 + 医疗养老"差异化守住份额</div>
+  </div>
+</div>
+
+<div class="section-title danger">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+<div class="section-subtitle">空头排列（现价低于全部均线）· 51 元为多空关键位 · 主力 25 日净流出 8.32 亿</div>
+
+<div class="dashboard">
+  <div class="index-card warn">
+    <div class="name">现价</div>
+    <div class="value">51.78</div>
+    <div class="change">距 52 周高点 -30.9%</div>
+    <div class="label">2026-10-15 收盘 · 双源核验</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">MA20 / MA60</div>
+    <div class="value" style="font-size:16px;">53.32 / 53.26</div>
+    <div class="change">现价低于双均线</div>
+    <div class="label">53.2-53.3 构成第一压力带</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">MA250（年线）</div>
+    <div class="value">56.06</div>
+    <div class="change">现价低于年线 7.6%</div>
+    <div class="label">长期趋势仍处修复前段</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">MACD</div>
+    <div class="value" style="font-size:16px;">-0.522</div>
+    <div class="change">DIF -0.534 &lt; DEA -0.273</div>
+    <div class="label">柱线为负 · 空头动能延续（自算）</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">RSI14</div>
+    <div class="value">38.9</div>
+    <div class="change">偏弱（未超卖）</div>
+    <div class="label">距超卖区（&lt;30）尚有距离（自算）</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">量能（10-15）</div>
+    <div class="value">1.38x</div>
+    <div class="change">为 20 日均量倍数</div>
+    <div class="label">放量（大盘杀跌日成交放大）</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">主力资金</div>
+    <div class="value" style="font-size:15px;">-8.32 亿</div>
+    <div class="change">近 25 日累计净流出</div>
+    <div class="label">10-15 小幅转净流入 +0.29 亿（东财）</div>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>技术维度</div>
+    <div>数据</div>
+    <div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">均线系统</div>
+    <div class="fin-val down">空头排列</div>
+    <div class="fin-comment">现价 51.78 &lt; MA5 52.15 &lt; MA10 52.49 &lt; MA60 53.26 ≈ MA20 53.32 &lt; MA120 52.51（现价亦低于）&lt; MA250 56.06 —— 全部均线在上方，修复需先站稳 53.3 压力带</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">关键支撑</div>
+    <div class="fin-val">50.80-51.00 / 48.47 / 46.90</div>
+    <div class="fin-comment">10 月低点 50.8-51.0（当前正在测试）/ 7 月低点 48.47 / 52 周低点 46.90（硬止损位，距现价 -9.4%）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">关键压力</div>
+    <div class="fin-val warn">53.2-53.3 / 56.06 / 58.01</div>
+    <div class="fin-comment">MA20+MA60 重合带 53.2-53.3（第一压力）/ 年线 56.06 / 9 月高点 58.01 —— 突破 53.3 是趋势转多的第一信号</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">布林带（20,2）</div>
+    <div class="fin-val mid">51.17 / 53.32 / 55.47</div>
+    <div class="fin-comment">下轨 51.17 与 10 月低点 50.8-51.0 重合 —— 当前价格贴近下轨，短线下行空间有限、存在均值回归动能（自算）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">阶段表现</div>
+    <div class="fin-val warn">YTD -21.2%</div>
+    <div class="fin-comment">近 1 月 -3.93% / 近 3 月 +3.62%（7 月低点 48.47 反弹后回落）/ 近半年 -7.49% / 近 1 年 -4.34%（前复权口径）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">资金流细节</div>
+    <div class="fin-val down">25 日 -8.32 亿</div>
+    <div class="fin-comment">10-13（大盘杀跌日）单日净流出 5.08 亿为阶段高峰，10-15（放量普跌日）转为净流入 +0.29 亿 —— 弱势中的初步企稳迹象（东财资金流接口）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">北向 / 机构持仓</div>
+    <div class="fin-val mid">数据缺口</div>
+    <div class="fin-comment">北向资金净流入 <span style="color:#fbbf24">未独立核验</span>（沪深港通个股披露机制调整）；公募/社保/QFII 最新持仓待三季报披露</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">技术面小结</div>
+    <div class="fin-val down">弱势（但接近支撑）</div>
+    <div class="fin-comment">空头排列 + 下行趋势 + 资金净流出 = 索罗斯"负反馈仍在";但价格已贴近布林下轨与 10 月低点共振支撑 + 主力资金边际转正 = 凯恩斯"选美"的悲观定价接近极限区域 —— 左侧机会与破位风险并存</div>
+  </div>
+</div>
+
+<div class="section-title ok">🎯 模块 10 · 多方法论视角最终评级</div>
+<div class="section-subtitle">11 方法论独立打分与加权 · 价值三轴高分 vs 动量两轴低分 · 综合 6.43/10 → 谨慎买入</div>
+
+<div class="score-table">
+  <div class="score-item">
+    <div class="score-num good">8</div>
+    <div class="score-name">格雷厄姆 · 深度价值</div>
+    <div class="score-bar"><div class="score-fill good" style="width:80%"></div></div>
+    <div class="score-out">PE 5.89 / PB 0.93 / P/EV 0.60x / 股息 5.21%（权重 15%）</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num mid">6</div>
+    <div class="score-name">费雪 · 成长投资</div>
+    <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+    <div class="score-out">NBV +11.2% / 人均 +14.1%；增速不及纯寿险同业（权重 10%）</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">7</div>
+    <div class="score-name">林奇 · PEG</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:70%"></div></div>
+    <div class="score-out">PEG ≈0.63（前瞻 PE 6.25 / CAGR 9.4%）；保险股适用性打折（权重 10%）</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">7</div>
+    <div class="score-name">邓普顿 · 逆向投资</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:70%"></div></div>
+    <div class="score-out">距高点 -30.9% / YTD -21.2%；悲观叙事压制（非极端恐慌，权重 15%）</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">3</div>
+    <div class="score-name">博格 · 指数投资</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+    <div class="score-out">个股非宽基；被动配置应选保险/红利指数（权重 5%）</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num mid">6</div>
+    <div class="score-name">马克斯 · 周期投资</div>
+    <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+    <div class="score-out">负债端复苏中期（利好）· 利率与股市周期叠加（权重 15%）</div>
+  </div>
+</div>
+
+<div class="method-grid">
+  <div class="method-card best">
+    <div class="method-name">格雷厄姆 · 深度价值</div>
+    <div class="method-author">Benjamin Graham · 权重 15%</div>
+    <span class="method-score good">8 / 10</span>
+    <div class="method-desc">PE-TTM 5.89、PB 0.93（逼近破净）、P/EV 0.60x、股息率 5.21% —— 价格显著低于内在价值的多重锚定；市值 9376 亿低于寿险 EV 9708 亿，隐蔽资产属性清晰。金融股 PB&lt;1 且盈利真实、偿付能力充裕，安全边际达标。</div>
+  </div>
+  <div class="method-card best">
+    <div class="method-name">巴菲特 · 护城河</div>
+    <div class="method-author">Warren Buffett · 权重 15%</div>
+    <span class="method-score good">8 / 10</span>
+    <div class="method-desc">A 股唯一全金融牌照集团（监管壁垒不可复制）+ 2.53 亿客户生态（交叉销售网络效应）+ CSM 7378 亿利润蓄水池 + 长期两位数 ROE；营运利润 +8.3% 的稳定性验证"持久竞争优势"。负债端同业竞争加剧为扣分项。</div>
+  </div>
+  <div class="method-card best">
+    <div class="method-name">邓普顿 · 逆向投资</div>
+    <div class="method-author">John Templeton · 权重 15%</div>
+    <span class="method-score warn">7 / 10</span>
+    <div class="method-desc">"最悲观点"特征部分具备：股价距 52 周高点 -30.9%、YTD -21.2%，"利差损"悲观叙事长期压制估值；预定利率企稳 + NBV 复苏已证伪部分悲观假设。但市场整体并非恐慌（大盘处 3700 点上方的牛市回调），逆向等级不打满。</div>
+  </div>
+  <div class="method-card best">
+    <div class="method-name">林奇 · PEG</div>
+    <div class="method-author">Peter Lynch · 权重 10%</div>
+    <span class="method-score warn">7 / 10</span>
+    <div class="method-desc">PEG ≈ 0.63（前瞻 PE 6.25 ÷ 2026-2028E 净利 CAGR 9.4%），显著 &lt;1；叠加 5.21% 股息率，"成长 + 股息"合计回报率约 15% > 15% 林奇门槛。打折原因：保险股净利受投资收益波动影响大，增长可见性弱于消费股。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">费雪 · 成长投资</div>
+    <div class="method-author">Philip Fisher · 权重 10%</div>
+    <span class="method-score warn">6 / 10</span>
+    <div class="method-desc">成长质量改善明确（人均 NBV +14.1%、新业务 CSM +18.3%、银保 +18.0%），但绝对增速不及头部同业（新华 +54% / 国寿 +33.7%）；综合金融的"稳健"稀释了成长弹性 —— 成长性非本票的核心买点，属"价值 + 温和成长"型。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">马克斯 · 周期投资</div>
+    <div class="method-author">Howard Marks · 权重 15%</div>
+    <span class="method-score warn">6 / 10</span>
+    <div class="method-desc">寿险负债端处"复苏 → 繁荣早段"（全行业 NBV 高增 + 代理人出清完成）；但估值修复的重要变量（利率、股市）仍处周期叠加的复杂象限 —— "钟摆"从悲观一侧回摆的方向有利，幅度与时点不确定。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">西蒙斯 · 量化投资</div>
+    <div class="method-author">Jim Simons · 权重 5%</div>
+    <span class="method-score warn">5 / 10</span>
+    <div class="method-desc">动量因子为负（低于全部均线、MACD 空头）；波动率高于 20 日均值（放量）；统计上无正动量信号，仅有"布林下轨 + 10 月低点共振"的均值回归特征 —— 量化视角：左侧、无催化的等待期。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">达里奥 · 全天候配置</div>
+    <div class="method-author">Ray Dalio · 权重 5%</div>
+    <span class="method-score warn">5 / 10</span>
+    <div class="method-desc">作为"价值 + 高股息"资产可作组合的收益增强项；但与股债的相关性对冲有限（金融 β 属性强），非核心全天候资产 —— 仓位宜控制在 5% 以内，属卫星配置而非压舱石。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">索罗斯 · 反身性</div>
+    <div class="method-author">George Soros · 权重 5%</div>
+    <span class="method-score warn">5 / 10</span>
+    <div class="method-desc">负反馈（利差损恐慌 → 估值压制 → 融资/销售承压）与正反馈（利率企稳 → 投资收益改善 → EV 上修 → 估值修复）的临界观察期；预定利率两季回升是最早的反身性转折信号，需三季报确认。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">凯恩斯 · 选美理论</div>
+    <div class="method-author">John Maynard Keynes · 权重 5%</div>
+    <span class="method-score bad">4 / 10</span>
+    <div class="method-desc">当前市场审美在科技成长主线（AI 算力、短剧、半导体），保险等低 β 价值板块持续失血（主力 25 日净流出 8.32 亿）——"选美"落选者；仅在风格切换（高低切）时具备资金回流弹性。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">博格 · 指数投资</div>
+    <div class="method-author">John Bogle · 权重 5%</div>
+    <span class="method-score bad">3 / 10</span>
+    <div class="method-desc">个股非宽基标的，指数化逻辑不适用；若以被动思路配置该赛道，应选择保险 / 红利类指数分散单票风险。低成本宽基原则在本标的场景下无操作意义（仅用于组合层面对照）。</div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 方法论冲突处理与最终倾向（三段式）</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>冲突点：</strong>价值三轴（格雷厄姆 8 / 巴菲特 8 / 邓普顿 7）给出"深度低估、基本面改善"的强信号，与动量两轴（凯恩斯 4 / 西蒙斯 5）"空头排列、资金流出、审美冰冷"的弱信号严重分歧 —— 加权后 6.43 分卡在"谨慎买入 / 买入"分界线下沿。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>分析原因：</strong>分歧本质是"价值 vs 时点"。价值锚（P/EV 0.60x、PB 0.93、股息 5.21%）是静态且可验证的；动量弱势是动态且可修复的（10-15 主力已边际转正）。保险股历史规律：估值低位 + 负债端复苏的组合最终会吸引资金，但等待期可能长达 2-4 个季度 —— 时间成本是主要风险。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>最终倾向：</strong>采纳 <strong style="color:#34d399">格雷厄姆 + 巴菲特 + 邓普顿</strong>价值三轴为决策主线，以"<strong style="color:#fbbf24">分批左侧（50-52 / 48.5-50 / 46.9-48.5）+ 硬止损（收盘破 46.90 清仓）+ 仓位 ≤5%</strong>"对冲时点风险；<strong>上修触发条件</strong>：三季报确认投资端可持续 + 站回 53.3（MA20/60）→ 可升级为"买入"；<strong>降级触发条件</strong>：NBV 增速失速或破 46.90 → 降为"持有观察"或止损离场。</p>
+  </div>
+</div>
+
+<div class="section-title ok">🧭 模块 11 · 操作策略与建议</div>
+<div class="section-subtitle">左侧分批 · 硬止损 46.90 · 目标 P/EV 修复至 0.70x（62-63 元）· 仓位 ≤5%</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card target">
+    <div class="strategy-title">🎯 目标价（12 / 24 个月 · 三情景）</div>
+    <div class="strategy-content">
+      <strong>12 个月：</strong><span class="hl-danger">保守 53 元（+2.4%）</span>—— EV 温和增长 + 折价维持（股息打底）；
+      <span class="hl-warn">中性 62-63 元（+20-22%）</span>—— P/EV 修复至 0.68-0.70x（与机构目标 63.04 元一致）；
+      <span class="hl-ok">乐观 70-71 元（+35-37%）</span>—— P/EV 0.78-0.80x（利率 + 股市共振）。<br>
+      <strong>24 个月：</strong><span class="hl-warn">中性 68 元</span>（2027E EV 上 P/EV ≈0.70x）＋ 期间累计股息约 5.4-5.6 元。<br>
+      <strong>说明：</strong>历史高位目标价（76-92.68 元）形成于 2026 年 1-3 月股价高位，参考性有限、不予采纳。
+    </div>
+  </div>
+  <div class="strategy-card stop">
+    <div class="strategy-title">🛑 止损与风险纪律</div>
+    <div class="strategy-content">
+      <strong>硬止损：</strong><span class="hl-danger">任一日收盘 &lt; 46.90 元（52 周低点）→ 清仓离场</span>，对应自现价 -9.4%、自建仓均价（约 49-50 元）-4~6%；破位即执行、不补仓不摊薄。<br>
+      <strong>观察位：</strong>收盘跌破 <span class="hl-warn">50.80（10 月低点）</span> → 暂停后续批次，等待企稳信号（放量长下影 / 收复 MA10 52.49）后再执行。<br>
+      <strong>逻辑：</strong>46.90 与"悲观情景隐含价 47 元"（EV -9.6% 且折价维持）重合 —— 跌破该位意味着市场定价的新利空超出本报告情景假设。
+    </div>
+  </div>
+  <div class="strategy-card position">
+    <div class="strategy-title">⚖️ 仓位管理</div>
+    <div class="strategy-content">
+      <strong>建议仓位：</strong><span class="hl-warn">≤5%</span>（稳健型 3%，进取型 5%）；单股上限 10% 的纪律下按"价值股 + 技术弱势"打折执行。<br>
+      <strong>上限逻辑：</strong>① 金融股 β 属性强（非防御资产）② 技术面弱势期需要仓位冗余 ③ 5% 仓位 + 5.21% 股息率 ≈ 组合层面 0.26% 的年化股息贡献。<br>
+      <strong>红利再投资：</strong>股息到账后按"低于成本价 5% 以上"择机再投资，放大复利。
+    </div>
+  </div>
+  <div class="strategy-card cycle">
+    <div class="strategy-title">⏳ 持有周期</div>
+    <div class="strategy-content">
+      <strong>中线 12-24 个月：</strong>等待 P/EV 从 0.60x 修复至 0.70x + 期间股息收益，合计预期回报 ≈25-30%（中性情景）。<br>
+      <strong>不做短线博弈：</strong>当前无正动量信号（空头排列），短线胜率低；本策略为"价值等待 + 股息复利"，与时间做朋友。<br>
+      <strong>时间成本警示：</strong>若 12 个月后 P/EV 仍在 0.60x 以下且 NBV 失速，视为逻辑失效，换仓处理。
+    </div>
+  </div>
+  <div class="strategy-card monitor">
+    <div class="strategy-title">🔔 关键监测指标（每季度跟踪）</div>
+    <div class="strategy-content">
+      <strong>① NBV 增速：</strong>全年维持 ≥8%（2026H1 +11.2%）；连续两季 &lt;5% 或转负 → 基本面警报。<br>
+      <strong>② 综合投资收益率：</strong>年化 ≥3.5% 为合格线（H1 非年化 2.1%）；长端利率与股市是先行变量。<br>
+      <strong>③ 分红政策：</strong>年度股息 ≥2.70 元且保持提升；中期分红若下调 → 股东回报逻辑破坏。<br>
+      <strong>④ 代理人产能 / 银保：</strong>人均 NBV 保持增长、银保 NBV 增速 ≥10%。<br>
+      <strong>⑤ 偿付能力：</strong>综合 ≥150%（当前 198.1%），跌破为红色警报。
+    </div>
+  </div>
+  <div class="strategy-card stop">
+    <div class="strategy-title">📤 卖出信号（触发任一即行动）</div>
+    <div class="strategy-content">
+      <strong>① 估值到位：</strong>P/EV ≥ 1.0x（对应市值 1.6 万亿+，约 88 元以上）→ 分批止盈。<br>
+      <strong>② 基本面恶化：</strong>NBV 连续 2 季负增长，或营运利润同比转负 → 清仓（价值逻辑失效）。<br>
+      <strong>③ 股东回报破坏：</strong>年度分红下调或取消 → 清仓。<br>
+      <strong>④ 资本充足性恶化：</strong>集团综合偿付能力 &lt;150% → 清仓。<br>
+      <strong>⑤ 技术止损：</strong>收盘破 46.90 → 机械执行清仓（见止损纪律）。
+    </div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">🗓️ 分批建仓计划（计划仓位 = 组合 5% 以内；总批次 100% = 本标的目标仓位）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>批次</th><th>价格区间</th><th>占计划仓位</th><th>触发条件与说明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ok">第 1 批</td>
+        <td class="ok">50.0 - 52.0 元</td>
+        <td class="ok">30%</td>
+        <td>现价 51.78 元位于区间内 —— 立即建底仓；<b>不追高于 53.3</b>（MA20/60 压力带）</td>
+      </tr>
+      <tr>
+        <td class="mid">第 2 批</td>
+        <td class="mid">48.5 - 50.0 元</td>
+        <td class="mid">30%</td>
+        <td>回踩 10 月低点下方确认支撑；间隔 ≥2 周或价格触发，二者先到为准</td>
+      </tr>
+      <tr>
+        <td class="warn">第 3 批</td>
+        <td class="warn">46.9 - 48.5 元（企稳后）</td>
+        <td class="warn">40%</td>
+        <td>逼近 52 周低点 46.90 的价值加仓区 —— <b>仅在收盘未跌破 46.90 前执行</b>；需企稳信号（放量长下影 / 收复 MA10）；<b style="color:#f87171">若收盘破 46.90：全部加仓计划取消，已建仓位执行止损</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="color:#94a3b8; font-size:11px; margin-top:10px; line-height:1.6;">
+    仓位纪律：三批合计不超过计划仓位（组合 ≤5%）；任何情况下不临时加码；极端下跌（&lt;46.90）只执行止损、不执行"抄底"。全程以"季度监测指标"为持仓健康度体检。
+  </div>
+</div>
+
+<div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+<div class="section-subtitle">每条含触发条件 / 影响幅度 / 应对策略</div>
+
+<div class="risk-grid">
+  <div class="risk-card">
+    <div class="risk-title">🔻 1. 投资端与利差损风险（核心风险）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>长端利率再度下行（预定利率研究值回落）或权益市场大幅回撤，导致年化综合投资收益率跌破 3.5% 警戒线（2026H1 非年化 2.1%）。<br>
+      <strong>影响幅度：</strong>EV 敏感性 —— 投资收益率每年 ±50bp → 集团 EV ∓9.6%（17186 / 14171 亿）；若折价维持 0.60x，隐含市值下修至 8503 亿（约 47 元）。<br>
+      <strong>应对策略：</strong>每季跟踪综合投资收益率与分红险占比；连续两季恶化 → 下调评级至"持有观察"并减半仓。
+    </div>
+  </div>
+  <div class="risk-card">
+    <div class="risk-title">🔻 2. 高基数回落与业绩波动风险</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>2026H2 投资端重演 2025H2 高基数（TTM 净利 1593 亿中含 2026H1 投资高弹性），三季报 / 年报净利同比转负（一致预期 2026E 净利 1496 亿已隐含 H2 回落至约 570 亿）。<br>
+      <strong>影响幅度：</strong>PE 分母下修、估值修复延后 2-4 个季度，短期股价承压 5-10%。<br>
+      <strong>应对策略：</strong>三季报（10 月下旬）为核心验证点；低于一致预期 10% 以上 → 减半仓，等待预期出清后回补。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">🔻 3. 技术面破位与系统性风险</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>收盘跌破 46.90（52 周低点 + 硬止损位），或大盘系统性下跌延续（如 2026-10-15 放量普跌 -1.59%、超 5100 只下跌的行情反复）。<br>
+      <strong>影响幅度：</strong>破位后下一支撑需下修至 42-43 元区间（较止损位再跌约 -9%）；金融股在系统性下跌中 β&gt;1 放大跌幅。<br>
+      <strong>应对策略：</strong>止损纪律机械执行（收盘破 46.90 当日清仓）；大盘层面监控成交额与跌停家数，极端风险日推迟加仓计划。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">🔻 4. 负债端竞争与转型风险</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>NBV 增速自 Q3 起回落至 &lt;5% 或连续两季负增长；"报行合一"深化下银保渠道收缩超预期；同业（国寿 +33.7% / 新华 +54%）持续以更高增速抢占市场。<br>
+      <strong>影响幅度：</strong>估值锚 P/EV 的修复逻辑失效，估值可能长期停留 0.5-0.6x（"价值陷阱"化）。<br>
+      <strong>应对策略：</strong>每季 NBV 数据发布后评估；增速失速即把评级降至"持有观察"，仓位压缩至 3% 上限。
+    </div>
+  </div>
+  <div class="risk-card info">
+    <div class="risk-title">🔻 5. 地产 / 信用敞口风险</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>不动产投资与信托敞口减值扩大（具体敞口规模未独立核验），或平安银行不良率突破 1.3%（当前 1.05%）；地产债务违约潮再起。<br>
+      <strong>影响幅度：</strong>一次性减值或拖累年度净利 5-10%，并冲击"财务稳健"的叙事（格雷厄姆打分的核心依据）。<br>
+      <strong>应对策略：</strong>半年报 / 年报跟踪不动产敞口明细与银行资产质量（当前拨备覆盖率 219.58% 提供缓冲）；敞口数据恶化 → 减仓 1/3。
+    </div>
+  </div>
+</div>
+
+<div class="data-note">
+  <strong>📌 来源与复核记录（本报告全量数据溯源）：</strong><br>
+  ✅ 行情与估值：东方财富 push2 接口（2026-10-15 收盘 51.78 元、PE-TTM 5.89、PB 0.93）+ 腾讯证券（2026-10-15 收盘 51.78 元、PE-TTM 5.88）—— 价格与估值双源核验一致<br>
+  ✅ 财务数据：公司公告 —— 《2026 年中期报告》（2026-08-20）、《2025 年年度报告》（2026-03）、《2026 年中期利润分配方案》；巨潮资讯 / 新浪财经公告页面<br>
+  ✅ 技术指标：腾讯前复权 K 线（2025-10 至 2026-10，250 个交易日）经脚本自算 —— MA/MACD/RSI/BOLL 全可复现；主力资金流来自东方财富资金流接口（近 25 个交易日）<br>
+  ✅ 同业数据：腾讯 / 东方财富快照（2026-10-16 盘中）；各公司 2026 中报（国寿 1344.89 亿 / 太保 307.75 亿 / 新华 227.93 亿 / 人保 367.45 亿）<br>
+  ✅ 行业数据：预定利率研究值 2026Q2 = 1.94%（行业协会披露）；分红险演示利率上限调整、报行合一为公开监管政策<br>
+  ✅ 机构观点：2026-08 研报评级与目标价（国信 / 中金 / 中信 / 招商 / 国泰君安）及单一研报目标价 63.04 元<br>
+  ⚠️ 数据缺口（未独立核验，报告中已逐处标注）：北向资金净流入、公募 / 社保 / QFII 最新持仓、商誉规模、其他险企 EV、2026 三季报（预计 10 月下旬披露）<br>
+  📐 自算口径说明：P/EV = 总市值 ÷ 集团 EV（15678 亿）；TTM 净利 = 2025H2（667.5 亿）+ 2026H1（925.85 亿）；PEG = 前瞻 PE ÷ 2026-2028E EPS CAGR；ROE 年化 = H1 非年化 × 2（粗算）<br>
+  🕐 数据快照时点：行情基准 2026-10-15 收盘；同业与盘中数据 2026-10-16；报告生成日 2026-10-16。
+</div>
+
+<div class="footer">
+  中国平安（601318）｜报告截止日 2026-10-15（周四收盘）｜生成日期 2026-10-16（周五）｜11 方法论交叉验证 × 12 模块标准输出<br>
+  证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+  数据源：东方财富 / 腾讯证券 / 公司公告（2026 中报、2025 年报）/ 公开新闻与机构研报
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-22 A股复盘 · 创业板指失守2600点创阶段新低 · 跌停49家高位股崩塌 · 机器人与银行红利逆势</title>
+<style>
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(56,189,248,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.40);
+    border-radius: 20px; padding: 36px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(16,185,129,0.22), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 26px; font-weight: 700;
+    background: linear-gradient(90deg, #34d399, #38bdf8, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .header .subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+  .section-title {
+    font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #34d399; color: var(--text-primary); font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .data-note {
+    background: var(--card-deep); border: 1px dashed var(--border-mid);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(16,185,129,0.10); border-left: 5px solid #10b981;
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 16px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #34d399; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(52,211,153,0.20); color: #34d399; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion.warn .conclusion-item .num { background: rgba(245,158,11,0.20); color: #fbbf24; }
+  .conclusion.danger .conclusion-item .num { background: rgba(239,68,68,0.20); color: #f87171; }
+  .conclusion.info .conclusion-item .num { background: rgba(56,189,248,0.20); color: #38bdf8; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🚀 2026-10-22 A股复盘 · 创业板指失守2600点创阶段新低 · 跌停49家高位股崩塌 · 机器人与银行红利逆势</h1>
+    <div class="subtitle">沪指 -1.48% 报 3658.03 · 三市成交 15419 亿（放量 998 亿）· 下跌 4826 家 · 跌停 49 家 · 涨停 33 家 · 创业板指回撤超 40%</div>
+    <div class="badges">
+      <span class="badge badge-danger">🔴 跌停 49 家 · D-1 连板梯队崩塌</span>
+      <span class="badge badge-source">📅 2026-10-22（周四）收盘</span>
+      <span class="badge badge-source">📊 同花顺 + 东方财富 + 新浪财经 + 四大证券报</span>
+      <span class="badge badge-warn">⚠️ 放量下跌 998 亿 · 创业板指创 2025/8 以来新低</span>
+      <span class="badge badge-purple">🧠 中办国办科创产融意见 + 特斯拉 Optimus 量产</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据口径与双源验证：</strong><br>
+    ✅ <span class="ok">五大指数收盘点位与涨跌幅</span> —— 东方财富行情接口（push2.eastmoney.com）+ 新浪财经《A股收评》（格隆汇）+ 同花顺《A股收评》，<b>三源逐字段完全一致</b>；另经腾讯行情（qt.gtimg.cn）二次复核，无偏差<br>
+    ✅ <span class="ok">三市成交额</span> —— 同花顺口径 15419 亿；东财分市场加总 15422.47 亿（沪 7060.96 + 深 8226.18 + 北 135.33），差 3.47 亿，属<span class="info-text">四舍五入误差</span><br>
+    ✅ <span class="ok">上涨 / 下跌家数</span> —— 同花顺与新浪口径一致为「近 5000 只个股下跌」；东财涨跌分布接口为 上涨 516 / 下跌 4826 / 平盘 33（合计 5375），<b>三源无冲突</b><br>
+    ✅ <span class="ok">ETF 涨跌榜 TOP3 / TOP3</span> —— 同花顺《ETF收评》与新浪财经 ETF 实时榜逐只比对，<b>6 只全部一致（含 526030 港股通信息技术 ETF）</b>；A 股科技 ETF 另经腾讯行情复核<br>
+    ✅ <span class="ok">涨停 / 跌停家数与连板梯度</span> —— 东方财富涨停板池 33 家 / 跌停板池 49 家；同花顺《A股收评》独立确认 5 连板大业股份、3 连板星光股份与三峡新材、2 连板 4 只，<b>两源一致</b><br>
+    ⚠️ <span class="warn-text">板块涨跌幅口径差</span> —— 同花顺为「板块指数涨跌幅」（仅列涨跌居前，未给数值），新浪为「板块成分股平均涨跌幅」。<b>两者口径不同不可直接互换</b>，报告中同花顺作板块归类、新浪作方向交叉验证，不做数值合并<br>
+    ⚠️ <span class="warn-text">主力资金仅单源</span> —— 东方财富板块资金流接口今日被 WAF 拦截（多次重试均返回空），仅能采用同花顺《A股收评》的「主题 / 概念」口径 TOP3，<b>缺申万一级行业口径交叉验证，不做合并加总</b><br>
+    ⚠️ <span class="warn-text">数据缺口</span> —— 炸板率 / 封板时间分布 / 连板晋级率 / 北向资金当日净流入，本次采集的公开接口未提供；申万一级行业完整涨跌幅排名亦未取得
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🔻</div>
+    <div class="text">
+      <h3>主线第五次切换 —— 从 D-1 的「算力 + 数据要素」切向「机器人 + 机械」，而 D-1 主线算力硬件单日崩塌</h3>
+      <p>今日 A 股是<b>放量杀跌 + 极致结构</b>的极端组合：沪指 -1.48% 报 3658.03，深证成指 -2.96% 报 11357.32，<b>创业板指 -4.37% 报 2576.90 失守 2600 点并创 2025 年 8 月以来新低（自今年历史高位已回撤超 40%）</b>，科创50 -2.78%，北证50 -0.93%。三市成交 <b>15419 亿，放量 998 亿</b>，全市场下跌 4826 家、<b style="color:#fca5a5">跌停 49 家</b>（D-1 仅 5 家）。</p>
+      <p><b>逆势资金去向：</b>人形机器人 / 电机（大业股份 5 连板、兆威机电 4 天 2 板、奕帆传动 20cm 涨停，机器人 ETF 159272 +0.55% 逆势收红）、工程机械（山河智能、南方路机涨停，9 月挖掘机销量同比 +14.4%）、银行红利（<b style="color:#34d399">工商银行 +1.66%、建设银行 +1.48% 盘中创历史新高</b>，六大行中期分红比例由 30% 上调至 31%）—— 资金<b style="color:#34d399">全面转向「有产业催化 + 有分红锚」的低波方向</b>。</p>
+      <p><b style="color:#fca5a5">崩塌面：</b>算力硬件「易中天」集体重挫（新易盛 -12.28%、中际旭创 -8.76%、天孚通信 -8.36%，创业板算力 ETF 6 只全线 -4.65% ~ -5.79%）；文化传媒 / AI 视频<b style="color:#fca5a5">集体跌停</b>（新华传媒、粤传媒、龙版传媒、德才股份、引力传媒、新经典、内蒙新华、博纳影业）；D-1 的连板梯队大面积断裂（东安动力 4 连板、京城股份 3 连板双双跌停，2 连板永达股份 / 泰尔股份 / 同为股份 / 粤传媒全数跌停）。</p>
+    </div>
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">⚠️</div>
+    <div class="text">
+      <h3>风险提示：高位妖股密集澄清是压垮题材的最后一击 —— 今日是「概念退潮 + 权重杀跌 + 放量恐慌」的三重共振</h3>
+      <p><b>异动公告集中爆发：</b>10 月 21 日晚，<b>大业股份</b>（5 连板）公告「机器人腱绳产品目前尚未批量生产，未产生实质性收益」、<b>海洋王</b>（5 连板）公告「AI + 智慧照明相关业务收入规模有限」且「不属于核电概念」、<b>东安动力</b>（D-1 的 4 连板）公告「不从事飞行汽车整车业务」且「尚处试制阶段，未形成批量生产」——今日 <b style="color:#fca5a5">-9.96% 跌停</b>；<b>泰尔股份</b>（工业机器人业务占营收 3.82%）、<b>同为股份</b>（大模型 AI 出货未形成规模）、<b>太极股份</b>（与国家数据集团尚无具体合作，数据要素业务占营收约 2%）、<b>日海智能</b>（高算力模组收入占营收约 1%）、<b>九阳股份</b>（与华为不存在战略合作）<b style="color:#fca5a5">逐一澄清</b>。这批公告精准击穿了 D-1 以来的「题材接力」叙事，是今日跌停数暴增至 49 家的核心触发因素。</p>
+      <p><b>指数破位：</b>沪指与创业板指盘中双双创 2025 年 8 月以来新低，创业板指较年内高点回撤超 40%；放量下跌 998 亿属<b style="color:#fca5a5">恐慌抛售</b>而非缩量磨底，涨跌比降至 <b>0.11 : 1</b>（D-1 为 0.59 : 1），赚钱效应接近冰点。</p>
+      <p><b>防御重回有效性：</b>与 D-1 的「防御连续瓦解」相反，今日银行、央企、红利是<b style="color:#34d399">唯一有效的避风港</b>（金融行业 -0.92%、酿酒 -0.39%、基金重仓 -0.38% 均为全市场跌幅最小方向），与创金合信魏凤春「红利风格成为阶段性主线、成长遭遇估值与情绪双杀」的判断一致。</p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 一、五大核心指数表现</div>
+  <div class="dashboard">
+    <div class="index-card danger">
+      <div class="tag danger">创阶段新低</div>
+      <div class="name">创业板指 · 399006</div>
+      <div class="value">2576.90</div>
+      <div class="change danger-text">-117.81 / -4.37%</div>
+      <div class="label">失守 2600，较今年历史高位回撤超 40%；「易中天」集体重挫 + 宁德时代续跌 3.29%</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">破位</div>
+      <div class="name">深证成指 · 399001</div>
+      <div class="value">11357.32</div>
+      <div class="change danger-text">-347.03 / -2.96%</div>
+      <div class="label">D-1 收盘 11704.35 全线失守，电子与通信权重为主要拖累</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">创 2025/8 以来新低</div>
+      <div class="name">上证指数 · 000001</div>
+      <div class="value">3658.03</div>
+      <div class="change danger-text">-55.00 / -1.48%</div>
+      <div class="label">盘中创 2025 年 8 月以来新低；权重搭台但题材缺席，仅银行逆势</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">同步破位</div>
+      <div class="name">科创50 · 000688</div>
+      <div class="value">1305.87</div>
+      <div class="change danger-text">-37.41 / -2.78%</div>
+      <div class="label">D-1 唯一收红宽基今日大幅回吐，科创成长 ETF 全线跌逾 5%</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">相对抗跌</div>
+      <div class="name">北证50 · 899050</div>
+      <div class="value">966.74</div>
+      <div class="change danger-text">-9.04 / -0.93%</div>
+      <div class="label">五大指数中跌幅最小，小微盘相对抗跌；北交所市值配售政策仍在推进</div>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 二、市场交易与资金信号</div>
+  <div class="market-stats">
+    <div class="stat-card danger">
+      <div class="stat-name">三市成交额</div>
+      <div class="stat-value">15,419 亿</div>
+      <div class="stat-detail">沪 7,060.96 亿 + 深 8,226.18 亿 + 北 135.33 亿（东财分市场加总 15,422.47 亿）<br>同花顺口径 15,419 亿 · <b style="color:#fca5a5">较上日放量 998 亿</b>（D-1 为 14,421 亿）<br><b style="color:#fca5a5">放量下跌 = 恐慌抛售</b>，非缩量磨底</div>
+    </div>
+    <div class="stat-card danger">
+      <div class="stat-name">上涨 / 下跌家数</div>
+      <div class="stat-value">516 / 4,826</div>
+      <div class="stat-detail">平盘 33 家，合计 5,375 家（东财涨跌分布接口）<br>同花顺 / 新浪口径「近 5000 只个股下跌」<br><b style="color:#fca5a5">涨跌比 0.11 : 1</b>，D-1 为 0.59 : 1，赚钱效应接近冰点</div>
+    </div>
+    <div class="stat-card danger">
+      <div class="stat-name">涨停 / 跌停</div>
+      <div class="stat-value">33 / 49</div>
+      <div class="stat-detail">东财涨停板池 33 家、跌停板池 49 家<br><b style="color:#fca5a5">跌停数首超涨停数（D-1 为 50 / 5）</b><br>炸板率与连板晋级率 <b style="color:#fbbf24">数据缺口待核实</b></div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-name">风格与 ETF 信号</div>
+      <div class="stat-value">机器人 / 红利 逆势</div>
+      <div class="stat-detail">涨：机器人ETF富国 159272 <b style="color:#34d399">+0.55%</b> / 机器人ETF易方达 159530 +0.33% / 银行ETF汇添富 512820 +0.13%<br>跌：创业板人工智能ETF 159388 <b style="color:#fca5a5">-6.12%</b> / 创业板算力ETF广发 158049 <b style="color:#fca5a5">-5.79%</b> / 港股信息技术ETF 159047 -6.70%<br>风格由 D-1 的「算力单极」切向「<b>机器人 + 红利</b>」</div>
+    </div>
+  </div>
+
+  <div class="section-title">🔀 三、主力资金净流入板块 TOP3</div>
+  <div class="flow-table">
+    <div class="flow-row header">
+      <div>排名</div><div>板块名称</div><div>主力净流入</div><div>板块表现与说明</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">1</div>
+      <div>小米汽车 <span class="info-text" style="font-size:11px">（同花顺主题口径）</span></div>
+      <div class="flow-val up">+11.80 亿</div>
+      <div>同花顺《A股收评》披露，板块内 <b>17 股上涨</b>。为今日唯一净流入超 10 亿且具备<b>产业载体（汽车 / 电机）</b>的主题 —— 与「人形机器人 / 电机」主线同源</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">2</div>
+      <div>换电概念 <span class="info-text" style="font-size:11px">（同花顺主题口径）</span></div>
+      <div class="flow-val up">+11.66 亿</div>
+      <div>板块内 <b>8 股上涨</b>。属新能源车产业链的<b>局部承接</b>而非板块反转 —— 宁德时代今日仍跌 3.29%、新浪锂电池 -2.60%、固态电池 -3.16%</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">3</div>
+      <div>动力电池回收 <span class="info-text" style="font-size:11px">（同花顺主题口径）</span></div>
+      <div class="flow-val up">+10.59 亿</div>
+      <div>板块内 <b>7 股上涨</b>。与 D-1 的「电池链全线崩塌」形成反差，但属<b style="color:#fbbf24">产业链末端的局部轮动</b>，尚不能视作电池主线回归</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank info">补</div>
+      <div>东方财富板块口径 TOP5（交叉参考）</div>
+      <div class="flow-val info-text">数据缺口待核实</div>
+      <div><b style="color:#fbbf24">本次东方财富板块资金流接口被 WAF 拦截</b>（push2.eastmoney.com 板块列表与个股接口多次重试均返回空），申万一级行业口径的主力净流入数据<b>未取得</b>，此处留空不编造</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank" style="color:#f87171">出</div>
+      <div>资金撤离方向（由板块涨跌幅与权重股表现交叉印证）</div>
+      <div class="flow-val down">算力硬件 / 传媒 / CRO 领跌</div>
+      <div>新浪概念口径：华为概念 -4.96%、CRO 概念 -5.08%、CXO 概念 -5.20%、文化振兴 -4.50%、网络游戏 -4.40%；行业口径：传媒娱乐 -5.26%、电子信息 -3.80%、陶瓷 -6.03%。<b style="color:#fca5a5">资金明确从「算力 + 传媒 + 医药外包」三条线撤出</b></div>
+    </div>
+  </div>
+
+
+  <div class="section-title">🎯 四、今日主线板块与逻辑（三段式时间脉络）</div>
+  <div class="mainlines">
+
+    <div class="mainline-card rank-1">
+      <div class="mainline-rank">1</div>
+      <div class="title">🤖 人形机器人 / 电机 · 特斯拉 Optimus 量产 + 英伟达 Isaac 升级</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 升</span>
+        <span class="mainline-tag up">逆势主线</span>
+        <span class="mainline-tag purple">特斯拉催化</span>
+        <span class="mainline-tag info">机器人ETF 159272 +0.55%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-20）</b>：人形机器人 <b>+3.44%</b>、主力净流入 <b>50.58 亿</b>居当日 TOP1，机器人 ETF 159272 <b>+4.84%</b>、科创 AI ETF 588790 +5.14% 领涨全市场，原文标注「<b>新主线确立 🔼 升</b>」<br>
+        ├─ <b>D-1（2026-10-21）</b>：主线让位算力 / 数据要素，人形机器人 <b>-0.35%</b>、主力净流出 <b>15.73 亿</b>，原文明确列为「D-1 第一主线今日整体退潮」，定性「<b>退潮</b>」<br>
+        └─ <b>今日（2026-10-22）</b>：大业股份 5 连板、海洋王 5 连板、兆威机电 4 天 2 板 <b>+10.00%</b>、奕帆传动 <b>20cm 涨停</b>、鸣志电器 +10.00%、大洋电机 +9.97%；机器人 ETF 159272 <b>+0.55%</b>、159278 +0.35%、159530 +0.33% <b>逆势收红</b> → <b style="color:#34d399">🔼 升</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>机器人链条是今日<b style="color:#34d399">唯一具备「ETF 逆势收红」证据的主线</b>。兆威机电（003021）收 83.39 元 +10.00%（4 天 2 板）、奕帆传动（301023）收 32.48 元 +19.99%（20cm，换手 20.67%、量比 10.17）、鸣志电器（603728）收 54.47 元 +10.00%、大洋电机（002249）收 7.06 元 +9.97%、大业股份（603278）收 14.51 元 +10.01%（5 连板）、海洋王（002724）收 11.21 元 +10.01%（5 连板）；机器人 ETF 159272 +0.55%、159278 +0.35%、159530 +0.33% 在全市场普跌中<b style="color:#34d399">集体收红</b>。<br>
+        <b>催化：</b>① <b>特斯拉 Optimus V3 明确量产准备</b> —— 公司已在弗里蒙特产线开始生产首批达到量产质量标准的 Optimus 机器人，马斯克称「至少需要一年，或许更久」才能达到年产量 100 万台（每周 2 万台），并透露可能在一个月左右发布 Optimus 演示视频；② <b>英伟达 GTC 柏林大会</b>宣布升级 Isaac 通用机器人开发平台，推出新的人形机器人参考框架、仿真工作流及数据工具，预计 2027 年推出；黄仁勋称一座年收入 400 亿美元的 AI 数据中心晚投产三个月的代价是 100 亿美元，并宣布向欧洲全科技生态投入近 100 亿美元、合作伙伴超 12000 家；③ <b>宇树科技（688836）发布「H2-X（功夫传奇）」人形机器人</b>，站立工况续航约 8 小时，可撞击车门致其变形、可从 4 米高台安全落地并完成武术动作；④ 马斯克称人形机器人将成全球最大产业。<br>
+        <b>⚠️ 风险提示（本日最关键）：</b>新浪「机器人概念」板块平均仍为 <b style="color:#fca5a5">-1.82%</b> —— 说明这是「<b>龙头逆势、跟风杀跌</b>」而非板块级反转。更关键的是，<b style="color:#fca5a5">大业股份 10/21 晚已公告「机器人腱绳产品目前尚未批量生产，未产生实质性收益」，海洋王公告「AI + 智慧照明相关业务收入规模有限」</b> —— 两只 5 连板龙头的概念与业绩脱节已被公司自己确认，追高风险显著。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>兆威机电</b> 003021 · +10.00%（4天2板）</span>
+        <span class="stock-chip"><b>奕帆传动</b> 301023 · 20cm 涨停</span>
+        <span class="stock-chip"><b>鸣志电器</b> 603728 · +10.00%</span>
+        <span class="stock-chip"><b>大洋电机</b> 002249 · +9.97%</span>
+        <span class="stock-chip"><b>大业股份</b> 603278 · 5 连板（已澄清）</span>
+        <span class="stock-chip"><b>机器人ETF</b> 159272 +0.55%</span>
+      </div>
+    </div>
+
+    <div class="mainline-card rank-2">
+      <div class="mainline-rank">2</div>
+      <div class="title">🏗️ 工程机械 / 兵装重组 · 9 月挖掘机销量 +14.4%，出口 +20.7%</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 升</span>
+        <span class="mainline-tag up">逆势涨停</span>
+        <span class="mainline-tag purple">行业数据催化</span>
+        <span class="mainline-tag info">出口 +20.7%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-20）</b>：工程机械未进入主线 TOP6，定性「<b>未启动</b>」；同期「地面兵装 -2.47%、主力 -3.92 亿」仍在退潮<br>
+        ├─ <b>D-1（2026-10-21）</b>：工程机械未进入主线 TOP6，定性「<b>未启动</b>」；机械链条整体属深度调整方向<br>
+        └─ <b>今日（2026-10-22）</b>：<b>山河智能 +10.00%、南方路机 +9.99% 双双涨停</b>；同花顺《A股收评》将「<b>工程机械（881268）</b>」「<b>兵装重组概念（886101）</b>」列入「表现相对领先」板块 → <b style="color:#34d399">🔼 升</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>山河智能（002097）收 7.26 元 +10.00%、南方路机（603280）收 29.06 元 +9.99%，两只同日涨停且封板时间集中在 9:44-9:45，属早盘主动进攻而非尾盘偷袭；同花顺收评同时点名工程机械与兵装重组概念为「表现相对领先」。<br>
+        <b>催化：</b>中国工程机械工业协会对挖掘机主要制造企业统计，<b>2026 年 9 月销售各类挖掘机 22717 台，同比增长 14.4%</b>；其中国内销量 9911 台（含电动挖掘机 218 台）同比 +7.16%，<b>出口 12806 台（含电动 65 台）同比 +20.7%</b> —— 出口是主要驱动，验证「中国机械出海」逻辑。同时工信部披露截至 2026 年 9 月底我国智能算力规模达 2592 EFLOPS、同比增长 146%，为智能装备提供需求底。<br>
+        <b>⚠️ 口径提示（必须区分）：</b>新浪「机械行业」板块（211 只成分股）平均涨跌幅为 <b style="color:#fca5a5">-3.53%</b>，居行业跌幅前列 —— 说明本轮是「<b>工程机械 + 兵装重组的细分结构性走强</b>」，而非机械全行业反转，<b>不可外推至整个机械板块</b>。新浪口径与同花顺「表现相对领先」的差异源于「板块指数涨跌幅」与「成分股平均涨跌幅」两套算法，已按数据口径分开呈现。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>山河智能</b> 002097 · +10.00%</span>
+        <span class="stock-chip"><b>南方路机</b> 603280 · +9.99%</span>
+        <span class="stock-chip"><b>挖掘机 9 月销量</b> 22717 台 +14.4%</span>
+        <span class="stock-chip"><b>出口</b> 12806 台 +20.7%</span>
+      </div>
+    </div>
+
+    <div class="mainline-card rank-3">
+      <div class="mainline-rank">3</div>
+      <div class="title">🏦 银行 / 央企 / 红利 · 防御重新成为唯一有效避风港</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔀 切</span>
+        <span class="mainline-tag up">盘中新高</span>
+        <span class="mainline-tag purple">中期分红催化</span>
+        <span class="mainline-tag info">工行 +1.66%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-20）</b>：银行 <b>-1.12%</b>，与白酒 -1.11%、证券 -1.07%（主力 -21.31 亿）、保险 -2.25% 构成原文「<b>防御三杀</b>」，定性「🔽 降 / 防御主线彻底终结」<br>
+        ├─ <b>D-1（2026-10-21）</b>：银行Ⅱ <b>-0.58%</b>，白酒Ⅱ -1.40%、证券Ⅱ 主力 -35.46 亿，原文定性「<b>防御逻辑连续三个交易日瓦解</b>」，定性「🔽 降 / 无避风港」<br>
+        └─ <b>今日（2026-10-22）</b>：<b>工商银行 +1.66%、建设银行 +1.48%（双双盘中创历史新高）</b>、农业银行 +1.51%；银行 ETF 512820 +0.13% / 512800 +0.12%、央企 ETF 510060 +0.30%；新浪金融行业 -0.92%、基金重仓 -0.38%、QFII 重仓 -0.30% <b>均为全市场跌幅最小方向</b> → <b style="color:#34d399">🔀 切</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>新浪收评「部分银行股午后拉升，工行、建行、中行创历史新高」。腾讯行情复核：工商银行（601398）收 8.59 元 <b>+1.66%</b>、建设银行（601939）收 11.66 元 <b>+1.48%</b>、农业银行（601288）收 7.40 元 +1.51%；但中国银行（601988）-0.28%、招商银行（600036）-1.09%、民生银行（600016）-1.44% —— <b>大行强于股份制</b>，红利属性越纯越抗跌。ETF 端银行 ETF 汇添富 512820 +0.13%、华宝 512800 +0.12%、央企 ETF 工银 510060 +0.30%，是全市场仅有的正收益宽基方向。<br>
+        <b>催化：</b>① 10 月 21 日<b>工商银行、农业银行向 A 股股东派发 2026 年中期现金红利，合计约 821.44 亿元</b>；截至目前已有 21 家 A 股上市银行披露中期分红方案，拟派现总额超 2600 亿元，<b>六大行中期分红比例统一从 30% 上调至 31%</b>；② 上交所 10 月 21 日召开首批主动 ETF 市场动员会（9 家首批主动 ETF 基金管理人 + 7 家证券公司），引导中长期资金入市；截至 2026 年 9 月底上交所上市 ETF 共 943 只、总规模 3.35 万亿元，其中<b>中长期资金持有规模近 1.7 万亿元、占比过半</b>；③ 中办国办 10 月 21 日发布《关于推动科技创新和产业创新深度融合的意见》，提出 17 条举措并全面实施「人工智能+」行动，强化「十五五」产业政策锚。<br>
+        <b>逻辑：</b>D-1 的「防御瓦解」结论在今日被<b style="color:#34d399">完整推翻</b> —— 在成长股杀估值 + 高位股崩塌 + 放量恐慌的三重压力下，红利是唯一稳定的资金去处。这与创金合信基金首席经济学家魏凤春「防御板块领跑、红利板块迎来持续资金流入、<b>红利风格成为阶段性主线</b>」的判断，以及中金公司李求索「科技 + 红利哑铃型结构」的配置建议高度一致 —— <b>今日盘面已用脚投票验证了这两条中期观点</b>。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>工商银行</b> 601398 · +1.66% 盘中新高</span>
+        <span class="stock-chip"><b>建设银行</b> 601939 · +1.48% 盘中新高</span>
+        <span class="stock-chip"><b>农业银行</b> 601288 · +1.51%</span>
+        <span class="stock-chip"><b>银行ETF</b> 512820 +0.13%</span>
+        <span class="stock-chip"><b>央企ETF</b> 510060 +0.30%</span>
+        <span class="stock-chip"><b>六大行中期分红比例</b> 30%→31%</span>
+      </div>
+    </div>
+
+    <div class="mainline-card danger">
+      <div class="mainline-rank" style="color:#f87171">4</div>
+      <div class="title">⚡ 算力硬件 / CPO / PCB / 光通信 · D-1 第一主线单日崩塌</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag down">🔽 降</span>
+        <span class="mainline-tag down">D-1 第一主线</span>
+        <span class="mainline-tag danger">权重集体重挫</span>
+        <span class="mainline-tag info">创业板算力ETF -5.79%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-20）</b>：AI 硬件链集体走强（AI 芯片 +3.93%、AI 眼镜 +3.57%、AIPC +3.51%、AI 手机 +3.48%），科创 AI ETF 588790 +5.14% 领涨全市场<br>
+        ├─ <b>D-1（2026-10-21）</b>：算力 / CPO 升为第一主线 —— CPO 概念 <b>+1.31%</b>（主力 <b>+24.85 亿</b>）、算力概念 <b>+1.19%</b>（+15.52 亿），<b>创业板算力 ETF 158057 +3.10% 居 ETF 涨幅榜首</b><br>
+        └─ <b>今日（2026-10-22）</b>：<b>新易盛 -12.28%、中际旭创 -8.76%、天孚通信 -8.36%</b>；创业板算力 ETF <b>6 只全线下跌</b>（158049 -5.79%、<b>158057 -5.65%</b>、158063 -5.64%、158059 -5.45%、158050 -5.45%、158056 -4.65%）—— 其中 158057 由 D-1 的 <b style="color:#34d399">+3.10% 翻至 -5.65%</b>；创业板人工智能 ETF 159388 -6.12%、通信设备 ETF 159583 -6.12%；新浪华为概念 -4.96%、电子信息 -3.80% → <b style="color:#fca5a5">🔽 降</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>新浪收评明确「<b>CPO、铜缆高速连接、PCB 概念等算力硬件板块表现低迷</b>」，「易中天」集体大跌 —— 新易盛（300502）收 258.01 元 <b style="color:#fca5a5">-12.28%</b>（成交 196.95 亿）、中际旭创（300308）收 590.11 元 -8.76%（成交 244.73 亿）、天孚通信（300394）收 197.00 元 -8.36%（当日最低价即收盘价，尾盘无承接）。<br>
+        <b>⚠️ 内外背离（本日最值得警惕的信号）：</b>隔夜美股三大指数集体收涨（道指 +0.69% 报 52856.09、标普500 +0.58% 报 7757.17、纳指 <b>+1.05%</b> 报 26702.85），SpaceX 涨超 7%（Q3 营收同比 +161%）、超微电脑 +9%、戴尔 +5%、英伟达/美光/SK海力士 +2%，上海证券报《AI 基建扩张加速 光通信锁定高增长预期》亦称全球 AI 基建「正在全面加速」—— <b style="color:#fca5a5">但 A 股算力硬件仍单日崩塌，说明本轮杀的是「估值与拥挤度」而非「产业景气」</b>，两者背离必须正视，不能用海外景气来为 A 股算力股辩护。<br>
+        <b>结构细节：</b>半导体与先进封装板块午后一度反弹，华天科技（002185）+9.12%、大普微（301666）+6.27%、德明利（001309）+4.00%、长电科技（600584）+3.09%，海光信息（688041）-1.18% —— <b>资金从「高位算力权重」切向「低位半导体制造」</b>，但修复幅度不足以扭转算力主线的坍塌。D-1 报告已提示「主线仍在高切低轮动，尚未形成可外推的主升结构」，今日即为该判断的验证。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>新易盛</b> 300502 · -12.28%</span>
+        <span class="stock-chip"><b>中际旭创</b> 300308 · -8.76%</span>
+        <span class="stock-chip"><b>天孚通信</b> 300394 · -8.36%</span>
+        <span class="stock-chip"><b>创业板算力ETF</b> 158057 -5.65%</span>
+        <span class="stock-chip"><b>华天科技</b> 002185 · +9.12%（午后修复）</span>
+        <span class="stock-chip"><b>长电科技</b> 600584 · +3.09%</span>
+      </div>
+    </div>
+
+    <div class="mainline-card danger">
+      <div class="mainline-rank" style="color:#f87171">5</div>
+      <div class="title">🎬 文化传媒 / 出版 / AI 视频 · 精准的一日反转</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag down">🔽 降</span>
+        <span class="mainline-tag down">集体跌停</span>
+        <span class="mainline-tag danger">D-1 逆势主线</span>
+        <span class="mainline-tag info">传媒娱乐 -5.26%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-20）</b>：文化传媒未进入主线 TOP6（原文主线为机器人 / 北交所 / 医药医疗链 / 军工退潮 / 防御三杀 / 国企改革），粤传媒 002181 在 1 连板名单中，定性「<b>未启动</b>」<br>
+        ├─ <b>D-1（2026-10-21）</b>：传媒 <b>+1.58%</b> 逆势走强，读者传媒、出版传媒、粤传媒涨停、兆讯传媒 20cm 涨停，原文标注「<b>🔼 升 / 档期事件驱动</b>」<br>
+        └─ <b>今日（2026-10-22）</b>：<b>新华传媒 -10.02%、粤传媒 -9.96%、龙版传媒 -10.00%、德才股份 -10.08%、引力传媒 -10.00%、新经典 -10.01%、内蒙新华 -9.98%、博纳影业 -9.92%</b> 集体跌停；同花顺「<b>AI 视频板块临近尾盘持续下跌</b>」；新浪传媒娱乐 <b>-5.26%</b> 居行业跌幅第二、文化振兴 -4.50%、网络游戏 -4.40% → <b style="color:#fca5a5">🔽 降</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>D-1 的「传媒逆势走强」在今日<b style="color:#fca5a5">精准一日反转</b> —— 传媒从「逆势主线」直接变成「集体跌停」。同花顺原文明确「文化传媒、AI 视频板块临近尾盘持续下跌」，龙版传媒、德才股份、粤传媒、新华传媒、引力传媒等多股跌停；东财跌停池另含出版系的新经典（603096）、内蒙新华（603230）与影视院线的博纳影业（001330）。新浪行业口径传媒娱乐 -5.26%（跌幅第二）、概念口径文化振兴 -4.50%、网络游戏 -4.40%。<br>
+        <b>逻辑：</b>① D-1 的传媒上涨是<b style="color:#fbbf24">纯档期事件驱动</b>（《沙丘 3》定档 12/31、首部院线 AI 电影《三星堆：未来往事》10/23 上映），无业绩与政策主体支撑，在风险偏好收缩时最脆弱；② AI 视频概念退潮叠加权重股杀跌；③ 唯一幸存者是<b>出版传媒（601999）收 8.58 元 +10.00%（2 连板）</b>，而 D-1 的 2 连板粤传媒今日跌停 —— <b>同一梯队的一进一出，标志传媒内部的资金全面撤退</b>。<br>
+        <b>⚠️ 监管约束已明显加强：</b>九阳股份 10/21 晚再发异动公告，对市场热议的<b>八个概念逐项澄清</b>（与华为不存在战略合作、与 JS 环球生活/SharkNinja 不存在应披露未披露的资产注入等），并提示 10/20-10/21 连续两日收盘涨幅偏离值累计达 21.18% —— 题材端的合规约束正在实质性抬升，<b>纯概念接力的容错率显著下降</b>。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>新华传媒</b> 600825 · -10.02%</span>
+        <span class="stock-chip"><b>粤传媒</b> 002181 · -9.96%</span>
+        <span class="stock-chip"><b>龙版传媒</b> 605577 · 跌停</span>
+        <span class="stock-chip"><b>引力传媒</b> 603598 · 跌停</span>
+        <span class="stock-chip"><b>博纳影业</b> 001330 · 跌停</span>
+        <span class="stock-chip"><b>出版传媒</b> 601999 · +10.00%（2连板，唯一幸存）</span>
+      </div>
+    </div>
+
+    <div class="mainline-card danger">
+      <div class="mainline-rank" style="color:#f87171">6</div>
+      <div class="title">🔋 电池 / 固态电池 / CRO / 贵金属 · 连续第二日杀跌并扩散</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag down">🔽 降</span>
+        <span class="mainline-tag down">业绩型杀跌延续</span>
+        <span class="mainline-tag warn">避险资产同步失血</span>
+        <span class="mainline-tag info">CRO -5.08%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-20）</b>：电池链未进入主线 TOP6，亦未进入当日主力净流出 TOP4（流出居前为证券 -21.31 亿、半导体 -19.29 亿、煤炭 -7.95 亿、保险 -6.27 亿）；但<b>蔚蓝锂芯 002245 已跌停</b>，定性「<b>个股层面走弱</b>」<br>
+        ├─ <b>D-1（2026-10-21）</b>：电池 <b>-3.33%</b>、<b>主力净流出 52.13 亿（全市场最大单项流出）</b>、电池化学品 -3.46%；宁德时代 <b>-12.03%</b>、时代万恒与上海洗霸跌停，定性「<b>主线级崩塌</b>」<br>
+        └─ <b>今日（2026-10-22）</b>：<b>宁德时代 220.41 -3.29%</b>（昨日已 -12.03%）；新浪锂电池 -2.60%、固态电池 -3.16%、BC 电池 -4.65%、钙钛矿 -4.86%；<b>CRO 概念 -5.08%、CXO 概念 -5.20%</b>，近岸蛋白 688137 触及 <b>20cm 跌停</b>、百花医药跌超 9%；黄金概念 -3.06%、有色金属 -3.04%，紫金矿业 -3.57%；同花顺「<b>贵金属（881169）跌幅居前</b>」 → <b style="color:#fca5a5">🔽 降</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>电池链连续第二日杀跌，且今日<b>扩散至 CRO 与贵金属两条独立链条</b>。新浪概念口径核电核能 -5.22%、CXO -5.20%、CRO -5.08%、华为概念 -4.96%、BC 电池 -4.65%；行业口径有色金属 -3.04%、煤炭行业 -3.01%。东财跌停池中化工链扎堆 —— 新亚强 603155、亚邦股份 603188、醋化股份 603968、三维化学 002469、高争民爆 002827 全数跌停，与「烧碱期货年内跌超三成、期价首破 1700 元/吨」直接对应。<br>
+        <b>催化：</b>① <b>宁德时代</b>：10/21 回购 348.86 万股、按 229.32 元/股测算约 8 亿元，此前已宣布拟斥资 200 亿-400 亿回购用于注销减资；但 Q3 净利 212 亿（+15%）<b>较摩根士丹利预期低 12%</b>，单位净利自上半年 0.10 元/Wh 降至 0.08 元/Wh，原因是产品结构中低利润率产品占比上升、增值税退税减少及国内消费税开征带来的成本增加 —— <b>回购未能扭转估值下修</b>；② 美国对伊朗实施新一轮制裁 → 避险资产（黄金概念 -3.06%、有色 -3.04%）同步失血；③ CRO 概念受海外订单预期与业绩双重压力，近岸蛋白 20cm 跌停。<br>
+        <b>⚠️ 重要分歧（不可忽略）：</b>主力资金 TOP3 中「<b>动力电池回收 +10.59 亿</b>」显示产业链末端仍有承接；基本面侧天齐锂业预计前三季度归母净利 51 亿-60 亿、同比 <b>+2734.97% ~ +3235.26%</b>，璞泰来表示「各项业务均处于近乎满产状态、负极材料与隔膜基膜产能紧张」—— <b>杀的是估值与成本预期，不是产业景气</b>。这也意味着「电池链已死」的说法并不准确，准确表述是「<b>电池链进入估值出清中段，末端环节先于前端企稳</b>」。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>宁德时代</b> 300750 · -3.29%</span>
+        <span class="stock-chip"><b>近岸蛋白</b> 688137 · 20cm 跌停</span>
+        <span class="stock-chip"><b>紫金矿业</b> 601899 · -3.57%</span>
+        <span class="stock-chip"><b>赣锋锂业</b> 002460 · -3.22%</span>
+        <span class="stock-chip"><b>国轩高科</b> 002074 · -2.36%</span>
+        <span class="stock-chip"><b>动力电池回收</b> 主力 +10.59 亿</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="section-title warn">🏆 五、涨停天梯榜</div>
+  <div class="ladder">
+    <div class="ladder-tag lv-4">🏆 5 连板 · 海洋王 <b>002724</b>（照明设备）· 大业股份 <b>603278</b>（通用设备）</div>
+    <div class="ladder-tag lv-3">🥈 3 连板 · 星光股份 <b>002076</b>（照明设备）· 三峡新材 <b>600293</b>（玻璃玻纤）</div>
+    <div class="ladder-tag lv-2">🥉 2 连板 · 共 <b>5</b> 家 —— 海量数据 <b>603138</b>（IT 服务Ⅱ）· 出版传媒 <b>601999</b>（出版）· 哈空调 <b>600202</b>（通用设备）· 上海九百 <b>600838</b>（一般零售）· 天洋新材 <b>603330</b>（塑料）</div>
+    <div class="ladder-tag lv-1">1 连板 · 共 <b>24</b> 家 —— 兆威机电 003021（电机Ⅱ）· 奕帆传动 301023（电机Ⅱ，20cm）· 华阳智能 301502（电机Ⅱ，20cm）· 鸣志电器 603728（电机Ⅱ）· 大洋电机 002249（电机Ⅱ）· 安乃达 603350（电机Ⅱ）· 华新精科 603370（电机Ⅱ）· 山河智能 002097（工程机械）· 南方路机 603280（工程机械）· 北新路桥 002307（基础建设）· 正裕工业 603089 / 襄阳轴承 000678 / 湖南天雁 600698（汽车零部件）· 长城电工 600192（电网设备）· 沈鼓集团 601091 / 林州重机 002535 / 赛福天 603028 / 冰山冷热 000530（通用设备、专用设备）· 南矿集团 001360（专用设备）· 博汇股份 300839（炼化及贸易，20cm）· 阳光照明 600261（照明设备）· 多伦科技 603528（软件开发）· 睿能科技 603933（其他电子）· 芯瑞达 002983（光学光电）</div>
+    <div class="ladder-tag danger">💀 跌停 <b>49</b> 家（D-1 仅 5 家）· <b>出版系 5 家</b>：龙版传媒 605577 · 粤传媒 002181 · 新华传媒 600825 · 新经典 603096 · 内蒙新华 603230 ｜ <b>化学制品 4 家</b>：新亚强 603155 · 亚邦股份 603188 · 醋化股份 603968 · 高争民爆 002827 ｜ <b>算力 / 科技 8 家</b>：南威软件 603636（IT 服务Ⅱ）· 同为股份 002835 · 盛视科技 002990（计算机设备）· 剑桥科技 603083（通信设备）· 崇达技术 002815（元件）· 新亚制程 002388 · 东安动力 600178 · 泰尔股份 002347 ｜ <b>CPO / 医药 6 家</b>：近岸蛋白 688137（20cm 生物制品）· 灵康药业 603669（化学制药）· 华森制药 002907（中药Ⅱ）· 澳洋健康 002172（医疗服务）｜ <b>连续两日跌停 2 家</b>：时代万恒 600241（电池）· 锦龙股份 000712（证券Ⅱ）｜ 其他 26 家：京城股份 600860（通用设备）· 慕思股份 001323、曲美家居 603818（家居用品）· 上工申贝 600843（专用设备）· 永达股份 001239（工程机械）· 三维化学 002469（化学原料）· 安泰集团 600408（焦炭Ⅱ）· 皇台酒业 000995（白酒Ⅱ）· 芯能科技 603105、闽东电力 000993（电力）· 爱玛科技 603529（摩托车及零部件）· 深桑达A 000032（专业工程）· 新华都 002264、引力传媒 603598（广告营销）· 德才股份 605287（装修装饰）· 博纳影业 001330（影视院线）· 华盛昌 002980（电网设备）· 万丰奥威 002085（汽车零部件）· 阳光乳业 001318（饮料乳品）· 通达创智 001368（文娱用品）· 三羊马 001317（铁路公路）· 深物业A 000011（房地产开发）· 昂立教育 600661（教育）· 上海雅仕 603329（物流）· 金健米业 600127（农产品加工）· XD安邦护 603373（专业服务）</div>
+  </div>
+  <div class="data-note">
+    <strong>📌 天梯结构解读 —— 高度提升但梯队雪崩：</strong>D-1（10/21）最高板为 4 连板 × 3 只（海洋王 / 东安动力 / 大业股份）、2 板 12 家、1 板 34 家；今日最高板升至 <b>5 连板 × 2 只</b>，但 2 板骤降至 <b style="color:#fca5a5">5 家</b>（-7 家）、1 板降至 <b style="color:#fca5a5">24 家</b>（-10 家）—— <b style="color:#fca5a5">「高度上移、中位断层」是最危险的天梯结构</b>。<br>
+    <b>晋级率极低：</b>D-1 的连板梯队今日大面积断裂 —— 4 连板<b>东安动力 600178 跌停</b>（-9.96%）、3 连板<b>京城股份 600860 跌停</b>（-9.94%）、2 连板<b>永达股份 001239 / 泰尔股份 002347 / 同为股份 002835 / 粤传媒 002181 / 南威软件 603636 全部跌停</b>；仅海量数据、出版传媒、哈空调、上海九百晋级 2 板，星光股份、三峡新材晋级 3 板。<b>晋级率仅 4/12（约 33%）</b>，而跌停家数从 5 家跳升至 49 家。<br>
+    同花顺《A股收评》独立确认「5 连板大业股份」「3 连板星光股份、三峡新材」「2 连板上海九百、出版传媒、海量数据、天洋新材」，<b>与东财涨停板池完全一致</b>；哈空调 600202 为东财独有 2 连板。<br>
+    ⚠️ <span class="warn-text">龙头风险已明示</span>：两只 5 连板<b>均已发布澄清公告</b>（海洋王「AI + 智慧照明业务收入规模有限」；大业股份「机器人腱绳尚未批量生产、未产生实质性收益」），<b>最高板本身即风险源</b>，不宜按「最高板」逻辑追高。<br>
+    ⚠️ <span class="warn-text">数据缺口</span>：炸板率、封板时间分布、连板晋级率的官方口径未取得，本报告的晋级率系依据东财涨停板池连板字段与 D-1 名单逐一比对得出，<b>与「炸板率」口径不同</b>，已在此说明，不做估算填充。
+  </div>
+
+  <div class="section-title info">💹 六、ETF 涨跌榜</div>
+  <div class="etf-table">
+    <div class="etf-row header">
+      <div>排名</div><div>ETF 名称（代码）</div><div>涨跌幅</div><div>说明</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲1</div>
+      <div>标普油气 ETF 富国（<b>513350</b>）</div>
+      <div class="etf-val up">+3.12%</div>
+      <div>收 1.486 元，成交 25.98 亿 —— 全市场 ETF 领涨，跟踪标普油气指数，<b style="color:#fbbf24">与 A 股油气主线并非同一标的</b>，属海外能源资产映射</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲2</div>
+      <div>标普油气（<b>159518</b>）</div>
+      <div class="etf-val up">+1.62%</div>
+      <div>收 1.382 元，成交 12.95 亿 —— 与 513350 同标的主题，形态一致印证海外油气交易</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲3</div>
+      <div>能源化工（<b>159981</b>）</div>
+      <div class="etf-val up">+1.05%</div>
+      <div>收 1.829 元，成交 9.72 亿 —— 唯一 A 股属性 ETF 上涨方向，与新浪石油行业 -0.75% 相对抗跌、烧碱期货跌超三成形成对照</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼1</div>
+      <div>港股信息技术 ETF 银华（<b>159047</b>）</div>
+      <div class="etf-val down">-6.70%</div>
+      <div>收 0.905 元 —— ETF 领跌，港股科技同步重挫</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼2</div>
+      <div>港股创新药 ETF 广发（<b>513120</b>）</div>
+      <div class="etf-val down">-6.66%</div>
+      <div>收 1.178 元，<b>成交 68.01 亿（全场最大）</b> —— 成交额居首说明<b style="color:#fca5a5">资金在创新药上激烈换手离场</b>，与 A 股 CRO -5.08%、近岸蛋白 20cm 跌停方向一致</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼3</div>
+      <div>港股通信息技术 ETF 汇添富（<b>526030</b>）</div>
+      <div class="etf-val down">-6.57%</div>
+      <div>收 0.683 元 —— 同花顺《ETF收评》披露，新浪 ETF 榜<b><span class="ok">独立复核一致</span></b>（腾讯行情未收录该代码，故以新浪为第二来源）</div>
+    </div>
+  </div>
+  <div class="data-note">
+    <strong>✅ ETF 双源核验：</strong>以上 6 只 ETF 中<b><span class="ok">全部 6 只</span></b>经<b><span class="ok">同花顺《ETF收评》</span></b>与<b><span class="ok">新浪财经 ETF 实时行情榜</span></b>逐只比对<b>完全一致</b>（涨跌幅与收盘价均无偏差）；其中 513350 / 159518 / 159981 / 159047 / 513120 五只另经腾讯行情复核，526030 由新浪独立确认。<br>
+    <b>⚠️ 背离信号 ①「个股 vs ETF」背离：</b>机器人方向个股强势（<b>大业股份、海洋王 5 连板涨停，兆威机电 +10.00%、奕帆传动 +19.99%、鸣志电器 +10.00%、大洋电机 +9.97%</b>），但对应 <b>机器人 ETF 仅 159272 +0.55%、159278 +0.35%、159530 +0.33%</b> —— <b style="color:#fbbf24">涨幅差 10 倍以上，说明涨停潮高度集中于小市值个股，尚未扩散至指数化工具，也意味着 ETF 尚未反映该强度</b>。这是「窄线抱团」而非「板块级行情」的典型 ETF 信号。<br>
+    <b>⚠️ 背离信号 ② 一日完成榜首到榜尾的切换：</b>D-1 领涨全市场的创业板算力 ETF 鹏华 158057（+3.10%），今日收 <b style="color:#fca5a5">-5.65%</b>；同标的全系列 6 只集体下跌 —— 158049 -5.79%、158057 -5.65%、158063 -5.64%、158059 -5.45%、158050 -5.45%、158056 -4.65%，另有创业板人工智能 ETF 159388 <b>-6.12%</b>、通信设备 ETF 159583 -6.12%。<b>D-1 报告推荐的两只主攻工具今日双双位于跌幅前列，是主线切换最直接的量化证据</b>。<br>
+    <b>✅ 逆势收红方向（仅三只 A 股属性 ETF）：</b>机器人 ETF 富国 159272 +0.55%、机器人 ETF 鹏华 159278 +0.35%、机器人 ETF 易方达 159530 +0.33%、央企 ETF 工银 510060 +0.30%、银行 ETF 汇添富 512820 +0.13%、银行 ETF 华宝 512800 +0.12% —— 与「机器人 + 红利」主线完全吻合。
+  </div>
+
+  <div class="section-title">📰 七、重要新闻与板块催化</div>
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>事件</div><div>关键数据</div><div>对 A 股影响</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🇨🇳 中办、国办印发《关于推动科技创新和产业创新深度融合的意见》（10/21 公开）</div>
+      <div class="fin-val up">17 条举措</div>
+      <div>围绕创新链产业链无缝对接、高质量科技供给、企业主导产学研融通、创新资源配置效能、深度融合生态、拓展发展空间六方面提出 17 条举措，证券时报概括为「<b style="color:#34d399">提升产业链自主可控水平、培育壮大新兴产业和未来产业、全面实施「人工智能+」行动</b>」—— 为「十五五」科技产业政策提供顶层文件，是机器人 / 半导体制造等方向的中期政策底</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🤖 特斯拉 Optimus V3 明确量产准备，弗里蒙特工厂已投产</div>
+      <div class="fin-val up">5 连板 × 2</div>
+      <div>已在弗里蒙特产线开始生产首批达到量产质量标准的 Optimus 机器人；马斯克称「至少需要一年，或许更久」才能达到年产量 100 万台（每周 2 万台），可能在一个月左右发布演示视频，并称人形机器人将成全球最大产业 → <b style="color:#34d399">人形机器人成为今日唯一逆势主线</b>，电机板块 7 只涨停（含 20cm 奕帆传动、华阳智能）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🟣 英伟达 GTC 柏林大会：升级 Isaac 平台 + 欧洲投入近 100 亿美元</div>
+      <div class="fin-val up">合作方超 12000 家</div>
+      <div>推出新的人形机器人参考框架、仿真工作流及数据工具，预计 2027 年推出；黄仁勋称一座年收入 400 亿美元的 AI 数据中心晚投产三个月的代价是 100 亿美元 → 机器人产业链中期景气获海外背书，宇树科技同日发布「H2-X（功夫传奇）」人形机器人（站立续航约 8 小时）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🏦 六大行中期分红比例由 30% 统一上调至 31%</div>
+      <div class="fin-val up">派现超 2600 亿</div>
+      <div>工商银行、农业银行 10/21 向 A 股股东派发 2026 年中期现金红利合计约 821.44 亿元；已有 21 家 A 股上市银行披露中期分红方案、拟派现总额超 2600 亿元 → <b style="color:#34d399">银行红利成为今日唯一有效的避风港</b>，工行 +1.66%、建行 +1.48% 盘中创历史新高</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">⚠️ 连板妖股密集发布异动公告澄清（10/21 晚）</div>
+      <div class="fin-val down">跌停 49 家</div>
+      <div>大业股份「机器人腱绳未批量生产」、海洋王「AI+智慧照明收入规模有限」、东安动力「不从事飞行汽车整车业务」、泰尔股份「工业机器人占营收 3.82%」、同为股份「大模型 AI 未形成规模」、太极股份「与国家数据集团无具体合作（数据要素占营收约 2%）」、日海智能「高算力模组占营收约 1%」、九阳股份「与华为无战略合作」 → <b style="color:#fca5a5">压垮题材接力的最后一击</b>，直接对应跌停数由 5 家跳升至 49 家</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🔋 宁德时代：回购 8 亿元 + Q3 单位净利降至 0.08 元/Wh</div>
+      <div class="fin-val down">-3.29%</div>
+      <div>10/21 回购 348.86 万股（按 229.32 元/股测算约 8 亿元），此前宣布拟斥资 200 亿-400 亿回购用于注销减资；但 Q3 净利 212 亿（+15%）较摩根士丹利预期低 12%，单位净利自上半年 0.10 元/Wh 降至 0.08 元/Wh（产品结构低毛利化 + 增值税退税减少 + 消费税开征）→ <b style="color:#fca5a5">回购未能扭转估值下修</b>，电池链连续第二日杀跌</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">📉 创业板指失守 2600 点，自今年历史高位回撤超 40%</div>
+      <div class="fin-val down">-4.37%</div>
+      <div>沪指、创业板指盘中双双创 2025 年 8 月以来新低；创业板指收 2576.90，较年内高点回撤超 40%，深证成指、科创50 同步破位 → 成长股估值中枢仍在下移，<b style="color:#fca5a5">「制度底尚未转化为「市场底」</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🌍 隔夜美股三大指数集体收涨，Anthropic 或周五递 S-1</div>
+      <div class="fin-val info">纳指 +1.05%</div>
+      <div>道指 +0.69% 报 52856.09、标普500 +0.58% 报 7757.17、纳指 +1.05% 报 26702.85；SpaceX 涨超 7%（Q3 营收 +161%）、超微电脑 +9%、特斯拉盘后发财报涨超 3%；Anthropic 最早或周五提交 S-1（可能为史上最大规模 IPO）；布伦特原油 108.82 美元 +0.03%、WTI 97.15 美元 -0.68% → <b style="color:#fbbf24">海外 AI 交易重回乐观，与 A 股算力硬件崩塌形成鲜明内外背离</b></div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 八、盘面核心结论</div>
+
+  <div class="conclusion ok">
+    <div class="conclusion-title">✅ 结论 1：主线第五次切换 —— 从「算力 + 数据要素」切向「机器人 + 机械 + 银行红利」，且是三线并行而非单极</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>主线更替：</b>D-1 的第一主线「算力 / CPO」今日彻底崩塌（创业板算力 ETF 6 只集体 -4.65% ~ -5.79%，158057 由 +3.10% 翻至 -5.65%；新易盛 -12.28%、中际旭创 -8.76%）；新主线为「<b>人形机器人 + 工程机械 + 银行红利</b>」三线并行 —— 机器人 ETF 159272 +0.55% 逆势收红、山河智能与南方路机涨停、工行建行创历史新高。三条线分别对应<b>海外产业催化（Optimus 量产 + 英伟达 Isaac）、行业数据催化（9 月挖掘机 +14.4%）、分红收益锚（六大行 30%→31%）</b>，具备可持续的锚，而非纯情绪。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>资金并未离场：</b>全市场仅 <b>6 只 A 股属性 ETF 收红</b>（机器人 ETF ×3、央企 ETF、银行 ETF ×2），主力资金净流入 TOP3 为小米汽车 +11.80 亿、换电概念 +11.66 亿、动力电池回收 +10.59 亿 —— 三者全部落在<b>「汽车 / 电机 / 电池」产业链</b>上，与机器人主线同源。资金是<b style="color:#34d399">从算力硬件与传媒撤出，转向有产业载体的低位方向</b>。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>防守端已被验证：</b>新浪行业口径酿酒 -0.39%、石油 -0.75%、金融 -0.92%、公路桥梁 -1.04%、家电 -1.53%，概念口径奢侈品 +0.45%（<b>全市场唯一上涨概念</b>）、白酒概念 -0.29%、基金重仓 -0.38%、QFII 重仓 -0.30% —— 红利与低波方向是今日唯一不跌的类别。<b>创金合信魏凤春「红利风格成为阶段性主线」的判断在今日盘面得到直接验证</b>。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>⚠️ 但主线质量不高：</b>新浪「机器人概念」平均仍 -1.82%、「机械行业」平均 -3.53%，说明机器人与机械都是<b style="color:#fbbf24">龙头逆势、跟风杀跌的窄线结构</b>；而两只 5 连板（海洋王、大业股份）<b style="color:#fca5a5">均已自行公告澄清概念与业绩脱节</b>。主线成立，但<b>标的池容错率极低</b>。</p></div>
+  </div>
+
+  <div class="conclusion danger">
+    <div class="conclusion-title">🔴 结论 2：高位股风险集中释放 —— 跌停 49 家首超涨停 33 家，D-1 连板梯队全面断裂</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>天梯崩塌：</b>D-1 的 4 连板<b>东安动力跌停</b>（-9.96%）、3 连板<b>京城股份跌停</b>（-9.94%）、2 连板<b>永达股份 / 泰尔股份 / 同为股份 / 粤传媒 / 南威软件全部跌停</b>，晋级率仅 4/12；2 板由 12 家降至 5 家、1 板由 34 家降至 24 家，形成<b style="color:#fca5a5">「高度上移、中位断层」</b>的极危险结构。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>触发点是监管约束而非基本面：</b>10/21 晚 8 只连板股集中澄清（大业股份、海洋王、东安动力、泰尔股份、同为股份、太极股份、日海智能、九阳股份），逐一点明「概念相关业务收入占比不足 3%」「尚未批量生产」<b style="color:#fca5a5">。这直接击穿了 D-1 以来「题材接力」的定价逻辑，是跌停数从 5 家跳到 49 家的核心触发因素</b>。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>广度已到冰点：</b>上涨 516 家 vs 下跌 4826 家、平盘 33 家，<b>涨跌比 0.11 : 1</b>（D-1 为 0.59 : 1），涨停 33 家 < 跌停 49 家；新浪全市场 175 个概念板块中<b>仅 1 个上涨</b>（奢侈品 +0.45%）。<b>普涨基础已彻底消失</b>，今日不是「结构性回调」而是<b style="color:#fca5a5">「系统性去风险」</b>。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>放量是恐慌而非换手：</b>成交 15419 亿、<b>放量 998 亿</b>且方向为下跌。缩量磨底与放量杀跌是完全不同的信号 —— 前者是筹码沉淀，后者是<b style="color:#fca5a5">止损盘与杠杆盘同时离场</b>，通常需要更长的时间与更明确的政策信号才能修复。</p></div>
+    <div class="conclusion-item"><span class="num">5</span><p><b>内外背离不可忽视：</b>隔夜美股三大指数收涨、SpaceX +7%、超微电脑 +9%、上海证券报称全球 AI 基建「全面加速」，A 股算力硬件却单日崩塌。<b>这说明杀的是 A 股自身的估值与拥挤度</b>，不能用海外景气为 A 股算力股辩护；同时也意味着<b style="color:#fbbf24">若海外 AI 交易延续，A股算力存在超跌反抽的技术条件，但不具备持有理由</b>。</p></div>
+  </div>
+
+  <div class="conclusion info">
+    <div class="conclusion-title">🔵 结论 3：中期「制度底 + 经济三重拐点」仍在，但短期进入「放量杀跌 + 防御独撑」的二次寻底阶段</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>制度层继续加码：</b>中办国办 10/21 发布科创产融深度融合意见（17 条举措，全面实施「人工智能+」行动）；上交所召开首批主动 ETF 市场动员会（9 家管理人 + 7 家券商），截至 2026 年 9 月底上交所 ETF 943 只、总规模 3.35 万亿元、<b>中长期资金持有近 1.7 万亿元占比过半</b>；证监会表态稳妥实施北交所新股市值配售；吴清金融街论坛「长钱长投」生态加速形成。<b>制度底的政策工具箱仍在持续加码。</b></p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>宏观层：</b>东吴证券李翔认为当前经济<b>三重拐点正在出现</b> —— ① 旧动能回升（8-9 月社零同比从 0.4% 回升至 1.1%，服务零售累计同比从 4.9% 升至 5.0%；一线城市二手房价环比涨幅从 0.1% 回升到 0.2%，70 城新房价格环比从 -0.2% 升至 -0.1%；固投累计同比今年以来首次终结连续下降）；② 价格周期拐点（9 月 PPI 同比达 5%，但布油已从 10/8 的 135.8 美元/桶回落至 10/16 的 116.9 美元/桶，上行空间有限）；③ 宏观政策拐点（9 月初 8000 亿政策性金融工具发行、928 会议增量政策、929 首次房贷贴息、10 月启用 5500 亿地方债结存限额，为「924」以来边际增量力度最大的一次稳增长）。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>但短期阶段判断：</b>制度红利与经济拐点属<b>中期变量</b>；而沪指、创业板指盘中同步创 2025 年 8 月以来新低、创业板指回撤超 40%、涨跌比 0.11:1、跌停 49 家 —— <b>说明「制度底尚未转化为「市场底」</b>。今日的放量杀跌暴露了前期主线（算力 + 数据要素 + 题材接力）的脆弱性，短期仍处估值消化阶段，<b>此时最忌把超跌反抽误判为趋势反转</b>。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>风格结论：</b>创金合信魏凤春指出「当前市场核心逻辑并非盈利修复，而是<b>利率约束带来的风险偏好收缩</b>」，博弈成长反弹的条件暂不充分；中金李求索则主张「科技 + 红利」哑铃型结构。<b>两者并不矛盾 —— 今日盘面同时验证了「红利有效」与「成长仍需等待」</b>，这是当前最稳妥的结构性结论。</p></div>
+  </div>
+
+  <div class="section-title warn">⚖️ 九、机构观点与市场分歧</div>
+  <div class="conflict-grid">
+    <div class="view-a">
+      <h4>🟢 多方：制度底 + 产业催化 + 红利回归，中期机会大于风险</h4>
+      <p><b>中金公司 策略研究首席分析师 李求索（证券日报，2026-10-20）：</b>「向前看，<b>积极信号正在增多，当前位置机会大于风险，后市不悲观</b>」。吴清金融街论坛讲话围绕货币政策框架完善、资本市场改革、金融市场稳定及扩大开放释放积极信号；央行拟推出的<b>非银机构大额赎回流动性支持工具</b>有助缓解债市赎回抛售压力、降低风险向其他市场传导；「今年上半年 A 股上市公司业绩好于市场预期，<b>2026 年整体业绩增速有望创近五年来最佳表现</b>」；「全球货币秩序重构与科技叙事对 A 股的支撑逻辑没有改变，此前调整已经较充分反映近期多重超预期输入性风险挑战带来的不利影响」；配置上「<b>科技 + 红利</b>」的哑铃型结构有望成为兼顾盈利增长弹性、股东现金回报与组合稳定性的选择。</p>
+      <p><b>四大证券报（2026-10-22 头版头条摘要）：</b>中办国办《意见》提出 17 条举措并全面实施「人工智能+」行动；上交所召开首批主动 ETF 市场动员会，引导中长期资金入市（截至 9 月底中长期资金持有上交所 ETF 近 1.7 万亿元、占比过半）；证监会稳妥实施北交所新股市值配售；证监会副主席刘浩凌表示积极探索符合我国资本市场实际的 AI 治理路径。</p>
+      <p><b>摩根士丹利基金相关人士：</b>一旦 AI 产业增长放缓，地产、汽车、制造业板块有望受益于利率下行；建议相对均衡配置五大领域 —— ① 资源品（有色与部分化工品）② 科技成长（<b>长期产业逻辑仍成立，中期等待新叙事，短期关注赛道内新技术、涨价细分环节</b>）③ 高股息资产（发挥组合稳定器作用）④ 医药（AI 赋能医药服务链）⑤ 内需链（外部不确定性上升下增量政策预期升温）。</p>
+      <p><b>产业基本面并未逆转：</b>① 璞泰来三季报说明会表示各项业务近乎满产，负极材料、隔膜基膜、PVDF 均产能紧张，暂未看到客户采购需求下降；② 天齐锂业预计前三季度归母净利 51 亿-60 亿元，同比 <b>+2734.97% ~ +3235.26%</b>；③ 三星电子与 SK 海力士计划升级中国工厂生产 200 层以上 NAND，Omdia 数据显示二季度长江存储中国 NAND 市占率 38.5%（超三星 33.5%、SK 海力士 17%）；④ 工信部披露截至 9 月底我国智能算力规模 2592 EFLOPS、同比增长 146%；⑤ 宁德时代拟斥资 200 亿-400 亿回购注销。</p>
+      <p><b>资金面印证：</b>上交所 ETF 中长期资金持有近 1.7 万亿元、占比过半；今日主力净流入 TOP3（小米汽车 +11.80 亿、换电概念 +11.66 亿、动力电池回收 +10.59 亿）全部落在产业主线内；6 只 A 股属性 ETF 收红。</p>
+    </div>
+    <div class="view-b">
+      <h4>🔴 空方：高位股崩塌 + 广度冰点 + 内外背离，风险偏好仍在收缩</h4>
+      <p><b>创金合信基金首席经济学家 魏凤春：</b>近期 A 股行业呈现<b>极致结构性分化</b>，防御板块领跑、红利板块迎来持续资金流入；成长赛道大幅回撤，周期板块内部分化，仅上游资源品因地缘因素相对抗跌；「多数顺周期、科技制造板块深度调整，资金明显向低波动、高确定性防御板块迁移，<b>红利风格成为阶段性主线，成长板块遭遇估值与情绪双杀</b>」；「<b>当前市场核心逻辑并非盈利修复，而是利率约束带来的风险偏好收缩</b>。红利板块的超额收益，本质是资金对冲不确定性的配置行为」；「短期外部趋紧的货币环境未明显缓和，成长板块压力仍存，配置重心仍需锚定确定性，<b>博弈成长反弹的条件暂不充分</b>」。</p>
+      <p><b>指数破位：</b>沪指、创业板指盘中双双创 2025 年 8 月以来新低，创业板指失守 2600 点、自今年历史高位回撤超 40%；深证成指 11357.32、科创50 1305.87 同步破位，<b>成长股估值中枢仍在下移</b>。</p>
+      <p><b>广度冰点：</b>上涨 516 家 vs 下跌 4826 家，涨跌比 0.11 : 1；涨停 33 家 <b>跌停 49 家</b>；175 个概念板块中仅 1 个上涨。D-1 的连板梯队（东安动力、京城股份、永达股份、泰尔股份、同为股份、粤传媒、南威软件）<b>今日集体跌停</b>，晋级率仅约 33%，<b>赚钱效应不具备外溢性</b>。</p>
+      <p><b>主线质量存疑：</b>两只 5 连板（海洋王、大业股份）已公告澄清概念业务收入占比极低；机器人概念板块平均仍 -1.82%、机械行业平均 -3.53%，<b>涨停潮仅集中于小市值个股，ETF 涨幅不足 0.6%</b>，说明是「窄线抱团」而非板块级行情，<b>一旦龙头开板，跟风股跌幅往往更大</b>。</p>
+      <p><b>盈利质量担忧延续：</b>宁德时代 Q3 净利增速 14.54%（Q1 48.52% → Q2 36.46% → Q3 14.54%）、经营性现金流 -23.60%、单位净利 0.10 → 0.08 元/Wh；9 月动力电池装车量仅 +14.7% 而新能源乘用车零售 -16.7%；「增收不增利」正在从个案变成行业现象，成长股高增速估值需重新校准。</p>
+      <p><b>资金失血与内外背离：</b>成交放量 998 亿且方向为下跌，属恐慌抛售；隔夜海外 AI 交易全面走强而 A 股算力硬件崩塌，<b>说明杀的是自身估值与拥挤度，海外景气无法提供持有理由</b>。</p>
+    </div>
+  </div>
+  <div class="conclusion">
+    <div class="conclusion-title">⚖️ 本文倾向：谨慎偏空 · 总量防守、结构性参与 —— 承认红利有效，成长仍需等待</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>倾向理由：</b>① 认同多方中期逻辑 —— 制度底持续加码（科创产融意见 + 主动 ETF + 北交所市值配售）、经济三重拐点浮现、宁德时代 200-400 亿回购注销、锂电与 AI 基建产业景气未逆转，这些构成向下的缓冲垫；② 但<b>不认同任何形式的总量做多</b> —— 涨跌比 0.11:1、跌停 49 家 > 涨停 33 家、放量下跌 998 亿、连板晋级率约 33%，今日是<b style="color:#fca5a5">系统性去风险而非结构性回调</b>；③ 认同魏凤春「红利成为阶段性主线、成长遭遇估值与情绪双杀」，也认同李求索的「科技 + 红利哑铃型」，但<b>今日红利端已一日完成 1.66% 的涨幅兑现，成长端仍在下跌通道</b>，因此哑铃两端此刻的风险收益比并不对称 —— <b>应偏重红利一端</b>；④ 机器人主线的逻辑成立但<b style="color:#fbbf24">标的池已被公司公告自我证伪</b>，只能小仓位参与且必须回避已澄清的连板股。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>操作建议：</b>总仓位降至 <b>25%-35%</b>（较 D-1 的 40%-50% 再度下调），结构上「<b>红利打底 + 机器人 / 机械小仓试探 + 成长观望</b>」；<b>不抄底算力硬件、文化传媒、CRO、贵金属</b>；<b>不碰已发布澄清公告的连板股</b>（含两只 5 连板）；<b>不参与跌停家数仍在扩张阶段的题材接力</b>。指数层面等待「<b>成交额重新缩回 1.4 万亿以下 + 跌停家数回落至 15 家以内 + 创业板指在 2500 上方放量止跌</b>」三项同时出现后，再考虑提升仓位。</p></div>
+  </div>
+
+  <div class="section-title info">🔭 十、后续展望与交易策略</div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <h4><span class="num">1️⃣</span> 后市展望</h4>
+      <p><b>短期（3-5 个交易日）：</b>放量杀跌后的<b style="color:#fbbf24">首次反抽概率上升，但不具备反转条件</b>。理由：① 隔夜海外 AI 交易全面走强，若美股 AI 链延续，A股算力存在超跌反抽的技术条件；② 银行红利已连续两日获资金流入，防御端提供指数托底；③ 但跌停 49 家显示止损盘仍在出清，题材接力在澄清潮下需要时间重建。<b>预期指数呈「沪指抗跌、创业板仍弱」的分化反抽。</b></p>
+      <p><b>关键位：</b>沪指 3658.03 收盘，向下看 <b>3600</b>（整数关 + 心理支撑），跌破 3600 则加速下探 3500；创业板指 2576.90 已失守 2600，<b>2500</b> 为下一关键整数支撑，跌破 2500 意味着杀估值未完；科创50 1305.87，1300 是多空分水岭。</p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">2️⃣</span> 情绪判断</h4>
+      <p><b>情绪：<span style="color:#f87171">冰点，接近恐慌出清</span></b>。涨停 33 家 / 跌停 49 家、涨跌比 0.11:1、175 个概念板块仅 1 个上涨、成交放量 998 亿 —— 属于典型的<b>情绪释放段</b>。但注意：本轮杀跌的<b>主导因素是监管澄清而非系统性风险</b>，因此情绪修复的斜率可能快于纯宏观驱动的杀跌。</p>
+      <p><b>修复信号（出现任一即视为情绪拐点）：</b>① 跌停家数从 49 家回落至 <b>15 家以内</b>；② 最高板（5 连板）打开且<b>不出现新的连板断层</b>；③ 2 板家数重新回到 10 家以上；④ 创业板算力 ETF 158057 出现放量反抽且不再创新低。<b style="color:#fbbf24">反向信号：跌停家数连续 2 日扩张、连板全灭（高度板集体炸板）→ 立即降至最低仓位。</b></p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">3️⃣</span> 资金信号</h4>
+      <p><b>当前状态：<span style="color:#fbbf24">从算力/传媒撤离 → 机器人 + 红利</span></b>。流入：小米汽车 +11.80 亿、换电概念 +11.66 亿、动力电池回收 +10.59 亿（同花顺主题口径）；A 股 ETF 仅 6 只收红（机器人 ETF ×3、央企 ETF +0.30%、银行 ETF ×2 +0.12% ~ +0.13%）。流出方向：华为概念 -4.96%、CRO 概念 -5.08%、CXO -5.20%、文化振兴 -4.50%、网络游戏 -4.40%、传媒娱乐 -5.26%。</p>
+      <p><b>⚠️ 口径与缺口警示：</b>今日主力资金<b>仅有同花顺「主题 / 概念」单一口径</b>（东方财富板块资金流接口被 WAF 拦截），<b>缺申万一级行业口径交叉验证，不做合并加总</b>。另需注意<b style="color:#fbbf24">银行 ETF 涨幅仅 0.12%-0.13%，远低于工行 +1.66%</b> —— 红利资金<b>集中在个股而非 ETF</b>，通过 ETF 表达防御敞口的效率明显低于直接持股，仓位管理需据此调整。</p>
+    </div>
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card mainline">
+      <h4>🟢 主攻方向 · 顺势而为（建议仓位 12%-18%）</h4>
+      <ul class="strategy-list">
+        <li><b>① 人形机器人 / 电机（今日第一主线）</b> —— 特斯拉 Optimus V3 量产 + 英伟达 Isaac 升级 + 宇树 H2-X 发布，机器人 ETF 159272 +0.55% 逆势收红 —— 核心池：<b>兆威机电（003021，+10.00%、4 天 2 板）、奕帆传动（301023，20cm 涨停、量比 10.17）、鸣志电器（603728，+10.00%）、大洋电机（002249，+9.97%）、安乃达（603350，+10.00%）、华新精科（603370，+10.00%）</b>；工具：机器人 ETF 159272 / 159278 / 159530</li>
+        <li><b>② 工程机械（数据催化的低位方向）</b> —— 9 月挖掘机销量 22717 台 +14.4%、出口 12806 台 +20.7% —— 核心池：<b>山河智能（002097，+10.00%）、南方路机（603280，+9.99%）</b>；⚠️ 仅限工程机械 / 兵装重组细分，<b style="color:#fbbf24">新浪机械行业平均 -3.53%，不可外推至机械全行业</b></li>
+        <li><b>③ 电机细分（与机器人同源的补涨方向）</b> —— 同花顺收评列电机为「表现相对领先」，A 股电机 / 机器人 ETF 同步逆势收红 —— 关注安乃达、华新精科等首板补涨，<b style="color:#fbbf24">仅在首板未开板前参与，不追连板</b></li>
+        <li><b>⚠️ 纪律：</b>单主线不超过总仓位 10%；<b>绝对回避已发布异动澄清公告的标的</b>（大业股份、海洋王两只 5 连板已在名单内）；单只个股不超过总仓位 5%；主线内部分化即减仓，不做扩散假设</li>
+      </ul>
+    </div>
+    <div class="strategy-card defend">
+      <h4>🟡 防御 / 高低切方向（建议仓位 10%-15%）</h4>
+      <ul class="strategy-list">
+        <li><b>① 银行红利（今日唯一被验证的避风港）</b> —— 六大行中期分红比例 30%→31%、21 家 A 股银行拟派现超 2600 亿元、上交所中长期资金持有 ETF 近 1.7 万亿 —— 核心池：<b>工商银行（601398，+1.66%、盘中创历史新高）、建设银行（601939，+1.48%、盘中创历史新高）、农业银行（601288，+1.51%）</b>；<b style="color:#fbbf24">⚠️ 银行 ETF 仅 +0.12% ~ +0.13%，红利资金在个股端，ETF 表达效率偏低</b></li>
+        <li><b>② 央企 / 低波宽基（3%-5%）</b> —— 央企 ETF 工银 510060 +0.30%；新浪 QFII 重仓 -0.30%、基金重仓 -0.38% 为跌幅最小方向 —— 用低波宽基替代个股防御，摊薄个股风险</li>
+        <li><b>③ 资源品中的上游一端（观察仓 3%）</b> —— 魏凤春指出「仅上游资源品因地缘因素相对抗跌」，新浪有色金属 -3.04%、黄金概念 -3.06% 仍弱，<b style="color:#fbbf24">油价已从 135.8 回落至 116.9 美元/桶，资源品需先见底再谈配置</b></li>
+        <li><b>④ 观察仓：港股信息技术 / 创新药（不参与）</b> —— 港股信息技术 ETF 159047 -6.70%、港股创新药 ETF 513120 -6.66%（成交 68.01 亿居首），<b>属放量离场而非抄底窗口</b></li>
+      </ul>
+    </div>
+    <div class="strategy-card avoid">
+      <h4>🔴 风险规避（建议规避）</h4>
+      <ul class="strategy-list">
+        <li><b>① 算力硬件 / CPO / PCB / 光通信全产业链</b> —— D-1 第一主线今日崩塌（新易盛 -12.28%、中际旭创 -8.76%、天孚通信 -8.36%），创业板算力 ETF 6 只集体 -4.65% ~ -5.79%；<b style="color:#fca5a5">海外 AI 走强只能提供反抽的技术条件，不构成持有理由</b></li>
+        <li><b>② 文化传媒 / 出版 / AI 视频</b> —— 传媒娱乐 -5.26%、文化振兴 -4.50%、网络游戏 -4.40%，新华传媒 / 粤传媒 / 龙版传媒 / 德才股份 / 引力传媒 / 新经典 / 内蒙新华 / 博纳影业集体跌停；<b style="color:#fca5a5">纯档期驱动的题材在风险偏好收缩期最脆弱</b></li>
+        <li><b>③ CRO / CXO / 医药外包</b> —— CRO 概念 -5.08%、CXO -5.20%，近岸蛋白 20cm 跌停、百花医药跌超 9%；港股创新药 ETF 成交 68.01 亿居全场首位，<b style="color:#fca5a5">资金在激烈离场</b></li>
+        <li><b>④ 贵金属 / 避险资产 / 化工周期</b> —— 贵金属跌幅居前、黄金概念 -3.06%、有色 -3.04%、紫金矿业 -3.57%；烧碱期货年内跌超三成，化工链 4 家跌停。<b>避险属性失效，不具备防守功能</b></li>
+        <li><b>⑤ 电池 / 固态电池前端与题材型连板股</b> —— 宁德时代连跌两日（-12.03% → -3.29%），固态电池 -3.16%、BC 电池 -4.65%，时代万恒连续两日跌停；<b style="color:#fca5a5">动力电池回收 +10.59 亿的局部承接不改变电池链整体出清，暂不参与</b></li>
+        <li><b>⑥ 一切已发布异动澄清公告的连板股</b> —— 大业股份 / 海洋王 / 东安动力 / 泰尔股份 / 同为股份 / 太极股份 / 日海智能 / 九阳股份 / 崇达技术 / 新亚制程 等 —— <b style="color:#fca5a5">今日跌停 49 家中多只来自这一类，是最确定的规避方向</b></li>
+      </ul>
+    </div>
+    <div class="strategy-card master">
+      <h4>🧭 核心交易策略 · 总仓位建议 25%-35%</h4>
+      <ul class="strategy-list">
+        <li><b>总仓位：25%-35%</b> —— 较 D-1 的 40%-50% <b style="color:#fca5a5">再度下调</b>。理由：① 沪指、创业板指盘中同步创 2025/8 以来新低，创业板指回撤超 40%；② 涨跌比 0.11:1、跌停 49 家 > 涨停 33 家，赚钱效应为负；③ 放量 998 亿下跌 = 恐慌抛售，增量资金缺席；④ 连板梯队断裂 + 澄清潮，题材接力的容错率降至冰点。</li>
+        <li><b>核心矛盾：</b>主线完成<b>第五次切换</b>（算力+数据要素 → 机器人+机械+红利），但新主线的<b style="color:#fbbf24">标的池已被公司公告自我证伪</b>（机器人 ETF 涨幅仅 0.55% 而非涨停潮的 10%）。因此今日的正确动作不是「换到新主线」，而是「<b>降低频率、只留确定性</b>」。若明日出现「指数反弹 + 成交缩量回落 1.4 万亿以下 + 跌停家数降至 15 家以内」三项共振，则判定为超跌反抽，可小幅加仓 5%-8%；<b>只要跌停家数仍在 40 家以上，任何反弹一律视为减仓机会</b>。</li>
+        <li><b>止损纪律：</b>单只 -8% 无条件止损；板块整体回撤超 5% 降仓一半；沪指跌破 3600 或创业板指跌破 2500 → 总仓位降至 20% 以下；跌停家数超 60 家或连板全灭（5 板与 3 板同时开板）→ 立即降至 15%；连续 2 日放量下跌 → 暂停所有新增仓位。</li>
+        <li><b>关键时点：</b>① <b>10 月 23 日</b>《三星堆：未来往事》院线上映（传媒题材兑现窗口，同时是验证题材持续性的压力测试）；② <b>10 月下旬</b> A 股三季报披露收官（锂电 / 算力 / 消费业绩最终验证，宁德时代单位净利是否止跌）；③ <b>11 月中旬</b> 10 月 CPI / PPI 与信贷社融数据，验证东吴证券「价格周期拐点」与「宏观政策拐点」；④ <b>11 月中旬</b>俄美乌三方会谈重启（地缘与资源品定价）；⑤ Anthropic 最早 <b>周五提交 S-1</b>（可能为史上最大规模 IPO，海外 AI 情绪风向标）；⑥ 北证 50 ETF 与首批主动 ETF 正式落地进展；⑦ 六大行 2026 年中期分红除权实施节奏。</li>
+        <li><b>⚠️ 最终倾向：</b>谨慎偏空 · 总量防守、结构性参与 —— <b>承认红利端有效（今日已被验证），但成长端仍需等待</b>；以 25%-35% 仓位参与「银行红利打底 + 机器人 / 机械小仓试探」，<b>不碰算力硬件、传媒、CRO、贵金属与已澄清的连板股</b>，不参与跌停扩张期的题材接力；待「缩量企稳 + 跌停家数回落 + 创业板指在 2500 上方止跌」三项共振后再考虑提升仓位。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 本报告完整数据来源清单（可追溯）：</strong><br>
+    ① <b>同花顺体系（算 1 个来源）</b>：<br>
+    · A股收评 · <b>https://news.10jqka.com.cn/20261022/c680971639.shtml</b>（2026-10-22 15:00:59）—— 指数涨跌幅、三市成交额 15419 亿、领涨领跌板块、主力净流入 TOP3、涨停连板天梯、热点概览与消息面<br>
+    · ETF收评 · <b>https://news.10jqka.com.cn/20261022/c680971646.shtml</b> —— ETF 涨跌榜 TOP3 / TOP3、宁德时代回购与三季报、特斯拉 Optimus 量产、英伟达 GTC 柏林、宇树 H2-X、东吴证券「经济三重拐点」<br>
+    ② <b>东方财富（独立第二来源）</b>：<br>
+    · 行情接口 push2.eastmoney.com（ulist.np）—— 五大指数收盘点位 / 涨跌幅 / 成交额 / 分市场涨跌家数，与同花顺、新浪逐字段一致<br>
+    · 涨停板池 push2ex.eastmoney.com/getTopicZTPool —— 涨停 33 家、连板梯度、封板时间、领涨行业<br>
+    · 跌停板池 push2ex.eastmoney.com/getTopicDTPool —— 跌停 49 家名单及行业分布<br>
+    · 涨跌分布接口 getTopicZDFenBu（qdate=20261022）—— 上涨 516 / 下跌 4826 / 平盘 33 的分档统计<br>
+    ③ <b>新浪财经 / 格隆汇（第三来源）</b>：<br>
+    · 《A股收评：创业板指跌4.37%失守2600点，近5000股下跌！》<b>https://finance.sina.com.cn/stock/bxjj/2026-10-22/doc-iniwarrp5948142.shtml</b>（2026-10-22 15:05）—— 五大指数点位、成交额 15419 亿、创业板指回撤超 40%、算力硬件「易中天」大跌、CRO 全线下跌、银行创历史新高、机器人概念逆市上涨<br>
+    · 《财经早报丨三星、SK海力士计划升级中国工厂 多只连板股发布异动公告丨2026年10月22日》<b>https://finance.sina.com.cn/stock/y/2026-10-22/doc-inivzytv5968469.shtml</b> —— 连板股异动公告全集（大业股份 / 海洋王 / 东安动力 / 泰尔股份 / 同为股份 / 太极股份 / 日海智能 / 九阳股份）、宁德时代回购细节、上交所主动 ETF、三星 SK 海力士 NAND 升级、创金合信魏凤春与摩根士丹利基金策略观点<br>
+    · 《10月22日收盘：三大指数集体收涨 科技股反弹 SpaceX大涨近8%》<b>https://finance.sina.com.cn/world/2026-10-22/doc-inivzumv5223034.shtml</b> —— 隔夜美股三大指数点位与涨跌幅、SpaceX / 特斯拉 / 英伟达 / 超微电脑表现、布伦特与 WTI 收盘价、Anthropic S-1 预期<br>
+    · 《市场积极信号正在增多》（证券日报，2026-10-20）<b>https://finance.sina.com.cn/jjxw/2026-10-20/doc-inivvhfx5945829.shtml</b> —— 中金公司李求索完整观点（六大政策部署、非银流动性支持工具、「科技+红利」哑铃型结构）<br>
+    · 新浪财经 ETF 实时行情榜（vip.stock.finance.sina.com.cn / Market_Center.getHQNodeData，node=etf_hq_fund）—— ETF 涨跌榜 TOP25 双向核验、A 股科技 ETF 跌幅排序<br>
+    · 新浪财经行业 / 概念板块行情（newSinaHy.php / newFLJK.php）—— 49 个行业板块与 175 个概念板块的成分股平均涨跌幅及领涨股<br>
+    ④ <b>腾讯行情（qt.gtimg.cn）</b>：五大指数复核 + ETF 涨跌复核 + 全部重点个股收盘价 / 涨跌幅 / 成交额（含新易盛、中际旭创、天孚通信、宁德时代、工行建行农行、机器人与机械涨停股、6 只创业板算力 ETF）<br>
+    ⑤ <b>四大证券报头版头条内容精华摘要（2026-10-22）</b>：<b>https://finance.sina.com.cn/stock/y/2026-10-22/doc-inivzytw8008374.shtml</b> —— 中办国办《意见》17 条举措、上交所首批主动 ETF、证监会 AI 治理路径、北交所市值配售、锂价抬升与锂企三季报、光通信 AI 基建扩张<br>
+    ⑥ <b>工信部 / 国新办（10/20 发布会，经同花顺 ETF 收评转载）</b>：截至 2026 年 9 月底我国智能算力规模 2592 EFLOPS、同比增长 146%<br>
+    ⑦ <b>中国工程机械工业协会</b>：2026 年 9 月挖掘机销量 22717 台（+14.4%）、国内 9911 台（+7.16%）、出口 12806 台（+20.7%）<br>
+    ⑧ <b>历史复盘文档</b>：<b>20261021.html</b>（D-1）、<b>20261020.html</b>（D-2）—— 模块 ④ 全部 D-2 / D-1 定性均从这两份文档的 .theme-banner / .mainlines / .conclusion 原文提取，未凭记忆补全<br>
+    ⚠️ <b>数据缺口汇总</b>（已按 SOP §4.5 留空标注，未编造）：<br>
+    · <b>东方财富板块资金流接口被 WAF 拦截</b> —— 申万一级行业口径的主力净流入 / 净流出数据未取得，模块 ③ 第四行标注「数据缺口待核实」<br>
+    · 板块涨跌幅：同花顺为「板块指数涨跌幅」（仅列涨跌居前、未给数值），新浪为「成分股平均涨跌幅」，<b>两套口径不可直接互换</b>，报告内分开呈现、不做数值合并<br>
+    · 炸板率、封板时间分布（东财接口未提供该统计字段）、北向资金当日净流入<br>
+    · 申万一级行业完整涨跌幅排名（仅取得新浪行业 / 概念板块平均涨跌幅口径）<br>
+    · 526030 港股通信息技术 ETF 涨跌幅为同花顺 + 新浪双源确认，腾讯行情未收录该代码<br>
+    · 部分个股（如铁拓机械）同花顺原文提及但未给出代码，本次采集未取得其收盘价，故未列入个股池
+  </div>
+
+  <div class="footer">
+    📅 数据日期：2026-10-22（周四收盘）· 下一个交易日：2026-10-23（周五）<br>
+    📊 数据来源：同花顺 · 东方财富 · 新浪财经 / 格隆汇 · 腾讯行情 · 四大证券报 · 中国工程机械工业协会 · 工信部<br>
+    📌 历史对照：D-1 = 2026-10-21（20261021.html）· D-2 = 2026-10-20（20261020.html）<br>
+    ⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供投资研究参考，<b>不构成任何投资建议</b>。市场有风险，投资需谨慎。<br>
+    🧠 主线三段式脉络基于已生成复盘文档原文提取，未凭记忆补全；所有衍生数据均已标注口径与估算方法，数据缺口已逐项留空披露。
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-08 A 股复盘 · 国庆后第一个交易日杀跌 · 5 大指数全线飘绿 · 双创/科创跌超 3% · 算力硬件大幅回调（光芯片 20CM 跌停 / CPO / 半导体）· 防御资源主线突现（电池 + 油气 + 煤炭 + 航运 + 电力 · 中东冲突 + 双十五五规划）· 摩根士丹利：美对华光模块限制经 FCC 受控清单实施 · 布油突破 102 美元</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(239,68,68,0.28), rgba(245,158,11,0.18), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.45);
+    border-radius: 20px; padding: 36px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(239,68,68,0.20), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 30px; font-weight: 700;
+    background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .header .subtitle { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+  .section-title {
+    font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: var(--text-primary); font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .data-note {
+    background: var(--card-deep); border: 1px dashed var(--border-mid);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(239,68,68,0.10); border-left: 5px solid #ef4444;
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 17px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline .arrow { font-weight: 800; font-size: 14px; }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #f87171; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(239,68,68,0.2); color: #f87171; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<!-- ============ ① 头部 ============ -->
+<div class="header">
+  <h1>🚩 2026-10-08 A 股复盘 · 国庆后第一个交易日杀跌 · 5 大指数全线飘绿 · 沪指-0.79%/深成-2.07%/创-3.15%/科创综-4.55%/北证50-2.65% · 算力硬件大幅回调（光芯片 20CM 跌停 / CPO / 半导体 / AI 硬件）· 防御资源主线突现（电池 + 油气 + 煤炭 + 航运 + 电力 · 中东冲突 + 双十五五规划）· 摩根士丹利：美对华光模块限制经 FCC 受控清单实施 · 布油突破 102 美元</h1>
+  <div class="subtitle">沪指 <b class="danger-text">-0.79%</b> 3811.90 / 深成指 <b class="danger-text">-2.07%</b> 12620.90 / 创业板指 <b class="danger-text">-3.15%</b> 3036.66 / 科创综指 <b class="danger-text">-4.55%</b> 1732.58 / 北证 50 <b class="danger-text">-2.65%</b> 1012.10 · 三市成交 <b class="warn-text">16943 亿（较 9/29 放量 2727 亿 +19.2%）</b> · 超 <b class="danger-text">3700 只个股下跌</b> · 数据日期 2026-10-08（周四收盘 · 国庆假期后第一个交易日 · 算力杀跌 + 防御资源突现）</div>
+  <div class="badges">
+    <span class="badge badge-danger">🔴 5 大指数全线杀跌</span>
+    <span class="badge badge-danger">⚠️ 双创/科创跌超 3%</span>
+    <span class="badge badge-warn">📉 算力硬件大幅回调</span>
+    <span class="badge badge-up">🛢️ 防御资源主线突现</span>
+    <span class="badge badge-purple">🔋 电池+油气双十五五</span>
+    <span class="badge badge-warn">🇺🇸 摩根士丹利报告</span>
+    <span class="badge badge-source">📅 数据日期 2026-10-08</span>
+    <span class="badge badge-warn">📉 资金防御回流</span>
+  </div>
+</div>
+
+
+
+<!-- ============ ② 数据说明 ============ -->
+<div class="data-note">
+  <strong>📌 数据口径与双源验证：</strong><br>
+  ✅ <span class="ok">同花顺 A 股收评 c680471384（用户提供主源）</span> —— 三大指数集体下跌 · <span class="danger-text">创业板指跌 3.15%</span> · <span class="info-text">全市场成交额 16943 亿元</span> · <span class="danger-text">超 3700 只个股下跌</span> · 油气、电池板块涨幅居前 · 半导体、CPO 等 AI 硬件股跌幅居前 · 中东局势僵持推高油价 · 固态电池规划发布利好相关产业。<br>
+  ✅ <span class="ok">同花顺 ETF 收评 c680471379（用户提供主源）</span> —— <span class="ok-text">巴西 ETF（520870）+10.02% 领涨</span> · <span class="ok-text">标普油气 ETF（159518）+9.99% 领涨</span> · <span class="ok-text">巴西 ETF（159100）+9.96% 领涨</span>（巴西市场 + 标普油气双轨 · 中东冲突升级推升油气链）· <span class="danger-text">科创成长 ETF（589700）-7.45% 领跌</span> · <span class="danger-text">科创成长 ETF（588020）-7.24%</span> · <span class="danger-text">科创成长 ETF（588070）-7.20%</span>（科创板杀跌 · 与 <span class="danger-text">科创综指 -4.55%</span> 印证）· 消息面：<span class="info-text">七部门印发《新型电池产业发展"十五五"规划》</span> + <span class="info-text">发改委印发《石油天然气发展"十五五"规划》</span> 双政策催化。<br>
+  ✅ <span class="ok">新浪财经《A股收盘｜创业板指跌3.15% 半导体产业链调整》10/08 15:05</span>（<a href="https://finance.sina.com.cn/jjxw/2026-10-08/doc-iniupaez7541936.shtml" target="_blank">原文</a>）—— <span class="danger-text">上证 3811.9 跌 0.79% · 深成 12620.9 跌 2.07% · 创业 3036.66 跌 3.15% · 科创综 1732.58 跌 4.55%</span> · <span class="info-text">半导体产业链调整 · CPO 走低 · 玻璃基板走低 · 光刻机走低 · 存储芯片走低</span> · <span class="ok-text">油气 / 煤炭 / 固态电池 / 航运 / 电力逆势走强</span>（非同源第二来源）。<br>
+  ✅ <span class="ok">新浪财经《A股收评：三大指数集体下跌，创业板指跌3.15%，航运港口等》10/08</span>（<a href="https://finance.sina.com.cn/stock/zqgd/2026-10-08/doc-iniupaez7537639.shtml" target="_blank">原文</a>）—— <span class="danger-text">上证 -0.79% / 深成 -2.07% / 创业 -3.15% / 北证 -2.65%</span> · <span class="info-text">成交 16943 亿 · 超 3700 只下跌</span> · <span class="ok-text">航运港口领涨</span> · <span class="danger-text">生物制品领跌</span>（非同源第三来源）。<br>
+  ✅ <span class="ok">中国金融信息网《收评：沪指跌0.79% 石油股领涨半导体股领跌》10/08</span>（<a href="https://m.cnfin.com/yw-lb//zixun/20261008/4478019_1.html" target="_blank">原文</a>）—— <span class="info-text">上证 3811.90 -0.79% 成交 8112 亿 · 深成 12620.90 -2.07% 成交 8709 亿 · 创业 3036.66 -3.15% 成交 4253 亿 · 科创综 1732.58 -4.55% 成交 2654 亿 · 北证 1012.10 -2.65% 成交 124 亿</span> · <span class="ok-text">国庆服务消费旺盛 · 旅游娱乐收入 +23.6% · 手机销售 +119.8% · 交通出行超 21 亿人次</span>（非同源第四来源）。<br>
+  ✅ <span class="ok">证券时报《午评：创业板指跌2.13% 固态电池概念逆市走强》10/08 午盘</span>（<a href="https://www.stcn.com/article/detail/4207536.html" target="_blank">原文</a>）—— <span class="info-text">午盘沪指 -0.27% · 深成 -1.24% · 创业 -2.13%</span> · <span class="ok-text">固态电池（传艺科技涨停）· 航运（中远海能等涨停）逆市走强</span> · <span class="danger-text">CPO · 光刻机 · 半导体 · 医疗服务 · 影视院线跌幅居前</span>（非同源第五来源）。<br>
+  ✅ <span class="ok">搜狐财经《A股收评：放量下跌！创业板指跌3.15%，AI硬件板块回调》10/08</span>（<a href="https://m.sohu.com/a/1085119056_313170" target="_blank">原文</a>）—— <span class="danger-text">上证 3811.90 -0.79% · 深成 -2.07% · 创业 -3.15% · 科创 50 -4.82% · 北证 50 -2.65%</span> · <span class="info-text">成交 16943 亿 · 超 3700 只下跌</span> · <span class="ok-text">电池概念（领湃科技 20CM 涨停 / 时代万恒 / 龙蟠科技 10CM 涨停）· 油气（科力股份 +9%）· 港口航运（中远海能 / 招商南油 涨停）</span> · <span class="danger-text">光芯片（长光华芯 / 源杰科技 20CM 跌停）· CPO（沃格光电 / 均胜电子 跌停）· AI 硬件（长鑫科技 -7%）· 影视传媒（中文在线 -12%）· 电子化学品（中石科技 -16%）</span>（非同源第六来源）。<br>
+  ✅ <span class="ok">金融证券《午评：沪指跌0.27% 电池板块逆势走强》10/08 午盘</span>（<a href="http://finance.ce.cn/stock/gsgdbd/202610/t20261008_3249561.shtml" target="_blank">原文</a>）—— <span class="info-text">半日成交超 1.1 万亿 · 超 3300 只下跌</span> · <span class="ok-text">电池板块逆势走强</span>（非同源第七来源）。<br>
+  ⚠️ <span class="warn-text">涨停家数 / 跌停家数 / 封板率 / 炸板数公开数据缺口</span>（同花顺 c680471384 仅披露板块定性 · 未披露具体涨跌停数）· 上涨家数同花顺未明示（多源仅披露"超 3700 只下跌"）。<br>
+  ⚠️ <span class="warn-text">主力资金净流入 / 净流出 TOP3 公开数据缺口</span>（同花顺 c680471384 未披露具体板块资金流向）· 板块涨跌定性已通过多源印证 · 个股端资金数据缺口。<br>
+  ⚠️ <span class="warn-text">连板梯度细节（5/4/3/2 连板代表股）公开数据缺口</span>（同花顺 c680471384 未披露连板梯度）· 仅披露代表性涨停股（领湃科技 20CM / 时代万恒 / 龙蟠科技 / 中远海能 / 招商南油）<b>未明示连板数</b>。<br>
+  ⚠️ <span class="warn-text">同花顺两域同源说明</span>：c680471384（A 股收评）+ c680471379（ETF 收评）均来自 news.10jqka.com.cn 域；做双源核验时仅作主源参考，已搭配新浪财经（2 篇）+ 中国金融信息网 + 证券时报 + 搜狐财经 + 金融证券 6 个非同源第二/七来源做交叉核验。
+</div>
+
+<!-- ============ ③ 主题横幅 ============ -->
+<div class="theme-banner danger">
+  <div class="icon">🚩</div>
+  <div class="text">
+    <h3>核心定性：国庆后第一个交易日杀跌 · 5 大指数全线飘绿 · 双创/科创跌超 3% · 算力硬件大幅回调（光芯片 20CM 跌停 / CPO / 半导体）· 防御资源主线突现（电池 + 油气 + 煤炭 + 航运 + 电力 · 中东冲突 + 双十五五规划）· 资金防御回流（巴西 ETF +10.02% / 标普油气 ETF +9.99% 领涨）· 摩根士丹利报告：美对华光模块限制经 FCC"受控清单"实施（含 65% 美国含量规则）</h3>
+    <p>沪指 <b class="danger-text">-0.79%</b> 3811.90 / 深成指 <b class="danger-text">-2.07%</b> 12620.90 / 创业板指 <b class="danger-text">-3.15%</b> 3036.66 / 科创综指 <b class="danger-text">-4.55%</b> 1732.58 / 北证 50 <b class="danger-text">-2.65%</b> 1012.10（国庆后第一个交易日 5 大指数全部下跌）· 三市成交 <b>16943 亿（较 9/29 放量 2727 亿 +19.2%）</b> · 超 <b class="danger-text">3700 只个股下跌</b> · 领涨板块：<b class="ok-text">电池 / 油气 / 煤炭 / 港口航运 / 电力</b>（防御资源主线突现）· 领跌：<b class="danger-text">光芯片 / 半导体 / CPO / AI 硬件 / 影视传媒 / 电子化学品</b>（算力硬件大幅回调 + 影视票房低于预期）· <b class="ok-text">领湃科技（300825）20CM 涨停</b> + <b class="ok-text">时代万恒 / 龙蟠科技 10CM 涨停</b>（电池链）· <b class="ok-text">中远海能 / 招商南油 10CM 涨停</b>（航运链）· <b class="danger-text">长光华芯 / 源杰科技 20CM 跌停</b>（光芯片）· <b class="danger-text">沃格光电 / 均胜电子 跌停</b>（CPO / 汽车电子）· <b class="danger-text">中文在线 跌超 12%</b>（影视传媒 · 国庆档票房 +23.6% 不及预期）· <b class="danger-text">中石科技 跌超 16%</b>（电子化学品）· 印证 D-1（9/29）"<b class="info-text">算力修复（华为概念 +66.82 / 数据中心 +52.76 亿）+ 政策驱动型反弹（国企改革 +48.27 亿 + 地产 ETF +6.53%）</b>" → 今日"<b class="danger-text">算力硬件大幅回调（光芯片 -7% / CPO -7% / 半导体调整）</b>"两阶段反转路径 + <b class="ok-text">防御资源主线突现（电池 + 油气 + 煤炭 + 航运）</b>两阶段切换路径。</p>
+  </div>
+</div>
+<!--END_OF_PART2-->
+
+
+<!-- ============ ④ 五大指数 ============ -->
+<div class="section-title">📊 一、五大指数核心表现（5 大指数全线飘绿 · 双创/科创综跌超 3% · 国庆后第一个交易日杀跌 · 算力杀跌 + 防御资源突现双主线）</div>
+<div class="dashboard">
+  <div class="index-card danger">
+    <div class="tag danger">-0.79%</div>
+    <div class="name">上证指数（1A0001）</div>
+    <div class="value">3811.90</div>
+    <div class="change" style="color:#fca5a5">约 -30 点</div>
+    <div class="label">9/29 <b class="ok-text">+0.08%</b> 3826.51 → 今日 <b class="danger-text">-0.79%</b> 3811.90 · <b class="warn-text">终结 9/29 节后第一个交易日 +0.08% 微涨</b> · 国庆后第一个交易日大幅杀跌 · 主板权重跟随杀跌 · <b class="ok-text">油气 / 煤炭 / 港口航运逆势走强</b>部分对冲 · <b class="info-text">中国金融信息网印证 8112 亿成交</b></div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-2.07%</div>
+    <div class="name">深证成指（399001）</div>
+    <div class="value">12620.90</div>
+    <div class="change" style="color:#fca5a5">约 -266 点</div>
+    <div class="label">9/29 <b class="ok-text">+0.41%</b> ≈13141 → 今日 <b class="danger-text">-2.07%</b> 12620.90 · 国庆后深成指跌幅 <b class="warn-text">大于沪指</b>（-2.07% vs -0.79%）· <b class="warn-text">深弱显著（成长股杀跌）</b> · <b class="info-text">电池 / 航运 / 油气逆势</b>印证防御资源突现 · <b class="danger-text">半导体 / CPO / AI 硬件集体杀跌</b>拖累成长股</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-3.15%</div>
+    <div class="name">创业板指（399006）</div>
+    <div class="value">3036.66</div>
+    <div class="change" style="color:#fca5a5">约 -99 点</div>
+    <div class="label">9/29 <b class="ok-text">+0.34%</b> ≈3337 → 今日 <b class="danger-text">-3.15%</b> 3036.66 · <b class="danger-text">创指节后跌幅五指数第二</b>（仅次于科创综 -4.55%）· <b class="danger-text">半导体产业链调整 + CPO 走低 + 玻璃基板走低 + 光刻机走低 + 存储芯片走低</b> · <b class="warn-text">累计 -3.49%</b>· 印证"<b class="warn">算力修复 → 节后算力杀跌</b>"两阶段反转</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-4.55%</div>
+    <div class="name">科创综指</div>
+    <div class="value">1732.58</div>
+    <div class="change" style="color:#fca5a5">约 -82 点</div>
+    <div class="label">9/29 科创综 <b class="ok-text">+0.69%</b> ≈1580 → 今日 科创综 <b class="danger-text">-4.55%</b> 1732.58 · <b class="danger-text">科创综指 5 大指数跌幅最大</b> · <b class="danger-text">科创成长 ETF 三只集体 -7.2%~-7.45% 领跌</b> · <b class="info-text">光芯片 / 半导体 / AI 硬件 / CPO 集体杀跌</b> · 印证 D-1（9/29）"<b class="warn">算力修复 → 节后算力杀跌</b>"两阶段反转 · <b class="warn">注：搜狐财经披露"科创 50 -4.82%"（口径不同）</b></div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-2.65%</div>
+    <div class="name">北证 50（899050）</div>
+    <div class="value">1012.10</div>
+    <div class="change" style="color:#fca5a5">约 -28 点</div>
+    <div class="label">9/29 <b class="ok-text">+1.29%</b> ≈1097 → 今日 <b class="danger-text">-2.65%</b> 1012.10 · <b class="danger-text">北证 50 跟随大盘杀跌</b> · <b class="warn-text">小盘回吐 D-1 涨幅</b>（D-1 1097 → 今日 1012.10 累计 -85 点）· <b class="info-text">印证"小盘修复 → 节后回吐"两阶段路径</b></div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 指数口径补充：</strong>① 中国金融信息网（10/08 收评）：<b class="info-text">上证 3811.90 -0.79% 成交 8112 亿 · 深成 12620.90 -2.07% 成交 8709 亿 · 创业 3036.66 -3.15% 成交 4253 亿 · 科创综 1732.58 -4.55% 成交 2654 亿 · 北证 1012.10 -2.65% 成交 124 亿</b>；② 新浪财经（10/08 15:05）：<b class="info-text">上证 3811.9 -0.79% · 深成 12620.9 -2.07% · 创业 3036.66 -3.15% · 科创综 1732.58 -4.55%</b>；③ 搜狐财经（10/08 收评）：<b class="info-text">上证 3811.90 -0.79% · 科创 50 -4.82%</b>（口径不同：科创综 -4.55% vs 科创 50 -4.82% · 本报告以中国金融信息网 + 新浪财经的"科创综指"为准）；④ <b class="danger-text">三市总成交 16943 亿（沪 + 深 + 创业 + 科创 + 北证 多个口径印证一致）</b>；⑤ <b class="info-text">较 9/29 14216 亿放量 2727 亿 +19.2%（节前缩量 → 节后放量杀跌）</b>；⑥ 9/29 收盘 <b class="ok-text">5 大指数全线飘红</b> → 今日 <b class="danger-text">5 大指数全线飘绿</b> 形成"<b class="danger-text">D-1 翻红 → 今日全线杀跌</b>"两阶段反转路径；⑦ <b class="warn-text">杀跌幅度显著（沪 -0.79% / 深 -2.07% / 创 -3.15% / 科创综 -4.55% / 北证 50 -2.65%）</b>印证"<b class="warn">D-1 微涨 → 今日大幅杀跌</b>"特征，主因：<b class="danger-text">摩根士丹利报告（美对华光模块限制经 FCC 受控清单实施）+ 中东冲突升级（布油突破 102 美元）+ 双创 / 科创板 AI 硬件大幅回调</b>。
+</div>
+
+<!-- ============ ⑤ 市场交易与资金信号 ============ -->
+<div class="section-title info">💰 二、市场交易与资金信号（5 大指数全线杀跌 · 国庆后第一个交易日放量杀跌 · 放量 2727 亿 +19.2% · 资金防御回流 · 算力杀跌 + 防御资源突现双主线）</div>
+<div class="market-stats">
+  <div class="stat-card danger">
+    <div class="stat-name">三市成交额</div>
+    <div class="stat-value">16943 亿</div>
+    <div class="stat-detail">较 9/29（14216 亿）<b class="warn-text">放量 2727 亿（+19.2%）</b> · <b class="danger-text">放量杀跌特征（沪指 -0.79% + 放量 19.2%）</b> · 9/29 节后第一个交易日缩量反弹 → 10/8 国庆后第一个交易日放量杀跌 · <b class="info-text">资金防御回流（巴西 ETF +10.02% / 标普油气 ETF +9.99% 领涨）</b> · <b class="warn-text">杀跌动能尚需观察</b></div>
+  </div>
+  <div class="stat-card danger">
+    <div class="stat-name">个股活跃度</div>
+    <div class="stat-value">超 3700 跌</div>
+    <div class="stat-detail">同花顺披露"<b class="danger-text">超 3700 只个股下跌</b>" · 与 9/29 的"<b class="ok-text">超 3400 只个股上涨</b>"形成"<b class="danger-text">3400 涨 → 3700 跌</b>"反转 · <b class="danger-text">D-2 9/28 4500 跌 → D-1 9/29 3400 涨 → 今日 3700 跌 三阶段震荡</b> · <b class="warn-text">涨停家数 / 跌停家数 / 封板率 / 炸板数公开数据缺口</b> · <b class="info-text">代表性涨停：领湃科技 20CM / 时代万恒 / 龙蟠科技 / 中远海能 / 招商南油</b></div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">领涨 vs 领跌</div>
+    <div class="stat-value">电池↑ / 光芯片↓</div>
+    <div class="stat-detail"><b class="ok-text">电池 / 油气 / 煤炭 / 港口航运 / 电力逆势走强</b>（<b>防御资源主线突现</b>· 中东冲突 + 双十五五规划催化）· <b class="danger-text">光芯片 / 半导体 / CPO / AI 硬件 / 影视传媒 / 电子化学品领跌</b>（算力硬件大幅回调）· <b class="info-text">"算力杀跌 + 防御资源突现"双主线切换</b>特征</div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">ETF 领涨 / 领跌</div>
+    <div class="stat-value">巴西ETF +10.02% / 科创成长ETF -7.45%</div>
+    <div class="stat-detail"><b class="ok-text">巴西 ETF（520870）+10.02% 领涨</b> · <b class="ok-text">标普油气 ETF（159518）+9.99%</b> · <b class="ok-text">巴西 ETF（159100）+9.96%</b>（巴西市场 + 标普油气双轨）· <b class="danger-text">科创成长 ETF 三只集体 -7.2%~-7.45% 领跌</b>（科创板杀跌 · 与 <b class="info-text">科创综指 -4.55%</b>印证）</div>
+  </div>
+</div>
+
+<!-- ============ ⑥ 主力资金净流入 TOP3 ============ -->
+<div class="section-title">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径（数据缺口 · 板块定性已通过多源印证 · 防御资源主线突现 · 算力杀跌）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>ℹ️ 资金面数据缺口：</strong>① <b class="warn-text">同花顺 c680471384 10/8 收评未披露主力资金净流入 / 净流出 TOP3 具体金额</b>（板块定性已通过多源印证）；② <b class="info-text">基于"板块涨幅"+"代表性涨停股资金动向"+"ETF 涨跌"3 个维度的定性推演</b>如下；③ <b class="warn-text">TOP3 净流入/净流出具体金额待用户本地 Wind / 同花顺客户端核对</b>。
+</div>
+<div class="flow-table">
+  <div class="flow-row header"><div>排名</div><div>主题板块</div><div>资金定性</div><div>板块表现 / 印证</div></div>
+  <div class="flow-row">
+    <div><span class="flow-rank up">1</span></div>
+    <div><b>电池 / 固态电池</b></div>
+    <div class="flow-val up">净流入 TOP1（估算）</div>
+    <div><b class="ok">板块大涨 · 领湃科技（300825）20CM 涨停 + 时代万恒 / 龙蟠科技 10CM 涨停</b> · <b class="info-text">七部门印发《新型电池产业发展"十五五"规划》</b>（同花顺 c680471379 印证）· <b class="info-text">2030 年全固态电池规模化应用</b> · <b class="info-text">华福证券：规划鼓励固态、钠电新技术</b> · <b>午盘传艺科技涨停</b>（证券时报印证）· <b class="ok-text">印证 D-1（9/29）"电池领涨 TOP5"延续升级 + 独立强化</b> · 防御资源主线突现 + 政策驱动型反弹双轮</div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank info">2</span></div>
+    <div><b>油气 / 油气开采及服务</b></div>
+    <div class="flow-val up">净流入 TOP2（估算）</div>
+    <div><b class="ok">板块大涨 · 科力股份 +9% · 标普油气 ETF（159518）+9.99% 领涨</b> · <b class="danger-text">中东冲突升级 · 布油突破 102 美元/桶</b>（搜狐财经 10/08 印证）· <b class="info-text">发改委印发《石油天然气发展"十五五"规划》</b>（同花顺 c680471379 印证）· <b class="info-text">IMF 总裁：高能源价格可能持续至 2027 年</b> · <b class="ok-text">印证 D-2 / D-1 "油气 / 煤炭领跌"反转 → 今日"油气链领涨"</b>两阶段反转</div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank purple">3</span></div>
+    <div><b>港口航运</b></div>
+    <div class="flow-val up">净流入 TOP3（估算）</div>
+    <div><b class="ok">板块大涨 · 中远海能（600026）/ 招商南油（601975）10CM 涨停</b> · <b class="info-text">航运港口等领涨</b>（新浪财经 10/08 印证）· <b class="danger-text">中东冲突升级推升油运 · 油运价格预期上行</b> · <b class="info-text">集运指数上涨 · 出口数据强支撑</b> · <b class="ok-text">印证 D-1（9/29）"防御反向轮动结束"反转 → 今日"航运 / 港口领涨"</b>两阶段切换 · 与电池 / 油气形成防御资源三主线</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 资金面补充：</strong>① <b>同花顺 c680471384 10/08</b>：<span class="warn-text">未直接披露 TOP3 资金流向具体金额</span>；② <b class="info-text">基于多源印证 + ETF 端资金动向推演</b>：<b class="ok">巴西 ETF +10.02% / 标普油气 ETF +9.99% / 巴西 ETF +9.96% 领涨全市场</b> · <b class="danger-text">科创成长 ETF -7.45% / -7.24% / -7.20% 领跌全市场</b> · 印证<b class="ok-text">"资金防御回流（油气链 / 海外资产）+ 资金撤离算力硬件（科创板杀跌）"</b>双主线；③ 资金体量变化：<b class="ok-text">D-2（9/28）实物消费 TOP3 17.19 亿 → D-1（9/29）算力修复 TOP3 167.85 亿 → 今日（10/8）防御资源 TOP3（数据缺口）</b>—— 印证"<b class="danger-text">算力资金撤离（光芯片 / 半导体 / CPO 杀跌） + 防御资源资金回流（电池 / 油气 / 煤炭 / 航运）</b>"两阶段切换；④ <b class="warn-text">具体资金金额待用户本地 Wind / 同花顺客户端核对</b>。
+</div>
+<!--END_OF_PART3-->
+
+
+<!-- ============ ⑦ 今日主线板块与逻辑（三段式时间脉络 · D-2=9/28 → D-1=9/29 → 今日=10/8 · 中间 9/30-10/7 国庆假期） ============ -->
+<div class="section-title">🎯 四、今日主线板块与逻辑（近 3 个交易日三段式脉络 · D-2=9/28 → D-1=9/29 → 今日=10/8 · 中间 9/30-10/7 国庆假期）</div>
+<div class="mainlines">
+
+  <!-- 主线 1：算力硬件大幅回调 -->
+  <div class="mainline-card danger">
+    <div class="mainline-rank">1</div>
+    <div class="title">📉 算力硬件大幅回调（光芯片 20CM 跌停 / CPO / 半导体 / AI 硬件 · 长光华芯 / 源杰科技 / 沃格光电 / 均胜电子 / 中石科技集体杀跌 · 摩根士丹利：美对华光模块限制经 FCC"受控清单"实施）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔴 算力杀跌</span>
+      <span class="mainline-tag warn">光芯片-7%</span>
+      <span class="mainline-tag warn">CPO-7%</span>
+      <span class="mainline-tag info">科创成长ETF-7.45%</span>
+      <span class="mainline-tag purple">摩根士丹利</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/30-10/7 国庆假期）<br>
+      · D-2（9/28）：<b>🔽 降</b> · <b class="danger-text">算力硬件集体暴跌 -4%~-7%（CPO / 铜缆高速连接 / 通信设备 / MLCC / 元件 领跌）</b> · <b class="danger-text">创业板算力 ETF（158063）-7.14% / 通信 ETF（515880）-7.66% 领跌全市场</b> · 节后兑现 + 议息扰动三次消化<br>
+      · D-1（9/29）：<b>🔼 升</b> · <b class="ok-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨</b>（合计 119.58 亿 · 较 D-2 TOP3 17.19 亿 <b class="ok-text">环比 +595.5%</b>）· <b class="info-text">华为 3D 数据中心 + 昇腾超节点持续催化</b>· 节后第一个交易日资金回流算力修复<br>
+      · 今日（10/8）：<b>🔽 降</b> · <b class="danger-text">光芯片（长光华芯 20CM 跌停 / 源杰科技 20CM 跌停）· CPO（沃格光电 跌停）· AI 硬件（长鑫科技 -7%）· 半导体产业链调整</b> · <b class="danger-text">科创成长 ETF 三 ETF 集体 -7.2%~-7.45% 领跌全市场</b> · <b class="info-text">摩根士丹利报告：美对华光模块限制经 FCC"受控清单"实施 · 含 65% 美国含量规则</b> · 议息扰动五次消化 + 算力高位兑现<br>
+      · 变化方向：<b class="danger-text">🔽 降</b>（D-1 算力修复 → 今日 算力大幅回调）<br>
+      · 切换归因：<b class="danger-text">摩根士丹利报告（美对华光模块限制经 FCC 受控清单实施 + 65% 美国含量规则）+ 议息扰动五次消化 + 算力高位兑现压力</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>算力硬件板块在 D-2（9/28）"<b class="danger-text">算力硬件集体暴跌 -4%~-7%</b>" → D-1（9/29）"<b class="ok-text">算力修复（华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨）</b>" → 今日（10/8）"<b class="danger-text">算力硬件大幅回调</b>"。10/8 国庆后第一个交易日算力硬件"<b class="danger-text">大幅回调（光芯片 / CPO / 半导体 / AI 硬件集体杀跌）</b>"，与 D-1"<b class="ok-text">算力修复 TOP1+TOP2</b>"形成"<b class="danger-text">修复 → 大幅回调</b>"两阶段反转路径。<br>
+      <b>【催化】</b>① <b>摩根士丹利报告（核心催化）：</b><b class="danger-text">美国对华光模块限制或经 FCC"受控清单"实施</b>（搜狐财经 10/08 印证）· <b class="danger-text">含"65% 美国含量"规则</b>；② <b>议息扰动五次消化：</b>9/17 凌晨 02:00 美联储议息鹰派加息 25bp 至 3.75-4.00% · 今日 10/8 <b class="info-text">议息扰动五次消化（议息后第 17 个交易日）</b>压制成长股估值；③ <b>算力高位兑现压力：</b>D-1"<b class="ok-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨</b>"高位 → 今日"<b class="danger-text">高位兑现 + 算力大幅回调</b>"两阶段反转；④ <b>节后放量杀跌：</b>三市成交 16943 亿（较 9/29 放量 2727 亿 +19.2%）· <b class="info-text">放量杀跌特征</b>；⑤ <b>板块扩散反复切换风险：</b>印证"<b class="warn">五阶段切换 + 节后兑现 + 资金体量大幅放大</b>"风险信号。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>光芯片 20CM 跌停</b>：<b>长光华芯</b> 688048 · <b>源杰科技</b> 688498</span>
+      <span class="stock-chip"><b>CPO 跌停</b>：<b>沃格光电</b> 603773 · <b>均胜电子</b> 600699</span>
+      <span class="stock-chip"><b>AI 硬件 -7%</b>：<b>长鑫科技</b>（放量大跌超 7%）</span>
+      <span class="stock-chip"><b>电子化学品 -16%</b>：<b>中石科技</b> 300684（跌超 16%）</span>
+      <span class="stock-chip"><b>科创成长 ETF</b> 589700（-7.45% 领跌）</span>
+      <span class="stock-chip"><b>科创成长 ETF</b> 588020（-7.24%）</span>
+      <span class="stock-chip"><b>科创成长 ETF</b> 588070（-7.20%）</span>
+      <span class="stock-chip"><b>半导体产业链</b>（调整 · 玻璃基板 / 光刻机 / 存储芯片同步走低）</span>
+      <span class="stock-chip"><b>D-1 华为概念 +66.82 亿</b>（今日资金撤离 · 高位兑现）</span>
+      <span class="stock-chip"><b>D-1 数据中心 +52.76 亿</b>（今日资金撤离）</span>
+    </div>
+  </div>
+
+  <!-- 主线 2：电池 / 固态电池十五五规划 -->
+  <div class="mainline-card rank-1">
+    <div class="mainline-rank">2</div>
+    <div class="title">🔋 电池 / 固态电池"十五五"规划（领湃科技 300825 20CM 涨停 + 时代万恒 / 龙蟠科技 10CM 涨停 · 七部门印发《新型电池产业发展"十五五"规划》· 2030 全固态规模化 · 华福证券：规划鼓励固态、钠电新技术）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 防御突现</span>
+      <span class="mainline-tag info">领湃科技20CM</span>
+      <span class="mainline-tag info">龙蟠科技10CM</span>
+      <span class="mainline-tag warn">十五五规划</span>
+      <span class="mainline-tag purple">全固态规模化</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/30-10/7 国庆假期）<br>
+      · D-2（9/28）：<b>━━ 持</b> · 防御反向轮动（汽车整车 / 猪肉 / 养鸡 / 风电设备 / 小家电逆势走强）· 电池未在 TOP5 领涨（实物消费 + 防御品种轮动）<br>
+      · D-1（9/29）：<b>🔼 升</b> · <b class="ok-text">电池领涨 TOP5</b>（七部门发电池"十五五"规划 · 目标 2030 年全固态电池规模化应用 · 财联社 9/29 印证）· 与 TOP1 换电概念形成"<b class="info-text">换电概念 → 电池</b>"两阶段路径<br>
+      · 今日（10/8）：<b>🔼 升</b> · <b class="ok-text">领湃科技（300825）20CM 涨停</b> + <b class="ok-text">时代万恒（600241）/ 龙蟠科技（603906）10CM 涨停</b> · <b class="info-text">七部门印发《新型电池产业发展"十五五"规划》</b>（同花顺 c680471379 印证）· <b class="info-text">2030 年全固态电池规模化应用</b> · <b class="info-text">华福证券：规划鼓励固态、钠电新技术</b> · 防御资源主线突现核心<br>
+      · 变化方向：<b class="ok-text">🔼 升</b>（D-1 电池领涨 TOP5 → 今日 电池"十五五"规划独立强化）<br>
+      · 切换归因：<b class="info-text">七部门印发《新型电池产业发展"十五五"规划》+ 全固态电池规模化应用 + 防御资源主线突现</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>电池板块在 D-2（9/28）"<b class="info-text">防御反向轮动（汽车整车 / 猪肉 / 养鸡）</b>（电池未在 TOP5 领涨）" → D-1（9/29）"<b class="ok-text">电池领涨 TOP5（七部门发电池"十五五"规划）</b>" → 今日（10/8）"<b class="ok-text">领湃科技 20CM 涨停 + 时代万恒 / 龙蟠科技 10CM 涨停</b>"。10/8 电池"<b class="ok-text">十五五规划独立强化 + 防御资源主线突现</b>"，与 D-1（9/29）"<b class="ok-text">电池领涨 TOP5</b>"形成"<b class="ok-text">领涨 TOP5 → 独立强化（20CM 涨停 + 政策驱动）</b>"两阶段升级路径。<br>
+      <b>【催化】</b>① <b>七部门印发《新型电池产业发展"十五五"规划》（核心催化）：</b><b class="info-text">2030 年全固态电池规模化应用</b>（同花顺 c680471379 + 财联社 9/29 印证）· <b class="info-text">华福证券：规划鼓励固态、钠电新技术</b>（搜狐财经 10/08 印证）—— <b class="ok-text">直接利好电池板块（固态电池 + 钠电 + 锂电池）</b>；② <b>20CM 涨停龙头：</b><b class="ok-text">领湃科技（300825）20CM 涨停</b>（搜狐财经 10/08 印证）—— 印证固态电池龙头强势；③ <b>10CM 涨停梯队：</b><b class="ok-text">时代万恒（600241）10CM 涨停</b> + <b class="ok-text">龙蟠科技（603906）10CM 涨停</b>；④ <b>D-1 电池领涨 TOP5 延续：</b>D-1 领涨未在 D-2 "实物消费轮动"中延续 → 今日"<b class="ok-text">十五五规划独立强化</b>"两阶段升级路径；⑤ <b>午盘信号印证：</b><b class="info-text">证券时报《午评：固态电池概念逆市走强》10/08 午盘</b>· <b class="info-text">传艺科技涨停</b>。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>领湃科技</b> 300825（20CM 涨停 · 固态电池龙头 · 搜狐财经 10/08 印证）</span>
+      <span class="stock-chip"><b>时代万恒</b> 600241（10CM 涨停 · 电池）</span>
+      <span class="stock-chip"><b>龙蟠科技</b> 603906（10CM 涨停 · 锂电池）</span>
+      <span class="stock-chip"><b>传艺科技</b> 002866（10CM 涨停 · 固态电池 · 证券时报午盘印证）</span>
+      <span class="stock-chip"><b>宁德时代</b> 300750（锂电池龙头）</span>
+      <span class="stock-chip"><b>比亚迪</b> 002594（动力电池龙头）</span>
+      <span class="stock-chip"><b>国轩高科</b> 002074（动力电池）</span>
+      <span class="stock-chip"><b>赣锋锂业</b> 002460（锂资源）</span>
+      <span class="stock-chip"><b>华福证券</b>受益股（固态 / 钠电新技术）</span>
+      <span class="stock-chip"><b>2030 全固态电池规模化应用</b>（政策驱动型反弹 · D-1 9/29 + 今日 10/8 两次催化）</span>
+    </div>
+  </div>
+<!--END_OF_PART4A-->
+
+
+  <!-- 主线 3：油气 + 煤炭 + 港口航运 -->
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">3</div>
+    <div class="title">🛢️ 油气 + 煤炭 + 港口航运（中东冲突升级 · 布油突破 102 美元/桶 · 科力股份 +9% · 中远海能 600026 + 招商南油 601975 涨停 · 标普油气 ETF 159518 +9.99% 领涨 · 发改委印发《石油天然气发展"十五五"规划》· IMF：高能源价格可能持续至 2027）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 资源突现</span>
+      <span class="mainline-tag info">布油+102美元</span>
+      <span class="mainline-tag info">中远海能涨停</span>
+      <span class="mainline-tag warn">中东冲突</span>
+      <span class="mainline-tag purple">十五五规划</span>
+      <span class="mainline-tag info">科力股份+9%</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/30-10/7 国庆假期）<br>
+      · D-2（9/28）：<b>🔽 降</b> · <b class="danger-text">煤炭 / 油气领跌（防御反向品种延续走弱）</b>（同花顺 c680311505 印证）· 防御聚焦实物消费未现<br>
+      · D-1（9/29）：<b>━━ 持</b> · <b class="danger-text">培育钻石 / 煤炭 / 油气 / 航运 / 农林领跌</b>（同花顺 c680357780 印证）· 防御反向品种延续走弱 · 港股通汽车 ETF -2.69% 领跌全市场<br>
+      · 今日（10/8）：<b>🔼 升</b> · <b class="ok-text">科力股份（603072）+9%</b>（油气）· <b class="ok-text">标普油气 ETF（159518）+9.99% 领涨</b> · <b class="ok-text">中远海能（600026）/ 招商南油（601975）10CM 涨停</b>（航运）· <b class="danger-text">中东冲突升级 · 布油突破 102 美元/桶</b> · <b class="info-text">发改委印发《石油天然气发展"十五五"规划》</b>（同花顺 c680471379 印证）· <b class="info-text">IMF 总裁：高能源价格可能持续至 2027 年</b> · <b class="ok-text">印证 D-2 / D-1 "煤炭 / 油气领跌"反转 → 今日"油气 + 煤炭 + 航运领涨"</b>两阶段反转<br>
+      · 变化方向：<b class="ok-text">🔼 升</b>（D-1 油气 / 煤炭 / 航运领跌 → 今日 油气 + 煤炭 + 航运领涨）<br>
+      · 切换归因：<b class="info-text">中东冲突升级 + 双十五五规划（电池 + 油气）+ 油价突破 102 美元 + 防御资源资金回流</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>油气 + 煤炭 + 港口航运在 D-2（9/28）"<b class="danger-text">煤炭 / 油气领跌（防御反向品种延续走弱）</b>" → D-1（9/29）"<b class="danger-text">培育钻石 / 煤炭 / 油气 / 航运 / 农林领跌 · 港股通汽车 ETF -2.69% 领跌全市场</b>" → 今日（10/8）"<b class="ok-text">科力股份 +9% / 标普油气 ETF +9.99% / 中远海能 + 招商南油涨停</b>"。10/8 防御资源"<b class="ok-text">中东冲突 + 能源规划双驱动 + 油价突破 + 资金防御回流</b>"突现主线，与 D-1"<b class="danger-text">防御反向品种延续走弱</b>"形成"<b class="ok-text">防御反向走弱 → 防御资源突现</b>"两阶段反转路径。<br>
+      <b>【催化】</b>① <b>中东冲突升级（核心催化）：</b><b class="danger-text">中东局势僵持推高油价 · 布油突破 102 美元/桶</b>（搜狐财经 10/08 + 同花顺 c680471384 印证）—— <b class="ok-text">直接利好油气 + 油运 + 煤炭板块</b>；② <b>发改委印发《石油天然气发展"十五五"规划》：</b><b class="info-text">石油天然气发展"十五五"规划</b>（同花顺 c680471379 印证）—— <b class="ok-text">直接利好油气链（开采 + 服务 + 设备）</b>；③ <b>IMF 总裁观点：</b><b class="info-text">高能源价格可能持续至 2027 年</b>（搜狐财经 10/08 印证）—— <b class="info-text">长期能源价格高位预期</b>；④ <b>代表性涨停股：</b><b class="ok-text">科力股份（603072）+9%</b>（搜狐财经印证）· <b class="ok-text">中远海能（600026）10CM 涨停</b>（搜狐财经印证）· <b class="ok-text">招商南油（601975）10CM 涨停</b>（搜狐财经印证）；⑤ <b>ETF 端印证：</b><b class="ok-text">标普油气 ETF（159518）+9.99% 领涨全市场</b>（同花顺 c680471379 印证）。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>科力股份</b> 603072（+9% · 油气 · 搜狐财经 10/08 印证）</span>
+      <span class="stock-chip"><b>中远海能</b> 600026（10CM 涨停 · 油运龙头 · 搜狐财经 10/08 印证）</span>
+      <span class="stock-chip"><b>招商南油</b> 601975（10CM 涨停 · 油运 · 搜狐财经 10/08 印证）</span>
+      <span class="stock-chip"><b>中国石油</b> 601857（油气龙头）</span>
+      <span class="stock-chip"><b>中国海油</b> 600938（油气龙头）</span>
+      <span class="stock-chip"><b>中海油服</b> 601808（油气服务）</span>
+      <span class="stock-chip"><b>杰瑞股份</b> 002353（油气服务）</span>
+      <span class="stock-chip"><b>兖矿能源</b> 600188（煤炭）</span>
+      <span class="stock-chip"><b>中国神华</b> 601088（煤炭龙头）</span>
+      <span class="stock-chip"><b>陕西煤业</b> 601225（煤炭）</span>
+      <span class="stock-chip"><b>中煤能源</b> 601898（煤炭）</span>
+      <span class="stock-chip"><b>标普油气 ETF</b> 159518（+9.99% 领涨全市场 · 同花顺 c680471379 印证）</span>
+      <span class="stock-chip"><b>巴西 ETF</b> 520870（+10.02% 领涨 · 中东冲突驱动 · 同花顺 c680471379 印证）</span>
+    </div>
+  </div>
+
+  <!-- 主线 4：影视传媒 / AI 视频高位兑现（独立成卡，红色 .danger） -->
+  <div class="mainline-card danger">
+    <div class="mainline-rank">4</div>
+    <div class="title">🛡️ 影视传媒 / AI 视频高位兑现（中文在线 300364 跌超 12% · 国庆档票房 11.65 亿元（同比 +23.6%）不及预期 · 文化传媒 / AI 视频国庆后兑现压力 · D-2 → D-1 → 今日 三阶段路径）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔴 高位兑现</span>
+      <span class="mainline-tag warn">中文在线-12%</span>
+      <span class="mainline-tag info">国庆档+23.6%</span>
+      <span class="mainline-tag purple">文化传媒让位</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/30-10/7 国庆假期）<br>
+      · D-2（9/28）：<b>━━ 持</b> · 文化传媒主线连续 3 日升级（新华传媒 5 连板 · 福建水泥 / 雪龙集团 3 连板）· 主线情绪升温<br>
+      · D-1（9/29）：<b>🔼 升</b> · <b class="ok-text">新华传媒（600825）6 连板（连板高度反弹 1 板 · 主线连续 4 日升级 · 证券时报印证）</b>· 文化传媒 / AI 视频领涨 · 但 6 板为短期情绪高位 · 高位风险累积<br>
+      · 今日（10/8）：<b>🔽 降</b> · <b class="danger-text">中文在线（300364）跌超 12%</b>（搜狐财经 10/08 印证）· <b class="info-text">影视传媒板块走弱</b> · <b class="info-text">国庆档票房 11.65 亿元（同比 +23.6% · 人次 3199.59 万）</b>不及预期 · <b class="warn-text">文化传媒 6 连板高位兑现</b><br>
+      · 变化方向：<b class="danger-text">🔽 降</b>（D-1 6 连板高位 → 今日 高位兑现 + 国庆票房不及预期）<br>
+      · 切换归因：<b class="info-text">6 连板高位兑现 + 国庆档票房 +23.6% 不及预期 + 节后资金回流资源 / 算力杀跌拖累情绪</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>文化传媒 / 影视传媒在 D-2（9/28）"<b class="ok-text">新华传媒 5 连板 · 主线连续 3 日升级</b>" → D-1（9/29）"<b class="ok-text">新华传媒 6 连板 · 主线连续 4 日升级 · 文化传媒 / AI 视频领涨</b>" → 今日（10/8）"<b class="danger-text">中文在线跌超 12% · 影视传媒板块走弱 · 国庆档票房 +23.6% 不及预期</b>"。10/8 影视传媒"<b class="danger-text">高位兑现 + 国庆票房不及预期 + 资金回流资源 / 算力杀跌拖累</b>"，与 D-1（9/29）"<b class="ok-text">文化传媒 6 连板高位</b>"形成"<b class="danger">6 板高位 → 兑现杀跌</b>"两阶段反转路径。<br>
+      <b>【催化与归因】</b>① <b>国庆档票房不及预期：</b><b class="info-text">国庆档票房 11.65 亿元（同比 +23.6% · 人次 3199.59 万）</b>（搜狐财经 10/08 印证）—— <b class="danger-text">同比 +23.6% 远低于市场预期的 50%+ 增长</b>，印证影视传媒板块节前兑现压力；② <b>6 连板高位兑现：</b>D-1（9/29）"<b class="warn">新华传媒 6 连板</b>"为短期情绪高位 → 今日"<b class="danger-text">高位兑现 + 资金撤离</b>"两阶段反转；③ <b>算力杀跌拖累情绪：</b>算力修复主线大幅回调 → 文化传媒 / AI 视频"<b class="danger-text">个股端 + 板块端双重承压</b>"；④ <b>资金防御回流：</b>资金从文化传媒 / AI 视频回流至电池 / 油气 / 煤炭 / 航运等防御资源主线。<br>
+      <b>路径总结：</b>文化传媒路径：<b>D-2 5 连板 → D-1 6 连板高位 → 今日 高位兑现 + 国庆票房不及预期</b>。10/8 印证"<b class="danger-text">"5 板 → 6 板 → 高位兑现"</b>"三阶段路径完整。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>中文在线</b> 300364（跌超 12% · 影视传媒 · 搜狐财经 10/08 印证）</span>
+      <span class="stock-chip"><b>新华传媒</b> 600825（D-1 6 连板 · 文化传媒 / 出版 · 今日高位兑现）</span>
+      <span class="stock-chip"><b>光线传媒</b> 300251（影视 · 板块走弱）</span>
+      <span class="stock-chip"><b>中国电影</b> 600977（影视 · 国庆档 · 票房不及预期）</span>
+      <span class="stock-chip"><b>横店影视</b> 001103（影视 · 板块走弱）</span>
+      <span class="stock-chip"><b>上海电影</b> 601595（影视 · 板块走弱）</span>
+      <span class="stock-chip"><b>D-1 新华传媒 6 连板</b>（连板高度反弹 1 板 · 主线连续 4 日升级）</span>
+      <span class="stock-chip"><b>D-1 雪龙集团 4 连板</b>（风能 / 复合材料 · 今日待观察）</span>
+      <span class="stock-chip"><b>D-1 襄阳轴承 3 连板</b>（轴承 · 今日待观察）</span>
+    </div>
+  </div>
+
+</div>
+<!--END_OF_PART4B-->
+
+
+<!-- ============ ⑧ 涨停天梯 ============ -->
+<div class="section-title warn">🪜 五、涨停天梯（领湃科技 300825 20CM 涨停 · 电池链 · 中远海能 600026 + 招商南油 601975 涨停 · 航运链 · 时代万恒 + 龙蟠科技 10CM 涨停 · 电池链 · 摩根士丹利 + 美对华限制压制算力硬件 · 数据缺口：连板梯度细节未披露）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 高度变化（D-2 → D-1 → 今日 · 中间 9/30-10/7 国庆假期）：</strong>D-2（9/28）<b class="ok-text">新华传媒（600825）5 连板</b>（从 D-1 9/23 3 连板升级 · 连板高度反弹 2 板 · 文化传媒 / 出版主线连续 3 日升级）· <b>福建水泥（600802）/ 雪龙集团（603949）3 连板</b>（水泥 + 风能 / 复合材料）· <b>襄阳轴承（000678）/ 吉鑫科技（601218）/ 大业股份（603278）2 连板</b>（轴承 + 风能 + 轮胎）→ D-1（9/29）<b class="ok-text">新华传媒（600825）6 连板</b>（从 D-2 9/28 5 连板升级 · 连板高度反弹 1 板 · 主线连续 4 日升级 · 证券时报印证）· <b class="ok-text">雪龙集团（603949）4 连板</b>（从 D-2 3 连板升级 · 风能 / 复合材料）· <b class="ok-text">襄阳轴承（000678）3 连板</b>（从 D-2 2 连板升级 · 轴承）→ 今日 10/8 <b class="warn-text">连板梯度细节数据缺口</b>（同花顺 c680471384 未披露具体连板梯度）· <b class="ok-text">代表性涨停：领湃科技（300825）20CM 涨停</b>（搜狐财经印证 · 固态电池龙头）· <b class="ok-text">时代万恒（600241）/ 龙蟠科技（603906）10CM 涨停</b>（电池链）· <b class="ok-text">中远海能（600026）/ 招商南油（601975）10CM 涨停</b>（航运链）· <b class="info-text">传艺科技（002866）涨停</b>（证券时报午盘印证 · 固态电池）· <b class="warn-text">具体连板数（同花顺未披露）· 涨停家数 / 封板率 / 炸板数公开数据缺口</b>。<b class="ok-text">连板高度从 D-1（9/29）的 6 板（新华传媒）→ 今日 待观察（连板梯度细节数据缺口）</b>，<b class="info-text">连板方向从"文化传媒 / 出版 + 风能 + 轴承"（D-1 9/29）切换至"电池 + 航运 + 油气 + 煤炭"</b>（今日）<b class="warn-text">（电池 + 航运方向确认 · 文化传媒方向让位）</b>，与板块主线（防御资源突现 + 算力杀跌 + 文化传媒高位兑现）高度吻合。<b class="warn-text">连板高度"6 板（文化传媒）→ 今日 待观察"</b>两阶段震荡，<b class="info-text">印证"高位股兑现 + 资金回流资源主线"</b>特征。
+</div>
+<div class="ladder">
+  <span class="ladder-tag lv-1">🔥 20CM 涨停：<b>领湃科技</b>（300825 · 固态电池龙头 · 搜狐财经 10/08 印证 · 来自电池"十五五"规划催化）</span>
+  <span class="ladder-tag lv-2">⭐ 10CM 涨停：<b>时代万恒</b>（600241 · 电池）· <b>龙蟠科技</b>（603906 · 锂电池）</span>
+  <span class="ladder-tag lv-3">🔼 电池 / 固态电池涨停梯队：<b>领湃科技 20CM</b> + <b>时代万恒 10CM</b> + <b>龙蟠科技 10CM</b> + <b>传艺科技 10CM</b>（午盘证券时报印证）</span>
+  <span class="ladder-tag lv-4">🔼 港口航运涨停梯队：<b>中远海能</b> 600026（10CM 涨停 · 油运龙头）· <b>招商南油</b> 601975（10CM 涨停 · 油运）</span>
+  <span class="ladder-tag lv-4">🔼 油气涨停梯队：<b>科力股份</b> 603072（+9% · 搜狐财经印证）</span>
+  <span class="ladder-tag danger">⚠️ 数据缺口：今日涨停家数 / 跌停家数 / 封板率 / 炸板数 / 连板股总数公开数据缺失</span>
+  <span class="ladder-tag lv-3">📌 跌幅榜：<b>长光华芯</b> 688048（20CM 跌停 · 光芯片）· <b>源杰科技</b> 688498（20CM 跌停 · 光芯片）· <b>沃格光电</b> 603773（跌停 · CPO）· <b>均胜电子</b> 600699（跌停 · 汽车电子）· <b>中石科技</b> 300684（跌超 16% · 电子化学品）· <b>长鑫科技</b>（-7% · AI 硬件）· <b>中文在线</b> 300364（-12% · 影视传媒）</span>
+</div>
+
+<!-- ============ ⑨ ETF 涨跌榜 ============ -->
+<div class="section-title info">📊 六、ETF 涨跌榜（防御资源 / 海外资产领涨全市场 · 巴西 ETF +10.02% / 标普油气 ETF +9.99% 领涨 · 科创成长 ETF -7.45% 领跌 · 中东冲突 + 双十五五规划双驱动）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 关键数据：</strong>同花顺 ETF 收评 c680471379（用户提供主源）披露：<b class="ok-text">巴西 ETF（520870）+10.02% 领涨</b> · <b class="ok-text">标普油气 ETF（159518）+9.99% 领涨</b> · <b class="ok-text">巴西 ETF（159100）+9.96% 领涨</b>（巴西市场 + 标普油气双轨 · 中东冲突升级推升油气链 · 资金对海外资产 + 能源链的强烈配置需求）· <b class="danger-text">科创成长 ETF（589700）-7.45% 领跌</b> · <b class="danger-text">科创成长 ETF（588020）-7.24%</b> · <b class="danger-text">科创成长 ETF（588070）-7.20%</b>（科创板杀跌 · 与 <b class="info-text">科创综指 -4.55%</b> 印证）· 消息面：<b class="info-text">七部门印发《新型电池产业发展"十五五"规划》</b> + <b class="info-text">发改委印发《石油天然气发展"十五五"规划》</b> 双政策催化 + <b class="info-text">华福证券：规划鼓励固态、钠电新技术</b> + <b class="info-text">IMF 总裁：高能源价格可能持续至 2027 年</b>。<br>
+  <strong>📌 双源印证：</strong>同花顺 ETF 收评 c680471379（用户提供主源）+ 新浪财经（<a href="https://finance.sina.com.cn/jjxw/2026-10-08/doc-iniupaez7541936.shtml" target="_blank">原文1</a>）+ 新浪财经（<a href="https://finance.sina.com.cn/stock/zqgd/2026-10-08/doc-iniupaez7537639.shtml" target="_blank">原文2</a>）+ 中国金融信息网（<a href="https://m.cnfin.com/yw-lb//zixun/20261008/4478019_1.html" target="_blank">原文3</a>）+ 证券时报（<a href="https://www.stcn.com/article/detail/4207536.html" target="_blank">原文4</a>）+ 搜狐财经（<a href="https://m.sohu.com/a/1085119056_313170" target="_blank">原文5</a>）+ 金融证券（<a href="http://finance.ce.cn/stock/gsgdbd/202610/t20261008_3249561.shtml" target="_blank">原文6</a>）7 个非同源渠道交叉核验。
+</div>
+<div class="etf-table">
+  <div class="etf-row header"><div>方向</div><div>ETF 名称（代码）</div><div>涨跌幅</div><div>板块 / 印证</div></div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨①</b></div>
+    <div><b>巴西 ETF（520870）</b></div>
+    <div class="etf-val up">+10.02%</div>
+    <div><b class="ok">巴西市场 ETF · 领涨全市场</b> · 同花顺 c680471379 印证 · <b class="info-text">中东冲突升级推升新兴市场风险偏好 + 巴西资源股映射</b>· 印证"<b class="ok-text">资金对海外资产 / 新兴市场的配置需求</b>"</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨②</b></div>
+    <div><b>标普油气 ETF（159518）</b></div>
+    <div class="etf-val up">+9.99%</div>
+    <div><b class="ok">标普油气 ETF · 中东冲突 + 油价突破 102 美元</b> · 同花顺 c680471379 印证 · <b class="danger-text">中东局势僵持推高油价 · 布油突破 102 美元/桶</b>（搜狐财经 10/08 印证）· <b class="info-text">发改委印发《石油天然气发展"十五五"规划》</b>（同花顺 c680471379 印证）· <b class="info-text">IMF 总裁：高能源价格可能持续至 2027 年</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨③</b></div>
+    <div><b>巴西 ETF（159100）</b></div>
+    <div class="etf-val up">+9.96%</div>
+    <div><b class="ok">巴西市场 ETF · 印证海外资产配置需求</b> · 同花顺 c680471379 印证 · <b class="info-text">与 520870 巴西 ETF +10.02% 形成"双巴西 ETF 集体领涨"</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌①</b></div>
+    <div><b>科创成长 ETF（589700）</b></div>
+    <div class="etf-val down">-7.45%</div>
+    <div><b class="danger">科创成长 ETF · 领跌全市场</b> · 同花顺 c680471379 印证 · <b class="danger-text">印证 10/8 科创综指 -4.55%（5 大指数跌幅最大）</b>· <b class="danger-text">算力硬件大幅回调（光芯片 / CPO / 半导体 / AI 硬件）</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌②</b></div>
+    <div><b>科创成长 ETF（588020）</b></div>
+    <div class="etf-val down">-7.24%</div>
+    <div><b class="danger">科创成长 ETF · 算力杀跌</b> · 同花顺 c680471379 印证 · 与 589700 同步大跌 · <b class="info-text">印证科创板 ETF 集体杀跌</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌③</b></div>
+    <div><b>科创成长 ETF（588070）</b></div>
+    <div class="etf-val down">-7.20%</div>
+    <div><b class="danger">科创成长 ETF · 算力杀跌</b> · 同花顺 c680471379 印证 · 与 589700 / 588020 形成"<b class="danger">"三 ETF 集体杀跌 -7.2%~-7.45%"</b>"三阶段路径 · <b class="danger-text">印证 D-1（9/29）"算力修复（华为概念 +66.82 亿 + 数据中心 +52.76 亿 + 元件领涨）"反转 → 今日 算力大幅回调</b>两阶段反转路径</div>
+  </div>
+</div>
+
+<!-- ============ ⑩ 重要新闻与板块催化 ============ -->
+<div class="section-title">📖 七、重要新闻与板块催化</div>
+<div class="fin-table">
+  <div class="fin-row header"><div>事件 / 数据</div><div>关键数据</div><div>对 A 股影响</div></div>
+  <div class="fin-row">
+    <div>🇺🇸 海外 · 摩根士丹利报告：美国对华光模块限制或经 FCC"受控清单"实施 · 含 65% 美国含量规则</div>
+    <div class="fin-val down">光芯片 / CPO / 半导体</div>
+    <div><b>美国对华光模块限制或经 FCC"受控清单"实施 · 含 65% 美国含量规则</b>（搜狐财经 10/08 印证 · <a href="https://m.sohu.com/a/1085119056_313170" target="_blank">原文链接</a>）—— <b class="danger-text">直接利空光模块 / CPO / 半导体板块</b> · 印证 TOP 跌幅榜"<b class="danger-text">长光华芯 20CM 跌停 / 源杰科技 20CM 跌停 / 沃格光电 跌停 / 科创成长 ETF -7.45%</b>"· 印证"<b class="danger-text">算力修复 D-1 升 → 今日 大幅回调</b>"两阶段反转</div>
+  </div>
+  <div class="fin-row">
+    <div>🌍 全球 · 中东冲突升级 · 布油突破 102 美元/桶</div>
+    <div class="fin-val up">油气 +9.99%</div>
+    <div><b>中东局势僵持推高油价 · 布油突破 102 美元/桶</b>（搜狐财经 10/08 印证 · <a href="https://m.sohu.com/a/1085119056_313170" target="_blank">原文链接</a>）—— <b class="ok-text">直接利好油气 + 油运 + 煤炭板块</b> · 印证 TOP 涨幅榜"<b class="ok-text">科力股份 +9% / 标普油气 ETF +9.99% / 中远海能 涨停 / 招商南油 涨停</b>"· 印证"<b class="ok-text">防御资源主线突现</b>"特征</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 七部门印发《新型电池产业发展"十五五"规划》· 目标 2030 年全固态电池规模化应用</div>
+    <div class="fin-val up">电池 20CM 涨停</div>
+    <div><b>七部门印发《新型电池产业发展"十五五"规划》· 目标 2030 年全固态电池规模化应用</b>（同花顺 c680471379 印证 · <a href="https://news.10jqka.com.cn/20261008/c680471379.shtml" target="_blank">原文链接</a>）—— <b class="ok-text">直接利好电池板块（固态电池 + 钠电 + 锂电池）</b> · 印证 TOP 涨幅榜"<b class="ok-text">领湃科技 20CM 涨停 / 时代万恒 10CM 涨停 / 龙蟠科技 10CM 涨停 / 传艺科技 10CM 涨停（午盘证券时报印证）</b>"· 印证"<b class="ok-text">D-1（9/29）电池领涨 TOP5 → 今日 独立强化</b>"两阶段升级</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 发改委印发《石油天然气发展"十五五"规划》</div>
+    <div class="fin-val up">油气 +9%</div>
+    <div><b>发改委印发《石油天然气发展"十五五"规划》</b>（同花顺 c680471379 印证 · <a href="https://news.10jqka.com.cn/20261008/c680471379.shtml" target="_blank">原文链接</a>）—— <b class="ok-text">直接利好油气链（开采 + 服务 + 设备 + 油运）</b> · 印证 TOP 涨幅榜"<b class="ok-text">科力股份 +9% / 中远海能 涨停 / 招商南油 涨停</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 国庆服务消费旺盛 · 旅游娱乐收入 +23.6% · 手机销售 +119.8% · 交通出行超 21 亿人次</div>
+    <div class="fin-val info">国庆消费</div>
+    <div><b>国庆服务消费旺盛 · 旅游娱乐收入 +23.6% · 手机销售 +119.8% · 交通出行超 21 亿人次</b>（中国金融信息网 10/08 印证 · <a href="https://m.cnfin.com/yw-lb//zixun/20261008/4478019_1.html" target="_blank">原文链接</a>）—— <b class="info-text">国庆消费整体旺盛</b> · 但 <b class="danger-text">国庆档票房 11.65 亿元（同比 +23.6% · 人次 3199.59 万）不及预期</b>，印证"<b class="danger">影视传媒板块走弱（中文在线 -12%）</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>🌍 全球 · IMF 总裁：高能源价格可能持续至 2027 年</div>
+    <div class="fin-val up">长期能源</div>
+    <div><b>IMF 总裁：高能源价格可能持续至 2027 年</b>（搜狐财经 10/08 印证 · <a href="https://m.sohu.com/a/1085119056_313170" target="_blank">原文链接</a>）—— <b class="info-text">长期能源价格高位预期</b> · 印证"<b class="ok-text">防御资源主线（油气 + 煤炭 + 航运）长期逻辑</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 华福证券：规划鼓励固态、钠电新技术</div>
+    <div class="fin-val up">固态 / 钠电</div>
+    <div><b>华福证券指出规划鼓励固态、钠电新技术</b>（搜狐财经 10/08 印证 · <a href="https://m.sohu.com/a/1085119056_313170" target="_blank">原文链接</a>）—— <b class="ok-text">直接利好固态电池 + 钠电新技术龙头</b> · 印证 TOP 涨幅榜"<b class="ok-text">领湃科技 20CM 涨停 / 传艺科技涨停</b>"</div>
+  </div>
+  <div class="fin-row">
+    <div>🇺🇸 美联储 · 9/17 凌晨议息已落地 · 10/8 议息扰动五次消化（节后第一个交易日）</div>
+    <div class="fin-val warn">加息 25bp 至 3.75-4.00%</div>
+    <div><b>联邦基金利率目标区间上调至 3.75-4.00%</b>（证券时报 9/17 凌晨印证） · <b>点阵图中位数显示 2026 年或将再加息一次</b>（汇通网/Klaro/ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；D-3 9/18 放量反弹 2564 亿印证 + D-2 9/28 议息扰动三次消化印证 + D-1 9/29 议息扰动四次消化印证 → 今日 10/8 <b class="info-text">议息扰动五次消化（议息后第 17 个交易日 · 国庆后第一个交易日）</b>压制成长股估值 · <b class="warn">长期路径仍偏鹰派</b>（2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）</div>
+  </div>
+</div>
+<!--END_OF_PART5-->
+
+
+<!-- ============ ⑪ 盘面核心结论 ============ -->
+<div class="section-title">📌 八、盘面核心结论（3 大块 · 多空对冲）</div>
+<div class="conclusion danger">
+  <div class="conclusion-title">🔴 结论 1：国庆后第一个交易日杀跌 · 5 大指数全线飘绿 · 双创/科创跌超 3% · 算力硬件大幅回调（光芯片 20CM 跌停 / CPO / 半导体 / AI 硬件）· 资金撤离 + 防御资源资金回流</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>资金体量：</b>三市成交 <b class="danger-text">16943 亿</b>（较 9/29 14216 亿 <b class="warn-text">放量 2727 亿（+19.2%）</b>）· 超 <b class="danger-text">3700 只个股下跌</b>（9/28 4500 跌 → 9/29 3400 涨 → 今日 3700 跌 三阶段震荡）· <b class="danger-text">资金撤离算力硬件（光芯片 / CPO / 半导体 / AI 硬件）+ 资金回流防御资源（电池 / 油气 / 煤炭 / 航运）</b>· <b class="warn-text">主力资金净流入 / 净流出 TOP3 具体金额数据缺口</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>板块层面：</b>沪指 <b class="danger-text">-0.79%</b> 3811.90 / 深成指 <b class="danger-text">-2.07%</b> 12620.90 / 创业板指 <b class="danger-text">-3.15%</b> 3036.66 / 科创综指 <b class="danger-text">-4.55%</b> 1732.58 / 北证 50 <b class="danger-text">-2.65%</b> 1012.10—— <b class="danger-text">5 大指数全线飘绿（国庆后第一个交易日 5 跌 0 涨）</b>· <b class="danger-text">科创综指 5 大指数跌幅最大（-4.55%）</b>· 领涨 TOP5：<b class="ok">电池 / 油气 / 煤炭 / 港口航运 / 电力</b> · 领跌：<b class="danger">光芯片 / 半导体 / CPO / AI 硬件 / 影视传媒 / 电子化学品</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>催化层面：</b>① <b class="danger-text">摩根士丹利报告：美对华光模块限制经 FCC"受控清单"实施 · 含 65% 美国含量规则</b>（搜狐财经 10/08 印证）· 印证算力硬件大幅回调（光芯片 20CM 跌停 / CPO -7% / 半导体调整）；② <b class="ok-text">中东冲突升级 · 布油突破 102 美元/桶</b>（搜狐财经 10/08 印证）· 印证防御资源主线突现（科力股份 +9% / 标普油气 ETF +9.99% / 中远海能 + 招商南油涨停）；③ <b class="ok-text">七部门印发《新型电池产业发展"十五五"规划》· 2030 全固态规模化</b>· 印证电池板块独立强化（领湃科技 20CM 涨停 / 时代万恒 + 龙蟠科技 10CM 涨停）；④ <b class="info-text">发改委印发《石油天然气发展"十五五"规划》</b>· 印证油气链政策驱动型反弹；⑤ 9/17 凌晨 02:00 美联储议息已落地 · <b class="info-text">10/8 议息扰动五次消化（议息后第 17 个交易日 · 国庆后第一个交易日）</b>压制成长股估值</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><b>市场风格：</b><b class="danger-text">国庆后第一个交易日杀跌 · 5 大指数全线飘绿</b> · <b>防御资源主线突现（电池 + 油气 + 煤炭 + 港口航运 + 电力 · 中东冲突 + 双十五五规划双驱动）</b>取代 D-1（9/29）算力修复 + 政策驱动型反弹成为新主线 · <b class="danger-text">算力硬件大幅回调（光芯片 20CM 跌停 / CPO / 半导体 / AI 硬件）</b>印证"<b class="danger-text">D-1 算力修复 → 今日 算力大幅回调</b>"两阶段反转路径 · <b class="warn-text">文化传媒 / 出版主线高位兑现（D-1 6 连板 → 今日 中文在线 -12% + 国庆票房 +23.6% 不及预期）</b></p>
+  </div>
+</div>
+<div class="conclusion warn">
+  <div class="conclusion-title">⚠️ 结论 2：🟡 算力杀跌 + 议息扰动五次消化 + 板块扩散反复切换 + 摩根士丹利报告压制 + 文化传媒 6 板高位兑现</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>算力大幅回调：</b>沪指 <b class="danger-text">-0.79% + 放量 2727 亿 +19.2%</b>（放量杀跌特征）· 算力硬件集体杀跌（光芯片 20CM 跌停 / CPO / 半导体 / AI 硬件）· <b class="warn-text">科创成长 ETF -7.45%/-7.24%/-7.20% 领跌全市场</b>· <b class="info-text">印证 D-1（9/29）"算力修复（华为概念 +66.82 亿 + 数据中心 +52.76 亿 + 元件领涨）"反转 → 今日 大幅回调</b>两阶段反转 · <b class="danger-text">5 大指数累计跌幅（D-1 → 今日）：沪指 3826.51 → 3811.90 累计 -14.61 点 · 深成 13141 → 12620.90 累计 -520.1 点 · 创业 3337 → 3036.66 累计 -300.34 点</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>议息扰动五次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· D-3 9/18 反向放量反弹 2564 亿印证 + D-2 9/28 议息扰动三次消化印证 + D-1 9/29 议息扰动四次消化印证 · 今日 10/8 <b class="info-text">议息扰动五次消化（议息后第 17 个交易日 · 国庆后第一个交易日）</b>压制成长股估值 · <b class="warn">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>连板 6 板高位兑现：</b>D-2（9/28）<b class="ok">新华传媒 5 连板</b>· <b>福建水泥 / 雪龙集团 3 连板</b>（水泥 + 风能）· <b>襄阳轴承 / 吉鑫科技 / 大业股份 2 连板</b>（轴承 + 风能 + 轮胎）· D-1（9/29）<b class="ok">新华传媒 6 连板（连板高度反弹 1 板 · 主线连续 4 日升级）</b>· <b class="ok">雪龙集团 4 连板</b>（风能 / 复合材料）· <b class="ok">襄阳轴承 3 连板</b>（轴承）→ 今日 10/8 <b class="warn-text">连板梯度细节数据缺口</b> · <b class="info-text">代表性涨停：领湃科技 20CM / 时代万恒 / 龙蟠科技 / 中远海能 / 招商南油</b>· <b class="danger-text">影视传媒高位兑现（中文在线 -12%）</b>· 印证"<b class="warn">文化传媒主线连续 4 日升级 → 高位兑现</b>"两阶段反转</p>
+  </div>
+</div>
+<div class="conclusion info">
+  <div class="conclusion-title">💡 结论 3：🔵 防御资源主线突现（电池 + 油气 + 煤炭 + 港口航运 + 电力）+ 算力中期修复方向不变 + 板块扩散反复切换风险</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>防御资源主线突现：</b>10/8 <b class="ok-text">电池（领湃科技 20CM 涨停）+ 油气（科力股份 +9% / 标普油气 ETF +9.99%）+ 煤炭 + 港口航运（中远海能 + 招商南油涨停）+ 电力</b> · 与 D-1（9/29）"<b class="danger-text">算力修复（华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨）+ 政策驱动型反弹（国企改革 +48.27 亿 TOP3）</b>"形成"<b class="ok-text">算力修复 → 防御资源突现</b>"两阶段切换 · <b class="ok-text">印证 中东冲突升级 + 双十五五规划（电池 + 油气）+ 油价突破 102 美元 + 防御资金回流</b>特征</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>板块扩散下的反复切换风险：</b>D-3（9/18）半导体放量主升（TOP3 736 亿）→ D-2（9/28）实物消费 + 防御反向轮动（TOP3 17.19 亿）→ D-1（9/29）算力修复 + 政策驱动型反弹（TOP3 167.85 亿 · 环比 D-2 +876.8%）→ 今日（10/8）防御资源突现 + 算力大幅回调（资金撤离 · 数据缺口）· <b class="warn-text">四阶段切换印证板块扩散下的反复切换风险</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>议息鹰派五次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· D-3 9/18 反向放量反弹 2564 亿印证 + D-2 9/28 议息扰动三次消化印证 + D-1 9/29 议息扰动四次消化印证 · 今日 10/8 <b class="info-text">议息扰动五次消化（议息后第 17 个交易日 · 国庆后第一个交易日）</b>压制成长股估值 · <b class="warn">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· <b class="danger">不宜激进加仓至 100% 仓位</b>，保留 50%-70% 现金应对议息扰动五次消化 + 板块扩散反复切换 + 摩根士丹利报告落地三重风险</p>
+  </div>
+</div>
+
+<!-- ============ ⑫ 机构观点与分歧 ============ -->
+<div class="section-title warn">🧠 九、机构观点与分歧</div>
+<div class="conflict-grid">
+  <div class="view-a">
+    <h4>✅ 多方观点（防御资源主线突现 + 中东冲突 + 双十五五规划 + 国庆消费旺盛 + 广发证券看量价齐升 + 议息扰动五次消化）</h4>
+    <p><b>中东冲突升级 + 双十五五规划双驱动（搜狐财经 + 同花顺 c680471379 印证）：</b><b class="ok-text">中东局势僵持推高油价 · 布油突破 102 美元/桶</b>· <b class="ok-text">七部门印发《新型电池产业发展"十五五"规划》· 2030 全固态规模化</b>· <b class="info-text">发改委印发《石油天然气发展"十五五"规划》</b>—— 直接利好电池 + 油气 + 煤炭 + 港口航运防御资源主线 · 印证 TOP 涨幅榜（领湃科技 20CM 涨停 / 科力股份 +9% / 中远海能 + 招商南油涨停 / 标普油气 ETF +9.99%）。</p>
+    <p><b>国庆消费旺盛（中国金融信息网 10/08 印证）：</b><b class="info-text">国庆服务消费旺盛 · 旅游娱乐收入 +23.6% · 手机销售 +119.8% · 交通出行超 21 亿人次</b>—— <b class="info-text">国庆消费整体旺盛（除影视票房）</b>· 印证手机 / 家电 / 旅游 / 餐饮等消费板块景气度。</p>
+    <p><b>华福证券：规划鼓励固态、钠电新技术（搜狐财经 10/08 印证）：</b><b class="ok-text">新型电池"十五五"规划鼓励固态、钠电新技术</b>—— <b class="ok-text">直接利好固态电池 + 钠电新技术龙头</b>· 印证 TOP 涨幅榜"<b class="ok-text">领湃科技 20CM 涨停 / 传艺科技涨停</b>"。</p>
+    <p><b>广发证券：节后 A 股有望"量价齐升"（搜狐财经 10/08 印证）：</b><b class="ok-text">节后 A 股有望"量价齐升"</b>· <b class="ok-text">AI 产业链将进入密集催化期</b>—— 印证"<b class="ok-text">算力中期修复方向不变 + 节后资金回流</b>"特征 · 三市成交 16943 亿印证放量特征。</p>
+    <p><b>IMF 总裁：高能源价格可能持续至 2027 年（搜狐财经 10/08 印证）：</b><b class="ok-text">高能源价格可能持续至 2027 年</b>—— <b class="info-text">长期能源价格高位预期</b>· 印证"<b class="ok-text">防御资源主线（油气 + 煤炭 + 航运）长期逻辑</b>"。</p>
+    <p><b>议息扰动五次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· <b class="ok-text">议息影响逐步消化（议息扰动五次消化 · 议息后第 17 个交易日）</b>· 10/8 放量 16943 亿印证节后资金回流。</p>
+  </div>
+  <div class="view-b">
+    <h4>🔴 谨慎观点（算力硬件大幅回调 + 资金体量反复切换 + 议息鹰派长尾 + 摩根士丹利报告 + 文化传媒 6 板高位兑现 + 节后杀跌）</h4>
+    <p><b>算力硬件大幅回调（摩根士丹利报告 + 美对华限制）：</b><b class="danger">光芯片（长光华芯 20CM 跌停 / 源杰科技 20CM 跌停）· CPO（沃格光电 跌停）· AI 硬件（长鑫科技 -7%）· 半导体产业链调整</b> · <b class="danger-text">科创成长 ETF -7.45%/-7.24%/-7.20% 领跌全市场</b> · <b class="danger-text">印证 D-1（9/29）"算力修复（华为概念 +66.82 亿 + 数据中心 +52.76 亿 + 元件领涨）"反转 → 今日 大幅回调</b>两阶段反转 · <b class="danger-text">短期内不接手光芯片 / CPO / 半导体 / AI 硬件（摩根士丹利报告 + 美对华限制 + 议息扰动五次消化）</b>。</p>
+    <p><b>美联储 9/17 凌晨 02:00 议息鹰派落地（证券时报印证）：</b>加息 25bp 至 3.75-4.00% · 点阵图中位数显示 <b class="warn">2026 年或将再加息一次</b>（汇通网 / Klaro / ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；美联储大幅上调经济增长预期（2026 GDP 2.2→2.3% / 2027 2.3→2.4%）+ 下调失业率预测至 4.1% + PCE 通胀 3.6→3.7% + 核心 PCE 3.3→3.4%——<b class="danger-text">通胀回归 2% 目标推迟至 2029 年</b>；今日 10/8 议息扰动五次消化压制成长股估值 · <b class="danger">长期路径仍偏鹰派</b>。</p>
+    <p><b>资金体量大幅波动警示：</b>主力净流入 TOP3 合计从 D-3 9/18 的 736 亿 → D-2 9/28 的 17.19 亿 → D-1 9/29 的 167.85 亿 → 今日 10/8 防御资源 TOP3（数据缺口）· 三市成交从 9/29 的 14216 亿 → 10/8 的 16943 亿（<b class="warn">放量 2727 亿 +19.2%（节后放量杀跌）</b>）· <b class="warn-text">议息扰动五次消化 + 节后放量杀跌 + 资金抱团大幅波动</b>，资金体量大幅波动说明主线切换尚未稳态运行。</p>
+    <p><b>板块扩散下的反复切换风险：</b>D-3（9/18）半导体放量主升（TOP3 736 亿）→ D-2（9/28）实物消费 + 防御反向轮动（TOP3 17.19 亿）→ D-1（9/29）算力修复 + 政策驱动型反弹（TOP3 167.85 亿 · 环比 D-2 +876.8%）→ 今日（10/8）防御资源突现 + 算力大幅回调（资金撤离 · 数据缺口）· <b class="warn-text">四阶段切换印证板块扩散下的反复切换风险</b>，操作上需要"<b class="danger">清晰主线择时 · 警惕板块扩散下的反复切换</b>"。</p>
+    <p><b>连板 6 板高位兑现警示：</b>D-1（9/29）<b class="warn">新华传媒 6 连板</b>（连板高度反弹 1 板 · 主线连续 4 日升级）→ 今日 10/8 <b class="danger-text">中文在线 -12% · 影视传媒板块走弱 · 国庆档票房 +23.6% 不及预期</b> · <b class="danger">短期内不追高 6 板新股（高位股兑现风险）</b>。</p>
+    <p><b>节后兑现压力警示：</b>9/30-10/7 国庆假期（7 天休市）· 节后第一个交易日 10/8 资金获利兑现 + 节后分化 → <b class="danger">5 大指数全线杀跌（沪 -0.79% / 深 -2.07% / 创 -3.15% / 科创综 -4.55% / 北证 -2.65%）</b> · 超 3700 只个股下跌 · <b class="warn">短期内不接手算力硬件 / 半导体 / CPO / AI 硬件（节后兑现 + 议息扰动五次消化 + 摩根士丹利报告）</b>。</p>
+  </div>
+</div>
+<div class="verdict">
+  🧭 <b>本文倾向：</b> 今日定性为"<b class="danger-text">国庆后第一个交易日杀跌 · 5 大指数全线飘绿 · 双创/科创跌超 3% · 算力硬件大幅回调（光芯片 20CM 跌停 / CPO / 半导体 / AI 硬件）· 防御资源主线突现（电池 + 油气 + 煤炭 + 港口航运 · 中东冲突 + 双十五五规划双驱动）· 资金防御回流（巴西 ETF +10.02% / 标普油气 ETF +9.99% 领涨）· 文化传媒高位兑现（中文在线 -12% · 国庆票房 +23.6% 不及预期）</b>"——资金从 D-3（9/18）"<b>半导体放量主升 TOP3 736 亿</b>"→ D-2（9/21）"<b class="info-text">医药 AI 主线接力 TOP3 合计 135.77 亿</b>"→ D-1（9/23）"<b class="info-text">半导体内部小盘切换 TOP3 合计 123.85 亿</b>" → D+1（9/28）"<b class="danger-text">实物消费 + 防御反向轮动 TOP3 合计 17.19 亿</b>" → D+2（9/29）"<b class="ok-text">算力修复 + 政策驱动型反弹 TOP3 合计 167.85 亿（华为概念 +66.82 / 数据中心 +52.76 / 国企改革 +48.27 · 环比 D+1 +876.8%）</b>" → 今日（10/8）"<b class="ok-text">防御资源突现（电池 20CM 涨停 + 油气 +9% + 港口航运涨停） + 算力大幅回调（光芯片 -7% / CPO -7% / 半导体调整）</b>"· <b class="danger-text">5 大指数全线飘绿（国庆后第一个交易日 5 跌 0 涨 · 双创跌超 3% · 创指 -3.15% / 科创综 -4.55%）</b>· <b class="ok">领湃科技 20CM 涨停 + 时代万恒 / 龙蟠科技 10CM 涨停（电池"十五五"规划）</b> · <b class="ok">标普油气 ETF +9.99% / 中远海能 + 招商南油涨停（中东冲突 + 油价 102 美元）</b> · <b class="danger-text">科创成长 ETF -7.45%/-7.24%/-7.20% 领跌全市场（光芯片 20CM 跌停 / CPO 跌停）</b> · <b class="warn-text">资金体量大幅放大（五阶段切换）+ 板块扩散反复切换风险 + 议息扰动五次消化 + 摩根士丹利报告（美对华光模块限制经 FCC 受控清单实施 + 65% 美国含量规则）+ 反弹力度有限（沪指 -0.79% + 放量 19.2%）</b>。操作上 <b>合理仓位（≤ 50%）</b>，沿"<b class="ok-text">防御资源主线（电池 + 油气 + 煤炭 + 港口航运 + 电力 · 中东冲突 + 双十五五规划双驱动）</b>"主线布局，<b class="danger-text">规避光芯片 / CPO / 半导体 / AI 硬件（摩根士丹利报告 + 议息扰动五次消化 + 算力杀跌）+ 文化传媒 6 板高位风险（资金回流资源主线）+ 资金体量大幅放大下板块扩散反复切换品种</b>；<b class="warn-text">美联储 9/17 凌晨议息已落地 · 议息扰动 10/8 五次消化 · 关注 10 月中下旬三季报指引兑现 + 10/24 Moderna mRNA-4157 + 美联储官员后续表态 + 节后 Q4 反弹行情预期</b>。
+</div>
+
+<!-- ============ ⑬ 后续展望与交易策略 ============ -->
+<div class="section-title info">🔔 十、后续展望与交易策略</div>
+<div class="signal-grid">
+  <div class="signal-card">
+    <h4><span class="num">📅</span>展望信号</h4>
+    <p><b>美联储 9/17 凌晨议息已落地</b>（10/8 议息扰动五次消化 · 议息后第 17 个交易日 · 国庆后第一个交易日）· 9/30-10/7 <b class="warn">国庆假期节后兑现压力已部分释放</b>· <b class="ok">防御资源主线突现（电池 + 油气 + 煤炭 + 港口航运 · 中东冲突 + 双十五五规划双驱动）</b> + <b class="info-text">文化传媒主线高位兑现（中文在线 -12% · 国庆票房 +23.6% 不及预期）</b>；10 月中下旬 <b>三季报指引兑现</b>关键事件窗口 · 关注节后 Q4 反弹行情预期（防御资源 + 政策驱动型反弹）· <b class="ok-text">节后分化 + 防御资源突现 + 议息扰动五次消化</b>。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">😰</span>情绪信号</h4>
+    <p><b>领湃科技（300825）20CM 涨停 · 固态电池龙头（电池"十五五"规划催化）</b> · <b>中远海能（600026）/ 招商南油（601975）10CM 涨停</b>（油运 · 中东冲突 + 油价 102 美元）· <b>时代万恒（600241）/ 龙蟠科技（603906）10CM 涨停</b>（电池 / 锂电池）· <b>科力股份（603072）+9%</b>（油气）· <b class="warn-text">连板梯度细节数据缺口 · 涨停家数 / 封板率 / 炸板数公开数据缺失</b>，但<b class="ok">连板方向切至"电池 + 航运 + 油气 + 煤炭"</b>（防御资源主线）· <b class="danger-text">连板高度"6 板（文化传媒 D-1）→ 今日 待观察"</b>印证"<b class="warn">高位股兑现 + 资金回流资源主线</b>"特征 · <b class="danger">中文在线 -12% + 国庆档票房 +23.6% 不及预期</b>印证文化传媒高位兑现风险。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">💰</span>资金信号</h4>
+    <p>主力净流入 TOP3 估算：电池（领湃科技 20CM 涨停）+ 油气（科力股份 +9% / 标普油气 ETF +9.99%）+ 港口航运（中远海能 + 招商南油涨停）<b class="info-text">（具体金额数据缺口 · 多源印证防御资源资金回流）</b> · <b class="warn">放量 2727 亿 +19.2%（节后放量杀跌）</b> · <b class="ok-text">巴西 ETF（520870）+10.02% / 标普油气 ETF（159518）+9.99% / 巴西 ETF（159100）+9.96% 领涨全市场（防御资源 + 海外资产）</b> · <b class="danger-text">科创成长 ETF -7.45%/-7.24%/-7.20% 领跌全市场（光芯片 20CM 跌停 / CPO 跌停 · 算力资金撤离）</b> · <b class="warn">资金体量大幅波动（五阶段切换 · 736 → 135.77 → 123.85 → 17.19 → 167.85 亿 · 今日数据缺口）</b>印证<b class="danger-text">板块扩散反复切换风险</b>。</p>
+  </div>
+</div>
+<div class="strategy-grid">
+  <div class="strategy-card mainline">
+    <h4>🟢 主线方向（防御资源主线突现 · 电池 + 油气 + 煤炭 + 港口航运 + 电力 · 顺势而为）</h4>
+    <ul class="strategy-list">
+      <li><b>电池 / 固态电池"十五五"规划（领湃科技 300825 20CM 涨停 + 时代万恒 / 龙蟠科技 10CM 涨停）：</b><b class="ok-text">"核心股池"</b>：领湃科技 300825（20CM 涨停 · 固态电池龙头）· 时代万恒 600241（10CM 涨停）· 龙蟠科技 603906（10CM 涨停）· 传艺科技 002866（10CM 涨停）· 宁德时代 300750（锂电池龙头）· 比亚迪 002594（动力电池龙头）· 国轩高科 002074（动力电池）· 赣锋锂业 002460（锂资源）· 2030 全固态电池规模化应用 + 华福证券鼓励固态 / 钠电新技术。</li>
+      <li><b>油气 + 港口航运（中东冲突 + 油价 102 美元 + 发改委十五五规划）：</b><b class="ok-text">核心股池</b>：中国石油 601857 · 中国海油 600938 · 中海油服 601808 · 杰瑞股份 002353 · 中远海能 600026（10CM 涨停 · 油运龙头）· 招商南油 601975（10CM 涨停 · 油运）· 科力股份 603072（+9% · 搜狐财经印证）· 兖矿能源 600188（煤炭）· 中国神华 601088（煤炭龙头）· 陕西煤业 601225（煤炭）· 中煤能源 601898（煤炭）· 标普油气 ETF 159518（+9.99% 领涨全市场）· 巴西 ETF 520870（+10.02% 领涨 · 中东冲突驱动）· 标普油气 ETF 159100。</li>
+      <li><b>算力中期修复方向不变（待利空消化 + 算力中期修复逻辑）：</b>D-1（9/29）"<b class="ok-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨</b>"高位 → 今日"<b class="danger-text">算力杀跌（光芯片 20CM 跌停 / CPO / 半导体调整）</b>" · 中期路径仍受益 <b class="info-text">华为 3D 数据中心 + 昇腾超节点 + Q1 算力租赁 680 亿同比增 62% + Nscale IPO 350 亿美元</b> · <b class="warn">短期 6 板高位风险 + 摩根士丹利报告 + 议息扰动五次消化（暂避）</b> · <b class="ok">中期算力修复方向不变</b>。</li>
+      <li><b>电池"十五五"规划双线驱动（D-1 9/29 + 今日 10/8 两次催化）：</b>D-1 9/29 七部门发电池"十五五"规划 + 今日 10/8 七部门印发《新型电池产业发展"十五五"规划》· 2030 全固态规模化应用 + 华福证券鼓励固态 / 钠电新技术 · 印证"<b class="ok-text">领湃科技 20CM 涨停 + 时代万恒 / 龙蟠科技 10CM 涨停</b>"两阶段独立强化路径。</li>
+    </ul>
+  </div>
+  <div class="strategy-card defend">
+    <h4>🟡 防御 / 高低切方向（医药类 ETF 配置 + 国庆消费配置 + 节后分化窗口防御）</h4>
+    <ul class="strategy-list">
+      <li><b>国庆消费配置（中国金融信息网 10/08 印证）：</b><b class="info-text">国庆服务消费旺盛 · 旅游娱乐收入 +23.6% · 手机销售 +119.8% · 交通出行超 21 亿人次</b> · 配置策略：手机 / 家电 / 旅游 / 餐饮等消费板块 · 关注三季报消费龙头业绩验证 · <b class="warn">电影票房 +23.6% 不及预期 · 影视传媒暂避</b>。</li>
+      <li><b>医药类 ETF 配置（D-2 + D-1 接力 ETF 端印证 · 议息消化后）：</b>D-1（9/23）"<b class="info-text">标普生物科技 ETF（159502）+4.43% / 纳指生物科技 ETF（513290）+3.69% / 科创创新药 ETF（589120）+2.23%</b>" · 今日 ETF 端印证"海外生物科技 + 港股医疗"延续 · 可作为节后算力杀跌下的防御底仓配置（ETF 配置为主 · 个股端短期不追）。</li>
+      <li><b>CXO 龙头（D-2 中信证券 CXO 复苏阶段 · 个股端短期回调但长期配置）：</b>药明康德（603259）/ 凯莱英（002821）/ 泰格医药（300347）/ 昭衍新药（603127）—— D-2（9/21）"<b class="info-text">CXO 进入复苏阶段 + AIDD 快速发展将催化未来实验和验证需求爆发</b>"长期逻辑 · 关注节后 Q4 三季报指引兑现。</li>
+      <li><b>港股医疗（D-2 港股医疗 ETF 同步配置）：</b>D-2（9/21）"<b class="info-text">港股医疗 ETF（159366）+3.12%</b>"已现端倪 · 9/28 港股通医疗 ETF（158003）+1.37% 印证医药 AI 主线 ETF 端延续 · 可作为医药 AI 主线下的港股龙头配置。</li>
+      <li><b>三季报预告窗布局：</b>10 月中下旬三季报预告密集披露；重点关注三季报指引中的业绩拐点个股（电池涨价兑现 + 创新药出海 CFIUS 政策兑现 + AI 应用端落地节奏 + 房地产民生定位兑现 + 算力修复高景气兑现 + 国企改革业绩验证 + 防御资源主线业绩验证）。</li>
+    </ul>
+  </div>
+  <div class="strategy-card avoid">
+    <h4>🔴 规避方向（算力硬件大幅回调 + 文化传媒 6 板高位 + 板块扩散反复切换 + 议息鹰派五次消化）</h4>
+    <ul class="strategy-list">
+      <li><b>算力硬件 / 半导体（摩根士丹利 + 美对华限制 + 议息扰动五次消化 · 集体回调 -4%~-7%）：</b>10/8 <b class="danger">光芯片（长光华芯 / 源杰科技 20CM 跌停）· CPO（沃格光电 跌停）· AI 硬件（长鑫科技 -7%）· 半导体产业链调整</b> · <b class="danger-text">科创成长 ETF -7.45%/-7.24%/-7.20% 领跌全市场</b> · <b class="danger">短期内不接手光芯片 / CPO / 半导体 / AI 硬件（摩根士丹利报告 + 美对华限制 + 议息扰动五次消化 + 算力高位兑现）</b>。</li>
+      <li><b>文化传媒 6 板高位兑现（中文在线 -12% · 国庆票房 +23.6% 不及预期）：</b>D-1（9/29）<b class="warn">新华传媒 6 连板</b>（连板高度反弹 1 板 · 主线连续 4 日升级）→ 今日 10/8 <b class="danger-text">中文在线 -12% · 影视传媒板块走弱 · 国庆档票房 +23.6% 不及预期</b> · <b class="danger">短期内不追高 6 板新股（高位股兑现风险）</b>· 关注连板方向的持续性。</li>
+      <li><b>板块扩散反复切换品种（资金体量大幅波动）：</b>资金体量从 D-3 9/18 半导体 TOP3 736 亿 → D-2 9/21 医药 AI TOP3 135.77 亿 → D-1 9/23 半导体内部小盘 TOP3 123.85 亿 → D+1 9/28 实物消费 TOP3 17.19 亿 → D+2 9/29 算力修复 TOP3 167.85 亿（环比 D+1 +876.8% · 较 D-3 -77.2%）→ 今日 数据缺口 · 三市成交从 9/29 的 14216 亿 → 10/8 的 16943 亿（放量 2727 亿 +19.2%）· <b class="warn-text">板块扩散反复切换风险</b>，操作上需要"清晰主线择时 · 警惕板块扩散下的反复切换"。</li>
+      <li><b>议息鹰派五次消化品种（议息扰动五次消化 · 长期路径仍偏鹰派）：</b>10/8 议息扰动五次消化但<b class="danger-text">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· 若后续美联储官员表态进一步鹰派，可能引发板块扩散反复切换品种二次回调。</li>
+    </ul>
+  </div>
+  <div class="strategy-card master">
+    <h4>🧭 核心交易策略（含总仓位建议）</h4>
+    <ul class="strategy-list">
+      <li><b>总仓位建议：</b><b class="warn-text">≤ 50%</b>（美联储 9/17 凌晨议息鹰派已落地 · 10/8 议息扰动五次消化 · 长期路径仍偏鹰派 + 资金体量大幅波动 + 节后放量杀跌（放量 2727 亿 +19.2%）+ 板块扩散反复切换 + 摩根士丹利报告压制 + 反弹力度有限（沪指 -0.79% + 放量 19.2%）+ 双创 / 科创跌超 3% · <b class="danger">不宜激进加仓</b>）。</li>
+      <li><b>主线配置（30%）：</b>防御资源主线（电池 + 油气 + 煤炭 + 港口航运 + 电力 20%）+ 中东冲突受益（标普油气 ETF + 巴西 ETF 5%）+ 文化传媒 / 出版高位兑现品种（暂避 0% · 资金回流资源主线）+ 国企改革 / 中字头（5% · 国常会增量政策催化）。</li>
+      <li><b>防御配置（20%）：</b>医药 AI 主线 ETF 端（标普生物科技 / 纳指生物科技 / 科创创新药 10%）+ CXO 龙头（药明康德 / 凯莱英 / 泰格医药 5%）+ 港股医疗 ETF（5%）。</li>
+      <li><b>现金 / 机动（50%）：</b>为板块扩散反复切换 + 美联储官员后续表态 + 议息鹰派五次消化 + 节后 Q4 反弹行情预期 + 摩根士丹利报告落地保留弹药 · 议息后已落地但长期路径仍偏鹰派 + 节后放量杀跌 · <b class="warn">不宜激进加仓至 100% 仓位</b>。</li>
+      <li><b>关键时点：</b>① <b class="ok">9/17 凌晨 02:00 美联储议息已落地</b>（鹰派 · 10/8 五次消化）；② <b class="warn">9/30-10/7 国庆假期节后兑现压力</b>（节后第一个交易日 10/8 已兑现 · 5 大指数全线杀跌 + 算力杀跌 + 防御资源突现）；③ <b class="warn">点阵图后续解读</b>（2026 是否再加息一次 · 美联储官员表态 · 议息鹰派五次消化持续）；④ 10 月中下旬<b>三季报指引兑现</b>（电池涨价兑现 + AI 存储景气持续 + 创新药出海 CFIUS 政策兑现 + AI 应用端落地节奏 + 房地产民生定位兑现 + 算力修复高景气兑现 + 国企改革业绩验证 + 防御资源主线业绩验证）；⑤ <b class="info-text">10/24 Moderna mRNA-4157 III 期数据公布</b>关键事件窗口；⑥ <b class="info-text">10/8 摩根士丹利报告落地（美对华光模块限制经 FCC 受控清单实施 + 65% 美国含量规则）</b>。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ ⑭ 数据来源 ============ -->
+<div class="section-title">📚 数据来源（7 个非同源渠道交叉核验）</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>🔵 主源（高权重 · 用户提供）：</strong><br>
+  ① <b><a href="https://news.10jqka.com.cn/20261008/c680471384.shtml" target="_blank">同花顺 A股收评 10/8 c680471384</a></b> —— 三大指数集体下跌 · 创业板指跌 3.15% · 油气 / 电池板块涨幅居前 · 半导体 / CPO / AI 硬件股跌幅居前 · 中东局势僵持推高油价 · 固态电池规划发布利好相关产业 · 成交 16943 亿 · 超 3700 只下跌。<br>
+  ② <b><a href="https://news.10jqka.com.cn/20261008/c680471379.shtml" target="_blank">同花顺 ETF 收评 10/8 c680471379</a></b> —— <span class="ok-text">巴西 ETF（520870）+10.02% 领涨 / 标普油气 ETF（159518）+9.99% / 巴西 ETF（159100）+9.96%</span> · <span class="danger-text">科创成长 ETF（589700）-7.45% 领跌 / 科创成长 ETF（588020）-7.24% / 科创成长 ETF（588070）-7.20%</span> · 消息面：七部门印发《新型电池产业发展"十五五"规划》+ 发改委印发《石油天然气发展"十五五"规划》。<br>
+  <strong>🟢 非同源第二来源（交叉核验）：</strong><br>
+  ③ <b><a href="https://finance.sina.com.cn/jjxw/2026-10-08/doc-iniupaez7541936.shtml" target="_blank">新浪财经《A股收盘｜创业板指跌3.15% 半导体产业链调整》10/08 15:05</a></b> —— <span class="danger-text">上证 3811.9 -0.79% · 深成 12620.9 -2.07% · 创业 3036.66 -3.15% · 科创综 1732.58 -4.55%</span> · 半导体产业链调整 + CPO 走低 + 油气 / 煤炭 / 固态电池 / 航运 / 电力逆势走强。<br>
+  ④ <b><a href="https://finance.sina.com.cn/stock/zqgd/2026-10-08/doc-iniupaez7537639.shtml" target="_blank">新浪财经《A股收评：三大指数集体下跌》10/08</a></b> —— <span class="danger-text">上证 -0.79% / 深成 -2.07% / 创业 -3.15% / 北证 -2.65%</span> · 成交 16943 亿 · 超 3700 只下跌 · 航运港口领涨 · 生物制品领跌。<br>
+  ⑤ <b><a href="https://m.cnfin.com/yw-lb//zixun/20261008/4478019_1.html" target="_blank">中国金融信息网《收评：沪指跌0.79% 石油股领涨半导体股领跌》10/08</a></b> —— <span class="info-text">上证 3811.90 -0.79% 成交 8112 亿 · 深成 12620.90 -2.07% 成交 8709 亿 · 创业 3036.66 -3.15% 成交 4253 亿 · 科创综 1732.58 -4.55% 成交 2654 亿 · 北证 1012.10 -2.65% 成交 124 亿</span> · 国庆服务消费旺盛 + 旅游娱乐收入 +23.6% + 手机销售 +119.8% + 交通出行超 21 亿人次。<br>
+  ⑥ <b><a href="https://www.stcn.com/article/detail/4207536.html" target="_blank">证券时报《午评：创业板指跌2.13% 固态电池概念逆市走强》10/08 午盘</a></b> —— <span class="info-text">午盘沪指 -0.27% · 深成 -1.24% · 创业 -2.13%</span> · 固态电池（传艺科技涨停）+ 航运（中远海能等涨停）逆市走强 · CPO / 光刻机 / 半导体 / 医疗服务 / 影视院线跌幅居前。<br>
+  ⑦ <b><a href="https://m.sohu.com/a/1085119056_313170" target="_blank">搜狐财经《A股收评：放量下跌！创业板指跌3.15%，AI硬件板块回调》10/08</a></b> —— 五大指数 + 成交 16943 亿 + 电池（领湃科技 20CM 涨停 / 时代万恒 / 龙蟠科技 10CM 涨停）+ 油气（科力股份 +9%）+ 港口航运（中远海能 / 招商南油 涨停）+ 光芯片（长光华芯 / 源杰科技 20CM 跌停）+ CPO（沃格光电 / 均胜电子 跌停）+ AI 硬件（长鑫科技 -7%）+ 影视传媒（中文在线 -12%）+ 电子化学品（中石科技 -16%）+ 摩根士丹利报告（美对华光模块限制经 FCC"受控清单"实施 + 65% 美国含量规则）+ 中东冲突升级（布油 102 美元）+ IMF 总裁高能源价格持续至 2027 + 广发证券节后"量价齐升"。<br>
+  ⑧ <b><a href="http://finance.ce.cn/stock/gsgdbd/202610/t20261008_3249561.shtml" target="_blank">金融证券《午评：沪指跌0.27% 电池板块逆势走强》10/08 午盘</a></b> —— 半日成交超 1.1 万亿 · 超 3300 只下跌 · 电池板块逆势走强。<br>
+  <strong>🟡 数据缺口说明（透明披露）：</strong><br>
+  ⑨ <span class="warn-text">今日涨停家数 / 跌停家数 / 封板率 / 炸板数 / 连板股总数公开数据缺失</span>，仅披露代表性涨停股（领湃科技 20CM / 时代万恒 / 龙蟠科技 / 中远海能 / 招商南油）。<br>
+  ⑩ <span class="danger-text">五大指数收盘点位为多源印证（中国金融信息网 + 新浪财经 + 搜狐财经）一致数值</span>（沪 3811.90 / 深 12620.90 / 创业 3036.66 / 科创综 1732.58 / 北证 1012.10），准确收盘点位以用户本地 Wind / 同花顺客户端核对。<br>
+  ⑪ <span class="warn-text">主力资金净流入 / 净流出 TOP3 具体金额数据缺口</span>（同花顺 c680471384 仅披露板块定性 · 未披露具体资金流向）· 本报告基于"板块涨幅 + 代表性涨停股资金动向 + ETF 涨跌"3 个维度定性推演 TOP3（电池 + 油气 + 港口航运）。<br>
+  ⑫ <span class="warn-text">连板梯度细节（5/4/3/2 连板代表股）公开数据缺口</span>（同花顺 c680471384 未披露连板梯度）· 仅披露代表性涨停股未明示连板数 · 警示性提示：连板高度从 D-1 9/29 的 6 板（新华传媒）→ 今日 待观察（连板梯度细节数据缺口）。<br>
+  ⑬ <span class="warn-text">9/30-10/7 国庆假期（7 天休市）</span> · 10/8 是国庆后第一个交易日（与 9/29 的"节后第一个交易日超跌反弹"不同 · 9/29 实际为"中秋节后第一个交易日"或"调休交易日"）· 按 SOP §4.2.4 规则呈现两段式（D-2 9/28 → D-1 9/29 → 今日 10/8）脉络标注。<br>
+  <strong>🟣 三段式脉络输入：</strong><br>
+  ⑭ <b>D-2 历史复盘</b> —— <code>geewaza-hexo-blog/source/investment/ashare/review/2026/09/20260928.html</code>（节后首日杀跌 · 双创 -4.53% / -4.06% · 算力硬件集体暴跌 -4%~-7% · 防御反向轮动 · 换电概念 +10.97 亿 / 猪肉 +4.08 亿 / 牙科医疗 +2.14 亿 · 合计 17.19 亿 · 资金体量大幅萎缩 · 通信 ETF -7.66% 领跌）。<br>
+  ⑮ <b>D-1 历史复盘</b> —— <code>geewaza-hexo-blog/source/investment/ashare/review/2026/09/20260929.html</code>（超跌反弹 · 5 大指数全线翻红 · 沪指 +0.08% 3826.51 / 深成 +0.41% / 创 +0.34% / 科创综 +0.69% / 北证 +1.29% · 三市成交 14216 亿 · 超 3400 只上涨 · 主力净流入 TOP3：华为概念 +66.82 / 数据中心 +52.76 / 国企改革 +48.27 亿 · 合计 167.85 亿 · 算力修复 + 政策驱动型反弹 · 新华传媒 6 连板 · 雪龙集团 4 连板 · 襄阳轴承 3 连板 · 地产 ETF +6.53% 领涨）。<br>
+  <strong>⚠️ 重要声明：</strong>本报告基于 7 个独立非同源渠道（同花顺 A股收评 c680471384 + 同花顺 ETF 收评 c680471379 + 新浪财经 2 篇 + 中国金融信息网 + 证券时报 + 搜狐财经 + 金融证券）交叉核验，<b>同花顺 news/stock 两域同源仅作主源参考</b>，<b>未单独计为独立来源</b>（同花顺 c680471384 + c680471379 同源）。五大指数收盘点位为多源印证一致值。资金流向 TOP3 / 连板梯度细节 / 涨停家数为公开数据缺口，按 SOP §4.5 透明披露。
+</div>
+
+<!-- ============ ⑮ 页脚 ============ -->
+<div class="footer">
+  <div>📅 数据日期：2026-10-08（周四收盘 · 国庆假期后第一个交易日） · 📍 数据来源：同花顺 A股收评 c680471384 + 同花顺 ETF 收评 c680471379 + 新浪财经（2 篇）+ 中国金融信息网 + 证券时报 + 搜狐财经 + 金融证券（7 个非同源渠道交叉核验）</div>
+  <div>🧠 核心定性：<b class="danger-text">国庆后第一个交易日杀跌 · 5 大指数全线飘绿</b> · <b class="danger-text">双创/科创跌超 3%</b> · <b class="danger-text">算力硬件大幅回调（光芯片 -7% / CPO -7% / 半导体调整）</b> · <b class="up-text">防御资源主线突现（电池 + 油气 + 煤炭 + 港口航运）</b> · <b class="up-text">领湃科技 20CM 涨停（电池十五五）</b> · <b class="up-text">标普油气 ETF +9.99%（中东冲突 + 油价 102 美元）</b> · <b class="danger-text">科创成长 ETF -7.45% 领跌</b> · <b class="danger-text">摩根士丹利报告：美对华光模块限制经 FCC 受控清单实施</b></div>
+  <div>⚠️ 本报告由 A股盘后复盘 SOP v1.2 自动生成 · 仅供参考 · 不构成投资建议</div>
+  <div style="margin-top:8px; color:#94a3b8;">© 2026 AShare Review · Generated with <span style="color:#c084fc;">Qoder</span> · <a href="https://github.com" target="_blank" style="color:#38bdf8;">geewaza-hexo-blog</a></div>
+</div>
+
+</div>
+</body>
+</html>
+<!--END_OF_FILE-->

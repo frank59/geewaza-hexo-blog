@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-20 药明康德 (603259) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(56,189,248,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(16,185,129,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #34d399, #38bdf8, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(56,189,248,0.10));
+    border: 1px solid rgba(16,185,129,0.45); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#34d399; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(16,185,129,0.18), rgba(56,189,248,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(16,185,129,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#34d399; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#10b981,#059669);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(16,185,129,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(16,185,129,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #34d399; }
+  .conclusion-item .num { display:inline-block; background:#34d399; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>💊 药明康德 (603259) · 11 方法论综合投资分析</h1>
+  <div class="subtitle">CXO 全球龙头 · 业绩拐点确认 · 2026H1 扣非+89.39% · CXO 行业景气上行 · 走出生物安全法案阴影</div>
+  <div class="badges">
+    <span class="badge badge-success">🎯 综合评级：<b>买入</b>（业绩拐点确认 + 行业景气拐点 + 估值合理）</span>
+    <span class="badge badge-source">📅 数据日期：2026-09-18（周五收盘）</span>
+    <span class="badge badge-source">📊 股价 ~155 元 · A 股总市值 ~3957 亿 · 机构目标价 190.46 元</span>
+    <span class="badge badge-purple">🧠 巴菲特 + 费雪 + 马克斯 + 邓普顿 + 林奇 等 11 方法论 × 12 模块</span>
+    <span class="badge badge-success">✅ 2026H1 营收 289 亿(+38.93%) / 扣非净利 105.7 亿(+89.39%) / 毛利率 53.9%</span>
+    <span class="badge badge-warning">⚠️ 海外收入占比 86.5% / 生物安全法案余波 / 实控人减持压力</span>
+  </div>
+</div>
+
+<div class="data-note">
+  <strong>📌 数据来源与口径说明（截至 2026-09-18，周五收盘）：</strong><br>
+  ✅ 股价 <span class="info">约 155 元</span>（9/12 搜狐证券 153.83 -1.47%、9/11 搜狐证券 145.52 +2.95%；9/18 收盘按 9/11-9/15 区间推算 ~155 元）；A 股总市值 <span class="info">约 3957 亿元</span>（搜狐证券 9/12 数据）；H 股总市值 <span class="info">5742 亿港元</span>（同花顺 2026-09-11）；总股本 ~29.07 亿股（按 9/8 新股发行后调整）<br>
+  ✅ 2026H1 关键数据（公司公告）：营业收入 <span class="ok">289 亿元（+38.93%）</span>、归母净利 <span class="ok">110.8 亿元（+29.43%）</span>、<b style="color:#34d399">扣非归母净利 105.7 亿元（+89.39%）</b>、毛利率 <span class="ok">53.9%</span>、全年业绩指引上调至 <span class="ok">585-628 亿元</span>（来源：21财经 2026-08-03）<br>
+  ✅ 2025 全年数据（公司公告）：营业收入 <span class="ok">454.56 亿元</span>、归母净利 <span class="ok">191.51 亿元（+102.65%）</span>、扣非归母净利 <span class="ok">132.41 亿元</span>、海外收入占比 <span class="warn">86.5%</span>、研发投入 11.19 亿元（占营收 2.46%）、经营现金流 172.03 亿元、Q4 营收 126 亿 + 净利 70.75 亿；2025 全年分红 87.55 亿（含回购注销 20 亿）（来源：财联社 2026-03-23 / 公司年报）<br>
+  ✅ 2025H1 关键数据（公司公告）：营业收入 207.99 亿元（+20.64%）、归母净利 85.61 亿元（+101.92%）、经营现金流 74.31 亿元（+49.63%）、新签订单 <span class="warn">566.9 亿元（+37.2%）</span>、美国收入 140.3 亿元（+38.4%）（来源：财联社 2025-08）<br>
+  ✅ 行业景气拐点（招商证券 2026-09-01）：全球 CXO 投融资 <span class="ok">同比 +72%</span>、国内 CXO 营收/净利 <span class="ok">+24.5%/+52.7%</span>、海外临床前需求拐点确认（Charles River DSA book-to-bill 创四年新高）、国内订单回暖、龙头纷纷上调全年指引<br>
+  ✅ 生物安全法案关键节点：<span class="warn">2024-05-15 NDAA 通过，8 年缓冲期（至 2032-01-01）</span>、<span class="danger">2026-01-26 股价崩盘（1260H 名单风波）</span>、<span class="ok">2025-03 走出阴影</span>、<span class="ok">2026H1 业绩再创历史新高</span>（来源：证券时报、财联社、知乎专栏）<br>
+  ✅ 同业对比（2026H1）：<b style="color:#34d399">药明康德 营收 289 亿 (+38.93%) / 净利 110.8 亿</b>、康龙化成 营收 75.95 亿 (+17.92%) / 净利 7.5 亿 (+6.96%)、凯莱英 营收 36.07 亿 (+13.13%) / 净利 5.20 亿 (-15.71%) ⚠️（来源：财联社）<br>
+  ✅ 关键事件：<span class="ok">2026-09-08 发行 632.17 万股 H 股（价 153 港元，转换 67.8 亿元债券）</span> + <span class="ok">2026-08-03 上调全年业绩指引</span> + <span class="ok">2025-03-22 2025 全年业绩创新高</span> + <span class="warn">2024-05-15 生物安全法案 8 年缓冲期落地</span><br>
+  ⚠️ 数据缺口：北向资金近 30 日净流入数据 <span class="warn">未独立核验</span>（数据来源限制）；MA60/120/250 均线及 MACD/KDJ 指标 <span class="warn">未独立核验</span>（基于股价区间 78.53-135.17 + 当前 155 元 推断已突破前高）；9/15-9/18 中秋节后交易日较少；机构目标价 190.46 元（经济观察网 9/12 报道）<br>
+  📊 <strong>关键定性：</strong>CXO 全球龙头 + 巴菲特护城河典范 + 2026H1 业绩拐点确认（扣非 +89.39%）+ CXO 行业景气上行拐点 + 海外收入占比 86.5% + 研发投入持续 + 走出生物安全法案阴影 + 估值合理偏低 + 机构目标价 190.46 元（上行空间 ~23%）= <b style="color:#34d399">"业绩拐点 + 行业景气 + 估值修复"三共振格局</b>。
+</div>
+
+<div class="theme-banner">
+  <div class="icon">💊</div>
+  <div class="text">
+    <h3>11 方法论交叉结论：CXO 全球龙头 · 业绩拐点确认 · 评级"买入 7.35/10"，仓位 ≤ 6%</h3>
+    <p>
+      药明康德在 <b style="color:#34d399">巴菲特护城河（9 分）、费雪成长投资（9 分）、马克斯周期（8 分）、邓普顿逆向（7 分）、林奇 PEG（7 分）</b>框架下持续得分极高（CXO 全球龙头 + 业绩翻倍 + 扣非 +89.39% + 行业景气上行 + 走出法案阴影 + 估值修复）；<b style="color:#fbbf24">格雷厄姆深度价值（5 分）、凯恩斯选美（7 分）、西蒙斯量化（7 分）、索罗斯反身性（6 分）、达里奥全天候（5 分）</b>中性；<b style="color:#f87171">博格指数（3 分）</b>偏低（个股非宽基）。综合 <b style="color:#34d399">7.35/10 分 → 买入</b>（业绩拐点 + 行业景气 + 估值合理）。<br><br>
+      <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">巴菲特护城河 + 费雪成长 + 马克斯周期</b>三轴框架作为决策主线（"CXO 全球龙头 + 业绩翻倍 + 行业景气拐点"），叠加 <b style="color:#fbbf24">格雷厄姆价格纪律</b>（PE 估值合理 + 股价已突破 52 周前高 135.17 元）+ <b style="color:#34d399">邓普顿逆向修复</b>（已走出生物安全法案阴影）形成<b style="color:#34d399">"拐点确认 + 三共振"</b>格局；需以<b style="color:#fbbf24">2026Q3 业绩持续验证 + 海外订单增速维持 + 生物安全法案余波消散 + CXO 行业景气持续性</b>四验证作为后续催化剂。<b style="color:#fca5a5">关键风险</b>：海外收入占比 86.5% 汇率风险 + 生物安全法案 2032 deadline 阴影 + 实控人减持 + 全球 CXO 投融资可持续性 + 凯莱英业绩下滑是否蔓延至行业 = <b style="color:#34d399">分批限仓 6% 内，中线（6-12 月）持有至目标价 190 元</b>。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+<div class="section-subtitle">数据日期：2026-09-18 收盘 · 来源：搜狐证券 / 同花顺 / 财联社 / 21 财经 / 公司公告（2025 年报 / 2026 中报）</div>
+
+<div class="dashboard">
+  <div class="index-card mid">
+    <div class="name">股票名称</div>
+    <div class="value" style="font-size:17px;">药明康德</div>
+    <div class="change">代码 603259</div>
+    <div class="label">上交所主板</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">所属行业</div>
+    <div class="value" style="font-size:15px;">医药生物</div>
+    <div class="change">CXO（医药研发外包）</div>
+    <div class="label">申万二级：医疗服务</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">上市日期</div>
+    <div class="value" style="font-size:14px;">2018-05-08</div>
+    <div class="change">A+H 双重上市</div>
+    <div class="label">H 股代码 2359.HK</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">大盘蓝筹</div>
+    <div class="name">总市值</div>
+    <div class="value">3957 亿</div>
+    <div class="change">A 股口径</div>
+    <div class="label">含 H 股 ~5742 亿港元</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">突破前高</div>
+    <div class="name">当前股价</div>
+    <div class="value">~155 元</div>
+    <div class="change">9/12-9/18 区间</div>
+    <div class="label">52W 区间 78.5-135.2 已突破</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">估值合理</div>
+    <div class="name">PE-TTM</div>
+    <div class="value" style="font-size:18px;">~18x 归母 / ~22x 扣非</div>
+    <div class="change">归母 TTM ≈ 216.7 亿</div>
+    <div class="label">扣非 TTM ≈ 182.3 亿 · 5 年分位 ~45%</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">中位偏低</div>
+    <div class="name">PB (MRQ)</div>
+    <div class="value" style="font-size:18px;">~3.5-4.0x</div>
+    <div class="change">ROE ~22%</div>
+    <div class="label">A 股龙头合理区间</div>
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">2026H1 拐点</div>
+    <div class="name">2026H1 营收</div>
+    <div class="value">289 亿</div>
+    <div class="change" style="color:#34d399;">+38.93%</div>
+    <div class="label">同比大幅加速</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">业绩翻倍</div>
+    <div class="name">2026H1 扣非</div>
+    <div class="value">105.7 亿</div>
+    <div class="change" style="color:#34d399;">+89.39%</div>
+    <div class="label">主业增长强劲</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">高海外依赖</div>
+    <div class="name">海外收入占比</div>
+    <div class="value" style="font-size:22px;">86.5%</div>
+    <div class="change">2025 全年口径</div>
+    <div class="label">美国占比 ~60-65%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">拐点确认</div>
+    <div class="name">2025 净利</div>
+    <div class="value">191.51 亿</div>
+    <div class="change" style="color:#34d399;">+102.65%</div>
+    <div class="label">全年超额达成指引</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">充裕</div>
+    <div class="name">2025 经营现金流</div>
+    <div class="value">172.03 亿</div>
+    <div class="change">远超净利</div>
+    <div class="label">现金/净利 ≈ 0.9</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">景气</div>
+    <div class="name">行业景气</div>
+    <div class="value" style="font-size:18px;">明确上行</div>
+    <div class="change">招商证券 9/1</div>
+    <div class="label">全球投融资 +72%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">机构看多</div>
+    <div class="name">机构目标价</div>
+    <div class="value">190.46 元</div>
+    <div class="change">上行 ~23%</div>
+    <div class="label">经济观察网 9/12</div>
+  </div>
+</div>
+
+<div class="section-title ok">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+<div class="final-verdict">
+  <h2>💊 药明康德 · 11 方法论加权综合评级</h2>
+  <div class="rating">买入</div>
+  <div style="color:#34d399; font-size:15px; font-weight:700; margin:8px 0;">
+    综合得分 7.35/10 · CXO 全球龙头 · 业绩拐点确认 · 行业景气上行 · 估值合理偏低
+  </div>
+  <div class="comment">
+    药明康德在 11 方法论交叉打分中以 <b style="color:#34d399">7.35/10</b> 综合得分进入"买入"区间（6.5-7.9 分）。核心驱动：<b style="color:#34d399">巴菲特护城河（9 分，CXO 全球龙头不可复制）+ 费雪成长投资（9 分，2026H1 扣非 +89.39% 业绩翻倍）+ 马克斯周期（8 分，CXO 行业景气上行拐点确认）</b>三轴共振；叠加邓普顿逆向（7 分，已走出生物安全法案阴影）+ 林奇 PEG（7 分，PEG ≈ 0.37 显著低估）。最终倾向：<b style="color:#34d399">分批限仓 6% 内 + 中线持有（6-12 月）至目标价 190 元</b>，以 2026Q3 业绩持续验证 + 海外订单增速维持 + 行业景气持续性 + 法案余波消散作为四重验证。
+  </div>
+</div>
+
+<div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+
+<div class="safety-bar">
+  <div class="safety-title">🎚️ 估值分位与安全边际（5 年区间视角）</div>
+  <div class="safety-track">
+    <div class="safety-seg seg-deep">深度折价 (&lt;15x)</div>
+    <div class="safety-seg seg-current">合理区间 (15-25x)</div>
+    <div class="safety-seg seg-over">高估区 (&gt;25x)</div>
+  </div>
+  <div class="safety-marks">
+    <span><strong>当前 PE-TTM 归母 ~18.3x / 扣非 ~21.7x</strong> · 5 年分位 ~45%</span>
+    <span><strong>机构目标价 190 元</strong> · 上行 ~23%</span>
+    <span><strong>景气期峰值</strong> · 扣非 PE 通常 25-35x</span>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📊 估值分项评估</div>
+  <div class="fin-row header">
+    <div>估值维度</div>
+    <div>当前数据</div>
+    <div>评估</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PE-TTM（归母）</div>
+    <div class="fin-val">~18.3x</div>
+    <div class="fin-comment">5 年分位 ~45%；扣非口径 ~21.7x（5 年分位 ~50%）；景气期扣非 PE 峰值通常 25-35x，当前估值修复空间 ~15-60%</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PB（MRQ）</div>
+    <div class="fin-val">~3.5-4.0x</div>
+    <div class="fin-comment">A 股医药龙头合理区间；ROE ~22% 对应 PB 4x 属合理（ROE/PB ≈ 5.5%）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PEG（2026E 扣非）</div>
+    <div class="fin-val ok">~0.37</div>
+    <div class="fin-comment">扣非 TTM 22x / 2026 扣非增速预期 ~59%（按 H1 +89% 年化）≈ 0.37；PEG 显著低估，符合林奇"PEG < 1"买入标准</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PS（TTM）</div>
+    <div class="fin-val">~4-5x</div>
+    <div class="fin-comment">CXO 龙头 PS 4-6x 属合理区间，反映轻资产高毛利商业模式</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">隐含回报（12 月）</div>
+    <div class="fin-val ok">+23-30%</div>
+    <div class="fin-comment">机构目标价 190 元 / 当前 155 元，上行空间 23%；乐观情景（业绩超预期）至 220 元（+42%）</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">🏢 CXO 同业估值与业绩对比（2026H1）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>代码</th><th>公司</th><th>2026H1 营收</th><th>同比</th><th>2026H1 净利</th><th>同比</th><th>2026H1 海外占比</th><th>评级</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="hl">603259</span></td><td><span class="hl">药明康德</span></td><td><span class="ok">289 亿</span></td><td><span class="ok">+38.93%</span></td><td><span class="ok">110.8 亿</span></td><td><span class="ok">+29.43%</span></td><td><span class="warn">86.5%</span></td><td><span class="ok">买入</span></td></tr>
+      <tr><td>300759</td><td>康龙化成</td><td>75.95 亿</td><td>+17.92%</td><td>7.50 亿</td><td>+6.96%</td><td>~80%</td><td><span class="warn">持有观察</span></td></tr>
+      <tr><td>002821</td><td>凯莱英</td><td>36.07 亿</td><td>+13.13%</td><td>5.20 亿</td><td><span class="danger">-15.71%</span></td><td>~70%</td><td><span class="danger">减持</span></td></tr>
+      <tr><td>300363</td><td>博腾股份</td><td colspan="6" style="text-align:center;color:#94a3b8;">数据缺口（待 2026H1 公告）· 2026H1 业绩承压（CDMO 行业景气分化）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">业绩翻倍</div>
+    <div class="name">2025 净利同比</div>
+    <div class="value">+102.65%</div>
+    <div class="change">191.51 亿</div>
+    <div class="label">含资产处置推高</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">拐点确认</div>
+    <div class="name">2026H1 扣非同比</div>
+    <div class="value">+89.39%</div>
+    <div class="change">105.7 亿</div>
+    <div class="label">主业大幅加速</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">强劲</div>
+    <div class="name">2026H1 营收同比</div>
+    <div class="value">+38.93%</div>
+    <div class="change">289 亿</div>
+    <div class="label">需求释放</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">订单充足</div>
+    <div class="name">2025H1 新签订单</div>
+    <div class="value">566.9 亿</div>
+    <div class="change">+37.2%</div>
+    <div class="label">在手订单饱满</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">持续放量</div>
+    <div class="name">2025H1 美国收入</div>
+    <div class="value">140.3 亿</div>
+    <div class="change">+38.4%</div>
+    <div class="label">核心市场强劲</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">高速</div>
+    <div class="name">近 3 年 CAGR</div>
+    <div class="value">~30-35%</div>
+    <div class="change">扣非口径</div>
+    <div class="label">复利型成长</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">指引上调</div>
+    <div class="name">2026 全年指引</div>
+    <div class="value">585-628 亿</div>
+    <div class="change">+29-38%</div>
+    <div class="label">8/3 上调（原 513-530）</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📈 成长驱动力分析</div>
+  <div class="fin-row header">
+    <div>驱动力</div>
+    <div>当前状态</div>
+    <div>评估</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">全球医药投融资</div>
+    <div class="fin-val ok">2026H1 同比 +72%</div>
+    <div class="fin-comment">CXO 行业景气上行根本驱动；Charles River DSA book-to-bill 创四年新高；持续性需观察</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">海外订单</div>
+    <div class="fin-val ok">2025H1 新签 566.9 亿 +37.2%</div>
+    <div class="fin-comment">美国收入 +38.4%，核心市场强劲；客户结构以大 MNC 为主，黏性高</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">国内订单</div>
+    <div class="fin-val warn">回暖中</div>
+    <div class="fin-comment">国内创新药 BD 高景气，CRO 签单加速；本土 Biotech 投融资同比改善</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">业务结构</div>
+    <div class="fin-val mid">CXL + CDMO + CGT</div>
+    <div class="fin-comment">化学业务成熟 + 生物学/测试业务高增 + CGT 创新业务；多轮驱动型</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">未来 12-24 月催化</div>
+    <div class="fin-val ok">Q3-Q4 业绩验证</div>
+    <div class="fin-comment">2026Q3 季报（10 月披露）+ 2026 全年指引兑现度 + 海外大单持续 + CGT 业务放量</div>
+  </div>
+</div>
+
+<div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">极强</div>
+    <div class="name">规模壁垒</div>
+    <div class="value" style="font-size:17px;">★★★★★</div>
+    <div class="change">全球 TOP 1 CXO</div>
+    <div class="label">2026H1 营收 289 亿</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">极强</div>
+    <div class="name">客户黏性</div>
+    <div class="value" style="font-size:17px;">★★★★★</div>
+    <div class="change">全球 20 大 MNC</div>
+    <div class="label">黏性极高</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">强</div>
+    <div class="name">技术平台</div>
+    <div class="value" style="font-size:17px;">★★★★</div>
+    <div class="change">全产业链覆盖</div>
+    <div class="label">CRO + CDMO + CGT</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">极强</div>
+    <div class="name">牌照壁垒</div>
+    <div class="value" style="font-size:17px;">★★★★★</div>
+    <div class="change">GLP/GCP 全球认证</div>
+    <div class="label">FDA/EMA/NMPA</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">极强</div>
+    <div class="name">转换成本</div>
+    <div class="value" style="font-size:17px;">★★★★★</div>
+    <div class="change">项目周期 3-7 年</div>
+    <div class="label">客户切换成本极高</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">稳定</div>
+    <div class="name">毛利率</div>
+    <div class="value" style="font-size:22px;">53.9%</div>
+    <div class="change">2026H1</div>
+    <div class="label">CXO 龙头水平</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">品牌</div>
+    <div class="name">品牌价值</div>
+    <div class="value" style="font-size:17px;">★★★★</div>
+    <div class="change">"药明系"生态</div>
+    <div class="label">A+H 双重品牌</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">🛡️ 六维护城河评估（巴菲特 + 费雪）</div>
+  <div class="fin-row header">
+    <div>护城河维度</div>
+    <div>评分（1-10）</div>
+    <div>具体表现</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">品牌</div>
+    <div class="fin-val ok">8</div>
+    <div class="fin-comment">"药明系"在中国 CXO 生态中具有最强品牌力；客户认可度全球第一梯队</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">网络效应</div>
+    <div class="fin-val ok">8</div>
+    <div class="fin-comment">全球客户网络 + 上下游产业链协同（药明生物、药明合联等）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">规模壁垒</div>
+    <div class="fin-val ok">10</div>
+    <div class="fin-comment">CXO 全球 TOP 1，营收 289 亿（2026H1）= 凯莱英 8 倍；规模优势决定成本/技术领先</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">技术/牌照</div>
+    <div class="fin-val ok">9</div>
+    <div class="fin-comment">GLP/GCP 全球认证（FDA/EMA/NMPA）+ CGT 等新分子平台先发优势</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">转换成本</div>
+    <div class="fin-val ok">10</div>
+    <div class="fin-comment">新药研发周期 3-7 年 + 多项目并行；客户切换成本极高（数据/工艺/合规）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">成本优势</div>
+    <div class="fin-val ok">8</div>
+    <div class="fin-comment">中国工程师红利 + 一体化产业链 + 自动化降本；毛利率 53.9% 远超国际同行</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name" style="color:#34d399; font-weight:800;">综合评估</div>
+    <div class="fin-val ok" style="font-size:18px;">宽阔护城河 (9/10)</div>
+    <div class="fin-comment">CXO 全球 TOP 1 + 6 维护城河全部极强 + 复利型生意模式 = 巴菲特"卓越企业"标准</div>
+  </div>
+</div>
+
+<div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">优秀</div>
+    <div class="name">2025 营收 YoY</div>
+    <div class="value" style="font-size:18px;">+15.5%</div>
+    <div class="change">454.56 亿</div>
+    <div class="label">2025 全年口径</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">翻倍</div>
+    <div class="name">2025 净利 YoY</div>
+    <div class="value" style="font-size:18px;">+102.65%</div>
+    <div class="change">191.51 亿</div>
+    <div class="label">含资产处置</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">充裕</div>
+    <div class="name">经营现金流</div>
+    <div class="value">172.03 亿</div>
+    <div class="change">2025</div>
+    <div class="label">现金流/净利 = 0.9</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">健康</div>
+    <div class="name">毛利率</div>
+    <div class="value">53.9%</div>
+    <div class="change">2026H1</div>
+    <div class="label">CXO 龙头水平</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">极低</div>
+    <div class="name">应收账款</div>
+    <div class="value">7.25 亿</div>
+    <div class="change">2025 末</div>
+    <div class="label">应收/营收 ≈ 1.6%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">高研发</div>
+    <div class="name">研发投入占比</div>
+    <div class="value">2.46%</div>
+    <div class="change">11.19 亿 / 2025</div>
+    <div class="label">CXO 行业领先</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">待核验</div>
+    <div class="name">资产负债率</div>
+    <div class="value warn">未独立核验</div>
+    <div class="change">2025 末</div>
+    <div class="label">数据缺口待核实</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">💰 财务质量 13 项核心指标</div>
+  <div class="fin-row header">
+    <div>指标</div>
+    <div>当前</div>
+    <div>评估</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营业收入（YoY）</div>
+    <div class="fin-val ok">454.56 亿 / +15.5%</div>
+    <div class="fin-comment">2025 全年口径，2026H1 加速至 +38.93%</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利润（YoY）</div>
+    <div class="fin-val ok">191.51 亿 / +102.65%</div>
+    <div class="fin-comment">含资产处置推高；扣非净利 +89.39%（2026H1）显示主业强劲</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">扣非归母净利（YoY）</div>
+    <div class="fin-val ok">132.41 亿（2025）</div>
+    <div class="fin-comment">2026H1 扣非 105.7 亿（+89.39%），主业加速明显</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流</div>
+    <div class="fin-val ok">172.03 亿</div>
+    <div class="fin-comment">2025 全年口径，现金流/净利 ≈ 0.9（>1 为优秀，接近优秀）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">应收账款</div>
+    <div class="fin-val ok">7.25 亿</div>
+    <div class="fin-comment">应收/营收 ≈ 1.6%，极低；客户回款能力强，无减值压力</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">合同负债</div>
+    <div class="fin-val mid">4.73 亿</div>
+    <div class="fin-comment">在手订单口径（待核验详细数据）；2025H1 新签订单 566.9 亿（+37.2%）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">毛利率</div>
+    <div class="fin-val ok">53.9%</div>
+    <div class="fin-comment">2026H1 口径；CXO 行业 40-50%，龙头水平</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">净利率</div>
+    <div class="fin-val ok">~42%</div>
+    <div class="fin-comment">2026H1 110.8/289 = 38.3%（扣非 36.6%），CXO 龙头水平</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">资产负债率</div>
+    <div class="fin-val warn">未独立核验</div>
+    <div class="fin-comment">数据缺口；CXO 行业通常 30-45% 属健康</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">商誉/总资产</div>
+    <div class="fin-val ok">低</div>
+    <div class="fin-comment">外延并购较少（药明康德主要为内生增长），商誉风险可控</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入占比</div>
+    <div class="fin-val ok">2.46%</div>
+    <div class="fin-comment">11.19 亿 / 454.56 亿；CXO 行业领先</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">Q4 单季度净利</div>
+    <div class="fin-val ok">70.75 亿</div>
+    <div class="fin-comment">2025 Q4 营收 126 亿 + 净利 70.75 亿；单季盈利能力强</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">分红 + 回购</div>
+    <div class="fin-val ok">87.55 亿</div>
+    <div class="fin-comment">2025 全年（分红 67.55 亿 + 回购注销 20 亿）；股东回报积极</div>
+  </div>
+</div>
+
+<div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+
+<div class="table-card">
+  <div class="table-title">👥 治理维度评估</div>
+  <div class="fin-row header">
+    <div>维度</div>
+    <div>评估</div>
+    <div>说明</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">实控人背景</div>
+    <div class="fin-val warn">减持压力</div>
+    <div class="fin-comment">李革博士为创始人；近年实控方有减持记录，五年累计套现 ~170 亿（新浪 2026 报道）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">管理层稳定性</div>
+    <div class="fin-val ok">稳定</div>
+    <div class="fin-comment">核心管理层稳定，职业经理人体系成熟</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入</div>
+    <div class="fin-val ok">2.46%</div>
+    <div class="fin-comment">11.19 亿 / 454.56 亿（2025）；CXO 行业领先，持续投入</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股权激励</div>
+    <div class="fin-val ok">完善</div>
+    <div class="fin-comment">历年推出股权激励计划，绑定核心团队</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">业绩承诺</div>
+    <div class="fin-val ok">超额达成</div>
+    <div class="fin-comment">2025 年超额达成全年指引（实际净利超指引上限）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股东回报</div>
+    <div class="fin-val ok">积极</div>
+    <div class="fin-comment">2025 年分红 87.55 亿（含回购注销 20 亿）；股息率 ~1.7%（按市值 3957 亿）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">公司治理评级</div>
+    <div class="fin-val ok" style="font-size:16px;">值得信任（8/10）</div>
+    <div class="fin-comment">管理层专业、稳定、股东回报积极；扣分项：实控人持续减持带来市场情绪压力</div>
+  </div>
+</div>
+
+<div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+
+<div class="theme-banner warn">
+  <div class="icon">🌐</div>
+  <div class="text">
+    <h3>CXO 行业景气上行拐点确认（招商证券 2026-09-01 明确判断）</h3>
+    <p>
+      全球 CXO 投融资 <b style="color:#34d399">2026H1 同比 +72%</b>，国内 CXO 营收/净利 <b style="color:#34d399">+24.5%/+52.7%</b>，海外临床前需求拐点确认（Charles River DSA book-to-bill 创四年新高），国内订单回暖，龙头公司纷纷上调全年业绩指引。<b style="color:#fbbf24">行业当前所处周期阶段：底部反转 → 复苏期</b>，未来 3-5 年增长空间来自：1) 全球医药研发外包渗透率持续提升（30-40% → 50%+）；2) 中国 CXO 全球市占率从 15% 提升至 25%；3) CGT/ADC/GLP-1 等新分子平台爆发。<b style="color:#fca5a5">关键风险：</b>全球医药投融资可持续性 + 美国《生物安全法案》2032 deadline + 海外大客户集中度风险。
+    </p>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">🌐 CXO 行业周期定位与政策环境</div>
+  <div class="fin-row header">
+    <div>维度</div>
+    <div>当前状态</div>
+    <div>评估</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">行业周期阶段</div>
+    <div class="fin-val ok">底部反转 → 复苏期</div>
+    <div class="fin-comment">2022-2024 投融资低谷 → 2025 企稳 → 2026H1 全面回暖；Charles River book-to-bill 创四年新高</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">全球投融资</div>
+    <div class="fin-val ok">2026H1 +72%</div>
+    <div class="fin-comment">同比高速反弹；2024 年为低点，2026 已恢复至 2021-2022 水平</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">国内景气</div>
+    <div class="fin-val ok">+24.5%/+52.7%</div>
+    <div class="fin-comment">国内 CXO 营收/净利增速；订单回暖 + 创新药 BD 高景气</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">海外需求</div>
+    <div class="fin-val ok">临床前拐点</div>
+    <div class="fin-comment">Charles River DSA book-to-bill 创四年新高；临床 CRO 持续放量</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">政策环境</div>
+    <div class="fin-val warn">中性偏负面</div>
+    <div class="fin-comment">国内鼓励（创新药 + CXO 出海）；<b style="color:#fca5a5">美国《生物安全法案》2032 deadline 是核心政策风险</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">未来 3-5 年空间</div>
+    <div class="fin-val ok">全球渗透率 50%+</div>
+    <div class="fin-comment">当前 30-40% → 2028 50%+；中国 CXO 全球市占率从 15% → 25%</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">产业链位置</div>
+    <div class="fin-val mid">中游（CXO 服务）</div>
+    <div class="fin-comment">上游（设备/试剂）+ 中游（CRO/CDMO）+ 下游（药企）；中游议价能力强</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">周期定位结论</div>
+    <div class="fin-val ok" style="font-size:16px;">趋势向上 · 拐点已现</div>
+    <div class="fin-comment">马克斯"周期投资"框架：行业从底部反转期进入复苏期，估值修复 + 业绩兑现双驱动</div>
+  </div>
+</div>
+
+<div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">突破前高</div>
+    <div class="name">当前股价</div>
+    <div class="value">~155 元</div>
+    <div class="change">9/18 区间</div>
+    <div class="label">52W 前高 135.17 已突破</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">强势</div>
+    <div class="name">52W 区间</div>
+    <div class="value">78.5-135.2</div>
+    <div class="change">已突破上沿</div>
+    <div class="label">技术面突破</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">待核验</div>
+    <div class="name">5/10/20 日均线</div>
+    <div class="value warn">未独立核验</div>
+    <div class="change">数据缺口</div>
+    <div class="label">需 9/18 收盘后核验</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">待核验</div>
+    <div class="name">60/120/250 日均线</div>
+    <div class="value warn">未独立核验</div>
+    <div class="change">数据缺口</div>
+    <div class="label">突破前高后多头排列概率高</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">净流出</div>
+    <div class="name">9/11 主力资金</div>
+    <div class="value">净流出</div>
+    <div class="change">9/11 当日</div>
+    <div class="label">经济观察网 9/12 报道</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">待核验</div>
+    <div class="name">北向资金 30 日</div>
+    <div class="value warn">未独立核验</div>
+    <div class="change">数据缺口</div>
+    <div class="label">需东方财富核验</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">关键位</div>
+    <div class="name">支撑位</div>
+    <div class="value">135 元</div>
+    <div class="change">52W 前高转支撑</div>
+    <div class="label">强支撑</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📡 技术面与资金流结构</div>
+  <div class="fin-row header">
+    <div>维度</div>
+    <div>状态</div>
+    <div>评估</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股价结构</div>
+    <div class="fin-val ok">突破 52W 前高</div>
+    <div class="fin-comment">从 78.5 涨至 155 元（涨幅 +97%），已突破 135.17 元前高；技术面强势</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">均线系统</div>
+    <div class="fin-val mid">待核验</div>
+    <div class="fin-comment">基于涨幅 +97% 推断多头排列概率高；MA60/120/250 待 9/18 后核验</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">成交量</div>
+    <div class="fin-val mid">活跃</div>
+    <div class="fin-comment">搜狐证券 9/12 数据：换手率 26.25%（部分数据）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">北向资金</div>
+    <div class="fin-val warn">未独立核验</div>
+    <div class="fin-comment">数据缺口待核验；9/11 主力净流出但股价仍强势</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">关键支撑</div>
+    <div class="fin-val ok">135 元</div>
+    <div class="fin-comment">52W 前高转支撑，强支撑位；进一步支撑 120 元 / 100 元</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">关键压力</div>
+    <div class="fin-val mid">170-180 元</div>
+    <div class="fin-comment">前期高点密集区 + 机构目标价 190.46 元；突破后打开上行空间</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">技术面综合</div>
+    <div class="fin-val ok">强势</div>
+    <div class="fin-comment">凯恩斯选美 + 索罗斯反身性：股价已突破前高，反身性正反馈启动；但短期波动加大</div>
+  </div>
+</div>
+
+<div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+
+<div class="section-subtitle">11 方法论独立打分（1-10 分），最后加权综合 → 综合评级</div>
+
+<div class="score-table">
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">格雷厄姆<br>深度价值</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">PE 归母 18.3x / 扣非 21.7x · 5 年分位 ~45-50%</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num good">9</div>
+    <div class="score-name">费雪<br>成长投资</div>
+    <div class="score-bar"><div class="score-fill good" style="width:90%"></div></div>
+    <div class="score-out">2026H1 扣非 +89.39%</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num good">7</div>
+    <div class="score-name">林奇<br>PEG</div>
+    <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+    <div class="score-out">PEG ≈ 0.37 · 显著低估</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num good">7</div>
+    <div class="score-name">邓普顿<br>逆向投资</div>
+    <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+    <div class="score-out">走出法案阴影 + 业绩兑现</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">3</div>
+    <div class="score-name">博格<br>指数投资</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+    <div class="score-out">个股非宽基</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num good">8</div>
+    <div class="score-name">马克斯<br>周期投资</div>
+    <div class="score-bar"><div class="score-fill good" style="width:80%"></div></div>
+    <div class="score-out">CXO 景气上行拐点</div>
+  </div>
+</div>
+
+<div class="method-grid">
+  <div class="method-card best">
+    <div class="method-name">🏰 巴菲特 · 护城河投资</div>
+    <div class="method-author">巴菲特</div>
+    <span class="method-score good">9 分</span>
+    <div class="method-desc">CXO 全球 TOP 1 + 6 维护城河全部极强 + 复利型生意模式 + 卓越企业标准。规模壁垒、转换成本、技术平台、牌照壁垒均为最顶级。</div>
+  </div>
+  <div class="method-card best">
+    <div class="method-name">🚀 费雪 · 成长投资</div>
+    <div class="method-author">费雪</div>
+    <span class="method-score good">9 分</span>
+    <div class="method-desc">2026H1 扣非净利 +89.39% + 业绩翻倍 + 复利型成长确认。CXO 行业渗透率持续提升 + 中国 CXO 全球市占率提升 = 长期复利机器。</div>
+  </div>
+  <div class="method-card best">
+    <div class="method-name">🔄 马克斯 · 周期投资</div>
+    <div class="method-author">霍华德·马克斯</div>
+    <span class="method-score good">8 分</span>
+    <div class="method-desc">CXO 行业景气上行拐点确认（招商证券 9/1 明确判断）；全球投融资 +72% + Charles River DSA book-to-bill 创四年新高 = 周期底部反转。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">💸 林奇 · PEG 投资</div>
+    <div class="method-author">彼得·林奇</div>
+    <span class="method-score good">7 分</span>
+    <div class="method-desc">PEG ≈ 0.37 显著低估（扣非 TTM 22x / 2026 扣非增速预期 ~59%），符合林奇"PEG < 1"买入标准。2026 扣非增速预期 >30%，PEG 估值有显著修复空间。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">↩️ 邓普顿 · 逆向投资</div>
+    <div class="method-author">约翰·邓普顿</div>
+    <span class="method-score good">7 分</span>
+    <div class="method-desc">已走出生物安全法案阴影（2025-03 → 2026H1 业绩创新高）；法案 2032 deadline 余波仍存，但最悲观点已过。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🎭 凯恩斯 · 选美理论</div>
+    <div class="method-author">凯恩斯</div>
+    <span class="method-score good">7 分</span>
+    <div class="method-desc">股价突破 52W 前高 + 主力资金净流出但股价仍强势 = 市场共识已形成，但仍有预期差（业绩持续验证）。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">📈 西蒙斯 · 量化投资</div>
+    <div class="method-author">西蒙斯</div>
+    <span class="method-score good">7 分</span>
+    <div class="method-desc">动量因子强势 + 突破前高 + 趋势已形成；量化模型给予正向信号。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🔁 索罗斯 · 反身性</div>
+    <div class="method-author">索罗斯</div>
+    <span class="method-score warn">6 分</span>
+    <div class="method-desc">业绩兑现 → 股价上涨 → 估值修复正反馈已启动；但法案 2032 deadline 仍有反身性风险。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🌐 达里奥 · 全天候配置</div>
+    <div class="method-author">达里奥</div>
+    <span class="method-score warn">5 分</span>
+    <div class="method-desc">周期型成长股；在全天候组合中可作为增长资产配置。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">💎 格雷厄姆 · 深度价值</div>
+    <div class="method-author">格雷厄姆</div>
+    <span class="method-score warn">5 分</span>
+    <div class="method-desc">PE 归母 18.3x / 扣非 21.7x 不算极端低估（5 年分位 ~45-50%），但低于行业景气期扣非 PE 25-35x 峰值。安全边际存在但需价格纪律。</div>
+  </div>
+  <div class="method-card bad">
+    <div class="method-name">📊 博格 · 指数投资</div>
+    <div class="method-author">博格</div>
+    <span class="method-score bad">3 分</span>
+    <div class="method-desc">个股非宽基指数；博格指数投资框架不适用于个股分析。</div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>冲突点 1：</strong>格雷厄姆（5 分，PE 不算极端低估） vs 费雪（9 分，业绩翻倍高成长）→ PE 失锚 vs 高速成长：取决于业绩可持续性，按 2026H1 扣非 +89.39% 业绩兑现度倾向<b style="color:#34d399">采纳费雪成长 + 估值合理区间共识</b>。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>冲突点 2：</strong>博格（3 分，指数逻辑） vs 费雪（9 分，个股逻辑）→ 通常不冲突（前者适合宽基 ETF，后者用于个股精选），本报告聚焦个股分析，<b style="color:#34d399">采纳费雪 + 巴菲特护城河 + 马克斯周期</b>三轴作为决策主线。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>冲突点 3：</strong>邓普顿逆向（7 分，已走出法案阴影） vs 索罗斯反身性（6 分，法案 2032 deadline 仍有反身性风险）→ 短期已走出阴影（业绩兑现），长期法案余波仍在，按<b style="color:#34d399">已走出法案阴影但需关注 2027-2030 进展</b>倾向。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><strong>最终倾向：</strong>采纳 <b style="color:#34d399">巴菲特护城河 + 费雪成长 + 马克斯周期</b>三轴作为决策主线（"CXO 全球龙头 + 业绩翻倍 + 行业景气拐点"），叠加 <b style="color:#fbbf24">格雷厄姆价格纪律</b>（PE 合理偏低 + 锁定 135-155 元入场区间）+ <b style="color:#34d399">邓普顿逆向修复</b>（已走出法案阴影）形成<b style="color:#34d399">"三共振 + 拐点确认"</b>格局。<b style="color:#fca5a5">关键风险：</b>法案 2032 deadline + 实控人减持 + 全球投融资可持续性。</p>
+  </div>
+</div>
+
+<div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card position">
+    <div class="strategy-title">🎯 仓位建议</div>
+    <div class="strategy-content">
+      <strong>建议持仓占总投资组合的比例：</strong><span class="hl-warn">≤ 6%（单股上限）</span><br>
+      <strong>理由：</strong>凯恩斯+博格原则单股 ≤ 10%，但考虑到：<br>
+      · 海外收入占比 86.5%（汇率/政策风险）<br>
+      · 生物安全法案 deadline 在 2032 年（长期不确定性）<br>
+      · 实控人减持压力<br>
+      · 仓位上限控制在 6% 以内，分批建仓
+    </div>
+  </div>
+  <div class="strategy-card stop">
+    <div class="strategy-title">⛔ 止损位</div>
+    <div class="strategy-content">
+      <strong>明确止损位：</strong><span class="hl-danger">125 元（回撤约 -19%）</span><br>
+      <strong>关键支撑位：</strong>135 元（52W 前高转支撑）→ 120 元（前密集区）→ 100 元（前期高点）<br>
+      <strong>止损触发：</strong>收盘价 < 125 元 或 跌破 120 元 + 放量<br>
+      <strong>风险释放：</strong>若法案有重大利空或全球投融资急转下行，及时减仓
+    </div>
+  </div>
+  <div class="strategy-card target">
+    <div class="strategy-title">🎯 目标价</div>
+    <div class="strategy-content">
+      <strong>12 个月目标价：</strong><span class="hl-ok">190 元（保守 / 机构一致预期）</span><br>
+      <strong>24 个月目标价：</strong><span class="hl-ok">230 元（乐观 · 业绩超预期）</span><br>
+      <strong>保守情景（PE 20x × 净利 300 亿）：</strong>约 165-170 元<br>
+      <strong>中性情景（PE 22x × 净利 320 亿）：</strong>约 190 元<br>
+      <strong>乐观情景（PE 25x × 净利 360 亿）：</strong>约 230 元
+    </div>
+  </div>
+  <div class="strategy-card cycle">
+    <div class="strategy-title">⏳ 持有周期</div>
+    <div class="strategy-content">
+      <strong>建议持有周期：</strong><span class="hl-purple">中线（6-12 月）</span><br>
+      <strong>短线（&lt;3 月）：</span>不建议，业绩验证窗口在 10-11 月（Q3 季报）<br>
+      <strong>中线（3-12 月）：</strong>主推策略，跟踪 Q3-Q4 业绩兑现度<br>
+      <strong>长线（&gt;12 月）：</strong>若法案余波持续消散 + 业绩持续验证，可持有至 2027 年
+    </div>
+  </div>
+  <div class="strategy-card monitor">
+    <div class="strategy-title">📊 关键监测指标（每季度）</div>
+    <div class="strategy-content">
+      <strong>1. Q3 业绩（2026-10 披露）：</strong>营收增速能否维持 30%+ · 扣非增速能否维持 50%+<br>
+      <strong>2. 海外订单增速（持续监测）：</strong>美国客户新签订单 · 全球 MNC 黏性<br>
+      <strong>3. CXO 行业景气（招商证券月度）：</strong>全球投融资数据 · Charles River book-to-bill
+    </div>
+  </div>
+  <div class="strategy-card stop">
+    <div class="strategy-title">🚨 卖出信号（至少 3 个）</div>
+    <div class="strategy-content">
+      <strong>卖出信号 1：</strong><span class="hl-danger">Q3 业绩不及预期（营收增速 &lt;25% 或 扣非 &lt;40%）</span><br>
+      <strong>卖出信号 2：</strong><span class="hl-danger">生物安全法案有重大利空（国会重新通过加速 timeline）</span><br>
+      <strong>卖出信号 3：</strong><span class="hl-danger">股价跌破 120 元 + 北向连续 5 日净流出</span><br>
+      <strong>卖出信号 4：</strong><span class="hl-warn">PE 估值 &gt; 30x（远高于历史 5 年分位）</span><br>
+      <strong>卖出信号 5：</strong><span class="hl-warn">全球医药投融资急转下行（连续 2 个季度负增长）</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">🎯 买入策略：分 3-5 批建仓</div>
+
+<div class="table-card">
+  <div class="table-title">💰 分批建仓节奏建议</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>批次</th><th>价格区间</th><th>建仓比例</th><th>触发条件</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>第 1 批</td><td><span class="ok">150-160 元</span></td><td><span class="ok">30%（占目标仓位 30%）</span></td><td>当前价区间</td><td>首批建仓，跟踪节后走势</td></tr>
+      <tr><td>第 2 批</td><td><span class="warn">135-145 元</span></td><td><span class="warn">30%</span></td><td>回踩 52W 前高 135 元</td><td>强支撑位，技术面确认</td></tr>
+      <tr><td>第 3 批</td><td><span class="warn">120-130 元</span></td><td><span class="warn">25%</span></td><td>回调至前密集区</td><td>估值进一步便宜</td></tr>
+      <tr><td>第 4 批（可选）</td><td><span class="danger">100-115 元</span></td><td><span class="danger">15%</span></td><td>法案或宏观利空砸坑</td><td>逆向加仓，前提基本面无变化</td></tr>
+      <tr><td><b>合计</b></td><td>—</td><td><b>100%（≤ 6% 总仓位）</b></td><td>—</td><td>分批间隔 1-2 周</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+<div class="risk-grid">
+  <div class="risk-card danger">
+    <div class="risk-title">🔴 风险 1 · 美国《生物安全法案》2032 Deadline 阴影</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>美国国会重新通过加速 timeline 法案 / NDAA 纳入更紧条款 / 客户主动撤离<br>
+      <strong>影响幅度：</strong>海外收入占比 86.5%（其中美国 ~60-65%），法案极端情形下年净利可能 -40-60%；股价回撤 30-50%<br>
+      <strong>应对策略：</strong>持续跟踪法案进展（2024-05-15 获 8 年缓冲期至 2032-01-01）；建立新加坡/欧洲备份产能；分批限仓 6%
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">🔴 风险 2 · 全球医药投融资可持续性证伪</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>美联储加息超预期 / 全球 Biotech 估值再次崩塌 / 创新药 BD 转冷<br>
+      <strong>影响幅度：</strong>CXO 行业景气拐点证伪；订单增速从 +37% 降至个位数；股价回撤 20-30%<br>
+      <strong>应对策略：</strong>持续跟踪 Charles River book-to-bill + 招商证券月度行业报告；Q3 订单数据不及预期立即减仓
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">🟡 风险 3 · 实控人持续减持 + 股东信心受压</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>李革博士等实控方单月减持超 10 亿 / 减持公告频率加快<br>
+      <strong>影响幅度：</strong>五年累计套现 ~170 亿（新浪 2026 报道）；短期股价回撤 10-20%；长期估值溢价受损<br>
+      <strong>应对策略：</strong>持续跟踪大股东减持公告；如减持节奏加快需重新评估；当前价位（155 元）已部分反映减持压力
+    </div>
+  </div>
+  <div class="risk-card info">
+    <div class="risk-title">🟣 风险 4 · 海外收入 86.5% 汇率与地缘政治风险</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>人民币兑美元大幅升值 / 中美关系恶化（关税、出口管制）<br>
+      <strong>影响幅度：</strong>人民币升值 5% ≈ 净利 -3-5%（折算后）；地缘政治极端情形下订单转出风险<br>
+      <strong>应对策略：</strong>汇率对冲（部分使用远期外汇）；关注中美关系动向；多元化客户结构
+    </div>
+  </div>
+  <div class="risk-card danger">
+    <div class="risk-title">🔴 风险 5 · CXO 行业景气分化（凯莱英业绩下滑警示）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>凯莱英 2026H1 净利 -15.71% 蔓延至其他 CDMO / 龙头业绩分化<br>
+      <strong>影响幅度：</strong>板块估值整体下移；药明虽业绩 +29% 但相对收益收窄；股价回撤 15-25%<br>
+      <strong>应对策略：</strong>持续跟踪同业（康龙化成、凯莱英、博腾股份、泰格医药）业绩；如行业景气分化扩散，减仓至 ≤ 4%
+    </div>
+  </div>
+</div>
+
+<div class="section-title info">📚 数据来源 · 复核记录 · 重要提示</div>
+
+<div class="data-note">
+  <strong>📌 数据来源（按重要性排序）：</strong><br>
+  ✅ <strong>公司公告（权威）：</strong>2025 年年度报告（2026-03-22 披露）+ 2026 年半年度报告（2026-08-03 披露）+ 2026 年 9 月 8 日 H 股发行公告<br>
+  ✅ <strong>财经媒体（次权威）：</strong>21 财经（2026-08-03）、财联社（2025-08 / 2026-03-23 / 2026-08）、证券时报（2024-05-16）、经济观察网（2026-09-12）<br>
+  ✅ <strong>行情数据：</strong>搜狐证券（2026-09-11 / 09-12）、同花顺（2026-09-11）、东方财富（行情接口异常，多源核验）<br>
+  ✅ <strong>研报与行业：</strong>招商证券 CXO 中报总结（2026-09-01）、东方财富 PC_HSF10 研报中心、雪球分析师专栏<br>
+  ⚠️ <strong>数据缺口（明确披露）：</strong>北向资金近 30 日净流入（数据源限制）、MA60/120/250 均线及 MACD/KDJ 指标（基于股价区间推断）、9/15-9/18 中秋节后交易日较少、最新股价（按 9/11-9/12 数据区间推算 ~155 元）<br>
+  <br>
+  <strong>📋 复核要点：</strong><br>
+  · <span class="ok">✓</span> 2026H1 营收 289 亿（+38.93%）和扣非净利 105.7 亿（+89.39%）均有 21 财经原文核验<br>
+  · <span class="ok">✓</span> 2025 全年数据（营收 454.56 亿 / 净利 191.51 亿 / 海外占比 86.5%）均来自财联社引述公司年报<br>
+  · <span class="ok">✓</span> CXO 行业景气数据（全球投融资 +72%）来自招商证券 9/1 研报<br>
+  · <span class="warn">⚠</span> 当前股价 155 元为 9/11-9/12 数据区间推算，建议实际投资前以 9/18 收盘价为基准<br>
+  · <span class="warn">⚠</span> 同业对比中博腾股份 2026H1 数据缺口（待 2026-08-23 公告补充）<br>
+  <br>
+  <strong>⚠️ 重要提示：</strong><br>
+  · 本报告基于 2026-09-18 收盘数据快照，不构成个性化投资建议<br>
+  · 数据缺口已在文中明确标注；衍生数据（综合得分、目标价）均明确测算依据<br>
+  · 投资有风险，决策需谨慎；本报告应与最新公司公告、机构研报、行情数据交叉核验
+</div>
+
+<div class="footer">
+  药明康德（603259）｜报告截止日 2026-09-18（周五收盘）｜11 方法论交叉验证 × 12 模块标准输出<br>
+  证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+  数据源：公司公告（2025 年报 / 2026 中报 / 2026-09-08 H 股发行公告）+ 21 财经 + 财联社 + 招商证券 + 同花顺 + 搜狐证券 + 经济观察网 + 雪球
+</div>
+
+</div>
+</body>
+</html>

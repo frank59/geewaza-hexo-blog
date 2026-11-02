@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-30 京东方A (000725) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(239,68,68,0.20), rgba(245,158,11,0.16), rgba(56,189,248,0.10));
+    border: 1px solid rgba(239,68,68,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(239,68,68,0.26), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #f87171, #fbbf24, #38bdf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #fbbf24; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.75; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(239,68,68,0.10));
+    border: 1px solid rgba(245,158,11,0.40); border-left: 5px solid #fbbf24;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#fbbf24; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.75; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:19px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.45; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.6; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:16px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.65; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.6; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.8; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(239,68,68,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(239,68,68,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fca5a5; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#dc2626,#b91c1c);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:820px; margin:12px auto 0; line-height:1.8; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(245,158,11,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(245,158,11,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #fbbf24; }
+  .conclusion-item .num { display:inline-block; background:#fbbf24; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; line-height:1.75; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.8; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🖥️ 京东方A (000725) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">全球 LCD 电视面板出货量第一（份额 27.0%）· 柔性 AMOLED 全球第二 · 2026 年 7 月"玻璃基板"题材冲高 9.50 元后腰斩至 4.54 元 · 三季报 2026-10-31 披露</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>持有观察</b>（4.29/10 · 权重归一化后）</span>
+      <span class="badge badge-source">📅 数据日期：2026-10-30 盘中 10:48（基准 10/29 收盘 4.63 元）</span>
+      <span class="badge badge-source">📊 股价 4.54 元 · 总市值 1681.8 亿 · PE-TTM 21.4x · PB 1.26x</span>
+      <span class="badge badge-purple">🧠 11 方法论 × 12 模块 · 权重归一化（÷1.05）</span>
+      <span class="badge badge-danger">⚠️ 扣非 TTM PE 33.9x · H1 非经常性占归母 42.7% · 净有息负债约 725 亿</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-10-30 10:48 盘中）：</strong><br>
+    ✅ 行情：股价 <span class="info">4.54 元（-1.94%）</span>，10/29 收盘 4.63 元；总市值 <span class="info">1681.81 亿</span>、流通市值 1605.67 亿（总股本约 370.4 亿股，按市值/股价反算）· 双源核对：腾讯 qt.gtimg.cn + 新浪 hq.sinajs.cn<br>
+    ✅ 估值：PE-TTM <span class="danger">21.40x</span>（TTM 归母 78.58 亿 = 2025 全年 58.57 + 2026H1 52.48 − 2025H1 32.47）、<b>扣非 TTM PE ≈ 33.9x</b>（扣非 TTM 49.56 亿）；PB <span class="warn">1.26x</span>（BPS 3.594 元，2025 年末）；PE 静 28.71x、PE 动 16.02x；股息率 <span class="warn">1.23%</span>（2025 年分红 0.056 元/股）<br>
+    ✅ 股价区间：52 周最高 <span class="danger">9.50 元（2026-07-02）</span>、最低 <span class="ok">3.79 元（2025-11-24）</span>；近 1 月 <span class="danger">-22.22%</span>、近 3 月 -15.11%、近 6 月 +10.33%、近 1 年 +13.64% · 现价较 7 月高点回撤 <span class="danger">-52.2%</span><br>
+    ✅ 2026 半年报（2026-08 披露）：营收 <span class="warn">1031.32 亿（+1.83%）</span>、归母 <span class="ok">52.48 亿（+61.62%）</span>、扣非 <span class="ok">30.08 亿（+31.81%）</span>、毛利率 15.03%、ROE 3.82%、资产负债率 52.69%、经营现金流 <span class="ok">+227.45 亿</span>、资本开支 145.66 亿<br>
+    ✅ 2025 年报：营收 2045.90 亿、归母 <span class="warn">58.57 亿</span>、扣非 <span class="warn">42.30 亿</span>、EPS 0.16 元、BPS 3.594 元、ROE 4.39%、毛利率 15.64%、分红 20.68 亿（分红率 35.31%）<br>
+    ✅ 利润结构（H1）：非经常性损益 <span class="danger">22.40 亿（占归母 42.7%）</span>，其中金融资产公允价值变动/处置收益 24.50 亿、政府补助 8.01 亿；<b>扣除"其他收益 + 投资收益 + 公允价值变动"后，核心经营利润约 30.47 亿（对应 2.95% 营业利润率）</b>，三项合计约 58.8 亿 ≈ 营业利润的 81%<br>
+    ✅ 资产负债（2026H1）：少数股东权益 <span class="danger">745.72 亿</span>（占净资产约 36%）、归母权益约 1331 亿、商誉 6.54 亿、在建工程 <span class="danger">589.25 亿</span>（8.6 代 AMOLED 线 315.91 亿、6 代线 168.43 亿）、净有息负债 <span class="danger">约 725 亿（测算值，明细未独立核验）</span><br>
+    ✅ 业务结构（H1）：显示器件 <span class="warn">817.55 亿（-3.20%）</span>、毛利率 12.75%；物联网创新 190.00 亿（+5.75%）；MLED 64.06 亿（+47.4%）；传感器 4.21 亿（+88.2%）；海外收入占比 50.8%<br>
+    ✅ 行业地位：2026H1 LCD 电视面板出货量 <span class="ok">3240 万片、份额 27.0%（全球第一）</span>；AMOLED 智能手机面板全球第二；柔性 AMOLED H1 出货超 8000 万片、全年目标 1.6 亿片；8.6 代 AMOLED 线 2026-06-17 量产<br>
+    ✅ 面板价格：2026 年 10 月 65 英寸 $166、55 英寸 $116，<span class="danger">大尺寸报价处于近三年低位</span>；前三家厂商延续控产；京东方 10 月发出涨价函（执行情况未独立核验）<br>
+    ✅ 治理与股东回报：2026-05-20 康宁签署玻璃基板合作备忘录；2026-05-21 公司<b>主动澄清</b>玻璃基板/钙钛矿/光互连<b>无量产、无收入、2–3 年内不构成重大影响、与英伟达无合作</b>；A 股回购 9439 万股 / 5.4993 亿元（均价 5.83 元）、B 股回购 8869 万股 / 4.107 亿港元（均价 4.63 港元）；控股股东 7/29–10/13 增持 1.8612 亿股 / 9.9978 亿元（均价 5.37 元）；2026-05 推出限制性股票激励 9.7501 亿股 @2.11 元 / 3265 人（股份来自回购）<br>
+    ✅ 股东结构：北京国管 10.97%、香港中央结算 6.24%（H1 减持约 4.47 亿股）、北京电控直接持股 0.74%（国有股权划转后合计 14.43%、表决权 16.37%）；股东户数 <span class="danger">192.47 万</span>（2026H1）<br>
+    ⚠️ 数据缺口（未独立核验）：2026 三季报（<b>定于 2026-10-31 披露，本文发布时尚未公布</b>）、逐日北向资金、融资融券余额、公募/QFII 最新持仓明细、EV/EBITDA（缺折旧摊销明细）、精确 PE/PB 五年分位、单位面积面板价格的月度序列、同业（TCL 科技/深天马/维信诺）2026Q3 数据<br>
+    ⚠️ 关键警示：① 4.54 元对应扣非 PE 33.9x，而面板是典型重资产强周期行业；② H1 归母中 42.7% 来自金融资产公允价值与处置收益，属不可持续项；③ 管理层 10 月交流已指引 <span class="danger">2026 年面板出货量同比下降、H2 LCD 出货环比下滑、OLED 量价双降</span>，存储涨价压制终端需求；④ 在建工程 589 亿转固后折旧将显著抬升；⑤ 192 万股东 + 7 月高位套牢盘，反弹抛压沉重
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">🧭</div>
+    <div class="text">
+      <h3>一句话结论：产业地位是真的，周期修复是真的，但利润质量与题材溢价都不支持 4.54 元 —— 4.29/10，"持有观察"</h3>
+      <p>
+        <b style="color:#34d399">不能否认的部分</b>：京东方是全球 LCD 电视面板出货量第一（27.0%）、柔性 AMOLED 全球第二，8.6 代 AMOLED 线已量产，H1 经营现金流 227 亿、归母 52.5 亿同比 +61.6%，行业前三家控产、10 月已发涨价函。这是一家<b style="color:#34d399">已经走出 2022–2023 年亏损周期</b>的绝对龙头。<br><br>
+        <b style="color:#fca5a5">但三个数字拆掉了乐观叙事</b>：其一，H1 归母 52.48 亿里 <b style="color:#fca5a5">22.40 亿是非经常性</b>（金融资产公允价值 +24.50 亿、政府补助 +8.01 亿），扣非只有 30.08 亿，扣非 TTM PE 33.9x vs 表观 21.4x；其二，显示器件收入 <b style="color:#fca5a5">-3.20%</b>、毛利率仅 12.75%，量增价减；其三，7 月 9.50 元的股价来自"玻璃基板/先进封装"题材，而<b>公司自己在 5 月 21 日就公告说这条线无量产、无收入、2–3 年不影响业绩、与英伟达无合作</b> —— 题材已被公司证伪，股价已从高点回撤 52%。<br><br>
+        <b style="color:#fbbf24">方法论分布说明一切</b>：<b>格雷厄姆 4 分</b>（PB 尚可但盈利质量不合格）、<b>费雪/林奇/邓普顿/巴菲特各 5 分</b>（龙头地位与周期位置能给中性分，但成长性、PEG、护城河宽度都不够打高分）、<b>博格 3 分、西蒙斯 3 分、达里奥 3 分、索罗斯 3 分</b>（无指数属性、无统计优势、无配置价值、反身性已走完向下段）。没有一项方法论给出 6 分以上。<b style="color:#fbbf24">结论：不是"便宜到能买"，也不是"贵到必须卖"，而是"等三季报和面板价格给答案"。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="tag mid">行情</div>
+      <div class="name">当前股价</div>
+      <div class="value">4.54 元</div>
+      <div class="change">-1.94%（10/30 10:48）</div>
+      <div class="label">10/29 收盘 4.63 元</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">规模</div>
+      <div class="name">总市值 / 流通市值</div>
+      <div class="value">1681.8 亿</div>
+      <div class="change">流通 1605.7 亿</div>
+      <div class="label">流通占比 95.5%，全流通属性</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">估值</div>
+      <div class="name">PE-TTM / 扣非 TTM</div>
+      <div class="value">21.4x</div>
+      <div class="change">扣非 33.9x</div>
+      <div class="label">TTM 归母 78.58 亿 / 扣非 49.56 亿</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">估值</div>
+      <div class="name">PB（MRQ）</div>
+      <div class="value">1.26x</div>
+      <div class="change">BPS 3.594 元</div>
+      <div class="label">重资产行业 PB 中枢约 1.0–1.5x</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">分红</div>
+      <div class="name">股息率</div>
+      <div class="value">1.23%</div>
+      <div class="change">分红率 35.31%</div>
+      <div class="label">2025 年派 0.056 元/股，合计 20.68 亿</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">回撤</div>
+      <div class="name">52 周区间</div>
+      <div class="value">3.79–9.50</div>
+      <div class="change">现价距高点 -52.2%</div>
+      <div class="label">高点 2026-07-02 / 低点 2025-11-24</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">动量</div>
+      <div class="name">近 1 月涨跌</div>
+      <div class="value">-22.22%</div>
+      <div class="change">近 3 月 -15.11%</div>
+      <div class="label">近 6 月 +10.33% / 近 1 年 +13.64%</div>
+    </div>
+  </div>
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">营收</div>
+      <div class="name">2026H1 营业收入</div>
+      <div class="value">1031.32 亿</div>
+      <div class="change">+1.83%</div>
+      <div class="label">2025 全年 2045.90 亿</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">利润</div>
+      <div class="name">2026H1 归母净利润</div>
+      <div class="value">52.48 亿</div>
+      <div class="change">+61.62%</div>
+      <div class="label">扣非 30.08 亿（+31.81%）</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">质量</div>
+      <div class="name">非经常性损益占比</div>
+      <div class="value">42.7%</div>
+      <div class="change">22.40 亿 / 52.48 亿</div>
+      <div class="label">公允价值 +24.50 亿 / 补助 +8.01 亿</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">盈利</div>
+      <div class="name">毛利率 / ROE</div>
+      <div class="value">15.03%</div>
+      <div class="change">ROE 3.82%（H1）</div>
+      <div class="label">2025 全年毛利率 15.64% / ROE 4.39%</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">现金流</div>
+      <div class="name">2026H1 经营现金流</div>
+      <div class="value">+227.45 亿</div>
+      <div class="change">资本开支 145.66 亿</div>
+      <div class="label">自由现金流约 +81.8 亿（简化口径）</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">杠杆</div>
+      <div class="name">资产负债率</div>
+      <div class="value">52.69%</div>
+      <div class="change">净有息负债≈725 亿</div>
+      <div class="label">少数股东权益 745.72 亿（占净资产约 36%）</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">事件</div>
+      <div class="name">三季报披露日</div>
+      <div class="value">10-31</div>
+      <div class="change">明日盘后 / 当晚</div>
+      <div class="label">管理层已指引 H2 出货环比下滑</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级</div>
+  <div class="theme-banner warn">
+    <div class="icon">⚖️</div>
+    <div class="text">
+      <h3>持有观察（4.29 / 10）：龙头是真，便宜是假 —— 等"三季报落地 + 面板价格企稳"两个前提</h3>
+      <p>
+        <b>为什么不是"谨慎买入"（5.0+）</b>：买入需要"价格低于内在价值"。当前 4.54 元对应扣非 PE 33.9x、PB 1.26x、股息率 1.23%，对一个毛利率 15%、ROE 4%、资本开支常年高于折旧的重资产周期股，<b style="color:#fca5a5">没有任何安全边际</b>；且 H2 的三条负向指引（面板出货下滑 / OLED 量价双降 / 存储涨价压制需求）尚未在报表中体现。<br>
+        <b>为什么不是"减持"（3.4 及以下）</b>：行业前三家控产、10 月涨价函、8.6 代线量产、经营现金流 227 亿、控股股东 5.37 元均价增持 10 亿元、A 股回购均价 5.83 元 —— <b style="color:#34d399">产业侧与内部人的行为都指向"底部区域"，而非"顶部派发"</b>；股价已从 9.50 元回撤 52%，题材水分大部分挤出。<br>
+        <b>结论</b>：<b style="color:#fbbf24">持有者降至 3% 以内并设 4.20 元止损；空仓者不追，等 3.90–4.10 元（PB 1.08–1.13x）或三季报扣非超预期后再评估是否上调至"谨慎买入"。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title danger">💰 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">核心问题：4.54 元是"周期底部的合理价"，还是"题材退潮后的半山腰"？</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>估值口径</div>
+      <div>当前值</div>
+      <div>解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PE-TTM（表观）</div>
+      <div class="fin-val warn">21.4x</div>
+      <div class="fin-comment">TTM 归母 78.58 亿。看似不贵，但分母含 2026H1 的 22.4 亿非经常性收益，属"虚高利润"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PE-TTM（扣非）</div>
+      <div class="fin-val down">33.9x</div>
+      <div class="fin-comment">扣非 TTM 49.56 亿。<b>这才是主业真实估值</b>，对周期股偏高（面板行业景气高点 PE 常压缩至 8–12x）。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PB（MRQ）</div>
+      <div class="fin-val warn">1.26x</div>
+      <div class="fin-comment">BPS 3.594 元。京东方历史 PB 区间大致 1.0–2.2x，1.26x 处于中低位，但 2024 年低点曾到 0.9x 附近。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PS（TTM）</div>
+      <div class="fin-val mid">0.80x</div>
+      <div class="fin-comment">TTM 收入约 2095 亿。重资产制造业 PS 长期低于 1，属正常，无信号意义。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股息率</div>
+      <div class="fin-val warn">1.23%</div>
+      <div class="fin-comment">分红率 35.31%、20.68 亿。对周期股已算慷慨，但绝对收益率不足以构成"债性保护"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PE-2026E / 2027E</div>
+      <div class="fin-val mid">19.8x / 14.0x</div>
+      <div class="fin-comment">按卖方一致预期 84.82 / 119.89 亿。⚠️ 预期形成于股价 6–9 元区间，<b>未反映管理层 10 月"H2 出货环比下滑"指引，存在下修风险</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PE-2028E</div>
+      <div class="fin-val ok">10.0x</div>
+      <div class="fin-comment">按 168.34 亿。三年翻倍假设，隐含 8.6 代线满产 + 面板价格回升，兑现确定性低。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">EV/EBITDA</div>
+      <div class="fin-val mid">未独立核验</div>
+      <div class="fin-comment">缺折旧摊销明细。定性判断：EBITDA 巨额（年折旧约 300 亿级），EV/EBITDA 显著低于 PE，这是重资产股估值的主要分歧点。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">清算/重置价值</div>
+      <div class="fin-val warn">不适用</div>
+      <div class="fin-comment">产线专用性强、在建工程 589 亿尚未产生收益，净资产 3.594 元中约 45% 为固定资产 + 在建工程，清算价值远低于账面。</div>
+    </div>
+  </div>
+
+  <div class="safety-bar">
+    <div class="safety-title">🛡️ 安全边际区间（基于 PB 与扣非 PE 的复合判断）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">深度价值 &lt; 3.60 元（PB&lt;1.0）</div>
+      <div class="safety-seg seg-current">当前 4.54 元（PB 1.26 / 扣非 PE 33.9）</div>
+      <div class="safety-seg seg-over">高估区 &gt; 5.60 元（PB&gt;1.56）</div>
+    </div>
+    <div class="safety-marks">
+      <span>合理买入区：<strong>3.90–4.10 元</strong>（PB 1.08–1.13x）</span>
+      <span>内部人成本：<strong>回购 5.83 元 / 增持 5.37 元</strong></span>
+      <span>题材顶：<strong>9.50 元（PB 2.64x）</strong></span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📐 三情景估值测算（12 个月 / 24 个月）</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>情景</th><th>核心假设</th><th>2026E 归母</th><th>给予 PE / PB</th><th>12M 目标价</th><th>24M 目标价</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="danger">保守</td>
+          <td>面板价格 Q4 再度下行，OLED 量价双降，2027 年 8.6 代线折旧集中释放</td>
+          <td>65–70 亿（下修）</td>
+          <td>PB 1.00–1.08x</td>
+          <td class="danger">3.60–3.90 元</td>
+          <td class="danger">3.80 元</td>
+        </tr>
+        <tr>
+          <td class="warn">中性</td>
+          <td>控产延续、价格横盘，2026 年归母 80 亿附近，2027 年温和增长</td>
+          <td>80–85 亿</td>
+          <td>PB 1.28–1.33x / PE 20x</td>
+          <td class="warn">4.60–4.90 元</td>
+          <td class="warn">5.40 元</td>
+        </tr>
+        <tr>
+          <td class="ok">乐观</td>
+          <td>涨价函落地 + 玻璃基板 2027 试产成功 + AMOLED 满产，市场重新给成长溢价</td>
+          <td>90–95 亿</td>
+          <td>PB 1.56–1.60x / 2027E PE 17x</td>
+          <td class="ok">5.60–5.80 元</td>
+          <td class="ok">7.00 元</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px; color:#64748b; margin-top:10px; line-height:1.7;">
+      ⚠️ 测算说明：三情景均为本报告基于公开数据的自建模型，非机构预测；2026E 归母采用"上半年 52.48 亿 + 下半年 27–38 亿"区间推断（H2 已含出货环比下滑指引），与卖方一致预期 84.82 亿的差异即为下修风险敞口。PB 锚定 2026 年末 BPS 约 3.62 元（按 H1 3.82% ROE 线性外推）。
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🏁 同业估值对比（口径：2026 年 10 月 30 日盘中快照，扣非数据以最近定期报告为准）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>总市值</th><th>PE-TTM</th><th>PB</th><th>2026H1 归母</th><th>核心定位</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hl">京东方A</td><td>000725</td><td>1681.8 亿</td><td class="warn">21.4x（扣非 33.9x）</td><td class="warn">1.26x</td><td>52.48 亿</td><td>LCD 面板全球第一 + 柔性 AMOLED 第二</td>
+        </tr>
+        <tr>
+          <td>TCL 科技</td><td>000100</td><td class="mid">数据未独立核验</td><td class="mid">—</td><td class="mid">—</td><td class="mid">—</td><td>LCD 大尺寸第二、光伏硅片</td>
+        </tr>
+        <tr>
+          <td>深天马A</td><td>000050</td><td class="mid">数据未独立核验</td><td class="mid">—</td><td class="mid">—</td><td class="mid">—</td><td>中小尺寸 LCD / LTPS</td>
+        </tr>
+        <tr>
+          <td>维信诺</td><td>002387</td><td class="mid">数据未独立核验</td><td class="mid">—</td><td class="mid">—</td><td class="mid">—</td><td>AMOLED 专业厂</td>
+        </tr>
+        <tr>
+          <td>TCL 华星（未上市）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>京东方最大竞争对手</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px; color:#64748b; margin-top:10px; line-height:1.7;">
+      ⚠️ 同业 2026Q3 财务与估值快照本次未完成双源核验，故留空而非估算。定性判断：面板行业整体估值中枢随周期波动，京东方作为龙头享受小幅溢价属常态，但 33.9x 扣非 PE 已接近行业景气中段的上限区间。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📉</div>
+    <div class="text">
+      <h3>估值结论：偏贵（对周期股而言），但未到"显著高估"</h3>
+      <p>
+        以扣非 PE 33.9x 衡量，市场已经把"2027 年面板复苏 + 8.6 代线满产 + 玻璃基板期权"打包定价。若只用 2026 年真实主业利润（扣非年化约 60 亿），当前市值对应 28x —— <b>对一家毛利率 15%、ROE 4%、折旧即将抬升的重资产公司，这是"周期中段偏上"的价格</b>。真正的安全边际在 <b>3.90–4.10 元（PB 1.08–1.13x）</b>，对应扣非 PE 约 26–28x。格雷厄姆视角：<b style="color:#fca5a5">不通过</b>（PE×PB = 21.4×1.26 = 27，高于格雷厄姆 22.5 的上限，且用扣非口径更高）。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title ok">🌱 模块 4 · 成长性维度（费雪 + 林奇）</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>成长指标</div>
+      <div>数值</div>
+      <div>解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营收 CAGR（2023→2025）</div>
+      <div class="fin-val warn">约 +8.3%</div>
+      <div class="fin-comment">2023 年 1745.43 亿 → 2025 年 2045.90 亿。增长主要来自 OLED 放量与并表，非面板价格上涨。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（2023→2025）</div>
+      <div class="fin-val ok">2.54 → 58.57 亿</div>
+      <div class="fin-comment">2024 年 53.23 亿。<b>利润弹性极大（23 倍），但绝对值仍在 60 亿量级徘徊</b>，尚未回到 2021 年 258 亿的周期高点。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2026H1 增速</div>
+      <div class="fin-val ok">营收 +1.83% / 归母 +61.62%</div>
+      <div class="fin-comment">收入几乎停滞而利润大增 —— 典型的"费用与减值基数效应 + 非经常性收益"，<b>不是量价齐升的健康增长</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PEG（林奇）</div>
+      <div class="fin-val down">≈ 1.4–1.7（失真）</div>
+      <div class="fin-comment">以扣非 PE 33.9x ÷ 未来 3 年扣非增速 20–25%（乐观假设）≈ 1.4–1.7，<b>大于 1，不满足林奇标准</b>。若用表观 PE 21.4x ÷ 25% ≈ 0.86，但那建立在含非经常性收益的分母上，<b>PEG 在此处不可靠</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">研发投入</div>
+      <div class="fin-val mid">占比未独立核验</div>
+      <div class="fin-comment">定性：京东方研发投入长期居 A 股制造业前列（百亿量级），但研发资本化比例与转化效率需看年报附注。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">在建工程</div>
+      <div class="fin-val danger">589.25 亿</div>
+      <div class="fin-comment">8.6 代 AMOLED 315.91 亿 + 6 代线 168.43 亿。<b>未来 2 年集中转固 → 折旧抬升 → 短期利润被压制</b>，这是成长股叙事最容易被忽略的成本。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">新业务弹性</div>
+      <div class="fin-val ok">MLED +47.4% / 传感器 +88.2%</div>
+      <div class="fin-comment">增速亮眼但基数小（64.06 亿 / 4.21 亿），合计仅占营收 6.6%，<b>3 年内无法改变利润结构</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">玻璃基板（题材来源）</div>
+      <div class="fin-val danger">0 收入</div>
+      <div class="fin-comment">中试线投入 9.93 亿，试产 1,000 片/月，2027Q1 才决定是否量产、2028 目标量产。<b>公司 2026-05-21 公告明确：无量产、无收入、2–3 年内不构成重大影响</b>。</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🌱</div>
+    <div class="text">
+      <h3>成长结论：周期波动型，不是复利成长型</h3>
+      <p>
+        费雪要找的是"能持续 10 年、营收与利润双位数复合增长"的公司。京东方过去 5 年的利润轨迹是 <b>258 亿（2021）→ 75 亿（2022）→ 2.5 亿（2023）→ 53 亿（2024）→ 59 亿（2025）</b> —— 这不是复利曲线，是<b>周期的呼吸</b>。2026 年 H1 的收入增速只有 1.83%，说明<b>产能扩张已不能带来收入增长，只能带来折旧</b>。真正值得跟踪的成长变量是：① 8.6 代 AMOLED 能否切入 iPad/MacBook 供应链；② 玻璃基板 2027 年试产是否成功；③ MLED 能否从 64 亿做到 200 亿。以上三项全部是 2028 年以后的故事，<b style="color:#fbbf24">不构成当下买入理由</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title ok">🏰 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+
+  <div class="table-card">
+    <div class="table-title">🧱 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>评分</th><th>证据</th><th>判断</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>规模与成本优势</td>
+          <td class="ok">强</td>
+          <td>LCD 电视面板份额 27.0% 全球第一，H1 出货 3240 万片；多条世代线摊薄单位成本</td>
+          <td class="ok">存在，但幅度有限</td>
+        </tr>
+        <tr>
+          <td>技术与专利</td>
+          <td class="warn">中强</td>
+          <td>8.6 代 AMOLED 2026-06-17 量产；柔性 AMOLED 全球第二；玻璃基板中试线 24 层样品</td>
+          <td class="warn">能跟上，难领先</td>
+        </tr>
+        <tr>
+          <td>客户转换成本</td>
+          <td class="warn">中</td>
+          <td>面板需与整机做光学/驱动联合调试，认证周期 6–12 个月；但同规格可多源采购</td>
+          <td class="warn">弱转换成本</td>
+        </tr>
+        <tr>
+          <td>品牌 / 定价权</td>
+          <td class="danger">弱</td>
+          <td>面板是标准品，价格由供需与三家控产决定；10 月涨价函能否执行取决于同行配合</td>
+          <td class="danger">无定价权</td>
+        </tr>
+        <tr>
+          <td>牌照 / 政策壁垒</td>
+          <td class="warn">中</td>
+          <td>面板属国家战略性产业，融资与土地支持强；但同时导致行业产能过剩与补贴依赖</td>
+          <td class="warn">双刃剑</td>
+        </tr>
+        <tr>
+          <td>网络效应</td>
+          <td class="danger">无</td>
+          <td>制造业无网络效应</td>
+          <td class="danger">不适用</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px; color:#64748b; margin-top:10px;">
+      ROIC 定性判断：2026H1 归母 52.48 亿、年化约 105 亿，对应投入资本（净有息负债 725 亿 + 权益约 2077 亿）≈ 2800 亿，<b>ROIC 约 3.7%，显著低于资本成本（WACC 6–8%）</b>。这是护城河"有宽度但无深度"的量化证据 —— 规模能挡住新进入者，但挡不住行业周期。
+    </div>
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">🏰</div>
+    <div class="text">
+      <h3>护城河结论：狭窄护城河（规模型），非宽阔护城河（品牌/技术型）</h3>
+      <p>
+        京东方真正的护城河是<b>"不经济的资本开支"</b>——一条 8.6 代线要 600 亿，全球只有中韩少数玩家能持续投，这确实挡住了新进入者。但代价是：<b style="color:#fca5a5">过去 15 年累计资本开支远超累计净利润</b>，股东回报长期依赖补贴与周期反转。巴菲特要求的"能在不提价的情况下提价"（定价权），京东方一条都不具备。因此巴菲特方法论只能给 <b>5 分</b>：生意本身是"必要但辛苦"的，不是"伟大"的。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title warn">💊 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+
+  <div class="table-card">
+    <div class="table-title">📋 核心财务指标（2025 年报 / 2026H1）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>2025 年报</th><th>2026H1</th><th>评价</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>营业收入</td><td>2045.90 亿</td><td class="warn">1031.32 亿（+1.83%）</td><td class="warn">停滞</td></tr>
+        <tr><td>归母净利润</td><td>58.57 亿</td><td class="ok">52.48 亿（+61.62%）</td><td class="warn">含 42.7% 非经常性</td></tr>
+        <tr><td>扣非归母净利润</td><td>42.30 亿</td><td class="ok">30.08 亿（+31.81%）</td><td class="ok">主业确在改善</td></tr>
+        <tr><td>毛利率</td><td>15.64%</td><td class="warn">15.03%</td><td class="warn">同比走低，显示业务仅 12.75%</td></tr>
+        <tr><td>ROE（摊薄）</td><td>4.39%</td><td class="warn">3.82%（半年）</td><td class="danger">低于资本成本</td></tr>
+        <tr><td>经营现金流</td><td>数据未独立核验</td><td class="ok">+227.45 亿</td><td class="ok">4.33x 于归母净利</td></tr>
+        <tr><td>资本开支</td><td>数据未独立核验</td><td class="warn">145.66 亿</td><td class="warn">占经营现金流 64%</td></tr>
+        <tr><td>简化自由现金流</td><td>—</td><td class="ok">约 +81.8 亿</td><td class="ok">OCF − Capex</td></tr>
+        <tr><td>资产负债率</td><td>数据未独立核验</td><td class="warn">52.69%</td><td class="warn">重资产行业可接受</td></tr>
+        <tr><td>净有息负债</td><td>—</td><td class="danger">约 725 亿（测算）</td><td class="danger">利息侵蚀利润</td></tr>
+        <tr><td>少数股东权益</td><td>—</td><td class="danger">745.72 亿</td><td class="danger">占净资产约 36%，利润被分流</td></tr>
+        <tr><td>商誉</td><td>—</td><td class="ok">6.54 亿</td><td class="ok">占净资产 0.3%，无减值风险</td></tr>
+        <tr><td>在建工程</td><td>—</td><td class="danger">589.25 亿</td><td class="danger">转固后折旧压力大</td></tr>
+        <tr><td>政府补助</td><td>—</td><td class="warn">8.01 亿</td><td class="warn">占归母 15.3%</td></tr>
+        <tr><td>金融资产公允价值/处置收益</td><td>—</td><td class="danger">24.50 亿</td><td class="danger">占归母 46.7%，不可持续</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">🧾</div>
+    <div class="text">
+      <h3>财务结论：财务健康（资产负债表稳健），但盈利质量有瑕疵</h3>
+      <p>
+        <b style="color:#34d399">好的部分</b>：经营现金流 227 亿、是归母净利的 4.3 倍（重资产行业正常），商誉仅 6.54 亿无爆雷风险，资产负债率 52.69% 在面板行业属稳健，营收 2046 亿的体量具备强议价与融资能力。<br>
+        <b style="color:#fca5a5">坏的部分</b>：① <b>利润的 42.7% 不来自主业</b> —— 金融资产公允价值变动与处置贡献 24.50 亿、政府补助 8.01 亿，这两项在 2027 年可能反向；② <b>少数股东权益 745.72 亿</b>，意味着大量产线由合资公司持有，上市公司只能分到一部分利润；③ <b>在建工程 589 亿即将转固</b>，年折旧或增加数十亿，直接压制 2027–2028 年利润；④ 净有息负债约 725 亿，按 3% 利率测算年利息约 22 亿，占扣非利润的 40%+。<b style="color:#fbbf24">一句话：报表不难看，但"含金量"需要打折。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">👔 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>治理维度</div>
+      <div>事实</div>
+      <div>评价</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">实控人与股权结构</div>
+      <div class="fin-val mid">北京电控（北京市国资委）</div>
+      <div class="fin-comment">北京国管 10.97%、北京电控直接 0.74%，国有股权划转后合计 14.43%、表决权 16.37%。股权分散，无单一绝对控股股东。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">控股股东行为</div>
+      <div class="fin-val ok">增持 9.9978 亿元</div>
+      <div class="fin-comment">2026-07-29 至 10-13 增持 1.8612 亿股，均价 5.37 元，<b>高于现价 18%</b>。属明确的信心信号。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">公司回购</div>
+      <div class="fin-val ok">A 股 5.4993 亿 / B 股 4.107 亿港元</div>
+      <div class="fin-comment">A 股均价 5.83 元、B 股均价 4.63 港元，均高于现价。<b>回购股份用于股权激励，非注销</b>，对每股价值的提升有限。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股权激励</div>
+      <div class="fin-val warn">9.7501 亿股 @2.11 元</div>
+      <div class="fin-comment">2026-05 授予 3265 人，占股本约 2.6%，授予价为当时市价约 5 折。覆盖面广（含中层），但<b>稀释 + 低价授予</b>对老股东不利。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">信息披露质量</div>
+      <div class="fin-val ok">主动澄清题材</div>
+      <div class="fin-comment">2026-05-21 在股价异动期主动公告"玻璃基板无量产、无收入、2–3 年不影响业绩、与英伟达无合作"。<b>罕见的负责任披露，加分项。</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股东回报</div>
+      <div class="fin-val ok">分红率 35.31%</div>
+      <div class="fin-comment">2025 年派现 20.68 亿、股息率 1.23%，连续多年分红。对重资产扩张期公司已属不易。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资本配置记录</div>
+      <div class="fin-val down">需警惕</div>
+      <div class="fin-comment">长期高资本开支、ROIC 低于 WACC；2021 年定增 + 多线并进。8.6 代线 630 亿投资能否回收，取决于 2028 年后的 OLED 需求。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">减持 / 违规 / 质押</div>
+      <div class="fin-val ok">未见重大负面</div>
+      <div class="fin-comment">报告期内未见控股股东减持、违规担保或高比例质押的公开记录（明细未独立核验）。</div>
+    </div>
+  </div>
+
+  <div class="theme-banner info">
+    <div class="icon">👔</div>
+    <div class="text">
+      <h3>治理结论：基本可信，且有加分项</h3>
+      <p>
+        国资背景 + 主动澄清题材 + 5.37 元增持 10 亿 + 5.83 元回购 5.5 亿，这四条组合起来，说明<b>管理层不认为 5 元以上是高估区</b>。但也要冷静看：股权激励 9.75 亿股来自回购、授予价 2.11 元，本质是<b>用股东的钱给员工发期权</b>；长期 ROIC 低于资本成本，说明资本配置能力一般。<b>治理层面不构成减分项，但也不构成买入理由。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🏭 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+
+  <div class="table-card">
+    <div class="table-title">🔄 面板行业周期定位（2026Q4）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>当前状态</th><th>信号</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>价格位置</td><td>65" $166 / 55" $116，大尺寸处近三年低位</td><td class="ok">底部区域</td></tr>
+        <tr><td>供给纪律</td><td>前三家厂商延续控产，京东方 10 月发涨价函</td><td class="ok">改善中</td></tr>
+        <tr><td>需求侧</td><td>存储涨价推高整机成本，压制 TV/手机终端需求；管理层指引 2026 年面板出货量同比下降</td><td class="danger">恶化</td></tr>
+        <tr><td>库存</td><td>品牌厂库存中性偏高（未独立核验）</td><td class="warn">中性偏空</td></tr>
+        <tr><td>产能投放</td><td>8.6 代 AMOLED 已量产，行业 OLED 产能集中释放</td><td class="danger">供给增量</td></tr>
+        <tr><td>技术替代</td><td>LCD 在 TV 大尺寸仍为主流，OLED 渗透中尺寸；Micro LED 尚远</td><td class="warn">渐变</td></tr>
+        <tr><td>政策环境</td><td>国产替代与新质生产力鼓励；但补贴退坡与产能过剩治理并存</td><td class="warn">中性</td></tr>
+        <tr><td>周期位置判断</td><td>价格在底部、需求在下行、供给在自律 —— 典型"底部拉锯"</td><td class="warn">底部震荡</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔄</div>
+    <div class="text">
+      <h3>行业结论：周期底部区域，但"底部"可能比预期更长</h3>
+      <p>
+        马克斯的核心提问是"钟摆在哪里"。面板价格已在三年低位、三大厂控产、涨价函已发 —— <b style="color:#34d399">供给端确实在向有利方向摆动</b>。但需求端出现新变量：<b style="color:#fca5a5">存储涨价推高整机 BOM 成本，品牌厂只能压面板价格来对冲</b>，这与 2021 年"缺芯 + 宅经济"的顺风完全相反。历史上面板周期的底部往往持续 4–8 个季度，本轮从 2025Q4 开始算，<b>真正的价格上行可能要等到 2027 年上半年</b>。达里奥视角：在"增长下行 + 通胀温和"的象限里，重资产周期股不是最优配置，<b>只能给 3 分</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>技术指标</div>
+      <div>读数</div>
+      <div>含义</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">均线系统</div>
+      <div class="fin-val down">空头排列</div>
+      <div class="fin-comment">现价 4.54 元低于 MA250（4.934 元）及所有中短期均线，年线构成强压力。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">MACD</div>
+      <div class="fin-val down">零轴下方，绿柱</div>
+      <div class="fin-comment">DIF/DEA 均在零轴下方，未见金叉，中期趋势仍弱。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">RSI(14)</div>
+      <div class="fin-val warn">20–26（超卖）</div>
+      <div class="fin-comment">已进入超卖区，短期存在技术性反弹需求，但超卖不等于见底。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">BOLL</div>
+      <div class="fin-val warn">贴近下轨 4.429</div>
+      <div class="fin-comment">股价贴近布林下轨运行，开口向下，属弱势特征。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">成交量</div>
+      <div class="fin-val warn">持续萎缩</div>
+      <div class="fin-comment">较 7 月天量大幅缩量，杀跌动能衰减，但也缺乏承接资金。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">关键支撑</div>
+      <div class="fin-val mid">4.20–4.30 元</div>
+      <div class="fin-comment">2026 年上半年平台区 + BOLL 下轨下方；跌破则看 3.79 元（52 周低点）。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">关键压力</div>
+      <div class="fin-val mid">4.93 元 / 5.37–5.83 元</div>
+      <div class="fin-comment">年线 4.93 元为第一压力；5.37（增持均价）与 5.83（回购均价）为套牢盘密集区。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">北向资金</div>
+      <div class="fin-val warn">数据未独立核验</div>
+      <div class="fin-comment">可确认的是：香港中央结算 H1 持股 6.24%，较年初减持约 4.47 亿股 —— <b>外资在上半年净流出</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">融资余额</div>
+      <div class="fin-val warn">数据未独立核验</div>
+      <div class="fin-comment">7 月题材期融资盘大幅流入，回撤 52% 后存在强平与被动减仓压力（定性判断）。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">筹码结构</div>
+      <div class="fin-val down">192.47 万股东</div>
+      <div class="fin-comment">股东户数极高、户均持股极少，典型散户密集结构，反弹时抛压分散但持续。</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术结论：弱势，但已进入超卖区（"弱而不崩"）</h3>
+      <p>
+        从 9.50 元到 4.54 元，跌幅 52%，期间没有像样反弹，说明<b>7 月的上涨是纯资金推动的题材行情，回撤时没有基本面承接盘</b>。当前 RSI 20–26、股价贴布林下轨、成交量枯竭，<b>短期反弹概率上升，但中期趋势（年线 4.934 元之下）仍是空头</b>。对趋势跟随者（凯恩斯）：<b>不参与</b>；对反身性观察者（索罗斯）：<b>向上的正反馈环已破裂，向下段接近尾声但尚未出现反转信号</b>（需放量站上年线）。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title danger">🧠 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论独立打分（1–10）→ 加权求和 → ÷1.05 归一化 → 对照评级门槛</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num bad">4</div>
+      <div class="score-name">格雷厄姆 · 深度价值</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:40%"></div></div>
+      <div class="score-out">权重 15% · 加权 0.60</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">费雪 · 成长投资</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">权重 10% · 加权 0.50</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">林奇 · PEG</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">权重 10% · 加权 0.50</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">邓普顿 · 逆向</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">权重 15% · 加权 0.75</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">博格 · 指数</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">权重 5% · 加权 0.15</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4</div>
+      <div class="score-name">马克斯 · 周期</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">权重 15% · 加权 0.60</div>
+    </div>
+  </div>
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">西蒙斯 · 量化</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">权重 5% · 加权 0.15</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">达里奥 · 全天候</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">权重 5% · 加权 0.15</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">4</div>
+      <div class="score-name">凯恩斯 · 选美</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:40%"></div></div>
+      <div class="score-out">权重 5% · 加权 0.20</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">索罗斯 · 反身性</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">权重 5% · 加权 0.15</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">巴菲特 · 护城河</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">权重 15% · 加权 0.75</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">4.29</div>
+      <div class="score-name">加权综合（÷1.05）</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:42.9%"></div></div>
+      <div class="score-out">原始加权 4.50 ÷ 1.05</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card mid">
+      <div class="method-name">格雷厄姆 · 深度价值</div>
+      <div class="method-author">Benjamin Graham · 权重 15%</div>
+      <span class="method-score warn">4 / 10</span>
+      <div class="method-desc">PB 1.26x 尚可，但 PE×PB = 27 &gt; 22.5 的红线；扣非 PE 33.9x；净流动资产为负（重资产 + 725 亿有息负债）。<b>不满足"以显著低于内在价值买入"</b>。给 4 分是因为 4 元下方 PB 接近 1.0，存在价值底。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">费雪 · 成长投资</div>
+      <div class="method-author">Philip Fisher · 权重 10%</div>
+      <span class="method-score warn">5 / 10</span>
+      <div class="method-desc">8.6 代 AMOLED 量产、MLED +47%、传感器 +88%，<b>研发与产线能力真实</b>；但收入增速仅 1.83%、利润为周期弹性而非复利，不符合"15 问"里"至少数年营收翻倍"的标准。5 分是"技术型制造龙头"的中性分。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">林奇 · PEG</div>
+      <div class="method-author">Peter Lynch · 权重 10%</div>
+      <span class="method-score warn">5 / 10</span>
+      <div class="method-desc">表观 PE 21.4 ÷ 25% 增速 ≈ 0.86 看似合格，但<b>分母含 22.4 亿非经常性收益</b>；扣非口径 PEG ≈ 1.4–1.7 &gt; 1。林奇对周期股的态度是"低 PE 时卖、高 PE 时买"，当前正处"低 PE 已过、高 PE 未至"的尴尬区，给中性 5 分。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">邓普顿 · 逆向投资</div>
+      <div class="method-author">John Templeton · 权重 15%</div>
+      <span class="method-score warn">5 / 10</span>
+      <div class="method-desc">价格在三年低位、股价回撤 52%、RSI 超卖 —— <b>"悲观"是成立的</b>；但"最坏时刻"未必已过（H2 出货下滑、折旧抬升尚未来袭）。逆向买入需要"极度悲观点 + 基本面不再恶化"，<b>当前只满足前半句</b>，5 分。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">博格 · 指数投资</div>
+      <div class="method-author">John Bogle · 权重 5%</div>
+      <span class="method-score bad">3 / 10</span>
+      <div class="method-desc">个股不适用指数逻辑；且 192 万股东、极高换手、题材属性强，<b>属"高摩擦、高波动"标的</b>。若投资者想要面板行业暴露，不如配沪深 300 或电子 ETF，成本 0.15% vs 个股择时风险。3 分。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">马克斯 · 周期投资</div>
+      <div class="method-author">Howard Marks · 权重 15%</div>
+      <span class="method-score warn">4 / 10</span>
+      <div class="method-desc">价格低位 + 三大厂控产 + 涨价函 = <b>钟摆在底部区间</b>（利好）；但需求被存储涨价压制、OLED 产能集中释放（利空）。<b>"底部"确认但"上行拐点"未确认</b>，且股价 4.54 已部分反映底部预期，4 分。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">西蒙斯 · 量化</div>
+      <div class="method-author">James Simons · 权重 5%</div>
+      <span class="method-score bad">3 / 10</span>
+      <div class="method-desc">动量因子为负（1 月 -22%、3 月 -15%）、波动率极高（年化或超 60%）、无稳定 alpha 特征。<b>量化模型在此类标的上多为"规避"信号</b>。3 分。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">达里奥 · 全天候</div>
+      <div class="method-author">Ray Dalio · 权重 5%</div>
+      <span class="method-score bad">3 / 10</span>
+      <div class="method-desc">当前宏观象限（增长下行 + 通胀温和）中，重资产周期股不是最优资产；且 A 股面板与全球半导体周期高度相关，<b>与债券、黄金相关性低但波动极高</b>，配置性价比差。3 分。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">凯恩斯 · 选美理论</div>
+      <div class="method-author">John Keynes · 权重 5%</div>
+      <span class="method-score warn">4 / 10</span>
+      <div class="method-desc">7 月"玻璃基板"题材时，选美得分可达 8 分（人人都在买）；如今<b>题材被公司公告证伪、成交量枯竭、北向流出</b>，"别人会不会买"的答案是"暂时不会"。4 分。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">索罗斯 · 反身性</div>
+      <div class="method-author">George Soros · 权重 5%</div>
+      <span class="method-score bad">3 / 10</span>
+      <div class="method-desc">5–7 月的正反馈环（题材 → 股价 → 更多题材解读）已在 5-21 澄清公告处破裂，<b>向下反身性已走完 52%</b>，但尚未出现"价格改变基本面"的反转（如低价定增、并购）。3 分。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">巴菲特 · 护城河</div>
+      <div class="method-author">Warren Buffett · 权重 15%</div>
+      <span class="method-score warn">5 / 10</span>
+      <div class="method-desc">规模护城河真实（27% 份额、600 亿单线门槛），但<b>无定价权、ROIC 3.7% 低于 WACC、利润依赖补贴与公允价值</b>。巴菲特会承认它是"好行业里的必要玩家"，但不会买 —— 5 分是"生意可理解、护城河狭窄"的中性评价。</div>
+    </div>
+  </div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">持有观察</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      综合得分 4.29 / 10（原始加权 4.50 ÷ 1.05 归一化）· 仓位上限 3%
+    </div>
+    <div class="comment">
+      11 项得分：格雷厄姆 4、费雪 5、林奇 5、邓普顿 5、博格 3、马克斯 4、西蒙斯 3、达里奥 3、凯恩斯 4、索罗斯 3、巴菲特 5。
+      <b>没有一项超过 5 分</b>，也没有一项低于 3 分 —— 这是一个典型的"中性偏弱"分布：基本面在改善（扣非 +31.81%、OCF 227 亿），但估值已经反映了改善（扣非 PE 33.9x），而周期下行的手还没完全落下（H2 出货下滑、折旧抬升）。
+      落在 3.5–4.9 区间 → <b>持有观察</b>：不新建仓，已有仓位降至 3% 以内，等待 10-31 三季报与 Q4 面板价格给出方向。
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>邓普顿（逆向 5 分，"回撤 52% 已够悲观"）vs 马克斯（周期 4 分，"底部但拐点未至"），两者对"是否现在买"给出不同答案。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>分析原因：</strong>邓普顿衡量的是<b>价格跌幅</b>，马克斯衡量的是<b>周期位置</b>。京东方价格跌幅够了，但周期位置只到"底部区域"而非"底部右侧"——面板价格尚未连续两个月环比上涨，OLED 折旧压力尚未释放。此外，邓普顿的"极度悲观点"通常伴随"无人讨论"，而京东方仍有 192 万股东、仍被券商覆盖，情绪并未到冰点。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>最终倾向：</strong>采纳<b>马克斯（周期）+ 格雷厄姆（价格）</b>的组合判断 —— 底部区域但价格不够便宜。若股价回落至 3.90–4.10 元（PB 1.08–1.13x，格雷厄姆条件改善）且面板价格出现连续 2 个月环比上涨（马克斯条件改善），则综合分可升至 5.2–5.5，评级上调为"谨慎买入"。<b>在此之前，维持"持有观察"。</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>Top 3 方法论匹配：</strong>① <b>马克斯周期</b>（面板是教科书级周期行业，价格与产能是核心变量）；② <b>格雷厄姆深度价值</b>（PB 1.26x + 分红 1.23%，可用资产与分红锚定底部）；③ <b>邓普顿逆向</b>（回撤 52% 后的情绪修复，但需等基本面确认）。<b>最不适合：博格指数与达里奥全天候</b>——个股高波动、无配置属性。</p>
+    </div>
+  </div>
+
+  <div class="section-title ok">🎯 模块 11 · 操作策略与建议</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">📦 仓位建议</div>
+      <div class="strategy-content">
+        <strong>当前（4.54 元）：≤ 3%</strong>（对应"持有观察"评级）<br>
+        · 已有持仓者：<span class="hl-warn">减至 2% 以内</span>，剩余仓位视为"观察仓"，不为博反弹加仓<br>
+        · 空仓者：<span class="hl-danger">不新建仓</span>，等待触发条件<br>
+        · 若回落至 3.90–4.10 元且 Q3 扣非环比未大幅下滑：可建 2%，总仓位上限 4%<br>
+        · 单股绝对上限：<span class="hl-purple">5%</span>（凯恩斯 + 博格原则：单股 ≤ 10%，本标的波动率极高，折半）
+      </div>
+    </div>
+    <div class="strategy-card target">
+      <div class="strategy-title">🎯 目标价（12M / 24M）</div>
+      <div class="strategy-content">
+        <strong>12 个月：</strong><br>
+        · 保守 <span class="hl-danger">3.60–3.90 元</span>（PB 1.0x，面板再下行）<br>
+        · 中性 <span class="hl-warn">4.60–4.90 元</span>（PB 1.28–1.33x，价格横盘）<br>
+        · 乐观 <span class="hl-ok">5.60–5.80 元</span>（涨价函落地 + 题材二次发酵）<br>
+        <strong>24 个月：</strong><br>
+        · 保守 <span class="hl-danger">3.80 元</span> / 中性 <span class="hl-warn">5.40 元</span> / 乐观 <span class="hl-ok">7.00 元</span><br>
+        <span style="color:#64748b;">当前价 4.54 元位于"中性"区间下沿，风险收益比约 1:1，不具吸引力。</span>
+      </div>
+    </div>
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 止损与卖出信号</div>
+      <div class="strategy-content">
+        <strong>止损位：</strong><span class="hl-danger">4.20 元</span>（跌破 2026 年平台，跌幅相对现价 -7.5%）<br>
+        <strong>卖出信号（任一触发即减仓 / 清仓）：</strong><br>
+        ① 10-31 三季报<b>扣非归母同比转负</b>，或单季扣非低于 12 亿<br>
+        ② 65 英寸面板价格<b>连续 2 个月下跌</b>且跌破 $150<br>
+        ③ 股价反弹至 <b>5.60 元以上且 PB &gt; 1.56x</b>（估值透支）<br>
+        ④ 公司再次被"玻璃基板/先进封装"题材炒作至 <b>放量涨停连板</b>，视为减仓良机<br>
+        ⑤ 在建工程转固后<b>单季折旧环比增加超 20%</b>且毛利率跌破 14%
+      </div>
+    </div>
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong>定性：中线（3–12 个月）观察，不做长线</strong><br>
+        · 短线（&lt;3 月）：超卖反弹可参与，但需 <span class="hl-warn">严格 4.20 止损</span>，仓位 ≤ 1%<br>
+        · 中线（3–12 月）：等待三季报 + 2026 年报，验证周期拐点<br>
+        · 长线（&gt;12 月）：<span class="hl-danger">不建议</span> —— ROIC 低于 WACC 的生意，时间不站在股东一边；若要长期配置面板，应选行业 ETF 而非个股
+      </div>
+    </div>
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        <strong>三个必看数据：</strong><br>
+        ① <b>扣非归母净利润</b>（剔除公允价值与补助后的真实主业盈利）<br>
+        ② <b>显示器件业务毛利率</b>（当前 12.75%，是周期位置的核心温度计）<br>
+        ③ <b>65 英寸面板月度报价</b>（当前 $166，观察是否连续环比上涨）<br>
+        <strong>辅助跟踪：</strong>8.6 代 AMOLED 稼动率与转固节奏、经营现金流/资本开支比、玻璃基板中试线进展（2027Q1 量产决策）
+      </div>
+    </div>
+    <div class="strategy-card monitor">
+      <div class="strategy-title">🔀 分批建仓方案（仅在触发条件满足后）</div>
+      <div class="strategy-content">
+        <strong>前提：</strong>股价 ≤ 4.10 元 <b>且</b> 三季报扣非未大幅低于预期<br>
+        · 第 1 批：<span class="hl-ok">4.10 元</span>，建 1%<br>
+        · 第 2 批：<span class="hl-ok">3.90 元</span>，加 1%<br>
+        · 第 3 批：<span class="hl-ok">3.70 元</span>（若出现），加 1%，总仓位 3%<br>
+        · 间隔：每批间隔 ≥ 2 周，且每批加仓前确认面板价格未创新低<br>
+        <span style="color:#64748b;">若价格直接反弹至 5.0 元以上而未建仓，放弃本轮，不追高。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 三季报（10-31）低于预期</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>Q3 单季扣非归母低于 12 亿元（对应前三季扣非 &lt; 42 亿），或 Q3 归母中非经常性占比继续超过 40%。<br>
+        <strong>影响幅度：</strong>市场将下修 2026E 归母至 70 亿以下，对应 PE 升至 24x 以上；股价短期可能下探 4.20 元（-7.5%）甚至 3.79 元（-16.5%）。<br>
+        <strong>应对策略：</strong>财报公布前将仓位压至 2% 以内；若扣非低于 12 亿，次日无条件减半。
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 面板价格周期二次下行</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>存储涨价持续推高整机成本，品牌厂砍单；65 英寸价格从 $166 跌回 $150 以下且三大厂放弃控产（份额争夺）。<br>
+        <strong>影响幅度：</strong>显示器件毛利率从 12.75% 回落至 8% 以下，年化利润减少 25–35 亿，PB 可能杀至 1.0x（对应 3.60 元）。<br>
+        <strong>应对策略：</strong>以 65 英寸月度报价为先行指标，连续 2 月下跌即清仓，不等财报。
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">🔻 3. 利润质量：非经常性占比过高</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>金融资产公允价值变动（H1 +24.50 亿）在 2027 年反向，或政府补助（H1 8.01 亿）退坡。<br>
+        <strong>影响幅度：</strong>若 22.4 亿非经常性收益全部归零，2026 年归母将从 80 亿降至 58 亿，PE 由 21x 升至 29x，估值支撑消失。<br>
+        <strong>应对策略：</strong>只以扣非口径评估估值；扣非 PE &gt; 35x 时不持有。
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">🔻 4. 折旧与资本开支压力</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>在建工程 589.25 亿（8.6 代 AMOLED 315.91 亿）于 2027 年集中转固，单季折旧环比增加 20% 以上。<br>
+        <strong>影响幅度：</strong>年折旧或增加 40–60 亿，直接吞噬扣非利润；同时净有息负债约 725 亿，利率每上行 50bp 增加利息约 3.6 亿。<br>
+        <strong>应对策略：</strong>跟踪季报"固定资产折旧"科目；转固当季若毛利率跌破 14%，立即减仓。
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🔻 5. 题材回撤与筹码结构风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>"玻璃基板/先进封装"题材二次发酵吸引散户追高后再度证伪；或融资盘在反弹中集中平仓。<br>
+        <strong>影响幅度：</strong>参考 7 月 9.50 元 → 10 月 4.54 元（-52%）的路径，若二次炒作至 7 元以上再回落，跌幅可能再现 30–40%。<br>
+        <strong>应对策略：</strong>不参与题材接力；若持仓期间出现无量涨停，视为减仓信号而非加仓信号；股东户数 192 万，警惕散户一致性追涨。
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 核心结论 · 6 条</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>产业地位真实：</strong>LCD 电视面板全球第一（27.0%）、柔性 AMOLED 全球第二、8.6 代线已量产 —— 这是 A 股少数具备全球定价参与权的硬科技制造龙头，不是伪龙头。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>利润质量打折：</strong>2026H1 归母 52.48 亿中 22.40 亿（42.7%）来自金融资产公允价值与政府补助；扣非 30.08 亿，扣非 TTM PE 33.9x 才是真实估值 —— 表观 21.4x 具有误导性。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>周期在底部，但拐点未确认：</strong>面板价格三年低位、三大厂控产、10 月涨价函是利好；但存储涨价压制终端需求、管理层指引 2026 年出货同比下降、H2 OLED 量价双降是利空。底部拉锯可能延续至 2027 年上半年。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>题材已被公司自己证伪：</strong>2026-05-21 公告明确"玻璃基板无量产、无收入、2–3 年内不构成重大影响、与英伟达无合作"。7 月 9.50 元的定价不是基本面，回撤 52% 是价值回归而非错杀。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>内部人成本提供参考底：</strong>控股股东 5.37 元增持 10 亿、公司 5.83 元回购 5.5 亿，说明 5 元附近被内部人视为合理偏低；但回购用于激励而非注销，信号强度打折。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><strong>操作结论：</strong>综合 4.29/10 → <b>持有观察</b>。仓位 ≤3%，止损 4.20 元，不追高；等三季报扣非与面板价格双确认后，若价格回落至 3.90–4.10 元（PB 1.08–1.13x）再考虑上调至"谨慎买入"。</p>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 来源与复核记录：</strong><br>
+    · 行情/估值快照：腾讯 qt.gtimg.cn（2026-10-30 10:48）+ 新浪 hq.sinajs.cn 双源核对；总股本按市值/股价反算约 370.4 亿股<br>
+    · 财务数据：京东方 2026 年半年度报告（2026-08 披露）、2025 年年度报告；经东方财富 datacenter 结构化接口交叉核对（RPT_LICO_FN_CPD / RPT_F10_FINANCE_MAINFINADATA）<br>
+    · 分部与业务数据：2026 年半年报"主营业务分行业情况"表（显示器件 817.55 亿 / 物联网创新 190.00 亿 / MLED 64.06 亿 / 传感器 4.21 亿）<br>
+    · 公告与治理：巨潮资讯网 + 东方财富公告接口 —— 2026-05-20 康宁合作备忘录、2026-05-21 股票交易异常波动澄清公告、2026-06-17 8.6 代 AMOLED 量产、A/B 股回购进展、控股股东增持计划实施结果、2026 年限制性股票激励计划（草案）<br>
+    · 行业数据：MIR/群智咨询口径的 LCD TV 面板出货份额（27.0%）、第三方面板报价（65" $166 / 55" $116，2026 年 10 月）、公司 10 月涨价函（媒体报道，执行情况未独立核验）<br>
+    · 管理层指引：2026 年 10 月投资者关系活动记录（存储涨价压制需求、2026 年面板出货同比下降、H2 LCD 出货环比下滑、OLED 量价双降）<br>
+    · 一致预期：卖方 2026E/2027E/2028E 归母 84.82 / 119.89 / 168.34 亿，目标价区间 4.50–9.80 元（均值 6.28 元）—— 该预期形成于股价 6–9 元区间，<b>未反映 10 月管理层指引，存在下修风险</b><br>
+    · 技术指标：由腾讯日 K 线（前复权）自算 MA/MACD/RSI/BOLL，截至 2026-10-29 收盘<br>
+    · ⚠️ 未独立核验项：2026 三季报（2026-10-31 披露）、逐日北向资金、融资融券余额、公募/QFII 持仓明细、EV/EBITDA、PE/PB 精确五年分位、TCL 科技/深天马/维信诺 2026Q3 数据、单位面积面板价格序列
+  </div>
+
+  <div class="footer">
+    京东方A（000725）｜报告截止 2026-10-30 盘中 10:48（基准 10-29 收盘 4.63 元）｜11 方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司定期报告与公告（巨潮资讯/东方财富）+ 实时行情（腾讯/新浪）+ 行业第三方报价与出货数据 + 公开卖方一致预期<br>
+    ⚠️ 本报告为盘中数据，收盘价与三季报数据可能改变结论；综合得分 4.29/10，评级"持有观察"，仓位上限 3%
+  </div>
+
+</div>
+</body>
+</html>

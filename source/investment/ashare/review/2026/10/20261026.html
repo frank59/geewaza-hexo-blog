@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-26 A股复盘 · 沪指两连阳收3697.52 · 五中全会开幕 · 医药游戏消费接棒 · AI硬件再失百亿</title>
+<style>
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(56,189,248,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.40);
+    border-radius: 20px; padding: 36px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(16,185,129,0.22), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 26px; font-weight: 700;
+    background: linear-gradient(90deg, #34d399, #38bdf8, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .header .subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+  .section-title {
+    font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #34d399; color: var(--text-primary); font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .data-note {
+    background: var(--card-deep); border: 1px dashed var(--border-mid);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(16,185,129,0.10); border-left: 5px solid #10b981;
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 16px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #34d399; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(52,211,153,0.20); color: #34d399; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion.warn .conclusion-item .num { background: rgba(245,158,11,0.20); color: #fbbf24; }
+  .conclusion.danger .conclusion-item .num { background: rgba(239,68,68,0.20); color: #f87171; }
+  .conclusion.info .conclusion-item .num { background: rgba(56,189,248,0.20); color: #38bdf8; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+
+</style>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🚀 2026-10-26 A股复盘 · 沪指两连阳收 3697.52 · 五中全会开幕 · 医药游戏消费接棒 · AI硬件再失百亿</h1>
+    <div class="subtitle">沪指 +0.19% 报 3697.52 · 深成指 -1.19% · 创业板指 -1.71% · 三市成交 16,230 亿（缩量 3,497 亿）· 上涨 2,180 / 下跌 3,050 家 · 涨停 55 / 跌停 25 家 · 封板率 70.5%</div>
+    <div class="badges">
+      <span class="badge badge-up">🟢 沪指两连阳 · 银行红利再护盘</span>
+      <span class="badge badge-warn">⚠️ 封板率回落至 70.5% · 成长再度回吐</span>
+      <span class="badge badge-source">📅 2026-10-26（周一）收盘</span>
+      <span class="badge badge-source">📊 同花顺 + 东财 + 腾讯 + 新浪/财联社</span>
+      <span class="badge badge-purple">🧠 五中全会 10/26-29 开幕</span>
+      <span class="badge badge-danger">🔴 CPO 主力净流出 99.01 亿</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据口径与多源交叉验证：</strong><br>
+    ✅ <span class="ok">五大指数收盘点位与涨跌幅</span> —— 同花顺《A股收评》+ 东方财富行情接口（push2 ulist.np）+ 腾讯行情（qt.gtimg.cn），<b>三源逐字段完全一致</b>（上证 3697.52 / 深成 11534.38 / 创业板 2638.23 / 科创50 1315.50 / 北证50 963.95）<br>
+    ✅ <span class="ok">三市成交额</span> —— 同花顺口径 16,230 亿；东财分市场加总 16,232.23 亿（沪 7,465.28 + 深 8,622.65 + 北 144.30），差 2.23 亿，属四舍五入误差<br>
+    ✅ <span class="ok">上涨 / 下跌家数</span> —— 东财涨跌分布接口为 上涨 2,180 / 下跌 3,050 / 平盘 145（合计 5,375 家），同花顺口径「超 3100 只个股下跌」（3,050 + 145 平盘 = 3,195），两源无冲突<br>
+    ✅ <span class="ok">涨停天梯连板梯度</span> —— 同花顺《A股收评》【4连板 上海九百】【3连板 6 只】【2连板 8 只】与东财涨停板池（55 家，4板×1 / 3板×6 / 2板×8 / 首板 40）<b>逐只完全一致</b><br>
+    ✅ <span class="ok">ETF 涨跌榜 TOP3 / TOP3</span> —— 同花顺《ETF收评》披露的 6 只 ETF（159707 +3.85%、159018 +3.79%、159697 +3.54%、520870 -10.02%、159100 -10.01%、159516 -5.74%）经腾讯行情逐只复核，涨跌幅与收盘价<b>全部一致</b><br>
+    ⚠️ <span class="warn-text">板块涨跌幅三套口径不可互换</span> —— 同花顺为「板块归类」（仅列涨跌居前、不给数值）、东财为「行业/概念成分股指数涨跌幅」、新浪为「概念方向描述」；报告内同花顺作归类、东财作数值、财联社/新浪作方向验证，不做数值合并<br>
+    ⚠️ <span class="warn-text">主力资金两套口径</span> —— 同花顺为「主题/概念」口径（漂亮100 +34.89 亿 / 证金持股 +24.56 亿 / 超级品牌 +15.07 亿），东财为「行业/概念成分股」口径；同一「证金持股」东财口径仅 +5.77 亿，属口径差异而非数据冲突，<b>不做合并加总</b><br>
+    ⚠️ <span class="warn-text">D-1（2026-10-23）复盘文档缺失</span> —— 模块 ④ 的 D-1 段落以当日行情数据 + 财联社/新浪收评补充，并已在每张卡内标注「前 1 日复盘文档缺失」<br>
+    🔴 <span class="danger-text">风险提示</span> —— 封板率由 D-1 的 87% 回落至 70.5%、最高板由 6 板降至 4 板、炸板 23 只，主线仍在出清；AI 硬件链单日主力净流出近 100 亿
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔀</div>
+    <div class="text">
+      <h3>主线第六次切换 —— 从 D-1 的「物理 AI / 机器人」切向「医药 + 游戏 + 消费 + 涨价资源」，AI 硬件连续第二日失血</h3>
+      <p>今日 A 股是<b class="info-text">缩量回吐 + 极致分化</b>的组合：上证指数 <b class="ok-text">+0.19%</b> 报 3697.52（<b class="ok-text">两连阳</b>、收盘创 10/23 反弹以来新高 3699.01，但仍未收复 10/21 的 3713.03），深证成指 <b class="danger-text">-1.19%</b> 报 11534.38、创业板指 <b class="danger-text">-1.71%</b> 报 2638.23、科创50 <b class="danger-text">-2.23%</b> 报 1315.50、北证50 <b class="danger-text">-2.13%</b> 报 963.95。三市成交 <b class="warn-text">16,230 亿</b>，较上日<b class="warn-text">缩量 3,497 亿</b>（D-1 放量 4,275 亿至 1.96 万亿后首次退潮）。全市场上涨 2,180 家 / 下跌 3,050 家 / 平盘 145 家，涨停 55 家、跌停 25 家。<br>
+      <b class="ok-text">主线换位</b>：医药商业、游戏、白酒三大内需与防御方向接棒（同花顺口径），东财行业口径线下药店 +3.20%、游戏Ⅲ +3.26%、烘焙食品 +4.72%；<b class="danger-text">AI 硬件连续第二日崩塌</b> —— CPO 概念 -4.21%（主力净流出 <b class="danger-text">99.01 亿，全市场最大单项流出</b>）、印制电路板 -6.43%、元件 -5.71%（主力 -66.31 亿），南亚新材 -12.49%、三环集团 -12.13%、生益科技 -9.52%，元件板块 4 家跌停。<br>
+      <b class="warn-text">梯队断层</b>：D-1（10/23）反攻留下的两只 6 连板今日双双断板 —— 海洋王 -3.49%、大业股份冲板失败 +8.08%；全场唯一高度板为上海九百 4 连板。政策窗口方面，<b class="purple-text">党的二十届五中全会今日（10/26）至 29 日在北京召开</b>，叠加本周美欧日央行「超级央行周」，构成本周最重要的宏观变量。
+    </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 一、五大核心指数表现</div>
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">护盘</div>
+      <div class="name">上证指数 · 000001</div>
+      <div class="value">3697.52</div>
+      <div class="change ok">+7.04 / +0.19%</div>
+      <div class="label">两连阳，收盘创 10/23 反弹以来新高（盘中最高 3699.01）；权重红利与资源护盘，题材缺席；尚未收复 10/21 的 3713.03</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">回吐</div>
+      <div class="name">深证成指 · 399001</div>
+      <div class="value">11534.38</div>
+      <div class="change" style="color:#f87171">-139.45 / -1.19%</div>
+      <div class="label">回吐 D-1 涨幅 2.79% 的一半；电子、通信、汽车零部件权重为主要拖累</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">弱势</div>
+      <div class="name">创业板指 · 399006</div>
+      <div class="value">2638.23</div>
+      <div class="change" style="color:#f87171">-45.87 / -1.71%</div>
+      <div class="label">失守 D-1 反弹高点 2684.10，仍在 2600 / 2500 支撑之上运行</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">承压</div>
+      <div class="name">科创50 · 000688</div>
+      <div class="value">1315.50</div>
+      <div class="change" style="color:#f87171">-30.01 / -2.23%</div>
+      <div class="label">五大指数跌幅第二；科创50ETF华夏 588000 -2.88%（成交 118.70 亿），1300 为多空分水岭</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">破位</div>
+      <div class="name">北证50 · 899050</div>
+      <div class="value">963.95</div>
+      <div class="change" style="color:#f87171">-20.95 / -2.13%</div>
+      <div class="label">重新跌破 D-2 的 966.74，小微盘重回杀跌端，与 D-1 的 +1.88% 完全反向</div>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 二、市场交易与资金信号</div>
+  <div class="market-stats">
+    <div class="stat-card warn">
+      <div class="stat-name">三市成交额</div>
+      <div class="stat-value">16,230 亿</div>
+      <div class="stat-detail">沪 7,465.28 + 深 8,622.65 + 北 144.30（东财分市场加总 16,232.23 亿）· 同花顺口径 16,230 亿，较上日<b style="color:#fbbf24">缩量 3,497 亿</b>（D-1 为 19,727 亿）—— D-1 放量反弹后首次退潮，属缩量回吐而非增量入场</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-name">上涨 / 下跌家数</div>
+      <div class="stat-value">2,180 / 3,050</div>
+      <div class="stat-detail">平盘 145 家，合计 5,375 家（东财涨跌分布接口）· 同花顺口径「超 3100 只个股下跌」· 涨跌比 <b style="color:#fbbf24">0.71 : 1</b>（D-1 为 4,526 : 142 的极端普涨）—— 仍为跌多涨少，但已远好于 D-2 的 0.11 : 1</div>
+    </div>
+    <div class="stat-card warn">
+      <div class="stat-name">涨停 / 跌停 · 封板率</div>
+      <div class="stat-value">55 / 25 · 70.5%</div>
+      <div class="stat-detail">东财涨停板池 55 家、跌停板池 25 家、炸板 23 家 → 封板率 55/(55+23) = <b style="color:#fbbf24">70.5%</b>；财联社午盘口径 42 涨停 / 18 未遂 / 70%，两源一致。跌停数较 D-2 的 49 家大降，但较 D-1 的 6 家明显扩张</div>
+    </div>
+    <div class="stat-card danger">
+      <div class="stat-name">风格与 ETF 信号</div>
+      <div class="stat-value" style="color:#f87171">红利/内需 vs AI硬件</div>
+      <div class="stat-detail">涨：地产ETF 159707 +3.85%、石油ETF 159018 +3.79%、央企ETF 510060 +2.00%、银行ETF 512820 +1.95%、游戏ETF 159869 +2.79%、医药ETF 512010 +1.60%、酒ETF 512690 +1.45%<br>跌：半导体设备ETF 159516 -5.74%、创业板算力ETF 158057 -3.90%、创业板人工智能ETF 159388 -2.42%、机器人ETF 159530 -1.59%、有色金属ETF 512400 -2.49%</div>
+    </div>
+  </div>
+
+  <div class="section-title">🔀 三、主力资金净流入板块 TOP3</div>
+  <div class="flow-table">
+    <div class="flow-row header">
+      <div>排名</div><div>板块名称</div><div>主力净流入</div><div>板块表现与说明</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">1</div>
+      <div class="flow-name">同花顺漂亮100<span class="info-text">（同花顺主题口径）</span></div>
+      <div class="flow-val up">+34.89 亿</div>
+      <div>同花顺《A股收评》披露，板块内 <b>77 股上涨</b>。为跨行业宽基型主题口径，是「资金全面转向防御 + 消费」的宏观镜像，与今日沪指两连阳互为印证</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">2</div>
+      <div class="flow-name">证金持股<span class="info-text">（同花顺主题口径）</span></div>
+      <div class="flow-val up">+24.56 亿</div>
+      <div>板块内 <b>31 股上涨</b>。⚠️ 东财同概念口径仅 <b>+5.77 亿（+1.86%）</b>，差异源于成分股范围不同，属口径差异而非数据冲突，不做合并加总</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">3</div>
+      <div class="flow-name">超级品牌<span class="info-text">（同花顺主题口径）</span></div>
+      <div class="flow-val up">+15.07 亿</div>
+      <div>板块内 <b>1 股涨停、34 股上涨</b>。消费龙头属性，与今日白酒、烘焙食品、休闲食品三行业同时领涨相互印证 —— 资金买的是「品牌与确定性」</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank info">补</div>
+      <div class="flow-name">东财概念口径 TOP3<span class="info-text">（独立第二来源）</span></div>
+      <div class="flow-val info-text">+26.32 / +15.84 / +11.35 亿</div>
+      <div>人形机器人 +26.32 亿（板块 -0.80%）、AI芯片 +15.84 亿（板块 -1.89%）、婴童概念 +11.35 亿（+0.84%）—— 前两名均为<b>净流入但指数下跌</b>，典型的龙头抱团而非板块行情</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank info">补</div>
+      <div class="flow-name">东财行业口径 TOP3<span class="info-text">（独立第二来源）</span></div>
+      <div class="flow-val info-text">+11.60 / +10.23 / +9.90 亿</div>
+      <div>汽车 +11.60 亿（-0.21%）、汽车零部件 +10.23 亿（-0.43%）、数字芯片设计 +9.90 亿（-2.80%）—— 前两名均落在 D-2「机器人 + 汽零」主线的产业链上，主线本身未撤</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank purple">补</div>
+      <div class="flow-name">红利与防御端承接<span class="info-text">（东财口径）</span></div>
+      <div class="flow-val up">+9.42 / +5.97 / +3.76 亿</div>
+      <div>红利股 +9.42 亿（+1.10%）、红利破净股 +5.97 亿（+1.46%）、国有大型银行Ⅲ +3.76 亿（+2.16%）、石油石化 +6.90 亿（+1.15%）、创新医疗服务 +9.31 亿（+0.34%）</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank" style="color:#f87171">出</div>
+      <div class="flow-name">资金撤离方向（东财口径 TOP 流出）</div>
+      <div class="flow-val down">-99.01 / -86.01 / -85.61 / -66.31 / -50.85 亿</div>
+      <div>CPO概念 -99.01 亿（-4.21%）、光通信模块 -86.01 亿（-4.23%）、存储芯片 -85.61 亿（-3.97%）、元件 -66.31 亿（-5.71%）、印制电路板 -50.85 亿（-6.43%）—— <b style="color:#f87171">五个方向合计净流出超 387 亿</b>，另有通信线缆及配套 -22.33 亿、集成电路封测 -21.18 亿、被动元件 -19.07 亿、半导体设备 -15.82 亿</div>
+    </div>
+  </div>
+
+  <div class="section-title">🎯 四、今日主线板块与逻辑（三段式时间脉络）</div>
+  <div class="mainlines">
+
+    <div class="mainline-card rank-1">
+      <div class="mainline-rank">1</div>
+      <div class="title">💊 医药商业 / 线下药店 —— 五中全会窗口下的防御刚需</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag info">🔀 切</span>
+        <span class="mainline-tag up">新主线</span>
+        <span class="mainline-tag purple">政策窗口</span>
+        <span class="mainline-tag up">线下药店 +3.20%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）
+        ├─ <b>D-2（2026-10-22）</b>：医药商业未进入当日主线 TOP6，原文主线为机器人 / 工程机械 / 银行红利 / 算力硬件 / 文化传媒 / 电池-CRO-贵金属；定性「<b>未启动</b>」
+        ├─ <b>D-1（2026-10-23）</b>：<b>前 1 日复盘文档缺失</b>，以当日行情数据补充 —— 财联社《每日收评》主线为「机器人、物理AI爆发」，医药未在主线描述中；定性「<b>未启动</b>」
+        └─ <b>今日（2026-10-26）</b>：同花顺《A股收评》将医药商业（881143）列为涨幅居前第一 → <b>🔀 切</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>同花顺原文「医药商业板块逆势大涨」，英特集团（000411）<b>+10.04%</b>、塞力医疗（603716）<b>+10.00%</b> 双双涨停，漱玉平民（301017）+5.87%、九州通（600998）+4.91%、大参林（603233）+4.63%、健之佳（605266）+3.66% 跟涨；东财行业口径「线下药店」<b>+3.20%</b>（领涨股漱玉平民）、「医疗服务」-0.16% 但主力净流入 +7.85 亿、「医药生物」+0.75%（+7.19 亿）、「创新医疗服务」+0.34%（+9.31 亿）；医药ETF 512010 +1.60%、医疗ETF 512170 +1.50%。<br>
+        <b>切换归因：</b>① <b>政策窗口</b>——二十届五中全会今日开幕，商务部同步披露 1-9 月批发零售业增加值 11.1 万亿元（+4.4%，较上半年提高 0.7pct）、家电以旧换新累计超 10099 万台，内需与刚需资产成为政策预期最直接的承接方向；② <b>基本面底</b>——前三季度 GDP +4.6%、三季度回升至 +4.5%（较二季度 +0.2pct），医药零售的防御刚需属性与宏观企稳同向；③ <b>资金再配置</b>——AI 硬件单日失血百亿后，医药商业具备「低估值 + 刚需 + 高股息」三属性，是最直接的低波承接口。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip">英特集团 <b>000411 +10.04%</b></span>
+        <span class="stock-chip">塞力医疗 <b>603716 +10.00%</b></span>
+        <span class="stock-chip">百洋股份 <b>301015 +10.62%</b>（12天8板·炸板）</span>
+        <span class="stock-chip">漱玉平民 <b>301017 +5.87%</b></span>
+        <span class="stock-chip">九州通 <b>600998 +4.91%</b></span>
+        <span class="stock-chip">大参林 <b>603233 +4.63%</b></span>
+        <span class="stock-chip">医药ETF <b>512010 +1.60%</b></span>
+      </div>
+      <div class="mainline-desc" style="margin-top:12px">
+        ⚠️ <b style="color:#fbbf24">口径提示</b>：医药商业的涨幅由<b>线下药店 / 零售流通</b>驱动，而非创新药或 CXO —— 创新药ETF 159992 仅 +0.37%、港股创新药ETF 513120 <b style="color:#f87171">-0.83%</b>（成交 63.91 亿居全场前列）。医药内部是「零售强、创新药弱」的分化，不可外推至整个医药板块。
+      </div>
+    </div>
+
+    <div class="mainline-card rank-2">
+      <div class="mainline-rank">2</div>
+      <div class="title">🎮 游戏 / 数字媒体 / 短剧 —— D-2 集体跌停后的精准反转</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 升</span>
+        <span class="mainline-tag up">新主线</span>
+        <span class="mainline-tag purple">档期 + 版号</span>
+        <span class="mainline-tag up">游戏Ⅲ +3.26%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）
+        ├─ <b>D-2（2026-10-22）</b>：文化传媒 / 出版 / AI 视频<b>集体跌停</b> —— 新华传媒 -10.02%、粤传媒 -9.96%、龙版传媒 -10.00%、德才股份 -10.08%、引力传媒 -10.00%、新经典 -10.01%、内蒙新华 -9.98%、博纳影业 -9.92%；传媒娱乐 -5.26% 居行业跌幅第二、文化振兴 -4.50%、网络游戏 -4.40%；定性「<b>🔽 降 / 集体跌停</b>」
+        ├─ <b>D-1（2026-10-23）</b>：<b>前 1 日复盘文档缺失</b>，以当日行情数据补充 —— 财联社《每日收评》主线为「机器人、物理AI爆发」，超 4500 股收红；文化传媒未出现在 D-1 主线描述中；定性「<b>整体修复但非主线</b>」
+        └─ <b>今日（2026-10-26）</b>：同花顺《A股收评》「游戏板块震荡上扬」→ <b>🔼 升</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>电魂网络（603258）<b>+9.99% 涨停</b>、盛天网络（300494）<b>+14.62%</b>、姚记科技（002605）+6.61%、冰川网络（300533）+6.09%、掌趣科技（300315）+5.44%、富春股份（300299）+4.86%、凯撒文化（002425）+4.09%；东财行业口径 游戏Ⅲ <b>+3.26%</b>（领涨股电魂网络，主力净流入 +7.66 亿）、其他数字媒体 +5.35%（凡拓数创）、视频媒体 +4.00%（芒果超媒）、网络游戏概念 +1.40%（+5.66 亿）；游戏ETF 华夏 159869 <b>+2.79%</b>。<br>
+        <b>催化：</b>① 国产 3A 武侠动作游戏《影之刃零》10 月 29 日正式发售，Steam 预购约 50 万份、愿望单约 250 万份，有望成为继《黑神话：悟空》后又一具全球影响力的国产 3A；② 2026 年 Q3 中国游戏市场实际销售收入 925.22 亿元，同比 +5.11%、环比 +1.36%；③ 9 月 209 款游戏版号获批，版号供给常态化，头部厂商双端资质受益。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip">电魂网络 <b>603258 +9.99%</b></span>
+        <span class="stock-chip">盛天网络 <b>300494 +14.62%</b></span>
+        <span class="stock-chip">姚记科技 <b>002605 +6.61%</b></span>
+        <span class="stock-chip">冰川网络 <b>300533 +6.09%</b></span>
+        <span class="stock-chip">掌趣科技 <b>300315 +5.44%</b></span>
+        <span class="stock-chip">游戏ETF <b>159869 +2.79%</b></span>
+      </div>
+      <div class="mainline-desc" style="margin-top:12px">
+        ⚠️ <b style="color:#fbbf24">关键提醒</b>：同一「传媒」家族，D-2 集体跌停、今日板块级反弹 —— 本轮是「档期 + 版号」双催化的<b>短线修复</b>，不是基本面反转；今日文化传媒内部仍在分化：新华传媒 +2.17% 反弹，但龙版传媒 <b style="color:#f87171">-9.97%</b>、慈文传媒 -10.01%、博纳影业 -10.06% 仍跌停，出版与影视院线出清未完。
+      </div>
+    </div>
+
+    <div class="mainline-card rank-3">
+      <div class="mainline-rank">3</div>
+      <div class="title">🍶 白酒 / 大众消费 / 零售 —— 内需政策预期的弹性出口</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag info">🔀 切</span>
+        <span class="mainline-tag up">新主线</span>
+        <span class="mainline-tag purple">五中全会窗口</span>
+        <span class="mainline-tag up">酒ETF +1.45%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）
+        ├─ <b>D-2（2026-10-22）</b>：银行 / 央企 / 红利是唯一有效避风港，酿酒行业 -0.39% 居行业跌幅最小、奢侈品 +0.45% 为全市场唯一上涨概念、白酒概念 -0.29%；但<b>皇台酒业（000995）当日跌停</b>。定性「<b>防御有效，白酒未成主线</b>」
+        ├─ <b>D-1（2026-10-23）</b>：<b>前 1 日复盘文档缺失</b>，以当日行情数据补充 —— 财联社《每日收评》明确「<b>电力、银行跌</b>」，白酒未在 D-1 主线描述中；定性「<b>未启动</b>」
+        └─ <b>今日（2026-10-26）</b>：同花顺《A股收评》「白酒板块低开高走」→ <b>🔀 切</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>皇台酒业（000995）<b>+10.04% 涨停</b>（D-2 曾为跌停股）、金种子酒（600199）+4.58%、今世缘（603369）+4.25%、迎驾贡酒（603198）+3.07%、古井贡酒（000596）+2.93%、泸州老窖（000568）+2.86%；酒ETF 鹏华 512690 +1.45%、食品饮料ETF 华夏 515170 +1.30%、消费ETF 汇添富 159928 +1.06%；东财行业口径 烘焙食品 +4.72%（青岛食品）、休闲食品 +3.33%（青岛食品）、快递 +3.12%、人力资源服务 +3.11%、房产租赁经纪 +3.04%（我爱我家）、学历教育 +3.78%（国脉科技）、会展服务 +8.11%（兰生股份）—— <b>领涨榜几乎被消费服务类整体占据</b>。<br>
+        <b>切换归因：</b>① <b>内需政策预期</b>——五中全会开幕 + 商务部消费数据（限额以上零售业单位便利店 +5.2%、超市 +4.1%、重点联系商品市场利润总额 +5.8%）；② <b>消费是「低估值 + 高股息 + 低拥挤度」的三重交集</b>，在缩量环境下承接确定性资金；③ D-2 的银行红利主线向消费端自然外溢，超市 / 烘焙 / 休闲食品同属防御型现金流资产。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip">皇台酒业 <b>000995 +10.04%</b></span>
+        <span class="stock-chip">金种子酒 <b>600199 +4.58%</b></span>
+        <span class="stock-chip">今世缘 <b>603369 +4.25%</b></span>
+        <span class="stock-chip">迎驾贡酒 <b>603198 +3.07%</b></span>
+        <span class="stock-chip">古井贡酒 <b>000596 +2.93%</b></span>
+        <span class="stock-chip">泸州老窖 <b>000568 +2.86%</b></span>
+        <span class="stock-chip">酒ETF <b>512690 +1.45%</b></span>
+      </div>
+      <div class="mainline-desc" style="margin-top:12px">
+        ⚠️ <b style="color:#fbbf24">背离信号</b>：皇台酒业在 D-2 是跌停股、今日封涨停，同一家公司两个交易日 ±20% —— 说明消费这条线的个股弹性来自「低位超跌 + 情绪」，而非稳定的基本面改善。因此策略上<b>优先用消费宽基 ETF 表达，不追个股</b>。
+      </div>
+    </div>
+
+    <div class="mainline-card rank-1">
+      <div class="mainline-rank">4</div>
+      <div class="title">🏦 银行红利 / 央国企 —— D-2 防御主线的延续，且 ETF 表达效率首次改善</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔀 持</span>
+        <span class="mainline-tag up">防御延续</span>
+        <span class="mainline-tag purple">六大行分红 30%→31%</span>
+        <span class="mainline-tag up">银行ETF +1.95%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）
+        ├─ <b>D-2（2026-10-22）</b>：银行 / 央企 / 红利成为<b>唯一有效避风港</b> —— 工商银行 +1.66%、建设银行 +1.48%（盘中创历史新高）、农业银行 +1.51%；银行ETF 512820 仅 +0.13%、512800 +0.12%、央企ETF 510060 +0.30%；六大行中期分红比例 30%→31%、21 家 A 股银行拟派现超 2600 亿。定性「<b>🔀 切 / 防御唯一避风港</b>」
+        ├─ <b>D-1（2026-10-23）</b>：<b>前 1 日复盘文档缺失</b>，以当日行情数据补充 —— 财联社《每日收评》明确「<b>电力、银行跌</b>」，红利主线在 D-1 的普涨反攻中被成长主线挤出一日。定性「<b>🔽 降 / 被成长主线挤出</b>」
+        └─ <b>今日（2026-10-26）</b>：银行再度成为资金第一落点 → <b>🔀 持</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>工商银行（601398）<b>+3.13%</b>、建设银行（601939）+2.74%、农业银行（601288）+1.95%、招商银行（600036）+1.75%、中国银行（601988）+1.01%；银行ETF 汇添富 512820 <b>+1.95%</b>、银行ETF 华宝 512800 +1.77%（成交 16.81 亿）、央企ETF 工银 510060 <b>+2.00%</b>；东财行业口径 国有大型银行Ⅲ <b>+2.16%</b>（主力 +3.76 亿）、概念口径 红利股 +1.10%（+9.42 亿）、红利破净股 +1.46%（+5.97 亿）、证金持股 +1.86%（+5.77 亿）。<br>
+        <b>逻辑：</b>红利主线在 D-1 被挤出一日后，于「五中全会 + 缩量 + AI 硬件失血」三重条件下重新成为第一落点。驱动力主要来自无风险利率预期与长线资金配置需求，而非基本面突发变化 —— 银行股今日的涨幅结构（大行 +1.95%~+3.13% 强于招行 +1.75% 与中行 +1.01%）显示红利属性越纯越受青睐，与 D-2 的结构完全一致。<br>
+        <b style="color:#34d399">⚠️ 与 D-2 的关键差异（红利主线质量升级）</b>：D-2 银行 ETF 仅 +0.12%~+0.13%，远低于个股 +1.48%~+1.66%（红利资金集中在个股端，ETF 表达效率低）；今日银行 ETF 涨幅 +1.77%~+1.95% 已与个股 +1.75%~+3.13% <b>基本收敛</b> —— 防御资金开始从个股扩散到指数化工具，这是 D-2 报告明确提示待验证项的正面兑现。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip">工商银行 <b>601398 +3.13%</b></span>
+        <span class="stock-chip">建设银行 <b>601939 +2.74%</b></span>
+        <span class="stock-chip">农业银行 <b>601288 +1.95%</b></span>
+        <span class="stock-chip">招商银行 <b>600036 +1.75%</b></span>
+        <span class="stock-chip">银行ETF <b>512820 +1.95%</b></span>
+        <span class="stock-chip">银行ETF <b>512800 +1.77%</b></span>
+        <span class="stock-chip">央企ETF <b>510060 +2.00%</b></span>
+      </div>
+    </div>
+
+    <div class="mainline-card warn">
+      <div class="mainline-rank">5</div>
+      <div class="title">🛢️ 石油石化 / 资源涨价 —— 地缘供给冲击驱动的价格型主线</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag info">🔀 切</span>
+        <span class="mainline-tag warn">涨价交易</span>
+        <span class="mainline-tag purple">布伦特 115 美元</span>
+        <span class="mainline-tag up">石油ETF +3.79%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）
+        ├─ <b>D-2（2026-10-22）</b>：石油行业 -0.75% 相对抗跌，能源化工ETF 159981 +1.05% 曾是当日唯一上涨的 A 股属性 ETF；但化工链方向相反 —— <b>烧碱期货年内跌超三成、期价首破 1700 元/吨</b>，新亚强 / 亚邦股份 / 醋化股份 / 高争民爆 4 家跌停。定性「<b>资源品仅相对抗跌，涨价逻辑未启动</b>」
+        ├─ <b>D-1（2026-10-23）</b>：<b>前 1 日复盘文档缺失</b>，以当日行情数据补充 —— D-1 的放量反弹由「机器人 / 物理AI」驱动，资源端未在主线之列。定性「<b>未启动</b>」
+        └─ <b>今日（2026-10-26）</b>：石油系 ETF 跻身同花顺《ETF收评》涨幅榜第 2、3 位 → <b>🔀 切</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>石油ETF 广发 159018 <b>+3.79%</b>、石油ETF 鹏华 159697 <b>+3.54%</b>；中国石油（601857）<b>+4.94%</b>、中国石化（600028）+3.54%、宝钢股份（600019）+2.04%；东财行业口径 石油石化 +1.15%（主力净流入 +6.90 亿）、炼油化工 +1.94%（+4.40 亿）、炼化及贸易 +0.40%（+4.94 亿）、概念口径 资源开采 +1.79%（+5.17 亿）。<br>
+        <b>催化：</b>布伦特原油期货 10/23 盘中升至 <b>每桶 115 美元、创 5 个月来新高</b>（新华社），驱动力是中东局势紧张、船只与石油设施遇袭引发的原油供应中断担忧；叠加霍尔木兹海峡风险溢价，地缘供给冲击是本周最确定的价格型催化。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip">中国石油 <b>601857 +4.94%</b></span>
+        <span class="stock-chip">中国石化 <b>600028 +3.54%</b></span>
+        <span class="stock-chip">宝钢股份 <b>600019 +2.04%</b></span>
+        <span class="stock-chip">石油ETF <b>159018 +3.79%</b></span>
+        <span class="stock-chip">石油ETF <b>159697 +3.54%</b></span>
+      </div>
+      <div class="mainline-desc" style="margin-top:12px">
+        ⚠️ <b style="color:#fbbf24">口径提示</b>：今日是「地缘供给冲击」驱动的涨价交易，与 D-2 提到的「烧碱期货跌超三成」方向完全相反 —— 两者分属不同品种、不同供需结构，不可混为一谈。策略上只做价格不追高：<b>冲突缓和即回吐</b>，且需与红利端的低波属性分开计算仓位。
+      </div>
+    </div>
+
+    <div class="mainline-card danger">
+      <div class="mainline-rank">6</div>
+      <div class="title">⚡ AI 硬件 / CPO / PCB / 存储 —— 连续第二日失血，杀跌重心从光模块迁移到 PCB/元件</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag danger">🔽 降</span>
+        <span class="mainline-tag danger">主力净流出 99 亿</span>
+        <span class="mainline-tag danger">元件 4 家跌停</span>
+        <span class="mainline-tag danger">印制电路板 -6.43%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）
+        ├─ <b>D-2（2026-10-22）</b>：算力硬件「易中天」集体重挫 —— 新易盛 -12.28%、中际旭创 -8.76%、天孚通信 -8.36%；创业板算力ETF 6 只全线 -4.65%~-5.79%；而 D-1 主线正是 CPO 概念 +1.31%（主力 +24.85 亿）。定性「<b>🔽 降 / 主线崩塌</b>」
+        ├─ <b>D-1（2026-10-23）</b>：<b>前 1 日复盘文档缺失</b>，以当日行情数据补充 —— 财联社《每日收评》「机器人、物理AI爆发」，AI 动态 + OpenAI Robotics 团队消息催化，创业板指 +4.16%、成交放量 4,275 亿至 1.96 万亿、超 4500 股收红，成长主线以「反攻」形式回归。定性「<b>🔀 切 / 成长反攻</b>」
+        └─ <b>今日（2026-10-26）</b>：AI 硬件二次崩塌且波及面更广 → <b>🔽 降</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象（东财概念口径）：</b>CPO 概念 <b>-4.21%</b>（主力净流出 <b style="color:#f87171">99.01 亿，全市场最大单项流出</b>）、光通信模块 -4.23%（-86.01 亿）、存储芯片 -3.97%（-85.61 亿）、被动元件 -4.09%（-19.07 亿）、先进封装 -3.71%（-24.25 亿）、MLCC -4.25%（-24.26 亿）、高带宽内存 -4.00%；<b>行业口径：</b>印制电路板 <b>-6.43%</b>（-50.85 亿）、元件 <b>-5.71%</b>（-66.31 亿）、半导体设备 -5.41%（-15.82 亿）、集成电路封测 -5.06%（-21.18 亿）、半导体材料 -4.66%、集成电路制造 -4.46%、分立器件 -4.29%、玻纤制造 -4.98%。<br>
+        <b>个股：</b>联特科技（301205）<b style="color:#f87171">-15.71%</b>、南亚新材（688519）-12.49%、三环集团（300408）-12.13%、华盛昌（002980）-10.00% 跌停、生益科技（600183）-9.52%、超声电子 -9.40%、迅捷兴 -9.19%、天津普林 -9.19%、奥士康 / 华正新材 / 金安国纪 / 澳弘电子 <b style="color:#f87171">4 家跌停</b> —— 元件板块一家占全市场 25 家跌停的 16%。
+      </div>
+      <div class="mainline-desc" style="margin-top:12px">
+        ⚠️ <b style="color:#fbbf24">今日最重要的结构变化</b>：光模块权重跌幅显著收窄 —— 中际旭创 -2.96%（D-2 为 -8.76%）、新易盛 -3.57%（D-2 为 -12.28%）、天孚通信 -1.91%（D-2 为 -8.36%）、中科曙光 -0.33%、浪潮信息 -2.29%；而 PCB / 覆铜板 / 被动元件链继续崩塌 —— 生益科技 -9.52%、南亚新材 -12.49%、三环集团 -12.13%。<b>杀估值重心正从「光模块拥挤」向「上游材料与元件」迁移</b>，意味着即便光模块企稳，AI 硬件整体也难以快速修复。<br>
+        🤖 <b style="color:#fbbf24">物理 AI 的内部背离</b>：人形机器人概念主力净流入 <b style="color:#34d399">+26.32 亿居全市场第一</b>，但板块指数 <b style="color:#f87171">-0.80%</b>，机器人ETF 富国 159272 -1.01%、鹏华 159278 -1.39%、易方达 159530 -1.59% 全线收绿；宇树科技-W（688836）+7.69% 收 672.00 元（成交 74.65 亿，盘中最高 737.50 / 最低 607.01，振幅 21.4%）、华阳智能（301502）20cm 三连板，而 D-1 的两只 6 连板双双断板（大业股份 +8.08% 炸板、海洋王 -3.49%）。<b>资金只买龙头，不是板块行情。</b><br>
+        <b>催化（双向，须分开记）</b>：中信证券研报指出，通用大模型正从机器人高层任务规划向动作生成与执行控制延伸，NVIDIA、Stanford 探索将 GPT-6 Astra 用于机器人控制，展望 2027 年通用模型进入具身任务领域将成为 AI 行业下一个投入方向，通用模型与专用模型短期更可能分工协同；全球物理 AI 市场规模预计 2026-2033 年 CAGR 达 36.1%，从 816 亿美元增至 9604 亿美元。<b>产业中期景气未变，但短期拥挤度与估值仍在出清。</b>
+      </div>
+    </div>
+
+    <div class="mainline-card danger">
+      <div class="mainline-rank">7</div>
+      <div class="title">🥇 贵金属 / 避险资产 —— 防御板块连续第三日走强失效（独立风险卡）</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag danger">🔽 降</span>
+        <span class="mainline-tag danger">连续第三日走弱</span>
+        <span class="mainline-tag danger">赤峰黄金 -8.90%</span>
+        <span class="mainline-tag warn">避险属性失效</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）
+        ├─ <b>D-2（2026-10-22）</b>：贵金属（881169）跌幅居前，赤峰黄金（600988）一度触及跌停，招金黄金 / 紫金矿业 / 山金国际 / 兴业银锡跟跌；黄金概念 -3.06%、有色金属 -3.04%、紫金矿业 -3.57%。定性「<b>🔽 降 / 避险资产同步失血</b>」
+        ├─ <b>D-1（2026-10-23）</b>：<b>前 1 日复盘文档缺失</b>，以当日行情数据补充 —— D-1 的普涨反弹由科技与物理AI 驱动，商品端未形成独立主线。定性「<b>走弱延续</b>」
+        └─ <b>今日（2026-10-26）</b>：贵金属继续大幅走弱，同花顺归因「受国际金价下跌影响」→ <b>🔽 降</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>赤峰黄金（600988）<b style="color:#f87171">-8.90%</b>（成交 21.64 亿）、招金黄金（000506）-6.02%、山金国际（000975）-5.25%、紫金矿业（601899）-4.58%（成交 82.49 亿）；东财行业口径 白银 -4.40%、工业金属同步走弱，有色金属ETF 南方 512400 -2.49%。
+      </div>
+      <div class="mainline-desc" style="margin-top:12px">
+        ⚠️ <b style="color:#fbbf24">今日最值得警惕的背离</b>：黄金<b>个股</b>大跌 4.58%~8.90%，但黄金ETF 华安 518880 仅 <b>-0.17%</b>、黄金ETF 易方达 159934 -0.20% —— 个股与 ETF 的背离幅度达 <b>30 倍以上</b>。原因是 ETF 跟踪的是国内金价（已提前反映国际金价回落），而黄金股额外承担「前期涨幅过大 + 拥挤度 + 资金撤离」的个股情绪折价。<b>结论：黄金股的问题不是黄金的问题，而是「股票」这个载体的问题。</b><br>
+        <b>逻辑</b>：在「超级央行周」+ 避险需求被石油替代性上涨分流的组合下，避险资产连续三日失效。D-2 的防御主线（银行红利）今日延续，但传统避险（黄金）与红利出现明显分化 —— 这也解释了今日「沪指红 / 成长绿」的指数结构：<b>资金要的是股息与现金流，不是避险情绪。</b>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title warn">🏆 五、涨停天梯榜</div>
+  <div class="ladder">
+    <span class="ladder-tag lv-4">🏆 4 连板 × 1 —— <b>上海九百</b> 600838（一般零售）</span>
+    <span class="ladder-tag lv-3">🥈 3 连板 × 6 —— <b>华阳智能</b> 301502（电机Ⅱ·20cm）· <b>襄阳轴承</b> 000678（汽车零部件）· <b>林州重机</b> 002535（专用设备）· <b>赛福天</b> 603028（通用设备）· <b>正裕工业</b> 603089（汽车零部件）· <b>多伦科技</b> 603528（软件开发）</span>
+    <span class="ladder-tag lv-2">🥉 2 连板 × 8 —— <b>万向钱潮</b> 000559（汽车零部件）· <b>模塑科技</b> 000700（汽车零部件）· <b>创维数字</b> 000810（黑色家电）· <b>锋龙股份</b> 002931（通用设备）· <b>大名城</b> 600094（房地产开发）· <b>杰克科技</b> 603337（专用设备）· <b>永创智能</b> 603901（专用设备）· <b>福莱新材</b> 605488（塑料）</span>
+    <span class="ladder-tag lv-1">1 连板 × 40 —— 专用设备 6 · 汽车零部件 6 · 通用设备 5 · 塑料 3 · 休闲食品 3 · 医药商业 2 · 消费电子 2 · 基础建设 2 · 软件开发 2 · 通信设备 1 · 电机Ⅱ 1 · 一般零售 1 · 房地产开发 1 · 黑色家电 1</span>
+    <span class="ladder-tag danger">💀 跌停 25 家（D-2 为 49 家、D-1 为 6 家）—— 元件 4 · 通用设备 2 · 电网设备 2 · 专用设备 2 · 影视院线 2 · 出版 1 · 汽车零部件 1 · 照明设备 1 · 玻璃玻纤 1 · 计算机设备 1 · 军工电子 1 · 软件开发 1 · 装修装饰 1 · 水泥 1 · 食品加工 1 · 种植业 1 · 饰品 1 · 家居用品 1</span>
+  </div>
+
+  <div class="data-note">
+    <b>📌 天梯结构解读 —— 高度下移 + 中位补涨 + 首板缩量：</b><br>
+    D-1（10/23）最高板为 <b class="warn-text">6 连板 × 2</b>（海洋王 002724、大业股份 603278）、3 板 1 只（上海九百）、2 板 9 只、1 板 70 只、涨停 82 家、炸板 12 只、封板率 87%（财联社口径）；今日最高板降至 <b class="danger-text">4 板 × 1</b>（上海九百），3 板从 1 只扩至 <b>6 只</b>，2 板 9→8 只，1 板 70→40 只，涨停 55 家、炸板 23 只、<b class="danger-text">封板率 70.5%</b>。<br>
+    ⚠️ <b class="danger-text">D-1 的两只 6 连板今日双双断板</b>：海洋王（002724）<b>-3.49%</b>（成交 16.66 亿）、大业股份（603278）冲板失败 <b>+8.08%</b>（成交 22.65 亿）—— 两者是 D-2 报告已标注「已发布异动澄清公告」的高位股，今日的走势验证了「最高板本身即风险源」的判断，不宜按「最高板」逻辑追高。<br>
+    ⚠️ <b class="danger-text">D-2 的连板梯队继续崩塌</b>：D-2（10/22）的 3 连板 星光股份（002076）与三峡新材（600293）今日<b>双双跌停</b>；D-2 的 2 连板 哈空调（600202）今日<b>连续第二日跌停</b>。同一批高位股在 4 个交易日内完成「连板 → 断板 → 跌停」全过程。<br>
+    ⚠️ <b class="warn-text">炸板名单暴露的分歧结构</b>：23 只炸板股中既有 D-1 的高位股（大业股份 +8.08%、南方路机 +3.35%），也有今日新题材（百洋股份 +10.62%、招商蛇口 +8.08%、江苏北人 +15.98%、世纪恒通 +17.74%、万集科技 +9.38%、开普云 +8.67%）—— 分歧集中在<b>高位而非新方向</b>，说明新题材承接力尚可，但高位股出清未完。<br>
+    ⚠️ <b class="warn-text">数据缺口</b>：东财涨跌分布接口的 <code>date</code> 参数无效（查询 10/22、10/23 均返回当日数据），故涨跌家数仅有今日单日口径，D-1/D-2 采用财联社与新浪收评口径；财联社 10/26 全天涨停分析未取得（仅取得午盘 42 涨停 / 18 未遂 / 70%），本报告封板率系依据「涨停 55 家 / 炸板 23 家」自算，与财联社午盘口径一致。
+  </div>
+
+  <div class="section-title info">💹 六、ETF 涨跌榜</div>
+  <div class="etf-table">
+    <div class="etf-row header">
+      <div>排名</div><div>ETF 名称（代码）</div><div>涨跌幅</div><div>说明</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲1</div>
+      <div>地产ETF华宝（<b>159707</b>）</div>
+      <div class="etf-val up">+3.85%</div>
+      <div>收 0.512，成交 1.32 亿 —— <b>ETF 全市场领涨</b>。对应 A 股房地产开发 +0.81%（主力 +4.38 亿）、房产租赁经纪 +3.04%（领涨股我爱我家）；大名城（600094）2 连板、招商蛇口（001979）+8.08% 炸板。催化：10 月房企化债迎来集中窗口期，以物抵债、债转股等同步落地</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲2</div>
+      <div>石油ETF广发（<b>159018</b>）</div>
+      <div class="etf-val up">+3.79%</div>
+      <div>收 0.904，成交 0.04 亿 —— 同花顺《ETF收评》涨幅榜第 2。布伦特原油 115 美元创 5 个月新高；中国石油 +4.94%、中国石化 +3.54%</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲3</div>
+      <div>石油ETF鹏华（<b>159697</b>）</div>
+      <div class="etf-val up">+3.54%</div>
+      <div>收 1.316，成交 0.98 亿 —— 同标的主题，形态一致印证海外能源涨价交易</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼1</div>
+      <div>半导体设备ETF国泰（<b>159516</b>）</div>
+      <div class="etf-val down">-5.74%</div>
+      <div>收 0.509，成交 20.44 亿 —— <b>ETF 跌幅居首</b>。对应半导体设备行业 -5.41%（主力 -15.82 亿）、集成电路封测 -5.06%、半导体材料 -4.66%</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼2</div>
+      <div>创业板算力ETF鹏华（<b>158057</b>）</div>
+      <div class="etf-val down">-3.90%</div>
+      <div>收 0.764 —— 昨收 0.795。对应 CPO 概念 -4.21%（主力 -99.01 亿）、光通信模块 -4.23%</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼3</div>
+      <div>创业板算力ETF广发（<b>158049</b>）</div>
+      <div class="etf-val down">-3.75%</div>
+      <div>收 0.769，成交 4.09 亿 —— 同标的全系列集体下跌</div>
+    </div>
+  </div>
+
+  <div class="data-note">
+    ✅ <b>ETF 双源核验</b>：同花顺《ETF收评》披露的 6 只 ETF（159707 +3.85%、159018 +3.79%、159697 +3.54%、520870 -10.02%、159100 -10.01%、159516 -5.74%）<b>全部</b>经腾讯行情逐只复核，涨跌幅与收盘价<b>完全一致、无偏差</b>；其余 ETF 均为腾讯行情单源。<br>
+    ⚠️ <b class="warn-text">背离信号 ①「个股 vs ETF」背离（今日最大）</b>：黄金股赤峰黄金 -8.90%、山金国际 -5.25%、紫金矿业 -4.58%，但黄金ETF华安 518880 仅 <b>-0.17%</b>、黄金ETF易方达 159934 -0.20% —— <b>背离幅度超 30 倍</b>。ETF 跟随国内金价（已反映国际金价回落），个股额外承担拥挤度与情绪折价。<br>
+    ⚠️ <b class="danger-text">背离信号 ②「A 股 ETF vs 海外 ETF」背离</b>：巴西ETF易方达 520870 <b>-10.02%</b>、巴西ETF华夏 159100 <b>-10.01%</b>，为 A 股 ETF 中跌幅最大 —— 巴西大选卢拉逆转连任、巴西资产遭暴击（美股 iShares MSCI Brazil ETF「EWZ」隔夜一度暴跌 19.63%，东京市场追踪 Ibovespa 的 ETF 开盘即跌 13%、盘中扩大至 16%，创 2020 年 3 月以来最大单日跌幅）。属海外单一政治事件，与 A 股基本面无关。<br>
+    ✅ <b>逆势收红方向（A 股属性）</b>：银行ETF汇添富 512820 <b>+1.95%</b>、银行ETF华宝 512800 +1.77%（成交 16.81 亿）、央企ETF工银 510060 <b>+2.00%</b>、游戏ETF华夏 159869 +2.79%、医药ETF易方达 512010 +1.60%、医疗ETF华宝 512170 +1.50%、酒ETF鹏华 512690 +1.45%、食品饮料ETF华夏 515170 +1.30%、消费ETF汇添富 159928 +1.06%、沪深300ETF华泰柏瑞 510300 +0.02% —— 沪指收红与银行 / 央企 ETF 的贡献直接相关。<br>
+    ⚠️ <b class="warn-text">机器人 ETF 全线转跌</b>：机器人ETF易方达 159530 -1.59%（成交 23.08 亿）、机器人ETF鹏华 159278 -1.39%、机器人ETF富国 159272 -1.01% —— 三只全部由 D-2 的逆势收红翻为下跌，与人形机器人概念 -0.80% 的板块表现一致。
+  </div>
+
+  <div class="section-title">📰 七、重要新闻与板块催化</div>
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>事件</div><div>关键数据</div><div>对 A 股影响</div>
+    </div>
+    <div class="fin-row">
+      <div>🇨🇳 <b>党的二十届五中全会今起至 29 日在北京召开</b></div>
+      <div class="fin-val info">10/26 - 10/29</div>
+      <div>主要议程：中共中央政治局向中央委员会报告工作，研究持之以恒推进全面从严治党若干重大问题。<b>「十五五」与产业政策定调窗口</b> → 直接利好内需（消费 / 医药 / 零售）与红利资产，是今日消费医药接棒的政策前提，也是本周最重要的宏观变量</div>
+    </div>
+    <div class="fin-row">
+      <div>🏦 <b>央行 10 月 MLF 缩量续作 2000 亿</b></div>
+      <div class="fin-val warn">7000 亿操作 / 9000 亿到期</div>
+      <div>净回笼 2000 亿，上月为加量续作 2000 亿；央行说明主因是 10 月两个期限品种的<b>买断式逆回购已加量续作 4000 亿</b> → 总量流动性边际收敛但结构对冲，短端资金面未失血，支撑红利资产的利率预期</div>
+    </div>
+    <div class="fin-row">
+      <div>📊 <b>三部门经济数据：GDP 回升 + 消费改善</b></div>
+      <div class="fin-val up">三季度 GDP +4.5%</div>
+      <div>前三季度 GDP +4.6%、三季度回升至 +4.5%（较二季度 +0.2pct）；9 月规上工业增加值 +5.5%；1-9 月批零业增加值 11.1 万亿 +4.4%（较上半年 +0.7pct）；家电以旧换新累计超 10099 万台；限额以上便利店 +5.2%、超市 +4.1% → 内需与工业双改善，构成今日消费 / 医药 / 零售主线的基本面底</div>
+    </div>
+    <div class="fin-row">
+      <div>🛢️ <b>布伦特原油创 5 个月来新高</b></div>
+      <div class="fin-val up">115 美元/桶</div>
+      <div>新华社 10/23：受中东局势紧张、市场担忧原油供应中断影响，伦敦布伦特原油期货盘中升至每桶 115 美元；此前船只与石油设施遇袭加剧供应干扰担忧 → 石油石化行业 +1.15%（主力 +6.90 亿），石油 ETF +3.79%/+3.54%，中国石油 +4.94% —— <b>今日最确定的价格型主线</b></div>
+    </div>
+    <div class="fin-row">
+      <div>🌍 <b>巴西大选爆冷，卢拉逆转连任</b></div>
+      <div class="fin-val down">EWZ 隔夜一度 -19.63%</div>
+      <div>东京市场追踪 Ibovespa 的 ETF 开盘即跌 13%、盘中扩大至 16%（2020/3 以来最大单日跌幅）；A 股巴西ETF 520870 -10.02%、159100 -10.01% → 外盘单一政治事件冲击，拖累跨境 ETF 情绪，<b>与 A 股基本面无关</b></div>
+    </div>
+    <div class="fin-row">
+      <div>🤖 <b>物理 AI：通用大模型向具身任务延伸</b></div>
+      <div class="fin-val info">CAGR 36.1%</div>
+      <div>中信证券研报：通用大模型正从机器人高层任务规划向动作生成与执行控制延伸，NVIDIA、Stanford 探索将 GPT-6 Astra 用于机器人控制，展望 2027 年通用模型进入具身任务领域将成为 AI 行业下一个投入方向，短期通用模型与专用模型分工协同；全球物理 AI 市场 2026-2033 年 CAGR 36.1%，816 亿美元 → 9604 亿美元。宇树科技（688836）已在人形机器人完成 GPT-6 大量测试、启元机器人第 5000 台个人机器人下线 → 人形机器人概念主力净流入 26.32 亿居全市场第一，<b>但板块指数 -0.80%、机器人 ETF 全线收绿 —— 资金抱团龙头而非板块行情</b></div>
+    </div>
+    <div class="fin-row">
+      <div>🎮 <b>游戏供给与档期双催化</b></div>
+      <div class="fin-val up">Q3 收入 925.22 亿 +5.11%</div>
+      <div>国产 3A 武侠动作游戏《影之刃零》10 月 29 日正式发售，Steam 预购约 50 万份、愿望单约 250 万份；2026 年 Q3 中国游戏市场实际销售收入 925.22 亿元、同比 +5.11%、环比 +1.36%；9 月 209 款版号获批、其中 16 款取得「移动 + 客户端」双端资质 → 游戏Ⅲ +3.26%（主力 +7.66 亿），电魂网络涨停、盛天网络 +14.62% —— <b>D-2 传媒集体跌停后的精准反转</b></div>
+    </div>
+    <div class="fin-row">
+      <div>🌐 <b>「超级央行周」临近</b></div>
+      <div class="fin-val warn">10/28 - 10/30</div>
+      <div>美联储、欧洲央行、日本央行将于 10 月 28 日至 30 日先后公布利率决议，加拿大央行、新西兰央行同期会议；市场普遍预期美欧日三家央行<b>暂缓加息</b>（非降息），通胀压力尚未完全消退 → 若高利率路径延续，中金「估值回落至历史均值以下」与邵宇「左手黄金右手科技」的分歧将被重新定价，是本周成长的最大外部变量</div>
+    </div>
+    <div class="fin-row">
+      <div>🏗️ <b>其他增量信息</b></div>
+      <div class="fin-val info">多项</div>
+      <div>国家能源局：截至 9 月底全国累计发电装机容量 41.3 亿千瓦、同比 +11.2%；国家发改委：南方区域电力市场已基本形成区域一体的市场架构；深圳：与算力建设相关行业今年中长期贷款增量超千亿元；商务部 10 月 29 日召开例行新闻发布会；米哈游 4 天接连投资两家芯片公司、千亿押注 AI；比亚迪闪充技术下放至 7 万元级；脑机接口高质量数据集建设项目在武汉启动；香港证监会批准数字公募基金 24/7 二级市场交易；10 月房企化债迎来集中窗口期</div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 八、盘面核心结论</div>
+
+  <div class="conclusion ok">
+    <div class="conclusion-title">✅ 结论 1：主线第六次切换 —— 从「物理 AI / 机器人」切向「医药 + 游戏 + 消费 + 涨价资源」，防御与内需接棒</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>主线更替：</b>D-1（10/23）的绝对主线是物理 AI / 机器人（财联社《每日收评》：机器人、物理AI爆发，超 4500 股收红），今日主线让位于「<b>医药商业 + 游戏 + 白酒消费 + 石油涨价</b>」四条线。触发因素有三层：五中全会政策窗口（内需与红利受益）、AI 硬件连续失血（资金被迫另找出路）、缩量环境下低估值高股息资产的确定性溢价。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>资金并未离场，只是换了容器：</b>概念口径流入 TOP3 为人形机器人 +26.32 亿、AI 芯片 +15.84 亿、婴童概念 +11.35 亿；行业口径为汽车 +11.60 亿、汽车零部件 +10.23 亿、数字芯片设计 +9.90 亿；红利端红利股 +9.42 亿、红利破净股 +5.97 亿、国有大型银行Ⅲ +3.76 亿 —— <b>全部落在「有产业载体 / 有政策锚」的方向</b>，没有出现资金离场的迹象。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>防守端二次验证，且表达效率首次改善：</b>银行ETF 512820 +1.95%、512800 +1.77%、央企ETF 510060 +2.00%，且 ETF 涨幅与个股（+1.75%~+3.13%）<b>基本收敛</b>。对比 D-2 报告明确指出的「红利资金集中在个股、ETF 表达效率明显偏低」，今日出现了 D-2 报告所等待的正面兑现 —— 这是红利主线的质量升级信号，而非单纯的涨幅重复。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>⚠️ 但主线质量仍然不高：</b>三条新主线（医药零售、游戏、白酒）均为「<b>政策 / 档期 + 低估值</b>」驱动，缺中期产业叙事的验证；医药内部是线下药店强（+3.20%）、创新药弱（创新药ETF +0.37%、港股创新药ETF -0.83%）；游戏是档期驱动（D-2 传媒曾集体跌停）；白酒龙头皇台酒业在 D-2 是跌停股、今日封涨停（±20%）。<b>因此今日的正确动作不是「追新主线」，而是「红利打底、事件小仓」。</b></p></div>
+  </div>
+
+  <div class="conclusion danger">
+    <div class="conclusion-title">🔴 结论 2：AI 硬件链连续第二日失血 —— 单日主力净流出近 100 亿，杀跌重心从光模块迁移到 PCB / 元件</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>流出规模：</b>CPO 概念 -99.01 亿、光通信模块 -86.01 亿、存储芯片 -85.61 亿、元件 -66.31 亿、印制电路板 -50.85 亿 —— 五个方向合计净流出<b>超 387 亿</b>，占全市场主力净流出的大头；再加通信线缆及配套 -22.33 亿、集成电路封测 -21.18 亿、被动元件 -19.07 亿、半导体设备 -15.82 亿。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>结构变化（今日最重要的观察点）：</b>光模块权重跌幅<b>显著收窄</b>（中际旭创 -2.96%、新易盛 -3.57%、天孚通信 -1.91%、中科曙光 -0.33%），而 PCB / 覆铜板 / 被动元件链<b>继续崩塌</b>（生益科技 -9.52%、南亚新材 -12.49%、三环集团 -12.13%、元件 4 家跌停）。杀估值重心正从「光模块拥挤」向「<b>上游材料与元件</b>」迁移 —— 这意味着即便光模块企稳，AI 硬件整体也难以快速修复。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>与 D-2 的对照：</b>D-2 是「易中天」三权重集体重挫（-12.28%/-8.76%/-8.36%）+ 创业板算力ETF 6 只全线跌 4.65%~5.79%；今日跌幅温和但<b>资金流出更大、跌停更集中</b>（元件一家占全市场跌停的 16%）。抛压从权重股扩散至中小市值，说明出清尚未见底。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>物理 AI 的内部背离：</b>人形机器人概念主力净流入 26.32 亿居全市场第一，板块指数却 -0.80%，三只机器人 ETF 全线收绿；宇树科技 +7.69%（振幅 21.4%）说明资金仍在，但只买龙头 —— 这是「<b>抱团</b>」而非「扩散」。D-1 的两只 6 连板今日双双断板（大业股份 +8.08% 炸板、海洋王 -3.49%），高位股风险已连续释放三日。</p></div>
+    <div class="conclusion-item"><span class="num">5</span><p><b>情绪指标全面回落：</b>涨停 55 家、炸板 23 家 → 封板率 <b>70.5%</b>（D-1 为 87%）；最高板由 6 板降至 4 板，3 板从 1 只扩至 6 只，1 板从 70 只降至 40 只；涨跌比 0.71 : 1。情绪已从 D-1 的全面修复回到<b>分歧状态</b>，尚未重回 D-2 的冰点，但也远未修复。</p></div>
+  </div>
+
+  <div class="conclusion info">
+    <div class="conclusion-title">🔵 结论 3：中期「制度底 + 政策窗口」仍在，但短期是缩量分化而非普涨修复，节奏比方向更重要</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>政策窗口开启：</b>二十届五中全会 10/26-29 召开；央行 10 月 MLF 缩量续作 2000 亿（买断式逆回购加量 4000 亿对冲）；前三季度 GDP +4.6%、三季度回升至 +4.5%；1-9 月批零业增加值 +4.4%。制度与政策底仍在持续加码，这是今日沪指能够两连阳的宏观基础。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>机构分歧的焦点非常明确：</b>《证券市场周刊》（10/26）指出「A 股创业板 / 科创50 均跌超 11%，上证 / 沪深300 创 7 月以来调整低点」，并把后续「两大契机」定义为「<b>美中期选举及美联储加息落地</b>」与「<b>中央经济工作会议明确 2027 年目标</b>」；中金公司另一篇给出「A 股估值回落至历史均值以下，具备较好投资吸引力」的偏多估值判断；复旦邵宇主张「左手黄金、右手科技」仍是贯穿十年的核心逻辑，但承认科技短期估值透支、需阶段性消化回调。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>分歧的落点其实一致：</b>多空双方都认为科技产业方向未变，分歧只在「什么时候买」。邵宇明确「资金阶段性转向红利类资产或消费等传统价值板块，<b>只是估值的均值回复，并不代表科技发展的方向出现变化</b>」；中金则强调调整近尾声。本报告认同这一落点 —— <b>产业景气未逆转，估值出清未结束</b>。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>短期阶段判断：</b>今日沪指 +0.19% 收在 3697.52（高于 D-1 收盘 3690.48，盘中最高 3699.01 创 D-1 反弹以来新高），但深成指 -1.19%、创业板指 -1.71%、科创50 -2.23%、北证50 -2.13%，成交缩量 3,497 亿 —— <b>指数分化 + 缩量，说明是资金在防守端内部重新配置，不是增量资金入场，更不是趋势反转。</b>此时最忌把结构性反抽误判为新一轮主升。</p></div>
+    <div class="conclusion-item"><span class="num">5</span><p><b>风格结论：</b>最稳妥的结构仍是「<b>红利打底 + 事件型内需小仓试探 + 成长继续等待</b>」。银行 / 央企 ETF 涨幅已与个股收敛，红利表达的效率改善；成长端则需要「成交重新放大 + 封板率回到 85% 以上 + CPO 主力净流出收敛」三项共振，才具备加仓理由。</p></div>
+  </div>
+
+  <div class="section-title warn">⚖️ 九、机构观点与市场分歧</div>
+  <div class="conflict-grid">
+    <div class="view-a">
+      <h4>🟢 多方：政策窗口 + 估值回落 + 调整近尾声</h4>
+      <p><b>中金公司（2026-10-26）：</b>A 股估值回落至历史均值以下，具备较好投资吸引力；2026 年是 A 股 ESG 强制信息披露元年，上市公司披露的可持续发展报告数量较上年增加。</p>
+      <p><b>中金公司首席宏观分析师 张文朗（证券日报，10/26）：</b>「科技创新与国产替代相互促进，正在为经济增长和产业升级提供更持久的支撑」；国产替代深化为后续技术创新提供了更大应用空间。</p>
+      <p><b>复旦邵宇（上海证券报，10/26 14:28）：</b>「<b>左手黄金、右手科技</b>」仍是贯穿未来十年的核心逻辑 —— 科技产业是长期成长方向，但短期估值透支较多，需要阶段性消化回调；这个过程中资金会阶段性转向更稳健的红利类资产或消费等传统价值板块，「但这只是估值的均值回复，并不代表科技发展的方向出现变化」。</p>
+      <p><b>平安证券（央广财经，10/26）：</b>A 股进入三季报密集披露期，业绩正在逐步验证产业盈利韧性，叠加宏观经济企稳、资本市场支持政策持续落地，积极因素不断增多；「经济稳中向好的趋势没有改变」。</p>
+      <p><b>万联证券 郦彬（央广网，10/26）：</b>受海外市场波动传导及场内微观流动性扰动影响，全球主要权益市场同步回调，A 股亦经历快速估值与情绪调整；「扰动因素逐步消化，A 股信心修复逻辑持续明朗」。</p>
+      <p><b>《证券市场周刊》（10/26）：</b>10 月上半月全球市场普遍趋弱，韩国股市 -17.1%、美国费城半导体指数 -11.8%，A 股创业板与科创50 跌超 11%、上证与沪深300 创 7 月以来调整低点；「<b>A 股调整近尾声</b>」，关注食品饮料、公用事业等避险板块。</p>
+      <p><b>产业基本面未逆转：</b>全球物理 AI 市场 2026-2033 年 CAGR 36.1%（816 亿 → 9604 亿美元）；中信证券预计 2027 年通用模型进入具身任务领域将成为 AI 行业下一个投入方向；Q3 中国游戏市场收入 925.22 亿元 +5.11%；9 月 209 款游戏版号获批；前三季度 GDP +4.6%、三季度回升 0.2pct。</p>
+    </div>
+    <div class="view-b">
+      <h4>🔴 空方：广度仍为负 + 封板率塌陷 + AI 硬件黑洞 + 避险失效</h4>
+      <p><b>广度仍为负：</b>上涨 2,180 家 vs 下跌 3,050 家、平盘 145 家，涨跌比 0.71 : 1 —— 虽较 D-1 的极端普涨（涨 4,526 / 跌 142）大幅回落，但仍是跌多涨少；三大成长指数全线下跌，北证50 重新跌破 D-2 位置。</p>
+      <p><b>封板率塌陷：</b>涨停 55 家 / 炸板 23 家 → 封板率 70.5%，D-1 为 87%；最高板由 6 板降至 4 板。D-2 的 3 连板星光股份（002076）、三峡新材（600293）今日双双跌停，D-2 的 2 连板哈空调（600202）连续第二日跌停 —— <b>高位股出清尚未结束</b>。</p>
+      <p><b>最大的资金黑洞：</b>CPO 概念 -4.21%（主力 -99.01 亿）、光通信模块 -4.23%（-86.01 亿）、存储芯片 -3.97%（-85.61 亿）、元件 -5.71%（-66.31 亿）、印制电路板 -6.43%（-50.85 亿）；元件 4 家跌停、影视院线 2 家跌停（慈文传媒、博纳影业）、出版与通用设备各有延续跌停。</p>
+      <p><b>避险资产亦失效：</b>贵金属连续第三日走弱，赤峰黄金 -8.90%、山金国际 -5.25%、招金黄金 -6.02%、紫金矿业 -4.58%、白银 -4.40%；且黄金股与黄金 ETF 背离超 30 倍，说明个股端存在额外的拥挤度折价 —— <b>「避险」在当前的货币环境下已不构成买入理由</b>。</p>
+      <p><b>外围并未放松：</b>美欧日央行 10/28-30 公布利率决议，市场预期为「暂缓加息」而非降息；10 月上半月韩国 -17.1%、费半 -11.8% 证明 AI 交易的全球共振仍在出清阶段，A股无法独善其身。</p>
+      <p><b>新主线缺中期锚：</b>医药商业靠线下药店零售、游戏靠档期与版号、白酒靠政策预期，三条线的共同点是「事件 + 低估值」，缺产业景气验证；且皇台酒业 D-2 跌停今日涨停的 ±20% 波动，本身就说明这批标的的定价不锚定基本面。</p>
+    </div>
+  </div>
+  <div class="verdict">
+    <b>⚖️ 本文倾向：谨慎中性偏积极 · 总量不放大、结构聚焦红利与内需 —— 承认政策与估值底，但成长端的出清尚未完成</b><br>
+    <b>1｜倾向理由：</b>① 认同多方中期逻辑 —— 五中全会政策窗口、MLF 结构对冲、三季度 GDP 回升 0.2pct、中金「估值回落至历史均值以下」、调整近尾声，这些构成向下的缓冲垫；② 但<b>不认同任何形式的总量做多</b> —— 涨跌比 0.71 : 1、封板率 70.5%、最高板从 6 板降至 4 板、AI 硬件单日主力净流出近 100 亿、成交缩量 3,497 亿，说明增量资金缺席且主线仍在出清；③ 认同邵宇「左手黄金右手科技」的十年框架，也认同其对短期节奏的判断（科技是估值消化回调而非方向变化），因此当下应<b>偏重左手</b>；④ 认同中金对「调整近尾声」的判断，但需要「成交重新放大 + 封板率回升 + CPO 流出收敛」三项确认，而非单凭时间判断。<br>
+    <b>2｜操作建议：</b>总仓位 <b class="warn-text">35%-45%</b>（较 D-2 报告的 25%-35% 小幅上调，理由是广度与封板率较 10/22 冰点明显修复、且政策窗口开启），结构上「<b>红利打底 + 事件型内需小仓 + 成长观察</b>」；不抄底 AI 硬件 PCB / 元件 / 覆铜板链；不碰已断板的高位股（海洋王、大业股份、哈空调、星光股份、三峡新材）；不在封板率低于 75% 的环境下追连板。
+  </div>
+
+  <div class="section-title info">🔭 十、后续展望与交易策略</div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <h4><span class="num">1️⃣</span> 后市展望</h4>
+      <p><b>短期（3-5 个交易日）：政策窗口内的「沪指强、成长弱」格局延续，指数窄幅震荡。</b><br>理由：① 五中全会 10/26-29 召开，政策定调预期为红利与内需提供托底；② 本周五（10/30）美欧日央行决议落地前，成长与贵金属缺乏增量催化；③ AI 硬件主力流出未见收敛，PCB / 元件链跌停潮未止。<br><b>关键位：</b>沪指 3697.52 收盘，向上看 <b>3700</b> 整数关（盘中最高 3699.01 已触），站稳后看 3713.03（10/21 收盘）；向下看 <b>3650</b>（10/22 收盘 3658.03 上方），跌破 3650 则本轮反抽结构受损。创业板指 2638.23，上方压力 2684.10（D-1 收盘），下方支撑 2600 / 2500；科创50 1315.50，1300 为多空分水岭；北证50 963.95，960 一线需重新站稳。</p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">2️⃣</span> 情绪判断</h4>
+      <p><b>情绪：分歧修复期 —— 较 D-1 的全面修复回落，但仍显著好于 D-2 的冰点。</b><br>数据：涨停 55 / 跌停 25、封板率 70.5%（D-1 为 87%）、炸板 23 只、最高板 4 板（D-1 为 6 板）、3 板 6 只、2 板 8 只、1 板 40 只、涨跌比 0.71 : 1。炸板名单中既有 D-1 的高位股（大业股份、世纪恒通），也有今日新题材（百洋股份 12 天 8 板、招商蛇口、江苏北人），<b>分歧集中在高位而非新方向</b>。<br><b>修复信号（出现任一即视为情绪拐点）：</b>① 封板率回升至 85% 以上且炸板数降至 12 家以内；② 4 连板上海九百打开后不出现新的中位断层；③ CPO 概念主力净流出收敛至 30 亿以内；④ 成交重新放大至 1.9 万亿以上且创业板指站上 2684。<br><b>反向信号：</b>跌停家数回升至 40 家以上 / 4 板与 3 板同时炸板 / 沪指跌破 3650 → 立即降至最低仓位。</p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">3️⃣</span> 资金信号</h4>
+      <p><b>当前状态：从 AI 硬件 / 贵金属 → 银行红利 + 医药零售 + 游戏 + 石油涨价。</b><br><b>流入</b>（东财概念口径）：人形机器人 +26.32 亿、AI 芯片 +15.84 亿、婴童概念 +11.35 亿、券商金股 +9.97 亿、红利股 +9.42 亿、创新医疗服务 +9.31 亿、证金持股 +5.77 亿、网络游戏 +5.66 亿、资源开采 +5.17 亿；行业口径：汽车 +11.60 亿、汽车零部件 +10.23 亿、数字芯片设计 +9.90 亿、医疗服务 +7.85 亿、游戏Ⅲ +7.66 亿、石油石化 +6.90 亿。<br><b>流出</b>：CPO 概念 -99.01 亿、光通信模块 -86.01 亿、存储芯片 -85.61 亿、元件 -66.31 亿、印制电路板 -50.85 亿、通信线缆及配套 -22.33 亿、集成电路封测 -21.18 亿、被动元件 -19.07 亿、半导体设备 -15.82 亿。<br>⚠️ <b>口径与缺口警示：</b>主力资金两套口径不可合并 —— 同花顺为「主题 / 概念」口径（漂亮100 +34.89 亿 / 证金持股 +24.56 亿 / 超级品牌 +15.07 亿），东财为「行业 / 概念成分股」口径；同一「证金持股」在东财口径为 +5.77 亿、涨 1.86%，与同花顺 +24.56 亿差异巨大，属口径差异而非数据冲突。另需注意<b>银行 ETF 今日涨幅（+1.77%~+1.95%）已追平个股</b>，红利表达的效率较 D-2 明显改善。</p>
+    </div>
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card mainline">
+      <h4>🟢 主线方向 · 顺势而为（建议仓位 12%-18%）</h4>
+      <ul class="strategy-list">
+        <li><b>① 银行红利 / 央国企（今日第一确定性方向）</b> —— 六大行中期分红比例 30%→31%、21 家 A 股银行拟派现超 2600 亿、上交所中长期资金持有 ETF 近 1.7 万亿（占比过半）；银行ETF 512820 +1.95%、512800 +1.77%、央企ETF 510060 +2.00%，<b>ETF 与个股涨幅已收敛</b> —— 核心池：工商银行（601398，+3.13%）、建设银行（601939，+2.74%）、招商银行（600036，+1.75%）、农业银行（601288，+1.95%）；<b>工具优先用 ETF</b></li>
+        <li><b>② 医药商业 / 线下药店（政策窗口下的防御刚需）</b> —— 五中全会开幕 + 1-9 月批零业增加值 +4.4% + 家电以旧换新超 10099 万台；线下药店 +3.20%、医疗服务主力 +7.85 亿、创新医疗服务 +9.31 亿 —— 核心池：英特集团（000411，+10.04%）、塞力医疗（603716，+10.00%）、漱玉平民（301017，+5.87%）、九州通（600998，+4.91%）、大参林（603233，+4.63%）；⚠️ <b>仅限零售 / 商业流通，创新药与 CXO 不在其内</b></li>
+        <li><b>③ 游戏 / 数字媒体（事件型仓位）</b> —— 《影之刃零》10/29 发售、Steam 愿望单约 250 万份、Q3 游戏收入 925.22 亿 +5.11%、9 月 209 款版号获批；游戏Ⅲ +3.26%、其他数字媒体 +5.35%、视频媒体 +4.00% —— 核心池：电魂网络（603258，涨停）、盛天网络（300494，+14.62%）、姚记科技（002605，+6.61%）、冰川网络（300533，+6.09%）；工具：游戏ETF 159869 +2.79%；⚠️ <b>事件驱动，10/29 发售后须兑现或减仓</b></li>
+        <li><b>④ 石油石化 / 资源涨价（价格型主线）</b> —— 布伦特 115 美元创 5 个月新高、供应中断担忧；石油ETF 159018 +3.79%、159697 +3.54% —— 核心池：中国石油（601857，+4.94%）、中国石化（600028，+3.54%）；⚠️ 地缘溢价驱动，<b>冲突缓和即回吐，只做价格不追高</b></li>
+        <li>⚠️ <b>纪律：</b>单主线不超过总仓位 8%；单只个股不超过总仓位 4%；事件型主线（游戏）在催化剂兑现日前减半；今日 40 只首板中不追高，只做有催化锚的</li>
+      </ul>
+    </div>
+    <div class="strategy-card defend">
+      <h4>🟡 防御 / 高低切方向（建议仓位 12%-18%）</h4>
+      <ul class="strategy-list">
+        <li><b>① 银行 ETF 与央企 ETF 替代个股（工具层，5%-8%）</b> —— 银行ETF 512820 +1.95%、512800 +1.77%（成交 16.81 亿）、央企ETF 510060 +2.00%；红利个股涨幅已收敛至 ETF 水平，<b>工具表达的性价比上升</b></li>
+        <li><b>② 消费宽基（内需政策对冲仓，4%-6%）</b> —— 消费ETF 159928 +1.06%、食品饮料ETF 515170 +1.30%、酒ETF 512690 +1.45%；五中全会窗口 + 批零数据改善 —— <b>用宽基替代个股</b>，避免皇台酒业这类 ±20% 的情绪票</li>
+        <li><b>③ 医药流通 / 创新药的分化处理（观察仓 3%）</b> —— 医药ETF 512010 +1.60%、医疗ETF 512170 +1.50% 可作底仓；但创新药ETF 159992 仅 +0.37%、港股创新药ETF 513120 -0.83%（成交 63.91 亿居全场前列）—— <b>创新药仍处离场阶段，暂不参与</b></li>
+        <li><b>④ 地产 / 基建（政策弹性观察仓 3%）</b> —— 地产ETF 159707 +3.85% 为 ETF 领涨、房地产开发 +0.81%（主力 +4.38 亿）、房产租赁经纪 +3.04%、10 月房企化债集中窗口期；但大名城 2 连板、招商蛇口 +8.08% 炸板 —— <b>只做 ETF 不做个股</b></li>
+        <li><b>⑤ 石油之外的低波央企（2%-3%）</b> —— 长江电力（600900）+1.39%、宝钢股份（600019）+2.04% —— 资源涨价方向之外的稳定现金流</li>
+      </ul>
+    </div>
+    <div class="strategy-card avoid">
+      <h4>🔴 风险规避（建议规避）</h4>
+      <ul class="strategy-list">
+        <li><b>① AI 硬件 PCB / 元件 / 覆铜板 / 被动元件链</b> —— 印制电路板 -6.43%（主力 -50.85 亿）、元件 -5.71%（-66.31 亿）、生益科技 -9.52%、南亚新材 -12.49%、三环集团 -12.13%、金安国纪 / 华正新材 / 奥士康 / 澳弘电子 4 家跌停；CPO 概念 -4.21%（-99.01 亿）、光通信模块 -4.23%（-86.01 亿）、存储芯片 -3.97%（-85.61 亿）、半导体设备ETF 159516 -5.74%</li>
+        <li><b>② 贵金属 / 黄金股 / 有色</b> —— 赤峰黄金 -8.90%、山金国际 -5.25%、招金黄金 -6.02%、紫金矿业 -4.58%、白银 -4.40%、有色金属ETF 512400 -2.49%；连续第三日失血，个股与 ETF 背离超 30 倍</li>
+        <li><b>③ 已断板 / 已跌停的高位股</b> —— 海洋王（002724，D-1 的 6 连板，今日 -3.49%）、大业股份（603278，6 连板断板 +8.08% 炸板）、哈空调（600202，连续两日跌停）、星光股份（002076）、三峡新材（600293）、东安动力（600178）、龙版传媒（605577）、慈文传媒（002343）、博纳影业（001330）</li>
+        <li><b>④ 出版 / 影视院线中出清未完成的标的</b> —— 龙版传媒、慈文传媒、博纳影业今日跌停；出版系 D-2 已集体跌停过一轮，当前仍在出清；<b>游戏反弹不等于传媒整体反转</b></li>
+        <li><b>⑤ 外盘事件驱动的跨境 ETF</b> —— 巴西ETF 520870 -10.02%、159100 -10.01%；美股 EWZ 隔夜一度 -19.63% —— 单一外盘政治事件，波动不可控</li>
+        <li><b>⑥ 仅靠「涨停 + 消息」而无产业锚的题材股</b> —— 今日 55 只涨停中 40 只为首板，炸板 23 只，封板率 70.5% —— <b>在封板率回到 85% 之前，不参与纯情绪接力</b></li>
+      </ul>
+    </div>
+    <div class="strategy-card master">
+      <h4>🧭 核心交易策略 · 总仓位建议 35%-45%</h4>
+      <ul class="strategy-list">
+        <li><b>总仓位：35%-45%</b> —— 较 D-2 报告（25%-35%）小幅上调。理由：① 广度较 10/22 冰点明显修复（跌停 49 → 6 → 25，涨跌比 0.11 → 31.9 → 0.71）；② 最高板仍在（上海九百 4 板）、3 板扩容至 6 只，梯队未崩；③ 五中全会政策窗口开启，10/26-29 存在事件驱动；④ 但成交连续缩量、封板率回落至 70.5%、AI 硬件流出未收敛，<b>不具备放大到 50% 以上的条件</b></li>
+        <li><b>核心矛盾：</b>主线已完成第六次切换（物理 AI / 机器人 → 医药 + 游戏 + 消费 + 涨价资源），但今日新主线均为「政策 / 档期 + 低估值」驱动，缺中期产业验证；同时 AI 硬件仍在失血。因此今日的正确动作不是「追新主线」，而是「<b>红利打底、事件小仓、等 AI 硬件资金流出收敛</b>」。若未来 3 个交易日内出现「成交重新放大至 1.9 万亿以上 + 封板率回到 85% + CPO 主力净流出收敛至 30 亿以内」三项共振，则加仓 5%-8%；若跌停家数回到 40 家以上或沪指跌破 3650，则降至 25% 以下</li>
+        <li><b>止损纪律：</b>单只 -8% 无条件止损；板块整体回撤超 5% 降仓一半；沪指跌破 3650 或创业板指跌破 2600 → 总仓位降至 25% 以下；封板率低于 65% 或跌停家数超 40 家 → 立即降至 20%；连续 2 日放量下跌 → 暂停所有新增仓位</li>
+        <li><b>关键时点：</b>① <b>10 月 26-29 日</b> 二十届五中全会（北京）「十五五」与产业政策定调窗口；② <b>10 月 28-30 日</b> 美欧日央行「超级央行周」利率决议（市场预期暂缓加息）；③ <b>10 月 29 日</b>《影之刃零》正式发售（游戏主线的兑现 / 证伪时点）；④ 10 月下旬 A 股三季报披露收官（医药 / 消费 / AI 硬件盈利最终验证）；⑤ 11 月上旬 10 月 CPI / PPI 与信贷社融；⑥ 11 月中央经济工作会议（明确 2027 年目标，被《证券市场周刊》列为「两大契机」之一）；⑦ 美中期选举结果（另一契机）；⑧ 10 月房企化债集中窗口期落地进展；⑨ 11 月初 OPEC+ 会议与中东局势对油价的定价</li>
+        <li>⚠️ <b>最终倾向：谨慎中性偏积极 · 总量不放大、结构聚焦</b> —— 以 35%-45% 仓位参与「银行红利打底 + 医药零售 / 游戏 / 石油小仓试探」，不碰 AI 硬件 PCB / 元件 / 覆铜板链、贵金属、已断板的高位股与外盘事件型跨境 ETF；待「成交重新放大 + 封板率回升 + CPO 流出收敛」三项共振后再考虑提升仓位</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 本报告完整数据来源清单（可追溯）：</strong><br>
+    <b>① 同花顺体系（算 1 个来源）</b>：<br>
+    &nbsp;&nbsp;· A股收评 · <a href="https://news.10jqka.com.cn/20261026/c681078755.shtml">https://news.10jqka.com.cn/20261026/c681078755.shtml</a>（2026-10-26 15:02:34）—— 指数涨跌幅、三市成交额 16,230 亿、领涨领跌板块、主力净流入 TOP3、涨停连板天梯、热点概览与消息面<br>
+    &nbsp;&nbsp;· ETF收评 · <a href="https://news.10jqka.com.cn/20261026/c681078731.shtml">https://news.10jqka.com.cn/20261026/c681078731.shtml</a>（2026-10-26 15:00:51）—— ETF 涨跌榜 TOP3 / TOP3、《影之刃零》档期与 Q3 游戏数据、宇树科技 GPT-6 测试与启元机器人第 5000 台下线、英伟达 Astranomy / OpenAI 机器人、中信证券物理 AI 研报<br>
+    <b>② 东方财富（独立第二来源）</b>：<br>
+    &nbsp;&nbsp;· 行情接口 push2.eastmoney.com（ulist.np）—— 五大指数收盘点位 / 涨跌幅 / 分市场成交额，与同花顺、腾讯逐字段一致<br>
+    &nbsp;&nbsp;· push2ex.eastmoney.com/getTopicZTPool —— 涨停 55 家、连板梯度（4/3/2/1 板）、封板时间、领涨行业、炸板次数<br>
+    &nbsp;&nbsp;· push2ex.eastmoney.com/getTopicDTPool —— 跌停 25 家名单及行业分布<br>
+    &nbsp;&nbsp;· push2ex.eastmoney.com/getTopicZBPool —— 炸板 23 家名单（封板率 70.5% 自算依据）<br>
+    &nbsp;&nbsp;· push2ex.eastmoney.com/getTopicZDFenBu —— 上涨 2,180 / 下跌 3,050 / 平盘 145 的分档统计<br>
+    &nbsp;&nbsp;· push2 板块 clist 接口（m:90 t:2 行业 / t:3 概念）—— 496 个行业与概念板块的涨跌幅、主力资金 TOP 与 BOTTOM<br>
+    <b>③ 腾讯行情（第三来源）</b>：qt.gtimg.cn（五大指数 + 31 只 ETF + 60 余只个股收盘价 / 涨跌幅 / 成交额）；web.ifzq.gtimg.cn fqkline（近 12 个交易日五大指数序列，用于 10/22 → 10/23 → 10/26 三日对照）<br>
+    <b>④ 新浪财经 / 格隆汇</b>：<br>
+    &nbsp;&nbsp;· 《算力硬件股走弱，消费板块逆势活跃》<a href="https://finance.sina.com.cn/wm/2026-10-26/doc-iniwpmtz2378826.shtml">https://finance.sina.com.cn/wm/2026-10-26/doc-iniwpmtz2378826.shtml</a>（10/26）—— 板块方向交叉验证（CPO、PCB、贵金属、MLCC、半导体、存储芯片、影视、消费电子跌幅居前；医药商业、白酒、游戏、油气、食品活跃、地产股走高）。⚠️ 该文为盘中快照（成交 1.01 万亿），其指数数值未采用<br>
+    &nbsp;&nbsp;· 《两市成交额逼近 2 万亿，宇树科技收获上市以来首个涨停》<a href="https://finance.sina.com.cn/jjxw/2026-10-23/doc-iniwffek8224333.shtml">https://finance.sina.com.cn/jjxw/2026-10-23/doc-iniwffek8224333.shtml</a> —— 10/23 涨停 82 股 / 炸板 12 股 / 封板率 87%<br>
+    <b>⑤ 财联社</b>：<br>
+    &nbsp;&nbsp;· 《【每日收评】A 股午后绝地反攻，创业板指放量涨超 4%》<a href="https://www.cls.cn/detail/2513562">https://www.cls.cn/detail/2513562</a> —— 10/23 收评（成交 1.96 万亿、放量 4,276 亿、超 4500 股收红、机器人与物理AI爆发、电力与银行跌、大业股份 6 连板）<br>
+    &nbsp;&nbsp;· 《10 月 26 日午间涨停分析》<a href="https://www.cls.cn/detail/2514809">https://www.cls.cn/detail/2514809</a> —— 午盘 42 股涨停、连板股总数 10 只、18 股封板未遂、封板率 70%，焦点股百洋股份（12 天 8 板）、上海九百（4 连板）、福莱新材（6 天 4 板）<br>
+    &nbsp;&nbsp;· 《A 股收评｜创业板指探底回升涨 4.16% 机器人产业链多股涨停》<a href="https://stock.stockstar.com/IG2026102300023775.shtml">https://stock.stockstar.com/IG2026102300023775.shtml</a> —— 10/23 涨 4,526 / 跌 142 / 平 9、涨停 84 / 跌停 9<br>
+    <b>⑥ 上证报 / 证券日报 / 央广网 / 证券市场周刊（经东方财富资讯流 10/26 抓取）</b>：复旦邵宇「左手黄金、右手科技」；中金公司「A 股估值回落至历史均值以下具备较好投资吸引力」；中金张文朗「科技创新与国产替代相互促进」；平安证券「三季报验证盈利韧性」；万联证券郦彬「扰动因素逐步消化」；《证券市场周刊》「A 股调整近尾声，静待两大契机再燃第二波」<a href="http://finance.eastmoney.com/a/202610263907814894.html">http://finance.eastmoney.com/a/202610263907814894.html</a><br>
+    <b>⑦ 政策与宏观（经东方财富资讯流 10/26 08:46-15:04）</b>：党的二十届五中全会今起至 29 日在北京召开；央行 10 月 MLF 缩量续作 2000 亿（操作 7,000 亿 / 到期 9,000 亿，买断式逆回购加量续作 4,000 亿）；前三季度 GDP +4.6%、三季度 +4.5%；1-9 月批零业增加值 11.1 万亿 +4.4%；家电以旧换新累计超 10099 万台；国家能源局截至 9 月底发电装机 41.3 亿千瓦 +11.2%；深圳与算力建设相关行业今年中长期贷款增量超千亿元；米哈游千亿押注 AI；比亚迪闪充下放至 7 万元级；脑机接口高质量数据集建设项目在武汉启动；香港证监会批准数字公募基金 24/7 交易；10 月房企化债集中窗口期<br>
+    <b>⑧ 新华社</b>：布伦特原油期货 10/23 盘中升至 115 美元/桶、创 5 个月来新高（中东局势紧张、船只与石油设施遇袭）<a href="https://www.news.cn/fortune/20261023/72e14b0d2680482eb2cc70d4d2a69dc2/c.html">https://www.news.cn/fortune/20261023/72e14b0d2680482eb2cc70d4d2a69dc2/c.html</a><br>
+    <b>⑨ 巴西大选</b>：卢拉逆转连任，巴西资产遭暴击（美股 EWZ 隔夜一度 -19.63%，东京追踪 Ibovespa 的 ETF 开盘 -13%、盘中 -16%）<br>
+    <b>⑩ 历史复盘文档</b>：20261022.html（D-2）—— 模块 ④ 全部 D-2 定性均从该文档的 .theme-banner / .mainlines / .conclusion 原文提取，未凭记忆补全；20261023.html（D-1）—— <b>本次未生成</b>，D-1 段落以当日行情数据与财联社 / 新浪收评补充，并已在每张卡内标注「前 1 日复盘文档缺失」<br>
+    <br>
+    <strong>⚠️ 数据缺口汇总（已按 SOP §4.5 留空标注，未编造）：</strong><br>
+    · <b>申万一级行业口径的板块涨跌幅排名</b> —— 未取得（东财为其自有行业分类，与申万口径不可直接对应）<br>
+    · <b>北向资金当日净流入</b> —— 公开接口未提供<br>
+    · <b>炸板率官方口径</b> —— 东财无该统计字段；本报告 70.5% 系依据「涨停 55 家 / 炸板 23 家」自算，与财联社午盘封板率 70% 一致；财联社 10/26 全天数据未取得<br>
+    · <b>连板晋级率</b> —— 依据东财涨停板池连板字段与 10/23、10/22 板池逐一比对自算，与官方口径可能存在差异<br>
+    · <b>东财 getTopicZDFenBu 的 date 参数无效</b>（查询 10/22、10/23 均返回当日数据），故涨跌家数仅有今日单日口径，D-1 / D-2 采用财联社与新浪收评口径<br>
+    · <b>同花顺板块涨跌幅仅给分类不给数值</b> —— 同花顺作板块归类，东财与新浪作数值 / 方向验证，三套口径分开呈现、不做数值合并<br>
+    · <b>10 月 23 日三市成交额</b> —— 东方财富 push2his 与网易历史接口均被拒；本报告采用「今日 16,230 亿 + 缩量 3,497 亿」反推的 19,727 亿，并经财联社与新京报「1.96 万亿」交叉确认<br>
+    · <b>20261023.html（D-1）复盘文档缺失</b> —— 模块 ④ 的 D-1 段落已按 SOP §4.2.4 降级为「行情数据 + 第三方收评」两段式来源，并逐卡标注，未凭记忆补全
+  </div>
+
+  <div class="footer">
+    📅 数据日期：<b class="up-text">2026-10-26（周一收盘）</b> · 下一个交易日：2026-10-27（周二）<br>
+    📊 数据来源：同花顺 · 东方财富 · 腾讯行情 · 新浪财经 · 财联社 · 上证报 / 证券日报 / 央广网 · 新华社 · 东方财富资讯流<br>
+    📌 历史对照：D-2 = 2026-10-22（20261022.html，复盘文档存在） · D-1 = 2026-10-23（<b class="warn-text">复盘文档缺失</b>，以行情数据 + 财联社/新浪收评补充并逐卡标注）<br>
+    ⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供投资研究参考，<b class="danger-text">不构成任何投资建议</b>。市场有风险，投资需谨慎。<br>
+    🧠 主线三段式脉络基于已生成复盘文档原文提取，未凭记忆补全；所有衍生数据均已标注口径与估算方法，数据缺口已逐项留空披露。
+  </div>
+
+</div>
+</body>
+</html>

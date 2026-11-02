@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-13 中远海特 (600428) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(16,185,129,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(16,185,129,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #38bdf8, #34d399, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size:12px; color:#94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(56,189,248,0.10));
+    border: 1px solid rgba(16,185,129,0.40); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#34d399; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:2; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(16,185,129,0.18), rgba(56,189,248,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(16,185,129,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#34d399; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#10b981,#059669);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(16,185,129,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(16,185,129,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #34d399; }
+  .conclusion-item .num { display:inline-block; background:#34d399; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>⚓ 中远海特 (600428) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">特种船运输全球龙头 · 半潜船全球第一 + 纸浆船全球第二 + 汽车船中国最大外贸 · 2026H1 业绩爆表 +66%</div>
+    <div class="badges">
+      <span class="badge badge-success">🎯 综合评级：<b>买入</b>（业绩拐点确认 + 汽车出海高景气 + 多船型量增齐发 · 估值消化中）</span>
+      <span class="badge badge-source">📅 数据日期：2026-09-10（周三收盘）</span>
+      <span class="badge badge-source">📊 股价 11.35 元 · 总市值 ~311 亿 · PE 静 18.10x · PB 1.89x</span>
+      <span class="badge badge-purple">🧠 费雪 + 巴菲特 + 马克斯 + 邓普顿 + 林奇 PEG 等 11 方法论 × 12 模块</span>
+      <span class="badge badge-success">✅ 2026H1 归母净利 +66.24% · 中银证券维持"买入"</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-09-10）：</strong><br>
+    ✅ 股价 <span class="info">11.35 元</span>（9/10 跌 -3.40%），总市值 <span class="info">约 311.45 亿元</span>，流通市值 <span class="info">287.32 亿元</span>，总股本 <span class="info">27.44 亿股</span>，流通股本 <span class="info">24.45 亿股</span> · 来源：moomoo（11.35）、搜狐证券（流通 287.32 亿、-3.40%）、新浪财经（多源核对，2026-09-10 收盘快照）<br>
+    ✅ 52 周区间：<span class="warn">6.14 - 12.52 元</span>，距 52 周高点 <span class="danger">-9.3%</span>，距 52 周低点 <span class="ok">+84.9%</span>，当前居 52 周中位偏上 · 近 60 日资金面温和流出（9/10 主力净流入 -4341.62 万近 3 日）<br>
+    ✅ PE 静 <span class="warn">18.10x</span>、PB <span class="warn">1.89x</span>、PE-TTM 估算 <span class="warn">约 17.5x</span>（按 2025 归母 17.80 亿）、A 股股息率 TTM <span class="ok">约 2.86%</span>（按 2025 年 10 派 3.25 元测算） · 大股东质押率 <span class="ok">0.2%</span>（极低）、商誉 <span class="ok">极低</span><br>
+    ✅ 业绩基准（<span class="ok">2025 年报</span>，2026-03-25 披露）：营收 <span class="info">232.11 亿(+38.32%)</span>、归母净利 <span class="info">17.80 亿(+16.29%)</span>、扣非归母 <span class="ok">17.48 亿</span>、EPS <span class="info">0.8631 元</span>、ROE 加权 <span class="info">10.8%</span>、资产负债率 <span class="warn">约 58.7%</span><br>
+    ✅ 业绩基准（<span class="ok">2026H1 半年报</span>，2026-08-26 披露）：营收 <span class="ok">144.46 亿(+34.07%)</span>、归母净利 <span class="ok">13.71 亿(+66.24%)</span>、扣非归母 <span class="ok">13.38 亿(+60.22%)</span>、EPS 约 0.50 元、半潜船营收 15.04 亿(+5.31%)、半潜船毛利率 26.18%(+1.87pct)<br>
+    ✅ 业务结构（<span class="info">"4+1"主力船型齐发力</span>）：多用途船+重吊船（核心）、<span class="purple">半潜船全球第一</span>、<span class="purple">纸浆船全球第二</span>、<span class="purple">汽车船中国最大外贸船队</span>、木材船+沥青船<br>
+    ✅ 资金面：<span class="warn">9/10 近 3 日主力净流入 -4341.62 万</span>、9/9 融资买入 2750.72 万（融资余额 3.31 亿、占流通 1.15%）、9/10 换手率 1.89%、成交 5.36 亿<br>
+    ✅ 机构观点：<span class="ok">中银证券 2026-09-11 维持"买入"评级</span>，预测 2026 年净利 <span class="info">29.31 亿元</span>（对应 PE 约 10.6x）；中银国际看好"中国汽车出口高景气度"<br>
+    ⚠️ 数据局限：MA60/120/250 均线、北向资金近 30 日净流入流出、机构完整持仓变动未独立全口径核验；同业（中远海控/中远海能）2026H1 数据已纳入对比<br>
+    ⚠️ 关键警示：<span class="danger">静态 PE 18.10x 处近年高位</span>、<span class="warn">ROE 仅 10.8%</span>（低于巴菲特 15% 优秀线）、<span class="warn">近 60 日资金面偏弱</span>、<span class="warn">2026H1 业绩高基数效应下 Q3/Q4 同比增速可能回落</span><br>
+    📊 关键定性：2026H1 业绩爆表确认"业绩拐点 + 多船型量增 + 汽车出海 + 半潜高毛利"四重逻辑共振；中银证券 2026 全年净利预测 29.31 亿（对应 46.8% 进度已超）；业务结构属"周期上行 + 量增兑现"阶段，但估值已部分反映乐观预期
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">⚓</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：业绩拐点确认 + 多船型量增齐发 + 估值消化中 —— 买入（6.8/10），分批入场</h3>
+      <p>
+        中远海特在 <b style="color:#34d399">费雪成长（7 分）、巴菲特护城河（7 分）、马克斯周期（7 分）、邓普顿逆向（6 分）</b>框架下得分偏高（2026H1 业绩 +66% + 半潜船全球第一 + 纸浆船全球第二 + 汽车船中国最大外贸 + 中国汽车出海高景气 + 央企整合红利）；<b style="color:#fbbf24">林奇 PEG（6 分）、凯恩斯选美（6 分）、西蒙斯量化（5 分）、索罗斯反身性（5 分）</b>中性（静态 PE 18x 处近年高位，量价齐升阶段的中后期）；<b style="color:#f87171">格雷厄姆（4 分）、博格指数（3 分）、达里奥全天候（5 分）</b>偏低（不算深度价值、非典型宽基逻辑、周期属性强）。综合 <b style="color:#34d399">6.8/10 分 = 买入</b>（仓位 ≤ 5%）。<br><br>
+        <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">费雪成长 + 巴菲特护城河</b>框架作为决策主线（"量增兑现 + 多船型护城河 + 央企整合"），用 <b style="color:#fbbf24">马克斯周期</b> 作为仓位与节奏约束（"周期上行 + 估值消化中，分批优于追高"），用 <b style="color:#fca5a5">格雷厄姆价格纪律</b> 作为买点（PE 静 18x 上限 + 52 周中位以下分批 + 不追高）；<b style="color:#fca5a5">静态 PE 18x + 近 60 日资金偏弱 + Q3/Q4 高基数效应</b> 是<b style="color:#fca5a5">短期博弈点</b>，需等待 Q3 业绩兑现 + 多船型量价齐升持续 + 汽车出海数据三确认。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-09-10 · 来源：moomoo/搜狐证券/新浪财经/公司公告(2026H1 半年报、2025 年报)</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:16px;">中远海特</div>
+      <div class="change">代码 600428</div>
+      <div class="label">上交所主板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:15px;">航运·特种船</div>
+      <div class="change">申万二级 航运Ⅱ</div>
+      <div class="label">三级 远洋运输</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:14px;">1996-12-18</div>
+      <div class="change">借壳更名 2016</div>
+      <div class="label">原名"长航凤凰"</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">行业第一</div>
+      <div class="name">总市值</div>
+      <div class="value">311.45 亿</div>
+      <div class="change">A 流通 287.32 亿</div>
+      <div class="label">特种船全球龙头</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">9/10 微跌</div>
+      <div class="name">当前股价</div>
+      <div class="value">11.35 元</div>
+      <div class="change">-3.40%</div>
+      <div class="label">52 周 6.14-12.52</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">近年高位</div>
+      <div class="name">PE 静</div>
+      <div class="value" style="font-size:18px;">18.10 x</div>
+      <div class="change">PE-TTM 约 17.5x</div>
+      <div class="label">估值消化中</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">近年高位</div>
+      <div class="name">PB (MRQ)</div>
+      <div class="value" style="font-size:18px;">1.89 x</div>
+      <div class="change">每股净资产 6.23 元</div>
+      <div class="label">重资产特征</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">业绩拐点</div>
+      <div class="name">2026H1 归母增速</div>
+      <div class="value">+66.24%</div>
+      <div class="change">13.71 亿</div>
+      <div class="label">炸裂式增长</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">中银预测</div>
+      <div class="name">2026E 净利</div>
+      <div class="value">29.31 亿</div>
+      <div class="change">对应 PE 10.6x</div>
+      <div class="label">中银证券</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">一般</div>
+      <div class="name">ROE (TTM)</div>
+      <div class="value" style="font-size:18px;">10.8%</div>
+      <div class="change">ROIC 7.6%</div>
+      <div class="label">低于优秀线</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">较厚</div>
+      <div class="name">现金及等价物</div>
+      <div class="value">76.65 亿</div>
+      <div class="change">占总资产 17.1%</div>
+      <div class="label">财务安全垫</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">极低</div>
+      <div class="name">商誉</div>
+      <div class="value" style="font-size:16px;">极低</div>
+      <div class="change">无减值风险</div>
+      <div class="label">内生增长为主</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">适中</div>
+      <div class="name">资产负债率</div>
+      <div class="value" style="font-size:17px;">58.7%</div>
+      <div class="change">总负债 263.25 亿</div>
+      <div class="label">航运业典型</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">央企</div>
+      <div class="name">实控人</div>
+      <div class="value" style="font-size:15px;">中远海运集团</div>
+      <div class="change">控股股东国资委</div>
+      <div class="label">整合红利预期</div>
+    </div>
+  </div>
+
+  <div class="section-title ok">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">买入</div>
+    <div style="color:#34d399; font-size:15px; font-weight:700; margin:8px 0;">
+      （特种船全球龙头 · 业绩拐点确认 + 多船型量增齐发 + 汽车出海高景气 · 估值消化中 · 分批入场）
+    </div>
+    <div class="comment">
+      中远海特在 <b style="color:#34d399">费雪成长（7 分）、巴菲特护城河（7 分）、马克斯周期（7 分）、邓普顿逆向（6 分）</b>框架下得分偏高（2026H1 业绩 +66% + 半潜船全球第一 + 纸浆船全球第二 + 汽车船中国最大外贸 + 中国汽车出海高景气 + 央企整合红利）；<b style="color:#fbbf24">林奇 PEG（6 分）、凯恩斯选美（6 分）、西蒙斯量化（5 分）、索罗斯反身性（5 分）</b>中性（静态 PE 18x 处近年高位，量价齐升阶段的中后期）；<b style="color:#f87171">格雷厄姆（4 分）、博格指数（3 分）、达里奥全天候（5 分）</b>偏低（不算深度价值、非典型宽基逻辑、周期属性强）。综合 <b style="color:#34d399">6.8/10 分 = 买入</b>。<br><br>
+      <b style="color:#7dd3fc">核心定位：</b>特种船运输全球龙头，半潜船（全球第一）+ 纸浆船（全球第二）+ 汽车船（中国最大外贸）+ 多用途重吊船（核心），业务结构属"周期上行 + 量增兑现 + 央企整合"三重逻辑共振阶段。<b style="color:#34d399">业绩拐点确认</b>：2026H1 归母净利 13.71 亿（+66.24%）、扣非归母净利 13.38 亿（+60.22%），均创同期历史新高；中银证券预测 2026 全年净利 29.31 亿（同比 +64.7%），按现价对应 PE 约 10.6x。<b style="color:#fca5a5">核心警示</b>：静态 PE 18x 处近年高位、ROE 仅 10.8%（低于巴菲特 15% 优秀线）、近 60 日资金面偏弱（主力净流出）、Q3/Q4 业绩面临 2025H2 高基数效应（2025H2 单季净利约 9.55 亿）。<br><br>
+      <b style="color:#fca5a5">操作总则：</b>按 ≤ 5% 仓位分 3-4 批入场，每批前以 Q3 业绩兑现、汽车出海数据、半潜船高毛利持续为前提；止损 9.50 元（-16.3%）；中长线持有（6-18 月），等待汽车船量增 + 多船型量价齐升 + 央企整合三确认。
+    </div>
+  </div>
+
+  <div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">"以合理价格买入卓越公司,远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+  <div class="safety-bar">
+    <div class="safety-title">📐 中远海特估值区间（PE 视角 · 数据日期 2026-09-10 · 静态 PE）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">&lt; 12x · 深度价值（机会区）</div>
+      <div class="safety-seg seg-current">12-18x · 合理区间（当前 18.1x 接近上沿）</div>
+      <div class="safety-seg seg-over">&gt; 18x · 偏贵/透支</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>深度价值区</strong> · 净利 29 亿+ × 12x 以下 = 348 亿市值</span>
+      <span><strong>当前</strong> · 静态 PE 18.1x（处近年高位）</span>
+      <span><strong>透支区</strong> · 高景气预期已反映 + 短期资金偏弱</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 中远系航运股 A 股估值对比表（数据日期 2026-09-10 · 静态 PE 口径）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>现价</th><th>市值</th><th>PE 静</th><th>PB</th><th>股息率</th><th>2026H1 净利增速</th><th>综合定位</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:#7dd3fc">中远海特</b></td><td class="hl">600428.SH</td><td class="hl">11.35 元</td><td class="hl">311.45 亿</td><td class="warn">18.10x</td><td class="warn">1.89x</td><td class="ok">2.86%</td><td class="ok">+66.24%</td><td class="mid">特种船龙头 · 业绩爆发</td></tr>
+        <tr><td>中远海控</td><td class="hl">601919.SH</td><td>~15.31 元</td><td>~2418 亿</td><td class="ok">5.70x</td><td class="ok">1.04x</td><td class="ok">5.70%</td><td class="mid">集运承压</td><td class="ok">深度价值 · 集运周期</td></tr>
+        <tr><td>中远海能</td><td class="hl">600026.SH</td><td>~8.79 元</td><td>~421 亿</td><td class="ok">9.26x</td><td class="ok">1.27x</td><td class="warn">3.45%</td><td class="ok">油运景气</td><td class="ok">油运龙头 · 估值合理</td></tr>
+        <tr><td>招商轮船</td><td class="hl">601872.SH</td><td>~7.50 元</td><td>~605 亿</td><td class="warn">14.20x</td><td class="ok">1.45x</td><td class="warn">3.20%</td><td class="ok">+25%</td><td class="mid">综合航运 · 中性</td></tr>
+        <tr><td colspan="2" style="color:#94a3b8;">全球可比:Everett/Grimaldi/里查德湾特种船队</td><td colspan="5" style="color:#94a3b8;">特种船细分龙头 PE 中枢 15-20x / PB 1.5-2.0x</td><td colspan="2" class="hl">中远海特 PE 18x 与全球可比基本持平</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(56,189,248,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#38bdf8">结论：</b>中远海特静态 PE 18.10x 处近年高位（业绩爆发后估值已部分反映），但 PB 1.89x 与全球特种船可比公司基本持平；中银预测 2026E 净利 29.31 亿对应 PE 约 10.6x（动态 PE-2026E），具备较强安全边际。<b style="color:#fbbf24">格雷厄姆视角下"合理偏低"</b>：按中银 2026E 净利 29.31 亿 × PE 12-15x 测算合理市值 352-440 亿（对应 12.83-16.04 元）。<b style="color:#c084fc">邓普顿逆向视角下"次级逆向机会"</b>：业绩拐点已确认（不再是"最悲观点"），但中远海控 PE 5.7x 深度价值更具吸引力 → 中远海特属"业绩兑现期"的"分批配置机会"而非"抄底逻辑"。同业内中远海控 PE 5.7x + 股息率 5.7% 更具防御性，中远海特 PE 18x 弹性更大但防御性弱。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>安全边际测算：以当前价买入，未来 12 个月下行空间</h3>
+      <p>
+        <b style="color:#fbbf24">基准情景（2026E 净利 29.31 亿 / PE 12-15x）：</b>合理市值 352-440 亿 → <b style="color:#fbbf24">合理价 12.83-16.04 元（+13% ~ +41%）</b><br>
+        <b style="color:#fbbf24">乐观情景（2027E 净利 35 亿 / PE 14-17x）：</b>合理市值 490-595 亿 → <b style="color:#34d399">合理价 17.86-21.69 元（+57% ~ +91%）</b><br>
+        <b style="color:#fbbf24">保守情景（2026E 净利 25 亿 / PE 10-12x）：</b>合理市值 250-300 亿 → <b style="color:#f87171">合理价 9.11-10.94 元（-20% ~ -4%）</b><br>
+        <b style="color:#fca5a5">综合判断：</b>当前静态 PE 18.1x 对应 2025 年净利 17.80 亿 → 静态估值偏紧；中银 2026E 净利 29.31 亿（同比+64.7%）按 PE 12-15x 测算仍有 +13%~+41% 上行空间；2027E 若汽车船+半潜船量增持续兑现、净利达 35 亿，对应 PE 14-17x 上行空间 +57%~+91%。<b style="color:#c084fc">卖方目标价（综合估算）13-15 元（基于中银 2026E 预测 +10-30%）</b>。<b style="color:#34d399">关键支撑</b>：央企整合预期 + 多船型量增齐发 + 汽车出海高景气 + 半潜船全球第一护城河 + 76.65 亿现金 + 大股东质押率 0.2%。<b style="color:#fca5a5">关键风险</b>：保守情景下若 2026E 净利仅 25 亿、PE 收缩至 10x，下行至 9.11 元（-20%）。
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:14px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:14px; color:#34d399; margin-bottom:24px;">
+    📊 <b>估值结论：合理偏低（业绩爆发后估值已部分反映 · 但按 2026E 动态 PE 仍有 +13%~+41% 上行空间 · 分批优于追高）</b>
+  </div>
+
+  <div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">低估</div>
+      <div class="name">PEG (动态)</div>
+      <div class="value">0.28</div>
+      <div class="change">PE 18 / 增速 +65%</div>
+      <div class="label">PEG 远低于 1</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高速</div>
+      <div class="name">营收 3Y CAGR</div>
+      <div class="value">~25-30%</div>
+      <div class="change">2023-2025</div>
+      <div class="label">运力扩张+运价上行</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">归母 3Y CAGR</div>
+      <div class="value">~20-25%</div>
+      <div class="change">2023-2025</div>
+      <div class="label">业绩拐点确认</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">2026H1</div>
+      <div class="name">营收同比</div>
+      <div class="value">+34.07%</div>
+      <div class="change">144.46 亿</div>
+      <div class="label">量增齐发</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">2026H1</div>
+      <div class="name">归母同比</div>
+      <div class="value">+66.24%</div>
+      <div class="change">13.71 亿</div>
+      <div class="label">毛利率改善</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">催化剂</div>
+      <div class="name">未来 12-24 月</div>
+      <div class="value">多重</div>
+      <div class="change">Q3 业绩 + 整合</div>
+      <div class="label">央企整合预期</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h3>成长性判断：业绩拐点 + 量增齐发 + 高景气共振 —— 2026H1 炸裂式增长 +66.24%</h3>
+      <p>
+        2025 全年营收 <b style="color:#34d399">232.11 亿(+38.32%)</b>、归母净利 <b style="color:#34d399">17.80 亿(+16.29%)</b>，业绩拐点已确认；2026H1 营收 <b style="color:#34d399">144.46 亿(+34.07%)</b>、归母净利 <b style="color:#34d399">13.71 亿(+66.24%)</b>、扣非归母净利 <b style="color:#34d399">13.38 亿(+60.22%)</b>，<b style="color:#34d399">均创同期历史新高</b>，毛利率改善（半潜船毛利率 26.18%、+1.87pct）。中银证券预测 2026 全年净利 29.31 亿（同比+64.7%），按现价对应 PE 约 10.6x。<b style="color:#34d399">PEG 动态测算仅 0.28</b>（静态 PE 18 / 增速 65%）—— 显著低于 1.0 的"成长股合理估值"门槛，估值具备显著安全边际。<br><br>
+        <b style="color:#34d399">增长动力来源：</b>(1)<b style="color:#34d399">汽车船量增齐发</b>（中国汽车出海高景气度持续，2025 全年汽车出口 580 万辆、+20%，公司"中国最大外贸汽车船队"直接受益）；(2)<b style="color:#34d399">半潜船高毛利持续</b>（全球第一 + 海工市场回暖 + 毛利率 26.18% 同比 +1.87pct）；(3)<b style="color:#34d399">纸浆船全球第二</b>（中国纸品进口 + 俄纸出口双轮驱动）；(4)<b style="color:#34d399">多用途重吊船运价上行</b>（受益航运景气上行 + 大件设备出口需求）；(5)<b style="color:#34d399">央企整合预期</b>（中远海运集团内部特种船资产整合，存在外延式增长空间）。<br><br>
+        <b style="color:#fca5a5">⚠️ 数据局限：</b>PEG 0.28 的极端低估来自"静态 PE 18 + 单期增速 65%"的组合，若 Q3/Q4 高基数效应导致 2026H2 增速回落至 +20%，动态 PE 将上升至 ~15x、PEG 升至 ~0.75；需观察 2026H2 单季净利能否维持 9 亿+水平。<br><br>
+        <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1)Q3/Q4 业绩兑现（看 2026H2 净利能否 ≥ 15.6 亿达成中银全年 29.31 亿预测）；(2)汽车出海数据（2026 全年汽车出口能否突破 700 万辆）；(3)半潜船高毛利持续（看海工项目订单）；(4)央企整合落地（中远海运集团特种船资产整合方案）；(5)运价 BDTI / BHSI 指数走势。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+  <div class="table-card">
+    <div class="table-title">🛡️ 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></th>
+      </thead>
+      <tbody>
+        <tr><td><b>规模 / 全球第一</b></td><td class="ok">强</td><td><b style="color:#34d399">半潜船运力规模稳居全球第一</b>、多用途重吊船船队位列世界第二、纸浆船全球第二、汽车船"中国最大外贸船队"；2026H1 半潜船营收 15.04 亿、毛利率 26.18%</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>央企整合红利</b></td><td class="ok">强</td><td>中远海运集团央企背景、控股股东国资委、整合集团内特种船资产存在预期；2026H1 中远海运集团财务公司风险评估公告显示关联交易稳定</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>资本 / 资产壁垒</b></td><td class="ok">强</td><td>总资产 448.70 亿（同比+11.68%）、船队规模行业领先、半潜船等特种船造价高昂（单船造价 1-3 亿美元），新进入者壁垒极高</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>技术 / 专业能力</b></td><td class="ok">强</td><td>半潜船装卸技术（深海石油平台、模块化设备）、重吊船 200 吨以上起货能力、纸浆船专用舱位设计、汽车船 RO-RO 装载技术 —— 专业能力多年积累</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>客户粘性</b></td><td class="ok">中等</td><td>海工项目长期合同 + 大客户战略（中石油、中石化、巴西石油等）+ 汽车主机厂长期承运协议 + 纸浆客户（俄罗斯、巴西、智利）</td><td class="warn">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>成本 / 经营杠杆</b></td><td class="warn">中等</td><td>船队折旧高、燃油成本敏感、汇率波动；但通过长协合同 + 多船型调度对冲部分周期波动</td><td class="warn">⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card warn">
+      <div class="tag warn">稳定</div>
+      <div class="name">ROE 常态</div>
+      <div class="value">~10-12%</div>
+      <div class="change">2025 TTM 10.8%</div>
+      <div class="label">低于巴菲特 15% 标准</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">改善中</div>
+      <div class="name">毛利率</div>
+      <div class="value">~19-20%</div>
+      <div class="change">TTM 19.5%</div>
+      <div class="label">半潜船 26.18%</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">改善中</div>
+      <div class="name">净利率</div>
+      <div class="value">~9-10%</div>
+      <div class="change">TTM 9.1%</div>
+      <div class="label">结构性改善</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">全球第一</div>
+      <div class="name">行业地位</div>
+      <div class="value">特种船龙头</div>
+      <div class="change">半潜船 #1 + 纸浆船 #2</div>
+      <div class="label">综合第一</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">壁垒深</div>
+      <div class="name">综合壁垒</div>
+      <div class="value">⭐⭐⭐⭐</div>
+      <div class="change">规模 / 资本 / 技术</div>
+      <div class="label">宽阔护城河</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">宽阔</div>
+      <div class="name">综合评级</div>
+      <div class="value" style="font-size:16px;">宽阔护城河</div>
+      <div class="change">全球龙头 + 央企</div>
+      <div class="label">特种船核心标的</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>护城河结论：宽阔护城河 + 特种船全球龙头 —— 半潜船全球第一 + 央企背景 + 重资产壁垒</h3>
+      <p>
+        中远海特在 <b style="color:#34d399">规模/全球第一、央企整合红利、资本/资产壁垒、技术/专业能力</b>四个维度具备最强护城河（半潜船全球第一 + 纸浆船全球第二 + 汽车船中国最大外贸 + 中远海运集团央企背景 + 单船造价 1-3 亿美元重资产壁垒），在 <b style="color:#34d399">客户粘性、成本/经营杠杆</b>两个维度具备次强护城河（海工长期合同 + 多船型调度对冲）。ROE 常态 10-12%、净利率 9-10%、毛利率 19-20%，<b style="color:#fbbf24">未达巴菲特"优秀 >15%"标准但符合"重资产航运龙头"特征</b>，2026H1 业绩爆发后 ROE 有望阶段性回升至 12-14%。<br>
+        公司属于"<b style="color:#c084fc">宽阔护城河 + 特种船全球龙头</b>"标的，是 A 股航运板块特种船细分龙头 + 央企整合预期核心标的。<br>
+        <b style="color:#fca5a5">护城河侵蚀风险：</b>(1) 集装箱船公司切入特种船市场（运力扩张压力）；(2) 海工项目周期性波动（半潜船需求受油价影响）；(3) 新能源车出口结构变化对汽车船需求（电池海运安全规范趋严）；(4) 全球贸易摩擦影响中国出口（汽车、纸浆、机电设备）。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div>
+      <div>2024 / 2025 / 2026H1</div>
+      <div>格雷厄姆 + 凯恩斯视角</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入（亿）</div>
+      <div class="fin-val mid">~167.78 / 232.11 / 144.46</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">+10%/+38.32%/+34.07%</b>，2025 营收跨越式增长源于运力扩张 + 运价上行 + 汽车出海爆发；2026H1 维持高增长</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（亿）</div>
+      <div class="fin-val mid">~15.31 / 17.80 / 13.71</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">+约10%/+16.29%/+66.24%</b>，2026H1 净利翻倍式增长源于<b style="color:#34d399">量增 + 毛利率改善 + 高毛利半潜船业务占比提升</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">扣非归母净利（亿）</div>
+      <div class="fin-val warn">~12.98 / 17.48 / 13.38</div>
+      <div class="fin-comment">2026H1 扣非 <b style="color:#34d399">+60.22%</b>，与归母增速差距仅 6pct，<b style="color:#34d399">核心盈利质量优良</b>，非经常性损益项贡献小</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">EPS（元）</div>
+      <div class="fin-val mid">~0.7423 / 0.8631 / 约 0.50</div>
+      <div class="fin-comment">2026H1 EPS 约 0.50 元<b style="color:#34d399">（同比 +66%+）</b>，全年 EPS 有望突破 1.10 元，对应静态 PE 收敛至 10x 左右</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">毛利率</div>
+      <div class="fin-val warn">~17% / ~19% / ~21%</div>
+      <div class="fin-comment">2026H1 毛利率 <b style="color:#34d399">结构性改善</b>，半潜船毛利率 26.18%（+1.87pct）、多船型量价齐升</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">净利率</div>
+      <div class="fin-val warn">~9% / ~7.7% / ~9.5%</div>
+      <div class="fin-comment">2026H1 净利率 <b style="color:#34d399">回升至 9.5%</b>，反映毛利率改善 + 期间费用率优化</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">ROE（加权）</div>
+      <div class="fin-val warn">~10% / 10.8% / ~12-13%</div>
+      <div class="fin-comment">2026H1 ROE 阶段性回升至 12-13%，<b style="color:#fbbf24">低于巴菲特"优秀 >15%"标准但符合重资产航运特征</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val warn">约 60% / 58.7% / ~58%</div>
+      <div class="fin-comment">2026H1 约 58%，<b style="color:#fbbf24">航运业典型水平</b>（重资产 + 长期负债匹配船龄）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">账面现金及等价物（亿）</div>
+      <div class="fin-val ok">~65 / 76.65 / ~80</div>
+      <div class="fin-comment"><b style="color:#34d399">较充足</b>，占总资产 17.1%，是估值"安全垫"+ 运力扩张弹药库 + 派息底气</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流（亿）</div>
+      <div class="fin-val ok">~30 / ~45 / ~28</div>
+      <div class="fin-comment">2026H1 经营现金流 <b style="color:#34d399">28 亿+</b>（估算），现金创造能力强，与归母净利基本匹配</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款</div>
+      <div class="fin-val ok">周转正常</div>
+      <div class="fin-comment">航运应收账款主要为大型货主（海工项目、汽车主机厂、纸浆客户），<b style="color:#34d399">回款风险可控</b>，但需关注长周期项目应收账款周转</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">商誉 / 总资产</div>
+      <div class="fin-val ok">极低</div>
+      <div class="fin-comment"><b style="color:#34d399">极低</b>，主要靠内生增长与造船投资，无减值风险</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">分红率</div>
+      <div class="fin-val ok">~50.1%</div>
+      <div class="fin-comment">近三年累计分红率 <b style="color:#34d399">50.1%（21.90 亿元）</b>，2025 年度拟 10 派 3.25 元（合计约 8.92 亿，分红率 50.1%）；A 股股息率 TTM 约 2.86%</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">大股东质押率</div>
+      <div class="fin-val ok">0.2%</div>
+      <div class="fin-comment"><b style="color:#34d399">极低</b>，无平仓风险，央企背景稳定性</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">💰</div>
+    <div class="text">
+      <h3>财务质量判断：业绩拐点 + 结构性改善 + 账面健康 —— 2026H1 业绩爆表 + 核心盈利质量优良</h3>
+      <p>
+        公司账面现金 <b style="color:#34d399">76.65 亿元</b>、2026H1 经营现金流 <b style="color:#34d399">28 亿+</b>、商誉占比 <b style="color:#34d399">极低</b>、累计派现 <b style="color:#34d399">21.90 亿元</b>、大股东质押率 <b style="color:#34d399">0.2%</b>，<b style="color:#34d399">整体财务结构健康，是特种船细分龙头典范</b>。<br>
+        <b style="color:#34d399">2026H1 业绩爆表</b>：营收 +34.07%、归母 +66.24%、扣非 +60.22%、毛利率改善、半潜船毛利率 26.18%（+1.87pct）—— <b style="color:#34d399">核心盈利质量优良，业绩拐点已确认</b>。<br>
+        <b style="color:#fca5a5">关键警示</b>：ROE 加权仅 10.8% <b style="color:#fca5a5">低于巴菲特"优秀 >15%"标准</b>，反映"重资产航运 + 周期性"双重压制；资产负债率 58% 较高（航运业典型）；Q3/Q4 面临 2025H2 高基数效应（2025H2 单季净利约 9.55 亿）。<br>
+        <b style="color:#7dd3fc">后续验证重点：</b>2026 Q3/Q4 业绩披露后，<b style="color:#fbbf24">2026H2 单季净利能否 ≥ 7.8 亿达成中银全年 29.31 亿预测、ROE 是否持续回升至 12-14%、半潜船毛利率是否维持 26%+、汽车船量增是否持续</b>是<b style="color:#fbbf24">评级修正的核心</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+  <div class="table-card">
+    <div class="table-title">🧭 管理层与治理关键事项</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>实控人 / 控股股东</b></td><td>中国远洋海运集团有限公司（央企，A+H 上市集团），实际控制人国务院国资委；中远海运集团整合了原中远集团 + 中国海运两大央企，是中国规模最大、品种最齐全、综合运力世界第一的航运企业集团</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>管理层稳定性</b></td><td>公司是央企整合（中远集团 + 中国海运）的产物，2016 年正式更名"中远海特"；管理层多为航运业内资深人士，具备海运央企背景</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股东回报</b><td><b style="color:#34d399">近三年累计分红率 50.1%（21.90 亿元）</b>；2025 年度拟 10 派 3.25 元（合计约 8.92 亿、分红率 50.1%）；A 股股息率 TTM 约 2.86%；央企现金分红纪律性较好</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>研发投入</b></td><td>特种船运输行业研发投入主要体现在船舶技术升级、绿色低碳燃料、智能化运营等；公司持续推进 LNG / 甲醇双燃料船舶、绿色船队更新</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>国际化战略</b><td>公司业务高度国际化（海工项目全球服务 + 汽车出海 + 纸浆全球采购 + 木材东南亚采购）；2025 年报披露持续优化全球航线网络</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>违规记录</b><td>近 3 年无重大违规处罚记录；国资委对央企考核稳健</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权质押</b><td>大股东质押率 <b style="color:#34d399">0.2%</b>（极低），无平仓风险（央企背景）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>信息披露质量</b><td>上交所主板上市、披露规范；半年报、年报、业绩说明会透明；公司公告涵盖业务进展、关联交易、募集资金管理等多个维度</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#34d399">治理结论：值得信任。</b>全部维度均处于央企/航运行业较优区间 —— 央企背景 + 国资委监管 + 大股东质押率 0.2% + 累计派现 21.90 亿 + 信息披露透明 + 全球国际化运营。<b style="color:#fca5a5">需注意</b>：(1) 央企整合后管理层稳定性需观察（中远 + 中国海运融合）；(2) 静态 PE 18x 处近年高位（不算深度折价）；(3) 周期性属性强，需观察 Q3/Q4 高基数效应下的业绩兑现。
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">"周期永远不会消失,理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+  <div class="grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+    <div class="table-card">
+      <div class="table-title">📈 行业周期定位：特种船景气上行 · 量增齐发 · 汽车出海高景气度</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        全球航运行业当前位于 <b style="color:#fbbf24">"十年维度上行景气周期"</b>。中信建投指出船舶行业正处于十年维度的上行景气周期，存量运力迭代更新叠加环保政策趋严，为行业核心支撑逻辑；2026 年策略报告强调"关注 2026 年油轮、散货景气上行"；新造船周期已启动，2021-2022 年新接订单同比增长 229.3%/256.2%。<br><br>
+        特种船细分赛道 <b style="color:#34d399">景气度更高</b>：(1)<b style="color:#34d399">中国汽车出海爆发</b>（2025 全年汽车出口 580 万辆、+20%；2026 预计突破 700 万辆）→ 汽车船"供不应求"，运价创历史新高；(2)<b style="color:#34d399">海工市场回暖</b>（油价回升 + 深海石油开发加速）→ 半潜船需求强劲，毛利率维持 26%+；(3)<b style="color:#34d399">中国纸品进口 + 俄纸出口</b> → 纸浆船需求双轮驱动；(4)<b style="color:#34d399">大件设备出口 + 一带一路基建</b> → 多用途重吊船运价上行；(5)<b style="color:#34d399">环保政策趋严</b>（IMO 2050 碳中和）→ 老旧船舶加速淘汰 + 新船造价高企。<br><br>
+        <b style="color:#7dd3fc">未来 3-5 年增长动力：</b>(1) 中国汽车出口持续高增（渗透率仍有空间）；(2) 海工项目长周期需求（深海石油 + 海上风电）；(3) 全球供应链重构（友岸外包 + 近岸制造 → 远洋运输需求）；(4) 绿色船队更新（双燃料船舶渗透率提升）；(5) 央企整合外延式增长（中远海运集团特种船资产整合）。<br><br>
+        <b style="color:#fca5a5">周期下行风险：</b>全球贸易摩擦升级影响中国出口（汽车关税、纸浆需求）；油价剧烈波动影响海工项目经济性；新造船大量交付后运力过剩（2026-2027 是订单交付高峰）。
+      </p>
+    </div>
+
+    <div class="table-card">
+      <div class="table-title">🏛️ 政策环境与产业链位置</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        <b style="color:#fbbf24">政策环境"中性偏多"：</b>(1)<b style="color:#34d399">国家"十五五"规划</b>明确支持海洋强国 + 航运强国建设，央企整合预期持续；(2)<b style="color:#34d399">"一带一路"沿线国家基建合作</b>持续推进，带动大件设备出口和远洋运输需求；(3)<b style="color:#34d399">新能源汽车出海</b>获国家政策支持（双积分政策 + 出口退税 + 金融支持）；(4) IMO 环保新规（2050 碳中和、2030 中期目标）<b style="color:#34d399">加速老旧船舶淘汰 + 利好龙头</b>（中远海特船队较新、绿色船舶占比提升）；(5)<b style="color:#fca5a5">国际海事组织 CII 评级</b>对老旧船舶不利，公司船队整体评级较好；(6) 央企整合政策导向（中远海运集团内部资源整合）。<br><br>
+        <b style="color:#c084fc">产业链位置：</b>特种船运输处于<b style="color:#34d399">"远洋运输产业链"中游核心</b>（上游为造船厂、燃油供应商、船员服务；下游为海工项目方、汽车主机厂、纸浆贸易商、大件设备出口商）。公司在<b style="color:#34d399">半潜船、纸浆船、汽车船三大细分赛道占据全球/中国领先地位</b>，具备显著的产业链议价能力。<br><br>
+        <b style="color:#34d399">行业判断：周期趋势向上（特种船景气上行 + 汽车出海高景气 + 央企整合红利）。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 截至 2026-09-10 技术结构</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>52 周高/低</td><td class="warn">12.52 / 6.14</td><td class="mid">9/10 收盘 11.35 居 52 周中位偏上（距高点 -9.3%、距低点 +84.9%）</td></tr>
+        <tr><td>9/10 当日表现</td><td class="danger">-3.40%</td><td class="mid">9/10 下跌 3.40% 成交 5.36 亿，换手率 1.89%——短期获利回吐压力</td></tr>
+        <tr><td>9/9 融资买入</td><td class="mid">2750.72 万</td><td class="mid">融资余额 3.31 亿，占流通市值 1.15%——杠杆资金参与度一般</td></tr>
+        <tr><td>近 3 日主力净流入</td><td class="danger">-4341.62 万</td><td class="warn">短期主力资金净流出，需观察是否持续</td></tr>
+        <tr><td>换手率</td><td class="mid">1.89%（9/10）</td><td class="mid">活跃度温和</td></tr>
+        <tr><td>量比</td><td class="mid">温和</td><td class="mid">近期成交量正常，市场关注度中等</td></tr>
+        <tr><td>MA 评级（英为财情）</td><td class="ok">强力买入</td><td class="ok">MA5 至 MA200 呈现强力买入展望（12 个买入信号、0 个卖出信号）</td></tr>
+        <tr><td>MA60/120/250</td><td class="warn">未独立核验</td><td class="mid">建议结合同花顺/通达信实时核验</td></tr>
+        <tr><td>北向资金近 30 日</td><td class="warn">未独立核验</td><td class="mid">A 股流通 287 亿，外资敞口有限</td></tr>
+        <tr><td>公募/社保/QFII 持仓变化</td><td class="warn">未独立核验</td><td class="mid">特种船细分赛道配置盘有限</td></tr>
+        <tr><td>近期成交量趋势</td><td class="mid">9/10 成交 5.36 亿</td><td class="mid">成交活跃度中等，无明显放量或缩量信号</td></tr>
+        <tr><td>关键支撑位</td><td class="ok">9.50 元（跌停） / 6.14 元（52 周低点）</td><td class="ok">强支撑 9.50-10.00，破位下看 8.50（-25%）</td></tr>
+        <tr><td>关键压力位</td><td class="warn">12.52 元（52 周高点）/ 12.47 元（涨停）</td><td class="warn">突破 12.5 看 13.5-15.0，站稳才能打开上行空间</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术面与资金流判断：中位震荡 + 短期获利回吐 + MA 评级偏多 —— 等待方向选择</h3>
+      <p>
+        <b style="color:#fbbf24">关键支撑位</b>9.50-10.00 元区间（跌停位 + 52 周中位 + 长期均线密集区），<b style="color:#fbbf24">关键压力位</b>12.52 元（52 周高点）/ 12.47 元（涨停）。若 Q3/Q4 业绩兑现 + 汽车出海数据持续 + 半潜船高毛利维持，向上突破 12.5 元则打开 13.5-15.0 元空间；若 2026H2 高基数效应导致净利同比转负，可能下探 9.5-10.0 元（-13%~-16%）。<br><br>
+        <b style="color:#7dd3fc">资金面：</b>9/10 主力资金净流入 -4341.62 万（近 3 日）、融资余额 3.31 亿（占流通 1.15%）；MA 评级（英为财情）"强力买入"——<b style="color:#34d399">技术指标偏多</b>；A 股换手率 1.89%，流动性中性。<b style="color:#fca5a5">短期获利回吐压力</b>：股价从 6.14 元低点反弹 +85% 至 11.35 元，短期技术性回调压力存在；近 3 日主力净流出反映部分资金选择兑现。<br><br>
+        <b style="color:#fca5a5">综合判断：</b>当前处于"<b style="color:#fbbf24">52 周中位 + 业绩兑现期 + 短期获利回吐 + MA 评级偏多</b>"的状态，但 <b style="color:#fca5a5">静态 PE 18x + Q3/Q4 高基数 + 主力近 3 日净流出</b> 三重压制下，向上空间有限。需以<b style="color:#fbbf24">Q3/Q4 业绩兑现 + 汽车出海数据 + 半潜船高毛利持续</b>三确认作为后续催化剂。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论打分 · Top 3 匹配</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num warn">4</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7</div>
+      <div class="score-name">费雪成长</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">6</div>
+      <div class="score-name">林奇 PEG</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+      <div class="score-out">PEG 投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">6</div>
+      <div class="score-name">邓普顿逆向</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">博格指数</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7</div>
+      <div class="score-name">马克斯周期</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "寻找复利机器"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">中远海特是典型的"特种船细分龙头 + 量增兑现"成长股。2026H1 归母净利 +66.24%（创历史新高）、营收 +34.07%、半潜船毛利率 26.18%（+1.87pct）、扣非净利 +60.22%——多船型量增齐发 + 毛利率结构性改善 = 复利型业绩兑现。中银预测 2026 全年净利 29.31 亿（同比+64.7%）。PEG 动态测算仅 0.28——属于"业绩拐点 + 量增齐发"阶段的优质成长股，但 ROE 仅 10.8% 低于巴菲特"优秀 >15%"标准、Q3/Q4 高基数效应需观察。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥇 巴菲特护城河</div>
+      <div class="method-author">沃伦·巴菲特 · "经济护城河"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">中远海特具备宽阔护城河：<b style="color:#34d399">半潜船运力规模全球第一 + 纸浆船全球第二 + 汽车船中国最大外贸船队</b>。规模/资本壁垒、单船造价 1-3 亿美元重资产壁垒、海工项目长期合同、大客户战略（中石油、巴西石油等）构成行业最难复制的护城河。央企背景 + 国资委监管 + 大股东质押率 0.2% + 累计派现 21.90 亿 + 信息披露透明。ROE 10-12%、净利率 9-10% 符合"重资产航运龙头"特征。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥇 马克斯周期投资</div>
+      <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">全球航运处于"十年维度上行景气周期"（中信建投），存量运力迭代更新 + 环保政策趋严 + 新造船周期启动为核心支撑；特种船细分赛道景气度更高（汽车出海爆发 + 海工回暖 + 纸浆双轮驱动 + 多用途重吊船运价上行）。中远海特处于"周期上行 + 量增兑现 + 央企整合"三重逻辑共振阶段。但 2026-2027 是订单交付高峰 + 全球贸易摩擦风险，需关注"周期上行 + 中后期"的位置。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">🥉 邓普顿逆向投资</div>
+      <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+      <div class="method-score warn">6 / 10</div>
+      <div class="method-desc">中远海特不属于"在最悲观点买入"标的——业绩拐点已确认、市场关注度提升（汽车出海概念热）、股价从 6.14 元低点反弹 +85%。但 <b style="color:#fbbf24">"次级逆向加仓机会"</b> 仍存：(1) 同业中远海控 PE 5.7x 深度价值更具吸引力，但中远海特增长弹性更大；(2) Q3/Q4 高基数效应下可能阶段性回调至 9.5-10.0 元区间，构成"分批加仓"机会；(3) 央企整合预期 + 半潜船高毛利 = 长期成长逻辑仍未完全反映。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">5. 林奇 PEG 投资</div>
+      <div class="method-author">彼得·林奇 · "PEG 选股"</div>
+      <div class="method-score warn">6 / 10</div>
+      <div class="method-desc">动态 PEG 仅 0.28（静态 PE 18 / 增速 65%）—— 显著低于 1.0 的成长股合理估值门槛，估值具备显著安全边际。但 PEG 0.28 来自"单期增速 65%"的极端值，若 Q3/Q4 增速回落至 +20%（高基数效应），PEG 将上升至 ~0.75。属于"业绩爆发期的高 PEG 投资价值"，但需观察增速可持续性。中银预测 2026E PE 10.6x / 2027E PE 8.9x / 2028E PE 7.4x——三年估值具备吸引力。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">6. 凯恩斯选美 / 西蒙斯量化 / 索罗斯反身性</div>
+      <div class="method-author">综合趋势与定价视角</div>
+      <div class="method-score warn">5-6 / 10</div>
+      <div class="method-desc">凯恩斯：市场关注度提升（汽车出海概念 + 中报爆表）但 9/10 主力净流出反映获利回吐；西蒙斯：MA 评级"强力买入"（12 买入信号 0 卖出信号），动量因子偏多 + 反转因子存在；索罗斯：估值-基本面反馈环敏感，Q3/Q4 业绩关键。综合：基本面强势 vs 短期获利回吐的结构性矛盾，需基本面验证。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">7. 格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score warn">4 / 10</div>
+      <div class="method-desc">静态 PE 18.10x 处近年高位（业绩爆发后估值已部分反映），不算深度折价。但 PB 1.89x 与全球特种船可比公司基本持平；中银 2026E 净利 29.31 亿对应 PE 约 10.6x（动态 PE-2026E），具备较强安全边际。账上现金 76.65 亿、大股东质押率 0.2%、累计派现 21.90 亿 = 账面安全垫较厚。属于"账面健康 vs 估值不算便宜"的"合理偏低"区间。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">8. 达里奥全天候配置</div>
+      <div class="method-author">雷·达里奥 · "全天候策略"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">中远海特是组合中典型的"周期型成长敞口"：与全球贸易 + 中国出口 + 油价 + 美元指数多重相关，与权益市场相关性高、不属于"防御型"配置。央企整合红利 + 累计派现 21.90 亿提供一定防御性，但单股仓位不宜过高（≤ 5%）。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">9. 博格指数投资</div>
+      <div class="method-author">约翰·博格 · "指数化投资"</div>
+      <div class="method-score bad">3 / 10</div>
+      <div class="method-desc">中远海特不是典型的宽基指数标的（特种船细分赛道），但作为中远海运集团旗下航运央企 + A 股股息率 TTM 约 2.86% + 累计派现 21.90 亿，可能纳入部分红利 / 国企 / 央企 ETF 成分股。不适合作为纯指数化标的，更适合作为"特种船景气 + 央企整合"主题的核心配置。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>费雪成长（7 分）+ 巴菲特护城河（7 分）+ 马克斯周期（7 分）看重量增兑现 + 多船型护城河 + 周期上行 → 高度认可；格雷厄姆深度价值（4 分）+ 邓普顿逆向（6 分）看重估值与悲观点 → "业绩拐点已确认、非最悲观点"</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突点：</strong>林奇 PEG（6 分）vs 凯恩斯选美（6 分）→ PEG 0.28 极低估（动态 PE 10.6x）vs 短期获利回吐（9/10 主力净流出），<b style="color:#fca5a5">采纳"动态 PEG + 量增兑现"框架</b>，分批优于追高</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>冲突点：</strong>马克斯周期（7 分）vs 邓普顿逆向（6 分）→ 周期上行确认 vs 非最悲观点，倾向于"<b style="color:#fca5a5">分批配置 + 业绩验证</b>"逻辑</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>冲突点（关键）：</strong>"中银乐观（2026E 净利 29.31 亿、对应 PE 10.6x）" vs "买方分歧（静态 PE 18x + Q3/Q4 高基数 + 主力净流出）" → <b style="color:#fca5a5">修复需要 Q3/Q4 业绩兑现 + 汽车出海数据 + 半潜船高毛利持续三验证</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">费雪成长 + 巴菲特护城河 + 马克斯周期</strong> 的"特种船量增兑现 + 全球第一护城河 + 周期上行"为主线，叠加 <strong style="color:#fbbf24">邓普顿逆向"分批加仓"</strong>，用 <strong style="color:#fbbf24">格雷厄姆价格纪律</strong> 作为仓位与买点约束（静态 PE 18x 上限 + 52 周中位以下分批 + 业绩验证前不追高），避免按成长股估值满仓，避免按"最悲观点"逻辑等待深度回调</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><strong>综合得分：6.8 / 10</strong>，对应评级：<strong style="color:#34d399">买入</strong>（特种船全球龙头 · 业绩拐点确认 + 多船型量增齐发 + 汽车出海高景气 · 估值消化中 · 分批入场）</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和催化剂做决策</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 仓位与分批建仓</div>
+      <div class="strategy-content">
+        <table class="compare-table" style="margin-bottom:10px;">
+          <thead>
+            <tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:#34d399">第一批</b></td><td><b style="color:#7dd3fc">10.50-11.50 元</b>区间（当前 11.35 附近，52 周中位 + 中报爆表后 + 9/10 回调后）</td><td class="warn">1.5%</td></tr>
+            <tr><td><b style="color:#34d399">第二批</b></td><td><b style="color:#7dd3fc">9.50-10.50 元</b>区间（破 52 周中位 + Q3 业绩兑现扣非持续 + 汽车出海数据持续）</td><td class="warn">1.5%</td></tr>
+            <tr><td><b style="color:#34d399">第三批</b></td><td><b style="color:#7dd3fc">8.50-9.50 元</b>区间（破 52 周跌停位 + 高基数效应下业绩兑现 + 央企整合方案）</td><td class="warn">1.5%</td></tr>
+            <tr><td><b style="color:#34d399">上限</b></td><td>单股 ≤ 8%，组合中航运/特种船合计 ≤ 12%</td><td class="ok">建议 ≤ 5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位（先减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        <strong>硬止损：</strong>收盘有效跌破 <strong class="hl-danger">9.50 元（约 -16.3%）</strong>，或 2026 三季报营收同比转负且扣非仍下滑超过 10%，<strong class="hl-danger">先减仓至 ≤ 2% 而非等待目标价</strong>。<br><br>
+        <strong>软止损：</strong>(1) 汽车出海数据大幅低于预期（2026 全年汽车出口 < 650 万辆）；(2) 半潜船毛利率大幅下降（< 22%）；(3) 实控人或核心高管出现大额减持或新增大额股权质押（央企背景概率极低）；(4) 累计派现/募资比下降至 40% 以下。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead>
+            <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">9.50-11.00 元</td><td class="warn">12.80-14.50 元</td><td class="ok">15.00-17.00 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">11.00-13.50 元</td><td class="ok">14.50-17.00 元</td><td class="ok">17.50-22.00 元</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2026E 净利 29.31 亿 × PE 12-14x；乐观假设：2027E 净利 35 亿 × PE 14-17x（汽车船量增持续 + 半潜船高毛利 + 央企整合落地）；保守假设：2026E 净利下行 5%（高基数） × PE 10-12x。卖方目标价（综合估算）13-15 元（基于中银 2026E 预测 +10-30%）位于中性区间上沿，作为 12-24 个月参考。</p>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong class="hl-info">中长线（6-18 个月）</strong>，等待 2026 三季报、年报兑现 + 汽车船量增持续 + 半潜船高毛利持续 + 央企整合三确认；若 2027 全年净利达 35 亿 + 央企整合方案落地 + 半潜船毛利率维持 26%+，可考虑切换为 <strong class="hl-purple">长线（&gt;18 月）</strong>，作为 A 股特种船细分龙头长期持有。<br><br>
+        <strong>短线（&lt;3 月）</strong>不推荐 —— Q3/Q4 高基数效应需要 2-3 个季度验证利润表，频繁交易易错失兑现窗口；当前资金面温和流出但 MA 评级偏多。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">2026Q3/Q4 归母净利</strong>（核心业绩验证，<b style="color:#fbbf24">2026H2 单季净利能否 ≥ 7.8 亿达成中银全年 29.31 亿预测是评级修正关键</b>）<br>
+        2. <strong class="hl-warn">汽车出海数据 + 半潜船毛利率</strong>（新动能兑现度，<b style="color:#fbbf24">汽车出口能否突破 700 万辆 + 半潜船毛利率能否维持 26%+是关键</b>）<br>
+        3. <strong class="hl-info">央企整合进展 + 运价 BDTI / BHSI 指数</strong>（外延式增长 + 行业景气度兑现度）
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">2026Q3 归母净利同比转负或继续下滑 ≥ 10%</strong>（核心盈利能力恶化预期形成）<br>
+        2. <strong class="hl-danger">半潜船毛利率大幅下降至 22% 以下</strong>（高毛利业务兑现预期破灭）<br>
+        3. <strong class="hl-danger">汽车出海数据大幅低于预期</strong>（中国汽车出口全年 < 650 万辆，主营逻辑证伪）
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 2026H2 高基数效应（核心警示）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026H1 归母 +66.24% 是在 2025H1 低基数（归母 8.25 亿）上实现的；2025H2 单季净利约 9.55 亿（推算），同比基数显著抬升 → 2026Q3/Q4 同比增速可能大幅回落<br>
+        <strong>影响幅度：</strong>若 2026Q3 归母净利同比仅 +10% 或转负 → 评级可能从买入下调至持有观察；目标价跌至保守区间（9.50-11.00 元，-16%~-3%）<br>
+        <strong>应对策略：</strong>每季度跟踪单季净利同比、剔除基数效应后的实际增长、半潜船毛利率变化；Q3 公告后立即重新评估加仓节奏
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 静态 PE 18x 处近年高位 + 主力近 3 日净流出（核心警示）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>静态 PE 18.10x 处近年高位；9/10 主力净流出 -4341.62 万（近 3 日）；股价从 6.14 元低点反弹 +85%；短期获利回吐压力存在<br>
+        <strong>影响幅度：</strong>若 Q3 业绩低于预期 + 主力净流出持续 → 股价回调至 9.50-10.00 元区间（-13%~-16%）<br>
+        <strong>应对策略：</strong>每日跟踪主力资金流向、融资余额变化、MA60/120/250 均线位置；破 10.00 元观望，破 9.50 元减仓
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 3. 汽车出海数据 + 半潜船高毛利可持续性</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>中国汽车出口若受贸易摩擦（欧盟反补贴关税、北美关税升级）影响 → 汽车船需求下降；油价剧烈波动 → 海工项目经济性下降 → 半潜船需求减弱；半潜船毛利率从 26.18% 大幅下降<br>
+        <strong>影响幅度：</strong>若汽车出海同比 +10% 以下 + 半潜船毛利率降至 20% 以下 → 2027E 净利预测可能下修 10-15%<br>
+        <strong>应对策略：</strong>跟踪中国汽车出口月度数据、半潜船项目订单、油价波动、海工项目开发进度
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 4. 新造船大量交付 + 运力过剩风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2021-2022 年新接订单大幅增长 + 2026-2027 是订单交付高峰；新船大量交付后特种船细分赛道可能出现运力过剩<br>
+        <strong>影响幅度：</strong>若运力过剩 → 运价下行 → 公司毛利率下降 2-3pct，2027E 净利可能下修 15-20%<br>
+        <strong>应对策略：</strong>跟踪新造船交付进度、BDTI/BHSI 指数、公司在手订单结构；评估新船造价 + 老船淘汰节奏
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 5. ROE 偏低 + 央企整合进度不及预期</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>ROE 仅 10.8% 低于巴菲特 15% 优秀线；中远海运集团特种船资产整合若推进缓慢或方案不达预期 → 估值溢价难以兑现<br>
+        <strong>影响幅度：</strong>若央企整合方案 2 年内未落地 → 估值可能从 PE 12-15x 收缩至 PE 8-10x，对应股价 9.50-10.50 元（-13%~-7%）<br>
+        <strong>应对策略：</strong>跟踪中远海运集团整合公告、关联交易变动、公司在集团战略中的定位变化；评估 ROE 是否持续回升至 12%+
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 来源与复核记录</div>
+
+  <div class="data-note">
+    <strong>📌 主要数据来源（截至 2026-09-10）：</strong><br>
+    ✅ 公司公告：<span class="ok">2025 年年度报告</span>（2026-03-25 披露，营收 232.11 亿、归母 17.80 亿、扣非 17.48 亿、EPS 0.8631）、<span class="ok">2026 Q1 报告</span>（2026-04，EPS 0.2169）、<span class="ok">2026 H1 半年度报告</span>（2026-08-26 披露，营收 144.46 亿、归母 13.71 亿、扣非 13.38 亿、半潜船营收 15.04 亿 +5.31% 毛利率 26.18% +1.87pct）、<span class="ok">2026 H1 业绩预增公告</span>（2026-07-09，净利同比最高增幅 70%）、<span class="ok">2026 H1 募集资金管理与关联交易公告</span>（2026-08-27）<br>
+    ✅ 股价/市值快照：<span class="info">moomoo</span>（11.35 元、9/10 跌 -3.40%、总市值 311.45 亿、PE 静 18.10x、PB 1.89x、52 周 6.14-12.52、流通 287.32 亿）、<span class="info">搜狐证券</span>（同步快照：每股净资产 6.23 元、ROE 10.8%、ROIC 7.6%、毛利率 19.5%、净利率 9.1%、累计分红率 50.1%）、<span class="info">新浪财经</span>（9/10 跌 3.40%、近 3 日主力净流入 -4341.62 万、9/9 融资买入 2750.72 万、融资余额 3.31 亿）；多源核对<br>
+    ✅ 业绩分析：<span class="info">中远海运集团官网 2026-08-28 半年报解读</span>（四大主力板块合力 + 半潜船高毛利）、<span class="info">财联社 2026-08-26</span>（上半年净利同比+66.24%）、<span class="info">证券时报 2026-08-27</span>（半年营收+34.07% 特种运输龙头动能充沛）、<span class="info">国际船舶网 2026-07-09</span>（业绩预增净利同比最高+70%）、<span class="info">航运在线 2026-08-28</span>（四大主力板块合力 + 盈利现金流双向好）<br>
+    ✅ 同业对比：<span class="warn">中远海控 601919</span>（PE 5.70、PB 1.04、股息率 5.70%、集运承压）、<span class="warn">中远海能 600026</span>（PE 9.26、PB 1.27、股息率 3.45%、油运景气）、<span class="warn">招商轮船 601872</span>（PE 14.20、PB 1.45、综合航运中性）<br>
+    ✅ 卖方研究：<span class="info">中银证券 2026-09-11</span>（维持"买入"评级，未给目标价；预测 2026 年净利 29.31 亿元）、<span class="info">中银国际 2026-08-28</span>（中国汽车出口高景气度 + 持续看好公司长期成长逻辑）<br>
+    ✅ 行业研究：<span class="info">中信建投</span>（船舶行业十年维度上行景气周期）、<span class="info">2026 航运行业策略报告</span>（关注 2026 年油轮、散货景气上行）、<span class="info">新造船周期</span>（2021-2022 新接订单同比+229.3%/+256.2%）、<span class="info">IMO 环保新规</span>（2050 碳中和、2030 中期目标）<br>
+    ⚠️ 数据局限：MA60/120/250、北向资金近 30 日净流入流出、机构完整持仓变动未独立全口径核验；2026 三季报、年报 <span class="danger">尚未披露</span><br>
+    📊 <strong style="color:#fbbf24">所有价格、市值、估值快照均存在口径与时点差异；本页不构成买卖承诺。预测区间的差异足以令 12 个月目标价产生 ±30% 的波动，请以风险揭示为先。</strong>
+  </div>
+
+  <div class="footer">
+    中远海特（600428）｜报告截止日 2026-09-13（周日）｜11 种方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（上交所/巨潮资讯）+ moomoo + 搜狐证券 + 新浪财经 + 中远海运集团官网 + 财联社 + 证券时报 + 国际船舶网 + 航运在线 + 中银证券 + 中银国际 + 中信建投 + 公开行业政策文件
+  </div>
+
+</div>
+</body>
+</html>

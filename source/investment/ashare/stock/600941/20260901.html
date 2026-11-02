@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-01 中国移动 (600941) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(56,189,248,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #38bdf8, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size:12px; color:#94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-left: 5px solid #38bdf8;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:2; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(245,158,11,0.18), rgba(56,189,248,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(245,158,11,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fbbf24; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(245,158,11,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(245,158,11,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #fbbf24; }
+  .conclusion-item .num { display:inline-block; background:#fbbf24; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>📡 中国移动 (600941) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">A+H 通信运营龙头 · "通信+算力+智能"三主业转型 · 中特估/中字头核心 · 现金奶牛 · 算力新动能 +14%</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>谨慎买入</b>（现金奶牛 + 算力转型 + 派息稳中有升 · 短期业绩承压）</span>
+      <span class="badge badge-source">📅 数据日期：2026-09-01（周二收盘）</span>
+      <span class="badge badge-source">📊 股价 99.68 元 · 总市值 2.16 万亿 · PE-TTM 16.4x · PB 1.52x</span>
+      <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 等 11 方法论 × 12 模块</span>
+      <span class="badge badge-success">✅ 2026 中期派息 544 亿 · 派息率稳中有升 · 累计现金分红 1.49 万亿港元</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-09-01）：</strong><br>
+    ✅ 股价 <span class="info">99.68 元</span>（9/1 涨 +0.64%），总市值 <span class="info">21617.82 亿元</span>，流通市值 <span class="info">899.88 亿元</span>，总股本 216.87 亿股（A 股流通 9.03 亿，H 股流通约 207.84 亿） · 来源：腾讯自选股/搜狐证券（2026-09-01 收盘快照，多源核对）<br>
+    ✅ 52 周区间：<span class="warn">85.38 - 107.41 元</span>，年初至今涨跌幅 <span class="info">+0.84%</span>，近 60 日 <span class="info">+3.19%</span>、近 20 日 <span class="info">+3.38%</span>，近 10 日 <span class="info">+4.12%</span> · 价格上限 <span class="warn">108.96 元</span>、下限 <span class="warn">89.15 元</span><br>
+    ✅ PE-TTM <span class="warn">16.4x</span>（静态 PE-lyr 15.77 / 动态 PE-fwd 13.69）、PB <span class="info">1.52x</span>、股息率 TTM <span class="warn">2.21%</span>（A 股口径，H 股股息率约 7%+） · PE 历史分位 <span class="warn">66%</span>（中性偏高）、PB 历史分位 <span class="ok">36%</span>（相对偏低），估值标签"低于行业平均"<br>
+    ✅ 业绩基准（<span class="ok">2025 年报</span>）：营收 <span class="info">10501.87 亿(+0.9%)</span>、归母净 <span class="warn">1370.95 亿(-0.9%)</span>、扣非归母 <span class="ok">1279.61 亿</span>、基本 EPS <span class="info">6.35 元</span>、毛利率 <span class="info">28.87%</span>、净利率 <span class="info">13.07%</span>、ROE 加权 <span class="info">9.90%</span>、经营现金流 <span class="ok">2329.19 亿</span><br>
+    ✅ 业绩基准（<span class="warn">2026H1 半年报</span>，2026-08-13 披露）：营收 <span class="warn">5380.35 亿(-1.1%, 同口径+)</span>、归母净 <span class="warn">789.34 亿(-6.3%, 同口径+)</span>、扣非 <span class="warn">697.33 亿(-11%)</span>、EPS <span class="info">3.64 元</span>、EBITDA <span class="warn">1736 亿(-6.6%)</span>、<span class="ok">经营现金流 +37.0%(1149 亿)</span>、<span class="ok">自由现金流 +111.6%(539 亿)</span><br>
+    ✅ 算力业务（<span class="ok">2026H1 高增长</span>）：算力服务收入 <span class="ok">529 亿(+14.0%)</span>、占主营 11.7%(+1.7pct) · AIDC <span class="ok">+486.1%</span>、智算服务 <span class="ok">53 亿(+130.1%)</span>、移动云公有云首次进入国内前三 · 算力+智能合计占主营 <span class="ok">22.6%(+2.2pct)</span><br>
+    ✅ 资本开支：上半年 610 亿(+4.5%)，其中算力网 <span class="ok">156 亿(+71.3%)</span>、智能网 <span class="ok">37 亿(+85.2%)</span>，通信网压减 41 亿 · 智算总规模 <span class="ok">11.27 万 PFLOPS(FP16)</span>、在网使用率超 90% · 2026 全年资本开支 1366 亿(-9.5%)，其中算力网络 <span class="ok">378 亿(+62.4%)</span>、智能网络 <span class="ok">89 亿(+19.8%)</span><br>
+    ✅ 用户基本盘：移动客户 <span class="info">10.11 亿户</span>(净增 588 万)、5G 网络客户 <span class="info">6.87 亿户</span>(净增 4474 万)、宽带客户 <span class="info">3.37 亿户</span>、物联网卡 <span class="info">15.11 亿户</span>(净增 2958 万)、手机上网流量 <span class="ok">+16.0%</span>、移动 ARPU 45.1 元<br>
+    ✅ 分红：<span class="ok">2026 中期派息 2.51 元/股(+0.3%)</span>、合计派发 <span class="ok">544.26 亿元</span>；公司明确<span class="ok">"2026 年派息率稳中有升"</span>；累计现金分红约 <span class="ok">1.49 万亿港元</span>（截至 2025 末）、累计派现/募资比 <span class="ok">815.6%(行业第一)</span><br>
+    ✅ 卖方一致预期（38 家）：综合目标价 <span class="info">114.34 元</span>（较现价上行 15.4%）· 2026E EPS 6.05 / 净利 1311 亿(-4.4%) / 营收 10475 亿 · 2027E EPS 6.17 / 净利 1337 亿(+1.9%) · 2028E EPS 6.41 / 净利 1390 亿(+4.0%) · 近 6 月评级 <span class="ok">买入/增持 100%</span><br>
+    ⚠️ 数据局限：MA60/120/250 均线、北向资金近 30 日净流入流出、机构完整持仓变动、AH 溢价实时水平未独立全口径核验；同业（中国电信 601728 / 中国联通 600050）2026H1 数据已纳入对比；公司治理项主要基于公开公告<br>
+    ⚠️ 关键警示：<span class="danger">2026H1 通信服务收入 -5.7%</span>、<span class="danger">归母净利 -6.3%</span>、<span class="danger">扣非 -11%</span>（主因增值税税目调整 6%→9%）、<span class="warn">PE-TTM 处于历史 66% 分位</span>、<span class="warn">A 股股息率仅 2.21%(远低于 H 股 7%+)</span>、<span class="warn">2026E 净利一致预期仍为负增长</span><br>
+    📊 关键定性：剔除增值税税目调整影响后，2026H1 营收和净利同口径实现正增长（董事长陈忠岳业绩说明会明确表态）；算力服务收入 +14%、智算 +130%、AIDC +486%，业务结构实质转型中；累计分红 1.49 万亿港元 + 派息率稳中有升 = 长期股东回报确定性高
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：现金奶牛 + 算力新动能 + 派息稳中有升 + 短期业绩承压 —— 谨慎买入（5.6/10），分批限仓</h3>
+      <p>
+        中国移动在 <b style="color:#34d399">马克斯周期（7 分）、巴菲特护城河（7 分）、达里奥全天候（6 分）、费雪成长（6 分）</b>框架下得分偏高（"通信+算力+智能"三大主业战略清晰、智算规模 11.27 万 PFLOPS + AIDC +486% + 智算 +130% + 派息率稳中有升 + 累计分红行业第一 + 国资云/算力国家队定位）；<b style="color:#fbbf24">格雷厄姆（5 分）、凯恩斯（5 分）、西蒙斯量化（5 分）、索罗斯反身性（5 分）</b>中性（PE 16.4x 处历史 66% 分位不算深度折价、传统业务承压、自由现金流大幅改善但 ROE 仅 9.9%）；<b style="color:#f87171">林奇 PEG（5 分）、邓普顿逆向（3 分）、博格指数（3 分）</b>偏低（短期净利负增长 PEG 失真、不在最悲观点、非宽基指数红利逻辑）。综合 <b style="color:#fbbf24">5.6/10 分 = 谨慎买入</b>（仓位 ≤ 5%）。<br><br>
+        <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">马克斯周期 + 巴菲特护城河</b>框架作为决策主线（"新旧动能转换期 + 牌照/规模/网络效应三重护城河 + 国资云/算力国家队"），用 <b style="color:#fbbf24">格雷厄姆价格纪律</b>作为仓位与买点约束（PE 16x 上限 + 不追高）；<b style="color:#fca5a5">2026H1 通信服务 -5.7% + 归母 -6.3% + 2026E 仍预期负增长</b> 是<b style="color:#fca5a5">短期估值修复阻力</b>，需等待 Q3/Q4 业绩、算力收入持续兑现、派息率提升三确认。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-09-01 · 来源：腾讯自选股/搜狐证券/公司公告(2026H1 半年报、2025 年报)</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">中国移动</div>
+      <div class="change">代码 600941</div>
+      <div class="label">上交所主板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:17px;">通信运营商</div>
+      <div class="change">申万二级通信服务</div>
+      <div class="label">三级电信运营商</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:14px;">2022-01-05</div>
+      <div class="change">H 股 1997-10-23</div>
+      <div class="label">A+H 双重上市</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">万亿级</div>
+      <div class="name">总市值</div>
+      <div class="value">2.16 万亿</div>
+      <div class="change">A 流通 899.88 亿</div>
+      <div class="label">A 股第一大权重</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">9/1 微涨</div>
+      <div class="name">当前股价</div>
+      <div class="value">99.68 元</div>
+      <div class="change">+0.64%</div>
+      <div class="label">52 周 85.38-107.41</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">历史 66% 分位</div>
+      <div class="name">PE-TTM</div>
+      <div class="value" style="font-size:18px;">16.4 x</div>
+      <div class="change">PE-fwd 13.69 / PE-lyr 15.77</div>
+      <div class="label">中性偏高</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">历史 36% 分位</div>
+      <div class="name">PB (MRQ)</div>
+      <div class="value" style="font-size:18px;">1.52 x</div>
+      <div class="change">每股净资产 64.37 元</div>
+      <div class="label">相对偏低</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="tag mid">2026E</div>
+      <div class="name">2026E PE</div>
+      <div class="value" style="font-size:17px;">约 16-17 x</div>
+      <div class="change">按 38 家预测中位</div>
+      <div class="label">EPS 6.05 元</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">略低</div>
+      <div class="name">A 股股息率(TTM)</div>
+      <div class="value" style="font-size:18px;">2.21%</div>
+      <div class="change">H 股股息率 ~7%+</div>
+      <div class="label">A 股估值偏高</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">行业第一</div>
+      <div class="name">累计派现/募资比</div>
+      <div class="value" style="font-size:18px;">815.6%</div>
+      <div class="change">累计 ~1.49 万亿港元</div>
+      <div class="label">央企现金奶牛</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">充足</div>
+      <div class="name">账面现金及等价物</div>
+      <div class="value">1878.57 亿</div>
+      <div class="change">现金占总资产 8.99%</div>
+      <div class="label">现金安全垫厚</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">无</div>
+      <div class="name">商誉</div>
+      <div class="value" style="font-size:16px;">极低</div>
+      <div class="change">38.13 亿</div>
+      <div class="label">无减值风险</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">极低</div>
+      <div class="name">资产负债率</div>
+      <div class="value" style="font-size:17px;">32.79%</div>
+      <div class="change">有息负债 988.28 亿</div>
+      <div class="label">财务结构稳健</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">A+H</div>
+      <div class="name">实控人</div>
+      <div class="value" style="font-size:15px;">中移集团 68.67%</div>
+      <div class="change">A 股 4.16% / 港股 27.17%</div>
+      <div class="label">控股股东国资委</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">谨慎买入</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （A+H 通信运营龙头 · 现金奶牛 + 算力转型 + 派息稳中有升 · 短期业绩承压 · 分批限仓）
+    </div>
+    <div class="comment">
+      中国移动在 <b style="color:#34d399">马克斯周期（7 分）、巴菲特护城河（7 分）、达里奥全天候（6 分）、费雪成长（6 分）</b>框架下得分偏高；<b style="color:#fbbf24">格雷厄姆（5 分）、凯恩斯选美（5 分）、西蒙斯量化（5 分）、索罗斯反身性（5 分）</b>中性；<b style="color:#f87171">林奇 PEG（5 分）、邓普顿逆向（3 分）、博格指数（3 分）</b>偏低。综合 <b style="color:#fbbf24">5.6/10 分 = 谨慎买入</b>。<br><br>
+      <b style="color:#7dd3fc">核心定位：</b>A+H 双重上市的通信运营龙头，"通信+算力+智能"三大主业战略清晰；2026H1 算力服务收入 529 亿（+14.0%）、智算服务 53 亿（+130.1%）、AIDC +486.1%、移动云公有云首次进入国内前三；累计现金分红 1.49 万亿港元、行业第一；债信评级等同中国国家主权评级（标普 A+/穆迪 A1）。<b style="color:#fca5a5">核心警示</b>：2026H1 通信服务收入 -5.7%、归母净利 -6.3%（主因增值税税目调整 6%→9%）、扣非 -11%；PE-TTM 16.4x 处历史 66% 分位不算便宜；A 股股息率仅 2.21%（远低于 H 股 7%+）；2026E 净利一致预期仍为 -4.4%。<br><br>
+      <b style="color:#fca5a5">操作总则：</b>按 ≤ 5% 仓位分 3 批入场，每批前以 Q3/Q4 业绩、算力收入持续兑现、派息率提升为前提；止损 80 元（-20%）；中长线持有（12-24 月），等待新旧动能转换阶段性成果验证。
+    </div>
+  </div>
+
+  <div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">"以合理价格买入卓越公司,远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+  <div class="safety-bar">
+    <div class="safety-title">📐 中国移动估值区间（PE 视角 · 数据日期 2026-09-01 · TTM）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">&lt; 12x · 深度价值（机会区）</div>
+      <div class="safety-seg seg-current">12-18x · 合理区间（当前）</div>
+      <div class="safety-seg seg-over">&gt; 18x · 偏贵/透支</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>深度价值区</strong> · 净利 1400 亿+ × 12x 以下</span>
+      <span><strong>当前</strong> · PE-TTM 16.4x（历史 66% 分位）</span>
+      <span><strong>透支区</strong> · 增速放缓至个位数 × 18x+</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 三大运营商 A 股估值对比表（数据日期 2026-09-01 · TTM 口径）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>现价</th><th>市值</th><th>PE-TTM</th><th>PB</th><th>股息率</th><th>2026E 净利预期</th><th>综合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:#7dd3fc">中国移动</b></td><td class="hl">600941.SH</td><td class="hl">99.68 元</td><td class="hl">2.16 万亿</td><td class="warn">16.4x</td><td class="ok">1.52x</td><td class="warn">2.21%</td><td class="warn">-4.4%</td><td class="mid">规模龙头 · 估值不算便宜</td></tr>
+        <tr><td>中国电信</td><td class="hl">601728.SH</td><td>6.44 元</td><td>5893 亿</td><td class="danger">19.8x</td><td class="ok">1.25x</td><td class="ok">4.22%</td><td class="ok">301 亿</td><td class="mid">估值偏高 · 派息率 75%</td></tr>
+        <tr><td>中国联通</td><td class="hl">600050.SH</td><td>4.30 元</td><td>1344 亿</td><td class="danger">19.44x</td><td class="ok">0.78x</td><td class="ok">3.80%</td><td class="ok">210 亿</td><td class="warn">PB 极低 · 业绩波动大</td></tr>
+        <tr><td colspan="2" style="color:#94a3b8;">全球可比:Verizon/AT&T/Telefonica/SKT</td><td colspan="5" style="color:#94a3b8;">PB 平均 1.55x(2025A) / 1.52x(2026E)</td><td colspan="2" class="hl">中移动 PB 1.52x 与全球可比基本持平</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(56,189,248,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#38bdf8">结论：</b>中国移动 PE-TTM 16.4x 处历史 66% 分位（中性偏高），但 PB 1.52x 处历史 36% 分位（相对偏低）—— 估值结构呈"PE 偏高 + PB 偏低"的反差，反映 2024 年来盈利能力下降导致的 PE 抬升。<b style="color:#fbbf24">格雷厄姆视角下"非深度折价、但绝对不贵"</b>：累计分红 1.49 万亿港元、ROE 9.9%、资产负债率 32.79%、自由现金流 +111.6%，账面安全垫厚实。<b style="color:#c084fc">邓普顿逆向视角下不适用</b>：中国移动不属于"在最悲观点买入"，而是典型"现金奶牛+转型标的"在估值消化期的"分批配置机会"。同业内 PB 与 Verizon/AT&T 等全球可比基本持平。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>安全边际测算：以当前价买入，未来 12 个月下行空间</h3>
+      <p>
+        <b style="color:#fbbf24">基准情景（2026E 净利 1311 亿 / PE 14-16x）：</b>合理市值 1.84-2.10 万亿 → <b style="color:#fbbf24">合理价 84.6-96.6 元（-15% ~ -3%）</b><br>
+        <b style="color:#fbbf24">乐观情景（2027E 净利 1337 亿 / PE 15-17x）：</b>合理市值 2.01-2.27 万亿 → <b style="color:#34d399">合理价 92.5-104.6 元（-7% ~ +5%）</b><br>
+        <b style="color:#fbbf24">保守情景（2026E 净利下行 5% / PE 13-14x）：</b>合理市值 1.66-1.79 万亿 → <b style="color:#f87171">合理价 76.4-82.2 元（-23% ~ -17%）</b><br>
+        <b style="color:#fca5a5">综合判断：</b>PE-TTM 16.4x 对应 2026E 净利区间 1245-1311 亿（38 家预测），下行至 1245 亿 PE 升至 17.4x（贴近当前）、上行至 1390 亿(2028E) PE 降至 15.6x，<b style="color:#fbbf24">12 个月目标价波动区间 -23% ~ +5%</b>。<b style="color:#c084fc">机构综合目标价 114.34 元（38 家预测，+15.4%）</b>位于乐观区间上沿，作为 12-24 个月参考。<b style="color:#34d399">关键支撑</b>：累计分红 1.49 万亿港元 + 派息率稳中有升 + 自由现金流 +111.6% + 账上现金 1878.57 亿 + 国资云/算力国家队定位。
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:14px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:14px; color:#fbbf24; margin-bottom:24px;">
+    📊 <b>估值结论：合理偏低（非深度折价、非显著高估）—— 央企现金奶牛 + 算力国家队定位 + 派息率稳中有升 + 账面安全垫厚实</b>
+  </div>
+
+  <div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+  <div class="dashboard">
+    <div class="index-card warn">
+      <div class="tag warn">PEG 失真</div>
+      <div class="name">PEG (PE/3Y 增速)</div>
+      <div class="value">不可靠</div>
+      <div class="change">2026E -4.4% / 2027E +1.9%</div>
+      <div class="label">短期负增长</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">低速</div>
+      <div class="name">营收 5Y CAGR</div>
+      <div class="value">约 3-5%</div>
+      <div class="change">2021-2025</div>
+      <div class="label">增速趋于稳定</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">低速</div>
+      <div class="name">归母 5Y CAGR</div>
+      <div class="value">约 2-4%</div>
+      <div class="change">2021-2025</div>
+      <div class="label">平台期</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">算力服务增速</div>
+      <div class="value">+14.0%</div>
+      <div class="change">2026H1 算力服务</div>
+      <div class="label">占主营 11.7%</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">智算服务增速</div>
+      <div class="value">+130.1%</div>
+      <div class="change">2026H1 智算服务</div>
+      <div class="label">贡献算力增量 46%</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">催化剂</div>
+      <div class="name">未来 12-24 月</div>
+      <div class="value">多重</div>
+      <div class="change">Q3 业绩兑现</div>
+      <div class="label">Token 套餐 / 算力</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h3>成长性判断：稳定增长 + 算力新动能 —— 传统业务承压，但新动能高增明确</h3>
+      <p>
+        2025 营收 10502 亿（+0.9%）、归母 1371 亿（-0.9%），处于"十四五"收官 + "十五五"开局的平台期；2026H1 营收 <b style="color:#fca5a5">5380 亿（-1.1%, 同口径+）</b>、归母 <b style="color:#fca5a5">789 亿（-6.3%, 同口径+）</b>、<b style="color:#fca5a5">扣非 697 亿（-11%）</b>。<b style="color:#34d399">算力服务收入 529 亿（+14.0%）</b>是最大亮点；<b style="color:#34d399">智算服务 53 亿（+130.1%）</b>、<b style="color:#34d399">AIDC +486.1%</b>、移动云公有云首次进入国内前三。<b style="color:#fca5a5">核心警示</b>：通信服务 3504 亿（-5.7%）、无线上网 1743 亿（-10.8%）持续下滑，反映传统"语音+基础流量"红利已基本耗尽。<br>
+        <b style="color:#34d399">增长动力来源：</b>(1)<b style="color:#34d399">算力业务持续高增</b>（智算规模 11.27 万 PFLOPS、使用率 90%+、算力+智能占主营 22.6% 提升 2.2pct）；(2)<b style="color:#34d399">Token（词元）经营元年</b>（已在多省试点词元套餐、打造 MoMA 平台、积极接入头部企业模型）；(3)<b style="color:#34d399">国际市场拓展</b>（H1 收入 182 亿、+30.1%）；(4)<b style="color:#34d399">数智文化 +12.5%</b>、<b style="color:#34d399">数据算法 +6.9%</b>（智能服务 493 亿、+0.9%）；(5)<b style="color:#34d399">2026 全年资本开支算力+智能网络占比超 37%</b>。<br>
+        <b style="color:#fbbf24">⚠️ 数据局限：</b>PEG 因 2026E 仍为负增长而失真（标注"PEG 不可靠"）；2026E 净利一致预期 -4.4%、2027E +1.9%、2028E +4.0%，反映行业进入新旧动能转换期。<br>
+        <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1)Q3/Q4 业绩兑现（看算力收入持续高增 + 通信服务降幅是否收窄）；(2)2026 全年派息率实际水平；(3)全国统一 Token 套餐推广进度；(4)2027 年 30 周年特别息预期；(5)5G-A/6G 国际标准立项(已居全球第一阵营)。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+  <div class="table-card">
+    <div class="table-title">🛡️ 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></th>
+      </thead>
+      <tbody>
+        <tr><td><b>牌照壁垒</b></td><td class="ok">强</td><td>基础电信业务牌照（仅 3 家获工信部颁发）、5G 频谱、卫星互联、跨境数据合规壁垒，构成行业最高准入门槛</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>规模 / 网络效应</b></td><td class="ok">强</td><td>移动客户 10.11 亿户、5G 客户 6.87 亿户、宽带客户 3.37 亿户、物联网卡 15.11 亿户；千兆网络覆盖住户 5.6 亿户；5G 基站 294 万个；全国一体化算力网核心</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>成本 / 资本优势</b></td><td class="ok">强</td><td>2026 资本开支 1366 亿(-9.5%)；算力网络 378 亿(+62.4%)；累计算力投资 1300 亿（2021 起年复合 +13%）；与联通电信共建共享；央企融资成本最低</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>技术研发</b></td><td class="ok">强</td><td>H1 研发投入 138 亿(+6.5%)、占营收约 2.6%；聚焦 6G/AI/工业互联网/具身智能；6G 国际标准立项数居全球运营商第一阵营；算网大脑 3.0 已落地 8 个国家级平台</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>品牌 / 国资云定位</b></td><td class="ok">强</td><td>"中国移动"全球品牌价值运营商行业第一；债信评级等同中国国家主权评级（标普 A+/穆迪 A1）；国资云/算力国家队核心载体；移动云公有云国内前三</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>转换成本</b></td><td class="warn">中等</td><td>用户携号转网放开后，运营商间转换成本下降；但政企客户、家庭宽带、物联网卡存在较强粘性</td><td class="warn">⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">稳定</div>
+      <div class="name">ROE 常态</div>
+      <div class="value">~9-10%</div>
+      <div class="change">2025 加权 9.90%</div>
+      <div class="label">略低于巴菲特 15% 标准</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">稳定</div>
+      <div class="name">毛利率</div>
+      <div class="value">~29%</div>
+      <div class="change">2025 28.87% / 2026H1 29.51%</div>
+      <div class="label">结构优化</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">稳定</div>
+      <div class="name">净利率</div>
+      <div class="value">~13-14%</div>
+      <div class="change">2025 13.07% / 2026H1 14.68%</div>
+      <div class="label">盈利能力稳健</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">行业第一</div>
+      <div class="name">行业地位</div>
+      <div class="value">"通信一哥"</div>
+      <div class="change">市值 / 客户数 / 5G 基站</div>
+      <div class="label">综合第一</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">壁垒深</div>
+      <div class="name">综合壁垒</div>
+      <td class="ok">⭐⭐⭐⭐⭐</td><td>网络/规模/牌照/资本</td>
+      <div class="label">宽阔护城河</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">宽阔</div>
+      <div class="name">综合评级</div>
+      <div class="value" style="font-size:16px;">宽阔护城河</div>
+      <div class="change">央企 + 现金奶牛</div>
+      <div class="label">A 股核心资产</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>护城河结论：宽阔护城河 + 央企现金奶牛 —— 牌照/规模/网络效应/资本四重壁垒</h3>
+      <p>
+        中国移动在 <b style="color:#34d399">牌照壁垒、规模/网络效应、成本/资本优势</b>三个维度具备最强护城河（基础电信业务牌照仅 3 家 + 10.11 亿移动客户 + 1878 亿账上现金 + 央企融资成本最低），在 <b style="color:#34d399">技术研发、品牌/国资云定位</b>两个维度具备次强护城河（5G 基站 294 万个 + 6G 国际标准第一阵营 + 标普 A+/穆迪 A1 评级）。ROE 常态 9-10%、净利率 13-14%、毛利率 29%，<b style="color:#fbbf24">未达巴菲特"优秀 >15%"标准但符合"大型基础设施龙头"特征</b>。<br>
+        公司属于"<b style="color:#c084fc">宽阔护城河 + 央企现金奶牛</b>"标的，是 A 股最大权重股 + 中特估/中字头核心资产。<br>
+        <b style="color:#fca5a5">护城河侵蚀风险：</b>(1) 携号转网全面放开后用户粘性下降；(2) 微信/抖音等 OTT 应用对传统语音/短信替代持续；(3) 算力业务面临阿里云/腾讯云/华为云市场化竞争；(4) 增值税率上调放大短期账面压力。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div>
+      <div>2024 / 2025 / 2026H1</div>
+      <div>格雷厄姆 + 凯恩斯视角</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入（亿）</div>
+      <div class="fin-val mid">约 10408 / 10502 / 5380</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">+3.1% / +0.9% / -1.1%(同口径+)</b>，2026H1 受增值税税目调整 6%→9% 影响，但同口径（剔除税改）实现正增长</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（亿）</div>
+      <div class="fin-val mid">约 1384 / 1371 / 789</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">+5.0% / -0.9% / -6.3%(同口径+)</b>，2026H1 净利下滑主因增值税 + 通信服务收入下滑，<b style="color:#fbbf24">基本面韧性仍在</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">扣非归母净利（亿）</div>
+      <div class="fin-val warn">约 1234 / 1280 / 697</div>
+      <div class="fin-comment">2026H1 扣非 <b style="color:#fbbf24">-11%</b>，与归母增速差距扩大反映<b style="color:#fbbf24">非经常性损益项贡献加大</b>，需关注核心盈利真实性</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流（亿）</div>
+      <div class="fin-val ok">约 2881 / 2329 / 1149</div>
+      <div class="fin-comment">2026H1 <b style="color:#34d399">+37.0%（1149 亿）</b>，<b style="color:#34d399">现金创造能力极强</b>，远高于归母净利</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">自由现金流（亿）</div>
+      <div class="fin-val ok">数据不足 / 数据不足 / <b style="color:#34d399">539</b></div>
+      <div class="fin-comment">2026H1 <b style="color:#34d399">+111.6%（539 亿）</b>，自由现金流大幅改善 = <b style="color:#34d399">派息+算力投资双保障</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val ok">~33%（极低）</div>
+      <div class="fin-comment">2026H1 32.79%，<b style="color:#34d399">财务结构非常健康</b>，有息负债 988.28 亿仅占总负债 14.2%</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">账面现金及等价物（亿）</div>
+      <div class="fin-val ok">数据不足 / 1710.94 / 1878.57</div>
+      <div class="fin-comment"><b style="color:#34d399">充足</b>，占总资产 8.99%，是估值"安全垫"+ 算力投资弹药库 + 派息承诺底气</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款</div>
+      <div class="fin-val ok">周转极快</div>
+      <div class="fin-comment">运营商应收账款主要为大企业政企客户，回款周期短，<b style="color:#34d399">无显著风险敞口</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">商誉 / 总资产</div>
+      <div class="fin-val ok">极低（38.13 亿）</div>
+      <div class="fin-comment"><b style="color:#34d399">极低</b>，主要靠内生增长与基础设施投资，无减值风险</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">研发投入占比</div>
+      <div class="fin-val mid">约 2.5-3.0%</div>
+      <div class="fin-comment">2026H1 138 亿(+6.5%)，占营收约 2.6%，聚焦 6G/AI/工业互联网/具身智能，研发强度 <b style="color:#fbbf24">低于科技龙头但匹配央企基础设施定位</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2026 中期派息</div>
+      <div class="fin-val ok">每股 2.51 元</div>
+      <div class="fin-comment"><b style="color:#34d399">+0.3%</b>、合计 <b style="color:#34d399">544.26 亿元</b>；公司明确"2026 年派息率稳中有升"</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">累计现金分红</div>
+      <div class="fin-val ok">~1.49 万亿港元</div>
+      <div class="fin-comment">截至 2025 年末，<b style="color:#34d399">累计派现/募资比 815.6%(行业第一)</b>，央企现金奶牛典范</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资本开支</div>
+      <div class="fin-val mid">1640 / 1509 / 610</div>
+      <div class="fin-comment">2026 全年计划 <b style="color:#7dd3fc">1366 亿(-9.5%)</b>；算力网络 <b style="color:#34d399">378 亿(+62.4%)</b>、智能网络 <b style="color:#34d399">89 亿(+19.8%)</b>、通信网 <b style="color:#fca5a5">792 亿(-20.3%)</b></div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">💰</div>
+    <div class="text">
+      <h3>财务质量判断：账面极其健康 vs 短期业绩承压 —— 央企典范级安全垫，但 ROE 仅 9.9% 需观察</h3>
+      <p>
+        公司账面现金及等价物 <b style="color:#34d399">1878.57 亿元</b>、资产负债率 <b style="color:#34d399">32.79%（极低）</b>、商誉占比 <b style="color:#34d399">极低</b>、有息负债率 <b style="color:#34d399">仅 14.2%</b>、<b style="color:#34d399">自由现金流 +111.6%</b>、<b style="color:#34d399">经营现金流 +37%</b>、<b style="color:#34d399">累计派现 1.49 万亿港元</b>，<b style="color:#34d399">整体资产负债结构极其健康，是央企现金奶牛典范</b>。<br>
+        <b style="color:#fca5a5">关键警示</b>：2026H1 扣非净利润 <b style="color:#fca5a5">-11%</b> = 核心盈利能力在退步；ROE 加权 9.90% <b style="color:#fca5a5">低于巴菲特"优秀 >15%"标准</b>，反映"重资产基础设施 + 短期转型阵痛"双重压制。<br>
+        <b style="color:#7dd3fc">后续验证重点：</b>2026 Q3/Q4 业绩披露后，<b style="color:#fbbf24">扣非是否止跌回升、自由现金流是否持续改善、2026 全年派息率实际水平、新业务收入占比能否突破 25%</b>是<b style="color:#fbbf24">财务质量验证的核心</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+  <div class="table-card">
+    <div class="table-title">🧭 管理层与治理关键事项</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>实控人 / 控股股东</b></td><td>中国移动通信集团有限公司（央企），直接和间接持有约 68.67%；A 股股东仅持 4.16%，H 股股东持 27.17%；债信评级等同中国国家主权评级</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>管理层稳定性</b></td><td>董事长陈忠岳、执行董事兼 CEO 陈扬帆、副总经理张冬/李慧镝/程建军/陈怀达、财务总监李荣华；核心高管稳定，央企背景</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股东回报</b><td><b style="color:#34d399">2026 中期派息 2.51 元/股(+0.3%)、合计 544.26 亿元；累计派现 ~1.49 万亿港元、派现/募资比 815.6%(行业第一)；公司明确"2026 年派息率稳中有升"</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>研发投入</b><td>2026H1 138 亿(+6.5%)，聚焦 6G/AI/工业互联网/具身智能；H1 新增 5G-A 商用部署，6G 国际标准立项数居全球运营商第一阵营</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>国际化战略</b><td>2026H1 国际市场收入 182 亿(+30.1%)、POP 点 463 个、国际传输能力 437Tbps、出海企业服务较年初 +19.6%</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>违规记录</b></td><td>近 3 年无重大违规处罚记录；国资委对央企考核稳健</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权质押</b></td><td>控股股东无质押、无平仓风险（央企背景）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>信息披露质量</b></td><td>A+H 双重上市、信息披露双重监管；半年报、年报、业绩说明会透明；A 股 4 大证券报同步披露</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#34d399">治理结论：值得高度信任。</b>全部维度均处于央企/通信行业最优区间 —— 央企背景 + 国资委监管 + A+H 双重上市 + 累计派现 1.49 万亿港元（行业第一）+ 标普 A+/穆迪 A1 主权级评级 + 透明信息披露。<b style="color:#fca5a5">需注意</b>：(1) 2026E 净利一致预期仍为 -4.4%（短期业绩承压）；(2) A 股 PE 16.4x 处历史 66% 分位（不算深度折价）；(3) 通信服务 -5.7% 反映传统业务承压持续，需观察算力业务能否对冲。
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">"周期永远不会消失,理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+  <div class="grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+    <div class="table-card">
+      <div class="table-title">📈 行业周期定位：新旧动能转换期 · 算力/智能为新增长曲线</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        中国通信运营商行业当前位于 <b style="color:#fbbf24">"新旧动能转换期"</b>。2025 是"十四五"收官年，三家运营商营收增速降至 1% 上下甚至为负（中国移动 10502 亿+0.9% / 中国电信 5296 亿+0.1% / 中国联通 3922 亿+0.7%），传统"语音+流量"红利基本耗尽；2026H1 通信服务收入 -5.7%（移动）/ -3.9%（电信）/ 主营 -0.2%（联通），<b style="color:#fca5a5">行业整体进入存量博弈 + 减量发展期</b>。<br><br>
+        但 <b style="color:#34d399">算力业务是唯一高增长引擎</b>：2026H1 智算服务收入 <b style="color:#34d399">移动 +130% / 电信 +95%</b>、<b style="color:#34d399">AIDC 移动 +486% / 电信 +9.3%</b>、移动云公有云规模首次进入国内前三、联通算力 +13%。三大运营商 2026 资本开支算力占比全面突破 35%，<b style="color:#34d399">"算力经营 + Token 经营"成为行业战略主线</b>。<br><br>
+        <b style="color:#7dd3fc">未来 3-5 年增长动力：</b>(1) 算力网络建设进入"4+N+31+X"全国一体化阶段；(2) AI 大模型训练/推理需求驱动智算规模快速扩张（移动 11.27 万 PFLOPS / 电信 91 EFLOPS / 联通 45 EFLOPS）；(3) Token 套餐、算力服务订阅化进入商业化兑现期；(4) 5G-A/6G 标准化与商用；(5) 数字中国/数字乡村/低空经济等新基建场景。<br><br>
+        <b style="color:#fca5a5">周期下行风险：</b>增值税率 6%→9% 持续放大账面压力；通信服务收入降幅扩大；OTT 应用对传统语音/短信替代不可逆；AI 算力军备竞赛带来的资本开支高企。
+      </p>
+    </div>
+    <div class="table-card">
+      <div class="table-title">🏛️ 政策环境与产业链位置</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        <b style="color:#fbbf24">政策环境"中性偏多"：</b>(1)<b style="color:#34d399">"十五五"规划首次将"全国一体化算力网"纳入国家级基础设施体系</b>；(2) 2026 政府工作报告首次将"超大规模智算集群"和"算电协同"列为新基建重点工程；(3) "东数西算"工程"8+10+3"布局持续推进；(4) 工信部《算力互联互通行动计划》要求 2026 年建立标准标识规则体系、2028 年基本实现全国公共算力标准化互联；(5) 2026 年起部分电信服务增值税率由 6% 上调至 9%（<b style="color:#fca5a5">短期负面</b>）；(6) 中央强调"反内卷"利于 ARPU 企稳。<br><br>
+        <b style="color:#c084fc">产业链位置：</b>运营商是<b style="color:#34d399">"东数西算"工程核心建设与运营主体</b>，处于算力产业链中下游（上游为芯片/服务器/光模块/液冷设备厂商；下游为 AI 大模型/政企客户/个人用户）。<b style="color:#34d399">中国移动在"4+N+31+X"算力基础设施布局中处于全国第一</b>（智算规模 11.27 万 PFLOPS、使用率 90%+、全球最大 400G 全光骨干网）。<br><br>
+        <b style="color:#34d399">行业判断：周期趋势向上（算力新动能 + 国资云/算力国家队定位）。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 截至 2026-09-01 技术结构</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>52 周高/低</td><td class="ok">85.38 / 107.41</td><td class="mid">9/1 收盘 99.68 居 52周中位偏上，距离 52周高点 -7.2%、距离 52周低点 +16.8%</td></tr>
+        <tr><td>近 1 月/近 1 年涨跌幅</td><td class="ok">+4.12% / +0.84%</td><td class="mid">短期温和反弹 + 年初至今微涨，估值消化中</td></tr>
+        <tr><td>近 5/10/20/60 日涨跌</td><td class="ok">+0.83% / +4.12% / +3.38% / +3.19%</td><td class="mid">近期整体震荡向上，资金面温和流入</td></tr>
+        <tr><td>换手率</td><td class="mid">0.61%（9/1）</td><td class="mid">A 股流动性较低（流通市值仅 899.88 亿）</td></tr>
+        <tr><td>量比</td><td class="mid">3.58（9/1）</td><td class="mid">近期成交量放大，市场关注度提升</td></tr>
+        <tr><td>价格上限/下限</td><td class="warn">108.96 / 89.15</td><td class="mid">涨跌幅限制 +10%/-10%，但实际波动有限</td></tr>
+        <tr><td>MA60/120/250 等均线</td><td class="warn">未独立核验</td><td class="mid">建议结合同花顺/通达信实时核验</td></tr>
+        <tr><td>北向资金近 30 日</td><td class="warn">未独立核验</td><td class="mid">A 股流通仅 4.16%，北向敞口有限</td></tr>
+        <tr><td>公募/社保/QFII 持仓变化</td><td class="warn">未独立核验</td><td class="mid">中特估主题下配置盘显著</td></tr>
+        <tr><td>近期成交量趋势</td><td class="mid">9/1 成交 5.52 亿元</td><td class="mid">A 股成交活跃度温和，H 股成交更活跃</td></tr>
+        <tr><td>关键支撑位</td><td class="ok">89.15 元（跌停）/ 85.38 元（52周低点）</td><td class="ok">强支撑，破位下看 80 元（-20%）</td></tr>
+        <tr><td>关键压力位</td><td class="warn">107.41 元（52周高点）/ 108.96 元（涨停）</td><td class="warn">突破 107 看 115-120，站稳才能打开上行空间</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术面与资金流判断：中位震荡 + 温和流入 —— 52 周中位附近，等待方向选择</h3>
+      <p>
+        <b style="color:#fbbf24">关键支撑位</b>89.15-92 元区间（跌停位 + 52周中位 + 长期均线密集区），<b style="color:#fbbf24">关键压力位</b>107.41 元（52周高点）/ 108.96 元（涨停）。若 Q3/Q4 业绩兑现 + 算力业务持续高增 + 派息率提升，向上突破 107 元则打开 115-120 元空间；若 2026 全年净利继续承压，可能下探 85 元（52周低点）。<br><br>
+        <b style="color:#7dd3fc">资金面：</b>9/1 主力资金净流入温和（成交 5.52 亿、量比 3.58）；近 5/10/20/60 日涨幅均为正，<b style="color:#34d399">资金面温和流入趋势确立</b>；A 股换手率仅 0.61%，流动性偏低（流通市值 899.88 亿 / 总股本 216.87 亿），机构配置盘主导。<b style="color:#fca5a5">A 股 PE 16.4x 较 H 股 PE ~10-11x 存在显著溢价</b>，AH 溢价约 30-40%。<br><br>
+        <b style="color:#fca5a5">综合判断：</b>当前处于"<b style="color:#fbbf24">52 周中位 + 资金温和流入 + 中特估主题</b>"的状态，但 <b style="color:#fca5a5">2026E 仍预期负增长 + 短期业绩承压 + 算力业务能否兑现到利润表</b> 三重压制下，向上空间有限。需以<b style="color:#fbbf24">Q3/Q4 业绩兑现 + 算力收入持续高增 + 派息率提升</b>三确认作为后续催化剂。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论打分 · Top 3 匹配</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">6</div>
+      <div class="score-name">费雪成长</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">林奇 PEG</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">PEG 投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">邓普顿逆向</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">博格指数</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7</div>
+      <div class="score-name">马克斯周期</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 马克斯周期投资</div>
+      <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">中国通信运营商行业位于"新旧动能转换期"—— 传统通信业务（语音/基础流量）下滑、算力/智能业务（智算 +130%、AIDC +486%、Token 套餐）爆发，"4+N+31+X"算力网络进入收获期。2026 是"十五五"开局之年，"全国一体化算力网"首次纳入国家级基础设施体系。中国移动处于"通信 → 算力/智能"曲线切换的左侧早期，是周期上行的最优载体之一。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥇 巴菲特护城河</div>
+      <div class="method-author">沃伦·巴菲特 · "经济护城河"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">中国移动具备宽阔护城河：基础电信业务牌照（仅 3 家）+ 5G 频谱/卫星互联壁垒 + 10.11 亿移动客户 + 1878 亿账上现金 + 央企融资成本最低 + 标普 A+/穆迪 A1 主权级评级。规模/网络效应、成本/资本优势、品牌/国资云定位均为行业最强。ROE 9-10% 未达"优秀 >15%"标准，但符合"大型基础设施龙头"特征。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">🥉 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "寻找复利机器"</div>
+      <div class="method-score warn">6 / 10</div>
+      <div class="method-desc">中国移动整体营收/净利增速放缓（2025 营收 +0.9%、归母 -0.9%），但<b>算力服务 +14% / 智算 +130% / AIDC +486%</b>等新业务高速增长；6G 国际标准立项数居全球运营商第一阵营；移动云公有云规模首次进入国内前三。属于"传统业务见顶 + 新业务爆发"的复利型平台，但短期增速难匹配成长股估值标准。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">4. 达里奥全天候配置</div>
+      <div class="method-author">雷·达里奥 · "全天候策略"</div>
+      <div class="method-score warn">6 / 10</div>
+      <div class="method-desc">中国移动是组合中典型的"防御型高质量敞口"：与经济增长相关性弱、与利率敏感（高分红股利率敏感）、与权益市场相关性中，是组合中作为"中特估 + 红利"配置的核心标的。A+H 双重上市提供汇率对冲空间。但单股仓位不宜过高（≤ 5-8%）。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">5. 格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">PE-TTM 16.4x 处历史 66% 分位（中性偏高），不算深度折价；但 PB 1.52x 处 36% 分位（相对偏低）；账上现金 1878 亿、累计分红 1.49 万亿港元、派现/募资比 815.6%(行业第一)、自由现金流 +111.6% = 账面安全垫极厚。属于"账面极其健康 vs 估值不算便宜"的"合理偏低"区间。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">6. 林奇 PEG / 凯恩斯 / 西蒙斯 / 索罗斯</div>
+      <div class="method-author">综合趋势与定价视角</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">林奇：PEG 失真（2026E 净利仍为负增长）；凯恩斯：52 周中位博弈、温和反弹但量比偏高；西蒙斯：动量因子中性偏多、反转因子存在；索罗斯：估值-基本面反馈环敏感，Q3/Q4 数据关键。综合：基本面韧性 vs 短期业绩承压的结构性矛盾，需基本面验证。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">7. 邓普顿逆向投资</div>
+      <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+      <div class="method-score bad">3 / 10</div>
+      <div class="method-desc">中国移动不属于"在最悲观点买入"标的：估值不算深度折价（PE 16.4x 中性偏高）、市场关注度极高（中特估核心）、净利润为正（业绩承压但未亏损）。但 2026H1 通信服务 -5.7%、归母 -6.3%、扣非 -11% = <b>"次级逆向加仓机会"</b>，适合分批配置而非"抄底"逻辑。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">8. 博格指数投资</div>
+      <div class="method-author">约翰·博格 · "指数化投资"</div>
+      <div class="method-score bad">3 / 10</div>
+      <div class="method-desc">中国移动不是典型的宽基指数标的，但其作为中特估/中字头核心、央企现金奶牛属性强，是部分红利低波/中证红利低波 100 ETF 的成分股（A 股股息率 TTM 2.21% 偏低，但 H 股股息率 7%+ 有吸引力）。不适合作为纯指数化标的，更适合作为红利主题/中特估主题的核心配置。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>马克斯周期（7 分）+ 巴菲特护城河（7 分）看重周期切换 + 牌照/规模壁垒 → 高度认可；格雷厄姆深度价值（5 分）+ 邓普顿逆向（3 分）看重估值与悲观点 → 严重不适用 —— "好公司但估值需纪律性"</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突点：</strong>费雪成长（6 分）vs 林奇 PEG（5 分）→ 算力/智算业务高速增长但传统业务拖累整体增速，<b style="color:#fca5a5">采纳"周期切换 + 新业务高增"框架</b>，PEG 失真</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>冲突点：</strong>达里奥全天候（6 分）vs 凯恩斯选美（5 分）→ 央企红利防御属性 vs 短期业绩承压，倾向于"<b style="color:#fca5a5">防御配置 + 分批加仓</b>"逻辑</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>冲突点（关键）：</strong>"卖方乐观（综合目标价 114.34 元、上行 15.4%）" vs "买方分歧（A 股 PE 16.4x 处历史 66% 分位 + 2026E 净利仍为负）" → <b style="color:#fca5a5">修复需要 Q3/Q4 业绩兑现 + 算力业务持续高增 + 派息率实际提升三验证</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">马克斯周期 + 巴菲特护城河</strong> 的"新旧动能转换期 + 牌照/规模/网络效应三重护城河 + 国资云/算力国家队"为主线，叠加 <strong style="color:#fbbf24">达里奥全天候"防御配置"</strong>，用 <strong style="color:#fbbf24">格雷厄姆价格纪律</strong> 作为仓位与买点约束（PE 16x 上限 + 52 周中位以下分批 + 业绩验证前不追高），避免按成长股估值满仓，避免按"最悲观点"逻辑等待深度回调</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><strong>综合得分：5.6 / 10</strong>，对应评级：<strong style="color:#fbbf24">谨慎买入</strong>（现金奶牛 + 算力转型 + 派息稳中有升 + 短期业绩承压 · 分批限仓）</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和派息兑现做决策</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 仓位与分批建仓</div>
+      <div class="strategy-content">
+        <table class="compare-table" style="margin-bottom:10px;">
+          <thead>
+            <tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:#fbbf24">第一批</b></td><td><b style="color:#7dd3fc">95-99 元</b>区间（当前 99.68 附近，52 周中位 + 中特估主题 + Q3 业绩披露前）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第二批</b></td><td><b style="color:#7dd3fc">88-92 元</b>区间（破 52 周中位 + Q3 业绩兑现扣非止跌 + 派息率实际提升）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第三批</b></td><td><b style="color:#7dd3fc">80-85 元</b>区间（破 52 周低点 + 行业利空出尽 + 算力业务持续兑现）</td><td class="warn">1%</td></tr>
+            <tr><td><b style="color:#fbbf24">上限</b></td><td>单股 ≤ 8%，组合中运营商/中特估合计 ≤ 15%</td><td class="ok">建议 ≤ 5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位（先减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        <strong>硬止损：</strong>收盘有效跌破 <strong class="hl-danger">80 元（约 -20%）</strong>，或 2026 三季报营收同比继续负增长且扣非仍下滑超过 10%，<strong class="hl-danger">先减仓至 ≤ 2% 而非等待目标价</strong>。<br><br>
+        <strong>软止损：</strong>(1) 通信服务收入降幅扩大至两位数；(2) 算力业务增速大幅放缓（< 5%）；(3) 实控人或核心高管出现大额减持或新增大额股权质押（央企背景概率极低）；(4) 累计派现/募资比下降至 700% 以下。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead>
+            <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">76-84 元</td><td class="warn">92-104 元</td><td class="ok">107-115 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">88-96 元</td><td class="ok">104-115 元</td><td class="ok">120-135 元</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2026E 净利 1311 亿 × PE 14-16x；乐观假设：2027E 净利 1337 亿 × PE 15-17x（含算力业务持续兑现 + 派息率提升）；保守假设：2026E 净利下行 5% × PE 13-14x（Q3/Q4 持续承压）。卖方综合目标价 114.34 元（38 家预测，+15.4%）位于乐观区间上沿，作为 12-24 个月参考。</p>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong class="hl-info">中长线（12-24 个月）</strong>，等待 2026 三季报、年报兑现 + 算力业务持续高增 + 派息率实际水平兑现；若 2027 全年净利恢复正增长 + 算力业务占主营收入突破 25% + 派息率提升至 75%+，可考虑切换为 <strong class="hl-purple">长线（&gt;24 月）</strong>，作为 A 股中特估核心配置长期持有。<br><br>
+        <strong>短线（&lt;3 月）</strong>不推荐 —— 增值税率上调 + 算力业务高增需要 2-3 个季度验证利润表，频繁交易易错失兑现窗口；当前资金面温和流入但量能有限。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">扣非归母净利润同比</strong>（核心盈利能力验证，<b style="color:#fbbf24">2026H1 -11% 是否在 Q3 企稳回升是评级修正关键</b>）<br>
+        2. <strong class="hl-warn">算力服务收入占比 + 智算/AIDC 增速</strong>（新动能兑现度，<b style="color:#fbbf24">智算 +130% 能否延续</b>是关键）<br>
+        3. <strong class="hl-info">派息率实际水平 + 自由现金流</strong>（股东回报兑现度 + 现金转换质量）
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">2026Q3 扣非净利润同比继续下滑 ≥ 10%</strong>（核心盈利能力恶化预期形成）<br>
+        2. <strong class="hl-danger">算力业务增速大幅放缓至个位数</strong>（新动能兑现预期破灭）<br>
+        3. <strong class="hl-danger">2026 年派息率实际水平</strong>显著低于"稳中有升"承诺（股东回报确定性下降）
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 传统通信业务持续下滑（核心警示）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026H1 通信服务收入 -5.7%、无线上网 -10.8%，若 Q3/Q4 降幅继续扩大至两位数<br>
+        <strong>影响幅度：</strong>2026 全年通信服务收入可能继续下滑，估值中枢下移；2027E 净利恢复正增长预期可能下修<br>
+        <strong>应对策略：</strong>每季度跟踪通信服务收入同比、无线上网收入、移动 ARPU 变化；评估算力业务能否对冲传统业务下滑
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 2026H1 扣非首次大幅下滑 -11%（核心警示）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026H1 扣非 -11%，若 Q3 继续同比下滑超过 10%<br>
+        <strong>影响幅度：</strong>2026 全年扣非可能下修至 1200 亿以下；评级可能从谨慎买入下调至持有观察；目标价跌至保守区间（76-84 元，-23%~-16%）<br>
+        <strong>应对策略：</strong>每季度跟踪扣非同比、剔除增值税影响后的核心盈利、算力业务贡献度；Q3 公告后立即重新评估加仓节奏
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 3. 算力投资回报周期长 + AI 算力军备竞赛</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>智算规模 11.27 万 PFLOPS 使用率从 90%+ 大幅下降；AI 大模型训练/推理需求不及预期；国产化芯片适配不及预期<br>
+        <strong>影响幅度：</strong>2026 全年资本开支 1366 亿中算力网络 378 亿(+62.4%) 的回报兑现周期拉长；ROE 持续低于 10%；估值从"防御型"转向"重资产基础设施"<br>
+        <strong>应对策略：</strong>跟踪智算使用率、算力业务毛利率、新签合同规模；评估 AIDC +486% 增速能否在 2027 年持续
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 4. 增值税率上调 + 政策风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026 年 1 月起手机流量、短信彩信、宽带接入等增值税率由 6% 上调至 9%；未来若有进一步税改或反内卷政策压制<br>
+        <strong>影响幅度：</strong>营收口径直接压缩 3pct（6%→9%）；若叠加"反内卷"压制 ARPU 企稳，2026E 净利可能下修 5-10%<br>
+        <strong>应对策略：</strong>跟踪国家财税政策、运营商行业监管动态；评估公司"同口径"业绩与名义业绩的差异
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 5. PE 估值不算便宜 + AH 溢价波动</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>PE-TTM 16.4x 处历史 66% 分位（中性偏高）；A 股 PE 较 H 股 PE ~10-11x 存在 30-40% 溢价；AH 溢价扩大或收窄可能影响 A 股定价<br>
+        <strong>影响幅度：</strong>若 H 股因高股息率吸引资金，A 股溢价收窄带动 A 股股价下行 5-15%；若 A 股因中特估主题持续溢价，估值继续抬升<br>
+        <strong>应对策略：</strong>跟踪 AH 溢价水平、H 股股息率与 A 股股息率差异；评估中特估主题持续性；关注南向资金对 H 股的支撑
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 来源与复核记录</div>
+
+  <div class="data-note">
+    <strong>📌 主要数据来源（截至 2026-09-01）：</strong><br>
+    ✅ 公司公告：<span class="ok">2025 年年度报告</span>（2026-03-27 披露）、<span class="ok">2026 Q1 报告</span>（2026-04）、<span class="ok">2026 H1 半年度报告</span>（2026-08-13 披露，A股 600941 / 港股 00941 同日披露）、<span class="ok">2026 年中期利润分配方案</span>（每股 2.51 元、合计 544.26 亿元）<br>
+    ✅ 股价/市值快照：<span class="info">腾讯自选股</span>（99.68 元、9/1 涨 0.64%、总市值 21617.82 亿、流通 899.88 亿、PE-TTM 16.4、PB 1.52、股息率 TTM 2.21%、52 周 85.38-107.41）、<span class="info">搜狐证券</span>（同步快照）；多源核对<br>
+    ✅ 业绩分析：<span class="info">中国证券报 2026-08-14 半年报解读</span>（净利润 789 亿、-6.3%、算力服务 529 亿 +14%、AIDC +486.1%、智算 +130.1%）、<span class="info">上海证券报 2026-08-14</span>（自由现金流 +111.6%、中期派息 544.26 亿）、<span class="info">证券时报 2026-08-13</span>（10 派 25.1 元）、<span class="info">经济参考报 2026-08-21</span>（三大运营商转型）、<span class="info">南方+ 2026-08-14</span>（新业务飙涨 486%）、<span class="info">中证网 2026-08-21</span>（词元经济）<br>
+    ✅ 同业对比：<span class="warn">中国电信 601728</span>（现价 6.44、PE 19.8、PB 1.25、股息率 4.22%、2026H1 净利 -14.9%、2025 派息率 75%）；<span class="warn">中国联通 600050</span>（现价 4.30、PE 19.44、PB 0.78、股息率 3.80%、2026H1 净利 -34.8%、2026 不派中期息）<br>
+    ✅ 卖方研究：<span class="info">招商证券 2026-08-14</span>（买入、上半年业绩彰显韧性）、<span class="info">综合目标价 114.34 元</span>（38 家机构聚合，上行 15.4%）、<span class="info">2026E EPS 6.05 / 净利 1311 亿(-4.4%)</span>、<span class="info">2027E EPS 6.17 / 净利 1337 亿(+1.9%)</span>、<span class="info">2028E EPS 6.41 / 净利 1390 亿(+4.0%)</span><br>
+    ✅ 行业政策：<span class="info">"十五五"规划</span>（全国一体化算力网纳入国家级基础设施体系）、<span class="info">2026 政府工作报告</span>（超大规模智算集群 + 算电协同）、<span class="info">财政部税务总局公告 2026 年第 9 号</span>（增值税率调整）、<span class="info">工信部《算力互联互通行动计划》</span>、<span class="info">东数西算"8+10+3"布局</span>、<span class="info">险资风险因子下调</span>（红利板块利好）<br>
+    ✅ 行业数据：<span class="info">2026H1 电信业务收入 8873 亿(-2.1%)</span>（工信部）、<span class="info">智算规模 788 EFLOPS</span>（中国信通院《2025 综合算力指数》，截至 2025 年 6 月底）、<span class="info">5G 基站 454.9 万个</span>（2025H1）<br>
+    ⚠️ 数据局限：MA60/120/250、北向资金近 30 日净流入流出、机构完整持仓变动、AH 溢价实时水平未独立全口径核验；2026 三季报、年报 <span class="danger">尚未披露</span><br>
+    📊 <strong style="color:#fbbf24">所有价格、市值、估值快照均存在口径与时点差异；本页不构成买卖承诺。预测区间的差异足以令 12 个月目标价产生 ±30% 的波动，请以风险揭示为先。</strong>
+  </div>
+
+  <div class="footer">
+    中国移动（600941）｜报告截止日 2026-09-01（周二收盘）｜11 种方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（上交所/港交所/巨潮资讯）+ 腾讯自选股 + 搜狐证券 + 中国证券报 + 上海证券报 + 证券时报 + 经济参考报 + 中证网 + 南方+ + 招商证券 + 公开行业政策文件 + 工信部 + 中国信通院
+  </div>
+
+</div>
+</body>
+</html>

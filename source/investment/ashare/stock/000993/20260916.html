@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-16 闽东电力 (000993) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(239,68,68,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-left: 5px solid #38bdf8;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(239,68,68,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(239,68,68,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fca5a5; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#ef4444,#dc2626);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(239,68,68,0.10), rgba(245,158,11,0.10));
+    border:1px solid rgba(239,68,68,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #f87171; }
+  .conclusion-item .num { display:inline-block; background:#f87171; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!--CONTENT_HEADER-->
+<div class="header">
+  <h1>⚡ 闽东电力 (000993) · 11 方法论综合投资分析</h1>
+  <div class="subtitle">福建宁德水电+风电+光伏公用事业 · 连续 6 日涨停（+9.98%/日）· 静态 PE 107.96x · 2026H1 归母净利下滑 58.68% · 题材过热、基本面严重背离</div>
+  <div class="badges">
+    <span class="badge badge-danger">🎯 综合评级：<b>减持</b>（题材过热 · 6 连板透支 · 基本面背离 · 已持仓大幅减仓 ≥ 70%）</span>
+    <span class="badge badge-source">📅 数据日期：2026-09-16（周三 · 盘中 9:51 · 5 连板后第 6 日）</span>
+    <span class="badge badge-source">📊 股价 18.48 元（+10.00% 涨停）· 总市值 84.63 亿 · 静态 PE 107.96x · PE-TTM 225.71x</span>
+    <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 + 巴菲特 等 11 方法论 × 12 模块</span>
+    <span class="badge badge-success">✅ 装机结构：水电 36.18 万 kW（60.8%）+ 风电 19.44 万 kW（34.2%）+ 光伏（小）</span>
+    <span class="badge badge-danger">⚠️ 5 日累计涨幅 ~80%（9/9 收盘 ~10.26 → 9/16 18.48）· 公司公告"未开展算电协同、绿电直连业务"· 2026H1 归母 -58.68%</span>
+  </div>
+</div>
+<!--CONTENT_HEADER_END-->
+<!--CONTENT_DATA_NOTE-->
+<div class="data-note">
+  <strong>📌 数据来源与口径说明（截至 2026-09-16 周三 9:51 盘中 · 5 连板后第 6 日）：</strong><br>
+  ✅ 股价 <span class="info">18.48 元</span>（雪球 9/16 09:51 盘中 +10.00% 涨停）、开盘 <span class="info">17.22 元</span> / 盘中低 <span class="info">17.14 元</span> / 盘中高 <span class="info">18.48 元</span> / 成交量 <span class="info">50.97 万手</span> / 换手率 <span class="info">11.13%</span> / 成交额 <span class="info">9.15 亿</span> · 来源：雪球 SZ000993（9/16 09:51 实时快照）+ 富途牛牛 9/11 收盘 13.88 + 东方财富 9/14 收盘 15.27（4 连板）<br>
+  ✅ 总市值 <span class="info">84.63 亿</span>（9/16 上午，≈ 4.58 亿股 × 18.48 元）；流通市值近全流通（≈ 80+ 亿）；前低基准：8/31 收盘 <span class="info">10.26 元</span>（9/2 数据）；<b style="color:#fca5a5">5 个交易日累计涨幅 ~80%（10.26 → 18.48）</b><br>
+  ✅ 估值：<b style="color:#fca5a5">静态 PE 107.96x</b>（公司 9/11 异常波动公告披露）、PE-TTM <span class="danger">225.71x</span>（理杏仁 9/16）/ <span class="danger">375x</span>（富途 9/11 口径）、PB <span class="warn">1.87x</span>（理杏仁）；同业水电(申万) PE 中位 <span class="mid">~20.87x</span>，公用事业 PE-TTM <span class="mid">~16-18x</span><br>
+  ✅ 装机结构（公司 2025 年报披露）：水电权益装机 <span class="info">36.18 万 kW</span>（占 60.8%）、风电权益装机 <span class="info">19.44 万 kW</span>（占 34.2%）、光伏（占 5%）；总装机 <span class="info">~56.4 万 kW</span>；设计年发电量 <span class="info">~10.5 亿 kWh</span><br>
+  ✅ 财务基准（<b style="color:#fca5a5">业绩持续下滑</b>）：2025 年报归母 <span class="danger">5888 万（-65.23% YoY）</span>，EPS 0.13 元；2026Q1 扣非 EPS <span class="danger">-0.06 元、净利 -0.27 亿（亏损）</span>；2026H1 营收 <span class="danger">2.37 亿（-17.65% YoY）</span>、归母 <span class="danger">2941.47 万（-58.68% YoY）</span>（半年报 8/21 披露）；2026 全年预告 <span class="danger">4700-7000 万（-72.24% ~ -58.66% YoY）</span>（半年预告 7/15 披露）<br>
+  ✅ 每股净资产 <span class="info">5.51-5.72 元</span>（搜狐 9/16 / 中财网 2025/12）；<b style="color:#fca5a5">当前股价 18.48 元对应 PB 约 3.2-3.4x</b>（远高于 1.87x 的 PB 估值口径，可能口径差异；实际应按 18.48 ÷ 5.51 ≈ 3.35x）<br>
+  ✅ 公司治理：实际控制人 <span class="info">宁德市国资委</span>、控股股东 <span class="info">宁德市国有资产投资经营有限公司</span>、宁德市唯一国有控股电力上市平台；上市日期约 2000 年（1998-12-30 成立）<br>
+  ✅ 关键风险事件：<span class="danger">9/14 异常波动公告</span>"公司目前未开展算电协同、绿电直连业务，未与算力中心、数据中心存在合作；股价短期大幅上涨，与业绩背离，存在非理性炒作情况" + <span class="danger">9/15 公告</span>"参股海上风电项目均处于未开工或未投产状态、海上风电尚未形成收入"<br>
+  ⚠️ 数据局限：北向资金近 30 日 / 公募基金 Q2 持仓变动未独立核验（已知 2025 年底基金持仓 51 万股嘉实绿色电力 ETF + 42 万股国泰 500 指数增强 Y）；MA60/120/250 与换手率详细未独立核验；行业 9 月最新 PE 数据需进一步交叉确认<br>
+  📊 <strong>关键定性：</strong>福建宁德水电+风电+光伏公用事业 + 宁德国资唯一上市平台 + 6 连板题材炒作（算电协同/绿电直连/海上风电概念） + 业绩持续下滑（2025 -65% / 2026H1 -58.68%） + 静态 PE 107.96x（公司公告）/ PE-TTM 225x（理杏仁）= <b style="color:#fca5a5">典型"题材过热、估值严重透支、基本面完全跟不上"格局</b>。这是 <b style="color:#fca5a5">博弈标的（凯恩斯/索罗斯框架）vs 投资标的（格雷厄姆/巴菲特/林奇框架）严重背离</b>的经典案例，与欢瑞世纪（000892）、艾艾精工（603580）属同一打法——公司公告主动提示风险 + 业绩下滑 + 题材末端的非理性炒作。
+</div>
+<!--CONTENT_DATA_NOTE_END-->
+<!--CONTENT_THEME_BANNER-->
+<div class="theme-banner danger">
+  <div class="icon">🚨</div>
+  <div class="text">
+    <h3>11 方法论交叉结论：题材过热 · 6 连板透支 · 基本面严重背离 —— 评级<减持 2.2/10>，已持仓大幅减仓 ≥ 70%，未持仓坚决规避</h3>
+    <p>
+      闽东电力在 <b style="color:#fca5a5">凯恩斯选美（6 分）、索罗斯反身性（5 分）</b>框架下博弈分较高（短期资金推动 6 连板、选美赢家已锁定）；<b style="color:#94a3b8">西蒙斯量化（3 分）、巴菲特护城河（3 分）</b>中性偏低（公用事业牌照壁垒但规模小，量化可能捕捉反转）；<b style="color:#f87171">马克斯周期（2 分）、费雪成长（2 分）、达里奥全天候（2 分）</b>偏低（不是周期底部 / 无成长动力 / 波动率高）；<b style="color:#fca5a5">格雷厄姆深度价值（1 分）、林奇 PEG（1 分）、邓普顿逆向（1 分）、博格指数（1 分）</b>极低（PE 225x 极端高估 / 基期利润下滑 PEG 失真 / 题材过热非最悲观点 / 非宽基指数）。综合 <b style="color:#fca5a5">2.20/10 分 → 评级：减持</b>。<br><br>
+      <b style="color:#7dd3fc">最终倾向：</b>这是<b style="color:#fca5a5">博弈框架（凯恩斯/索罗斯）vs 价值框架（格雷厄姆/巴菲特/林奇）严重背离</b>的典型案例。<b style="color:#fca5a5">不能作为投资标的</b>，只能作为<b style="color:#fbbf24">博弈标的</b>理解——已持仓者建议<b style="color:#fca5a5">逢高大幅减仓 ≥ 70%</b>（保留少量仓位参与后续博弈），<b style="color:#fca5a5">未持仓者坚决规避</b>。决策主线应放弃"赚最后一个铜板"思路，重点关注：(1) <b style="color:#fbbf24">公司公告已主动提示"非理性炒作"</b>——管理层的态度说明题材游端已进入；(2) <b style="color:#fca5a5">5 日涨 80% 已严重透支基本面</b>，即使回归合理 PE（30-50x）仍有 50%+ 下跌空间；(3) <b style="color:#fca5a5">开板即出货信号</b>——5 连板后开板概率极高（题材博弈标的开板即反转）；(4) <b style="color:#fbbf24">2026H1 业绩 -58.68%、2026 全年预告 -58.66% ~ -72.24%</b>——业绩兑现压力将持续压制估值回归。<b style="color:#fca5a5">关键风险</b>：(a) <b style="color:#fca5a5">监管层关注（异常波动公告）</b>；(b) <b style="color:#fca5a5">题材退潮（算电协同/绿电直连政策细节落地不及预期）</b>；(c) <b style="color:#fca5a5">开板日大概率放巨量出货</b>；(d) <b style="color:#fca5a5">2026Q3 财报披露（10 月下旬）业绩持续下滑</b>= <b style="color:#fca5a5">分档处置：已持仓减仓 ≥ 70%，未持仓观望</b>。
+    </p>
+  </div>
+</div>
+<!--CONTENT_THEME_BANNER_END-->
+<!--CONTENT_MODULE_1-->
+<div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+<div class="section-subtitle">数据日期：2026-09-16 周三 9:51 盘中 · 来源：雪球 SZ000993 / 富途牛牛 / 东方财富 / 搜狐证券 / 理杏仁 / 同花顺 / 公司公告（9/14/9/15 异常波动 + 2025 年报 + 2026 半年报）</div>
+
+<div class="dashboard">
+  <div class="index-card mid">
+    <div class="name">股票名称</div>
+    <div class="value" style="font-size:17px;">闽东电力</div>
+    <div class="change">代码 000993</div>
+    <div class="label">深交所主板</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">所属行业</div>
+    <div class="value" style="font-size:17px;">电力</div>
+    <div class="change">水电 + 风电 + 光伏</div>
+    <div class="label">申万三级：水电</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">上市日期</div>
+    <div class="value" style="font-size:14px;">~2000 年</div>
+    <div class="change">成立 1998-12-30</div>
+    <div class="label">宁德国资控股</div>
+  </div>
+  <div class="index-card avoid">
+    <div class="tag danger">六连板</div>
+    <div class="name">当前股价</div>
+    <div class="value">18.48 元</div>
+    <div class="change">+10.00% 涨停</div>
+    <div class="label">9/16 09:51 雪球</div>
+  </div>
+  <div class="index-card avoid">
+    <div class="tag danger">小市值</div>
+    <div class="name">总市值</div>
+    <div class="value">84.63 亿</div>
+    <div class="change">流通近全流通</div>
+    <div class="label">总股本约 4.58 亿</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">极端高估</div>
+    <div class="name">静态 PE</div>
+    <div class="value" style="font-size:18px;">107.96x</div>
+    <div class="change">公司 9/11 公告</div>
+    <div class="label">水电同行 ~20x</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">TTM 极端</div>
+    <div class="name">PE-TTM</div>
+    <div class="value" style="font-size:18px;">225.71x</div>
+    <div class="change">理杏仁 9/16</div>
+    <div class="label">富途口径 375x</div>
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="index-card warn">
+    <div class="tag warn">偏高估</div>
+    <div class="name">PB (MRQ)</div>
+    <div class="value" style="font-size:18px;">1.87x</div>
+    <div class="change">理杏仁口径</div>
+    <div class="label">中财网 BVPS 5.72</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-65.23%</div>
+    <div class="name">2025 归母</div>
+    <div class="value" style="font-size:17px;">5888 万</div>
+    <div class="change">YoY 大幅下滑</div>
+    <div class="label">EPS 0.13 元</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-58.68%</div>
+    <div class="name">2026H1 归母</div>
+    <div class="value">2941 万</div>
+    <div class="change">营收 2.37 亿</div>
+    <div class="label">来水偏少主因</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">水电装机</div>
+    <div class="value">36.18 万</div>
+    <div class="change">kW 权益装机</div>
+    <div class="label">占公司 60.8%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">风电装机</div>
+    <div class="value">19.44 万</div>
+    <div class="change">kW 权益装机</div>
+    <div class="label">占公司 34.2%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">设计年发电量</div>
+    <div class="value" style="font-size:17px;">~10.5 亿</div>
+    <div class="change">kWh（设计口径）</div>
+    <div class="label">中型水库 3 座</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">实控人</div>
+    <div class="value" style="font-size:14px;">宁德国资委</div>
+    <div class="change">宁德唯一电力上市平台</div>
+    <div class="label">国资背景</div>
+  </div>
+</div>
+<!--CONTENT_MODULE_1_END-->
+<!--CONTENT_MODULE_2-->
+<div class="section-title danger">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+<div class="final-verdict">
+  <h2>⚖️ 11 方法论加权综合评级</h2>
+  <div class="rating">减持</div>
+  <div style="color:#fca5a5; font-size:15px; font-weight:700; margin:8px 0;">
+    （题材过热 · 6 连板透支 · 静态 PE 107.96x · 2026H1 归母 -58.68% · 已持仓减仓 ≥ 70% · 未持仓观望）
+  </div>
+  <div class="comment">
+    闽东电力在 <b style="color:#fca5a5">凯恩斯选美（6 分）、索罗斯反身性（5 分）</b>框架下博弈分较高（资金推动 6 连板、选美赢家已锁定、炒作末端反身性显现）；<b style="color:#94a3b8">西蒙斯量化（3 分）、巴菲特护城河（3 分）</b>中性偏低；<b style="color:#f87171">马克斯周期（2 分）、费雪成长（2 分）、达里奥全天候（2 分）</b>偏低；<b style="color:#fca5a5">格雷厄姆深度价值（1 分）、林奇 PEG（1 分）、邓普顿逆向（1 分）、博格指数（1 分）</b>极低。综合 <b style="color:#fca5a5">2.20/10 分 = 减持</b>（题材过热 · 基本面严重背离）。<br><br>
+    <b style="color:#fca5a5">核心定位：</b>宁德市唯一国有控股电力上市平台 + 福建水电+风电+光伏公用事业 + 总装机约 56.4 万 kW + 设计年发电量约 10.5 亿 kWh + 5 日涨 80%（10.26 → 18.48）+ 静态 PE 107.96x（公司公告）/ PE-TTM 225.71x（理杏仁）/ PB 1.87x + 2025 归母 -65.23% / 2026H1 归母 -58.68% / 2026Q1 亏损 + 公司主动公告"未开展算电协同/绿电直连业务、股价与业绩背离、存在非理性炒作"。<b style="color:#fca5a5">核心警示</b>：(1) <b style="color:#fca5a5">公司主动公告否认热点概念</b>——管理层态度说明题材游端已进入；(2) <b style="color:#fca5a5">5 日 80% 涨幅严重透支</b>——即使回归合理 PE 仍有 50%+ 下行空间；(3) <b style="color:#fca5a5">开板即出货信号</b>——题材博弈标的开板反转概率极高；(4) <b style="color:#fca5a5">业绩持续下滑</b>——2025 -65% / 2026H1 -58.68% / 2026 全年预告 -58.66%~-72.24%。<br><br>
+    <b style="color:#fca5a5">操作总则：</b>已持仓者 <b style="color:#fca5a5">逢高减仓 ≥ 70%</b>（保留 ≤ 1% 参与后续博弈）；未持仓者 <b style="color:#fca5a5">坚决规避</b>，不在涨停板追高。等待：(a) <b style="color:#fbbf24">股价回归合理估值区间（PB ≤ 1.5x / PE-TTM ≤ 30x）</b>——对应股价回调至 <b style="color:#fbbf24">8-10 元区间</b>（约 -45%~-55% 空间）；(b) <b style="color:#fbbf24">来水恢复 + 业绩拐点确认</b>；(c) <b style="color:#fbbf24">算电协同/绿电直连政策细节落地</b>。中长线（12-24 月）持有仅在估值修复后才有意义，短线（<3 月）应避开题材末端博弈。
+  </div>
+</div>
+<!--CONTENT_MODULE_2_END-->
+<!--CONTENT_MODULE_3-->
+<div class="section-title danger">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+<div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+<div class="safety-bar">
+  <div class="safety-title">📐 闽东电力估值区间（水电公用事业 PE 视角 · 数据日期 2026-09-16）</div>
+  <div class="safety-track">
+    <div class="safety-seg seg-deep">&lt; 15x · 合理区间（机会区）</div>
+    <div class="safety-seg seg-current">15–30x · 偏高区间</div>
+    <div class="safety-seg seg-over">&gt; 30x · 严重透支（当前）</div>
+  </div>
+  <div class="safety-marks">
+    <span><strong>合理价值区</strong> · 净利 7000 万+ × 15x</span>
+    <span><strong>偏高区</strong> · PE-TTM 30-60x</span>
+    <span><strong>透支区</strong> · 静态 PE 107.96x（当前）</span>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📊 A 股水电公用事业同业估值对比表（数据日期 2026-09-15）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>公司</th><th>代码</th><th>主营定位</th><th>2025 归母</th><th>PE 估值</th><th>PB</th><th>综合</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b style="color:#fca5a5">闽东电力</b></td><td> class="hl">000993.SZ</td><td>>福建宁德水电+风电+光伏（中小型）</td><td> class="danger">5888 万 (-65%)</td><td> class="danger">107.96x 静态</td><td> class="warn">1.87-3.35x</td><td> class="danger">题材过热 · 估值严重透支</td></tr>
+      <tr><td>长江电力</td><td> class="hl">600900.SH</td><td>>全球水电龙头 · 独家经营三峡</td><td> class="ok">~330 亿 (+10%)</td><td> class="ok">~18-20x</td><td> class="ok">~2.7x</td><td> class="ok">特许经营权 · 红利标杆</td></tr>
+      <tr><td>华能水电</td><td> class="hl">600025.SH</td><td>>云南澜沧江水电龙头</td><td> class="ok">~80 亿</td><td> class="ok">~15-18x</td><td> class="ok">~1.8-2.0x</td><td> class="ok">红利属性 · 央企背景</td></tr>
+      <tr><td>国投电力</td><td> class="hl">600886.SH</td><td>>雅砻江水电 + 火电</td><td> class="ok">~65 亿</td><td> class="ok">~12-15x</td><td> class="ok">~1.5-1.8x</td><td> class="ok">红利属性 · 现金流稳定</td></tr>
+      <tr><td>川投能源</td><td> class="hl">600674.SH</td><td>>雅砻江水电（参股 48%）</td><td> class="ok">~45 亿</td><td> class="ok">~12-15x</td><td> class="ok">~1.5-1.7x</td><td> class="ok">纯水电投资标的</td></tr>
+      <tr><td>桂冠电力</td><td> class="hl">600236.SH</td><td>>广西水电龙头</td><td> class="mid">~25 亿</td><td> class="mid">~16-18x</td><td> class="mid">~2.0x</td><td> class="mid">广西区域龙头</td></tr>
+      <tr><td>黔源电力</td><td> class="hl">002039.SZ</td><td>>贵州水电</td><td> class="mid">~5 亿</td><td> class="mid">~18-22x</td><td> class="mid">~1.5-1.8x</td><td> class="mid">小市值水电</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px; padding:12px; background:rgba(239,68,68,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+    💡 <b style="color:#fca5a5">结论：</b>闽东电力静态 PE 107.96x（公司 9/11 公告）/<b style="color:#fca5a5">PE-TTM 225.71x</b>（理杏仁 9/16）是水电同业中位 <b style="color:#fbbf24">~20x</b> 的 <b style="color:#fca5a5">5-11 倍</b>，即使与“题材同业”双箭股份、欢瑞世纪等极端高估标的相比也属偏高；PB 1.87x（理杏仁口径）偏离基本面（按 18.48 ÷ 5.72 BVPS ≈ 3.23x）。<b style="color:#f87171">格雷厄姆视角：</b>PE 107.96x 远高于同业 15-20x，<b style="color:#fca5a5">完全不存在安全边际</b>；考虑 (1) <b style="color:#f87171">2025 归母 -65% / 2026H1 归母 -58.68% / 2026Q1 亏损</b>  + (2) <b style="color:#f87171">公司主动公告”未开展算电协同/绿电直连业务”</b>  + (3) <b style="color:#fca5a5">5 日 80% 涨幅完全脱离基本面</b>  + (4) <b style="color:#f87171">未参股的海上风电项目未开工 / 未投产</b>  = <b style="color:#fca5a5">估值严重透支、深度高估</b>。<b style="color:#fca5a5">邓普顿逆向视角下也不适用</b>：不是”最悲观点“而是”题材过热末端“，逆向买入点应在 PB ≤ 1.2x / PE-TTM ≤ 25x / 股价 ~6-7  元附近。<b style="color:#fca5a5">隐蔽资产可忽略</b>：中型水库 3 座 + 电站 20 座已计入重资产价值，无重大隐蔽资产未释放。
+  </div>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">🔍</div>
+  <div class="text">
+    <h3>安全边际测算：以当前价 18.48 元买入，未来 12 个月下行空间</h3>
+    <p>
+      <b style="color:#fbbf24">基准情景（2026E 归母 7000 万 / PE 20x · 水电同业中位）：</b>合理市值 14 亿 → <b style="color:#f87171">合理价 3.06 元（-83.4%）</b><br>
+      <b style="color:#fbbf24">乐观情景（2026E 1.5 亿 / PE 30x · 题材股估值）：</b>合理市值 45 亿 → <b style="color:#f87171">合理价 9.83 元（-46.8%）</b><br>
+      <b style="color:#fbbf24">保守情景（2026E 5000 万 / PE 15x · 资产价值底线）：</b>合理市值 7.5 亿 → <b style="color:#f87171">合理价 1.64 元（-91.1%）</b><br>
+      <b style="color:#fca5a5">综合判断：</b>当前 PE-TTM 225.71x 对应 2026E 净利区间 5000 万-1.5 亿，下下位<14 亿为合理市值，<b style="color:#fca5a5">12 个月下行区间 -46% ~ -91%</b>，中枢约 <b style="color:#fca5a5">-83%</b>。核心变量：(1) <b style="color:#fbbf24">题材退潮节奏（算电协同/绿电直连政策细节落地）</b>；(2) <b style="color:#fbbf24">开板后资金面反转</b>；(3) <b style="color:#fbbf24">2026Q3 业绩披露（预计 10 月下旬）</b>；(4) <b style="color:#fbbf24">来水恢复 + 产能利用率</b>。公司 9/14/9/15 公告作为<b style="color:#fca5a5">官方风险信号</b>明确提示”非理性炒作“，可作为本次报告作为反例范例使用。
+    </p>
+  </div>
+</div>
+
+<div style="text-align:center; padding:14px; background:rgba(239,68,68,0.10); border-radius:8px; font-size:14px; color:#fca5a5; margin-bottom:24px;">
+  📊 <b>估值结论：极端高估 · 题材透支（静态 PE 107.96x · PE-TTM 225.71x · 完全脱离基本面）—— 评级<减持>，已持仓减仓 ≥ 70%，未持仓观望</b>
+</div>
+<!--CONTENT_MODULE_3_END-->
+<!--CONTENT_MODULE_4-->
+<div class="section-title danger">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+<div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+<div class="dashboard">
+  <div class="index-card danger">
+    <div class="tag danger">失真</div>
+    <div class="name">PEG (PE/3Y 增速)</div>
+    <div class="value">N/A</div>
+    <div class="change">基期净利为负</div>
+    <div class="label">林奇 PEG 不适用</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">负增长</div>
+    <div class="name">营收 YoY (2026H1)</div>
+    <div class="value">-17.65%</div>
+    <div class="change">2.37 亿</div>
+    <div class="label">来水偏少</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">负增长</div>
+    <div class="name">归母 YoY (2026H1)</div>
+    <div class="value">-58.68%</div>
+    <div class="change">2941 万</div>
+    <div class="label">双重压力</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">负增长</div>
+    <div class="name">归母 YoY (2025)</div>
+    <div class="value">-65.23%</div>
+    <div class="change">5888 万</div>
+    <div class="label">YoY 锐减</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">亏损</div>
+    <div class="name">2026Q1 净利</div>
+    <div class="value">-0.27 亿</div>
+    <div class="change">扣非 EPS -0.06</div>
+    <div class="label">首季亏损</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">持续下滑</div>
+    <div class="name">2026 全年预告</div>
+    <div class="value">-58%~-72%</div>
+    <div class="change">4700-7000 万</div>
+    <div class="label">业绩拐点未见</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">依赖天气</div>
+    <div class="name">来水</div>
+    <div class="value" style="font-size:14px;">偏少</div>
+    <div class="change">2026H1 主因</div>
+    <div class="label">水电产能不可控</div>
+  </div>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">📊</div>
+  <div class="text">
+    <h3>成长性判断：业绩衰退型公用事业 + 题材炒作不驱动基本面 —— 不是"成长"，是"衰退 + 故事"</h3>
+    <p>
+      闽东电力 2025 归母 <b style="color:#f87171">-65.23%</b> 、 2026Q1 亏损 -0.27 亿 、 2026H1 营收 <b style="color:#f87171">-17.65%</b> 、 归母 <b style="color:#f87171">-58.68%</b> 、 2026 全年预告 <b style="color:#f87171">-58.66% ~ -72.24%</b>——连续 2 年下滑、<b style="color:#fca5a5">衰退型公用事业</b>。<b style="color:#fca5a5">核心原因是来水偏少</b>（水电产能不可控，受气候驱动）+ <b style="color:#fca5a5">题材未兑现</b>（公司公告"未开展算电协同/绿电直连业务、参股海上风电项目未开工或未投产"）。<b style="color:#fca5a5">PEG 不可靠</b>：基期净利为负或下滑，PEG 失去意义。增长驱动力缺失：(1) <b style="color:#fca5a5">来水恢复不确定性</b>——水电产能依赖天气；(2) <b style="color:#fca5a5">新装机增量有限</b>——总装机 ~56.4 万 kW 体量小；(3) <b style="color:#fca5a5">题材未变现</b>——算电协同 / 绿电直连 / 海上风电均处于"未开展"状态。<br>
+      <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1) <b style="color:#fbbf24">来水恢复正常</b>（不可控 · 靠天气）；(2) <b style="color:#fbbf24">参股海上风电项目实际开工/投产</b>（公司公告"尚未形成收入"，需关注项目进展）；(3) <b style="color:#fbbf24">算电协同/绿电直连政策细节落地</b>（如公司启动相关业务，存在估值修复空间）；(4) <b style="color:#fbbf24">2026Q3 业绩披露</b>（10 月下旬 · 业绩持续下滑将压制估值回归）；(5) <b style="color:#fbbf24">宁德国资资产注入</b>（宁德唯一电力上市平台，存在潜在重组可能但未明确披露）。<b style="color:#fca5a5">总结：</b>当前股价反映的是<b style="color:#fca5a5">预期（题材炒作）而非基本面</b>，估值与基本面严重背离，属于<b style="color:#fca5a5">"衰退型公用事业被题材催化为高估值标的"</b>的典型反面案例。
+    </p>
+  </div>
+</div>
+<!--CONTENT_MODULE_4_END-->
+<!--CONTENT_MODULE_5-->
+<div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+<div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+<div class="table-card">
+  <div class="table-title">🛡️ 护城河六维评估（闽东电力 · 公用事业型护城河）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>牌照 / 合规壁垒</b></td><td> class="ok">中等</td><td>电力业务需发电业务许可、输电业务许可、供电业务许可、水力发电许可；中型水库 3 座 + 电站 20 座为历史物权；宁德地区独家供电平台</td><td> class="ok">⭐⭐⭐</td></tr>
+      <tr><td><b>规模优势</b></td><td> class="warn">偏弱</td><td>总装机 ~56.4 万 kW、设计年发电量 10.5 亿 kWh；与长江电力（装机超 7000 万 kW）相比差距 100+ 倍；体量小议价能力弱</td><td> class="warn">⭐⭐</td></tr>
+      <tr><td><b>成本优势</b></td><td> class="mid">中等</td><td>水电运营成本低（不依赖燃料）；但来水是变量；与火电、风电相比成本受天气影响</td><td> class="mid">⭐⭐⭐</td></tr>
+      <tr><td><b>转换成本</b></td><td> class="ok">较高</td><td>电力供应转换成本极高（区域供电独家、输配电网不可重复建设）；ToB 业务客户粘性强（宁德区域唯一电力供应）</td><td> class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>品牌 / 渠道</b></td><td> class="warn">偏弱</td><td>公用事业品牌作用弱（区域独家）；宁德地区品牌认知高但超出区域后认知低</td><td> class="warn">⭐⭐</td></tr>
+      <tr><td><b>资源 / 资产</b></td><td> class="ok">中等</td><td>中型水库 3 座 + 电站 20 座资产完整；风电 + 光伏权益装机 ~25 万 kW；但资源增量受地理限制</td><td> class="mid">⭐⭐⭐</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="dashboard">
+  <div class="index-card warn">
+    <div class="tag warn">中等偏下</div>
+    <div class="name">ROE (估算)</div>
+    <div class="value">~2-3%</div>
+    <div class="change">2025 估算</div>
+    <div class="label">低于同业 8-12%</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">毛利率</div>
+    <div class="value" style="font-size:17px;">~35-40%</div>
+    <div class="change">水电业务估算</div>
+    <div class="label">同业中位水平</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">下滑</div>
+    <div class="name">净利率</div>
+    <div class="value">~12%</div>
+    <div class="change">2026H1</div>
+    <div class="label">较 2025 下滑</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">装机利用率</div>
+    <div class="value" style="font-size:17px;">受限</div>
+    <div class="change">来水偏少</div>
+    <div class="label">产能未兑现</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">行业地位</div>
+    <div class="value" style="font-size:14px;">区域型</div>
+    <div class="change">宁德唯一电力平台</div>
+    <div class="label">非全国龙头</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">护城河总评</div>
+    <div class="value" style="font-size:16px;">狭窄型</div>
+    <div class="change">区域型壁垒</div>
+    <div class="label">非跨区护城河</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">周期属性</div>
+    <div class="value" style="font-size:14px;">弱周期</div>
+    <div class="change">来水驱动</div>
+    <div class="label">5-10 年周期</div>
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">🛡️</div>
+  <div class="text">
+    <h3>护城河结论：狭窄护城河 + 区域公用事业 —— 不是"宽阔护城河型标的"，是"区域性弱护城河标的"</h3>
+    <p>
+      闽东电力在 <b style="color:#fbbf24">牌照壁垒、转换成本</b>两个维度具备中等护城河（区域供电独家 + 不可重复建设电网）；<b style="color:#fbbf24">成本优势、资源/资产</b>维度中等（中型水库 3 座 + 电站 20 座 + 风电光伏权益装机 ~25 万 kW）；<b style="color:#fbbf24">规模优势、品牌渠道</b>维度偏弱（总装机仅 56.4 万 kW，与长江电力超 7000 万 kW 差距 100+ 倍；区域品牌跳出后认知低）。ROE 估算仅 <b style="color:#fbbf24">~2-3%</b>（低于同业 8-12%）+ <b style="color:#fbbf24">毛利率 ~35-40%（同业中位水平）</b> + <b style="color:#fbbf24">净利率 ~12%（下滑）</b> 反映 <b style="color:#fbbf24">"区域型弱护城河 + 体量受限 + 产能未兑现"</b>格局。公司属于 <b style="color:#fbbf24">"狭窄护城河 + 区域性公用事业 + 未完成增长"</b> 标的，不是巴菲特型"宽阔护城河 + 长期复利"标的。<br>
+      <b style="color:#fca5a5">护城河与题材背离：</b>(1) <b style="color:#fca5a5">"算电协同/绿电直连"不发展</b>——公司公告"未开展"，护城河不拓展；(2) <b style="color:#fca5a5">"海上风电"项目尚未形成收入</b>——参股未开工/未投产，护城河不扩大；(3) <b style="color:#fca5a5">来水不恢复</b>——水电产能与护城河同处停滞状态；(4) <b style="color:#fca5a5">资产注入未明确</b>——宁德唯一电力平台存在重组可能但未披露。<b style="color:#fca5a5">总结：</b>闽东电力的护城河反映的是<b style="color:#fca5a5">"区域型壁垒 + 体量受限"</b>，不是<b style="color:#fca5a5">"市场可拓展型"</b>护城河，这是其不能透支估值的关键原因。
+    </p>
+  </div>
+</div>
+<!--CONTENT_MODULE_5_END-->
+<!--CONTENT_MODULE_6-->
+<div class="section-title danger">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+<div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>财务指标</div>
+    <div>2023 / 2024 / 2025 / 2026H1</div>
+    <div>格雷厄姆 + 凯恩斯视角</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营业总收入（亿）</div>
+    <div class="fin-val down">~5.0 / 4.4 / 3.85 / 2.37</div>
+    <div class="fin-comment">YoY <b style="color:#f87171">下滑趋势</b>，2026H1 <b style="color:#f87171">-17.65%</b>；来水偏少是主因</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利润（万）</div>
+    <div class="fin-val down">~16,000 / 16,940 / 5,888 / 2,941</div>
+    <div class="fin-comment">YoY <b style="color:#f87171">2024 -3% / 2025 -65.23% / 2026H1 -58.68%</b>，连续 2 年大幅下滑</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">扣非归母净利（万）</div>
+    <div class="fin-val down">~15,000 / 16,000 / ~5,500 / 2,700</div>
+    <div class="fin-comment">YoY <b style="color:#f87171">下滑趋势</b>；<b style="color:#fca5a5">2026Q1 扣非 EPS -0.06 元（亏损）</b> 是 5 年罕见负面信号</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流（亿）</div>
+    <div class="fin-val warn">~2.5 / 2.4 / 约 2.0 / 估算 0.8</div>
+    <div class="fin-comment"><b style="color:#fbbf24">2026Q1 每股经营现金流 -0.072 元</b>（现金流为负）；营收下滑+应收账款可能压制现金流</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">自由现金流（亿）</div>
+    <div class="fin-val warn">~1.5 / 1.5 / ~1.2 / 估算 0.5</div>
+    <div class="fin-comment">FCF 随业绩下滑；<b style="color:#fbbf24">资本开支受限</b>，护城河拓展能力下降</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">资产负债率</div>
+    <div class="fin-val">~50% / ~52% / ~50% / 估算 50%</div>
+    <div class="fin-comment"><b style="color:#34d399">资产负债率 ~50% 处于行业中等水平</b>；公用事业有息负债偏高</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">有息负债率</div>
+    <div class="fin-val mid">中等</div>
+    <div class="fin-comment">有息负债在公用事业属正常水平；<b style="color:#fbbf24">财务费用受利率波动影响</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">应收账款周转天数</div>
+    <div class="fin-val warn">~80-90 天</div>
+    <div class="fin-comment">ToB 为主（电网公司）；<b style="color:#fbbf24">来水少时应收回收期拉长</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">存货周转天数</div>
+    <div class="fin-val mid">~30 天</div>
+    <div class="fin-comment">电力行业存货占比低；周转稳健</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流/净利润</div>
+    <div class="fin-val warn">1.4x / 1.4x / 1.4x / 估算 1.0x</div>
+    <div class="fin-comment"><b style="color:#fbbf24">OCF/净利润 接近 1x，警告信号</b>；来水少时现金流跟不上下滑</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">商誉/总资产</div>
+    <div class="fin-val ok">较低</div>
+    <div class="fin-comment">传统水电无大额商誉；无重大减值风险</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入占比</div>
+    <div class="fin-val mid">较低</div>
+    <div class="fin-comment">传统水电企业研发投入低；<b style="color:#fbbf24">不适合作为费雪型成长股</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">分红派息率</div>
+    <div class="fin-val mid">~30-40%</div>
+    <div class="fin-comment">公用事业有分红传统；<b style="color:#fbbf24">但业绩下滑可能压制派息</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股东户数 / 机构持仓</div>
+    <div class="fin-val mid">~5-6 万户</div>
+    <div class="fin-comment">小盘股；2025 年底基金持仓较少（嘉实绿电 ETF 51 万股 + 国泰 500 增强 Y 42 万股）</div>
+  </div>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">💰</div>
+  <div class="text">
+    <h3>财务质量判断：财务瑕疵（业绩下滑 + 现金流警告）—— 来水驱动型公用事业 + 题材透支</h3>
+    <p>
+      闽东电力 2023-2025 营收 <b style="color:#f87171">~5.0 → 4.4 → 3.85 → 2.37 亿</b>（下滑趋势）、归母 <b style="color:#f87171">16,000 → 16,940 → 5,888 → 2,941 万</b>（下滑趋势）、2026Q1 <b style="color:#fca5a5">亏损 -0.27 亿</b>。资产负债率 ~50% 处于中等水平；<b style="color:#fbbf24">OCF/净利润 接近 1x 警告</b>；每股经营现金流 2026Q1 <b style="color:#fca5a5">-0.072 元</b>（现金流为负）。总体财务质量为<b style="color:#fca5a5">"财务瑕疵"</b>，关键问题是<b style="color:#fca5a5">业绩下滑 + 现金流警告</b>而非资产质量问题。<br>
+      <b style="color:#fca5a5">关键警示：</b>(1) <b style="color:#fca5a5">业绩连续 2 年下滑</b>——不是 2026Q1 偶发现象；(2) <b style="color:#fca5a5">2026Q1 现金流为负</b>——是 5 年罕见的负面信号；(3) <b style="color:#fca5a5">来水驱动型业绩不可控</b>——基本面修复依赖天气；(4) <b style="color:#fca5a5">题材未变现</b>——算电协同/绿电直连/海上风电均处于"未开展"状态；(5) <b style="color:#fca5a5">财务质量验证需要看到</b>2026Q3 业绩、来水恢复、OCF 转正。<br>
+      <b style="color:#7dd3fc">后续验证重点：</b>2026Q3 业绩披露后，<b style="color:#fbbf24">业绩能否止跌 + 经营现金流转正 + 应收账款回收周期 + 来水恢复 + 题材业务变现</b> 是 <b style="color:#fbbf24">财务质量验证的核心</b>。在此之前，<b style="color:#fca5a5">财务质量评级为"瑕疵"</b>，不支持当前估值水平。
+    </p>
+  </div>
+</div>
+<!--CONTENT_MODULE_6_END-->
+<!--CONTENT_MODULE_7-->
+<div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+<div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+<div class="table-card">
+  <div class="table-title">🧭 管理层与治理关键事项</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>实控人 / 控股股东</b></td><td>实际控制人 <b style="color:#7dd3fc">宁德市国资委</b>，控股股东 <b style="color:#7dd3fc">宁德市国有资产投资经营有限公司</b>，宁德市唯一国有控股电力上市平台；国资背景明显</td><td> class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>管理层稳定性</b></td><td>国有控股上市公司，管理层以行政任命为主；高管变动信息需公司公告进一步核验</td><td> class="mid">⭐⭐⭐</td></tr>
+      <tr><td><b>风险提示主动性</b></td><td><b style="color:#fca5a5">9/14/9/15 主动公告提示"股价与业绩背离 · 非理性炒作"</b>，管理层的态度说明题材端已进入；此点为公司治理加分项</td><td> class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>股权激励历史</b></td><td>未明确披露多轮股权激励信息；需进一步核验公告；国有控股背景股权激励不如民企活跃</td><td> class="mid">⭐⭐</td></tr>
+      <tr><td><b>股东回报</b></td><td>公用事业有传统分红；<b style="color:#fbbf24">但业绩下滑可能压制未来派息</b></td><td> class="mid">⭐⭐⭐</td></tr>
+      <tr><td><b>股权质押</b></td><td>未发现重大股权质押信息；<b style="color:#34d399">国资背景减持压力小</b></td><td> class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>违规记录</b></td><td>近 3 年未发现重大违规处罚记录；财务报告获审计机构无保留意见（需进一步核验）</td><td> class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>研发投入</b></td><td>传统水电企业研发投入较低；<b style="color:#fbbf24">不体现费雪型成长思维</b></td><td> class="mid">⭐⭐</td></tr>
+      <tr><td><b>资本运作</b></td><td>未发现重大资产重组、并购信息；<b style="color:#fbbf24">宁德唯一电力平台存在潜在重组可能但未明确披露</b></td><td> class="mid">⭐⭐⭐</td></tr>
+      <tr><td><b>业绩承诺 / 完成</b></td><td><b style="color:#fca5a5">2025 归母 -65.23% / 2026H1 归母 -58.68%</b>；业绩下滑趋势明确</td><td> class="danger">⭐⭐</td></tr>
+      <tr><td><b>机构覆盖度</b></td><td>小盘股机构覆盖有限；2025 年底基金持仓仅 51 万股嘉实绿电 ETF + 42 万股国泰 500 增强 Y</td><td> class="warn">⭐⭐</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px; padding:12px; background:rgba(56,189,248,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+    💡 <b style="color:#7dd3fc">治理结论：基本可信，国资控股双重属性。</b>主要加分项：(1) <b style="color:#7dd3fc">宁德国资委控股</b>——本展性、公信力较强；(2) <b style="color:#7dd3fc">公司主动发布风险提示公告</b>——体现管理层诚信，但同时也是<b style="color:#fca5a5">题材端进入的信号</b>；(3) <b style="color:#7dd3fc">无重大违规记录</b>；(4) <b style="color:#7dd3fc">无重大股权质押</b>。主要减分项：(1) <b style="color:#fca5a5">业绩连续 2 年下滑</b>——与项目需评价为“足够难”的管理层能力；(2) <b style="color:#fbbf24">机构覆盖低、业绩压力明显</b>；(3) <b style="color:#fbbf24">研发投入、股权激励待加强</b>。<b style="color:#fca5a5">需注意：</b>(a) <b style="color:#fca5a5">公司公告提示风险后股价继续上涨，说明炒作资金仍参与</b>；(b) <b style="color:#fca5a5">宁德唯一电力平台的重组预期需主动信息披露</b>；(c) <b style="color:#fca5a5">9/15 公告强调海上风电未开工/未投产</b>是进一步明确变现时间。
+  </div>
+</div>
+<!--CONTENT_MODULE_7_END-->
+<!--CONTENT_MODULE_8-->
+<div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+<div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+  <div class="table-card">
+    <div class="table-title">📈 行业周期定位：水电产能周期底部</div>
+    <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+      闽东电力主营水电（60.8%）+ 风电（34.2%）+ 光伏（小）。水电产能强周期性，<b style="color:#fbbf24">核心驱动是来水</b>。<b style="color:#fca5a5">2026H1 来水偏少是业绩下滑主因</b>（公司半年报披露）。从周期看，水电业绩与流域降雨/来水 5-10 年周期高度相关。当前位置：<b style="color:#fca5a5">"业绩下滑中段 + 来水未恢复 + 题材未兑现"</b>格局。<br><br>
+      <b style="color:#fca5a5">不是周期底部机会</b>——业绩下滑 2 年还未看到底部信号；<b style="color:#fca5a5">不是周期高点</b>——价格高但业绩在底部；<b style="color:#fca5a5">是"题材高点 + 业绩底部"严重错位</b>。这是马克斯周期的"双错位"状态，价格反映题材面、财务面反映基本面，二者严重不一致。<br><br>
+      <b style="color:#fbbf24">水电同业周期信号：</b>(1) <b style="color:#fbbf24">长江电力业绩稳定</b>（独家经营三峡 · 调蓄能力）；(2) <b style="color:#fbbf24">华能水电 / 国投电力 / 川投能源</b>为大型水电运营商，估值 ~12-18x，业绩稳健；(3) <b style="color:#fbbf24">中小型水电企业受来水影响大</b>，周期性更强。闽东电力属于 <b style="color:#fca5a5">"中小型水电 · 周期性最强"</b> 赛道。
+    </p>
+  </div>
+  <div class="table-card">
+    <div class="table-title">🏛️ 政策环境与产业链位置</div>
+    <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+      政策环境：<b style="color:#fca5a5">2026H2-2026 年热点话题为"算电协同"与"绿电直连"</b>（算力中心 + 绿色电力直供）。闽东电力 9/14 公告明确"未开展算电协同/绿电直连业务，也未与算力中心、数据中心存在合作"——<b style="color:#fca5a5">这说明当前股价上涨完全脱离基本面，是题材资金推动</b>。<br><br>
+      <b style="color:#fca5a5">政策环境双重信号：</b>(1) <b style="color:#fbbf24">"算电协同/绿电直连"是 2026-2027 年政策热点</b>，存在主题炒作空间；(2) <b style="color:#fca5a5">公司未实际开展相关业务</b>，与股价表现不匹配；(3) <b style="color:#fca5a5">参股海上风电项目未开工 / 未投产</b>，与"海上风电概念"不完全匹配。<br><br>
+      <b style="color:#fbbf24">产业链位置：</b>上游为电网运营商、供水资源（不可控）；中游为发电运营（闽东电力所在位置）；下游为宁德地区电网销售公司。位于 <b style="color:#fbbf24">"中游发电运营 · 区域型 · 周期性"</b>位置。<br><br>
+      <b style="color:#7dd3fc">未来 3-5 年增长空间：</b>(1) <b style="color:#fbbf24">算电协同/绿电直连政策落地</b>可能为水电企业带来增量需求；(2) <b style="color:#fbbf24">海上风电项目开工/投产</b>是可能的增长点；(3) <b style="color:#fbbf24">宁德国资资产注入</b>是潜在重组空间；(4) <b style="color:#fbbf24">来水恢复</b>是业绩修复关键。三项均需明示披露后才能反映到估值。<b style="color:#fca5a5">总结：</b>行业增长空间存在但需要<b style="color:#fca5a5">"从题材到业绩"的兑现路径</b>，当前估值已透支这一路径。
+    </p>
+  </div>
+</div>
+<!--CONTENT_MODULE_8_END-->
+<!--CONTENT_MODULE_9-->
+<div class="section-title warn">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+<div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+<div class="table-card">
+  <div class="table-title">📊 截至 2026-09-16 09:51 盘中技术结构（资金流 + 量价）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>当前股价</td><td> class="warn">18.48 元（+10% 涨停）</td><td>>5 连板后第 6 日跳空高开涨停</td></tr>
+      <tr><td>开盘价</td><td> class="warn">17.22 元</td><td>>昨收 16.65 元左右（数据未独立核验）</td></tr>
+      <tr><td>盘中高低</td><td> class="warn">17.14 / 18.48 元</td><td>>短暂下探到 17.14 又拉涨停 · 波动极大</td></tr>
+      <tr><td>成交量</td><td> class="warn">50.97 万手（9/16 09:51）</td><td>>开盘半小时成交近 1 亿股 · 换手率 11.13%</td></tr>
+      <tr><td>成交额</td><td> class="warn">9.15 亿（9/16 上午）</td><td>>资金参与度高 · 题材资金量大</td></tr>
+      <tr><td>5 日累计涨幅</td><td> class="danger">~80%</td><td>>9/9 收盘 ~10.26 → 9/16 18.48 · 极端涨幅</td></tr>
+      <tr><td>9/2 主力净买入</td><td> class="warn">+387.47 万元</td><td>>阶段初期主力资金介入</td></tr>
+      <tr><td>MA60/120/250</td><td> class="warn">数据未独立核验</td><td>>股价远高于长期均线 · 偏离度极大</td></tr>
+      <tr><td>MACD / 布林带</td><td> class="warn">数据未独立核验</td><td>>AI 分析历史压力位 15.50-16.00 已突破 · 现处严重超买区</td></tr>
+      <tr><td>北向资金近 30 日</td><td> class="warn">数据未独立核验</td><td>>需进一步核验同花顺/东财数据</td></tr>
+      <tr><td>公募基金持仓</td><td> class="mid">较小</td><td>>2025 年底仅 93 万股（嘉实绿电 ETF + 国泰 500 增强 Y）</td></tr>
+      <tr><td>关键支撑位</td><td> class="warn">约 16 元（5 连板第一天）<br>约 13 元（9/11 收盘）<br>约 10 元（9/2 起涨点）</td><td>>5/6/7 连板仓位密集区 · 开板后大概率回试</td></tr>
+      <tr><td>关键压力位</td><td> class="warn">18.48 元（当前）</td><td>>超过 18.48 后没有明确压力位 · 下行压力测试在 16-17 元</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">📡</div>
+  <div class="text">
+    <h3>技术面与资金流判断：题材过热 · 极端超买 · 开板即反转 —— 不是“强势”是“末端”</h3>
+    <p>
+      闽东电力在 9/9-9/16 出现 <b style="color:#fca5a5">5 连板后第 6 日跳空高开涨停</b>，<b style="color:#fca5a5">5 个交易日累计涨幅 ~80%（10.26 → 18.48）</b>，开盘半小时成交 <b style="color:#fbbf24">50.97 万手 · 成交额 9.15 亿 · 换手率 11.13%</b>——资金参与度高但<b style="color:#fca5a5">已处于开板反转临界点</b>。<b style="color:#fca5a5">主要技术信号：</b><br>
+      (1) <b style="color:#fca5a5">极端超买</b>——股价远高于长期均线，偏离度极大；(2) <b style="color:#fca5a5">换手率骤增</b>——9/16 09:51 换手 11.13%，但全天往往可能在 25-30% 以上；(3) <b style="color:#fca5a5">主力资金阶段性出货</b>——以凈买 387 万（9/2）转为<b style="color:#fca5a5">题材末端</b>可能转为大额凈卖；(4) <b style="color:#fca5a5">9/14 公司公告主动提示风险</b>——管理层反常提示说明问题严重。<br>
+      <b style="color:#fca5a5">关键支撑位：</b>16 元（5 连板第一天开盘价） · 13 元（9/11 收盘） · 10 元（9/2 起涨点）；<b style="color:#fca5a5">关键压力位：</b>18.48 元（当前涨停价）。<br>
+      <b style="color:#fca5a5">💡 凯恩斯选美下逻辑：</b>当前阶段是<b style="color:#fca5a5">"选美游戏"中期阶段</b>——资金仍参与但已趋谨慎；<b style="color:#fca5a5">💡 索罗斯反身性下逻辑：</b>股价上涨 → 题材热度 → 资金参与 → 股价进一步上涨的<b style="color:#fca5a5">反身性正在运转</b>，但<b style="color:#fca5a5">已接近极限</b>（公司公告提示是反身性开始反作用的信号）。<b style="color:#fca5a5">总结：</b>技术面与资金流反映的是<b style="color:#fca5a5">"题材过热 · 极端超买 · 开板即反转"</b>信号，与价值面（下滑趋势）完全背离。
+    </p>
+  </div>
+</div>
+<!--CONTENT_MODULE_9_END-->
+<!--CONTENT_MODULE_10-->
+<div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+<div class="section-subtitle">11 种方法论打分 · Top 3 匹配 · 冲突处理与最终倾向</div>
+
+<!-- 6 列评分条（格雷厄姆/费雪/林奇/邓普顿/博格/马克斯） -->
+<div class="score-table">
+  <div class="score-item">
+    <div class="score-num bad">1</div>
+    <div class="score-name">格雷厄姆</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:10%"></div></div>
+    <div class="score-out">深度价值 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">2</div>
+    <div class="score-name">费雪成长</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+    <div class="score-out">成长投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">1</div>
+    <div class="score-name">林奇 PEG</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:10%"></div></div>
+    <div class="score-out">PEG 投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">1</div>
+    <div class="score-name">邓普顿逆向</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:10%"></div></div>
+    <div class="score-out">逆向投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">1</div>
+    <div class="score-name">博格指数</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:10%"></div></div>
+    <div class="score-out">指数投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">2</div>
+    <div class="score-name">马克斯周期</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+    <div class="score-out">周期投资 / 10</div>
+  </div>
+</div>
+
+<!-- 3 列方法论卡（西蒙斯/达里奥/凯恩斯/索罗斯/巴菲特 + Top 3） -->
+<div class="method-grid">
+  <div class="method-card best">
+    <div class="method-name">🥇 凯恩斯选美</div>
+    <div class="method-author">约翰·梅纳德·凯恩斯 · "市场选美"</div>
+    <div class="method-score good">6 / 10</div>
+    <div class="method-desc">当前阶段是<b style="color:#fca5a5">"选美游戏"中期</b>——资金仍参与但已趋谨慎；公司主动提示风险增加选美难度；5 连板后接籹者面临锁定路径少。<b style="color:#fca5a5">博弈框架下凯恩斯得分较高，但已不是初始期的 9-10 分。</b></div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🥈 索罗斯反身性</div>
+    <div class="method-author">乔治·索罗斯 · "主流偏见反身性"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">股价上涨 → 题材热度 → 资金参与的 <b style="color:#fbbf24">反身性正在运转</b>，但<b style="color:#fca5a5">已接近极限</b>（公司公告提示是反身性开始反作用的信号）；5 连板后期阶段可能转为反向锁定。索罗斯<b style="color:#fca5a5">提前离场 · 5 分</b>。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">🔷 西蒙斯量化</div>
+    <div class="method-author">詹姆斯·西蒙斯 · "统计套利量化"</div>
+    <div class="method-score warn">3 / 10</div>
+    <div class="method-desc">动量因子在 5 连板后期可能仍表现，但<b style="color:#fca5a5">反转因子预警升级</b>——换手率骤增 + 偏离长期均线过大，量化模型<b style="color:#fca5a5">可能捕捉反转信号</b>。西蒙斯<b style="color:#fca5a5">类型标得分 · 3 分</b>。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">🔷 巴菲特护城河</div>
+    <div class="method-author">沃伦·巴菲特 · "持久护城河"</div>
+    <div class="method-score warn">3 / 10</div>
+    <div class="method-desc">区域型狭隱护城河 · 牌照壁垒中等 · 转换成本较高但 ROE 仅 2-3% · 规模偏弱 · 不体现宽阔护城河型标的。巴菲特型<b style="color:#fca5a5">不感兴趣 · 3 分</b>。</div>
+  </div>
+  <div class="method-card bad">
+    <div class="method-name">🔷 达里奥全天候</div>
+    <div class="method-author">瑞·达里奥 · "全天候配置"</div>
+    <div class="method-score bad">2 / 10</div>
+    <div class="method-desc">波动率太高 · 与股烎/商品/债券相关性不稳定 · 不适合全天候组合中作为稳伻资产；<b style="color:#fca5a5">5 日 80% 涨幅是全天候组合的黑天鹅风险源</b>。达里奥<b style="color:#fca5a5">不押 · 2 分</b>。</div>
+  </div>
+  <div class="method-card bad">
+    <div class="method-name">🔷 费雪成长</div>
+    <div class="method-author">菲利普·费雪 · "成长投资 15 问"</div>
+    <div class="method-score bad">2 / 10</div>
+    <div class="method-desc">业绩衰退型公用事业 · 营收 YoY -17.65% / 归母 YoY -58.68% · 不体现费雪型"业务几乎不变、利润可持续增长"的复制业务。费雪<b style="color:#fca5a5">不感兴趣 · 2 分</b>。</div>
+  </div>
+</div>
+
+<!-- 冲突处理与最终倾向 -->
+<div class="conclusion">
+  <div class="conclusion-title">📌 方法论冲突处理与最终倾向（博弈框架 vs 价值框架）</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>冲突点：</strong><b style="color:#fca5a5">凯恩斯选美（6 分）、索罗斯反身性（5 分）</b> 与 <b style="color:#fca5a5">格雷厄姆深度价值（1 分）、费雪成长（2 分）、林奇 PEG（1 分）、邓普顿逆向（1 分）</b> 严重背离。博弈框架下阅 6-7 分，价值框架下仅 1-2 分。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>分析原因：</strong>分歧源于<b style="color:#fca5a5">“价值/价格 · 业绩/股价” 严重错位</b>：价格反映的是题材面（算电协同/绿电直连/海上风电热点），业绩反映的是基本面（来水偏少、业绩下滑）。价值派看到价格透支，博弈派看到资金热炒。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>最终倾向：</strong><b style="color:#fca5a5">采纳价值派（格雷厄姆/费雪/林奇/邓普顿/马克斯/巴菲特）立场为主</b>——价值是股价的“锚”，题材是股价的“浪”，浪终会回归错位值。博弈派的凯恩斯/索罗斯仅作为<b style="color:#fbbf24">"退出节奏参考"</b>，不作为决策主线。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><strong>综合得分：2.20 / 10 分</strong>，对应评级：<strong style="color:#fca5a5">减持</strong>（题材过热 · 估值严重透支 · 基本面完全跟不上）。决策：已持仓减仓 ≥ 70%，未持仓坚决规避。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">5</span>
+    <p><strong>反转预警信号（任一即说明可能出现价位反转）：</strong>(1) 6 连板后升不住开盘涨停 = <b style="color:#fca5a5">反身性反转</b>；(2) 换手率超 30% 且股价下跌 = <b style="color:#fca5a5">接盘者锁定</b>；(3) 主力资金凈卖额超 5 亿 = <b style="color:#fca5a5">机构出货</b>；(4) 公司进一步公告“与热点概念无关” = <b style="color:#fca5a5">炒作逻辑破裂</b>。</p>
+  </div>
+</div>
+<!--CONTENT_MODULE_10_END-->
+<!--CONTENT_MODULE_11-->
+<div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+<div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和回款做决策</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card position">
+    <div class="strategy-title">🎯 仓位与分批建仓（已持仓者减仓节奏 · 未持仓者回避）</div>
+    <div class="strategy-content">
+      <table class="compare-table">
+        <thead><tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr></thead>
+        <tbody>
+          <tr><td><b style="color:#fca5a5">已持仓减仓 #1</b></td><td>>未来 1-3 个交易日内高开或冲高时</td><td> class="danger">减仓 ≥ 50%</td></tr>
+          <tr><td><b style="color:#fca5a5">已持仓减仓 #2</b></td><td>>开板日（高换手 + 股价下挫时）</td><td> class="danger">减仓 ≥ 20%</td></tr>
+          <tr><td><b style="color:#fca5a5">已持仓保留</b></td><td>>参与后续博弈（仅少量）</td><td> class="warn">≤ 1%</td></tr>
+          <tr><td><b style="color:#34d399">未持仓建仓 #1</b></td><td>>股价回调至 12-13 元区间（跌幅 30%）</td><td> class="warn">≤ 1% 试探</td></tr>
+          <tr><td><b style="color:#34d399">未持仓建仓 #2</b></td><td>>股价回调至 9-10 元区间（跌幅 ~45%）+ 题材兑现信号</td><td> class="warn">≤ 3%</td></tr>
+          <tr><td><b style="color:#34d399">未持仓建仓 #3</b></td><td>>股价回调至 6-7 元区间 + 业绩拐点 + 来水恢复</td><td> class="ok">≤ 5%</td></tr>
+          <tr><td><b style="color:#34d399">单股上限</b></td><td>>仅在估值修复后</td><td> class="ok">≤ 5%</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px; font-size:11px; color:#94a3b8;">
+        💡 <b style="color:#fbbf24">决策原则：</b>已持仓者避免“赚最后一个铜板”——题材末端反向锁定概率极高；未持仓者耐心等估值回归（5-10 元区间），不为题材资金接盘。
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🚨 止损位（已持仓保留仓位适用 · 先减仓至 ≤ 1%）</div>
+    <div class="strategy-content">
+      <strong style="color:#f87171">硬止损：</strong>股价跌破 <b style="color:#f87171">13 元（-30%）</b> 或跌破 9/11 收盘 13.88 元的跌破位置 → <b style="color:#f87171">止损 ≥ 80% 仓位</b>，仅保留 ≤ 0.5% 仓位。<br>
+      <strong style="color:#fbbf24">信号止损（任一即减仓）：</strong><br>
+      1. <b style="color:#fbbf24">6 连板后升不住</b>（开盘未涨停 + 高开低走）<br>
+      2. <b style="color:#fbbf24">换手率超 30% 且股价下挫</b>（接盘者锁定）<br>
+      3. <b style="color:#fbbf24">主力资金凈卖超 5 亿</b>（机构出货）<br>
+      4. <b style="color:#fbbf24">公司进一步公告“与热点概念无关”</b><br>
+      5. <b style="color:#fbbf24">2026Q3 业绩披露后继续下滑</b>（10 月下旬）
+    </div>
+  </div>
+
+  <div class="strategy-card target">
+    <div class="strategy-title">📈 目标价（参考，非承诺 · 以估值回归为参考基准）</div>
+    <div class="strategy-content">
+      <table class="compare-table">
+        <thead><tr><th>周期</th><th>保守（回归同业中位 PE 20x）</th><th>中性（题材股估值 30x）</th><th>乐观（算电协同兑现 50x）</th></tr></thead>
+        <tbody>
+          <tr><td><b>12 个月（题材退潮）</b></td><td> class="danger">3.06 元（-83%）</td><td> class="warn">4.58 元（-75%）</td><td> class="warn">7.65 元（-59%）</td></tr>
+          <tr><td><b>24 个月（业绩修复）</b></td><td> class="warn">6.11 元（-67%）</td><td> class="warn">9.16 元（-50%）</td><td> class="ok">15.30 元（-17%）</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px; font-size:11px; color:#94a3b8;">
+        💡 <b style="color:#fca5a5">关键警示：</b>即使在乐观情景下（算电协同业务兑现 + PE 50x），24 个月后股价仅为 15.30 元，仍低于当前价 18.48 元。<b style="color:#fca5a5">当前股价已透支所有乐观预期</b>，唯一可能的盈利情景是<b style="color:#fca5a5">题材资金快速接盘后跳高</b>（本质是零和博弈）。
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-card cycle">
+    <div class="strategy-title">⏳ 持有周期</div>
+    <div class="strategy-content">
+      <strong style="color:#fca5a5">已持仓者：</strong><b style="color:#fca5a5">短线</b>（< 1 月 · 高位减仓）；<br>
+      <strong style="color:#34d399">未持仓观望者：</strong><b style="color:#34d399">中长线</b>（6-12 月 · 估值修复后才建仓）；<br>
+      <strong style="color:#fbbf24">价值投资者：</strong><b style="color:#fbbf24">长线</b>（12-24 月 · 业绩拐点 + 来水恢复 + 题材变现三项同时确认后才介入）。<br>
+      💡 <b style="color:#fca5a5">核心原则：</b>不在题材末端接盘、不在极端高估位置接货。
+    </div>
+  </div>
+
+  <div class="strategy-card monitor">
+    <div class="strategy-title">📡 关键监测指标（每季度）</div>
+    <div class="strategy-content">
+      1. <b style="color:#7dd3fc">来水恢复 + 发电量月度数据</b>（公司公告 · 关注流域降雨）<br>
+      2. <b style="color:#7dd3fc">2026Q3 业绩披露</b>（预计 10 月下旬 · 业绩能否止跌是关键）<br>
+      3. <b style="color:#7dd3fc">算电协同/绿电直连业务实质进展</b>（公司公告 · 如启动业务将重估）<br>
+      4. <b style="color:#7dd3fc">参股海上风电项目开工/投产进度</b>（公司公告 · 预计 12 月前）<br>
+      5. <b style="color:#7dd3fc">宁德国资资产注入预期</b>（潜在重组可能 · 需公司公告披露）
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 1%）</div>
+    <div class="strategy-content">
+      1. <b style="color:#fca5a5">开板日 + 换手率超 30% + 股价下挫</b>（题材资金接盘后出货）<br>
+      2. <b style="color:#fca5a5">2026Q3 业绩披露后归母 YoY 跌幅扩大至 -80% 以上</b><br>
+      3. <b style="color:#fca5a5">公司进一步公告“与热点概念无关”</b>（甚至启动股价核查）<br>
+      4. <b style="color:#fca5a5">主力资金凈卖额超 5 亿</b>（机构出货）<br>
+      5. <b style="color:#fca5a5">宁德国资委减持</b>（国资股东公告减持 · 籹筹验证调整信号）
+    </div>
+  </div>
+</div>
+<!--CONTENT_MODULE_11_END-->
+<!--CONTENT_MODULE_12-->
+<div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条 · 含触发/影响/应对）</div>
+
+<div class="risk-grid">
+  <div class="risk-card">
+    <div class="risk-title">🔻 1. 题材退潮风险（5 连板后的典型反转路径）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 公司再次公告"与热点概念无关"（进一步削弱题材逻辑）；(b) 监管层关注（交易异常波动公告升级）；(c) 6/7 连板后开盘即下挫；(d) 主力资金凈卖超 5 亿；(e) 换手率超 30% 且股价下挫。<br>
+      <strong>影响幅度：</strong>题材退潮后股价回归同业水电估值（PE 15-20x），合理价区间 6-10 元，较当前 18.48 元 <b style="color:#fca5a5">下跌 -46% ~ -68%</b>；如进入深度调整期（跌破 9.16 元的 24 月中性价），下跌幅度可能达 <b style="color:#fca5a5">-50% ~ -68%</b>。<br>
+      <strong>应对策略：</strong>已持仓者 <b style="color:#fca5a5">逢高减仓 ≥ 70%</b>，保留 ≤ 1% 参与后续反弹；未持仓者 <b style="color:#fca5a5">坚决不接盘</b>，等股价回调至 12 元以下再考虑介入。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">⚠️ 2. 业绩持续下滑风险（来水不恢复 · 2026Q3 业绩披露压力）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 2026Q3 业绩披露（10 月下旬）继续下滑；(b) 2026 全年预告调整（从 -58%~-72% 进一步下修）；(c) 来水持续偏少（流域降雨不足）；(d) 应收账款回收周期拉长（电网公司应收账款压力）。<br>
+      <strong>影响幅度：</strong>如 2026 全年净利低于 4000 万（同比下降 -80%），PE-TTM 进一步走高至 250x+；如同时题材退潮，<b style="color:#fca5a5">双重压力下股价可能腰斩</b>（跌至 8-10 元区间）。<br>
+      <strong>应对策略：</strong>监测 2026Q3 业绩（预计 10 月下旬）；如业绩继续下滑 + 题材退潮双重确认，<b style="color:#fca5a5">已持仓减仓至 ≤ 0.5%</b>，未持仓坚决规避。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">⚠️ 3. 题材业务未兑现风险（算电协同/绿电直连/海上风电均"未开展"）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 公司公告"算电协同/绿电直连业务在可预见未来不开展"；(b) 海上风电项目延迟开工/投产超过 6 个月；(c) 算电协同政策细节落地但未涉及闽东电力。<br>
+      <strong>影响幅度：</strong>这是当前估值的<b style="color:#fca5a5">"题材锚"</b>——题材逻辑破裂将导致股价快速回归同业水电估值；估计<b style="color:#fca5a5">下跌 30-50%</b>。<br>
+      <strong>应对策略：</strong>密切关注公司公告和行业政策；如题材业务明确未兑现，<b style="color:#fca5a5">已持仓减仓 ≥ 50%</b>；如行业政策细节落地但未涉及公司，<b style="color:#fca5a5">视为题材逻辑破裂</b>。
+    </div>
+  </div>
+  <div class="risk-card info">
+    <div class="risk-title">🛡️ 4. 监管层关注风险（异常波动公告升级 · 交易核查）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 公司连续发布异常波动公告（已发布 9/14/9/15）；(b) 交易所发函关注（连续 3 个交易日累计涨幅超 20%）；(c) 监管层启动交易核查或发出警示函。<br>
+      <strong>影响幅度：</strong>监管关注后开板概率极大提升，可能触发短期<b style="color:#fca5a5">30-40% 跌幅</b>；长期取决于题材逻辑能否维持。<br>
+      <strong>应对策略：</strong>不主动做"接盘者"；已持仓者 <b style="color:#fca5a5">监管关注后立即减仓 ≥ 50%</b>；未持仓者坚决规避，等监管周期结束+股价回归后再考虑。
+    </div>
+  </div>
+  <div class="risk-card">
+    <div class="risk-title">🔻 5. 估值严重透支风险（PE 107.96x 静态 · PE-TTM 225.71x）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 股价不回调（持续在 18 元以上）；(b) 同业水电估值整体下移（流动性收紧）；(c) 2026 年报披露后 PE 进一步走高。<br>
+      <strong>影响幅度：</strong>如估值向同业中位回归（PE 20x / 对应股价 3.06 元），<b style="color:#fca5a5">下跌 83%</b>；如仅部分回归（PE 50x / 对应股价 7.65 元），<b style="color:#fca5a5">下跌 59%</b>。任何情景下，<b style="color:#fca5a5">当前估值都不可持续</b>。<br>
+      <strong>应对策略：</strong><b style="color:#fca5a5">唯一安全介入点</b>：股价回到 12 元以下（PE 30x 以内） + 业绩拐点确认 + 来水恢复；<b style="color:#fca5a5">应避免在 18 元以上任何位置重仓</b>。
+    </div>
+  </div>
+</div>
+<!--CONTENT_MODULE_12_END-->
+<!--CONTENT_FOOTER-->
+<div class="footer">
+  📅 <strong>报告截止日：</strong>2026-09-16（周三 · 5 连板后第 6 日盘中 9:51 快照）· 闽东电力（000993.SZ）· 11 方法论交叉验证 × 12 模块标准输出<br>
+  📊 <strong>核心结论：</strong>综合评级 <strong style="color:#fca5a5">减持</strong> · 综合得分 <strong style="color:#fca5a5">2.20/10</strong> · 题材过热 · 6 连板透支 · 静态 PE 107.96x · PE-TTM 225.71x · 2026H1 归母 -58.68% · 决策：<strong style="color:#fca5a5">已持仓减仓 ≥ 70%，未持仓观望</strong><br>
+  🧠 <strong>证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议</strong><br>
+  📚 <strong>数据源：</strong>雪球 SZ000993（9/16 09:51 实时）· 富途牛牛（9/11 收盘）· 东方财富（9/14 收盘）· 搜狐证券 / 中财网 / 理杏仁（估值）· 同花顺（基金/行业数据）· 公司公告（9/14/9/15 异常波动 + 2025 年报 + 2026 半年报 + 2026 半年预告 + 2026Q1 季报）· 巨潮资讯网 / 凤凰财经 / 紫荆网（业绩披露交叉验证）· 证券时报（多公司提示风险）<br>
+  ⚠️ <strong>缺口披露：</strong>北向资金近 30 日 / 公募基金 Q2 持仓变动 / MA60/120/250 / MACD / 布林带等技术指标未独立核验；行业 9 月最新 PE 数据需进一步交叉确认；公司管理层细节信息以公司公告为准。<br>
+  💡 <strong>教学价值：</strong>本报告作为<b style="color:#fca5a5">"博弈框架（凯恩斯/索罗斯）vs 价值框架（格雷厄姆/巴菲特/林奇）严重背离"</b>的典型反面教学案例，与欢瑞世纪（000892）、艾艾精工（603580）属同一打法——公司公告主动提示风险 + 业绩下滑 + 题材末端的非理性炒作。<strong style="color:#fca5a5">重点提示：</strong>博弈标的不是投资标的，已持仓者大幅减仓、未持仓者坚决规避。
+</div>
+<!--CONTENT_FOOTER_END-->
+
+</div>
+</body>
+</html>

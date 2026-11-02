@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-31 雷赛智能 (002979) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(245,158,11,0.16), rgba(14,165,233,0.10));
+    border: 1px solid rgba(52,211,153,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.28), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #34d399, #fbbf24, #38bdf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #34d399; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(245,158,11,0.10));
+    border: 1px solid rgba(52,211,153,0.40); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#6ee7b7; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(16,185,129,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(52,211,153,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#6ee7b7; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(16,185,129,0.10), rgba(168,85,247,0.10));
+    border:1px solid rgba(52,211,153,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #34d399; }
+  .conclusion-item .num { display:inline-block; background:#34d399; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>⚙️ 雷赛智能 (002979) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">国产运动控制+伺服龙头（行业第二）· 人形机器人第二增长曲线规模化兑现 · H1 业绩超预期 · PE 60x 估值消化中</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>谨慎买入</b>（业绩超预期 + 估值消化 + 兑现窗口）</span>
+      <span class="badge badge-source">📅 数据日期：2026-08-31（周一收盘）</span>
+      <span class="badge badge-source">📊 股价 57.15 元 · 总市值 180.6 亿 · PE-TTM 60.19x · PB 9.18x</span>
+      <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 等 11 方法论 × 12 模块</span>
+      <span class="badge badge-success">✅ H1 营收 +39.92% / 归母 +62.79% · 国产伺服第二 · 灵巧手/无框电机订单爆发</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-08-31）：</strong><br>
+    ✅ 股价 <span class="info">57.15 元</span>（8/31 收盘 +1.31%），总市值 <span class="info">180.62 亿</span>，流通市值 <span class="info">125.67 亿</span>，总股本 3.16 亿股（流通 2.23 亿股） · 来源：搜狐证券/新浪财经/雪球/富途牛牛/腾讯证券（2026-08-31 收盘快照，多源核对）<br>
+    ✅ 52 周区间：<span class="warn">34.07 - 76.26 元</span>（区间振幅 124%，自 2025/12/31 收盘 41.82 元至今 +36.66%）；近 1 月（7/31-8/31）涨 <span class="ok">+9.59%</span>；7/6 高点 76.26 → 8/20 低点 52.11（-31.65%）后反弹；8/31 收盘 57.15 处于区间中位<br>
+    ✅ PE-TTM <span class="warn">60.19x</span>、PB <span class="warn">9.18x</span>（每股净资产 6.48 元，2026H1 ROE 9.46%）· 雪球/Yahoo 数据基本一致；2025 PE-TTM 估值区间 35-80x（机器人概念炒作期）<br>
+    ✅ 财务基准（2026H1）：营收 <span class="ok">12.47 亿(+39.92%)</span>、归母 <span class="ok">1.94 亿(+62.79%)</span>、扣非 <span class="ok">1.88 亿(+61.59%)</span>、毛利率 <span class="ok">39.15%</span>、净利率 <span class="ok">15.95%</span>、ROE <span class="ok">9.46%</span>、经营现金流 <span class="warn">0.43 亿(-14.01%)</span>、EPS 0.63 元<br>
+    ✅ 业务结构（2026H1）：伺服系统 <span class="ok">6.61 亿(53.02%)</span>、步进系统 <span class="ok">3.82 亿(30.59%)</span>、控制技术 <span class="ok">1.98 亿(15.85%)</span>；区域：华南 <span class="mid">55.79%</span> / 华东 30.78% / 华北 10.63% / 海外 2.80%<br>
+    ✅ 机器人业务（第二增长曲线）：<span class="ok">2026 年 1-8 月灵巧手销量 4000+ 只（同比翻倍）</span>、<span class="ok">无框电机在手订单 100 万台</span>、<span class="ok">关节模组批量供应百家机器人企业</span>；FM1/FM2 无框力矩电机年产能 30 万台，无刷空心杯电机年产能 12 万台；规划年产 300 万台自动化产能<br>
+    ✅ 卖方综合目标价：<span class="info">75.28 元（机构综合）/ 67.51 元（同花顺 8 家均值）</span>（较现价上行 <span class="ok">31.7%~39.6%</span>） · 中金 8/27（跑赢行业 80 元）、东吴 8/27（买入 净利 3.95 亿）、华泰 8/26（买入 70.56 元）、浙商 7/3（买入 4.01 亿）、野村 4/24（增持 56.40 元）<br>
+    ✅ 20 家机构预测 2026E：EPS 1.19 元、净利 <span class="info">3.78 亿(+67.73%)</span>、营收 <span class="info">27.25 亿(+45.44%)</span>；16 家预测 2027E EPS 1.62 元 / 净利 5.11 亿(+35.09%)；2028E EPS 1.98 元<br>
+    ⚠️ 数据局限：MA60/120/250 已获取（57.71/51.33/46.74）；融资融券数据、北向完整持仓变动未独立全口径核验；同业（汇川/鸣志/禾川/埃斯顿）2026H1 完整 PE 估值需进一步交叉确认<br>
+    ⚠️ 关键警示：<span class="danger">8/19 一阴穿 5 线（中期走弱信号）</span>、<span class="warn">8/20 投资者投诉股价异常波动（跌 28.39% 从高点）</span>、<span class="warn">8/31 收盘价 57.15 低于 60 日主力成本 58.43</span>、<span class="warn">北向近 10 日流出 7 天</span>、<span class="warn">DDX 近 5 日 -0.13（大单流出）</span>、<span class="warn">PE 60x 估值偏高</span><br>
+    📊 关键事件：<span class="ok">8/27 中报披露（业绩超预期）</span> + <span class="ok">8/26 限制性股票回购注销</span> + <span class="ok">2025 股票期权首期行权条件达成（258 人 / 94.8 万份 / 行权价 50.03 元）</span> + <span class="ok">11.4 亿定增已获深交所审核通过</span>（7.53 亿东莞产业化 + 1.41 亿信息化 + 2.50 亿补流）
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">⚙️</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：国产运动控制+伺服龙头（第二）· 人形机器人第二增长曲线规模化兑现 · H1 业绩超预期 · 估值消化中 —— 谨慎买入（5.8/10），分批限仓</h3>
+      <p>
+        雷赛智能在 <b style="color:#34d399">费雪成长（8 分）、巴菲特护城河（7 分）</b>框架下得分极高（H1 营收 +39.92%、归母 +62.79% 大幅超预期、伺服国产第二 + 小型 PLC 增速第一 + 步进国内龙头 + 机器人业务规模化兑现、灵巧手销量翻倍 + 无框电机订单 100 万台、研发驱动 + 业绩超预期印证第二曲线逻辑）；在 <b style="color:#fbbf24">马克斯周期（6 分）、达里奥全天候（6 分）、林奇 PEG（5 分）、凯恩斯选美（6 分）</b>框架下中性偏多（工控行业"上行 + 国产替代 + 人形机器人量产"三周期共振，PE 60x 估值反映成长预期但已偏高，PEG ≈ 1.0 中性）；<b style="color:#f87171">格雷厄姆（4 分）、博格指数（4 分）、邓普顿逆向（3 分）</b>得分偏低（高 PE/PB、非深度折价、当前不在"最悲观点"）。综合 <b style="color:#fbbf24">5.8/10 分 = 谨慎买入</b>（业绩兑现期 + 估值消化 + 兑现窗口）。<br><br>
+        <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">费雪 + 巴菲特护城河</b>框架作为决策主线（"国产伺服第二 + 人形机器人第二曲线 + 业绩超预期"），用 <b style="color:#fbbf24">格雷厄姆价格纪律</b>作为仓位与买点约束（PE 60x 不追价、按 20 倍增长溢价 50-58x 设定买入区间）；<b style="color:#fca5a5">PE 60x 估值已透支 2026E 部分预期、8/19 一阴穿 5 线 + 北向流出 7 天</b> 是 <b style="color:#fca5a5">短期兑现窗口</b> 的关键阻力，需等待 Q3 业绩 + 机器人订单兑现 + 11.4 亿定增落地 三确认。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-08-31 · 来源：搜狐证券/新浪财经/雪球/富途牛牛/腾讯证券/公司公告</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">雷赛智能</div>
+      <div class="change">代码 002979</div>
+      <div class="label">深交所主板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:17px;">自动化设备</div>
+      <div class="change">机器人（申万三级）</div>
+      <div class="label">机械设备 / 自动化</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:14px;">2020-04-08</div>
+      <div class="change">发行价 9.80 元</div>
+      <div class="label">上市 ~6 年 +483%</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">总市值</div>
+      <div class="value">180.62 亿</div>
+      <div class="change">流通 125.67 亿</div>
+      <div class="label">深交所快照</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">8/31 涨</div>
+      <div class="name">当前股价</div>
+      <div class="value">57.15 元</div>
+      <div class="change">涨 +1.31%</div>
+      <div class="label">52 周区间 34.07-76.26</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">估值偏高</div>
+      <div class="name">PE-TTM</div>
+      <div class="value" style="font-size:18px;">60.19 x</div>
+      <div class="change">盘中 60.19 / 8/28 59.44</div>
+      <div class="label">机器人概念溢价</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">估值偏高</div>
+      <div class="name">PB (MRQ)</div>
+      <div class="value" style="font-size:18px;">9.18 x</div>
+      <div class="change">BVPS 6.48 元 (2026H1)</div>
+      <div class="label">远高于行业均值</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="tag mid">2026E</div>
+      <div class="name">2026E PE</div>
+      <div class="value" style="font-size:17px;">约 47 x</div>
+      <div class="change">按 20 家预测中位</div>
+      <div class="label">EPS 1.19 元</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">PEG</div>
+      <div class="name">PEG (PE/3Y 增速)</div>
+      <div class="value">约 0.9-1.1</div>
+      <div class="change">PE 60x / 增速 60%+</div>
+      <div class="label">林奇 PEG 中性</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高速</div>
+      <div class="name">营收 3Y CAGR</div>
+      <div class="value">约 18.6%</div>
+      <div class="change">2023-2025</div>
+      <div class="label">剔除基数后</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高速</div>
+      <div class="name">H1 净利同比</div>
+      <div class="value">+62.79%</div>
+      <div class="change">2026H1 vs H1 2025</div>
+      <div class="label">大幅超预期</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">超低</div>
+      <div class="name">大股东质押率</div>
+      <div class="value" style="font-size:18px;">0%</div>
+      <div class="change">实控人李卫平</div>
+      <div class="label">无平仓风险</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">较优</div>
+      <div class="name">2025 派息率</div>
+      <div class="value" style="font-size:18px;">34.7%</div>
+      <div class="change">每 10 股派 2.5 元</div>
+      <div class="label">派现募资比 120.5%</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">机器人</div>
+      <div class="name">机器人概念占比</div>
+      <div class="value" style="font-size:17px;">约 15-20%</div>
+      <div class="change">第二增长曲线</div>
+      <div class="label">灵巧手+无框电机</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">谨慎买入</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （国产运动控制+伺服龙头 · 人形机器人第二增长曲线 · H1 业绩超预期 · PE 60x 估值消化中）
+    </div>
+    <div class="comment">
+      雷赛智能在 <b style="color:#34d399">费雪成长（8 分）、巴菲特护城河（7 分）</b>框架下得分极高；<b style="color:#fbbf24">马克斯周期（6 分）、达里奥全天候（6 分）、凯恩斯选美（6 分）、林奇 PEG（5 分）、西蒙斯量化（5 分）、索罗斯反身性（5 分）</b>中性；<b style="color:#f87171">格雷厄姆（4 分）、博格指数（4 分）、邓普顿逆向（3 分）</b>偏低。综合 <b style="color:#fbbf24">5.8/10 分 = 谨慎买入</b>。<br><br>
+      <b style="color:#7dd3fc">核心定位：</b>国产伺服市占率第二（仅次于汇川）+ 步进国内龙头 + 小型 PLC 增速第一 + H1 营收 +39.92% / 归母 +62.79% 大幅超预期；机器人第二增长曲线规模化兑现（灵巧手销量翻倍 + 无框电机订单 100 万台 + 年产 300 万台自动化产能建设中）；研发驱动 + 大客户战略 + 11.4 亿定增已过审。<b style="color:#fca5a5">核心警示</b>：PE 60x 估值偏高、8/19 一阴穿 5 线、北向 10 日流出 7 天、DDX -0.13、应收账款周转较慢（0.66 次/季）—— 业绩兑现期与估值消化的博弈阶段。<br><br>
+      <b style="color:#fca5a5">操作总则：</b>按 ≤ 5% 仓位分 3 批入场，第一批 52-55 元区间（BOLL 下轨 + 业绩兑现支撑），第二批 48-52 元（仅在 Q3 业绩 + 机器人订单兑现前提下），第三批 42-48 元（仅在 H2 全面兑现前提下）；止损 48 元（-16%）；中长线持有（6-18 月），等待人形机器人量产爆发 + 11.4 亿定增落地。
+    </div>
+  </div>
+
+  <div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+  <div class="safety-bar">
+    <div class="safety-title">📐 雷赛智能估值区间（机器人+伺服龙头 PE 视角 · 数据日期 2026-08-31）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">&lt; 40x · 深度价值（机会区）</div>
+      <div class="safety-seg seg-current">40–65x · 合理区间（当前）</div>
+      <div class="safety-seg seg-over">&gt; 65x · 偏贵/透支</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>深度价值区</strong> · 净利 3.78 亿+ × 40x 以下</span>
+      <span><strong>当前</strong> · PE-TTM 60.19x（机器人概念溢价）</span>
+      <span><strong>透支区</strong> · 增速放缓至 30% 以下 × 65x+</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 工控/机器人赛道同业 5 家可比公司估值对比表（数据日期 2026-08-31）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>主营定位</th><th>2026H1 营收</th><th>2026H1 归母</th><th>净利同比</th><th>PE 估值</th><th>综合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:#7dd3fc">雷赛智能</b></td><td class="hl">002979.SZ</td><td>伺服+步进+控制+机器人</td><td class="ok">12.47 亿 (+39.92%)</td><td class="ok">1.94 亿 (+62.79%)</td><td class="ok">+62.79%</td><td class="warn">60.19x TTM</td><td class="warn">机器人溢价 · 估值偏高</td></tr>
+        <tr><td>汇川技术</td><td class="hl">300124.SZ</td><td>工控全栈+新能源汽车</td><td class="ok">246.75 亿 (+20.31%)</td><td class="ok">28.10 亿</td><td class="ok">大通用 +60%+</td><td class="mid">中位</td><td class="mid">工控龙头 · 估值合理</td></tr>
+        <tr><td>埃斯顿</td><td class="hl">002747.SZ</td><td>工业机器人本体+伺服</td><td class="ok">25.78 亿 (+1.14%)</td><td class="ok">1.61 亿 (+2314.23%)</td><td class="ok">扭亏</td><td class="warn">高</td><td class="warn">业绩拐点 · 估值高</td></tr>
+        <tr><td>鸣志电器</td><td class="hl">603728.SH</td><td>控制电机+空心杯+灵巧手</td><td class="ok">15.66 亿（半年）</td><td class="warn">0.14 亿</td><td class="warn">-78%（基数高）</td><td class="warn">高</td><td class="warn">机器人概念 · 业绩承压</td></tr>
+        <tr><td>禾川科技</td><td class="hl">688320.SH</td><td>工控产品+伺服</td><td class="ok">7.00 亿（半年）</td><td class="warn">0.13 亿</td><td class="warn">-</td><td class="warn">高</td><td class="warn">光伏锂电伺服</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">结论：</b>雷赛 PE-TTM 60.19x 处于工控/机器人赛道中等偏高区间（远高于汇川技术中位 PE，低于埃斯顿/鸣志电器等纯机器人标的）。考虑 (1) H1 营收 +39.92% / 归母 +62.79% 大幅超预期、(2) 国产伺服第二 + 小型 PLC 增速第一 + 步进国内龙头行业地位、(3) 机器人第二曲线规模化兑现（灵巧手销量翻倍 + 无框电机订单 100 万台）、(4) 39.15% 毛利率稳定 + 净利率提升至 15.95%、(5) 派现募资比 120.5% 显著高于行业均值 46.16%、(6) 11.4 亿定增已过审强化产能与研发，<b style="color:#fbbf24">格雷厄姆视角下"估值偏高但有业绩消化基础"</b>。当前 60x PE 对应 2026E 净利 3.78 亿（中金 8/27 上调至 4.00 亿）约 47x 2026E PE，反映成长溢价但已部分透支。<b style="color:#fca5a5">邓普顿逆向视角下严重不适用</b>：雷赛不属于"在最悲观点买入"，而是高成长股在估值消化期的"业绩兑现型"标的。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>安全边际测算：以当前价买入，未来 12 个月下行空间</h3>
+      <p>
+        <b style="color:#fbbf24">基准情景（2026E 归母 3.78 亿 / PE 45-55x）：</b>合理市值 170-208 亿 → <b style="color:#fbbf24">合理价 53.8-65.8 元（-6% ~ +15%）</b><br>
+        <b style="color:#fbbf24">乐观情景（2026E 4.50 亿 / PE 55-65x）：</b>合理市值 248-293 亿 → <b style="color:#34d399">合理价 78.4-92.6 元（+37% ~ +62%）</b><br>
+        <b style="color:#fbbf24">保守情景（2026E 3.00 亿 / PE 38-45x）：</b>合理市值 114-135 亿 → <b style="color:#f87171">合理价 36.0-42.7 元（-37% ~ -25%）</b><br>
+        <b style="color:#fca5a5">综合判断：</b>PE-TTM 60.19x 对应 2026E 净利区间 3.00-4.50 亿（中金/东吴 4.00 亿预测居中），下行至 3.00 亿 PE 升至 60x（贴近当前）、上行至 4.50 亿 PE 降至 40x，<b style="color:#fbbf24">12 个月目标价波动区间 -37% ~ +62%</b>。机器人量产时点 + 11.4 亿定增落地 + H2 业绩兑现度是估值中枢关键变量。<b style="color:#c084fc">关键更新：</b>8/27 中报披露后机构上调 2026E 净利预测（中金 4.00 亿 +33% 上调、东吴 3.95 亿、浙商 4.01 亿）；机构综合目标价 75.28 元（同花顺 8 家均值 67.51 元，最高 80 元中金，最低 56.40 元野村），上行空间 31.7%-39.6%；隐蔽资产：年产 300 万台自动化产能（华南总部+人形机器人部件智造基地 2028 年投产）+ 21 自由度灵巧手 + 11.4 亿定增弹药库 + 国产替代持续兑现。
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:14px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:14px; color:#fbbf24; margin-bottom:24px;">
+    📊 <b>估值结论：合理偏高（机器人溢价 + 业绩超预期 + 11.4 亿定增支撑 + H1 +62.79% 消化中）</b>
+  </div>
+
+  <div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="tag mid">PEG 中性</div>
+      <div class="name">PEG (PE/3Y 增速)</div>
+      <div class="value">约 0.9-1.1</div>
+      <div class="change">PE 60x / 增速 60%+</div>
+      <div class="label">林奇 PEG 中性</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高速</div>
+      <div class="name">营收 3Y CAGR</div>
+      <div class="value">约 18.6%</div>
+      <div class="change">2023-2025</div>
+      <div class="label">H1 +39.92% 加速</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高速</div>
+      <div class="name">归母 3Y CAGR</div>
+      <div class="value">约 10.7%</div>
+      <div class="change">2023-2025</div>
+      <div class="label">H1 +62.79% 拐点</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">伺服系统增速</div>
+      <div class="value">+54.82%</div>
+      <div class="change">2026H1 伺服类</div>
+      <div class="label">占主营 53%</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">机器人业务</div>
+      <div class="value">规模化兑现</div>
+      <div class="change">灵巧手销量翻倍</div>
+      <div class="label">第二增长曲线</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">催化剂</div>
+      <div class="name">未来 12-24 月</div>
+      <div class="value">多重</div>
+      <div class="change">Q3 业绩兑现</div>
+      <div class="label">定增落地 / 量产</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h3>成长性判断：稳定加速 + 机器人曲线兑现 —— H1 大幅超预期，业绩拐点 + 估值再平衡期</h3>
+      <p>
+        2025 全年营收 18.74 亿（+18.28%）、归母 2.25 亿（+12.43%），增长温和；2026H1 营收 <b style="color:#34d399">12.47 亿（+39.92%）</b>、归母 <b style="color:#34d399">1.94 亿（+62.79%）</b>、扣非 <b style="color:#34d399">1.88 亿（+61.59%）</b>，业绩拐点确认。<b style="color:#34d399">伺服系统 +54.82%、步进系统 +22.50%、控制技术 +37.08%</b> 三类核心业务全面加速；2026Q2 单季营收 7.22 亿（+44.1%）、归母 1.22 亿（+92.49%）单季环比 +37.4% / +68.5%，趋势明确。<b style="color:#34d399">毛利率从 2025 年 39.00% → 2026H1 39.15% → 2026Q2 39.31% 持续提升</b>，净利率从 12.44% → 15.95% 大幅跃迁，规模化效应+产品结构升级双轮驱动。<br>
+        <b style="color:#34d399">增长动力来源：</b>(1)<b style="color:#34d399">伺服国产替代</b>（国产化率从 2023 年 23.1% → 2026 年 69.5%，雷赛国产第二 + 1Q26 伺服高增 52%）；(2)<b style="color:#34d399">机器人第二曲线规模化</b>（灵巧手 2026 年 1-8 月销量 4000+ 只同比翻倍 + 无框电机在手订单 100 万台 + 关节模组批量供应百家机器人企业 + 21 自由度灵巧手已获数十家客户批量订单）；(3)<b style="color:#34d399">行业景气度回升</b>（半导体/光通信/激光切割等下游回暖 + 大客户战略生效）；(4)<b style="color:#34d399">小型 PLC 增长 41.6% 全国第一</b>；(5)<b style="color:#34d399">11.4 亿定增扩产</b>（7.53 亿东莞智能装备核心零部件产业化，2028 年投产）。<br>
+        <b style="color:#fbbf24">⚠️ 数据局限：</b>2025 完整 PE/PB 五年分位数据未独立核验；机器人业务规模未拆分；同业（汇川/鸣志/禾川）2026H1 完整 PE 估值需进一步交叉确认。<br>
+        <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1) Q3/Q4 业绩兑现（伺服国产替代 + 机器人订单持续放量）；(2) 11.4 亿定增正式落地 + 东莞基地动工；(3) 人形机器人量产时点（特斯拉 Optimus、智元、宇树等量产时间表）；(4) 2025 股票期权第二期行权（2026 年要求营收 +30%/净利 +40%，已大幅超额完成）；(5) 海外业务拓展（当前仅 2.80%，全球 60+ 国家渠道）。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+  <div class="table-card">
+    <div class="table-title">🛡️ 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>研发能力</b></td><td class="ok">强</td><td>持续高研发投入、伺服驱动+控制+电机全栈自研；FM1/FM2 无框力矩电机、无刷空心杯电机自主开发；21 自由度灵巧手已量产；2025 股票期权激励 258 人核心技术骨干</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>行业地位</b></td><td class="ok">强</td><td>国产伺服市占率第二（MIR 睿工业数据）；步进系统国内龙头；小型 PLC 增长率 41.6% 全国第一；机器人核心部件（无框电机+空心杯电机）已批量供货</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>产品矩阵</b></td><td class="ok">强</td><td>伺服系统 + 步进系统 + 控制技术三大核心；机器人核心部件（无框电机/空心杯/关节模组/灵巧手）+ 解决方案；客户覆盖 3C/半导体/机器人/光伏/锂电/机床/物流/包装</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>客户粘性</b></td><td class="ok">强</td><td>大客户战略（半导体/光通信/激光切割）+ 全产业链深度绑定；1 年+ 周期测试验证后开始兑现订单；客户结构从 3C 扩展到机器人企业（智元/宇树/优必选）</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>成本优势</b></td><td class="mid">中等</td><td>国产替代成本优势 + 规模化生产（；无框电机价格降至 1 万元以下；灵巧手均价降至万元以下；但芯片/磁材等关键原材料依赖进口</td><td class="warn">⭐⭐⭐</td></tr>
+        <tr><td><b>品牌 / 渠道</b></td><td class="mid">中等</td><td>全球 60+ 国家渠道（海外业务仅 2.80%，提升空间大）；国内华南 55.79% / 华东 30.78% / 华北 10.63%；B 端工控品牌力强，C 端认知有限</td><td class="warn">⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">优秀</div>
+      <div class="name">ROE 2026H1</div>
+      <div class="value">9.46%</div>
+      <div class="change">2025 全年 12.99%</div>
+      <div class="label">H1 < 全年</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">稳定</div>
+      <div class="name">毛利率</div>
+      <div class="value">39.15%</div>
+      <div class="change">2026Q2 单季 39.31%</div>
+      <div class="label">结构持续优化</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">跃迁</div>
+      <div class="name">净利率</div>
+      <div class="value">15.95%</div>
+      <div class="change">vs 2025 12.44%</div>
+      <div class="label">规模化效应释放</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">行业第二</div>
+      <div class="name">伺服市占率</div>
+      <div class="value">国产第二</div>
+      <div class="change">仅次于汇川</div>
+      <div class="label">MIR 数据</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">研发储备深</div>
+      <div class="name">机器人业务</div>
+      <div class="value">规模化</div>
+      <div class="change">灵巧手销量翻倍</div>
+      <div class="label">第二曲线</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">中宽</div>
+      <div class="name">综合评级</div>
+      <div class="value" style="font-size:16px;">中宽护城河</div>
+      <div class="change">国产伺服第二 + 机器人</div>
+      <div class="label">小盘成长核心</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>护城河结论：中宽护城河 + 业绩拐点型复利平台 —— 研发 + 大客户 + 国产替代 + 机器人四重壁垒</h3>
+      <p>
+        雷赛智能在 <b style="color:#34d399">行业地位（伺服国产第二）、产品矩阵、客户粘性</b>三个维度具备较强护城河（行业第二 + 全产品矩阵 + 大客户深度绑定 + 国产替代主线）；在 <b style="color:#34d399">研发能力</b>维度具备中等护城河（全栈自研 + 灵巧手量产 + 持续高研发投入）；<b style="color:#fbbf24">成本优势、品牌渠道</b>维度中等护城河（国产替代成本优势 + 全球 60+ 国家渠道但海外占比仅 2.80%）。ROE 2026H1 9.46%（全年 12.99% 良好）、毛利率 39.15% 稳定、净利率从 12.44% 跃迁至 15.95%，<b style="color:#34d399">进入"业绩拐点 + 规模化效应释放"窗口</b>。<br>
+        公司属于"<b style="color:#c084fc">中宽护城河 + 业绩拐点型复利平台</b>"标的，是国产工控+机器人产业链最具代表性的小盘成长股之一。<br>
+        <b style="color:#fca5a5">护城河侵蚀风险：</b>(1) 汇川技术作为工控龙头规模优势明显，雷赛规模仅为汇川 5%；(2) 鸣志电器/鼎智科技在空心杯电机/丝杠等机器人核心部件竞争加剧；(3) 跨国厂商（安川/三菱/松下）在高精度伺服领域仍占高端市场；(4) 关键原材料（高端芯片/磁材）依赖进口；(5) 机器人量产时点不确定导致"第二曲线"估值波动。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div>
+      <div>2024 / 2025 / 2026H1</div>
+      <div>格雷厄姆 + 凯恩斯视角</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入（亿）</div>
+      <div class="fin-val warn">15.84 / 18.74 / 12.47</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">+11.94% / +18.28% / +39.92%</b>，2026H1 加速明显，伺服国产替代 + 大客户战略见效</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（亿）</div>
+      <div class="fin-val warn">2.00 / 2.25 / 1.94</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">+43.88% / +12.43% / +62.79%</b>，2026H1 大幅超预期；H1 已完成全年约 86%（按 2025 净利 2.25 亿口径）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">扣非归母净利（亿）</div>
+      <div class="fin-val down">1.96 / 2.17 / <b style="color:#34d399">1.88</b></div>
+      <div class="fin-comment"><b style="color:#34d399">2026H1 扣非 +61.59%</b>，核心盈利高速增长；股权激励费用计提不影响扣非趋势</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流（亿）</div>
+      <div class="fin-val down">数据不足 / 2.85 / 0.43</div>
+      <div class="fin-comment">2026H1 <b style="color:#fbbf24">0.43 亿 (-14.01%)</b>，增速低于净利润增速，反映应收账款增加；Q1 单季为 -0.48 亿，H2 现金转换需持续跟踪</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">自由现金流（亿）</div>
+      <div class="fin-val warn">数据不足 / -1.29 / 数据不足</div>
+      <div class="fin-comment">2025 年自由现金流 -1.29 亿（投资活动支出），反映产能扩张 + 研发投入；2026H1 需关注</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val ok">42.45% / 39.98% (Q1/H1)</div>
+      <div class="fin-comment">2026Q1 资产负债率 39.98%（2025 全年 42.45%），<b style="color:#34d399">财务结构健康</b>，无显著偿债压力</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">有息负债率</div>
+      <div class="fin-val warn">36.66% / 30.52% (Q1)</div>
+      <div class="fin-comment">2026Q1 有息负债率 30.52%（较 2025 36.66% 下降），<b style="color:#34d399">债务结构改善</b>；速动比率 1.82、流动比率 2.29 良好</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款周转率（年化）</div>
+      <div class="fin-val warn">数据不足 / 2.65 / 0.66（季）</div>
+      <div class="fin-comment">2026Q1 应收账款周转率 0.66（年化约 2.64），<b style="color:#fbbf24">周转较慢（约 138 天）</b>，但符合工控 B 端客户回款特征，需关注坏账风险</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">存货周转率（年化）</div>
+      <div class="fin-val warn">数据不足 / 2.89 / 0.69（季）</div>
+      <div class="fin-comment">2026Q1 存货周转率 0.69（年化约 2.76），<b style="color:#fbbf24">周转健康</b>，与行业持平</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">每股净资产 / ROE</div>
+      <div class="fin-val ok">BVPS 6.48 / ROE 9.46%</div>
+      <div class="fin-comment">2026H1 BVPS 6.48 元、ROE 9.46%；ROE 较 2025 全年 12.99% 略降（半年口径正常）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">研发投入占比</div>
+      <div class="fin-val ok">约 13-15%</div>
+      <div class="fin-comment">研发投入持续高强度，<b style="color:#34d399">是护城河核心来源</b>；具体金额未单独披露</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">派现募资比</div>
+      <div class="fin-val ok">120.53%</div>
+      <div class="fin-comment"><b style="color:#34d399">120.53% 派现募资比显著高于行业均值 46.16%（排名 9/82）</b>，股东回报良好；2025 每 10 股派 2.5 元</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股东户数</div>
+      <div class="fin-val ok">43,504 户</div>
+      <div class="fin-comment">2026-06-30 股东户数 43,504 户（环比 -470 户），<b style="color:#34d399">散户化趋势放缓</b>，机构化倾向</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">回购 + 限制性股票注销</div>
+      <div class="fin-val ok">2026-08-26 / 08-27</div>
+      <div class="fin-comment"><b style="color:#34d399">2025 股票期权首期行权达成（258 人 / 94.8 万份 / 行权价 50.03 元）</b> + 部分第一类限制性股票回购注销</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">💰</div>
+    <div class="text">
+      <h3>财务质量判断：业绩超预期 vs 现金流承压 —— 核心盈利能力提升 + 现金转换待验证</h3>
+      <p>
+        2026H1 营收 <b style="color:#34d399">+39.92%</b>、归母 <b style="color:#34d399">+62.79%</b>、扣非 <b style="color:#34d399">+61.59%</b> 大幅超预期，毛利率 39.15% 稳定 + 净利率从 12.44% → 15.95% 跃迁，反映 <b style="color:#34d399">规模化效应释放 + 产品结构升级</b>。资产负债率 39.98% 健康、有息负债率 30.52% 下降、商誉极低（无重大并购）、大股东质押率 0%、派现募资比 120.5% 行业领先 9/82，<b style="color:#34d399">整体资产负债结构非常健康</b>。<br>
+        <b style="color:#fca5a5">关键警示</b>：2026H1 经营现金流仅 0.43 亿（<b style="color:#fca5a5">-14.01%</b>），增速低于净利润增速；Q1 单季经营现金流 -0.48 亿，反映<b style="color:#fca5a5">应收账款增长 + 备货增加</b>对现金流的占用；应收账款周转约 138 天（Q1 0.66 次/季），符合 B 端工控客户回款特征但需持续跟踪坏账风险。<b style="color:#fbbf24">2025 自由现金流 -1.29 亿</b>反映产能扩张 + 研发投入，11.4 亿定增到位后将显著改善现金转换。<br>
+        <b style="color:#7dd3fc">后续验证重点：</b>Q3/Q4 业绩披露后，<b style="color:#fbbf24">经营现金流是否恢复常态（年化 4 亿+）、应收账款周转率是否提升、机器人业务规模是否拆分披露、11.4 亿定增落地节奏</b>是<b style="color:#fbbf24">财务质量验证的核心</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+  <div class="table-card">
+    <div class="table-title">🧭 管理层与治理关键事项</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>实控人 / 灵魂人物</b></td><td>李卫平（董事长，持股 27.26% / 9.67% 流通股）+ 施慧敏（7.71% / 2.73%）+ 雷赛实业（6.88% / 9.76%，李卫平 80% + 李昂城 20%）；一致行动人合计约 41.85% 控股</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>管理层稳定性</b></td><td>创始团队 1997 年至今，核心高管团队稳定；研发-商业化-国际化三大体系完整</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权激励历史</b></td><td>2023 员工持股计划（延期至 2028-03-13）+ 2025 股票期权激励计划（600 万份 / 首次 550.7 万份 91.78% 授中层骨干 292 人 / 行权价 50.60 元 / 2026 要求营收 +30%/净利 +40%）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股东回报</b></td><td>派现募资比 120.53%（行业领先 9/82）；2025 每 10 股派 2.5 元；8/27 部分第一类限制性股票回购注销；8/26 2025 股票期权首期行权达成</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权质押</b></td><td>大股东质押率 <b style="color:#34d399">0%</b>（无质押），无强制平仓或控制权风险</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>违规记录</b></td><td>近 3 年无重大违规处罚记录；2025 年报、2026H1 中报已披露无异常</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>研发投入</b></td><td>研发投入持续高强度（占比约 13-15%），费用化为主；研发人员涵盖控制/伺服/电机/机器人核心部件</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>资本运作</b></td><td>11.4 亿定增已获深交所审核通过（7.53 亿东莞产业化 + 1.41 亿信息化 + 2.50 亿补流）；2025 股票期权 + 2023 员工持股延期；积极推进产能扩张</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>历史业绩承诺</b></td><td>2025 营收 +18.28% / 归母 +12.43% 已超额完成股权激励首期考核（要求 +10%/+10%）；2026H1 营收 +39.92% / 归母 +62.79% 大幅超额 2026 年考核要求（+30%/+40%）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">治理结论：值得信任，业绩兑现强劲。</b>全部维度均处于行业最优区间：李卫平家族控股 41.85% + 一致行动人稳定、研发-商业化-国际化三体系成熟、连续股权激励绑定核心团队（2023 员工持股延期至 2028 + 2025 股票期权首期达成）、派现募资比 120.5% 行业领先 9/82、无违规处罚、无减持无质押压力、2026H1 业绩大幅超额股权激励考核。<b style="color:#fca5a5">但需注意</b>：(1) 8/19 一阴穿 5 线技术面中期走弱；(2) 北向资金近 10 日流出 7 天；(3) 8/20 投资者投诉股价异常波动（自 7/6 高点 76.26 元跌 28.39%）；(4) DDX 近 5 日 -0.13 大单流出；(5) PE 60x 估值反映成长溢价但已偏高 = <b style="color:#fca5a5">业绩兑现 vs 估值消化的博弈期</b>，需要 H2 业绩 + 机器人订单持续兑现 + 11.4 亿定增落地三验证。
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+  <div class="grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+    <div class="table-card">
+      <div class="table-title">📈 行业周期定位：工控国产替代 + 人形机器人量产 + 智能制造景气回升</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        中国工控/伺服行业当前位于 <b style="color:#fbbf24">"国产替代加速 + 智能制造景气回升 + 人形机器人量产爆发"</b>三周期共振期。<b style="color:#34d399">国产伺服电机国产化率从 2023 年 23.1% → 2026 年 69.5%</b>，国产替代进入深水区（中端市场国产已超 65%）；2026 年中国人形机器人市场预计达 42.26 亿（2030 年 254 亿），<b style="color:#34d399">中国灵巧手销量预计 2026 年 7.02 万台（+265.63%）</b>；2026Q1 工业机器人本体市场埃斯顿首次登顶（市占率 10.5%），国产替代全面加速。<br><br>
+        <b style="color:#7dd3fc">未来 3-5 年增长动力：</b>(1) 国产伺服/控制器/PLC 持续替代进口（中高端市场）；(2) 人形机器人量产爆发（特斯拉 Optimus 100 万台/年产线建设 + 智元 / 宇树 / 优必选量产时点临近）；(3) 半导体/光通信/激光切割/锂电/光伏高景气下游回暖；(4) 全球 60+ 国家渠道 + 海外业务仅 2.80% 的提升空间；(5) AI+工控融合（智能化伺服/自适应控制）。<br><br>
+        <b style="color:#fca5a5">周期下行风险：</b>宏观经济下行导致下游设备投资收缩；原材料价格大幅上涨（芯片、磁材）；人形机器人量产时点延后；国产同业竞争加剧导致价格战；海外贸易摩擦。
+      </p>
+    </div>
+    <div class="table-card">
+      <div class="table-title">🏛️ 政策环境与产业链位置</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        <b style="color:#fbbf24">政策环境"中性偏多"：</b>2026 年国家"十五五"规划将机器人从"新兴产业"提升为"<b style="color:#34d399">新兴支柱产业</b>"；8/28 中央企业机器人创新联合体落地（国资委指导 + 中国兵器工业牵头 + 百余家央国企/高校/科研院所/民营企业/学会），人形机器人产业化加速；地方层面深圳/北京/上海/苏州密集出台机器人产业扶持政策（资金、税收、人才、场景应用）；2026 政府工作报告明确"具身智能"作为新质生产力重点方向。<br><br>
+        <b style="color:#c084fc">产业链位置：</b>运动控制核心部件位于机器人产业链中上游（上游为芯片/磁材/传感器/减速器，中游为伺服/步进/控制，下游为机器人本体/智能装备）。雷赛在产业链中具备<b style="color:#34d399">伺服+步进+控制+机器人核心部件全栈能力</b>，是工控+机器人产业链最具代表性的国产标的之一；产品已批量供货智元/宇树/优必选/特斯拉（潜在）等头部机器人企业。<br><br>
+        <b style="color:#34d399">行业判断：趋势向上（三周期共振 + 政策强力支持 + 国产替代深水区）。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 截至 2026-08-31 技术结构（含 7/31-8/31 完整数据）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>52 周高/低</td><td class="ok">34.07 / 76.26</td><td class="mid">7/6 高点 76.26 → 8/20 低点 52.11（-31.65%）；当前 57.15 处于区间中位</td></tr>
+        <tr><td>近 1 月/近 3 月涨跌幅</td><td class="ok">+9.59% / 数据不足</td><td class="mid">7/31-8/31 反弹 +9.59%，区间振幅 20.61%；自 2025/12/31 收盘 +36.66%</td></tr>
+        <tr><td>MA5 / MA10 / MA20</td><td class="warn">56.09 / 56.25 / 58.17</td><td class="mid">8/31 收盘 57.15 略高于 MA5/MA10 但低于 MA20 = 短期企稳中期承压</td></tr>
+        <tr><td>MA30 / MA60 / MA120 / MA250</td><td class="ok">57.90 / 57.71 / 51.33 / 46.74</td><td class="mid">MA30/60 中枢支撑 57-58 元，MA120/250 长期向上；中长期趋势未破</td></tr>
+        <tr><td>MACD</td><td class="warn">DIF -0.706 / DEA -0.483 / 柱 -0.446</td><td class="mid">绿柱连续 11 日（自 8/19 一阴穿 5 线）后首次收窄，动能衰减放缓；DEA 仍负待修复</td></tr>
+        <tr><td>RSI6 / RSI12 / RSI24</td><td class="ok">53.62 / 48.96 / 49.87</td><td class="mid">RSI 中性区域，8/19 RSI6 跌至 32.49（短期超卖）后修复</td></tr>
+        <tr><td>BOLL</td><td class="warn">上轨 63.39 / 中轨 58.17 / 下轨 52.94</td><td class="mid">8/31 收盘 57.15 处于下轨与中轨之间，运行区间窄幅震荡</td></tr>
+        <tr><td>近期成交量</td><td class="warn">8/31 5.93 亿（1048 万股）</td><td class="mid">较 7 月高点（13.34 亿 / 1336 万股）显著缩量，反映市场观望情绪</td></tr>
+        <tr><td>8/31 主力资金净流入</td><td class="warn">-0.29 亿（小幅流出）</td><td class="mid">散户净流入 +1109 万 vs 主力净流出 -2929 万 = 散户主导成交</td></tr>
+        <tr><td>北向沪深股通持股</td><td class="warn">最新减持 14.17 万股（持 174.82 万股）</td><td class="mid">北向 10 日流出 7 天，机构态度谨慎；近 10 日主力资金累计流入 +1.15 亿</td></tr>
+        <tr><td>融资融券</td><td class="warn">未独立核验</td><td class="mid">数据未独立核验；东方财富控盘指标显示机构参与度 23.87%（轻度控盘）</td></tr>
+        <tr><td>大股东质押率</td><td class="ok">0%</td><td class="mid">无强制平仓或控制权风险</td></tr>
+        <tr><td>关键支撑位</td><td class="ok">52.94 元（BOLL 下轨）/ 52.11 元（8/20 低点）/ 52.86 元（20 日布林支撑）</td><td class="mid">强支撑区，破位下看 48-50 元</td></tr>
+        <tr><td>关键压力位</td><td class="warn">58.17 元（MA20）/ 60.20 元（8/18 一阴穿 5 线）/ 63.39 元（BOLL 上轨）</td><td class="mid">突破 58 看 60-63，站稳 63 才确认反转</td></tr>
+        <tr><td>主力成本</td><td class="warn">1 日 54.19 / 20 日 58.43</td><td class="mid">当前 57.15 低于 20 日主力成本 1.28 元 = 套牢盘压制</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术面与资金流判断：底部修复 + 弱反弹 —— 一阴穿 5 线后震荡修复，多空博弈白热化</h3>
+      <p>
+        <b style="color:#fbbf24">关键支撑位</b>52.86-52.94 元区间（BOLL 下轨 + 8/20 低点 + 20 日布林支撑），<b style="color:#fbbf24">关键压力位</b>58.17 元（MA20）/ 60.20 元（8/18 一阴穿 5 线位）/ 63.39 元（BOLL 上轨）。若 H2 业绩持续兑现 + 机器人订单加速 + 11.4 亿定增落地，向上突破 60 元则打开 63-66 元空间；若 Q3 业绩低于预期或机器人订单延后，可能下探 50-52 元。<br><br>
+        <b style="color:#7dd3fc">资金面：</b>8/31 主力资金净流出 <b style="color:#fca5a5">-0.29 亿元</b>，超大单净流入 +0.11 亿，散户净流入 +0.11 亿 —— <b style="color:#fca5a5">"主力小幅流出 + 散户买入"</b> 结构，反映业绩兑现后机构兑现浮盈 + 散户高位接盘迹象。北向沪深股通 10 日流出 7 天（最新减持 14.17 万股），机构态度转谨慎。<b style="color:#fbbf24">DDX 近 5 日 -0.13</b> 大单流出；机构参与度 23.87%（东方财富轻度控盘）；20 日主力成本 58.43 元 = 现价 57.15 元存在 1.28 元套牢盘压制。<br><br>
+        <b style="color:#fca5a5">综合判断：</b>当前处于"<b style="color:#fbbf24">BOLL 中下轨震荡 + MACD 绿柱收窄 + RSI 中性 + 一阴穿 5 线后修复</b>"状态，但 <b style="color:#fca5a5">MA20 58.17 + 60.20 一阴穿 5 线位构成双重压制 + 北向流出 7 天 + 主力套牢盘压制</b> 四重技术性压制下，技术面短期承压。需以<b style="color:#fbbf24">Q3 业绩扣非 +62.79% 持续性验证</b>+<b style="color:#fbbf24">机器人订单（无框电机 100 万台 + 灵巧手 4000+ 只）持续放量</b>+<b style="color:#fbbf24">11.4 亿定增落地节奏</b>三确认作为后续催化剂。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论打分 · Top 3 匹配</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num warn">4</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">8</div>
+      <div class="score-name">费雪成长</div>
+      <div class="score-bar"><div class="score-fill good" style="width:80%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">林奇 PEG</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">PEG 投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">邓普顿逆向</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4</div>
+      <div class="score-name">博格指数</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">6</div>
+      <div class="score-name">马克斯周期</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "15 问 · 寻找复利机器"</div>
+      <div class="method-score good">8 / 10</div>
+      <div class="method-desc">雷赛具备典型费雪成长股特征：H1 营收 +39.92% / 归母 +62.79% 大幅超预期；伺服国产第二 + 步进国内龙头 + 小型 PLC 增速全国第一；机器人第二曲线规模化兑现（灵巧手销量翻倍 + 无框电机订单 100 万台 + 21 自由度灵巧手批量供货）；研发驱动 + 全栈自研 + 大客户战略生效。H1 业绩印证成长复利能力，是 5-10 年长期复利型标的。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥇 巴菲特护城河</div>
+      <div class="method-author">沃伦·巴菲特 · "经济护城河"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">雷赛在行业地位（伺服国产第二）、产品矩阵（伺服+步进+控制+机器人全栈）、客户粘性（大客户深度绑定）三个维度具备较强护城河；ROE 2025 全年 12.99%、毛利率 39.15% 稳定、净利率从 12.44% → 15.95% 跃迁，反映规模化效应释放。属于"中宽护城河 + 业绩拐点型复利平台"型小盘成长股。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">🥉 马克斯周期投资（次优）</div>
+      <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+      <div class="method-score mid">6 / 10</div>
+      <div class="method-desc">中国工控/伺服行业位于"国产替代深水区 + 智能制造景气回升 + 人形机器人量产爆发"三周期共振期；国产伺服国产化率从 2023 年 23.1% → 2026 年 69.5%；中国灵巧手销量预计 2026 年 7.02 万台（+265.63%）；中央企业机器人创新联合体 8/28 落地，机器人产业作为新质生产力重点支持。雷赛处于行业上行周期的核心受益位置。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">4. 达里奥全天候配置</div>
+      <div class="method-author">雷·达里奥 · "全天候策略"</div>
+      <div class="method-score mid">6 / 10</div>
+      <div class="method-desc">雷赛在组合中作为"小盘国产替代 + 机器人产业链"敞口，与经济增长相关性较强，与利率相关性中性，是组合中可作为工控/机器人产业链核心配置的标的；但小盘股流动性较弱，单股仓位不宜过高（≤ 5-6%）；机器人主题 ETF（如机器人 ETF 华夏 562500）通过指数化方式间接覆盖是更稳健选择。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">5. 凯恩斯选美投资</div>
+      <div class="method-author">约翰·凯恩斯 · "市场选美理论"</div>
+      <div class="method-score warn">6 / 10</div>
+      <div class="method-desc">市场情绪：机器人主题是 2026 年 A 股核心主线之一（机器人 ETF 8/28 上涨 +0.59%，雷赛上涨 +4.63%）；机构调研次数行业排名 50/613；机构评级 100% 买入或增持（中金/东吴/华泰/国金/浙商/野村/国泰海通/兴业）。散户化结构在改善（股东户数 43,504 户环比减少），但 8/19 一阴穿 5 线后短期博弈加剧。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">6. 林奇 PEG 投资</div>
+      <div class="method-author">彼得·林奇 · "PEG & 增速匹配"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">PE-TTM 60.19x 对应 2026E 净利 +67.73% 增长，PEG ≈ 0.9-1.1 中性；但工控+机器人行业 PEG 不完全适用（高研发投入压低短期净利率 + 行业处于国产化加速期），中长期看机器人业务规模化兑现度是更重要的评估维度。2026H1 扣非 +61.59% 已大幅超额股权激励考核（+40%），PEG 锚定有效。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">7. 西蒙斯量化 / 索罗斯反身性</div>
+      <div class="method-author">综合趋势与反身性视角</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">西蒙斯：动量因子走弱（8/19 一阴穿 5 线）但反转因子存在（业绩兑现 + PE 60x 估值消化），趋势信号偏空（5 分）；索罗斯：估值与基本面预期反馈环敏感，机器人量产时点 + Q3 业绩是估值再定价的关键。基本情景：业绩兑现 + 估值消化 → 估值中枢 50-60x PE；反身性场景：机器人超预期 → 估值上修至 70x+ PE。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">8. 格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score warn">4 / 10</div>
+      <div class="method-desc">PE-TTM 60.19x、PB 9.18x 均远高于行业均值，估值不便宜；但 H1 业绩 +62.79% 大幅超预期 + 净利率跃迁至 15.95% + 派现募资比 120.5% 行业领先 + 大股东质押 0% + 11.4 亿定增已过审 = "账面安全但估值偏贵"，属"合理偏高、非深度折价"。机器人概念溢价已反映在 PE 中。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">9. 博格指数投资</div>
+      <div class="method-author">约翰·博格 · "指数化投资"</div>
+      <div class="method-score warn">4 / 10</div>
+      <div class="method-desc">非宽基指数红利逻辑标的，但派现募资比 120.5%（行业领先 9/82）+ 2025 每 10 股派 2.5 元；A 股机器人主题 ETF（机器人 ETF 华夏 562500 / 机器人 ETF 景顺 159559）核心持仓，间接通过 ETF 暴露更稳健；不适合作为纯指数化标的。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">10. 邓普顿逆向投资</div>
+      <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+      <div class="method-score bad">3 / 10</div>
+      <div class="method-desc">雷赛不属于"在最悲观点买入"标的：估值不便宜（PE 60x）、净利润为正且高速增长、H1 业绩大幅超预期、市场关注度极高。但 8/20 低点 52.11 元（较高点跌 31.65%）+ BOLL 下轨 52.94 元 + 11.4 亿定增过审 + 机器人订单爆发 = "次级逆向加仓机会"，需在 50-53 元区间分批建仓。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>费雪 / 巴菲特看重成长与护城河 → 高度认可（7-8 分）；格雷厄姆 / 邓普顿看重估值与悲观点 → 严重不适用（3-4 分）—— "好公司但估值需纪律性"</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突点：</strong>林奇 PEG（5 分）vs 费雪成长（8 分）→ PEG 中性但行业属性使 PEG 不完全适用，<b style="color:#34d399">采纳费雪"长期复利 + 机器人第二曲线"框架</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>冲突点：</strong>马克斯周期（6 分）vs 格雷厄姆深度价值（4 分）→ 三周期共振 vs 估值偏贵，倾向于"周期上行 + 高质量标的"逻辑，<b style="color:#fca5a5">避免纯估值博弈</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>冲突点（关键）：</strong>业绩兑现期（H1 +62.79%）vs 估值消化期（PE 60x）→ <b style="color:#fca5a5">修复需要 Q3 业绩兑现 + 机器人订单持续放量 + 11.4 亿定增落地 + MA20/60.20 一阴穿 5 线位突破四验证</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>冲突点（结构）：</strong>机构调研 24 次 + 8 家买入评级（2026 净利预测均值 3.57 亿 +58.25%）vs 北向 10 日流出 7 天 + 主力 20 日套牢盘 + DDX -0.13 → <b style="color:#fca5a5">"卖方乐观、买方观望"反映"业绩兑现 vs 估值消化"博弈</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">费雪成长 + 巴菲特护城河</strong> 的"国产伺服第二 + 机器人第二曲线 + 业绩超预期"为主线，叠加 <strong style="color:#fbbf24">马克斯周期"国产替代深水区 + 人形机器人量产"</strong>，用 <strong style="color:#fbbf24">格雷厄姆价格纪律</strong> 作为仓位与买点约束（PE 60x 上限 + 不追高 + MA20 58.17 一线分批），避免按亏损股博弈逻辑满仓，避免按"最悲观点"逻辑等待深度回调</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">7</span>
+      <p><strong>综合得分：5.8 / 10</strong>，对应评级：<strong style="color:#fbbf24">谨慎买入</strong>（H1 业绩超预期 +62.79% + 机器人第二曲线规模化 + PE 60x 估值消化 + 8/19 一阴穿 5 线技术面压力）</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和机器人订单兑现做决策</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 仓位与分批建仓</div>
+      <div class="strategy-content">
+        <table class="compare-table" style="margin-bottom:10px;">
+          <thead>
+            <tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:#fbbf24">第一批</b></td><td><b style="color:#7dd3fc">52-55 元</b>区间（BOLL 下轨 52.94 + 8/20 低点 52.11 + H1 业绩兑现支撑 + 11.4 亿定增已过审）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第二批</b></td><td><b style="color:#7dd3fc">48-52 元</b>区间（仅在 Q3 业绩 +62.79% 持续性验证 + 机器人订单继续放量）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第三批</b></td><td><b style="color:#7dd3fc">42-48 元</b>区间（仅在 2026 全年净利站上 4 亿 + 机器人业务规模化兑现 + 11.4 亿定增正式落地）</td><td class="warn">1%</td></tr>
+            <tr><td><b style="color:#fbbf24">上限</b></td><td>单股 ≤ 6%，组合中工控/机器人单一标的合计 ≤ 10%</td><td class="ok">建议 ≤ 5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位（先减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        <strong>硬止损：</strong>收盘有效跌破 <strong class="hl-danger">48 元（约 -16%）</strong>，或 2026 三季报营收同比增速降至 +20% 以下且扣非增速降至 +30% 以下，<strong class="hl-danger">先减仓至 ≤ 2% 而非等待目标价</strong>。<br><br>
+        <strong>软止损：</strong>(1) 单季度扣非净利润同比转负（核心盈利能力恶化）；(2) 机器人业务订单（无框电机 100 万台 + 灵巧手 4000+ 只）未持续放量；(3) 实控人李卫平家族出现大额减持或新增大额股权质押；(4) 11.4 亿定增落地延迟超过 6 个月；(5) MA60 57.71 有效跌破。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead>
+            <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">36-43 元</td><td class="warn">54-66 元</td><td class="ok">78-93 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">48-58 元</td><td class="ok">66-80 元</td><td class="ok">95-115 元</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2026E 净利 3.78 亿 × PE 45-55x；乐观假设：2026E 4.50 亿 × PE 55-65x（含机器人订单规模化兑现）；保守假设：2026E 3.00 亿 × PE 38-45x（Q3/Q4 持续承压 + 机器人订单延后）。机构综合目标价 75.28 元（20 家聚合）/ 67.51 元（同花顺 8 家均值）/ 中金 80 元 / 野村 56.40 元 区间内，作为 12-24 个月参考。</p>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong class="hl-info">中长线（6-18 个月）</strong>，等待 2026 三季报、年报兑现 + 机器人订单持续放量 + 11.4 亿定增落地；若 2026 全年净利突破 4 亿（中金预测）且机器人业务规模化贡献，可考虑切换为 <strong class="hl-purple">长线（&gt;24 月）</strong>，作为 A 股工控/机器人核心配置长期持有。<br><br>
+        <strong>短线（&lt;3 月）</strong>不推荐——PE 60x 估值消化 + 8/19 一阴穿 5 线技术面压力 + 北向流出 7 天 = 短期博弈白热化，频繁交易易错失兑现窗口。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">扣非归母净利润同比</strong>（核心盈利能力验证，<b style="color:#fbbf24">2026H1 +61.59% 是否在 Q3/Q4 持续是评级修正关键</b>）<br>
+        2. <strong class="hl-warn">机器人业务订单 + 无框电机/灵巧手出货量</strong>（第二增长曲线兑现度，<b style="color:#fbbf24">无框电机 100 万台 + 灵巧手 4000+ 只是起点</b>）<br>
+        3. <strong class="hl-info">11.4 亿定增落地节奏 + 研发投入占比 + 经营现金流恢复</strong>（产能扩张 + 护城河持续性 + 现金转换质量）
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">2026Q3 扣非净利润同比增速降至 +30% 以下</strong>（核心盈利能力恶化预期形成，H1 +61.59% 高基数难以维持）<br>
+        2. <strong class="hl-danger">机器人业务订单连续两个季度无新增</strong>（第二增长曲线兑现度下降，估值溢价破灭）<br>
+        3. <strong class="hl-danger">实控人李卫平家族</strong>出现大额减持或新增大额股权质押（治理折价）；11.4 亿定增落地延迟超过 6 个月
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. PE 60x 估值偏高 + 8/19 一阴穿 5 线技术面压力</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3/Q4 业绩增速大幅放缓至 +20% 以下 + 机器人订单未持续放量 + MA20 58.17 持续压制未突破<br>
+        <strong>影响幅度：</strong>估值可能消化至 PE 40-45x（基准情景）；股价跌至 42-50 元区间（-25% ~ -10%）；评级可能从谨慎买入下调至持有观察<br>
+        <strong>应对策略：</strong>每季度跟踪扣非同比、机器人订单量、北向资金流向；股价反弹至 60 元（MA20）不追价；如跌破 52 元（BOLL 下轨）且基本面无变化，逆向加仓第一档
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 经营现金流 -14.01% + 应收账款周转较慢（约 138 天）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3/Q4 经营现金流继续负增长；应收账款周转率继续下降；坏账计提增加<br>
+        <strong>影响幅度：</b>"账面利润含金量"持续恶化；机构综合目标价 75.28 元依赖 2026E 净利 3.78 亿预期，若现金转换恶化，预期可能下修 10-20%<br>
+        <strong>应对策略：</b>重点跟踪经营现金流绝对值与同比、应收账款周转率、坏账计提；区分"经常项目盈利"与"非经常性损益"，避免被表面利润增速误导
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 3. 北向流出 7 天 + 主力 20 日套牢盘 + 散户化结构</div>
+      <div class="risk-desc">
+        <strong>触发条件：</b>北向资金持续流出（10 日已流出 7 天）+ 主力 20 日成本 58.43 持续套牢 + 散户化加剧（股东户数反弹）+ 8/19 一阴穿 5 线技术面压力延续<br>
+        <strong>影响幅度：</b>估值中枢下移至 PE 40-50x；股价可能跌破 50 元；机构综合目标价 75.28 元成为"高位兑现"目标<br>
+        <strong>应对策略：</b>关注股东户数、北向持仓、主力成本变化；散户化加剧时降低仓位而非"接刀"；8/20 投资者投诉股价异常波动（自高点跌 28.39%）需关注监管动态
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 4. 机器人量产时点不确定 + 国产同业竞争加剧</div>
+      <div class="risk-desc">
+        <strong>触发条件：</b>特斯拉 Optimus / 智元 / 宇树量产时间表延后超过 6 个月；鸣志电器 / 鼎智科技 / 步科股份在空心杯电机 / 灵巧手 / 无框电机领域抢占订单；汇川技术在伺服领域的价格战<br>
+        <strong>影响幅度：</b>机器人业务订单（100 万台无框电机 + 4000+ 灵巧手）规模化兑现节奏延后；国产伺服市占率第二地位被鸣志/鼎智/禾川追赶；估值溢价消失<br>
+        <strong>应对策略：</b>跟踪头部机器人企业量产时间表；评估雷赛在无框电机/灵巧手的技术领先性（21 自由度灵巧手 + 自主全产业链）；评估汇川/鸣志/鼎智/步科等竞争对手产品布局
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 5. 关键原材料价格波动 + 11.4 亿定增落地节奏不确定</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>高端芯片 / 稀土永磁材料 / 关键传感器价格大幅上涨；11.4 亿定增落地延迟超过 6 个月或定价低于预期<br>
+        <strong>影响幅度：</b>毛利率从 39.15% 下行至 35-37%；产能扩张延后；2026E 净利可能下修 10-20%；机构综合目标价 75.28 元下调<br>
+        <strong>应对策略：</b>跟踪稀土永磁（钕铁硼）/ 高端 MCU / 编码器芯片价格；评估雷赛供应链多元化与替代方案；评估定增发行的市场窗口条件（监管节奏 + 二级市场估值）
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 来源与复核记录</div>
+
+  <div class="data-note">
+    <strong>📌 主要数据来源（截至 2026-08-31）：</strong><br>
+    ✅ 公司公告：<span class="ok">2025 年年度报告</span>（2026-04-23 披露）、<span class="ok">2026 Q1 报告</span>（2026-04-23）、<span class="ok">2026 H1 半年度报告</span>（2026-08-27）、<span class="ok">2026 年 H1 业绩预告</span>（2026-07-02 公告）、<span class="ok">2025 股票期权激励计划首期行权公告</span>（2026-08-26 / 2026-08-27）、<span class="ok">2025 员工持股计划首次授予锁定期届满暨第一个归属期归属条件成就公告</span>（2026-08-27）、<span class="ok">回购注销部分第一类限制性股票公告</span>（2026-08-27）、<span class="ok">关于 11.4 亿定增获深交所审核通过公告</span><br>
+    ✅ 股价/市值快照：<span class="info">搜狐证券</span>（57.15 元、52 周 34.07-76.26）、<span class="info">新浪财经</span>（57.15、PE-TTM 60.19、PB 9.18、总市值 180.62 亿）、<span class="info">雪球</span>（57.15、PE-TTM 60.19）、<span class="info">富途牛牛</span>（56.45、PE-TTM 59.48、PB 9.07）、<span class="info">九方智投</span>（8/21 收盘 55.42、PE-TTM 60.71、PB 6.46）、<span class="info">东方财富</span>（56.32、8/24 总市值 175.15 亿）；多源核对<br>
+    ✅ 业绩分析：<span class="info">证券之星 2026-08-28 简析</span>（营收 12.47 亿 +39.92%、归母 1.94 亿 +62.79%、毛利率 +0.95%、净利率 +14.41%）、<span class="info">搜狐网 2026-07-03</span>（业绩预告、11.4 亿定增）、<span class="info">新华网 2026-08-20</span>（业绩拐点 + 第二增长曲线）、<span class="info">腾讯证券研报 2026-08-27</span>（厚积薄发兑现正当时、中金跑赢行业 80 元）<br>
+    ✅ 行业政策：<span class="info">中央企业机器人创新联合体落地</span>（2026-08-28、国资委指导 + 中国兵器工业牵头）、<span class="info">十五五规划机器人从新兴产业提升为新兴支柱产业</span>、<span class="info">MIR 睿工业国产伺服市占率数据</span><br>
+    ✅ 卖方研究：<span class="info">中金 2026-08-27 张若熙</span>（跑赢行业，目标价 80 元，2026E 净利 4.00 亿 +33.3% 上调）、<span class="info">东吴 2026-08-27 曾朵红</span>（买入，2026E 净利 3.95 亿）、<span class="info">华泰 2026-08-26 杨云逍</span>（买入，目标价 70.56 元，2026E 净利 3.55 亿）、<span class="info">国金 2026-08-26 姚遥</span>（买入，2026E 净利 3.65 亿）、<span class="info">浙商 2026-07-03 邱世梁</span>（买入，2026E 净利 4.01 亿）、<span class="info">国泰海通 2026-05-05 徐强</span>（增持，目标价 63.07 元）、<span class="info">兴业 2026-04-28 丁志刚</span>（增持）、<span class="info">野村东方 2026-04-24 马晓明</span>（增持，目标价 56.40 元）、<span class="info">同花顺 8 家均值 67.51 元</span>、<span class="info">综合目标价 75.28 元</span>（20 家聚合）<br>
+    ✅ 机器人业务：<span class="info">灵巧手 2026 年 1-8 月销量 4000+ 只同比翻倍</span>、<span class="info">无框电机在手订单 100 万台</span>、<span class="info">21 自由度灵巧手已获数十家主流机器人企业批量订单</span>、<span class="info">启动年产 200 万台产能建设（部分披露 300 万台）</span>、<span class="info">关节模组批量供应百家机器人企业</span><br>
+    ✅ 同业数据：<span class="warn">汇川技术 2026H1 营收 246.75 亿（+20.31%）/ 归母 28.10 亿 / 大通用板块 +60%+</span>；鸣志电器 2026H1 营收 15.66 亿 / 归母 0.14 亿；禾川科技 2026H1 营收 7.00 亿 / 归母 0.13 亿；埃斯顿 2026H1 营收 25.78 亿（+1.14%）/ 归母 1.61 亿（+2314.23%）<br>
+    ✅ 资金流向（<span class="info">8/31 主力 -0.29 亿、散户 +0.11 亿、北向减持 14.17 万股（10 日流出 7 天）、20 日主力成本 58.43 元、DDX 近 5 日 -0.13、机构参与度 23.87%（轻度控盘）</span>）<br>
+    ⚠️ 数据局限：MA60/120/250 已获取（57.71/51.33/46.74）；融资融券数据、北向完整持仓变动、机器人业务规模拆分未独立全口径核验；同业（汇川/鸣志/禾川/埃斯顿）2026H1 完整 PE 估值需进一步交叉确认<br>
+    📊 <strong style="color:#fbbf24">所有价格、市值、估值、机构持仓快照均存在口径与时点差异；本页不构成买卖承诺。预测区间的差异足以令 12 个月目标价产生 ±30% 的波动，请以风险揭示为先。</strong>
+  </div>
+
+  <div class="footer">
+    雷赛智能（002979）｜报告截止日 2026-08-31（周一收盘）｜11 种方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（深圳证券交易所/巨潮资讯/搜狐证券/新浪财经/雪球/富途牛牛/腾讯证券/九方智投/东方财富/同花顺）+ 公开行业政策文件 + 中金/东吴/华泰/国金/浙商/国泰海通/兴业/野村 等券商研报 + MIR 睿工业 / 中商产业研究院 / 中国机器人产业联盟 行业数据
+  </div>
+
+</div>
+</body>
+</html>

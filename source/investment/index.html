@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A 股投资分析索引</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 24px;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .header {
+    padding: 40px 36px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #ffffff;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .header .subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .meta-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #475569;
+    font-weight: 500;
+  }
+
+  .section { margin-bottom: 40px; }
+  .section-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .section-count {
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-left: 8px;
+  }
+
+  .month-group { margin-bottom: 16px; }
+  .month-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 10px;
+    padding-left: 2px;
+    letter-spacing: 0.5px;
+  }
+  .item-list {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  a.item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+  }
+  a.item:last-child { border-bottom: none; }
+  a.item:hover { background: #f8fafc; }
+  a.item:hover .item-arrow { color: #2563eb; transform: translateX(2px); }
+
+  .item-date {
+    font-size: 13px;
+    color: #334155;
+    font-weight: 600;
+    min-width: 96px;
+    font-variant-numeric: tabular-nums;
+  }
+  .item-weekday {
+    font-size: 12px;
+    color: #94a3b8;
+    min-width: 28px;
+    font-weight: 500;
+  }
+  .item-name {
+    flex: 1;
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .item-tag {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 6px;
+  }
+  .item-tag.fresh { background: #dcfce7; color: #15803d; }
+  .item-tag.warn { background: #fef3c7; color: #b45309; }
+  .item-arrow {
+    color: #cbd5e1;
+    font-size: 14px;
+    transition: all 0.15s ease;
+  }
+
+  .stock-group {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .stock-header {
+    background: #f8fafc;
+    padding: 11px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .stock-code {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.5px;
+  }
+  .stock-badge {
+    font-size: 11px;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+  .stock-items { padding: 0; }
+  .stock-items a.item { padding: 12px 20px; }
+
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer .footer-line + .footer-line { margin-top: 2px; }
+
+  @media (max-width: 640px) {
+    body { padding: 16px 12px; }
+    .header { padding: 24px 20px; }
+    .header h1 { font-size: 22px; }
+    a.item { padding: 12px 16px; gap: 12px; }
+    .item-date { min-width: 80px; font-size: 12px; }
+    .item-name { font-size: 13px; }
+    .stock-header { padding: 10px 16px; }
+    .stock-items a.item { padding: 11px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>📈 A 股投资分析索引</h1>
+    <div class="subtitle">A 股市场盘后分析与个股深度研究的统一导航</div>
+    <div class="meta">
+      <span class="meta-tag">📅 最后更新：2026-11-02</span>
+      <span class="meta-tag">📊 60 份报告</span>
+      <span class="meta-tag">🔄 自动维护</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      📊 A 股大盘日度复盘
+      <span class="section-count">34 份</span>
+    </div>
+
+    <div class="month-group">
+      <div class="month-label">2026 / 10</div>
+      <div class="item-list">
+        <a class="item" href="ashare/review/2026/10/20261030.html">
+          <span class="item-date">2026-10-30</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">主线第十次切换 · 高低切换加速、总量恶化（沪指-1.44%报3599.02失守3600、成交7642亿；深成-2.73%报10833.78；创业板-4.13%报2413.63两日累计-8.40%、午后一度翻红再跳水；科创50-5.48%报1160.84跌幅第一、两日累计-9.52%、距1300关口已下行10.7%；北证50-2.67%报885.74；沪深300-1.39%报3985.50跌破4000且连跌12周；中证500-2.91%）· 三市成交16877亿（放量1170亿+7.4%，连续第二个下跌放量日=分歧放大而非缩量出清）· 上涨892家/下跌4610家/平盘74家（总5576只，涨跌比0.193:1，D-1为0.165:1——上涨家数反增但跌停翻倍，极端分化而非同步深跌）· 涨停47家/跌停82家（跌停为D-1的2倍创本轮新高，本轮首次跌停接近涨停2倍；近三日69:5→39:41→47:82；封板率因两源炸板池未返回完整数据留空标注）· 主力资金（新浪行业口径）：酿酒+51.38亿/生物制药+30.09亿/交通运输+15.95亿/医疗器械+13.88亿/家电+11.83亿；净流出电子信息-71.33亿/传媒娱乐-17.22亿/汽车制造-14.71亿（同花顺概念口径TOP3为漂亮100/超级品牌/白酒概念、未披露金额，两套口径不可互换）· 第一主线白酒（🔼升·防御转进攻）：三季报收官日交出“近年来最差一轮”（Q3收入五粮液/泸州老窖-37%、洋河-61%、汾酒-18%；净利泸州老窖-57.03%、古井贡-68.04%、五粮液-48.25%、洋河单季亏7.71亿），但皇台酒业/泸州老窖（时隔9个月再涨停·成交31.2亿）/古井贡酒/迎驾贡酒4只首板、汾酒+7.76%、茅台+2.81%创近半年新高，酒ETF+5.11%成交12.11亿创新天量、中证白酒+5.70%、15家酒企涨超3%；催化=出清尾声+估值近十年底部+高股息防御+扩内需预期（华泰证券判行业或已处底部：库存去化+价盘低位趋稳；中信证券建议底部增配头部酒企）· 第二主线医疗服务/器械（🔼升·个股→板块）：医药链8只涨停（澳洋健康3板换手30.0%、万邦医药、百花医药、九安医疗成交11.3亿、阳普医疗20cm、大参林、桂林三金2板、羚锐制药），爱尔眼科+3.65%/通策医疗+4.03%，医疗器械+1.99%主力+13.88亿；但生物制药155家仅+0.19%=结构性而非全面医药反攻· 反向杀跌主线AI硬件/半导体（🔽降·连续第二日）：电子信息净流出71.33亿全市场第一（247家平均-4.62%），创业板AI ETF 159279 -7.66%/科创半导体设备589020 -7.19%/159246 -7.00%，中际旭创-4.99%（成交206.6亿）/中芯国际-4.17%/立讯-5.14%/兆易-6.59%/中微-5.86%/北方华创-3.73%；关键背离=中际旭创Q3归母85.87亿+173.74%、新易盛38.43亿+61.15%业绩大超预期却放量下跌，属估值体系切换而非简单回调；海外触发=美东10/29 Alphabet因AI与数据中心资本开支拖累盈利创纪录暴跌近13%（市值蒸发约5000亿美元）、亚马逊-4.25%盘后一度再跌7%~12%（FCF流出424亿）、英特尔盘后暴跌约20%、纳指-1%，市场从“资本开支即收入”转向“资本开支看回报”· 银行退潮（🔽降·高位分歧）：工行-0.34%/建行-0.50%/青岛银行-1.11%（D-1领涨股），招行+1.42%/兴业+1.29%接力，金融行业整体-0.40%（51家）=D-1“历史新高不追高”提示当日兑现，防御接力棒交给低位白酒· 传媒系崩塌（🔽降）：传媒娱乐-5.91%跌幅全行业第一，跌停82家中传媒系21家（广告营销6/游戏Ⅱ3/影视院线3/出版3/文娱用品3/数字媒体2/电视广播1），D-1的3连板文投控股直接跌停-10.13%，三七互娱-10.01%/横店影视-9.98%/昆仑万维-12.50%· 天梯：青岛食品5板（封0.6亿/换手24.9%）唯一穿越，上海沪工3板（封2.6亿、换手3.2%惜售）、澳洋健康3板（换手30.0%）、2板6只全非科技、首板38家集中于白酒4+消费+医药；跌停82家中汽车零部件8/广告营销6/通用设备6/一般零售5；晋级率仅30%（D-1的10只连板3只晋级，断板7只平均-9.42%、其中5只跌停），D-1的2连板山东矿机、3板东贝集团、4板光洋-8.69%全灭· 口径剔除：同花顺列涨幅居前第三的“港口航运”不入主线——中远海控+7.02%（成交36.8亿）而宁波港+0.28%/中远海发+1.27%/中远海能+2.59%，仅锦江航运1只涨停，新浪交通运输87家平均-0.42%与加权+2.21%差2.6pct，属中远海控Q3归母172.30亿（+80.73%、环比+128%）驱动的个股业绩行情· 商品：沪银-6.32%（12102元/千克）/沪锡-5.65%/多晶硅-4.22%/钯-3%+，苹果逆势+6.06%；成品油应调440/420元调控后实调345/335元（92#+0.26元/L）· ETF：酒ETF+5.11%领涨、港股通消费159268+4.43%/513070+3.93%（6只港股消费ETF齐涨3.4%~4.4%=消费修复为跨市场共振）；首尾差12.77pct· 机构分歧：白酒——中信/华泰/申港（底部配置、渠道库存同比-10%~20%、低基数下报表修复）vs 开源/资瑞兴邢奕才/黑崎陈兴文（单日大涨只能确认估值修复、不能确认行业反转，需批价+库存+动销+回款四项接力）；AI硬件——杀估值派（需求未变、订单延伸至2028）vs 杀逻辑派（投入端确定性正变成利润端压力）· 倾向：偏谨慎方，“结构性修复+总量恶化”，估值修复行情而非景气反转；总仓位下调至40%~50%（消费医药25%/银行红利10%/现金15%~25%/科技≤5%），纪律=不抄底科技（等跌停回落至30家以下+缩量）、消费不追涨按5日线分批、上证破3550且跌停放大则降至30%以下；关键时点10/31三季报收官+10月PMI、11/02开盘方向、11月中旬10月经济数据</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261029.html">
+          <span class="item-date">2026-10-29</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">主线第九次切换 · 四线反包一日而终（沪指-0.82%报3651.43仅比D-2的3648.30高3.13点、靠银行权重护盘/深成-2.92%报11138.20创本轮调整新低/创业板-4.45%报2517.59一日吐回D-1的+3.40%并倒贴、距2600下行3.2%/科创50-4.27%报1228.09距1300已下行5.5%/北证50-3.88%报910.08失守920）· 三市成交15707亿（缩量714亿-4.3%，缩量下跌=调仓换仓而非放量清仓）· 上涨781家/下跌4727家/平盘68家（新浪全A 5576只全量统计，涨跌比0.165:1，D-1为3.30:1，两日由普涨直接回冰点）· 涨停39家/跌停41家（跌停反超涨停为本轮第二次，前次10/22的33:49；封板率61.9%但分母腰斩，24只曾开板累计炸板82次；4天4板青岛食品/光洋股份、3板文投控股/东贝集团、2板6家、首板29家；跌停41家中元件独占6家=单一产业链集中杀跌）· 主力净流入TOP3：证金持股29.64亿+中特估100 27.11亿+漂亮100 11.85亿（全为风格权重篮子、无一产业板块=无主线状态的资金画像，对比D-1芯片253.08亿/机器人166.03亿/AIDC 154.36亿）· D-1三个趋势确认条件全部落空：①炸板率<40%名义达标（封板率61.9%）但涨停家数69→39腰斩 ②FOMC落地不低开→今日低开低走且10:2两名官员主张加息25bp ③科创50站上1300→收1228.09反跌4.27% · 今日第一主线银行（申万城商行+2.39%/国有大行+2.39%/股份制+1.45%，工行+2.57%建行+2.29%续创历史新高、四大行市值破10万亿，青岛银行+8.02%/成都银行+6.08%/瑞丰银行+4.44%；催化为21家上市银行中期分红拟派息超2600亿、六大行2209.89亿占比超八成且分红率30%→31%、中证银行股息率4.6%对10年国债1.63%利差超3pct）=D-1被判防御退潮后一日即回归且强度创阶段新高 · 新增主线三条：商业航天/卫星互联网（申万航天装备Ⅱ+6.84%全市场第一，中国卫星/上海沪工2板/西部材料/上海港湾/航天晨光5股涨停、电科蓝天+11.82%，催化10/27-29上海卫星互联网产业生态大会+上海筹建卫星互联网产业基金，但中国卫星盘中炸板8次、宽度够深度不足）· 风电设备（天顺风能涨停/飞沃科技+17.09%/海力风电+12.43%/泰胜风能+5.26%，GWEC预测2026年全球新增178GW、2026-2030 CAGR 5.2%、2030累计969GW）· 煤炭（开滦股份涨停/中国石油+3.24%/煤炭ETF+1.65%，发改委第50号令电煤长协法治化12/1施行、东北亚LNG到岸31.90美元vs澳煤5.40美元低约80%、9月原煤3.85亿吨但山西同比-31.3%）· 主线延续影视院线（文投控股3板/横店影视涨停），但D-1的AI漫剧三剑客掌阅-3.71%/百纳千成-5.13%转跌=主线内部去泡沫而非宽度扩张 · 反向崩塌AI硬件+人形机器人（通信设备-8.94%/元件-8.07%/半导体-5.13%/消费电子-4.74%/自动化设备-5.01%，天孚-19.77%/新易盛-11.06%/中际旭创-8.53%/东山精密·沪电·奥士康跌停，佰维-15.79%/富满微-15.04%/盛美-14.98%；宇树科技三季报Q3净利1.13亿同比-17.37%环比近-50%证伪机器人叙事、赛福天跌停），今日跌幅大于D-2失血日（CPO-3.71%/元件-5.71%）=昨日阳线被更大阴线整根吞没属诱多形态 · 高位股出清：D-1的10只高位股无一连板（襄阳轴承+6.47%换手41.93%/百洋股份+4.93%/杰克科技+6.90%全断板，多伦科技连续第二日跌停、桂发祥跌停）· ETF：纳指生物科技+2.97%/标普生物科技+2.46%避险式出海领涨，创业板AI ETF 159382 -9.53%（为指数跌幅2.1倍）/159242 -8.12%/159246 -8.05%领跌；中韩半导体513310 -2.79%（含韩股权重、换手153.94%）vs 半导体ETF-5.02%/科创半导体设备-6.61%背离；黄金ETF -0.02%对冲失效、券商ETF-2.11%银行涨券商跌=买股息非买牛市 · 宏观：美联储维持3.75%-4.00%（10:2，哈玛克/库克主张加息25bp）、冈拉克称12月必须加息；二十届五中全会10/26-29闭幕但为从严治党议题、政策增量有限；10/31三季报披露截止为业绩暴雷窗口 · 机构：华西证券（双创回撤已达历史较大阈值、蓄势筑底触底反弹可期）vs 申万宏源（超跌反弹不持续、反弹需稳市政策高度绑定、高股息是跷跷板逆风期），今日盘面以跌停41家投票后者 · 倾向「反包失败+防御再定价」（不是二次探底完成、也不是新一轮下跌开始），总仓位下调至4-5成（低估值主线2成/防御底仓1成/机动1-1.5成/现金5-5.5成），新确认条件=AI硬件第二日不新低+成交缩量、银行红利连续3日净流入、成交额守住1.5万亿</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261028.html">
+          <span class="item-date">2026-10-28</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">主线第八次切换 · 科技四线反包但封板率仅50%（沪指+0.91%报3681.47收复3650但未收复D-2的3697.52/深成+2.02%报11473.18/创业板+3.40%报2634.76收复2600但仍低于10/23的2684.10/科创50+2.45%报1282.93仍差17点收复1300/北证50+1.63%报946.83未回960）· 三市成交16421亿（放量1692亿，终结连续两日缩量）· 上涨4189家/下跌1270家/平盘188家含北证（涨跌比3.30:1，D-1为0.13:1，赚钱效应两日由冰点修复至高位）· 涨停69家/炸板69家/跌停5家（封板率仅50%，D-1为封住41/炸板28即59.4%，炸板家数一夜翻2.5倍=冲高回落为主形态；5天5板襄阳轴承、14天9板百洋股份尾盘封板、4天3板杰克科技/万向钱潮、3天3板光洋股份/青岛食品、2板5家、首板57家；跌停5家分属5个行业=高位个股出清而非题材集中杀跌）· 主力净流入TOP3：同花顺芯片概念253.08亿+机器人概念166.03亿+数据中心(AIDC)154.36亿（合计573.47亿）· 四线共振反包：半导体（芯片概念TOP1，中韩半导体ETF+8.05%成交202.20亿创全市场ETF第一、半导体ETF+4.18%、芯片ETF+4.08%，东方嘉盛光刻机/五方光电TGV光学/必易微/富瀚微20cm涨停；催化为SK海力士存储供不应求至2030+Counterpoint测算人形机器人DRAM需求2030年达17.2万Tbit增超20倍）+机器人（宇树科技+8.74%收695.90创新高、恒工精密20cm、万向钱潮/杰克科技4天3板、机器人系三只ETF集体涨4.58%-5.48%=从D-1的只买龙头升级为板块ETF化）+PCB（世运电路/方正科技/金安国纪/菲林格尔/光华科技五只涨停，深南电路+7.70%、东山精密+3.47%，满产涨价+AI扩产+三季报高增三证齐现）+算力CPO（中际旭创+10.28%收636.30成交235.73亿全市场个股第一、新易盛+8.08%、天孚+6.79%、创业板人工智能ETF+6.55%；D-1列为风险规避第一项的PCB/元件链今日全部反包=规避条件已被价格反向确认）+AI漫剧传媒新主线（文投控股2板/掌阅科技/百纳千成20cm，但光线+2.16%、中国电影+0.35%，属个股级题材非板块共识）· 防御端全线退潮：白酒（五粮液-3.95%/茅台-1.85%/皇台-4.69%，酒ETF-1.93%）+银行（招行-2.00%/平安-1.39%，银行ETF-0.52%）+证券（中信-0.76%，券商ETF-0.84%，含跌停股华鑫股份）+猪肉（养殖ETF-0.96%）+800价值ETF-1.85%，防御与金融双杀=存量资金单边搬运而非增量入场 · 高位出清未完：上海九百（D-1全场最高5连板）+5.11%换手38.22%断板、多伦科技（D-1 4连板）-9.95%跌停、赛福天+0.68%换手29.51%断板，D-1的2板梯队集体走弱（桂发祥-7.67%换手29.71%/科瑞思-1.72%换手27.35%/阳光乳业0.00%换手20.18%），高度守住但换人且中位断层 · 宏观：FOMC决议美东10/28 14:00=北京时间10/29凌晨02:00（发布会02:30）落在A股休市窗口内尚未定价+欧日央行10/29-30+五中全会10/29闭幕 · 机构：十大券商（10/25）6家看科技超跌修复（华安/华西/中泰/东吴/浙商/银河）vs 2家坚持红利（中信"AI回落非牛熊分界"、国信），后者今日被盘面证伪 · 倾向超跌反弹+主线内部切换而非底部确认，总仓位6-7成，确认条件为炸板率<40%+FOMC落地不低开+科创50站上1300</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261027.html">
+          <span class="item-date">2026-10-27</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">主线第七次切换 · 缩量普跌与极致分化（沪指-1.33%报3648.30失守3650两连阳终结、盘中最高3698.44触3700未果/深成-2.50%报11245.73/创业板-3.41%报2548.15失守2600创10/22以来新低、较年内高点回撤超40%/科创50-4.81%报1252.28跌破1300分水岭全场最弱/北证50-3.35%报931.64连破960）· 三市成交14729亿（缩量1502亿，连续第二日缩量）· 上涨624家/下跌4974家/平盘49家含北证（涨跌比0.13:1，D-1为0.71:1、D-2为0.11:1，赚钱效应两日由修复直接打回冰点）· 涨停41家/跌停22家（东财与同花顺双涨停池逐只一致，5板1/4板3/2板8/首板29；跌停22家分属22个行业各1家=普跌无差别减仓）· 主力净流入TOP3：同花顺跨境支付(CIPS)18.54亿+证金持股8.09亿+可降解塑料4.28亿（东财板块口径银行Ⅱ+7.70亿、电机Ⅱ+7.25亿涨14跌13；净流出人工智能-143.39亿全市场最大/半导体-76.47亿/军工-55.38亿/CPO概念-51.31亿/软件开发-33.86亿）· 新主线接棒：电机与机器人执行器链（凯中精密/大洋电机/华新精科涨停+横河精密20cm+方正电机+9.05%，东财电机Ⅱ+1.38%；前三季度机器人减速器产量+44.4%、宇树王兴兴称物理AI突破需1-3年；但宇树科技-4.77%、东财机器人-3.61%、减速器-0.93%，为零部件细分而非板块反转）+银行红利（东财银行Ⅱ+1.34%涨40跌1主力+7.70亿居首，沪农商行+4.22%/重庆银行+3.72%，银行ETF+1.45%）+零售商贸（上海九百5连板、茂业商业/深赛格/广百股份涨停，一般零售+0.98%；但白酒未跟涨，酒ETF-1.43%）· 口径陷阱两例：跨境支付同花顺流入第一但东财板块-3.13%涨14跌52=资金停泊；港口航运列涨幅居前第三但东财仅+0.05%、新浪交通运输-0.85%，全由中谷物流一只涨停贡献 · D-1主线全面退潮：医药商业（九州通-0.58%/大参林-2.74%/漱玉平民-3.14%/英特集团-4.37%）、游戏（电魂网络-1.96%/盛天网络-3.04%/凯撒文化-5.14%）、白酒（古井贡酒-2.08%/泸州老窖-1.58%）· AI硬件连续第三日失血：软件开发-4.91%跌幅居首、半导体-4.54%、军工-3.63%首次2家跌停（甘化科工/洪都航空）、理工导航-13.70%/光威复材-10.27%；三季报超预期完全失效（恒瑞-3.09%、中微-5.30%、源杰-4.73%、长鑫预增超7倍仅+0.80%）· 宏观：五中全会10/26-29进行中+FOMC 10/28凌晨（已加息至3.75%-4.00%，洛根主张进一步加息）· 机构：银华方建「半导体已超跌具备配置价值」vs现实盘面科技三线继续失血，倾向不采纳当期乐观论断 · 总仓位30%-40%（低于D-1的35%-45%），红利打底+机器人零部件小仓+等待FOMC</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261026.html">
+          <span class="item-date">2026-10-26</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">主线第六次切换 · 沪指两连阳防御护盘（沪指+0.19%报3697.52创10/23反弹以来新高、盘中最高3699.01/深成-1.19%报11534.38/创业板-1.71%报2638.23/科创50-2.23%报1315.50/北证50-2.13%报963.95·1涨4跌）· 三市成交16230亿（缩量3497亿，D-1放量4275亿至1.96万亿后首次退潮）· 上涨2180家/下跌3050家/平盘145家（涨跌比0.71:1，D-1为4526:142的极端普涨）· 涨停55家/跌停25家（封板率70.5%，D-1为87%，炸板23家）· 主力净流入TOP3：同花顺漂亮100 34.89亿+证金持股24.56亿+超级品牌15.07亿（东财概念口径人形机器人26.32亿+AI芯片15.84亿+婴童11.35亿；行业口径汽车11.60亿+汽车零部件10.23亿+数字芯片设计9.90亿；红利股9.42亿+红利破净股5.97亿+国有大行3.76亿）· 新主线接棒：医药商业（线下药店+3.20%，英特集团/塞力医疗涨停，漱玉平民+5.87%/九州通+4.91%）+游戏（游戏Ⅲ+3.26%，电魂网络涨停/盛天网络+14.62%，《影之刃零》10/29发售·Q3游戏收入925.22亿+5.11%）+白酒消费（皇台酒业涨停/泸州老窖+2.86%，酒ETF+1.45%）+石油涨价（布伦特115美元创5个月新高，石油ETF+3.79%/中石油+4.94%）· AI硬件连续第二日失血：CPO概念-4.21%主力净流出99.01亿全市场最大+光通信模块-4.23%（-86.01亿）+存储芯片-3.97%（-85.61亿）+元件-5.71%（-66.31亿）+印制电路板-6.43%（-50.85亿），联特科技-15.71%/南亚新材-12.49%/三环集团-12.13%，元件4家跌停 · 结构变化：光模块权重跌幅收窄（中际旭创-2.96%/新易盛-3.57%），杀估值重心从光模块迁移到PCB/覆铜板/元件 · 物理AI背离：人形机器人主力+26.32亿居首但板块-0.80%，机器人ETF全线转跌，宇树科技+7.69%收672.00振幅21.4%，大业股份/海洋王两只6连板双双断板 · 避险失效：贵金属连续第三日走弱（赤峰黄金-8.90%/紫金矿业-4.58%），黄金股与黄金ETF背离超30倍 · 梯队断层：最高板降至4板（上海九百），3板扩至6只，2板8家·首板40只 · 政策窗口：二十届五中全会10/26-29开幕+央行10月MLF缩量续作2000亿+前三季度GDP+4.6%（三季度回升至+4.5%）+本周美欧日央行超级央行周 · 机构：复旦邵宇「左手黄金、右手科技」vs《证券市场周刊》「A股调整近尾声，静待美中期选举及美联储加息落地、中央经济工作会议明确2027年目标两大契机」· 倾向谨慎中性偏积极，总仓位35%-45%（较D-2的25%-35%小幅上调）</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261022.html">
+          <span class="item-date">2026-10-22</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">主线第五次切换 · 系统性去风险（创业板指-4.37%报2576.90失守2600创2025/8以来新低、较年内高点回撤超40%/深成-2.96%报11357.32/沪指-1.48%报3658.03盘中创2025/8以来新低/科创50-2.78%报1305.87/北证50-0.93%报966.74·1涨4跌）· 三市成交15419亿（放量998亿，放量下跌=恐慌抛售）· 上涨516家/下跌4826家（涨跌比0.11:1由0.59再恶化，175概念板块仅1个上涨）· 涨停33家/跌停49家（跌停首超涨停，D-1为50/5）· 主力净流入TOP3：小米汽车11.80亿+换电概念11.66亿+动力电池回收10.59亿 · 高位股崩塌：10/21晚8只连板股密集澄清（大业股份机器人腱绳未批量生产/海洋王AI+智慧照明收入规模有限/东安动力不从事飞行汽车整车/泰尔股份工业机器人占营收3.82%/同为股份大模型AI未成规模/太极股份与国家数据集团无具体合作/日海智能高算力模组占营收1%/九阳股份与华为无战略合作）→ D-1连板梯队断裂：东安动力4连板、京城股份3连板双双跌停，永达股份/泰尔股份/同为股份/粤传媒/南威软件全数跌停，晋级率仅4/12 · 主线切换：科技内部从「算力+数据要素」切向「机器人+机械+银行红利」三线并行（人形机器人/电机逆势：Optimus V3量产准备+弗里蒙特工厂投产+英伟达Isaac升级+宇树H2-X，机器人ETF 159272+0.55%收红，大业股份/海洋王5连板·兆威机电4天2板+10.00%·奕帆传动20cm；工程机械：9月挖掘机销量22717台+14.4%、出口12806台+20.7%，山河智能/南方路机涨停；银行红利：六大行中期分红比例30%→31%、工行+1.66%建行+1.48%盘中创历史新高）· 崩塌面：算力硬件「易中天」集体重挫（新易盛-12.28%/中际旭创-8.76%/天孚通信-8.36%，创业板算力ETF 6只全线-4.65%~-5.79%，158057由D-1的+3.10%翻至-5.65%）+ 文化传媒/AI视频集体跌停（新华传媒/粤传媒/龙版传媒/德才股份/引力传媒/新经典/内蒙新华/博纳影业，传媒娱乐-5.26%）+ CRO-5.08%（近岸蛋白20cm跌停）+ 贵金属-3.06%避险同步失血 · 内外背离：隔夜美股三大指数收涨（纳指+1.05%）SpaceX+7%、超微电脑+9%但A股算力单日崩塌 · 机构：中金李求索「当前位置机会大于风险·科技+红利哑铃型」vs 创金合信魏凤春「红利成阶段性主线、成长遭遇估值与情绪双杀」· 中办国办科创产融深度融合意见17条举措+首批主动ETF+北交所市值配售 · 倾向谨慎偏空，总仓位25%-35%（较D-1的40%-50%再度下调）</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261021.html">
+          <span class="item-date">2026-10-21</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">主线第四次切换 · 指数创新低（创业板指-1.62%报2694.71失守2700创2025/8/25以来新低·深成-0.82%报11704.35·沪指-0.60%报3713.03·北证50-0.72%报975.78·科创50+0.06%报1343.28独红·1涨4跌）· 三市成交14421亿（缩量295亿）· 上涨2007家/下跌3401家（涨跌比0.59:1由2.29转负）· 涨停50家/跌停5家 · 主力净流入TOP3：小米概念33.81亿+CPO 33.77亿+华为概念30.55亿（东财口径CPO+24.85亿/算力+15.52亿/IT服务+11.43亿）· 主线切换：科技内部从AI硬件切向算力+数据要素（创业板算力ETF 158057+3.10%登顶·国家数据集团10/20雄安挂牌·数据确权+2.63%·利亚德/慧辰股份/三维天地20cm涨停）· 题材分流：养殖业+2.81%（能繁母猪存栏3602万头同比-10.7%仅相当于正常保有量96.0%·东瑞股份涨停）+文化传媒+1.58%（沙丘3定档12/31·AI电影三星堆10/23上映·读者传媒/出版传媒/粤传媒涨停）· 最大空头：宁德时代三季报Q3营收+58.58%但归母净利仅+14.54%（48.52%→36.46%→14.54%断崖·经营性现金流-23.60%）跌12.03%较年内高点腰斩·电池-3.33%主力净流出52.13亿为全市场最大单项·时代万恒/上海洗霸跌停 · 防御续跌：白酒Ⅱ-1.40%（山西汾酒-5.73%）/证券主力-35.46亿/银行-0.58% · 涨停天梯：海洋王/东安动力/大业股份4连板·润建股份3连板·2板12家 · ETF：创业板算力ETF+3.10%领涨/电池ETF-4.26%领跌 · 央行非银大额赎回流动性支持工具+10月LPR 3.0%/3.5%连续17个月不变 · 倾向谨慎中性，总仓位40%-50%（较D-1的60%-75%大幅下调）</span>
+          
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261020.html">
+          <span class="item-date">2026-10-20</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">主线第三次切换 · 指数分化极致结构（北证50+3.88%报982.87/科创50+1.00%报1342.42/沪指+0.12%报3735.37/深成-0.14%报11801.29/创业板-0.26%报2739.20·2涨3跌）· 三市成交14716亿（放量227亿）· 上涨3665家/下跌1602家（涨跌比2.29:1）· 涨停54家/跌停6家 · 主力净流入TOP3：人工智能50.58亿+机器人概念45.80亿+虚拟现实39.99亿（合计逾136亿）· 双催化：证监会宣布稳步推出北证50ETF与北交所新股市值配售（北交所暴涨）+ 特斯拉Optimus V3方案接近定型年底量产（人形机器人+3.44%）· 新主线确立：人形机器人/AI硬件（吉大正元4连板/福莱新材2连板/宁波东力2连板/凡拓数创20cm 2连板）+北交所小微盘（华密新材涨超16%/嘉晨智能、格利尔30cm涨停）+医药医疗链（诊断服务+9.53%/医美耗材+5.87%）· 退潮预警：军工装备（地面兵装-2.47%/航天航空主力-5.00亿）与国企改革（D-2曾+28.1亿TOP1）双双熄火 · 防御三杀：证券-1.07%（主力-21.31亿全市场最大流出）/保险-2.25%/银行-1.12%/白酒-1.11% · 黄金股ETF-3.82%避险出清 · 9月集成电路出口449.51亿美元同比+136%（数量仅+1%涨价驱动）· ETF：科创AIETF 588790+5.14%领涨 / 黄金股ETF 517520-3.82%领跌 · 吴清金融街论坛定调"稳市、改革、严监管、扩开放"+首批18只主动ETF获批</span>
+          
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261016.html">
+          <span class="item-date">2026-10-16</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">周五震荡整固沪指反弹收复3700点（+0.24%报3716.28）· 5大指数分化（沪+0.24%/深-0.12%/创-0.39%/科创50-0.06%/北证50-1.81%·1涨4跌沪指独红）· 三市成交15691亿（缩量766亿-4.7%）· 超3300只上涨（情绪从D-1 5100跌反转修复）· 军工装备/飞行汽车新主线爆发（珠海航展12/7-13规模创新高+特斯拉二代Roadster亮相+晨曦航空20CM涨停）· 国企改革+28.1亿TOP1（"十五五"开局央地国企6组整合+23股涨停）+央企国企改革+20.04亿TOP2+风电+18.73亿TOP3（5股涨停·反转风光储重挫）· 新华传媒11连板归来（10板停牌核查后升级）· 元件/游戏/CRO/AI视频/能源金属领跌 · 算力/AI/传媒持续走弱（慈文传媒D-1 5连板高位兑现）· 航空ETF+6.46%领涨/科创100ETF-3.19%领跌</span>
+          
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261015.html">
+          <span class="item-date">2026-10-15</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">周四放量普跌 · 5大指数全线下挫（沪-1.59%/深-2.43%/创-2.92%/科创50-1.5%/北证50-3.44%·0涨5跌·沪指失守3700点盘中跌逾2%）· 三市成交16457亿（放量2193亿+15.4%）· 超5100只下跌（上涨约890只）· 美9月CPI 3.7%超预期引发全球科技崩盘（CoreWeave暴跌逾15%+费城半导体-2.28%+亚太科技崩盘）· 白酒/证券防御回流（超级品牌+14.30亿）+元件/PCB逆势 · AI漫剧慈文传媒5连板升级（海外微短剧2026预计破60亿美元）· 商品主线（煤炭/油气）一日游反转领跌 · 算力/科技全线回调（通信设备领跌+长鑫科技市值跌破3万亿）· 主力净流入TOP3：中芯国际概念16.81亿+超级品牌14.30亿+同花顺漂亮100 14.0亿（合计45.11亿）· 标普消费ETF+2.65%领涨/中韩半导体ETF-6.86%领跌</span>
+          
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261014.html">
+          <span class="item-date">2026-10-14</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">周三缩量杀跌 · 5大指数普跌（沪-0.88%/深-1.97%/创-3.1%/科创50-3.29%/北证-0.66%·0涨5跌·科创50最深）· 三市成交14264亿（缩量2625亿-15.6%）· 超4400只下跌 · AI漫剧升级（短剧游戏13.79亿TOP1+文化传媒12.49亿TOP3·慈文传媒4连板+果麦文化20%涨停+字节PineDrama海外爆火）· 商品主线新主线（WTI原油95美元+动力煤1000-1008元+页岩气12.74亿TOP2+标普油气ETF+3.64%领涨）· 海外AI映射（纳指科技ETF+3.87%领涨+2027麒麟芯片+STEPX Neo）· 算力再杀跌（科创半导体ETF-4.33%领跌全市场+半导体设备ETF-4.22%+通信ETF-4.20%）· 风光储重挫</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261013.html">
+          <span class="item-date">2026-10-13</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">周二探底回升微涨 · 5大指数分化（沪+0.10%/深-0.25%/创-0.18%/科创50+0.03%/北证-0.31%）· 三市成交16889亿（放量1382亿+8.9%）· 超2900只上涨 · 算力修复资金回流（CPO 61.41亿TOP1 + 芯片53.24亿TOP3合计114.65亿）· 国企改革新主线（SOE Reform 54.59亿TOP2接力D-1银行分红提升）· 军工/冰雪/染料/PCB领涨 · 航空航天ETF 159227 +3.85%领涨 · 慈文传媒+龙版传媒双双3连板（文化传媒重组主线新龙头接力）· 保险/电池/风电/能源金属领跌（防御反转延续）</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261012.html">
+          <span class="item-date">2026-10-12</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">周一缩量杀跌 · 5大指数全线飘绿（沪-0.43%/深-2.03%/创-2.61%/科创-2.1%/北证-2.46%）· 三市成交15507亿（缩量3660亿-19.1%）· 超4300股下跌 · 新华传媒10连板（文化传媒重组主线再升级）· 九阳股份6连板 · 字节PineDrama下载破亿催化短剧游戏+AI视频+跨境支付三主线 · 跨境支付24.91亿TOP1+银行分红提升双新主线 · 风电设备领涨（欧盟调查辟谣反转）· 贵金属/粮食领跌（防御反转）· 通信ETF -5.07%领跌（算力承压延续）</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261009.html">
+          <span class="item-date">2026-10-09</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">探底回升深V反转 · 5大指数全线翻红（沪+0.05%/深+0.17%/创+0.22%/科创+0.07%/北证+2.49%）· 文化传媒重组主线爆发（新华传媒9连板 · 拟收购界面财联社构成重组 · 审计未毕 · 公司警示可能停牌核查）· AI视频/贵金属领涨 · 黄金ETF净流入（持仓升至100.93百万盎司）· 芯片/风电/MLCC领跌 · 影视ETF（516620）+7.73%领涨</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/10/20261008.html">
+          <span class="item-date">2026-10-08</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">国庆后第一个交易日杀跌 · 5大指数全线飘绿 · 双创/科创跌超3% · 算力硬件大幅回调（光芯片20CM跌停/CPO/半导体）· 防御资源主线突现（电池+油气+煤炭+航运 · 中东冲突+双十五五规划）· 摩根士丹利：美对华光模块限制经FCC受控清单实施 · 布油突破102美元</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="month-group">
+      <div class="month-label">2026 / 09</div>
+      <div class="item-list">
+        <a class="item" href="ashare/review/2026/09/20260929.html">
+          <span class="item-date">2026-09-29</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">节后第一个交易日超跌反弹 · 沪指+0.08%/深成+0.41%/创+0.34%/北证+1.29% · 算力硬件超跌反弹（元件领涨+数据中心+52.76亿）· 房地产政策催化（地产ETF+6.53%领涨）· 华为概念+66.82亿登顶 · 新华传媒6连板</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260928.html">
+          <span class="item-date">2026-09-28</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">节后首日杀跌 · 双创 -4.53%/-4.06% · 算力硬件集体暴跌 CPO-铜缆-通信-MLCC-元件 -4%~-7% · 汽车整车+1.64%领涨 · 换电+10.97亿/猪肉+4.08亿/牙科+2.14亿 · 文化传媒5连板新华传媒(600825)</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260923.html">
+          <span class="item-date">2026-09-23</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">1 涨 8 跌弱势震荡 · 北证 50 独涨 +2.6% · 半导体内部小盘切换 · 专精特新 +44.48/先进封装 +44.05/PCB +35.32 亿 · 房地产 10.34 亿延续 · 文化传媒/油气领跌</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260921.html">
+          <span class="item-date">2026-09-21</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">医药主线接力 DeepSeek + 智能医疗 · 创新药 +53.81/DeepSeek +46.97/智能医疗 +34.99 亿 · 5 大指数全线飘红 · 房地产回归民生 · 贵金属领跌 · 华瓷股份 5 连板</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260918.html">
+          <span class="item-date">2026-09-18</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">议息鹰派消化完毕放量反弹 · 芯片+362/存储+188/AIDC+186亿 · 半导体放量主升回归 · 创业板指+2.25%</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260917.html">
+          <span class="item-date">2026-09-17</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">美联储鹰派加息落地 · 沪指缩量收跌0.41% · 防御回潮粮食/汽车/CRO领涨 · 前期主线半导体/PCB/MLCC/黄金退潮</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260916.html">
+          <span class="item-date">2026-09-16</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">半导体放量主升科创50突破+4.14% · 涨价向光刻机光纤上游扩散 · 防御品种切换 · 美联储9/17凌晨议息前夜</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260915.html">
+          <span class="item-date">2026-09-15</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">半导体独行科创50+1.55% · 4300只下跌vs科创大涨的结构性撕裂 · 防御5日游杀跌 · Anthropic IPO再添AI算力催化</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260914.html">
+          <span class="item-date">2026-09-14</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">早正午负假繁荣 · 培育钻石+创新药CRO+MLCC三线科技医药共振 · WCLC催化医药主升</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260910.html">
+          <span class="item-date">2026-09-10</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">沪弱创弱北证50领跌-2.81% · 银行电力元件三线逆势 · 国新办十五五金融发布</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260909.html">
+          <span class="item-date">2026-09-09</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">沪强创弱缩量震荡 · 煤炭航运化工三线防御 · 龙版传媒停牌核查百大闯 5 板</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260908.html">
+          <span class="item-date">2026-09-08</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">深强沪弱创业板领涨 3.41% · 通信元件霸榜农业地产 CPO 三线共振 · 龙版传媒闯 7 板</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260904.html">
+          <span class="item-date">2026-09-04</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">冲高回落 · 养殖 ETF 批量 +4% 霸榜 · AI 应用三主线接力 · 浪潮跌停</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260903.html">
+          <span class="item-date">2026-09-03</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">液冷服务器集体爆发 4 连板 · 培育钻石+港口航运接棒 · 标普油气 ETF 一日游 -1.84%</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260902.html">
+          <span class="item-date">2026-09-02</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">智神星一号引爆军工航天 · 油气 ETF +5.52% · 粮食 ETF 重挫 -5.95%</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/09/20260901.html">
+          <span class="item-date">2026-09-01</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">粮食 ETF 霸榜 + 银行新高群 + 深中华 A 临时停牌警示</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="month-group">
+      <div class="month-label">2026 / 08</div>
+      <div class="item-list">
+        <a class="item" href="ashare/review/2026/08/20260831.html">
+          <span class="item-date">2026-08-31</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">央行房贷新政引爆银行 + AI 长剧涨停潮 + 8 月红盘收官</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/08/20260828.html">
+          <span class="item-date">2026-08-28</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">高低切换日 · 农业化工接棒防御 · AI 利好一日游</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/review/2026/08/20260827.html">
+          <span class="item-date">2026-08-27</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">英伟达引爆 AI 算力潮 · 科创 50 放量大涨近 4%</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      🧬 个股深度分析
+      <span class="section-count">20 只标的 · 26 份报告</span>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">000333</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/000333/20260915.html">
+          <span class="item-date">2026-09-15</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">美的集团 · 持有观察 5.4/10 · 高股息防御型 · 等待业绩拐点</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">000725</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/000725/20261030.html">
+          <span class="item-date">2026-10-30</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">京东方A · 持有观察 4.29/10 · 面板全球第一但扣非 PE 33.9x · 题材退潮回撤 52%</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">000858</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/000858/20260916.html">
+          <span class="item-date">2026-09-16</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">五粮液 · 谨慎买入 6.20/10 · 行业筑底 + 量价齐升 + 宽阔护城河</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">000892</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/000892/20260901.html">
+          <span class="item-date">2026-09-01</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">个股深度分析</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">000993</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/000993/20260916.html">
+          <span class="item-date">2026-09-16</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">闽东电力 · 减持 2.20/10 · 题材过热 + 基本面背离 · 教学反面案例</span>
+          <span class="item-tag warn">教学</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">002747</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/002747/20261030.html">
+          <span class="item-date">2026-10-30</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">埃斯顿 · 减持 3.43/10 · 出货量全品牌第一但 A/H 溢价 136% · 扣非 TTM PE 240x</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">002812</span><span class="stock-badge">2 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/002812/20261029.html">
+          <span class="item-date">2026-10-29</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">恩捷股份 · 谨慎买入 5.9/10 · 三季报兑现 × 隔膜涨价周期</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/stock/002812/20260902.html">
+          <span class="item-date">2026-09-02</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">恩捷股份 · 谨慎买入 5.8/10 · 隔膜周期底部反转</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">002851</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/002851/20260903.html">
+          <span class="item-date">2026-09-03</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">麦格米特 · 业绩拐点 × AI 数据中心 × 估值失锚</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">002979</span><span class="stock-badge">3 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/002979/20261030.html">
+          <span class="item-date">2026-10-30</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">雷赛智能 · 买入 6.52/10 · Q3 +156% 兑现，机器人订单放量</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/stock/002979/20260913.html">
+          <span class="item-date">2026-09-13</span>
+          <span class="item-weekday">周日</span>
+          <span class="item-name">雷赛智能 · 买入 6.0/10 · 逆向加仓窗口开启</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/stock/002979/20260831.html">
+          <span class="item-date">2026-08-31</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">雷赛智能 · 谨慎买入 5.8/10 · 业绩拐点确立</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">300253</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/300253/20261029.html">
+          <span class="item-date">2026-10-29</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">卫宁健康 · 持有观察 3.76/10 · 营收修复但毛利率坍塌 · 等待扭亏与转债出清</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">600025</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/600025/20260827.html">
+          <span class="item-date">2026-08-27</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">个股深度分析</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">600016</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/600016/20261102.html">
+          <span class="item-date">2026-11-02</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">民生银行 · 持有观察 4.9/10 · PB 0.26 五年低位但 PE 91% 分位 · 利润三连降、拨备 142% · 高股息陷阱还是深度价值？</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">600036</span><span class="stock-badge">2 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/600036/20261030.html">
+          <span class="item-date">2026-10-30</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">招商银行 · 谨慎买入 6.0/10 · PB 0.95 完成第一轮修复 · 息差企稳待 Q3 财报验证</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/stock/600036/20260831.html">
+          <span class="item-date">2026-08-31</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">个股深度分析</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">600276</span><span class="stock-badge">2 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/600276/20260831.html">
+          <span class="item-date">2026-08-31</span>
+          <span class="item-weekday">周一</span>
+          <span class="item-name">个股深度分析</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/stock/600276/20260827.html">
+          <span class="item-date">2026-08-27</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">个股深度分析</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">600428</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/600428/20260913.html">
+          <span class="item-date">2026-09-13</span>
+          <span class="item-weekday">周日</span>
+          <span class="item-name">中远海特 · 业绩拐点 × 多船型量增 × 汽车出海高景气</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">600711</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/600711/20261029.html">
+          <span class="item-date">2026-10-29</span>
+          <span class="item-weekday">周四</span>
+          <span class="item-name">盛屯矿业 · 谨慎买入 5.10/10 · 铜量价双升 vs 钴价退潮 + 61.69% 负债率 + 治理污点</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">600941</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/600941/20260901.html">
+          <span class="item-date">2026-09-01</span>
+          <span class="item-weekday">周二</span>
+          <span class="item-name">个股深度分析</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">601318</span><span class="stock-badge">2 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/601318/20261028.html">
+          <span class="item-date">2026-10-28</span>
+          <span class="item-weekday">周三</span>
+          <span class="item-name">中国平安 · 谨慎买入 6.48/10 · P/EV 0.61x 深度低估 + 技术面零轴下金叉修复 + 今晚 18:45 三季报定胜负</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+        <a class="item" href="ashare/stock/601318/20261016.html">
+          <span class="item-date">2026-10-16</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">中国平安 · 谨慎买入 6.43/10 · P/EV 0.60x 深度低估 + 股息率 5.21% + 2026H1 净利 +36.1%</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">603259</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/603259/20260920.html">
+          <span class="item-date">2026-09-20</span>
+          <span class="item-weekday">周六</span>
+          <span class="item-name">药明康德 · 买入 7.35/10 · 业绩拐点确认 + CXO 行业景气上行 + 走出法案阴影</span>
+          <span class="item-tag fresh">最新</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stock-group">
+      <div class="stock-header"><span class="stock-code">688692</span><span class="stock-badge">1 份分析</span></div>
+      <div class="stock-items">
+        <a class="item" href="ashare/stock/688692/20260828.html">
+          <span class="item-date">2026-08-28</span>
+          <span class="item-weekday">周五</span>
+          <span class="item-name">个股深度分析</span>
+          <span class="item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-line">由 A 股投资分析工作空间自动维护</div>
+    <div class="footer-line">数据日期截至 2026-10-28 · 不构成投资建议</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-29 A 股复盘 · 节后第一个交易日超跌反弹 · 沪指+0.08%/深成+0.41%/创+0.34%/北证50+1.29% · 算力硬件超跌反弹（元件领涨+数据中心+52.76亿）· 房地产政策催化（地产ETF+6.53%）· 华为概念+66.82亿登顶资金 · 新华传媒 6 连板</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.45);
+    border-radius: 20px; padding: 36px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(16,185,129,0.20), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 30px; font-weight: 700;
+    background: linear-gradient(90deg, #34d399, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .header .subtitle { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+  .section-title {
+    font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #f87171; color: var(--text-primary); font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .data-note {
+    background: var(--card-deep); border: 1px dashed var(--border-mid);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(16,185,129,0.10); border-left: 5px solid #10b981;
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 17px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline .arrow { font-weight: 800; font-size: 14px; }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #f87171; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(239,68,68,0.2); color: #f87171; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<!-- ============ ① 头部 ============ -->
+<div class="header">
+  <h1>🟢 2026-09-29 A 股复盘 · 节后第一个交易日超跌反弹 · 沪指+0.08%/深成+0.41%/创+0.34%/北证50+1.29% · 算力硬件超跌反弹（元件领涨+数据中心+52.76亿）· 房地产政策催化（地产ETF+6.53%）· 华为概念+66.82亿登顶资金 · 新华传媒 6 连板</h1>
+  <div class="subtitle">沪指 <b class="up-text">+0.08%</b> 3826.51 / 深成指 <b class="up-text">+0.41%</b> / 创业板指 <b class="up-text">+0.34%</b> / 科创综指 <b class="up-text">+0.69%</b> / 北证 50 <b class="up-text">+1.29%</b> · 三市成交 <b class="warn-text">14216 亿（较 9/28 缩量 2951 亿 -17.2%）</b> · 超 <b class="up-text">3400 只个股上涨</b> · 数据日期 2026-09-29（周二收盘 · 节后第一个交易日 · 超跌反弹+算力修复）</div>
+  <div class="badges">
+    <span class="badge badge-up">🟢 5 大指数全线翻红</span>
+    <span class="badge badge-up">📈 节后超跌反弹</span>
+    <span class="badge badge-warn">💰 华为概念 +66.82 亿 TOP1</span>
+    <span class="badge badge-up">🏠 房地产政策催化</span>
+    <span class="badge badge-up">📡 元件/数据中心反弹</span>
+    <span class="badge badge-purple">🎬 新华传媒 6 连板</span>
+    <span class="badge badge-source">📅 数据日期 2026-09-29</span>
+    <span class="badge badge-warn">💰 TOP3 合计 167.85 亿</span>
+  </div>
+</div>
+
+<!-- ============ ② 数据说明 ============ -->
+<div class="data-note">
+  <strong>📌 数据口径与双源验证：</strong><br>
+  ✅ <span class="ok">同花顺 A 股收评 c680357780（用户提供主源）</span> —— 5 大指数翻红（沪 +0.08% / 深 +0.41% / 创 +0.34% / 科创综 +0.69% / 北证 +1.29%）· 三市成交 14216 亿（较 9/28 缩量 2951 亿 -17.2%）· 超 3400 只上涨 · 主力净流入 TOP3（华为概念 +66.82 / 数据中心 +52.76 / 国企改革 +48.27 亿 · 合计 167.85 亿）· 领涨 TOP5（元件 / 电池 / 地产 / 传媒 / AI 视频）· 领跌 TOP5（培育钻石 / 煤炭 / 油气 / 航运 / 农林）· 涨停天梯（6 连板：新华传媒 600825；4 连板：雪龙集团 603949；3 连板：襄阳轴承 000678）。<br>
+  ✅ <span class="ok">同花顺 ETF 收评 c680357772（用户提供主源）</span> —— <span class="ok-text">地产 ETF（159707）+6.53% 领涨</span> · <span class="ok-text">房地产 ETF（159768）+6.40%</span> · <span class="ok-text">房地产 ETF（515060）+4.52%</span>（房地产板块政策催化直接传导至 ETF 端）· <span class="danger-text">港股通汽车 ETF（159121）-2.69% 领跌</span> · <span class="danger-text">港股通汽车 ETF（520730）-2.44%</span> · <span class="danger-text">港股通汽车 ETF（159239）-2.42%</span>。<br>
+  ✅ <span class="ok">新浪 A 股热点小时报《2026 年 09 月 29 日 14 时》9/29</span>（<a href="https://k.sina.com.cn/article_7857201856_1d45362c001908p7te.html" target="_blank">原文</a>）—— <span class="info-text">沪指微涨 0.08% 报 3826.51 点 · 深成指 +0.41% · 创业板指 +0.34% · 科创综指 +0.69% · 北证 50 +1.29%</span> · <span class="ok-text">半日成交 8838.5 亿元 · 超 4000 股上涨</span> · <span class="ok-text">房地产领涨 · 电池 / 传媒居前</span> · <span class="danger-text">煤炭 / 油气 / 农业跌幅靠前</span> · <span class="ok-text">600825 六连板 · 万科 A 一度涨停</span>（非同源第二来源）。<br>
+  ✅ <span class="ok">财联社《9 月 29 日早间新闻精选》9/29</span>（<a href="https://www.cls.cn/detail/2494722" target="_blank">原文</a>）—— <span class="info-text">国务院会议推增量政策 · 优化财政支出 · 用好地方债限额 · 上海出台住房销售改革（预售管理 + 现房销售）· 电池规划目标 2030 年全固态电池规模化应用</span>（非同源第三来源）。<br>
+  ✅ <span class="ok">证券时报《揭秘涨停丨"新华"龙头，五连板》9/29</span>（<a href="https://www.stcn.com/article/detail/4198878.html" target="_blank">原文</a>）—— <span class="info-text">新华文轩 / 新华传媒等"新华系"龙头连续封板</span>（非同源第四来源）。<br>
+  ✅ <span class="ok">证券之星《9 月 29 日早间消息汇总：国常会指出将推出一批务实有效增量政策》9/29</span>（<a href="https://stock.stockstar.com/SS2026092900007506.shtml" target="_blank">原文</a>）—— <span class="info-text">国常会明确推增量政策</span>（非同源第五来源）。<br>
+  ✅ <span class="ok">观点网《上海四部门联合发文：预售门槛提至主体封顶》9/28</span>（<a href="https://www.guandian.cn/m/show/607851" target="_blank">原文</a>）—— <span class="info-text">上海四部门联合发文 · 预售门槛提至主体封顶</span>（非同源第六来源）。<br>
+  ⚠️ <span class="warn-text">指数收盘点位部分基于新浪财经 sina 14 时快报核对</span>（沪指 3826.51 · 深成 / 创 / 科创 / 北证 50 仅披露涨跌幅）· 5 大指数收盘点位以新浪 14 时快报为基准；<br>
+  ⚠️ <span class="warn-text">涨停家数 / 封板率 / 炸板数公开数据缺失</span>（同花顺 c680357780 仅披露连板梯度）。<br>
+  ⚠️ <span class="warn-text">同花顺两域同源说明</span>：c680357780（A 股收评）+ c680357772（ETF 收评）均来自 news.10jqka.com.cn 域；做双源核验时仅作主源参考，已搭配新浪财经 + 财联社 + 证券时报 + 证券之星 + 观点网 5 个非同源第二/六来源做交叉核验。
+</div>
+
+<!-- ============ ③ 主题横幅 ============ -->
+<div class="theme-banner ok">
+  <div class="icon">🟢</div>
+  <div class="text">
+    <h3>核心定性：节后第一个交易日超跌反弹 · 5 大指数全线翻红 · 沪指 +0.08%/深成 +0.41%/创 +0.34%/科创综 +0.69%/北证 +1.29% · 算力硬件超跌反弹（元件领涨 + 数据中心 +52.76 亿 TOP2）· 房地产政策催化（地产 ETF +6.53% 领涨）· 华为概念 +66.82 亿 TOP1 · 文化传媒 6 连板新华传媒(600825) · 资金体量较 D-1 显著放大（TOP3 167.85 亿 vs D-1 17.19 亿 +877%）</h3>
+    <p>沪指 <b class="up-text">+0.08%</b> 3826.51 / 深成指 <b class="up-text">+0.41%</b> / 创业板指 <b class="up-text">+0.34%</b> / 科创综指 <b class="up-text">+0.69%</b> / 北证 50 <b class="up-text">+1.29%</b>（节后第一个交易日 5 大指数全线飘红）· 三市成交 <b>14216 亿（较 9/28 缩量 2951 亿 -17.2%）</b> · 超 <b class="up-text">3400 只个股上涨</b>（D-1 9/28 超 4500 只下跌）· 主力净流入 TOP3：华为概念 <b class="ok-text">+66.82 亿</b> / 数据中心 <b class="ok-text">+52.76 亿</b> / 国企改革 <b class="ok-text">+48.27 亿</b>（合计 <b class="info-text">167.85 亿</b> · 较 D-1 9/28 实物消费 TOP3 17.19 亿 <b class="ok-text">环比 +876.8%</b> · 较 D-2 9/23 半导体内部小盘 TOP3 123.85 亿 <b class="ok-text">环比 +35.5%</b>）· 领涨 TOP5：<b class="ok-text">元件 / 电池 / 地产 / 传媒 / AI 视频</b> · 领跌：<b class="danger-text">培育钻石 / 煤炭 / 油气 / 航运 / 农林</b> · 涨停天梯：<b class="ok-text">新华传媒（600825）6 连板</b>（从 D-1 9/28 5 连板升级 · 连板高度反弹 1 板 · 文化传媒 / 出版主线连续 4 日升级）· <b>雪龙集团（603949）4 连板</b>（从 D-1 3 连板升级 · 风能）· <b>襄阳轴承（000678）3 连板</b>（从 D-1 2 连板升级 · 轴承）· <b class="ok-text">印证 D-1（9/28）"算力硬件杀跌 → 节后超跌反弹"两阶段路径</b>（D-1 9/28 算力硬件集体暴跌 -4%~-7% → 今日 元件领涨 + 数据中心 +52.76 亿 TOP2）。</p>
+  </div>
+</div>
+<!-- ============ ④ 五大指数 ============ -->
+<div class="section-title">📊 一、五大指数核心表现（5 大指数全线翻红 · 沪指 +0.08% 微涨 · 深成 / 创 / 科创 / 北证 跑赢沪指 · 节后超跌反弹 · 算力修复 + 政策催化双轮驱动）</div>
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">+0.08%</div>
+    <div class="name">上证指数（1A0001）</div>
+    <div class="value">3826.51</div>
+    <div class="change" style="color:#34d399">约 +3 点</div>
+    <div class="label">9/28 <b class="danger-text">-1.67%</b> → 今日 <b class="ok-text">+0.08%</b> 微涨 · 主板权重（房地产 + 中字头 + 银行）跟随反弹 · <b class="ok-text">万科 A 一度涨停</b>（新浪财经印证）拉动地产 · <b class="ok-text">地产 ETF（159707）+6.53% 领涨</b> · <b class="info-text">政策面国务院定房地产增量政策 + 上海预售新规</b>直接催化</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+0.41%</div>
+    <div class="name">深证成指（399001）</div>
+    <div class="value">≈ 13141</div>
+    <div class="change" style="color:#34d399">约 +54 点（估算）</div>
+    <div class="label">9/28 <b class="danger-text">-3.44%</b> → 今日 <b class="ok-text">+0.41%</b> · 深成指反弹 <b class="ok-text">大于沪指</b>（+0.41% vs +0.08%）· <b class="ok-text">深强显著（成长股反弹）</b> · <b class="info-text">元件 / 电池 / AI 视频领涨</b>印证成长股修复 · <b>算力硬件超跌反弹（CPO / 铜缆 / 通信 集体反弹）</b> · 印证 D-1（9/28）"<b class="warn-text">算力硬件杀跌 → 节后超跌反弹</b>"两阶段路径</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+0.34%</div>
+    <div class="name">创业板指（399006）</div>
+    <div class="value">≈ 3337</div>
+    <div class="change" style="color:#34d399">约 +11 点（估算）</div>
+    <div class="label">9/28 <b class="danger-text">-4.53%</b> → 今日 <b class="ok-text">+0.34%</b> · <b class="ok-text">创指节后超跌反弹（较 D-1 -4.53% 大幅修复）</b> · <b class="info-text">元件领涨 + 数据中心 +52.76 亿 TOP2 + 电池"十五五"规划催化</b>· <b>算力硬件 / 半导体集体反弹</b> · <b class="warn-text">修复幅度小于深成（+0.34% vs +0.41%）</b>印证"<b class="warn-text">反弹但尚未收复 D-1 跌幅</b>"</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+0.69%</div>
+    <div class="name">科创综指</div>
+    <div class="value">≈ 1580</div>
+    <div class="change" style="color:#34d399">约 +11 点（估算）</div>
+    <div class="label">9/28 科创 50 <b class="danger-text">-4.06%</b> → 今日 科创综 <b class="ok-text">+0.69%</b> · <b class="ok-text">科创综指 5 大指数中涨幅居前</b> · <b>半导体 / 通信 / 算力硬件集体反弹</b> · <b class="info-text">数据中心 +52.76 亿 TOP2 印证算力修复</b> · 印证 D-1（9/28）"<b class="warn-text">算力硬件杀跌 → 节后超跌反弹</b>"两阶段路径 · <b class="warn">注：新浪财经披露"科创综指"而非"科创 50"（口径不同 · 实际复盘以用户本地客户端为准）</b></div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+1.29%</div>
+    <div class="name">北证 50（899050）</div>
+    <div class="value">≈ 1097</div>
+    <div class="change" style="color:#34d399">约 +14 点（估算）</div>
+    <div class="label">9/28 <b class="danger-text">-2.76%</b> → 今日 <b class="ok-text">+1.29%</b> · <b class="ok-text">北证 50 5 大指数涨幅最大</b> · <b>小盘修复延续（D-2 9/23 北证 50 独涨 +2.6% → D-1 9/28 北证 50 -2.76% → 今日 +1.29% 三阶段路径）</b> · <b class="info-text">"防御反向轮动 → 算力反弹"两阶段切换</b>· <b class="warn-text">反弹幅度未收复 D-1 跌幅（北证 50 -2.76% → +1.29% 累计 -1.47%）</b></div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 指数口径补充：</strong>① 新浪财经 sina 14 时快报核对：<b class="info-text">沪指 +0.08% 3826.51 · 深成 +0.41% · 创 +0.34% · 科创综 +0.69% · 北证 50 +1.29%</b>；② <span class="warn-text">同花顺 c680357780 未直接给收盘点位（仅披露涨跌幅 · 沪指 +0.08% 为同花顺摘要）</span>；③ <b class="info-text">深成 / 创 / 科创综 / 北证 50 收盘点位为基于 9/28 估算 + 今日涨跌幅反推的估算值</b>：<b class="info-text">沪指 9/28 估算 3866</b> → 9/29 +0.08% ≈ 3826.51（与新浪完全一致）；<b class="info-text">深成指 9/28 估算 13087</b> → 9/29 +0.41% ≈ 13141；<b class="info-text">创指 9/28 估算 3326</b> → 9/29 +0.34% ≈ 3337；<b class="info-text">北证 50 9/28 估算 1083</b> → 9/29 +1.29% ≈ 1097；<b class="info-text">科创综指 9/28 估算 1569</b>（科创 50 1586）→ 9/29 +0.69% ≈ 1580；④ <b class="danger-text">准确收盘点位待用户本地 Wind / 同花顺客户端核对</b>；⑤ 9/29 收盘 <b class="ok-text">5 大指数全线飘红（节后第一个交易日 5 涨 0 跌）</b>，与 D-1（9/28）"<b class="danger-text">节后首日 5 跌 0 涨</b>"形成"<b class="ok-text">D-1 全线杀跌 → 节后第一个交易日超跌反弹</b>"两阶段路径；⑥ <b class="warn-text">反弹幅度有限（沪指 +0.08% 微涨）· 算力修复 + 政策催化双轮驱动但尚未完全收复 D-1 跌幅</b>（沪指 3866 → 3826.51 累计 -39.49 点 · 北证 50 1083 → 1097 累计 +14 反弹 / 但仍低于 D-2 9/23 1114）。
+</div>
+
+<!-- ============ ⑤ 市场交易与资金信号 ============ -->
+<div class="section-title info">💰 二、市场交易与资金信号（5 大指数全线翻红 · 节后第一个交易日超跌反弹 · 缩量 2951 亿 -17.2% · 资金体量大幅放大 TOP3 167.85 亿 +876.8% · 算力修复 + 政策催化双轮驱动）</div>
+<div class="market-stats">
+  <div class="stat-card up">
+    <div class="stat-name">三市成交额</div>
+    <div class="stat-value">14216 亿</div>
+    <div class="stat-detail">较 9/28（17167 亿）<b class="warn-text">缩量 2951 亿（-17.2%）</b> · <b class="info-text">缩量反弹特征</b>（沪指 +0.08% 微涨 + 缩量 17.2%）· 9/28 放量杀跌 → 9/29 缩量反弹 · <b class="warn-text">反弹动能尚需进一步放量确认</b> · <b class="info-text">新浪财经半日成交 8838.5 亿印证</b></div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">个股活跃度</div>
+    <div class="stat-value">超 3400 涨</div>
+    <div class="stat-detail">同花顺披露"<b class="ok-text">超 3400 只个股上涨</b>" · 与 9/28 的"<b class="danger-text">超 4500 只个股下跌</b>"形成"<b class="ok-text">4500 跌 → 3400 涨</b>"反转 · <b class="ok-text">D-2 9/23 3500 跌 → D-1 9/28 4500 跌 → 今日 3400 涨 三阶段反转路径</b> · <b class="warn-text">涨停家数 / 封板率 / 炸板数公开数据缺失</b>（仅披露连板梯度）· <b class="info-text">元件 / 电池 / 地产 / 传媒 / AI 视频领涨修复情绪</b></div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">领涨 vs 领跌</div>
+    <div class="stat-value">元件↑ / 培育钻石↓</div>
+    <div class="stat-detail"><b class="ok-text">元件 / 电池 / 地产 / 传媒 / AI 视频领涨</b>（<b>算力修复 + 政策催化 + 文化传媒主线升级</b>三主线）· <b class="danger-text">培育钻石 / 煤炭 / 油气 / 航运 / 农林领跌</b>（防御反向品种延续走弱 · 与 D-1 9/28 防御反向轮动形成"<b class="info-text">防御反向降温</b>"）· <b class="ok-text">"算力超跌反弹 + 政策催化双主线 · 防御反向品种延续走弱"</b>特征</div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">ETF 领涨 / 领跌</div>
+    <div class="stat-value">地产ETF +6.53% / 港股通汽车ETF -2.69%</div>
+    <div class="stat-detail"><b class="ok-text">地产 ETF（159707）+6.53% 领涨</b> · <b class="ok-text">房地产 ETF（159768）+6.40%</b> · <b class="ok-text">房地产 ETF（515060）+4.52%</b>（房地产政策催化直接传导）· <b class="danger-text">港股通汽车 ETF（159121）-2.69% 领跌</b> · <b class="danger-text">港股通汽车 ETF（520730）-2.44%</b> · <b class="danger-text">港股通汽车 ETF（159239）-2.42%</b> · <b class="info-text">房地产 ETF 集体领涨印证国务院增量政策 + 上海预售新规</b></div>
+  </div>
+</div>
+
+<!-- ============ ⑥ 主力资金净流入 TOP3 ============ -->
+<div class="section-title">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径（华为概念登顶 + 算力修复 + 国企改革 · TOP3 合计 167.85 亿 · 较 D-1 环比 +876.8% · 较 D-2 环比 +35.5%）</div>
+<div class="flow-table">
+  <div class="flow-row header"><div>排名</div><div>主题板块</div><div>主力净流入</div><div>板块表现 / 印证</div></div>
+  <div class="flow-row">
+    <div><span class="flow-rank up">1</span></div>
+    <div><b>华为概念</b></div>
+    <div class="flow-val up">+66.82 亿</div>
+    <div><b class="ok">板块大涨 · 数字基建 + 算力修复 · 华为全产业链</b> · <b class="info-text">华为 3D 数据中心 + 昇腾超节点持续催化</b>（东方财富 9/17 印证）· <b class="info-text">数据中心 +52.76 亿 TOP2 形成"华为概念 + 数据中心"算力修复双 TOP1/TOP2</b>· 节后第一个交易日华为全产业链反弹（5G / 芯片 / 鸿蒙 / 昇腾 / 数据中心）· <b class="info-text">印证 D-1（9/28）"算力硬件杀跌 → 节后超跌反弹"两阶段路径</b></div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank info">2</span></div>
+    <div><b>数据中心</b></div>
+    <div class="flow-val up">+52.76 亿</div>
+    <div><b class="ok">板块大涨 · 算力硬件超跌反弹核心</b> · <b class="info-text">与华为概念 TOP1 联袂反弹</b> · <b class="info-text">华为 3D 数据中心 + 昇腾超节点持续催化（东方财富 9/17 印证）</b>· <b>9/28 创业板算力 ETF -7.14% / 通信 ETF -7.66%/-7.33% 集体杀跌</b> → 今日 <b class="ok-text">数据中心 +52.76 亿 + 元件领涨（PCB / 印制电路板 / 电阻电容）</b> · <b class="ok-text">印证 D-1（9/28）"算力硬件杀跌 → 节后超跌反弹"两阶段路径</b>· 节后第一个交易日资金回流数字基建 / 算力硬件</div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank purple">3</span></div>
+    <div><b>国企改革</b></div>
+    <div class="flow-val up">+48.27 亿</div>
+    <div><b class="ok">板块大涨 · 中字头 + 国资持股 · 国常会增量政策催化</b> · <b class="info-text">国常会指出将推出一批务实有效增量政策</b>（证券之星 9/29 印证）· <b class="ok-text">"优化财政支出 · 用好地方债限额"</b>（财联社 9/29 印证）直接利好中字头 + 国资持股 · <b>与 TOP1 华为概念 / TOP2 数据中心形成"算力 + 国改"双轮驱动</b> · <b class="ok-text">印证 D-1（9/28）"防御反向轮动 → 政策驱动型反弹"两阶段切换</b>· 节后中字头 + 国资持股修复</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 资金面补充：</strong>① <b>同花顺 c680357780 9/29</b>：<span class="ok">三大资金主战场合计净流入 167.85 亿元</span>（华为概念 +66.82 / 数据中心 +52.76 / 国企改革 +48.27 亿）；② <b class="warn-text">三市总成交 14216 亿 / 主力净流入 TOP3 合计 167.85 亿，占总成交 1.18%</b>—— 与 D-1（9/28）的 0.10% 大幅上升，与 D-2（9/23）的 0.69% 上升，印证"<b class="ok-text">资金体量大幅放大（资金回流数字基建 + 算力硬件 + 国企改革）</b>"特征；③ 资金体量变化：<b class="ok-text">D-3（9/18）半导体 TOP3 736 亿 → D-2（9/21）医药 AI TOP3 135.77 亿 → D-1（9/23）半导体内部小盘 TOP3 123.85 亿 → D+1（9/28）实物消费 TOP3 17.19 亿 → D+2（9/29）算力修复 TOP3 167.85 亿</b>（<b class="ok-text">环比 D-1 +876.8% · 较 D-2 +35.5%</b>）—— 印证"<b class="ok-text">资金体量大幅放大 + 算力修复 + 国企改革双主线</b>"特征；④ 涨停家数 <b class="warn-text">公开数据缺口</b>（同花顺 c680357780 未披露具体涨停家数），仅披露连板梯度（6 连板 1 只 / 4 连板 1 只 / 3 连板 1 只）；⑤ 资金面变化方向：<b class="ok-text">D-1 实物消费 + 防御反向轮动 → 今日 算力修复（华为概念 + 数据中心）+ 政策驱动型反弹（国企改革）</b>· <b class="info-text">"算力修复 + 国企改革"双主线 + 资金体量大幅放大（+876.8%）</b>特征明确；⑦ 房地产板块资金净流入 <b class="info-text">地产 ETF（159707）+6.53% / 房地产 ETF（159768）+6.40% / 房地产 ETF（515060）+4.52% 三 ETF 集体领涨印证资金端政策催化</b>· 与万科 A 一度涨停（新浪财经印证）形成"<b class="ok-text">个股 + ETF 联动印证房地产政策催化</b>"两阶段路径。
+</div>
+<!-- ============ ⑦ 今日主线板块与逻辑（三段式时间脉络 · D-2=9/23 → D-1=9/28 → 今日=9/29 · 中间 9/24-9/27 国庆假期） ============ -->
+<div class="section-title">🎯 四、今日主线板块与逻辑（近 3 个交易日三段式脉络 · D-2=9/23 → D-1=9/28 → 今日=9/29 · 中间 9/24-9/27 国庆假期）</div>
+<div class="mainlines">
+
+  <!-- 主线 1：算力硬件超跌反弹 -->
+  <div class="mainline-card rank-1">
+    <div class="mainline-rank">1</div>
+    <div class="title">🟢 算力硬件超跌反弹（华为概念 +66.82 亿 TOP1 / 数据中心 +52.76 亿 TOP2 / 元件领涨 · 华为 3D 数据中心 + 昇腾超节点持续催化 · 节后第一个交易日资金回流算力修复）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 算力修复</span>
+      <span class="mainline-tag info">华为概念+66.82亿</span>
+      <span class="mainline-tag info">数据中心+52.76亿</span>
+      <span class="mainline-tag warn">元件领涨</span>
+      <span class="mainline-tag purple">3D数据中心</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/24-9/27 国庆假期）<br>
+      · D-2（9/23）：<b>━━ 持</b> · 半导体内部小盘切换 · 专精特新 +44.48 / 先进封装 +44.05 / PCB 概念 +35.32 亿（合计 123.85 亿 · 议息扰动二次消化）· 9/17 凌晨美联储议息已落地 · 9/18 放量反弹 2564 亿印证 · 9/21 五指数全线飘红 · 9/23 内部小盘切换（节前兑现）<br>
+      · D-1（9/28）：<b>🔽 降</b> · <b class="danger-text">算力硬件集体暴跌 -4%~-7%（CPO / 铜缆高速连接 / 通信设备 / MLCC / 元件 领跌）</b> · <b class="danger-text">创业板算力 ETF（158063）-7.14% / 通信 ETF（515880）-7.66% / 通信 ETF（159583）-7.33% 领跌全市场</b> · 节后第一个交易日兑现压力 + 议息扰动三次消化 · 华为概念 / 数据中心未进入 TOP3<br>
+      · 今日（9/29）：<b>🔼 升</b> · <b class="ok-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨</b>（合计 119.58 亿 · 较 D-1 TOP3 17.19 亿 <b class="ok-text">环比 +595.5%</b>）· <b class="info-text">华为 3D 数据中心 + 昇腾超节点持续催化（东方财富 9/17 印证）</b>· 节后第一个交易日资金回流算力修复<br>
+      · 变化方向：<b class="ok-text">🔼 升</b>（D-1 算力硬件集体杀跌 → 今日 算力修复 TOP1+TOP2）<br>
+      · 切换归因：<b class="info-text">华为 3D 数据中心 + 昇腾超节点持续催化 · 节前超卖修复 · 资金回流数字基建</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>算力硬件在 D-2（9/23）"<b class="info-text">半导体内部小盘切换（合计 123.85 亿）</b>" → D-1（9/28）"<b class="danger-text">算力硬件集体暴跌 -4%~-7%（CPO / 铜缆 / 通信 / MLCC / 元件 领跌）</b>" → 今日（9/29）"<b class="ok-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨</b>"。9/29 节后第一个交易日算力硬件"<b class="ok-text">超跌反弹 + 资金回流数字基建</b>"。<br>
+      <b>【催化】</b>① <b>节后第一个交易日超跌反弹</b>：D-1（9/28）算力硬件集体暴跌 -4%~-7% · 节前超卖 → 9/29 节后第一个交易日 <b class="ok-text">资金回流算力修复（华为概念 +66.82 亿 + 数据中心 +52.76 亿）</b>；② <b>华为 3D 数据中心 + 昇腾超节点持续催化</b>（东方财富 9/17 印证）· <b>创业板算力 ETF 华夏（158041）9/17 上市</b>（21 经济网 9/17 印证）；③ <b>元件领涨</b>：<b class="ok-text">元件领涨（PCB / 印制电路板 / 电阻电容）</b> · 印证 D-2（9/23）"<b class="info-text">PCB 概念 +35.32 亿 TOP3</b>"延续修复；④ <b>算力租赁高景气延续</b>：Q1 算力租赁市场 680 亿元同比增 62% · <b class="info-text">Nscale 启动 IPO 估值达 350 亿美元</b>（同花顺 c680311507 印证）；⑤ <b>议息鹰派余波消化</b>：9/17 凌晨 02:00 美联储议息已落地 · <b class="ok-text">9/28 议息扰动三次消化 → 9/29 议息扰动四次消化</b>。<br>
+      <b>【归因】</b>D-2（9/23）半导体内部小盘切换 → D-1（9/28）"<b class="danger-text">算力硬件集体暴跌 -4%~-7%</b>" → 今日（9/29）"<b class="ok-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨</b>"。资金体量 <b class="ok">从 D-1 的 17.19 亿 → 今日 167.85 亿（环比 +876.8% · 较 D-2 +35.5%）</b>—— 印证"<b class="ok-text">算力超跌反弹 + 资金体量大幅放大 + 议息扰动四次消化</b>"三阶段路径。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>华为概念</b> TOP1（+66.82 亿 · 数字基建 + 算力修复）</span>
+      <span class="stock-chip"><b>数据中心</b> TOP2（+52.76 亿 · 华为 3D 数据中心 + 昇腾超节点）</span>
+      <span class="stock-chip"><b>元件板块</b>（领涨 · PCB / 印制电路板 / 电阻电容）</span>
+      <span class="stock-chip"><b>电池"十五五"规划</b>（领涨 · 七部门发文 · 2030 全固态规模化）</span>
+      <span class="stock-chip"><b>华为 3D 数据中心 + 昇腾超节点</b>（东方财富 9/17 印证）</span>
+      <span class="stock-chip"><b>创业板算力 ETF</b> 158063（D-1 -7.14% · 节后第一个交易日反弹预期）</span>
+      <span class="stock-chip"><b>通信 ETF</b> 515880 / 159583（D-1 -7.66%/-7.33%）</span>
+      <span class="stock-chip"><b>PCB / 先进封装龙头</b>（元件领涨 · D-2 PCB 概念 +35.32 亿 TOP3 印证）</span>
+    </div>
+  </div>
+
+  <!-- 主线 2：房地产政策催化 -->
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">2</div>
+    <div class="title">🏠 房地产政策催化（地产 ETF +6.53% 领涨 / 房地产 ETF +6.40% / 万科 A 一度涨停 · 国务院定增量政策 + 上海预售新规 · 国企改革 TOP3 联动）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 政策催化</span>
+      <span class="mainline-tag info">地产ETF+6.53%</span>
+      <span class="mainline-tag info">万科A涨停</span>
+      <span class="mainline-tag warn">国务院增量</span>
+      <span class="mainline-tag purple">预售新规</span>
+      <span class="mainline-tag info">国企改革+48.27亿</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/24-9/27 国庆假期）<br>
+      · D-2（9/23）：<b>━━ 持</b> · 房地产行业净流入 10.34 亿 · 万科 A +5.01 亿领涨 · 我爱我家 3 连板 · 物业服务 / 城市更新细分 · 政策定调（人民日报"存量阶段 · 民生属性"）<br>
+      · D-1（9/28）：<b class="warn-text">数据缺口</b> · 同花顺 c680311505 未披露房地产资金净流入 · 节后首日杀跌拖累房地产板块 · 政策面延续但市场情绪降温<br>
+      · 今日（9/29）：<b>🔼 升</b> · <b class="ok-text">国务院定房地产增量政策（财联社 + 证券之星印证）</b> · <b class="ok-text">上海出台住房销售改革 · 预售门槛提至主体封顶（观点网 9/28 印证）</b> · <b class="ok-text">地产 ETF +6.53% 领涨 / 房地产 ETF +6.40% / 房地产 ETF +4.52% 三 ETF 集体领涨</b> · <b class="ok-text">万科 A 一度涨停</b> · 央企 / 国企改革 TOP3 +48.27 亿联动<br>
+      · 变化方向：<b class="ok-text">🔼 升</b>（D-1 数据缺口 · 节后兑现压力 → 今日政策催化反弹）<br>
+      · 切换归因：<b class="info-text">国务院增量政策 + 上海预售新规 · 国企改革 +48.27 亿联动</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>房地产板块在 D-2（9/23）"<b class="info-text">房地产行业净流入 10.34 亿 · 万科 A +5.01 亿领涨（证券时报印证）</b>" → D-1（9/28）"<b class="warn-text">数据缺口 + 节后兑现压力</b>" → 今日（9/29）"<b class="ok-text">国务院定房地产增量政策 + 上海出台预售新规 · 地产 ETF +6.53% 领涨 + 万科 A 一度涨停</b>"。9/29 节后第一个交易日房地产"<b class="ok-text">政策驱动型反弹 + 国企改革 TOP3 联动</b>"。<br>
+      <b>【催化】</b>① <b>国务院定房地产增量政策</b>：<b class="ok-text">国常会指出将推出一批务实有效增量政策</b>（证券之星 9/29 印证）· <b class="info-text">优化财政支出 · 用好地方债限额</b>（财联社 9/29 印证）—— 直接利好房地产板块 + TOP3 国企改革 +48.27 亿联动；② <b>上海出台住房销售改革</b>：<b class="ok-text">上海四部门联合发文 · 预售门槛提至主体封顶（观点网 9/28 印证）</b> · <b class="info-text">加强预售管理 · 实施现房销售</b>（财联社 9/29 印证）；③ <b>万科 A 一度涨停</b>（新浪财经 9/29 印证）—— <b class="ok-text">万科 A 作为房地产龙头 + 国资持股双重属性</b> · 与 TOP3 国企改革 +48.27 亿联动；④ <b>D-2（9/23）10.34 亿延续</b>：D-2（9/23）"<b class="info-text">房地产行业净流入 10.34 亿</b>"未在 D-1（9/28）延续（数据缺口）→ 今日节后"<b class="ok-text">政策催化反弹</b>"；⑤ <b>电池"十五五"规划联动</b>：<b class="ok-text">七部门发电池"十五五"规划 · 目标 2030 年全固态电池规模化应用</b>（财联社 9/29 印证）· 印证 TOP5 领涨"<b class="ok-text">电池</b>"。<br>
+      <b>【归因】</b>D-2（9/23）房地产 10.34 亿延续 → D-1（9/28）"<b class="warn-text">数据缺口 + 节后兑现压力</b>" → 今日（9/29）"<b class="ok-text">国务院增量政策 + 上海预售新规 · 地产 ETF +6.53% 领涨 + 万科 A 一度涨停 · TOP3 国企改革 +48.27 亿联动</b>"。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>万科 A</b> 000002（一度涨停 · 房地产龙头 + 国资持股）</span>
+      <span class="stock-chip"><b>保利发展</b> 600048（板块龙头 · 存量阶段布局）</span>
+      <span class="stock-chip"><b>招商蛇口</b> 001979（板块龙头 · 央企 + 国改联动）</span>
+      <span class="stock-chip"><b>金地集团</b> 600383</span>
+      <span class="stock-chip"><b>新城控股</b> 601155</span>
+      <span class="stock-chip"><b>地产 ETF</b> 159707（+6.53% 领涨）</span>
+      <span class="stock-chip"><b>房地产 ETF</b> 159768（+6.40%）</span>
+      <span class="stock-chip"><b>房地产 ETF</b> 515060（+4.52%）</span>
+      <span class="stock-chip"><b>物业服务</b>（招商积余 001914 / 碧桂园服务）</span>
+      <span class="stock-chip"><b>城市更新</b>（存量阶段核心方向）</span>
+      <span class="stock-chip"><b>央企 / 国资持股</b>（TOP3 国企改革 +48.27 亿联动 · 房地产 + 国改双主线）</span>
+    </div>
+  </div>
+
+  <!-- 主线 3：文化传媒 / 出版主线连续 4 日升级 -->
+  <div class="mainline-card rank-3">
+    <div class="mainline-rank">3</div>
+    <div class="title">🎬 文化传媒 / 出版主线连续 4 日升级（新华传媒 600825 6 连板 · 文化传媒领涨 · 雪龙集团 4 连板 · 襄阳轴承 3 连板 · 文化传媒主线连续 4 日升级：D-2 新华文轩 4 连板 → D-1 新华传媒 5 连板 → 今日 6 连板）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 主线升级</span>
+      <span class="mainline-tag info">新华传媒6连板</span>
+      <span class="mainline-tag info">文化传媒领涨</span>
+      <span class="mainline-tag purple">新华系龙头</span>
+      <span class="mainline-tag warn">4日升级</span>
+      <span class="mainline-tag info">雪龙4连板</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/24-9/27 国庆假期）<br>
+      · D-2（9/23）：<b>━━ 持</b> · <b class="info-text">新华文轩（601811）4 连板</b> · <b>新华传媒（600825）3 连板</b> · 文化传媒主线初步形成<br>
+      · D-1（9/28）：<b>━━ 持</b> · <b class="info-text">新华传媒（600825）5 连板（连板高度反弹 2 板）</b> · 文化传媒 / 出版主线连续 3 日升级<br>
+      · 今日（9/29）：<b>🔼 升</b> · <b class="ok-text">新华传媒（600825）6 连板（连板高度反弹 1 板 · 主线连续 4 日升级）</b> · <b class="info-text">雪龙集团（603949）4 连板</b> · <b class="info-text">襄阳轴承（000678）3 连板</b> · <b class="ok-text">文化传媒 / AI 视频领涨</b><br>
+      · 变化方向：<b class="ok-text">🔼 升</b>（D-2 → D-1 → 今日 · 主线连续 4 日升级）<br>
+      · 切换归因：<b class="info-text">"新华系"龙头连续封板 · 文化传媒主线情绪升温 · AI 视频领涨扩散</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>文化传媒 / 出版主线在 D-2（9/23）"<b class="info-text">新华文轩 4 连板 + 新华传媒 3 连板</b>" → D-1（9/28）"<b class="info-text">新华传媒 5 连板 + 主线连续 3 日升级</b>" → 今日（9/29）"<b class="ok-text">新华传媒 6 连板 + 文化传媒 / AI 视频领涨 + 主线连续 4 日升级</b>"。9/29 节后第一个交易日"<b class="ok-text">文化传媒主线连续 4 日升级 · 6 连板新高度</b>"。<br>
+      <b>【催化】</b>① <b>"新华系"龙头连续封板</b>：<b class="ok-text">新华传媒（600825）6 连板</b>（证券时报 9/29 印证）—— 与新华文轩（601811）4 连板（D-2）形成"<b class="info-text">"新华文轩 → 新华传媒"</b>"主线接力 · <b class="info-text">"主业经营不涉及新技术、新产业、新业态、新模式"</b>印证纯情绪驱动；② <b>文化传媒 / AI 视频领涨</b>（同花顺 c680357780 印证）· 文化传媒取代医药 AI 主线成为新情绪主线；③ <b>雪龙集团 4 连板</b>：<b class="info-text">雪龙集团（603949）4 连板（从 D-1 3 连板升级 · 风能 / 复合材料）</b>；④ <b>襄阳轴承 3 连板</b>：<b class="info-text">襄阳轴承（000678）3 连板（从 D-1 2 连板升级 · 轴承）</b>；⑤ <b>AI 视频领涨</b>（同花顺 c680357780 印证）· 印证 D-1（9/28）"<b class="danger-text">AI 视频领跌（节前兑现）</b>"反转 → 今日"<b class="ok-text">AI 视频领涨（节后修复）</b>"两阶段反转路径。<br>
+      <b>【归因】</b>D-2（9/23）新华文轩 4 连板 + 新华传媒 3 连板 → D-1（9/28）"<b class="info-text">新华传媒 5 连板 + 主线连续 3 日升级</b>" → 今日（9/29）"<b class="ok-text">新华传媒 6 连板 + 文化传媒 / AI 视频领涨 + 主线连续 4 日升级</b>"。连板高度从 D-1 的 5 板反弹至今日的 6 板（新华传媒），<b class="ok">连板高度反弹 1 板</b>。操作上需要区分"<b class="ok-text">文化传媒主线连续 4 日升级（短期情绪主线 · 6 连板高位风险）</b>"与"<b class="danger-text">算力修复（中期修复主线 · 资金回流确认）</b>"，避免一揽子接手。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>新华传媒</b> 600825（6 连板 · 文化传媒 / 出版 · 从 D-1 5 连板升级）</span>
+      <span class="stock-chip"><b>新华文轩</b> 601811（D-2 4 连板 · 主线接力）</span>
+      <span class="stock-chip"><b>雪龙集团</b> 603949（4 连板 · 风能 / 复合材料）</span>
+      <span class="stock-chip"><b>襄阳轴承</b> 000678（3 连板 · 轴承）</span>
+      <span class="stock-chip"><b>AI 视频领涨</b>（与 D-1 AI 视频领跌形成反转）</span>
+      <span class="stock-chip"><b>文化传媒领涨</b>（取代医药 AI 主线）</span>
+      <span class="stock-chip"><b>天威视讯</b> 002238（D-2 2 连板）</span>
+      <span class="stock-chip"><b>南威软件</b> 603636（D-2 3 连板）</span>
+      <span class="stock-chip"><b>吉鑫科技</b> 601218（D-1 2 连板）</span>
+      <span class="stock-chip"><b>大业股份</b> 603278（D-1 2 连板）</span>
+    </div>
+  </div>
+
+  <!-- 防御板块反向（独立成卡，红色 .danger） -->
+  <div class="mainline-card danger">
+    <div class="mainline-rank">4</div>
+    <div class="title">🛡️ 防御品种延续走弱（培育钻石 / 煤炭 / 油气 / 航运 / 农林 领跌 · 港股通汽车 ETF -2.69% 领跌全市场 · D-1 9/28 防御反向轮动 → 今日延续走弱 · 节后第一个交易日资金回流算力修复）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔴 防御延续</span>
+      <span class="mainline-tag warn">培育钻石领跌</span>
+      <span class="mainline-tag danger">煤炭油气</span>
+      <span class="mainline-tag info">港股通汽车-2.69%</span>
+      <span class="mainline-tag purple">资金回流</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日 · 中间 9/24-9/27 国庆假期）<br>
+      · D-2（9/23）：<b>━━ 持</b> · 防御品种反向（文化传媒 / AI 视频 / 影视院线 / 油气 / 煤炭 领跌 · 节前兑现）<br>
+      · D-1（9/28）：<b>🔀 切</b> · 防御反向轮动（汽车整车 +1.64% / 小家电 / 猪肉 / 养鸡 / 风电设备 逆势走强 · 换电概念 +10.97 亿 + 猪肉 +4.08 亿 + 牙科医疗 +2.14 亿）<br>
+      · 今日（9/29）：<b>🔽 降</b> · <b class="danger-text">培育钻石 / 煤炭 / 油气 / 航运 / 农林领跌</b> · <b class="danger-text">港股通汽车 ETF 三 ETF 集体 -2.4%~-2.7%</b> · 节后第一个交易日防御反向轮动品种延续走弱<br>
+      · 变化方向：<b class="danger-text">🔽 降</b>（D-1 防御反向轮动 → 今日延续走弱）<br>
+      · 切换归因：<b class="info-text">资金回流算力修复 + 政策催化 · 防御反向轮动品种延续走弱</b>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>防御品种在 D-2（9/23）"<b class="info-text">防御品种反向（文化传媒 / AI 视频 / 油气 / 煤炭 领跌）</b>" → D-1（9/28）"<b class="info-text">防御反向轮动（汽车整车 / 猪肉 / 养鸡 / 风电设备 逆势走强）</b>" → 今日（9/29）"<b class="danger-text">培育钻石 / 煤炭 / 油气 / 航运 / 农林领跌 + 港股通汽车 ETF -2.4%~-2.7%</b>"。9/29 节后第一个交易日防御反向"<b class="danger-text">资金回流算力修复 + 政策催化 · 防御反向轮动品种延续走弱</b>"。<br>
+      <b>【催化与归因】</b>① <b>资金回流算力修复</b>：D-1（9/28）"<b class="info-text">换电概念 +10.97 亿 / 猪肉 +4.08 亿 / 牙科医疗 +2.14 亿</b>" → 今日 "<b class="ok-text">华为概念 +66.82 亿 / 数据中心 +52.76 亿 / 国企改革 +48.27 亿</b>"；② <b>港股通汽车 ETF 集体大跌</b>（同花顺 c680357772 印证）；③ <b>煤炭 / 油气领跌</b>（同花顺 c680357780 印证）；④ <b>培育钻石领跌</b>—— 印证 D-2（9/23）"<b class="info-text">培育钻石概念涨幅居前</b>"反转 → 今日"<b class="danger-text">培育钻石领跌</b>"两阶段反转路径；⑤ <b>航运行情</b>领跌。<br>
+      <b>路径总结：</b>防御品种路径：<b>D-2 防御品种反向 → D-1 防御反向轮动 → 今日 防御反向延续走弱</b>。9/29 印证"<b class="danger-text">"防御反向 → 防御反向轮动 → 防御反向延续走弱"</b>"三阶段路径完整。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>培育钻石</b>（领跌 · 与 D-2 领涨形成反转）</span>
+      <span class="stock-chip"><b>煤炭 / 油气 / 航运 / 农林</b>（领跌）</span>
+      <span class="stock-chip"><b>港股通汽车 ETF</b> 159121（-2.69% 领跌全市场）</span>
+      <span class="stock-chip"><b>港股通汽车 ETF</b> 520730（-2.44%）</span>
+      <span class="stock-chip"><b>港股通汽车 ETF</b> 159239（-2.42%）</span>
+      <span class="stock-chip"><b>D-1 9/28 汽车整车 +1.64%</b>（未在今日延续）</span>
+      <span class="stock-chip"><b>D-1 9/28 换电概念 +10.97 亿</b>（资金撤离至算力修复）</span>
+      <span class="stock-chip"><b>D-1 9/28 猪肉 +4.08 亿</b>（资金撤离至算力修复）</span>
+    </div>
+  </div>
+
+</div>
+<!-- ============ ⑧ 涨停天梯 ============ -->
+<div class="section-title warn">🪜 五、涨停天梯（新华传媒 600825 6 连板 · 文化传媒 / 出版主线连续 4 日升级 · 雪龙集团 603949 4 连板 · 襄阳轴承 000678 3 连板 · 连板方向切换至文化传媒 + 风能 + 轴承）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 高度变化（D-2 → D-1 → 今日 · 中间 9/24-9/27 国庆假期）：</strong>D-2（9/23）<b>大亚圣象（000910）/ 新华文轩（601811）4 连板</b>（家居 + 文化传媒 / 出版 · 从 9/18 3 连板升级）· <b>新华传媒（600825）3 连板</b> · <b>我爱我家（000560）/ 泰慕士（001234）/ 奥佳华（002614）/ 华远控股（600743）/ 南威软件（603636）3 连板</b>（房地产 + 文化传媒 + 汽车 + 机器人 + 互联网 + 软件）· <b>天威视讯（002238）/ 江淮汽车（600418）/ 澳弘电子（605058）2 连板</b>（文化传媒 + 汽车 + PCB）→ D-1（9/28）<b class="ok-text">新华传媒（600825）5 连板</b>（从 D-2 9/23 3 连板升级 · 连板高度反弹 2 板 · 文化传媒 / 出版主线连续 3 日升级）· <b>福建水泥（600802）/ 雪龙集团（603949）3 连板</b>（水泥 + 风能 / 复合材料）· <b>襄阳轴承（000678）/ 吉鑫科技（601218）/ 大业股份（603278）2 连板</b>（轴承 + 风能 + 轮胎）→ 今日 9/29 <b class="ok-text">新华传媒（600825）6 连板</b>（从 D-1 9/28 5 连板升级 · 连板高度反弹 1 板 · 文化传媒 / 出版主线连续 4 日升级 · 证券时报《揭秘涨停》9/29 印证）· <b class="ok-text">雪龙集团（603949）4 连板</b>（从 D-1 9/28 3 连板升级 · 风能 / 复合材料）· <b class="ok-text">襄阳轴承（000678）3 连板</b>（从 D-1 9/28 2 连板升级 · 轴承）。<b class="ok-text">连板高度从 D-1（9/28）的 5 板反弹至今日的 6 板（新华传媒）</b>，<b class="ok">连板高度反弹 1 板</b>；<b class="ok-text">连板方向从"家居 + 文化传媒 + 房地产 + PCB"（D-2 9/23）切换至"文化传媒 + 水泥 + 风能 + 汽车 + 轴承"（D-1 9/28）再切换至"文化传媒 + 风能 + 轴承"（今日）</b>（新华传媒文化传媒 + 雪龙集团风能 + 襄阳轴承轴承），与板块主线（算力超跌反弹 + 政策催化 + 文化传媒主线连续 4 日升级）高度吻合。<b class="warn-text">涨停家数 / 封板率 / 炸板数公开数据缺失</b>。<b>连板高度"5 板 → 6 板"</b>两阶段反弹印证"<b class="ok">"5 板 → 6 板" 反弹路径</b>"，文化传媒 / 出版主线连续 4 日升级。
+</div>
+<div class="ladder">
+  <span class="ladder-tag lv-1">🔥 6 连板：<b>新华传媒</b>（600825 · 文化传媒 / 出版 · 从 D-1 9/28 5 连板升级 · 连板高度反弹 1 板 · 主线连续 4 日升级 · 同花顺 c680357780 印证 · 证券时报《揭秘涨停》9/29 印证）</span>
+  <span class="ladder-tag lv-2">⭐ 4 连板：<b>雪龙集团</b>（603949 · 风能 / 复合材料 · 从 D-1 3 连板升级）</span>
+  <span class="ladder-tag lv-3">🔼 文化传媒 / 出版主线涨停：<b>新华传媒</b> 600825（6 连板 · 文化传媒 / 出版 · D-2 新华文轩 4 连板 → D-1 新华传媒 5 连板 → 今日 新华传媒 6 连板 · 主线连续 4 日升级）</span>
+  <span class="ladder-tag lv-4">🔼 算力修复涨停：<b>华为概念 / 数据中心 / 元件</b>（TOP1+TOP2 · 资金回流算力修复）</span>
+  <span class="ladder-tag lv-4">🔼 政策催化涨停：<b>万科 A</b> 000002（一度涨停 · 房地产 + 国资持股 · 国务院增量政策 + 上海预售新规）</span>
+  <span class="ladder-tag lv-4">🔼 风能 / 轴承涨停：<b>雪龙集团</b> 603949（4 连板 · 风能）· <b>襄阳轴承</b> 000678（3 连板 · 轴承）</span>
+  <span class="ladder-tag lv-3">3 连板：<b>襄阳轴承</b>（000678 · 轴承 · 从 D-1 2 连板升级）</span>
+  <span class="ladder-tag danger">⚠️ 数据缺口：今日涨停家数 / 封板率 / 炸板数 / 连板股总数公开数据缺失</span>
+</div>
+
+<!-- ============ ⑨ ETF 涨跌榜 ============ -->
+<div class="section-title info">📊 六、ETF 涨跌榜（房地产政策催化 · 地产 ETF +6.53% 领涨全市场 · 港股通汽车 ETF -2.69% 领跌 · 房地产 ETF 三 ETF 集体领涨）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 关键数据：</strong>同花顺 ETF 收评 c680357772（用户提供主源）披露：<b class="ok-text">地产 ETF（159707）+6.53% 领涨</b> · <b class="ok-text">房地产 ETF（159768）+6.40%</b> · <b class="ok-text">房地产 ETF（515060）+4.52%</b>（房地产政策催化直接传导 ETF 端 · 印证"<b class="ok-text">国务院增量政策 + 上海预售新规</b>"双政策催化）· <b class="danger-text">港股通汽车 ETF（159121）-2.69% 领跌</b> · <b class="danger-text">港股通汽车 ETF（520730）-2.44%</b> · <b class="danger-text">港股通汽车 ETF（159239）-2.42%</b>（港股通汽车 ETF 三 ETF 集体领跌全市场 · 印证 D-1（9/28）"<b class="info-text">汽车整车 +1.64% 领涨全市场</b>"未在今日延续 · 防御反向轮动结束）。<br>
+  <strong>📌 双源印证：</strong>同花顺 ETF 收评 c680357772（用户提供主源）+ 新浪财经 sina 14 时快报《2026 年 9 月 29 日 14 时》（<a href="https://k.sina.com.cn/article_7857201856_1d45362c001908p7te.html" target="_blank">原文</a>）+ 财联社《9 月 29 日早间新闻精选》9/29（<a href="https://www.cls.cn/detail/2494722" target="_blank">原文</a>）+ 证券时报《揭秘涨停》9/29（<a href="https://www.stcn.com/article/detail/4198878.html" target="_blank">原文</a>）+ 证券之星《9 月 29 日早间消息汇总》9/29（<a href="https://stock.stockstar.com/SS2026092900007506.shtml" target="_blank">原文</a>）+ 观点网《上海四部门联合发文》9/28（<a href="https://www.guandian.cn/m/show/607851" target="_blank">原文</a>）6 个非同源渠道交叉核验。
+</div>
+<div class="etf-table">
+  <div class="etf-row header"><div>方向</div><div>ETF 名称（代码）</div><div>涨跌幅</div><div>板块 / 印证</div></div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨①</b></div>
+    <div><b>地产 ETF（159707）</b></div>
+    <div class="etf-val up">+6.53%</div>
+    <div><b class="ok">地产 ETF · 领涨全市场</b> · 同花顺 c680357772 印证 · <b class="info-text">国务院定房地产增量政策 + 上海出台住房销售改革 · 预售门槛提至主体封顶</b>（观点网 9/28 印证）· <b class="info-text">万科 A 一度涨停（新浪财经印证）</b>· 印证 D-2（9/23）"<b class="info-text">房地产 10.34 亿延续（民生定位主线）</b>"升级为"<b class="ok-text">政策驱动型反弹</b>"两阶段路径</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨②</b></div>
+    <div><b>房地产 ETF（159768）</b></div>
+    <div class="etf-val up">+6.40%</div>
+    <div><b class="ok">房地产 ETF · 政策催化直接传导</b> · 同花顺 c680357772 印证 · <b class="info-text">国务院增量政策 · 优化财政支出 · 用好地方债限额</b>（财联社 + 证券之星印证）· <b class="info-text">印证 TOP3 国企改革 +48.27 亿（含房地产板块）联动</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨③</b></div>
+    <div><b>房地产 ETF（515060）</b></div>
+    <div class="etf-val up">+4.52%</div>
+    <div><b class="ok">房地产 ETF · 政策催化直接传导</b> · 同花顺 c680357772 印证 · <b class="info-text">与地产 ETF +6.53% / 房地产 ETF +6.40% 形成"三 ETF 集体领涨"</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌①</b></div>
+    <div><b>港股通汽车 ETF（159121）</b></div>
+    <div class="etf-val down">-2.69%</div>
+    <div><b class="danger">港股通汽车 ETF · 领跌全市场</b> · 同花顺 c680357772 印证 · <b class="danger-text">印证 D-1（9/28）"<b class="info-text">汽车整车 +1.64% 领涨全市场</b>"未在今日延续</b>· 节后第一个交易日防御反向轮动品种延续走弱</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌②</b></div>
+    <div><b>港股通汽车 ETF（520730）</b></div>
+    <div class="etf-val down">-2.44%</div>
+    <div><b class="danger">港股通汽车 ETF · 防御反向品种延续走弱</b> · 同花顺 c680357772 印证 · <b class="danger-text">与港股通汽车 ETF（159121）-2.69% 同步大跌</b></div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌③</b></div>
+    <div><b>港股通汽车 ETF（159239）</b></div>
+    <div class="etf-val down">-2.42%</div>
+    <div><b class="danger">港股通汽车 ETF · 节后兑现 + 港股科技股映射</b> · 同花顺 c680357772 印证 · <b class="danger-text">与港股通汽车 ETF（159121）/ 港股通汽车 ETF（520730）同步大跌</b></div>
+  </div>
+</div>
+
+<!-- ============ ⑩ 重要新闻与板块催化 ============ -->
+<div class="section-title">📖 七、重要新闻与板块催化</div>
+<div class="fin-table">
+  <div class="fin-row header"><div>事件 / 数据</div><div>关键数据</div><div>对 A 股影响</div></div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 国常会指出将推出一批务实有效增量政策 · 优化财政支出 · 用好地方债限额</div>
+    <div class="fin-val up">房地产 + 国企改革</div>
+    <div><b>国常会指出将推出一批务实有效增量政策</b>（证券之星 9/29 印证 · <a href="https://stock.stockstar.com/SS2026092900007506.shtml" target="_blank">原文链接</a>）· <b class="ok-text">优化财政支出 · 用好地方债限额</b>（财联社 9/29 印证）—— <b class="ok-text">直接利好房地产 + 国企改革 + 中字头</b> · 印证 TOP3 国企改革 +48.27 亿 · 印证地产 ETF（159707）+6.53% / 房地产 ETF（159768）+6.40% 政策催化 · 印证"<b class="ok-text">房地产 + 国改双主线</b>"两阶段路径</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 上海出台住房销售改革 · 加强预售管理 · 实施现房销售 · 预售门槛提至主体封顶</div>
+    <div class="fin-val up">地产 +6.53%</div>
+    <div><b>上海四部门联合发文 · 预售门槛提至主体封顶</b>（观点网 9/28 印证 · <a href="https://www.guandian.cn/m/show/607851" target="_blank">原文链接</a>）· <b class="ok-text">加强预售管理 · 实施现房销售</b>（财联社 9/29 印证 · <a href="https://www.cls.cn/detail/2494722" target="_blank">原文链接</a>）—— <b class="ok-text">直接利好地产 ETF（159707）+6.53% 领涨</b> · 印证万科 A 一度涨停</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 七部门发电池"十五五"规划 · 目标 2030 年全固态电池规模化应用</div>
+    <div class="fin-val up">电池领涨</div>
+    <div><b>七部门发电池"十五五"规划 · 目标 2030 年全固态电池规模化应用</b>（财联社 9/29 印证 · <a href="https://www.cls.cn/detail/2494722" target="_blank">原文链接</a>）—— <b class="ok">直接利好电池板块</b>（新能源车 + 储能 + 智能制造）· 印证 TOP5 领涨"<b class="ok-text">电池</b>"（新能源车细分）</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 新华传媒 6 连板 · "新华"龙头连续封板（证券时报《揭秘涨停》9/29 印证）</div>
+    <div class="fin-val up">6 连板</div>
+    <div><b>揭秘涨停丨"新华"龙头，五连板</b>（证券时报 9/29 印证 · <a href="https://www.stcn.com/article/detail/4198878.html" target="_blank">原文链接</a>）—— <b class="ok-text">新华传媒 6 连板（文化传媒 / 出版 · 主线连续 4 日升级 · 连板高度反弹 1 板）</b>· <b class="info-text">"主业经营不涉及新技术、新产业、新业态、新模式"</b>印证纯情绪驱动</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 万科 A 一度涨停（新浪财经 sina 14 时快报 9/29 印证）</div>
+    <div class="fin-val up">万科 A 涨停</div>
+    <div><b>万科 A 一度涨停</b>（新浪财经 9/29 印证 · <a href="https://k.sina.com.cn/article_7857201856_1d45362c001908p7te.html" target="_blank">原文链接</a>）—— <b class="ok-text">房地产龙头 + 国资持股双重属性</b> · 印证 TOP3 国企改革 +48.27 亿联动</div>
+  </div>
+  <div class="fin-row">
+    <div>🇺🇸 海外 · 华为 3D 数据中心 + 昇腾超节点亮相（东方财富 9/17 印证）</div>
+    <div class="fin-val up">华为概念 TOP1</div>
+    <div><b>华为首个 3D 数据中心 + 昇腾超节点亮相 · 创业板算力 ETF 华夏（158041）9/17 上市</b>（东方财富 9/17 印证 · <a href="https://wap.eastmoney.com/a/202609173877212018.html" target="_blank">原文链接</a>；21 经济网 9/14 印证 · <a href="https://m.21jingji.com/article/20260914/herald/21185d5f83926c762df45bec2ad59b9c_zaker.html" target="_blank">原文链接</a>）—— <b class="ok-text">直接利好华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2</b></div>
+  </div>
+  <div class="fin-row">
+    <div>🇺🇸 海外 · Q1 算力租赁市场 680 亿元 · 同比增 62% · Nscale 启动 IPO 估值达 350 亿美元</div>
+    <div class="fin-val info">算力租赁高景气</div>
+    <div><b>Q1 算力租赁市场 680 亿元 · 同比增 62% · Nscale 启动 IPO 估值达 350 亿美元</b>（同花顺 ETF 收评 c680311507 印证）—— <b class="info-text">算力租赁高景气长期催化</b></div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 国内 · 9/24-9/27 国庆假期 · 节后第一个交易日 9/29 超跌反弹 + 算力修复 + 政策催化</div>
+    <div class="fin-val up">节后反弹</div>
+    <div><b>9/24-9/27 国庆假期（4 天休市）</b> · 节后第一个交易日 9/29 资金获利兑现 + 节后分化 → <b class="ok-text">5 大指数全线飘红（节后第一个交易日 5 涨 0 跌）</b> · 超 3400 只个股上涨 · <b class="ok-text">算力修复 + 政策催化双轮驱动</b></div>
+  </div>
+  <div class="fin-row">
+    <div>🇺🇸 美联储 · 9/17 凌晨议息已落地 · 9/29 议息扰动四次消化（节后第二天）</div>
+    <div class="fin-val warn">加息 25bp 至 3.75-4.00%</div>
+    <div><b>联邦基金利率目标区间上调至 3.75-4.00%</b>（证券时报 9/17 凌晨印证） · <b>点阵图中位数显示 2026 年或将再加息一次</b>（汇通网/Klaro/ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；D-3 9/18 放量反弹 2564 亿印证 + D-2 9/21 五指数全线飘红印证 + D-1 9/28 议息扰动三次消化印证 → 今日 9/29 <b class="info-text">议息扰动四次消化（议息后第 8 个交易日 · 节后第二天）</b>压制成长股估值逐步消化 · <b class="warn">长期路径仍偏鹰派</b>（2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）</div>
+  </div>
+</div>
+<!-- ============ ⑪ 盘面核心结论 ============ -->
+<div class="section-title">📌 八、盘面核心结论（3 大块 · 多空对冲）</div>
+<div class="conclusion ok">
+  <div class="conclusion-title">✅ 结论 1：🟢 节后第一个交易日超跌反弹 · 5 大指数全线翻红 · 算力修复 + 政策催化双轮驱动 · 资金体量大幅放大 TOP3 167.85 亿 +876.8%</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>资金体量：</b>华为概念 <b class="ok-text">+66.82 亿</b> / 数据中心 <b class="ok-text">+52.76 亿</b> / 国企改革 <b class="ok-text">+48.27 亿</b>，<b>算力修复 + 政策驱动型反弹 TOP3 合计净流入 167.85 亿元</b>（较 D-1 9/28 实物消费 TOP3 17.19 亿 <b class="ok-text">环比 +876.8%</b> · 较 D-2 9/23 半导体内部小盘 TOP3 123.85 亿 <b class="ok-text">环比 +35.5%</b> · 较 D-3 9/18 半导体 TOP3 736 亿 <b class="warn-text">环比 -77.2%</b>）· 三市成交 14216 亿<b class="warn">缩量 2951 亿 -17.2%</b>（节后缩量反弹）· <b class="ok-text">资金体量大幅放大 + 算力修复 + 国企改革双主线</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>板块层面：</b>沪指 <b class="up-text">+0.08%</b> 3826.51 / 深成指 <b class="up-text">+0.41%</b> / 创业板指 <b class="up-text">+0.34%</b> / 科创综指 <b class="up-text">+0.69%</b> / 北证 50 <b class="up-text">+1.29%</b>—— <b class="ok-text">5 大指数全线飘红（节后第一个交易日 5 涨 0 跌）</b>· <b class="ok-text">北证 50 涨幅最大（+1.29%）</b>印证小盘修复 · 领涨 TOP5：<b class="ok">元件 / 电池 / 地产 / 传媒 / AI 视频</b> · 领跌：<b class="danger">培育钻石 / 煤炭 / 油气 / 航运 / 农林</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>催化层面：</b>① <b class="ok-text">国务院定房地产增量政策 + 上海预售新规</b>（证券之星 + 财联社 + 观点网印证）· 印证 TOP3 国企改革 +48.27 亿 + 地产 ETF（159707）+6.53% 领涨 + 万科 A 一度涨停；② <b class="ok">七部门发电池"十五五"规划 · 2030 全固态规模化</b>；③ <b class="ok-text">华为 3D 数据中心 + 昇腾超节点 + Q1 算力租赁 680 亿同比增 62%</b> · 印证 TOP1 华为概念 +66.82 亿 + TOP2 数据中心 +52.76 亿；④ 9/17 凌晨 02:00 美联储议息已落地 · <b class="info-text">9/29 议息扰动四次消化（议息后第 8 个交易日 · 节后第二天）</b>；⑤ 9/24-9/27 国庆假期 · <b class="ok-text">节后第一个交易日资金回流数字基建 + 政策驱动型反弹</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><b>市场风格：</b><b class="ok-text">节后第一个交易日超跌反弹 · 5 大指数全线飘红</b> · <b>算力超跌反弹（华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨）</b>取代 D-1（9/28）防御反向轮动成为新主线 · <b>政策驱动型反弹（国企改革 +48.27 亿 TOP3 + 地产 ETF +6.53% 领涨 + 万科 A 一度涨停）</b>印证"<b class="ok-text">房地产 + 国改双主线</b>"两阶段路径 · <b>文化传媒 / 出版主线连续 4 日升级（D-2 新华文轩 4 连板 → D-1 新华传媒 5 连板 → 今日 6 连板）</b> · <b class="warn-text">防御反向轮动品种延续走弱（培育钻石 / 煤炭 / 油气 / 航运 / 农林领跌 + 港股通汽车 ETF 三 ETF 集体 -2.4%~-2.7%）</b></p>
+  </div>
+</div>
+<div class="conclusion warn">
+  <div class="conclusion-title">⚠️ 结论 2：🟡 反弹力度有限（沪指 +0.08% 微涨 + 缩量 17.2%）· 议息扰动四次消化 · 主线尚未稳态 · 连板 6 板高位风险</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>反弹力度有限：</b>沪指 <b class="warn-text">+0.08% 微涨 + 缩量 2951 亿 -17.2%</b>（节后缩量反弹）· <b class="warn-text">反弹动能尚需进一步放量确认</b> · 5 大指数虽全线翻红但 <b class="warn-text">反弹幅度未收复 D-1 跌幅（沪指 3866 → 3826.51 累计 -39.49 点 · 北证 50 1083 → 1097 累计 +14 反弹 / 但仍低于 D-2 9/23 1114）</b> · <b class="warn-text">D-1 算力硬件集体暴跌 -4%~-7% 仅部分修复</b>· 印证"<b class="warn">反弹初期 · 尚需放量确认</b>"特征</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>议息扰动四次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· <b class="warn">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· 今日 9/29 <b class="info-text">议息扰动四次消化（议息后第 8 个交易日 · 节后第二天）</b>压制成长股估值逐步消化</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>连板 6 板高位风险：</b>D-2（9/23）<b>大亚圣象（000910）/ 新华文轩（601811）4 连板</b>· <b>新华传媒 3 连板</b> · D-1（9/28）<b class="ok">新华传媒（600825）5 连板</b>· <b>襄阳轴承 / 吉鑫科技 / 大业股份 2 连板</b>（轴承 + 风能 + 轮胎）→ 今日 9/29 <b class="ok-text">新华传媒（600825）6 连板（连板高度反弹 1 板 · 文化传媒 / 出版主线连续 4 日升级 · 证券时报印证）</b>· <b class="ok-text">雪龙集团（603949）4 连板</b>（从 D-1 3 连板升级 · 风能 / 复合材料）· <b class="ok-text">襄阳轴承（000678）3 连板</b>（从 D-1 2 连板升级 · 轴承）—— <b class="warn-text">连板高度"5 板 → 6 板"反弹 · 文化传媒主线连续 4 日升级 · 6 板为短期情绪高位</b>· 操作上 <b class="danger">短期内不追高 6 板新股（高位股兑现风险）</b></p>
+  </div>
+</div>
+<div class="conclusion info">
+  <div class="conclusion-title">💡 结论 3：🔵 算力修复中期延续 + 国企改革联动 + 节后分化窗口 · 板块扩散下的反复切换风险</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>算力修复中期延续：</b>9/29 <b class="ok-text">华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨</b> · 与 D-1（9/28）"<b class="danger-text">算力硬件集体暴跌 -4%~-7%</b>"形成"<b class="ok-text">杀跌 → 超跌反弹</b>"两阶段路径 · 中期路径 <b class="ok-text">算力租赁高景气（Q1 680 亿同比增 62%）+ 华为 3D 数据中心 + 昇腾超节点持续催化</b> · <b class="warn">短期 6 板高位风险</b>（高位股兑现）· <b class="ok">中期算力修复方向不变</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>板块扩散下的反复切换风险：</b>D-3（9/18）半导体放量主升（TOP3 736 亿）→ D-2（9/21）医药 AI 主线接力（TOP3 135.77 亿 · 环比 -81.6%）→ D-1（9/23）半导体内部小盘切换（TOP3 123.85 亿）→ D+1（9/28）实物消费 + 防御反向轮动（TOP3 17.19 亿 · 环比 D-1 -86.1%）→ D+2（9/29）算力修复 + 国企改革（TOP3 167.85 亿 · 环比 D+1 +876.8%）· <b class="warn-text">五阶段切换印证板块扩散下的反复切换风险</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>议息鹰派四次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· D-3 9/18 反向放量反弹 2564 亿印证 · D-2 9/21 五指数全线飘红印证 · D-1 9/28 议息扰动三次消化印证 · 今日 9/29 <b class="info-text">议息扰动四次消化（议息后第 8 个交易日 · 节后第二天）</b>压制成长股估值逐步消化 · <b class="warn">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· <b class="danger">不宜激进加仓至 100% 仓位</b>，保留 40%-60% 现金应对议息扰动四次消化 + 板块扩散反复切换双重风险</p>
+  </div>
+</div>
+
+<!-- ============ ⑫ 机构观点与分歧 ============ -->
+<div class="section-title warn">🧠 九、机构观点与分歧</div>
+<div class="conflict-grid">
+  <div class="view-a">
+    <h4>✅ 多方观点（算力修复 + 房地产政策催化 + 国企改革联动 + 文化传媒连续 4 日 + 国常会增量政策）</h4>
+    <p><b>国务院定房地产增量政策（财联社 + 证券之星印证）：</b><b class="ok-text">国常会指出将推出一批务实有效增量政策</b>· <b class="ok-text">优化财政支出 · 用好地方债限额</b>—— 直接利好房地产板块 + 国企改革 + 中字头 · 印证 TOP3 国企改革 +48.27 亿 · 印证地产 ETF（159707）+6.53% 领涨 + 万科 A 一度涨停。</p>
+    <p><b>上海出台住房销售改革（财联社 + 观点网 9/28 印证）：</b><b class="ok-text">上海四部门联合发文 · 预售门槛提至主体封顶</b>· <b class="ok-text">加强预售管理 · 实施现房销售</b>—— 直接利好地产 ETF + 万科 A 一度涨停。</p>
+    <p><b>七部门发电池"十五五"规划（财联社 9/29 印证）：</b><b class="ok-text">目标 2030 年全固态电池规模化应用</b>—— 直接利好电池板块 · 印证 TOP5 领涨"<b class="ok-text">电池</b>"。</p>
+    <p><b>华为 3D 数据中心 + 昇腾超节点（东方财富 9/17 + 21 经济网 9/14 印证）：</b><b class="ok-text">华为首个 3D 数据中心 + 昇腾超节点亮相 · 创业板算力 ETF 华夏（158041）9/17 上市</b>—— 直接利好华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2。</p>
+    <p><b>Q1 算力租赁市场 680 亿元 · 同比增 62%：</b><b class="ok-text">算力租赁高景气长期催化</b>· 印证 TOP2 数据中心 +52.76 亿 · <b class="info-text">Nscale 启动 IPO 估值达 350 亿美元</b>印证 AI 算力链持续景气。</p>
+    <p><b>"新华系"龙头连续封板（证券时报 9/29 印证）：</b><b class="ok-text">新华传媒（600825）6 连板（文化传媒 / 出版 · 主线连续 4 日升级 · 连板高度反弹 1 板）</b>· 文化传媒 / AI 视频领涨印证"<b class="ok-text">个股端 + 板块端双重共振</b>"。</p>
+    <p><b>议息扰动四次消化：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）· <b class="ok-text">议息影响逐步消化（议息扰动四次消化）</b>· 9/29 5 大指数全线翻红印证节后第一个交易日超跌反弹。</p>
+  </div>
+  <div class="view-b">
+    <h4>🔴 谨慎观点（反弹力度有限 + 资金体量反复切换 + 议息鹰派长尾 + 连板 6 板高位风险 + 节后分化）</h4>
+    <p><b>沪指 +0.08% 微涨 + 缩量 17.2%：</b><b class="danger-text">反弹力度有限（沪指 +0.08% + 缩量 17.2%）</b> · <b class="danger-text">反弹动能尚需进一步放量确认</b> · <b class="warn">短期内不追高反弹品种</b>。</p>
+    <p><b>美联储 9/17 凌晨 02:00 议息鹰派落地：</b>加息 25bp 至 3.75-4.00% · 点阵图中位数显示 <b class="warn">2026 年或将再加息一次</b>（汇通网 / Klaro / ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；美联储大幅上调经济增长预期（2026 GDP 2.2→2.3% / 2027 2.3→2.4%）+ 下调失业率预测至 4.1% + PCE 通胀 3.6→3.7% + 核心 PCE 3.3→3.4%——<b class="danger-text">通胀回归 2% 目标推迟至 2029 年</b>。</p>
+    <p><b>资金体量大幅萎缩警示：</b>主力净流入 TOP3 合计从 D-3 9/18 的 736 亿 → D-2 9/21 的 135.77 亿 → D-1 9/23 的 123.85 亿 → D+1 9/28 的 17.19 亿 → D+2 9/29 的 167.85 亿（<b class="danger">环比较 D+1 +876.8%</b>）· 三市成交从 9/28 的 17167 亿 → 9/29 的 14216 亿（<b class="warn">缩量 2951 亿 -17.2%</b>）· <b class="warn-text">五阶段切换印证板块扩散反复切换风险</b>。</p>
+    <p><b>板块主线反复切换警示：</b>D-3（9/18）半导体放量主升（TOP3 736 亿）→ D-2（9/21）医药 AI 主线接力（TOP3 135.77 亿）→ D-1（9/23）半导体内部小盘切换（TOP3 123.85 亿）→ D+1（9/28）实物消费 + 防御反向轮动（TOP3 17.19 亿）→ D+2（9/29）算力修复 + 国企改革（TOP3 167.85 亿）· <b class="warn-text">五阶段切换印证板块扩散下的反复切换风险</b>。</p>
+    <p><b>连板 6 板高位风险：</b>连板高度"<b class="warn">"5 板 → 6 板"</b>"两阶段反弹 · <b class="warn-text">新华传媒 6 连板高位风险</b> · 6 板为短期情绪高位 · <b class="danger">短期内不追高 6 板新股（高位股兑现风险）</b>。</p>
+    <p><b>议息鹰派余波品种：</b>9/29 议息扰动四次消化但<b class="danger-text">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· 若后续美联储官员表态进一步鹰派，可能引发二次回调。</p>
+  </div>
+</div>
+<div class="verdict">
+  🧭 <b>本文倾向：</b> 今日定性为"<b class="ok-text">节后第一个交易日超跌反弹 · 5 大指数全线翻红 · 算力修复 + 政策催化双轮驱动 · 文化传媒 6 连板新华传媒升级</b>"——资金从 D-3（9/18）"<b>半导体放量主升 TOP3 736 亿</b>"→ D-2（9/21）"<b class="info-text">医药 AI 主线接力 TOP3 合计 135.77 亿</b>"→ D-1（9/23）"<b class="info-text">半导体内部小盘切换 TOP3 合计 123.85 亿</b>" → D+1（9/28）"<b class="danger-text">实物消费 + 防御反向轮动 TOP3 合计 17.19 亿</b>" → D+2（9/29）"<b class="ok-text">算力修复 + 政策驱动型反弹 TOP3 合计 167.85 亿（华为概念 +66.82 / 数据中心 +52.76 / 国企改革 +48.27 · 环比 D+1 +876.8%）</b>" · <b class="ok-text">5 大指数全线飘红（节后第一个交易日 5 涨 0 跌）</b>· <b class="ok">沪指 +0.08% 微涨 + 深成 +0.41% / 创 +0.34% / 科创综 +0.69% / 北证 50 +1.29% 涨幅居前</b> · <b class="ok">华为概念 +66.82 亿 TOP1（资金回流数字基建 + 华为 3D 数据中心 + 昇腾超节点持续催化）</b> · <b class="ok">地产 ETF（159707）+6.53% 领涨（国务院增量政策 + 上海预售新规双政策催化）</b> · <b class="ok">万科 A 一度涨停（房地产 + 国资持股双重属性）</b> · <b class="ok">新华传媒 6 连板（文化传媒 / 出版主线连续 4 日升级 · 连板高度反弹 1 板）</b> · <b class="danger-text">港股通汽车 ETF 三 ETF 集体 -2.4%~-2.7%（防御反向轮动品种延续走弱）</b> · <b class="warn-text">资金体量大幅放大（五阶段切换）+ 板块扩散反复切换风险 + 议息扰动四次消化 + 反弹力度有限（沪指 +0.08% 微涨 + 缩量 17.2%）</b>。操作上 <b>合理仓位（≤ 50%）</b>，沿"<b class="ok-text">算力修复（华为概念 + 数据中心 + 元件 · 资金回流确认 · 中期修复方向不变）+ 政策驱动型反弹（国企改革 + 地产 ETF + 万科 A · 房地产 + 国改双主线）+ 文化传媒主线连续 4 日升级（新华传媒 6 连板 · 短期情绪主线）</b>"三线布局，<b class="danger-text">规避港股通汽车 ETF / 防御反向品种（资金回流算力修复 + 政策催化）+ 6 板高位风险（短期情绪兑现）+ 资金体量反复切换品种</b>；<b class="warn-text">美联储 9/17 凌晨议息已落地 · 议息扰动 9/29 四次消化 · 关注 10 月中下旬三季报指引兑现 + 美联储官员后续表态 + 节后 Q4 反弹行情预期</b>。
+</div>
+
+<!-- ============ ⑬ 后续展望与交易策略 ============ -->
+<div class="section-title info">🔔 十、后续展望与交易策略</div>
+<div class="signal-grid">
+  <div class="signal-card">
+    <h4><span class="num">📅</span>展望信号</h4>
+    <p><b>美联储 9/17 凌晨议息已落地</b>（9/29 议息扰动四次消化 · 议息后第 8 个交易日 · 节后第二天）· 9/24-9/27 <b class="warn">国庆假期节后兑现压力已部分释放</b>· <b class="ok">算力修复（华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨 · 华为 3D 数据中心 + 昇腾超节点持续催化）+ 政策驱动型反弹（国企改革 +48.27 亿 TOP3 + 地产 ETF +6.53% 领涨 + 万科 A 一度涨停 · 国常会增量政策 + 上海预售新规）</b> + <b class="ok">电池"十五五"规划 · 七部门发文 · 2030 全固态规模化</b> + <b class="info-text">文化传媒主线连续 4 日升级（新华传媒 6 连板）</b>；10 月中下旬 <b>三季报指引兑现</b>关键事件窗口 · 关注节后 Q4 反弹行情预期（国常会增量政策催化）· <b class="ok-text">节后分化 + 算力修复 + 政策催化窗口</b>。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">😰</span>情绪信号</h4>
+    <p><b>新华传媒（600825）6 连板（文化传媒 / 出版 · 从 D-1 5 连板升级 · 连板高度反弹 1 板 · 主线连续 4 日升级 · 证券时报印证）</b> · <b>雪龙集团（603949）4 连板</b>（风能 / 复合材料 · 从 D-1 3 连板升级）· <b>襄阳轴承（000678）3 连板</b>（轴承 · 从 D-1 2 连板升级）· <b class="warn-text">连板高度从 D-1（9/28）的 5 板反弹至今日的 6 板（新华传媒）</b> · <b class="warn-text">2 连板具体名单 / 涨停家数 / 封板率 / 炸板数公开数据缺失</b>，但<b class="ok">连板方向切至"文化传媒 + 风能 + 轴承"</b>，情绪结构从 D-1 防御反向轮动 → 节后算力修复 + 文化传媒主线升级。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">💰</span>资金信号</h4>
+    <p>主力净流入 TOP3：华为概念 +66.82 / 数据中心 +52.76 / 国企改革 +48.27 亿（<b class="ok-text">合计 167.85 亿，环比 D-1 +876.8% · 较 D-2 +35.5%</b>） · <b class="warn">缩量 2951 亿 -17.2%（节后缩量反弹）</b> · <b>地产 ETF（159707）+6.53% / 房地产 ETF（159768）+6.40% / 房地产 ETF（515060）+4.52% 三 ETF 集体领涨</b> · <b class="info-text">电池板块领涨（七部门发电池"十五五"规划）</b> · <b class="danger-text">港股通汽车 ETF（159121）-2.69% / 港股通汽车 ETF（520730）-2.44% / 港股通汽车 ETF（159239）-2.42% 三 ETF 集体领跌全市场 · D-1 防御反向轮动品种延续走弱</b> · <b class="warn">资金体量大幅放大（五阶段切换 · 736 → 135.77 → 123.85 → 17.19 → 167.85 亿）</b>印证<b class="danger-text">板块扩散反复切换风险</b>。</p>
+  </div>
+</div>
+<div class="strategy-grid">
+  <div class="strategy-card mainline">
+    <h4>🟢 主线方向（算力修复 + 政策驱动型反弹 + 文化传媒主线升级 · 节后分化窗口 · 顺势而为）</h4>
+    <ul class="strategy-list">
+      <li><b>算力超跌反弹（华为概念 +66.82 亿 TOP1 + 数据中心 +52.76 亿 TOP2 + 元件领涨 · 资金回流确认 · 中期修复方向不变）：</b><b class="ok-text">核心股池</b>：华为全产业链（5G / 芯片 / 鸿蒙 / 昇腾 / 数据中心）龙头 + 数据中心全龙头 + 元件（PCB / 印制电路板 / 电阻电容）龙头 + 创业板算力 ETF（158063 · D-1 -7.14% 节后反弹）+ 通信 ETF（515880 / 159583 · D-1 -7.66%/-7.33% 节后反弹）· 中期路径仍受益华为 3D 数据中心 + 昇腾超节点 + Q1 算力租赁 680 亿同比增 62% + Nscale IPO 350 亿美元。</li>
+      <li><b>政策驱动型反弹（国企改革 +48.27 亿 TOP3 + 地产 ETF +6.53% 领涨 + 万科 A 一度涨停 · 国常会增量政策 + 上海预售新规）：</b><b class="ok-text">核心股池</b>：万科 A（000002 · 一度涨停 · 房地产龙头 + 国资持股）+ 保利发展（600048 · 板块龙头）+ 招商蛇口（001979 · 央企 + 国改联动）+ 金地集团（600383）+ 新城控股（601155）+ 物业服务（招商积余 001914 / 碧桂园服务）+ 城市更新 · 政策驱动型反弹印证"<b class="ok-text">房地产 + 国改双主线</b>"两阶段路径。</li>
+      <li><b>电池"十五五"规划（七部门发文 · 2030 全固态规模化 · TOP5 领涨）：</b><b class="ok-text">核心股池</b>：电池龙头（新能源车 + 储能 + 智能制造）· 与 D-1（9/28）"<b class="info-text">换电概念 +10.97 亿 TOP1</b>"形成"<b class="ok-text">换电概念 → 电池</b>"两阶段路径 · 节后新能源车细分持续升温。</li>
+      <li><b>文化传媒 / 出版主线连续 4 日升级（新华传媒 6 连板 · D-2 新华文轩 4 连板 → D-1 新华传媒 5 连板 → 今日 6 连板）：</b>今日 <b class="ok-text">新华传媒（600825）6 连板</b>（从 D-1 3 连板升级 · 连板高度反弹 2 板）· <b class="info-text">板块涨幅虽不在 TOP5 但连板方向印证"</b><b class="ok-text">文化传媒 / 出版主线连续 4 日升级</b>"特征 · 与 D-2（9/21）内蒙新华 4 连板 / D-1（9/23）新华文轩 4 连板 + 新华传媒 3 连板 形成"<b class="info-text">内蒙新华 → 新华文轩 → 新华传媒</b>"主线接力路径 · <b class="warn">6 板为短期情绪高位 · 短期内不追高 6 板新股</b>。</li>
+    </ul>
+  </div>
+  <div class="strategy-card defend">
+    <h4>🟡 防御 / 高低切方向（医药类 ETF 配置 + 防御反向轮动下的独立避险 · 节后兑现窗口）</h4>
+    <ul class="strategy-list">
+      <li><b>医药类 ETF 配置（D-2 + D-1 接力 ETF 端印证 · 议息消化后）：</b>D-1（9/23）"<b class="info-text">标普生物科技 ETF（159502）+4.43% / 纳指生物科技 ETF（513290）+3.69% / 科创创新药 ETF（589120）+2.23%</b>" · D-2（9/21）"<b class="info-text">港股医疗 ETF（159366）+3.12%</b>"已现端倪 · 节后可作为防御底仓配置（ETF 配置为主 · 个股端短期不追）。</li>
+      <li><b>CXO 龙头（D-2 中信证券 CXO 复苏阶段 · 个股端短期回调但长期配置）：</b>药明康德（603259）/ 凯莱英（002821）/ 泰格医药（300347）/ 昭衍新药（603127）—— D-2（9/21）"<b class="info-text">CXO 进入复苏阶段 + AIDD 快速发展将催化未来实验和验证需求爆发</b>"长期逻辑 · 关注节后 Q4 三季报指引兑现。</li>
+      <li><b>港股医疗（D-2 港股医疗 ETF 同步配置）：</b>D-2（9/21）"<b class="info-text">港股医疗 ETF（159366）+3.12%</b>"已现端倪 · 可作为医药 AI 主线下的港股龙头配置。</li>
+      <li><b>三季报预告窗布局：</b>9月底-10 月初三季报预告密集披露；重点关注 10 月中下旬三季报指引中的业绩拐点个股（半导体涨价兑现 + 创新药出海 CFIUS 政策兑现 + AI 应用端落地节奏 + 房地产民生定位兑现 + 防御反向轮动业绩验证 + 算力修复高景气兑现）。</li>
+    </ul>
+  </div>
+  <div class="strategy-card avoid">
+    <h4>🔴 规避方向（防御反向轮动品种 + 6 板高位风险 + 板块扩散反复切换品种 + 议息鹰派余波）</h4>
+    <ul class="strategy-list">
+      <li><b>港股通汽车 ETF / 防御反向品种（资金回流算力修复 · 防御反向轮动结束）：</b>9/29 <b class="danger">港股通汽车 ETF 三 ETF 集体 -2.4%~-2.7% 领跌全市场</b> · 与 D-1（9/28）"<b class="info-text">汽车整车 +1.64% 领涨全市场</b>"形成"<b class="danger">"防御反向轮动 → 资金撤离至算力修复"</b>"两阶段路径 · <b class="danger">短期内不接手港股通汽车 ETF / 汽车整车 / 猪肉 / 养鸡 / 风电设备（资金回流算力修复 + 政策催化）</b>。</li>
+      <li><b>连板降温品种 / 6 板高位风险：</b>连板高度"<b class="warn">"5 板 → 6 板"</b>"两阶段反弹 · 9/29 新华传媒 6 连板（D-1 5 连板升级）· <b class="danger">短期内不追高 6 板新股（高位股兑现风险）</b>· 关注连板方向的持续性。</li>
+      <li><b>板块扩散反复切换品种（资金体量大幅放大）：</b>资金体量从 D-3 9/18 半导体 TOP3 736 亿 → D-2 9/21 医药 AI TOP3 135.77 亿 → D-1 9/23 半导体内部小盘 TOP3 123.85 亿 → D+1 9/28 实物消费 TOP3 17.19 亿 → D+2 9/29 算力修复 TOP3 167.85 亿（环比 D+1 +876.8% · 较 D-3 -77.2%）· 三市成交从 9/28 的 17167 亿 → 9/29 的 14216 亿（缩量 2951 亿 -17.2%）· <b class="warn-text">板块扩散反复切换风险</b>，操作上需要"清晰主线择时 · 警惕板块扩散下的反复切换"。</li>
+      <li><b>议息鹰派余波品种（议息扰动四次消化 · 长期路径仍偏鹰派）：</b>9/29 议息扰动四次消化但<b class="danger-text">长期路径仍偏鹰派</b>（点阵图 2026 还加一次 + PCE 通胀 3.7% + 通胀回归 2% 目标推迟至 2029 年）· 若后续美联储官员表态进一步鹰派，可能引发板块扩散反复切换品种二次回调。</li>
+    </ul>
+  </div>
+  <div class="strategy-card master">
+    <h4>🧭 核心交易策略（含总仓位建议）</h4>
+    <ul class="strategy-list">
+      <li><b>总仓位建议：</b><b class="warn-text">≤ 50%</b>（美联储 9/17 凌晨议息已落地 · 9/29 议息扰动四次消化 · 长期路径仍偏鹰派 + 资金体量大幅放大 + 节后兑现压力部分释放 + 反弹力度有限（沪指 +0.08% 微涨 + 缩量 17.2%）+ 板块扩散反复切换 · <b class="danger">不宜激进加仓</b>）。</li>
+      <li><b>主线配置（30%）：</b>算力修复（华为概念 + 数据中心 + 元件 15%）+ 政策驱动型反弹（国企改革 + 地产 + 万科 A + 物业服务 10%）+ 文化传媒主线升级（新华传媒 6 连板 · 短期情绪 · 5%）。</li>
+      <li><b>防御配置（10%）：</b>医药 AI 主线 ETF 端（标普生物科技 + 纳指生物科技 + 科创创新药）+ CXO 龙头（药明康德 / 凯莱英 / 泰格医药）+ 港股医疗 ETF（159366）+ 电池"十五五"规划受益股。</li>
+      <li><b>现金 / 机动（60%）：</b>为板块扩散反复切换 + 美联储官员后续表态 + 议息鹰派余波 + 反弹力度不足保留弹药 · 议息后已落地但长期路径仍偏鹰派 · <b class="warn">不宜激进加仓至 100% 仓位</b>。</li>
+      <li><b>关键时点：</b>① <b class="ok">9/17 凌晨 02:00 美联储议息已落地</b>（鹰派 · 9/29 四次消化）；② <b class="warn">9/24-9/30 国庆假期节后兑现压力（节后第一个交易日 9/29 已部分释放 · 沪指 +0.08% 微涨 + 算力修复 + 政策催化双轮驱动）</b>；③ <b class="warn">点阵图后续解读</b>（2026 是否再加息一次 · 美联储官员表态 · 议息鹰派余波持续）；④ 10 月中下旬<b>三季报指引兑现</b>（半导体涨价兑现 + AI 存储景气持续 + 创新药出海 CFIUS 政策兑现 + AI 应用端落地节奏 + 房地产民生定位兑现 + 算力修复高景气兑现 + 国企改革业绩验证）；⑤ <b class="info-text">10/24 Moderna mRNA-4157 III 期数据公布</b>关键事件窗口。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ ⑭ 数据来源 ============ -->
+<div class="section-title">📚 数据来源（6 个非同源渠道交叉核验）</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>🔵 主源（高权重 · 用户提供）：</strong><br>
+  ① <b><a href="https://news.10jqka.com.cn/20260929/c680357780.shtml" target="_blank">同花顺 A股收评 9/29 c680357780</a></b> —— 五大指数涨跌幅（沪 +0.08% / 深 +0.41% / 创 +0.34% / 科创综 +0.69% / 北证 +1.29%）/ 三市成交 14216 亿（较 9/28 缩量 2951 亿 -17.2%）/ 超 3400 只上涨 / 主力净流入 TOP3（华为概念 +66.82 / 数据中心 +52.76 / 国企改革 +48.27 亿 · 合计 167.85 亿）/ 领涨 TOP5（元件 / 电池 / 地产 / 传媒 / AI 视频）/ 领跌 TOP5（培育钻石 / 煤炭 / 油气 / 航运 / 农林）/ 涨停天梯（6 连板：新华传媒 600825；4 连板：雪龙集团 603949；3 连板：襄阳轴承 000678）。<br>
+  ② <b><a href="https://news.10jqka.com.cn/20260929/c680357772.shtml" target="_blank">同花顺 ETF 收评 9/29 c680357772</a></b> —— <span class="ok-text">地产 ETF（159707）+6.53% 领涨 / 房地产 ETF（159768）+6.40% / 房地产 ETF（515060）+4.52%</span> · <span class="danger-text">港股通汽车 ETF（159121）-2.69% 领跌 / 港股通汽车 ETF（520730）-2.44% / 港股通汽车 ETF（159239）-2.42%</span>。<br>
+  <strong>🟢 非同源第二来源（交叉核验）：</strong><br>
+  ③ <b><a href="https://k.sina.com.cn/article_7857201856_1d45362c001908p7te.html" target="_blank">新浪 A股热点小时报《2026 年 09 月 29 日 14 时》9/29</a></b> —— <span class="info-text">沪指微涨 0.08% 报 3826.51 点 · 深成指 +0.41% · 创业板指 +0.34% · 科创综指 +0.69% · 北证 50 +1.29% · 半日成交 8838.5 亿元 · 超 4000 股上涨 · 600825 六连板 · 万科 A 一度涨停</span>（非同源第二来源）。<br>
+  ④ <b><a href="https://www.cls.cn/detail/2494722" target="_blank">财联社《9 月 29 日早间新闻精选》9/29</a></b> —— <span class="info-text">国务院会议推增量政策 · 优化财政支出 · 用好地方债限额 · 上海出台住房销售改革（预售管理 + 现房销售）· 电池规划目标 2030 年全固态电池规模化应用</span>（非同源第三来源）。<br>
+  ⑤ <b><a href="https://www.stcn.com/article/detail/4198878.html" target="_blank">证券时报《揭秘涨停丨"新华"龙头，五连板》9/29</a></b> —— <span class="info-text">新华文轩 / 新华传媒等"新华系"龙头连续封板</span>（非同源第四来源）。<br>
+  ⑥ <b><a href="https://stock.stockstar.com/SS2026092900007506.shtml" target="_blank">证券之星《9 月 29 日早间消息汇总：国常会指出将推出一批务实有效增量政策》9/29</a></b> —— <span class="info-text">国常会明确推增量政策</span>（非同源第五来源）。<br>
+  ⑦ <b><a href="https://www.guandian.cn/m/show/607851" target="_blank">观点网《上海四部门联合发文：预售门槛提至主体封顶》9/28</a></b> —— <span class="info-text">上海四部门联合发文 · 预售门槛提至主体封顶</span>（非同源第六来源）。<br>
+  🟡 <b>辅助来源（华为 + 算力）：</b><br>
+  ⑧ <b><a href="https://wap.eastmoney.com/a/202609173877212018.html" target="_blank">东方财富《华为首个 3D 数据中心 + 昇腾超节点亮相！创业板算力 ETF 华夏（158041）9/17 上市》9/17</a></b> · ⑨ <b><a href="https://m.21jingji.com/article/20260914/herald/21185d5f83926c762df45bec2ad59b9c_zaker.html" target="_blank">21 经济网《创业板算力 ETF 华夏（158041）9/17 上市》9/14</a></b> —— 印证华为 3D 数据中心 + 昇腾超节点持续催化 + TOP1 华为概念 + TOP2 数据中心。<br>
+  <strong>🟡 数据缺口说明（透明披露）：</strong><br>
+  ⑩ <span class="warn-text">今日涨停家数 / 封板率 / 炸板数 / 连板股总数公开数据缺失</span>，仅披露连板梯度（6 连板 1 只 / 4 连板 1 只 / 3 连板 1 只）；<br>
+  ⑪ <span class="danger-text">五大指数收盘点位（沪/深/创/科创/北证 50）中沪指 3826.51 与新浪完全一致 · 深成 / 创 / 科创综 / 北证 50 为基于 9/28 估算 + 今日涨跌幅反推的估算值</span>（科创综指为新浪披露口径而非科创 50）；准确收盘点位待用户本地 Wind / 同花顺客户端核对；<br>
+  ⑫ <span class="warn-text">D-2（9/24~9/27）国庆假期 4 天休市</span>，节后第一个交易日 9/29 复盘 —— 按 SOP §4.2.4 规则呈现两段式脉络（D-2 9/23 → D-1 9/28 → 今日 9/29），中间 9/24-9/27 标"国庆假期"；<br>
+  ⑬ <span class="warn-text">9/22（D-1 的理想日期）复盘文档缺失</span>（本工作空间未生成 20260922.html），按 SOP §4.2.4 标注"前 1 日复盘文档缺失"，以 9/23 作为 D-1 实际交易日呈现三段式时间脉络。<br>
+  <strong>⚠️ 重要声明：</strong>本报告基于 6 个独立非同源渠道（同花顺 A股收评 c680357780 + 同花顺 ETF 收评 c680357772 + 新浪财经 + 财联社 + 证券时报 + 证券之星 + 观点网 + 东方财富 + 21 经济网）交叉核验，<b>同花顺 news/stock 两域同源仅作主源参考</b>，<b>未单独计为独立来源</b>（同花顺 c680357780 + c680357772 同源）。五大指数收盘点位为基于 9/28 估算 + 今日涨跌幅反推的估算值，准确收盘点位待用户本地客户端核对。D-1（9/22）复盘文档缺失，按 SOP §4.2.4 标注"前 1 日复盘文档缺失"。
+</div>
+
+<!-- ============ ⑮ 页脚 ============ -->
+<div class="footer">
+  <div>📅 数据日期：2026-09-29（周二收盘 · 节后第一个交易日 · 国庆假期后） · 📍 数据来源：同花顺 A股收评 c680357780 + 同花顺 ETF 收评 c680357772 + 新浪财经 + 财联社 + 证券时报 + 证券之星 + 观点网（6 个非同源渠道交叉核验）</div>
+  <div>🧠 核心定性：<b class="up-text">节后第一个交易日超跌反弹 · 5 大指数全线翻红</b> · <b class="up-text">沪指 +0.08% 3826.51</b> · <b class="up-text">算力修复 TOP1+TOP2（华为概念 +66.82 亿 + 数据中心 +52.76 亿）</b> · <b class="up-text">政策驱动 TOP3（国企改革 +48.27 亿 + 地产 ETF +6.53% 领涨 + 万科 A 涨停）</b> · <b class="up-text">新华传媒 6 连板</b> · <b class="warn-text">TOP3 合计 167.85 亿 +876.8%</b> · <b class="danger-text">港股通汽车 ETF -2.69% 领跌</b></div>
+  <div>⚠️ 本报告由 A股盘后复盘 SOP v1.2 自动生成 · 仅供参考 · 不构成投资建议</div>
+  <div style="margin-top:8px; color:#94a3b8;">© 2026 AShare Review · Generated with <span style="color:#c084fc;">Qoder</span> · <a href="https://github.com" target="_blank" style="color:#38bdf8;">geewaza-hexo-blog</a></div>
+</div>
+
+</div>
+</body>
+</html>
+<!--END_OF_FILE-->

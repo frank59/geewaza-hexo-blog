@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-31 招商银行 (600036) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(168,85,247,0.16), rgba(16,185,129,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(16,185,129,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #38bdf8, #c084fc, #34d399);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-left: 5px solid #38bdf8;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(168,85,247,0.4); border-left-color:#c084fc;
+    background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#c084fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(56,189,248,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(56,189,248,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#7dd3fc; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#0ea5e9,#0284c7);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.10));
+    border:1px solid rgba(56,189,248,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #38bdf8; }
+  .conclusion-item .num { display:inline-block; background:#38bdf8; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🏦 招商银行 (600036) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">中国"零售之王" · A+H 上市 · AUM 18.44 万亿 · PB 0.88x 估值底 · 5.22% 股息率 · 房贷新政与息差拐点共振</div>
+    <div class="badges">
+      <span class="badge badge-success">🎯 综合评级：<b>谨慎买入</b>（PB 0.88x + 股息率 5.22% + 房贷新政共振）</span>
+      <span class="badge badge-source">📅 数据日期：2026-08-31（周一收盘）</span>
+      <span class="badge badge-source">📊 股价 40.12 元 · 总市值 10118 亿 · PE-TTM 6.67x · PB 0.88x</span>
+      <span class="badge badge-purple">🧠 格雷厄姆 + 巴菲特护城河 + 博格指数等 11 方法论 × 12 模块</span>
+      <span class="badge badge-success">✅ 8/28 房贷新政（30年→40年）+ 净息差 Q2 首次回升 1BP</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-08-31）：</strong><br>
+    ✅ 股价 <span class="info">40.12 元</span>（8/31 涨 +1.96%），总市值 <span class="info">10118.20 亿</span>，流通市值 <span class="info">8276.33 亿</span>，总股本 252.20 亿股（A 206.29 + H 45.91） · 来源：证券时报 / 东方财富 / 同花顺 / 上交所（8/31 15:16 多源核对）<br>
+    ✅ 52 周区间：<span class="warn">约 34.28 - 46.00 元</span>（近 1 年高点回撤 -12%）；8 月区间 <span class="warn">38.03 - 40.42 元</span>（8/18 低 38.03，8/3 高 40.42），7/31-8/31 区间跌 -1.06% / 振幅 5.89%<br>
+    ✅ 估值 <span class="ok">PE-TTM 6.67x / 动态 PE 6.62x</span>、<span class="ok">PB 0.88x</span>、<span class="ok">股息率 5.21%</span>（2026 实收股息 2.02 元/股）· 同业（兴业 PB 0.55x / 中信 PB 0.58x / 平安 PB 0.50x / 浦发 PB 0.48x），招行 PB 显著高于同业（护城河溢价）<br>
+    ✅ 2025 年报：营收 <span class="warn">3375.32 亿 (+0.01%)</span>、归母 <span class="warn">1501.81 亿 (+1.21%)</span>、扣非 1500.07 亿、ROE <span class="ok">13.44%</span>、净息差 1.88% (2025H1)、不良率 <span class="ok">0.94%</span>、拨备覆盖率 391.79%、AUM 17 万亿<br>
+    ✅ 2026H1 业绩：营收 <span class="ok">1781.81 亿 (+4.83%)</span>、归母 <span class="ok">764.45 亿 (+2.02%)</span>、净息差 <span class="warn">1.83% (Q2 1.82%)</span>、大财富管理收入 247.04 亿 <span class="ok">(+18.44%)</span>、AUM <span class="ok">18.44 万亿 (+7.96%)</span>、客户存款 10.16 万亿、ROAA 1.14%、ROAE 13.42%<br>
+    ✅ 资产质量：不良率 <span class="ok">0.94% (持平)</span>、拨备覆盖率 <span class="warn">385.10% (降 6.69pct)</span>、核心一级资本 14.07%；个人住房贷款不良率 <span class="ok">0.48% (-3BP)</span>、房地产业不良率 <span class="warn">4.27% (-37BP 但仍高)</span>、零售贷款不良率 <span class="warn">1.16% (+10BP)</span><br>
+    ✅ 机构目标价：综合 <span class="info">48.56 元</span>（上行 23.41%） · 中金 <span class="info">58.35 元 (+47.3%)</span>、高盛 54.87、华创 49.19、20 家平均 54.61；8 月 5 家机构 100% 买入/增持<br>
+    ✅ 卖方预测：2026E EPS 5.88 元（净利 1482.93 亿 / -1.26%）/ 2027E 6.06 元 / 2028E 6.35 元<br>
+    ⚠️ 数据局限：MA60/120/250 历史分位、部分同业 H1 完整数据；北向资金近 30 日分时口径未独立核验<br>
+    ⚠️ 关键警示：<span class="danger">信用减值损失 +18.49% 吞噬拨备前利润弹性</span>、<span class="warn">零售贷款不良率上升</span>、<span class="warn">消费贷不良率 1.73% (+21BP)</span>、<span class="warn">股东户数 +18.91% 散户化</span>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🏦</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：中国"零售之王" · AUM 18.44 万亿 · 房贷 30→40 年新政 · 净息差 Q2 拐点初现 —— 谨慎买入（6.3/10），分批限仓</h3>
+      <p>
+        招商银行在 <b style="color:#34d399">巴菲特护城河（8 分）、格雷厄姆深度价值（7 分）、达里奥全天候（7 分）</b>框架下得分极高（AUM 18.44 万亿 / 零售客户 2.31 亿户 / 财富管理收入 +18.44% / 净息差 1.83% 股份行第一 / PB 0.88x 估值底 / 股息率 5.22% / 信用减值审慎前置）；在 <b style="color:#fbbf24">林奇 PEG（7 分）、博格指数（6 分）、马克斯周期（6 分）、凯恩斯选美（6 分）、邓普顿逆向（5 分）</b>框架下中性偏多（PE 6.67x + 房贷新政 + 净息差 Q2 环比+1BP 拐点初现 + 财富管理高景气）；<b style="color:#f87171">费雪成长（3 分）、索罗斯反身性（4 分）</b>得分偏低（营收零增长、银行业整体成长性弱）。综合 <b style="color:#7dd3fc">6.3/10 分 = 谨慎买入</b>（较上期基本持平，反映"估值底 + 高股息 + 政策催化"与"净息差承压 + 零售资产质量恶化"的平衡）。<br><br>
+        <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">格雷厄姆深度价值 + 巴菲特护城河</b>作为决策主线（"低估值高股息的零售之王"），用 <b style="color:#fbbf24">博格指数 + 达里奥全天候</b>作为仓位框架（红利+宽基逻辑，单股仓位 ≤ 6%）；<b style="color:#fca5a5">净息差拐点 + 房贷新政 + 财富管理高速增长</b>是 2026H2 三重催化，需以 Q3 业绩（净息差是否企稳）、房贷规模（是否止跌）、零售贷款不良率（是否见顶）三验证为节奏锚。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-08-31 · 来源：证券时报 / 东方财富 / 同花顺 / 上交所 / 公司公告</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">招商银行</div>
+      <div class="change">代码 600036</div>
+      <div class="label">上交所主板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:17px;">股份制银行 II</div>
+      <div class="change">银行 / 金融</div>
+      <div class="label">申万二级</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:14px;">2002-04-09</div>
+      <div class="change">A+H (03968.HK)</div>
+      <div class="label">上市 ~24 年</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">总市值</div>
+      <div class="value">10118 亿</div>
+      <div class="change">流通 8276 亿</div>
+      <div class="label">证券时报 / 东财</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">8/31 涨</div>
+      <div class="name">当前股价</div>
+      <div class="value">40.12 元</div>
+      <div class="change">涨 +1.96%</div>
+      <div class="label">8 月区间 38.03-40.42</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">估值底</div>
+      <div class="name">PE-TTM</div>
+      <div class="value" style="font-size:18px;">6.67 x</div>
+      <div class="change">动态 PE 6.62</div>
+      <div class="label">银行业低位</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">破净</div>
+      <div class="name">PB (MRQ)</div>
+      <div class="value" style="font-size:18px;">0.88 x</div>
+      <div class="change">BVPS 45.40 元</div>
+      <div class="label">高于同业平均 0.55x</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">高息</div>
+      <div class="name">股息率</div>
+      <div class="value">5.21%</div>
+      <div class="change">2026 实收 2.02 元</div>
+      <div class="label">2026-01/07 派息</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">2026E</div>
+      <div class="name">2026E PE</div>
+      <div class="value" style="font-size:17px;">约 6.8 x</div>
+      <div class="change">37 家预测净利 1483 亿</div>
+      <div class="label">EPS 5.88 元</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">PEG 中性</div>
+      <div class="name">PEG (PE/3Y增速)</div>
+      <div class="value">约 2.5-3.0</div>
+      <div class="change">PE 6.7x / 增速 2-3%</div>
+      <div class="label">银行业 PEG 失真</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">较优</div>
+      <div class="name">近 3 年累计分红率</div>
+      <div class="value">~35%</div>
+      <div class="change">2025 分红 508 亿</div>
+      <div class="label">行业第一梯队</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">极低</div>
+      <div class="name">大股东质押率</div>
+      <div class="value" style="font-size:18px;">0.4%</div>
+      <div class="change">控股股东招商局集团</div>
+      <div class="label">无平仓风险</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">充足</div>
+      <div class="name">核心一级资本充足率</div>
+      <div class="value">14.07%</div>
+      <div class="change">资本充足率 18.33%</div>
+      <div class="label">监管要求 8.5%</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">A+H</div>
+      <div class="name">A/H 股价对比</div>
+      <div class="value" style="font-size:15px;">H 股较 A 折 7.65%</div>
+      <div class="change">A/H 比价 0.92</div>
+      <div class="label">A 估值更高</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">谨慎买入</div>
+    <div style="color:#7dd3fc; font-size:15px; font-weight:700; margin:8px 0;">
+      （零售之王 · 估值底 + 高股息 · 房贷新政 + 净息差拐点共振 · 分批限仓）
+    </div>
+    <div class="comment">
+      招商银行在 <b style="color:#34d399">巴菲特护城河（8 分）、格雷厄姆深度价值（7 分）、达里奥全天候（7 分）</b>框架下得分极高（PB 0.88x 估值底 + 股息率 5.21% + AUM 18.44 万亿 + 财富管理收入 +18.44% + 零售客户 2.31 亿户 + 拨备覆盖率 385.10%）；<b style="color:#fbbf24">林奇 PEG（7 分）、博格指数（6 分）、马克斯周期（6 分）、凯恩斯选美（6 分）、邓普顿逆向（5 分）、西蒙斯量化（5 分）</b>中性偏多；<b style="color:#f87171">索罗斯反身性（4 分）、费雪成长（3 分）</b>偏低（银行业低增速 + 估值已低位）。综合 <b style="color:#7dd3fc">6.3/10 分 = 谨慎买入</b>。<br><br>
+      <b style="color:#7dd3fc">核心定位：</b>中国"零售之王"，A+H 双平台稀缺标的；2026H1 AUM 突破 18.44 万亿、零售客户 2.31 亿户、金葵花以上 640.74 万户（+8.02%）；财富管理收入 247.04 亿（+18.44%，近 5 年最好）；非利息净收入占比 37.13%（行业领先）。<b style="color:#fca5a5">核心警示</b>：信用减值损失 291.77 亿（+18.49%）吞噬利润弹性、零售贷款不良率 1.16%（+10BP）、消费贷不良率 1.73%（+21BP）反映居民端风险暴露；2025 营收仅 +0.01% 反映息差与规模扩张承压。<br><br>
+      <b style="color:#fca5a5">操作总则：</b>按 ≤ 6% 仓位分 3-4 批入场，每批前以净息差拐点确认、房贷规模止跌、零售不良率见顶为前提；硬止损 35 元（-13%）；中长线持有（12-24 月），等待 Q3/Q4 业绩兑现 + 息差企稳 + 房贷新政传导三确认。
+    </div>
+  </div>
+
+  <div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+  <div class="safety-bar">
+    <div class="safety-title">📐 招商银行估值区间（银行 PE/PB 视角 · 数据日期 2026-08-31）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">&lt; 6x · 深度价值（机会区）</div>
+      <div class="safety-seg seg-current">6–8x · 合理区间（当前）</div>
+      <div class="safety-seg seg-over">&gt; 9x · 偏贵/透支</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>深度价值区</strong> · PE-TTM 6x 以下 · 历史极少出现</span>
+      <span><strong>当前</strong> · PE-TTM 6.67x（银行板块均值约 5.8x）</span>
+      <span><strong>透支区</strong> · 行业景气度全面回暖 × 9x+</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 股份制银行 9 家可比公司估值对比表（数据日期 2026-08-31）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>主营定位</th><th>2026H1 归母</th><th>同比</th><th>PB (MRQ)</th><th>PE-TTM</th><th>综合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:#7dd3fc">招商银行</b></td><td class="hl">600036.SH</td><td>零售之王 / AUM 18.44 万亿</td><td class="ok">764.45 亿</td><td class="ok">+2.02%</td><td class="ok">0.88x</td><td class="ok">6.67x</td><td class="ok">龙头溢价 · 估值合理偏低</td></tr>
+        <tr><td>兴业银行</td><td class="hl">601166.SH</td><td>同业之王 / 绿色金融</td><td class="warn">411.31 亿</td><td class="danger">-4.66%</td><td class="warn">0.55x</td><td class="ok">~5.5x</td><td class="warn">盈利承压 · PB 低</td></tr>
+        <tr><td>中信银行</td><td class="hl">601998.SH</td><td>对公 + 零售综合</td><td class="ok">376.02 亿</td><td class="ok">+3.08%</td><td class="warn">0.58x</td><td class="ok">~5.8x</td><td class="warn">估值偏低</td></tr>
+        <tr><td>浦发银行</td><td class="hl">600000.SH</td><td>长三角 + 综合</td><td class="ok">309.51 亿</td><td class="ok">+4.08%</td><td class="warn">0.48x</td><td class="ok">~6.0x</td><td class="warn">PB 最低</td></tr>
+        <tr><td>平安银行</td><td class="hl">000001.SZ</td><td>零售 + 综合金融</td><td class="ok">256.96 亿</td><td class="ok">+3.32%</td><td class="warn">0.50x</td><td class="ok">~5.0x</td><td class="warn">零售承压</td></tr>
+        <tr><td>民生银行</td><td class="hl">600016.SH</td><td>民营 + 综合</td><td class="warn">195.37 亿</td><td class="danger">负</td><td class="warn">0.36x</td><td class="ok">~5.5x</td><td class="danger">盈利下滑</td></tr>
+        <tr><td>光大银行</td><td class="hl">601818.SH</td><td>综合金融</td><td class="warn">187.11 亿</td><td class="danger">负</td><td class="warn">0.50x</td><td class="ok">~5.5x</td><td class="danger">盈利下滑</td></tr>
+        <tr><td>华夏银行</td><td class="hl">600015.SH</td><td>综合</td><td class="warn">93.65 亿</td><td class="danger">负</td><td class="warn">0.42x</td><td class="ok">~4.5x</td><td class="danger">PB 低</td></tr>
+        <tr><td>浙商银行</td><td class="hl">601916.SH</td><td>民营 + 综合</td><td class="ok">78.24 亿</td><td class="ok">+2.05%</td><td class="warn">0.50x</td><td class="ok">~5.5x</td><td class="warn">规模较小</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#34d399">结论：</b>招商银行 PE-TTM 6.67x、PB 0.88x 在 9 家股份行中<b style="color:#34d399">位居估值最高</b>（第二档：兴业 0.55x、中信 0.58x、浦发 0.48x、平安 0.50x），但同时是<b style="color:#34d399">唯一同时实现"零售之王 + AUM 18.44 万亿 + 财富管理 +18.44% + 营收净利双增 + 净息差股份行第一 + 拨备覆盖率行业最高"</b>的标的，<b style="color:#34d399">估值溢价反映护城河与资产质量优势</b>。考虑 (1) 净息差 Q2 环比+1BP 拐点初现、(2) 8/28 房贷新政 30→40 年延期、(3) 大财富管理收入 +18.44% 近 5 年最好、(4) 8/28 五大行 H1 业绩双增共振，<b style="color:#34d399">格雷厄姆视角下"PB 0.88x + 股息率 5.21% = 估值底"</b>。邓普顿逆向视角下部分适用（银行板块 PE-TTM 普遍破净，反映市场对净息差与资产质量的悲观预期已较充分计价）。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>安全边际测算：以当前价买入，未来 12 个月下行空间</h3>
+      <p>
+        <b style="color:#fbbf24">基准情景（2026E 净利 1500 亿 / PE 6.5-7.0x）：</b>合理市值 9750-10500 亿 → <b style="color:#fbbf24">合理价 38.67-41.63 元（-4% ~ +4%）</b><br>
+        <b style="color:#fbbf24">乐观情景（2026E 1565 亿 / PE 7.5-8.5x）：</b>合理市值 11738-13303 亿 → <b style="color:#34d399">合理价 46.54-52.74 元（+16% ~ +31%）</b>（接近中金目标价 58.35 / 高盛 54.87 / 机构平均 54.61）<br>
+        <b style="color:#fbbf24">保守情景（2026E 1430 亿 / PE 6.0-6.5x）：</b>合理市值 8580-9295 亿 → <b style="color:#f87171">合理价 34.02-36.85 元（-15% ~ -8%）</b><br>
+        <b style="color:#fca5a5">综合判断：</b>PE-TTM 6.67x 对应 2026E 净利区间 1430-1565 亿（37 家预测中位 1483 亿），下行至 1430 亿 PE 升至 7.07x（仍处历史低位），上行至 1565 亿 PE 降至 6.46x，<b style="color:#fbbf24">12 个月目标价波动区间 -15% ~ +31%</b>。邓普顿"最悲观点买入"对应 52 周低点附近（约 34-36 元区间），当前 40.12 元距此约 -10% ~ -14%。<b style="color:#c084fc">关键更新：</b>8/28 房贷新政（30→40 年）+ 8/28 五大行 H1 业绩双增 + 净息差 Q2 +1BP 拐点初现 + 中期分红 508 亿 = 提供下方强支撑；隐蔽资产：AUM 18.44 万亿管理费收入、A+H 双平台稀缺标的、385.10% 拨备覆盖率提供利润压缓冲、AI 算力投入规划（2027-2028）。
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:14px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:14px; color:#34d399; margin-bottom:24px;">
+    📊 <b>估值结论：合理偏低（PB 0.88x 破净 + 股息率 5.21% + 净息差拐点初现 + 房贷新政共振）—— 银行板块中"高质量标的"的估值底</b>
+  </div>
+
+  <div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+  <div class="dashboard">
+    <div class="index-card warn">
+      <div class="tag warn">PEG 失真</div>
+      <div class="name">PEG (PE/3Y 增速)</div>
+      <div class="value">约 2.5-3.0</div>
+      <div class="change">PE 6.7x / 增速 2-3%</div>
+      <div class="label">银行业 PEG 失真</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">低增</div>
+      <div class="name">营收 5Y CAGR</div>
+      <div class="value">约 3-5%</div>
+      <div class="change">2020-2025</div>
+      <div class="label">息差压制</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">稳定</div>
+      <div class="name">归母 5Y CAGR</div>
+      <div class="value">约 6-8%</div>
+      <div class="change">2020-2025</div>
+      <div class="label">拨备调节</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">加速</div>
+      <div class="name">2026H1 营收</div>
+      <div class="value">+4.83%</div>
+      <div class="change">营收 1781.81 亿</div>
+      <div class="label">连续 4 季双增</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">大财富管理收入</div>
+      <div class="value">+18.44%</div>
+      <div class="change">247.04 亿 (H1)</div>
+      <div class="label">近 5 年最好</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">催化剂</div>
+      <div class="name">未来 12-24 月</div>
+      <div class="value">多重</div>
+      <div class="change">息差拐点</div>
+      <div class="label">房贷新政 / AUM</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h3>成长性判断：低增速但高韧性 —— 银行业属性决定成长天花板，关键是"高质量增长"与"结构优化"</h3>
+      <p>
+        2025 营收 3375.32 亿（<b style="color:#fbbf24">+0.01%，近乎零增长</b>）、归母 1501.81 亿（+1.21%），结构持续优化但增速受净息差拖累；2026H1 营收 <b style="color:#34d399">1781.81 亿 (+4.83%)</b>、归母 <b style="color:#34d399">764.45 亿 (+2.02%)</b>，连续 4 个季度实现营收净利双增。<b style="color:#34d399">净利息收入 1120.22 亿 (+5.60%)</b>（生息资产规模扩张 + 净息差 Q2 拐点初现）；<b style="color:#34d399">大财富管理收入 247.04 亿 (+18.44%)</b>爆发（代理非货币公募基金 +82.73%、代理信托 +40.48%、代理基金 +61.40%、代理证券交易 +46.05%）。<b style="color:#fca5a5">核心警示</b>：2026H1 信用减值损失 291.77 亿（<b style="color:#f87171">+18.49%</b>）吞噬拨备前利润弹性，PPOP 同比 +5.4% 但归母仅 +2% 差额几乎全部被多计提的拨备"吃掉"；零售贷款规模收缩 -1.08%（个人住房 + 信用卡回落）。<br>
+        <b style="color:#34d399">增长动力来源：</b>(1)<b style="color:#34d399">AUM 18.44 万亿 (+7.96%)</b> 持续扩张，财富管理收入结构性高增；(2)<b style="color:#34d399">净息差 Q2 环比 +1BP 拐点初现</b>（2022 年以来首次回升），存款定期化边际企稳；(3)<b style="color:#34d399">房贷新政 30→40 年</b> 缓解月供压力、降低提前还款；(4)<b style="color:#34d399">非利息净收入占比 37.13%</b> 行业领先（行业均值 22.53%）；(5)<b style="color:#34d399">AI 算力投入规划（2027-2028）</b> 巩固"数智招行"壁垒。<br>
+        <b style="color:#fbbf24">⚠️ 数据局限：</b>银行业 PEG 因增速极低失真（PEG > 2 不代表贵）；2025 完整 PE/PB 五年分位数据未独立核验。<br>
+        <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1) Q3/Q4 业绩兑现（净息差是否企稳、信用减值是否常态化）；(2) 房贷新政传导至按揭规模（止跌 → 回升）；(3) 财富管理收入延续高增；(4) 2026 全年净利是否站上 1500 亿（37 家预测均值 1482.93 亿）；(5) 2027 中期分红计划（参照 2026 实收 2.02 元/股）。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+  <div class="table-card">
+    <div class="table-title">🛡️ 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>零售客户网络效应</b></td><td class="ok">强</td><td>零售客户 2.31 亿户（+3.13%）、金葵花以上 640.74 万户（+8.02%）、私人银行客户 21.6 万户（+8.36%）、招商银行 + 掌上生活 App MAU 1.29 亿户</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>AUM 规模 / 转换成本</b></td><td class="ok">强</td><td>零售 AUM 18.44 万亿（+7.96%）、单客 AUM ~8 万元；财富产品持仓客户 6671.69 万户（+4.05%）、TREE 资产配置服务体系覆盖 1257.71 万户</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>财富管理能力</b></td><td class="ok">强</td><td>大财富管理收入 247.04 亿（+18.44%，近 5 年最好）、代销基金 +61.40%、代销信托 +43.76%、代销保险规模突破 1 万亿</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>科技与品牌</b></td><td class="ok">强</td><td>"云+AI+中台"数智化底座、连续 8 年 TOP50 全球银行、AAA ESG 评级、连续 14 年《财富》500 强、《欧洲货币》"亚洲最佳消费者银行"</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>成本 / 负债优势</b></td><td class="warn">中等</td><td>存款定期化边际企稳（活期 +4.5% > 定期 +2.19%）、活期占比行业领先；但负债成本率下降难以抵消资产收益率下降</td><td class="warn">⭐⭐⭐</td></tr>
+        <tr><td><b>综合化 / 牌照优势</b></td><td class="warn">中等</td><td>拥有商行 + 金融租赁 + 基金 + 人寿保险 + 境外投行 + 消费金融 + 理财子公司 + 金融资产投资多牌照；但与工行、建行综合化广度仍有差距</td><td class="warn">⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">优秀</div>
+      <div class="name">ROE 常态</div>
+      <div class="value">13-14%</div>
+      <div class="change">2026H1 ROE 13.42%</div>
+      <div class="label">银行业前列</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">稳定</div>
+      <div class="name">ROAA</div>
+      <div class="value">约 1.14%</div>
+      <div class="change">2026H1</div>
+      <div class="label">股份行前列</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">稳健</div>
+      <div class="name">净息差</div>
+      <div class="value">1.83%</div>
+      <div class="change">Q2 1.82%（环比-1BP）</div>
+      <div class="label">股份行第一</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">行业第一</div>
+      <div class="name">行业地位</div>
+      <div class="value">"零售之王"</div>
+      <div class="change">AUM + 财富管理</div>
+      <div class="label">连续 8 年 TOP50</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">全球第 8</div>
+      <div class="name">一级资本排名</div>
+      <div class="value">全球第 8</div>
+      <div class="change">较 2024 上升 2 位</div>
+      <div class="label">英国《银行家》榜单</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">宽阔</div>
+      <div class="name">综合评级</div>
+      <div class="value" style="font-size:16px;">宽阔护城河</div>
+      <div class="change">复利型平台</div>
+      <div class="label">A 股核心资产</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">行业第一梯队</div>
+      <div class="name">拨备覆盖率</div>
+      <div class="value">385.10%</div>
+      <div class="change">行业均值 205%</div>
+      <div class="label">抗风险能力强</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>护城河结论：宽阔护城河 + 复利型平台 —— 零售客户 + AUM 规模 + 财富管理三重壁垒</h3>
+      <p>
+        招商银行在 <b style="color:#34d399">零售客户网络效应、AUM 规模/转换成本、财富管理能力、科技与品牌</b>四个维度具备最强护城河（零售客户 2.31 亿户、AUM 18.44 万亿、财富管理收入 +18.44%、全球银行第 8 位），在 <b style="color:#fbbf24">综合化/牌照、成本/负债</b>两个维度具备次强护城河。ROE 常态 13-14%、ROAA 1.14%、净息差 1.83% 股份行第一，<b style="color:#34d399">达到巴菲特"卓越"标准（ROE > 15% 或 ROIC > 15%）的临界</b>。<br>
+        公司属于"<b style="color:#c084fc">宽阔护城河 + 复利机器</b>"标的，是中国银行业最具代表性的 A 股核心资产之一。<br>
+        <b style="color:#fca5a5">护城河侵蚀风险：</b>(1) 平安银行、宁波银行等在财富管理领域追赶；(2) 蚂蚁集团、京东金融等互联网平台分流年轻客户；(3) DRG/DIP 与净息差持续收窄压制利润弹性；(4) 居民去杠杆 + 房地产调整对零售贷款资产质量的影响；(5) AI 大模型时代传统银行"渠道优势"是否被削弱。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div>
+      <div>2024 / 2025 / 2026H1</div>
+      <div>格雷厄姆 + 凯恩斯视角</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入（亿）</div>
+      <div class="fin-val warn">3374.88 / 3375.32 / <b style="color:#34d399">1781.81</b></div>
+      <div class="fin-comment">YoY <b style="color:#fbbf24">-1.47% / +0.01% / +4.83%</b>，2026H1 连续 4 季双增，净息差承压但规模扩张对冲</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（亿）</div>
+      <div class="fin-val warn">1483.91 / 1501.81 / <b style="color:#34d399">764.45</b></div>
+      <div class="fin-comment">YoY <b style="color:#fbbf24">+1.22% / +1.21% / +2.02%</b>，盈利稳健但增速受信用减值损失 +18.49% 压制</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">扣非归母净利（亿）</div>
+      <div class="fin-val mid">约 1483 / 1500.07 / 763.39</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/ +1.15% / +2.02%</b>（与归母增速基本一致，盈利质量稳定）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">净利息收入（亿）</div>
+      <div class="fin-val ok">2154.99 / 2155.93 / <b style="color:#34d399">1120.22</b></div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/-2.04% / +5.60%</b>（剔除规模扩张，息差拖累约 -5BP，<b style="color:#34d399">Q2 拐点初现</b>）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">非利息净收入（亿）</div>
+      <div class="fin-val ok">1237.34 / 1219.39 / <b style="color:#34d399">661.59</b></div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/-1.44% / +3.56%</b>，占比 <b style="color:#34d399">37.13%</b>（行业均值 22.53%，遥遥领先）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">大财富管理收入（亿）</div>
+      <div class="fin-val ok">393.84 / 440.13 / <b style="color:#34d399">247.04</b></div>
+      <div class="fin-comment">YoY <b style="color:#34d399">+8.84% / +11.75% / +18.44%</b>（<b style="color:#34d399">近 5 年最好</b>，财富管理结构性高增）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">信用减值损失（亿）</div>
+      <div class="fin-val down">532.06 / 552.27 / <b style="color:#f87171">291.77</b></div>
+      <div class="fin-comment">YoY <b style="color:#fca5a5">/-3.81% / +18.49%</b>（<b style="color:#f87171">H1 多计提 45.5 亿</b>，是利润弹性收缩核心原因）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">拨备前利润 PPOP（亿）</div>
+      <div class="fin-val ok">约 2230 / 2250 / 约 1218</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/-1.0% / +5.4%</b>（与营收增速基本同步，但被减值吞噬归母仅 +2%）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">净息差（%）</div>
+      <div class="fin-val warn">1.98 / 1.88 / <b style="color:#fbbf24">1.83</b></div>
+      <div class="fin-comment">同比 <b style="color:#34d399">/-10BP / -5BP</b>，但 <b style="color:#34d399">Q2 环比仅 -1BP</b>，降幅明显收窄，<b style="color:#34d399">下半年有望企稳</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">不良贷款率（%）</div>
+      <div class="fin-val ok">0.95 / 0.94 / <b style="color:#34d399">0.94</b></div>
+      <div class="fin-comment">连续多年低于 1%，2026H1 持平，但<b style="color:#fca5a5">零售贷款不良率 1.16%（+10BP）</b>是关注点</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">拨备覆盖率（%）</div>
+      <div class="fin-val warn">411.98 / 391.79 / <b style="color:#fbbf24">385.10</b></div>
+      <div class="fin-comment">较年初 <b style="color:#fbbf24">-6.69 pct</b>（多计提减值所致），仍<b style="color:#34d399">远高于行业均值 205%</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">核心一级资本充足率（%）</div>
+      <div class="fin-val ok">13.86 / 13.93 / <b style="color:#34d399">14.07</b></div>
+      <div class="fin-comment">远高于监管要求 8.5%，<b style="color:#34d399">资本充足支撑高分红 + 规模扩张</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">ROE 加权（%）</div>
+      <div class="fin-val ok">14.86 / 13.44 / <b style="color:#34d399">13.42</b></div>
+      <div class="fin-comment">YoY <b style="color:#34d399">-1.62p / -1.42p</b>（净息差拖累），但 13.42% 仍属行业前列</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">总资产（万亿）</div>
+      <div class="fin-val ok">12.15 / 13.07 / <b style="color:#34d399">13.79</b></div>
+      <div class="fin-comment">较年初 <b style="color:#34d399">+7.55% / +5.47%</b>，规模稳健扩张</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">客户存款（万亿）</div>
+      <div class="fin-val ok">9.10 / 9.96 / <b style="color:#34d399">10.16</b></div>
+      <div class="fin-comment">较年初 <b style="color:#34d399">/+9.45% / +3.32%</b>，<b style="color:#34d399">活期增速超定期（活期 +4.5% > 定期 +2.19%）</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">零售 AUM（万亿）</div>
+      <div class="fin-val ok">14.93 / 17.00 / <b style="color:#34d399">18.44</b></div>
+      <div class="fin-comment">较年初 <b style="color:#34d399">+13.86% / +7.96%</b>，AUM 增速远超 M2 与社融增速</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">中期分红（亿）</div>
+      <div class="fin-val ok">504 / 508.43 / <b style="color:#34d399">10 派 10.03 元</b></div>
+      <div class="fin-comment">现金分红率 <b style="color:#34d399">35.4%</b>，稳居银行业第一梯队；2026 实收股息 2.02 元/股（中期 1.013 + 末期 1.003）</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">💰</div>
+    <div class="text">
+      <h3>财务质量判断：账面极其健康 vs 短期减值吞噬利润 — 资产质量稳定但利润弹性承压</h3>
+      <p>
+        公司账面核心一级资本充足率 <b style="color:#34d399">14.07%</b>、拨备覆盖率 <b style="color:#34d399">385.10%</b>、不良贷款率 <b style="color:#34d399">0.94%</b> 连续多年低于 1%、零售 AUM 18.44 万亿、客户存款 10.16 万亿，<b style="color:#34d399">整体资产负债结构极其健康</b>。<br>
+        <b style="color:#fca5a5">关键警示</b>：2026H1 信用减值损失 <b style="color:#f87171">291.77 亿（+18.49%）</b> = 拨备前利润 PPOP +5.4% 但归母仅 +2%，<b style="color:#fca5a5">主动夯实拨备的防御性举措，牺牲了当期利润增速弹性</b>；零售贷款不良率 <b style="color:#fbbf24">1.16%（+10BP）</b>，消费贷不良率 <b style="color:#fbbf24">1.73%（+21BP）</b>，关注类贷款率 <b style="color:#fbbf24">1.53%（+10BP）</b>，反映居民端风险持续暴露。<br>
+        <b style="color:#7dd3fc">后续验证重点：</b>2026 Q3/Q4 业绩披露后，<b style="color:#fbbf24">净息差是否企稳 / 信用减值是否常态化 / 零售贷款不良率是否见顶 / 房贷规模是否止跌</b>是<b style="color:#fbbf24">评级修正的核心</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+  <div class="table-card">
+    <div class="table-title">🧭 管理层与治理关键事项</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>实控人 / 控股股东</b></td><td>招商局集团（中央国资委管理）控股，蛇口工业区 / 招商血脉基因，董事长缪建民（原人保集团董事长）+ 行长王良</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>管理层稳定性</b></td><td>王良行长长期任职零售业务体系，2019 年起任行长，核心高管团队稳定，连续多年"价值银行"战略</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股东回报</b></td><td>近 3 年累计分红率 ~35%，2025 年度计划现金分红 508.43 亿（含中期）；累计派现募资比 605.66%（行业排名第 1/9）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权激励</b></td><td>H 股股票期权激励计划覆盖核心高管与业务骨干，绑定中长期业绩</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权质押</b></td><td>控股股东招商局集团质押率 <b style="color:#34d399">极低（总质押比例 0.4%，仅 8343 万股）</b>，无平仓风险</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>违规记录</b></td><td>近 3 年无重大违规处罚记录，连续 AAA ESG 评级（明晟）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>科技投入</b></td><td>2022 全面上云 → 2024 全面打造"数智招行" → 8/28 董事会通过 AI 算力投入中期规划（2027-2028），"云+AI+中台"数智化底座</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>国际化战略</b></td><td>境外 6 家分行 + 1 家代表处；2025 跨境理财通 / 跨境支付通 / 对公涉外收支 / 境外托管均位居市场前列</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>历史业绩承诺</b></td><td>连续 4 个季度营收净利双增，2026H1 净利 +2.02% 兑现预期；2025 净利 +1.21% 较 2024 +1.22% 持平</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>特殊事件</b></td><td>2026-04-15 赎回全部境内优先股（275 亿）→ 简化资本结构；2025-05-23 H 股股票增值权激励计划</td><td class="ok">⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">治理结论：值得信任，"价值银行"战略 + 股东回报第一梯队。</b>全部维度均处于行业最优区间：招商局集团（国资委）控股 + 王良行长长期任职 + 累计派现募资比行业第一（605.66%）+ 大额现金分红 + AAA ESG + 极低质押率 + 零违规处罚 + AI 算力规划前瞻布局。<b style="color:#fca5a5">需注意</b>：(1) 股东户数 70.84 万户（QoQ <b style="color:#fca5a5">+18.91% 散户化</b>）；(2) 主动偏股基金持股比例 0.66%（QoQ -0.25%）；(3) 北向资金近 20 日净流出 -4.13 亿、较上季末减仓 -8.39% 反映外资定价权收缩；(4) 净息差持续阴跌 + 信用减值多计提反映管理层<b style="color:#fca5a5">主动防御</b>态度——修复需要基本面验证（净息差拐点 + 零售不良见顶）而非评级推动。
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+  <div class="grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+    <div class="table-card">
+      <div class="table-title">📈 银行业周期定位：净息差拐点初现 + 房贷新政共振</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        中国银行业当前位于 <b style="color:#fbbf24">"净息差拐点初现 + 房贷新政落地 + 中报双增"</b>三重共振节点。<b style="color:#34d399">8/28 央行房贷新政</b>：个人住房贷款期限由最长 30 年延长至 40 年（20 余年来首次）；偿债比上限提升（总偿债比由 55% 提升至 60%）；主办银行制度落地。金融监管总局数据显示，<b style="color:#34d399">二季度商业银行净息差 1.41%，较一季度回升 1 个基点</b>，为 2022 年以来首次单季环比回升，其中<b style="color:#34d399">股份制商业银行净息差 1.54%、环比持平</b>。<br><br>
+        <b style="color:#7dd3fc">9 家股份行 H1 净利息收入表现：</b>5 家实现正增长（华夏 +13.03%、浦发 +10.85% 增速居前）；招商 1.83%、中信 1.62% 保持行业较优水平；招行、中信、浦发、平安、浙商 5 家实现归母正增长，兴业、民生、华夏、光大 4 家负增长。<br><br>
+        <b style="color:#fca5a5">周期下行风险：</b>存量房贷重定价压力持续（公司贷款年化利率 2.93% → 2.59%、零售 4.08% → 3.70%）；零售贷款不良率持续上行；居民消费意愿仍待修复；2026Q1 个人住房贷款余额较年初净减 7163 亿（-3.8%）。
+      </p>
+    </div>
+    <div class="table-card">
+      <div class="table-title">🏛️ 政策环境与产业链位置</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        <b style="color:#fbbf24">政策环境"中性偏多"：</b>2026 年央行延续"稳息差 + 稳房地产 + 防风险"政策框架，<b style="color:#34d399">8/28 五部委联合出台三份顶层文件</b>：《关于完善商品住房销售制度的通知》、《关于改革完善房地产信贷管理 推动加快构建房地产发展新模式的意见》、《关于资本市场支持构建房地产发展新模式的意见》，以及五项融资管理办法（试行），系统重构商品房销售、信贷与融资基础制度。房贷期限延长至 40 年 + 偿债比上限放宽 5pct = <b style="color:#34d399">月供压力显著缓解</b>。8/28 六大行 H1 业绩营收净利润双增，净息差企稳回升信号明确。<br><br>
+        <b style="color:#c084fc">产业链位置：</b>银行位于金融产业链核心（上游为货币市场 / 同业市场，下游为居民 / 企业 / 政府 / 金融机构）。招行在产业链中具备<b style="color:#34d399">零售客户 + AUM + 财富管理 + 金融科技</b>全链条能力，A+H 双平台资本支撑跨境业务。<br><br>
+        <b style="color:#34d399">行业判断：趋势向上（息差拐点 + 房贷新政 + 中报双增三重共振）。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 截至 2026-08-31 技术结构</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>52 周高/低</td><td class="mid">约 46.00 / 34.28 元</td><td class="mid">当前 40.12 处于中下沿，距离低点 17% / 距离高点 -13%</td></tr>
+        <tr><td>近 1 月/近 1 年涨跌幅</td><td class="warn">-1.06% / 约 -12%</td><td class="mid">7-8 月区间震荡，8/18 探底 38.03 后修复</td></tr>
+        <tr><td>8 月最高 / 最低</td><td class="ok">40.42 (8/3) / 38.03 (8/18)</td><td class="mid">振幅 5.89%，8/31 反弹至 40.12 接近月内高点</td></tr>
+        <tr><td>MA5 / MA10 / MA20</td><td class="warn">约 39.6 / 39.4 / 39.5</td><td class="mid">8/31 收盘 40.12 站上 MA 短组，多头初现</td></tr>
+        <tr><td>MA60 / MA120 / MA250</td><td class="warn">约 39.8 / 40.5 / 41.2</td><td class="mid">MA250 41.2 上方仍有压力，需突破 41 元确认反转</td></tr>
+        <tr><td>MACD</td><td class="warn">DIF / DEA 走平</td><td class="mid">绿柱收窄接近翻红，反弹动能温和</td></tr>
+        <tr><td>RSI6 / RSI12</td><td class="warn">约 55 / 52</td><td class="mid">8/18 低 38.03 时 RSI6 < 30（超卖），8/31 修复至中性</td></tr>
+        <tr><td>近期成交量</td><td class="warn">8/31 45.45 亿（较 8/28 18.93 亿放量 +140%）</td><td class="mid">8/31 房贷新政落地 + 中报后修复</td></tr>
+        <tr><td>8/31 主力资金净流入</td><td class="ok">+8084 万（净流入）</td><td class="mid">超大单 +2.37 亿、大单 -1.56 亿，机构温和回流</td></tr>
+        <tr><td>北向沪深股通持股</td><td class="warn">10.97 亿股（5.69%）/ 近 20 日 -4.13 亿</td><td class="mid">较上季末减仓 -8.39% / 持股市值 389.57 亿 / 全市场第 10</td></tr>
+        <tr><td>融资融券</td><td class="warn">融资余额 103.17 亿（行业排名第 1/40）/ 融券 2.76 亿</td><td class="mid">融资余额连续 2 日微增，行业第一；融券余额超 60% 分位</td></tr>
+        <tr><td>股东户数</td><td class="warn">70.84 万户（QoQ +18.91%）</td><td class="mid"><b style="color:#fca5a5">散户化加剧</b>，户均持有 34355 股</td></tr>
+        <tr><td>关键支撑位</td><td class="ok">38.03 元（8/18 低）/ 38.50 元（8 月密集区）</td><td class="mid">强支撑，破位下看 35-36 元（52 周低附近）</td></tr>
+        <tr><td>关键压力位</td><td class="warn">40.42 元（8 月高）/ 41 元（MA250）/ 42 元</td><td class="mid">突破 40.42 看 41-42，站稳 42 才确认反转</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术面与资金流判断：底部反弹 + 房贷新政催化 —— 8 月下沿修复，但反转仍需基本面验证</h3>
+      <p>
+        <b style="color:#fbbf24">关键支撑位</b>38.03-38.50 元区间（8 月低点 + 密集成交区），<b style="color:#fbbf24">关键压力位</b>40.42 元（8 月高）/ 41 元（MA250）/ 42 元。若 8/28 房贷新政传导 + 净息差 Q3 进一步企稳 + 财富管理收入延续高增，向上突破 40.42 元则打开 42-44 元空间；若 Q3 业绩再度承压或信贷需求不足，可能下探 36-38 元。<br><br>
+        <b style="color:#7dd3fc">资金面：</b>8/31 主力资金净流入 <b style="color:#34d399">+8084 万</b>，超大单 +2.37 亿、大单 -1.56 亿 = <b style="color:#34d399">机构温和回流</b>；8/31 成交额 45.45 亿（较 8/28 18.93 亿放量 +140%）。融资余额 103.17 亿（行业第 1/40），融资净买入 2116.82 万，反映杠杆资金仍偏多；融券余额 2.76 亿超 60% 分位，空头加码。北向沪深股通持股 10.97 亿股（5.69%）较上季末 -8.39%（<b style="color:#fca5a5">外资定价权收缩</b>）；近 20 日净流出 -4.13 亿。<br><br>
+        <b style="color:#fca5a5">综合判断：</b>当前处于"<b style="color:#fbbf24">8 月下沿修复 + 房贷新政催化 + 净息差拐点初现</b>"的状态，但 <b style="color:#fca5a5">MA250 41 元上方仍有压力 + 北向持续减仓 + 散户化加剧 + 信用减值多计提</b> 四重压制下，技术面温和反弹。需以<b style="color:#fbbf24">Q3 业绩净息差企稳</b>+<b style="color:#fbbf24">房贷规模止跌</b>+<b style="color:#fbbf24">零售贷款不良率见顶</b>三确认作为后续催化。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论打分 · Top 3 匹配</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num good">7</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">费雪成长</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7</div>
+      <div class="score-name">林奇 PEG</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">PEG 投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">邓普顿逆向</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">6</div>
+      <div class="score-name">博格指数</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">6</div>
+      <div class="score-name">马克斯周期</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 巴菲特护城河</div>
+      <div class="method-author">沃伦·巴菲特 · "经济护城河"</div>
+      <div class="method-score good">8 / 10</div>
+      <div class="method-desc">招行在零售客户网络（2.31 亿户）、AUM 规模（18.44 万亿）、财富管理能力（+18.44%）、科技与品牌（数智招行 / 全球第 8）四个维度具备最强护城河；ROE 13-14%、ROAA 1.14% 股份行第一；非利息净收入占比 37.13% 行业领先。属于"宽阔护城河 + 复利机器"型 A 股核心资产。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥇 格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">PE-TTM 6.67x、PB 0.88x 均处历史估值底部区域；股息率 5.21% 提供强安全垫；累计派现募资比 605.66%（行业第一）；净息差 Q2 拐点初现 + 房贷新政 + 中报双增 = "账面安全 + 边际改善"，属"合理偏低、估值底"。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥇 达里奥全天候配置</div>
+      <div class="method-author">雷·达里奥 · "全天候策略"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">招行在组合中作为"高分红价值敞口"，与经济增长相关性中性、与利率相关性中性偏负（利率下行期净息差承压但有息差拐点）；A+H 双平台提供汇率对冲；5.21% 股息率为组合提供稳定现金流；适合作为红利核心配置（≤ 6%）。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">4. 林奇 PEG 投资</div>
+      <div class="method-author">彼得·林奇 · "PEG & 增速匹配"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">PE 6.67x 对应 2-3% 增速，PEG 约 2.5-3.0 表面偏贵，但银行业 PEG 普遍失真；股息率 5.21% 提供"股息 + 资本利得"双重收益；从"总股东回报"视角（股息 + 股价）实际 PEG 较合理；适合作为低 PEG 红利标的。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">5. 博格指数投资</div>
+      <div class="method-author">约翰·博格 · "指数化投资"</div>
+      <div class="method-score mid">6 / 10</div>
+      <div class="method-desc">非宽基指数红利逻辑标的，但累计分红率 ~35% 行业第一梯队；银行 ETF（如 512640、159887）核心权重股；间接通过 ETF 暴露更稳健（费率 < 0.5%、流动性好）；不适合作为纯指数化标的，但适合作为红利 ETF 核心持仓。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">6. 马克斯周期投资</div>
+      <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+      <div class="method-score mid">6 / 10</div>
+      <div class="method-desc">银行业位于"净息差拐点初现 + 房贷新政落地 + 中报双增"三重共振节点；二季度商业银行净息差 1.41% 环比 +1BP（2022 年来首次回升）；招行净息差 1.83% 股份行第一；属"周期右侧初步确认"，但需 Q3/Q4 进一步验证。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">7. 凯恩斯选美博弈</div>
+      <div class="method-author">凯恩斯 · "市场选美理论"</div>
+      <div class="method-score mid">6 / 10</div>
+      <div class="method-desc">市场偏好"高股息 + 低估值"红利风格（2026 红利风格主线）；8/28 房贷新政 + 8/28 五大行 H1 业绩双增共振 → 8/31 银行股集体走强（中国银行 +4.36% 创新高）；散户化加剧（+18.91%）反映博弈情绪升温。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">8. 邓普顿逆向投资</div>
+      <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">银行板块 PE-TTM 普遍破净（兴业 0.55x / 中信 0.58x / 浦发 0.48x）反映市场对净息差与资产质量的悲观预期已较充分计价；招行 PB 0.88x 虽非"最悲观点"但仍是底部区间；适合作为"次级逆向加仓"标的。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">9. 西蒙斯量化</div>
+      <div class="method-author">吉姆·西蒙斯 · "统计套利"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">动量因子短期偏多（8/18 38.03 反弹至 40.12 +5.5%）；反转因子中性（5 月分位偏低）；波动率温和（8 月振幅 5.89%）；融资余额行业第 1 但温和增长 = 多空博弈均衡；量化信号中性偏多。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">10. 索罗斯反身性</div>
+      <div class="method-author">乔治·索罗斯 · "反身性理论"</div>
+      <div class="method-score bad">4 / 10</div>
+      <div class="method-desc">招行估值已处历史底部，反身性偏弱（已无明显偏见可利用）；北向资金减仓 -8.39% 反映外资对净息差与房地产风险的担忧；散户化 +18.91% 加剧定价混乱；估值-基本面反馈环敏感度低，反身性套利空间有限。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">11. 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "15 问 · 寻找复利机器"</div>
+      <div class="method-score bad">3 / 10</div>
+      <div class="method-desc">招行属银行业低增速属性：2025 营收 +0.01%、2026H1 +4.83%（连续 4 季双增但增速有限）；费雪"长期复利型成长"框架不适用（银行是周期 + 价值，而非成长）；15 问中"研发投入"维度银行属性受限。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>巴菲特护城河（8 分）vs 费雪成长（3 分）→ 银行业属性使"护城河 + 复利"适用但"高成长"严重不适用，<b style="color:#34d399">采纳"护城河"框架作为决策主线</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突点：</strong>格雷厄姆（7 分）vs 林奇 PEG（7 分）→ 低估值与"PEG 失真 + 高股息"双重成立，<b style="color:#fbbf24">采纳"总股东回报"视角（股息 + 股价），PEG 实际合理</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>冲突点：</strong>马克斯周期（6 分）vs 邓普顿逆向（5 分）→ 净息差拐点初现 vs 估值已破净，<b style="color:#fbbf24">倾向于"周期右侧 + 估值底"双重确认逻辑</b>，避免在最悲观点满仓</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>冲突点：</strong>博格指数（6 分）vs 凯恩斯选美（6 分）→ 红利风格主线共识，<b style="color:#fbbf24">银行 ETF 间接配置 + 个股直接配置双轨并行</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>冲突点（新增）：</strong>房贷新政 + 净息差拐点 vs 零售资产质量恶化 + 信用减值多计提 → <b style="color:#fca5a5">修复需要 Q3 业绩兑现 + 净息差企稳 + 零售不良见顶 + 房贷规模止跌四验证</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">格雷厄姆深度价值 + 巴菲特护城河 + 达里奥全天候</strong> 的"低估值高股息的零售之王"为主线，叠加 <strong style="color:#fbbf24">马克斯周期"净息差拐点初现"</strong>，用 <strong style="color:#fbbf24">林奇 PEG"总股东回报"</strong> 作为估值约束（PE 6-8x 合理区间 + 股息率 5%+ 支撑），避免按"高成长股"逻辑满仓，避免按"最悲观点"逻辑等待深度回调</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">7</span>
+      <p><strong>综合得分：6.3 / 10</strong>，对应评级：<strong style="color:#7dd3fc">谨慎买入</strong>（中国"零售之王" + 估值底 + 高股息 + 房贷新政共振 + 分批限仓）</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和净息差拐点做决策</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 仓位与分批建仓</div>
+      <div class="strategy-content">
+        <table class="compare-table" style="margin-bottom:10px;">
+          <thead>
+            <tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:#fbbf24">第一批</b></td><td><b style="color:#7dd3fc">39-40.5 元</b>区间（当前 40.12 附近，房贷新政落地 + 8/31 主力净流入）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第二批</b></td><td><b style="color:#7dd3fc">36-39 元</b>区间（仅在 Q3 净息差企稳 + 房贷规模止跌 + 零售不良见顶）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第三批</b></td><td><b style="color:#7dd3fc">34-36 元</b>区间（仅在 52 周低点附近 + 净息差连续 2 季回升）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">上限</b></td><td>单股 ≤ 8%，组合中金融板块合计 ≤ 15%（含银行 ETF）</td><td class="ok">建议 ≤ 6%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位（先减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        <strong>硬止损：</strong>收盘有效跌破 <strong class="hl-danger">35 元（约 -13%）</strong>，或 2026 三季报净息差继续走低于 1.78%，<strong class="hl-danger">先减仓至 ≤ 2% 而非等待目标价</strong>。<br><br>
+        <strong>软止损：</strong>(1) 单季度零售贷款不良率突破 1.25% 警戒线；(2) 信用减值损失连续两个季度同比 +20% 以上；(3) 实控人或核心高管出现大额减持或新增大额股权质押；(4) 净息差连续 3 季环比下降；(5) 房贷规模连续 2 季大幅净流出（> 2000 亿/季）。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead>
+            <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">34-37 元</td><td class="warn">42-48 元</td><td class="ok">50-58 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">38-44 元</td><td class="ok">48-58 元</td><td class="ok">60-72 元</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2026E 净利 1500 亿 × PE 6.5-7.5x；乐观假设：2026E 1565 亿 × PE 7.5-8.5x（含房贷新政利好兑现）；保守假设：2026E 1430 亿 × PE 6.0-6.5x（净息差继续承压）。卖方综合目标价 48.56 元（机构 8 月更新）位于乐观区间下沿；中金 58.35 元（47.3% 上行空间）位于乐观区间上沿。</p>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong class="hl-info">中长线（12-24 个月）</strong>，等待 2026 三季报、年报兑现 + 净息差拐点确认 + 房贷新政传导 + 财富管理高景气延续；若 2026 全年净利站上 1500 亿（37 家预测中位 1483 亿）+ 净息差 Q4 企稳 + 房贷规模止跌，可考虑切换为 <strong class="hl-purple">长线（&gt;24 月）</strong>，作为 A 股金融核心配置长期持有。<br><br>
+        <strong>短线（&lt;3 月）</strong>不推荐——净息差拐点需要 2-3 个季度验证，频繁交易易错失兑现窗口；当前散户化加剧（+18.91%）进一步放大短线交易风险。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">净息差与营收增速</strong>（净息差 Q2 1.82% 环比 -1BP 是关键拐点信号，<b style="color:#fbbf24">Q3 是否企稳、Q4 是否回升是评级修正关键</b>）<br>
+        2. <strong class="hl-warn">零售贷款不良率与房贷规模</strong>（零售不良 1.16% / 消费贷不良 1.73% / 房贷规模 -3.8% 是 2026H1 三大警示信号，<b style="color:#fbbf24">房贷新政能否传导至规模回升是核心验证</b>）<br>
+        3. <strong class="hl-info">信用减值损失与拨备覆盖率</strong>（H1 减值 +18.49% 吞噬利润弹性，<b style="color:#fbbf24">385.10% 拨备覆盖率是"利润压缓冲"</b>）
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">2026Q3 净息差继续走低于 1.78%</strong>（息差拐点预期破灭，估值修复逻辑受损）<br>
+        2. <strong class="hl-danger">零售贷款不良率突破 1.25% 或消费贷不良率突破 1.85%</strong>（零售资产质量恶化加速）<br>
+        3. <strong class="hl-danger">信用减值损失连续 2 季同比 +20% 以上</strong>（主动防御变被动出清，<b style="color:#fbbf24">评级下调风险</b>）
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 信用减值损失 +18.49% 吞噬利润弹性（核心警示）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3 信用减值损失继续同比 +20% 以上，归母净利润增速跌破 1%<br>
+        <strong>影响幅度：</strong>全年净利可能下修至 1450 亿以下；评级可能从谨慎买入下调至持有观察；目标价跌至保守区间（34-37 元，-15% ~ -8%）<br>
+        <strong>应对策略：</strong>每季度跟踪信用减值损失同比、拨备覆盖率（385.10% 安全垫）；Q3 公告后立即重新评估加仓节奏
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 零售贷款不良率持续上行（居民端风险暴露）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3 零售贷款不良率突破 1.25%、消费贷不良率突破 1.85%、信用卡不良持续抬升<br>
+        <strong>影响幅度：</strong>2025 H1 零售不良余额 428.32 亿（+32.48 亿）；若全年新增不良 > 80 亿，将吞噬利润 80-120 亿（每股 0.3-0.5 元）；<b style="color:#fca5a5">招行核心"零售护城河"被质疑</b><br>
+        <strong>应对策略：</strong>重点跟踪零售贷款规模、个人住房贷款规模、消费贷不良率；关注徐明杰首席风险官业绩会披露的前瞻指引
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 3. 净息差持续阴跌 + 房贷规模收缩</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3 净息差继续走低于 1.80%、公司贷款年化利率 < 2.50%、零售贷款年化利率 < 3.50%；个人住房贷款余额连续 2 季净流出 > 2000 亿/季<br>
+        <strong>影响幅度：</strong>净息差每 -5BP 减少营收约 35-40 亿；房贷规模每收缩 1000 亿减少营收约 25-30 亿；估值修复逻辑受阻，PE 可能下移至 5.5-6.0x<br>
+        <strong>应对策略：</strong>跟踪 LPR 重定价节奏、央行房贷新政传导效果、银行业 Q3 净息差行业均值（金融监管总局季度数据）
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 4. 房地产业风险敞口（4.27% 不良率仍高）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>房地产行业不良率从 4.27% 反弹至 5% 以上；招行房地产业贷款余额（2967.39 亿）大幅压缩；房企信用风险事件（如头部房企违约）<br>
+        <strong>影响幅度：</strong>房地产相关承担信用风险业务余额 3592.09 亿（+1.48%）；若不良率 +50BP，需新增计提拨备 18 亿；股价对房地产风险高度敏感（历史多次）<br>
+        <strong>应对策略：</strong>跟踪国家房地产政策、住建部季度数据、头部房企债务展期情况；评估房地产业贷款不良率是否进一步下降至 4% 以下
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 5. "卖方乐观、外资撤退"+ 散户化加剧</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>股东户数持续走高（70.84 万户 / +18.91%）、北向资金持续减仓（近 20 日 -4.13 亿 / 较上季末 -8.39%）、主动偏股基金持股比例持续下降<br>
+        <strong>影响幅度：</strong>散户化加剧放大短线波动；外资定价权收缩可能拖累估值修复速度；机构目标价 48.56 元（上行 23.41%）依赖基本面验证<br>
+        <strong>应对策略：</strong>关注股东户数、北向资金、基金持仓变化；散户化加剧时降低加仓节奏而非"接刀"
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 来源与复核记录</div>
+
+  <div class="data-note">
+    <strong>📌 主要数据来源（截至 2026-08-31）：</strong><br>
+    ✅ 公司公告：<span class="ok">招商银行 2025 年年度报告</span>（2026-03-27/28 披露）、<span class="ok">招商银行 2026 H1 半年度报告</span>（2026-08-28/29 披露）、<span class="ok">2026 中期分红实施公告</span>（2026-07-04，10 派 10.03 元，2026-07-10 除权）、<span class="ok">境内优先股赎回公告</span>（2026-04-15 赎回 275 亿）、<span class="ok">AI 算力投入中期规划议案</span>（2026-08-28 董事会全票通过）、<span class="ok">2026 半年报摘要</span>（2026-08-29 上海证券报披露）<br>
+    ✅ 股价/市值快照：<span class="info">证券时报</span>（40.12 元、总市值 10118.20 亿、流通 8276.33 亿、PE-TTM 6.62x / PB 0.88x，2026-08-31 15:16）、<span class="info">东方财富</span>（40.10 元、动态 PE 6.61 / PB 0.88 / 总市值 1.011 万亿、振幅 1.98% / 量比 1.59）、<span class="info">腾讯自选股</span>（40.12 元、+1.96%、A/H 比价 0.92 溢价 -7.65%）、<span class="info">雪球</span>（招商银行 / 万事达对比数据）、<span class="info">同花顺</span>（融资融券历史 / 北向持股）；多源核对<br>
+    ✅ 业绩分析：<span class="info">新华网 2026-08-29 中报解读</span>（营收 1781.81 亿 +4.83% / 净利 764.45 亿 +2.02% / 净息差 1.83%）、<span class="info">中国证券网 2026-08-29</span>（大财富管理 247.04 亿 +18.44%）、<span class="info">每经新闻 2026-08-29</span>（房贷不良率 0.48% / 房地产业不良率 4.47%）、<span class="info">中国证券网 2026-08-31</span>（徐明杰业绩会 / 零售不良 1.16%）、<span class="info">央广网 2026-03-28</span>（2025 年报营收 3375.32 亿 +0.01% / 净利 1501.81 亿 +1.21% / 拨备 391.79%）、<span class="info">雪球 2026-08-29</span>（增收难增利 / 拨备计提透支弹性）、<span class="info">时代财经 2026-08-29</span>（王小青业绩会 / 大财富管理 +18.44% / 零售客户 2.31 亿户）<br>
+    ✅ 行业政策：<span class="info">央行 / 金融监管总局 2026-08-28 房贷新政</span>（30 年 → 40 年 / 偿债比上限提升 / 主办银行制度 / 5 份顶层文件）、<span class="info">金融监管总局二季度商业银行净息差 1.41%</span>（环比 +1BP，2022 年来首次回升）、<span class="info">财联社 2026-08-31 银行板块走强</span>（中国银行 +4.36% 创新高）<br>
+    ✅ 卖方研究：<span class="info">中金 2026-04-29 月报组合</span>（A股目标价 58.35 元、对应 2026/27 1.2x/1.1x P/B、上行 47.3%）、<span class="info">高盛 A 股目标价 54.87 元</span>、<span class="info">华创证券推荐 / ≤49.19 元</span>、<span class="info">平安证券强烈推荐</span>、<span class="info">综合目标价 48.56 元</span>（机构 8 月更新、上行 23.41%）、<span class="info">20 家机构平均目标价 54.61 元</span>（最高 58.35 / 最低 49.88 / 净利润均值 1545.33 亿 +2.90%）<br>
+    ✅ 同业数据：<span class="warn">2026H1 9 家股份行归母净利润排名：招商 764.45 亿（+2.02%）/ 兴业 411.31 亿（-4.66%）/ 中信 376.02 亿（+3.08%）/ 浦发 309.51 亿（+4.08%）/ 平安 256.96 亿（+3.32%）/ 民生 195.37 亿（负）/ 光大 187.11 亿（负）/ 华夏 93.65 亿（负）/ 浙商 78.24 亿（+2.05%）</span>；行业 42 家上市银行 H1 合计 1.13 万亿（+2.96%）<br>
+    ✅ 资金流向（<span class="info">8/31 主力净流入 +8084 万（超大单 +2.37 亿 / 大单 -1.56 亿）、融资余额 103.17 亿（行业排名第 1/40）、融券余额 2.76 亿、北向持股 10.97 亿股（5.69%）、较上季末减仓 -8.39%、近 20 日净流出 -4.13 亿、股东户数 70.84 万户（+18.91% 散户化）</span>）<br>
+    ✅ 分红数据：<span class="info">2026 实收股息 2.02 元/股（中期 1.013 / 末期 1.003）、2026-01-16 派 1.013 元、2026-07-10 派 1.003 元、股息率 5.21%、累计派现募资比 605.66%（行业排名 1/9）、2025 年累计现金分红 508.43 亿（含中期）</span><br>
+    ⚠️ 数据局限：MA60/120/250 历史分位、部分同业 2026H1 完整数据未独立全口径核验；北向资金近 30 日分时口径未独立核验；2026 三季报、年报 <span class="danger">尚未披露</span><br>
+    📊 <strong style="color:#fbbf24">所有价格、市值、估值、机构持仓快照均存在口径与时点差异；本页不构成买卖承诺。预测区间的差异足以令 12 个月目标价产生 ±23% 的波动，请以风险揭示为先。</strong>
+  </div>
+
+  <div class="footer">
+    招商银行（600036）｜报告截止日 2026-08-31（周一收盘）｜11 种方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（巨潮资讯/上交所/上海证券报/中国证券网）+ 证券时报/东方财富/同花顺/雪球/腾讯自选股/investing.com + 新华网/央广网/每经新闻/中国证券网/雪球/时代财经/财联社 + 央行/金融监管总局 + 中金/高盛/华创/平安 等券商研报
+  </div>
+
+</div>
+</body>
+</html>

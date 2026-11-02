@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-31 恒瑞医药 (600276) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(168,85,247,0.16), rgba(14,165,233,0.10));
+    border: 1px solid rgba(52,211,153,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(168,85,247,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #34d399, #c084fc, #38bdf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #34d399; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(52,211,153,0.40); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#6ee7b7; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(16,185,129,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(52,211,153,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#6ee7b7; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(16,185,129,0.10), rgba(168,85,247,0.10));
+    border:1px solid rgba(52,211,153,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #34d399; }
+  .conclusion-item .num { display:inline-block; background:#34d399; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>💊 恒瑞医药 (600276) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">中国创新药"一哥" · A+H 双平台 · 国际化 BD 兑现期 · 扣非首次下滑警示 · 52 周下沿"分批限仓"</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>谨慎买入</b>（创新药龙头 + 国际化主线 + 扣非 -12.71% 警示）</span>
+      <span class="badge badge-source">📅 数据日期：2026-08-31（周一收盘）</span>
+      <span class="badge badge-source">📊 股价 46.07 元 · 总市值 3058 亿 · PE-TTM 39.58x · PB 4.74x</span>
+      <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 等 11 方法论 × 12 模块</span>
+      <span class="badge badge-success">✅ 海外 BD 累计 420 亿美元 · 13 笔交易 · Kailera/Braveheart 双 NewCo 上市</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-08-31）：</strong><br>
+    ✅ 股价 <span class="info">46.07 元</span>（8/31 跌 -2.64%），总市值 <span class="info">3058 亿</span>，流通市值 <span class="info">2936 亿</span>，总股本 66.37 亿股（A 63.79 + H 2.25） · 来源：搜狐证券/新浪财经/雪球/富途牛牛（2026-08-31 11:30 附近快照，多源核对）<br>
+    ✅ 52 周区间：<span class="warn">45.26 - 74.04 元</span>（8/31 最低 45.88 已逼 52 周低点），近 1 年跌幅约 <span class="danger">-25%</span>，7/31-8/31 区间跌 <span class="danger">-15.70%</span>，连续四周跑输大盘（恒生指数 8 月累跌约 -2%）<br>
+    ✅ PE-TTM <span class="warn">39.58x</span>、PB <span class="warn">4.74x</span>（每股净资产 9.71 元，2026H1 ROE 8.04%）· 雪球/Yahoo 41x 区间，与中金 8 月目标价 73.40 对应 38.4x PE(2026E)<br>
+    ✅ 财务基准（2026H1）：营收 <span class="warn">154.56 亿(-1.94%)</span>、归母 <span class="warn">44.65 亿(+0.34%)</span>、<span class="danger">扣非 37.30 亿(-12.71%)</span>、创新药收入 <span class="ok">88.09 亿(+16.38%, 占比 63.16%)</span>、对外许可收入 <span class="ok">14.22 亿</span>、Kailera 公允价值变动收益 <span class="ok">8.21 亿</span>、研发投入 <span class="ok">46.05 亿(+18.96%, 占营收 29.8%)</span>、经营现金流 <span class="danger">19.87 亿(-53.8%)</span><br>
+    ✅ 抗肿瘤创新药 62.65 亿(+2.58%, 占比 71%)、非肿瘤创新药 <span class="ok">25.45 亿(+73.97%, 占比 29%)</span>；海外业务 18.94 亿（占比 12.25%）<br>
+    ✅ 新增事件：<span class="ok">2026-08-19 公告 10-20 亿 A股回购</span>（上限价 81.78 元/股）、<span class="ok">2026-08-25 HRG2010 胶囊 NDA 受理</span>、<span class="ok">2026-08-27 新回购报告书进入实施</span>、<span class="ok">2026-08-25/26 GIC 主动增持 384.38 万股</span>、<span class="ok">2026-08-28 舒地胰岛素全国首批发货</span>（第二增长曲线兑现点）<br>
+    ✅ 卖方综合目标价：<span class="info">72.75 元</span>（较现价上行 53.74%） · 48 家机构预测 2026E 净利 <span class="info">92.17 亿 (+19.52%)</span>、2027E <span class="info">106.34 亿 (+15.38%)</span>、2028E <span class="info">127.46 亿 (+19.86%)</span> · EPS 2026E 1.39 元、2027E 1.60 元<br>
+    ⚠️ 数据局限：MA60/120/250、北向资金近 30 日净流入流出、机构完整持仓变动未独立全口径核验；同业（百济/翰森/信达/中生）2026H1 完整数据仅披露部分，PE 估值口径不完全可比<br>
+    ⚠️ 关键警示：<span class="danger">2026H1 扣非净利润 -12.71%（首次下滑）</span>、<span class="danger">经营现金流 -53.8%</span>、<span class="warn">股东户数 53.92 万户（+17.64% 散户化）</span>、<span class="warn">Q2 已披露机构减仓 90+ 家</span>、<span class="warn">"被创新药开除了吗"舆论</span><br>
+    📊 关键预测：花旗下调 2026/27/28 营收预测 -7%/-5%/-6%，目标价下调至 A 股 109/H 股 119（口径差异：HK$）；野村上修 EPS（+6% 因 Braveheart IPO 一次性收益）+/-10%/-14%；市场承压下机构目标价仍偏乐观（<span class="danger">"卖方乐观、买方撤退"</span>结构）
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">💊</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：中国创新药"一哥" · 国际化加速兑现 · 扣非首次下滑 · 52 周下沿分批 —— 谨慎买入（5.5/10 微降 0.2 分），分批限仓</h3>
+      <p>
+        恒瑞医药在 <b style="color:#34d399">费雪成长（8 分）、巴菲特护城河（8 分）</b>框架下得分极高（创新药收入占比从 58.34% → 63.16%、海外 BD 累计 420 亿美元管线 / 13 笔交易、全球首款 PD-L1/TGF-β 双抗已商业化、A+H 双平台资本优势、舒地胰岛素发货）；在 <b style="color:#fbbf24">马克斯周期（6 分）、达里奥全天候（6 分）、林奇 PEG（5 分）</b>框架下中性偏多（创新药行业上行周期右侧 + BD 出海爆发期，但 PE 39.58x / PB 4.74x 估值仍偏高、PEG 1.5-2.0 中性）；<b style="color:#f87171">格雷厄姆（4 分）、博格指数（4 分）、邓普顿逆向（3 分）</b>得分偏低（高估值、非深度折价、不在最悲观点）。综合 <b style="color:#fbbf24">5.5/10 分 = 谨慎买入</b>（较上期 5.7 微降 0.2 分，<b style="color:#fca5a5">反映扣非 -12.71% 与现金流 -53.8% 的核心警示</b>）。<br><br>
+        <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">费雪 + 巴菲特护城河</b>框架作为决策主线（"中国创新药龙头 + 国际化长期复利"），用 <b style="color:#fbbf24">格雷厄姆价格纪律</b>作为仓位与买点约束（52 周下沿附近不追价、按 PE 35-40x 上限设定买入）；<b style="color:#fca5a5">2026H1 扣非首次下滑 + 经营现金流 -53.8% + "被创新药开除了吗"舆论</b> 是<b style="color:#fca5a5">短期催化剂待验证</b>的关键阻力，需等待 Q3 业绩、H2 BD 兑现、回购实施进度三确认。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-08-31 · 来源：搜狐证券/新浪财经/雪球/富途牛牛/公司公告</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">恒瑞医药</div>
+      <div class="change">代码 600276</div>
+      <div class="label">上交所主板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:17px;">化学制剂</div>
+      <div class="change">创新药 + 仿制药</div>
+      <div class="label">申万二级</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:14px;">2000-10-18</div>
+      <div class="change">A+H (1276.HK)</div>
+      <div class="label">上市 ~26 年</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">总市值</div>
+      <div class="value">3058 亿</div>
+      <div class="change">流通 2936 亿</div>
+      <div class="label">搜狐/新浪快照</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">8/31 跌</div>
+      <div class="name">当前股价</div>
+      <div class="value">46.07 元</div>
+      <div class="change">跌 -2.64%</div>
+      <div class="label">52 周区间 45.26-74.04</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">估值偏高</div>
+      <div class="name">PE-TTM</div>
+      <div class="value" style="font-size:18px;">39.58 x</div>
+      <div class="change">雪球 39.90 / Yahoo 40.79</div>
+      <div class="label">创新药龙头溢价</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">估值偏高</div>
+      <div class="name">PB (MRQ)</div>
+      <div class="value" style="font-size:18px;">4.74 x</div>
+      <div class="change">BVPS 9.71 元 (2026H1)</div>
+      <div class="label">高于行业均值</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="tag mid">2026E</div>
+      <div class="name">2026E PE</div>
+      <div class="value" style="font-size:17px;">约 33-36 x</div>
+      <div class="change">按 48 家预测中位</div>
+      <div class="label">EPS 1.39 元</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">PEG</div>
+      <div class="name">PEG (PE/3Y 增速)</div>
+      <div class="value">约 1.6-1.9</div>
+      <div class="change">PE 40x / 增速 19-20%</div>
+      <div class="label">林奇 PEG 中性偏贵</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">较优</div>
+      <div class="name">近 3 年累计分红率</div>
+      <div class="value" style="font-size:18px;">20.8%</div>
+      <div class="change">累计 38.22 亿</div>
+      <div class="label">高于创新药均值</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">极低</div>
+      <div class="name">大股东质押率</div>
+      <div class="value" style="font-size:18px;">0.9%</div>
+      <div class="change">实控人孙飘扬</div>
+      <div class="label">无平仓风险</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">充足</div>
+      <div class="name">账面现金及等价物</div>
+      <div class="value">380.32 亿</div>
+      <div class="change">占总市值 12.4%</div>
+      <div class="label">现金安全垫厚</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">无</div>
+      <div class="name">商誉</div>
+      <div class="value" style="font-size:16px;">极低</div>
+      <div class="change">无减值风险</div>
+      <div class="label">主要靠内生研发</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">A+H</div>
+      <div class="name">A/H 股价对比</div>
+      <div class="value" style="font-size:15px;">H 股较 A 折 12%</div>
+      <div class="change">A 47.32 / H 47.94 港元</div>
+      <div class="label">H 股 PE 35.8x</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">谨慎买入</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （中国创新药"一哥" · 国际化兑现期 · 扣非首次下滑 · 52 周下沿分批限仓）
+    </div>
+    <div class="comment">
+      恒瑞医药在 <b style="color:#34d399">费雪成长（8 分）、巴菲特护城河（8 分）</b>框架下得分极高；<b style="color:#fbbf24">马克斯周期（6 分）、达里奥全天候（6 分）、林奇 PEG（5 分）、西蒙斯量化（5 分）、凯恩斯选美（5 分）、索罗斯反身性（5 分）</b>中性；<b style="color:#f87171">格雷厄姆（4 分）、博格指数（4 分）、邓普顿逆向（3 分）</b>偏低。综合 <b style="color:#fbbf24">5.5/10 分 = 谨慎买入</b>（较上期 5.7 微降 0.2 分）。<br><br>
+      <b style="color:#7dd3fc">核心定位：</b>中国创新药"一哥"，A+H 双平台资本优势；2026H1 创新药收入 88.09 亿（+16.38%）、占药品销售收入 63.16%，非肿瘤创新药 +73.97%；累计 13 笔海外 BD（潜在 420 亿美元），Kailera/Braveheart 双 NewCo 上市验证；舒地胰岛素发货 = 第二增长曲线兑现。<b style="color:#fca5a5">核心警示</b>：2026H1 扣非净利润 -12.71%（首次下滑）、经营现金流 -53.8%（去年高基数）、仿制药 -16.1%、舆论"被创新药开除了吗"——基本面韧性 + 短期承压的典型场景。<br><br>
+      <b style="color:#fca5a5">操作总则：</b>按 ≤ 5% 仓位分 3 批入场，每批前以 Q3 业绩、H2 BD 兑现、回购实施进度为前提；止损 40 元（-13%）；中长线持有（6-24 月），等待 Q3/Q4 业绩验证与非肿瘤创新药放量。
+    </div>
+  </div>
+
+  <div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+  <div class="safety-bar">
+    <div class="safety-title">📐 恒瑞医药估值区间（创新药龙头 PE 视角 · 数据日期 2026-08-31）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">&lt; 30x · 深度价值（机会区）</div>
+      <div class="safety-seg seg-current">30–45x · 合理区间（当前）</div>
+      <div class="safety-seg seg-over">&gt; 45x · 偏贵/透支</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>深度价值区</strong> · 净利 90 亿+ × 30x 以下</span>
+      <span><strong>当前</strong> · PE-TTM 39.58x（创新药龙头溢价）</span>
+      <span><strong>透支区</strong> · 增速放缓至个位数 × 45x+</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 中国创新药龙头同业 5 家可比公司估值对比表（数据日期 2026-08-31）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>主营定位</th><th>2025 营收</th><th>2025 归母</th><th>创新药占比</th><th>PE 估值</th><th>综合</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:#7dd3fc">恒瑞医药</b></td><td class="hl">600276.SH</td><td>创新+仿制+国际化</td><td class="ok">316.29 亿 (+13.0%)</td><td class="ok">77.11 亿 (+21.7%)</td><td class="ok">63.16% (药品销售)</td><td class="warn">39.58x TTM</td><td class="warn">龙头溢价 · 估值偏高</td></tr>
+        <tr><td>百济神州</td><td class="hl">688235.SH / 6160.HK</td><td>创新药 + 海外</td><td class="ok">382.05 亿 (+40.4%)</td><td class="ok">14.61 亿 (扭亏)</td><td class="ok">~98%</td><td class="danger">~50x TTM</td><td class="danger">增长强 · 估值高</td></tr>
+        <tr><td>中国生物制药</td><td class="hl">01177.HK</td><td>创新+仿制综合</td><td class="mid">318.30 亿 (+10.3%)</td><td class="mid">23.43 亿 (-33.0%)</td><td class="mid">~48%</td><td class="ok">~20-25x</td><td class="ok">估值相对低</td></tr>
+        <tr><td>翰森制药</td><td class="hl">03692.HK</td><td>创新药 + 抗肿瘤</td><td class="ok">150.28 亿 (+22.6%)</td><td class="ok">55.55 亿 (+27.1%)</td><td class="ok">~82%</td><td class="warn">~30-35x</td><td class="warn">估值偏高</td></tr>
+        <tr><td>信达生物</td><td class="hl">01801.HK</td><td>创新药 + 生物药</td><td class="ok">130.42 亿 (+38.4%)</td><td class="ok">8.14 亿 (扭亏)</td><td class="ok">~95%</td><td class="warn">高 (亏损转盈利)</td><td class="warn">盈利初期</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">结论：</b>恒瑞 PE-TTM 39.58x 处于中国创新药龙头中位偏上区间（高于中国生物制药 ~20-25x，与翰森制药 ~30-35x 接近，低于百济神州 ~50x）。考虑 (1) 恒瑞 2025 归母 +21.7% 稳健增速、(2) 76% 净利率、(3) 380 亿账面现金"安全垫"、(4) 13 笔海外 BD 累计 420 亿美元管线、(5) 创新药占比从 58% → 63% 加速跃迁，<b style="color:#fbbf24">格雷厄姆视角下"非深度折价、但绝对不贵"</b>，估值从前期 PE 40x 上方回落至 39.58x 是 PB 4.74x（较前期 6.5x 修正后）回归理性的体现。<b style="color:#fca5a5">邓普顿逆向视角下严重不适用</b>：恒瑞不属于"在最悲观点买入"，而是高质量成长股在估值消化期的"逆向加仓机会"。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>安全边际测算：以当前价买入，未来 12 个月下行空间</h3>
+      <p>
+        <b style="color:#fbbf24">基准情景（2026E 归母 90 亿 / PE 35-40x）：</b>合理市值 3150-3600 亿 → <b style="color:#fbbf24">合理价 47.5-54.2 元（+3% ~ +18%）</b><br>
+        <b style="color:#fbbf24">乐观情景（2026E 100 亿 / PE 38-42x）：</b>合理市值 3800-4200 亿 → <b style="color:#34d399">合理价 57.3-63.3 元（+24% ~ +37%）</b><br>
+        <b style="color:#fbbf24">保守情景（2026E 78 亿 / PE 32-36x）：</b>合理市值 2496-2808 亿 → <b style="color:#f87171">合理价 37.6-42.3 元（-18% ~ -8%）</b><br>
+        <b style="color:#fca5a5">综合判断：</b>PE-TTM 39.58x 对应 2026E 净利区间 78-100 亿（48 家预测中位 92 亿），下行至 78 亿 PE 升至 39.5x（贴近当前）、上行至 100 亿 PE 降至 30.6x，<b style="color:#fbbf24">12 个月目标价波动区间 -18% ~ +37%</b>。邓普顿"最悲观点买入"对应 52 周低点 45.26 元附近，当前 46.07 元已较充分计入短期承压预期。<b style="color:#c084fc">关键更新：</b>8/19 公告 10-20 亿回购（上限价 81.78 元）+ GIC 主动增持 384.38 万股（外资长线定价资金）= 提供下方强支撑；隐蔽资产：13 笔海外 BD 累计 420 亿美元管线 + A+H 双平台稀缺标的 + 380 亿账面现金 + 舒地胰岛素第二增长曲线。
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:14px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:14px; color:#fbbf24; margin-bottom:24px;">
+    📊 <b>估值结论：合理偏低（非深度折价、非显著高估）—— 创新药龙头溢价 + 国际化预期支撑 + 380 亿现金安全垫 + 10-20 亿回购+GIC 增持双支撑</b>
+  </div>
+
+  <div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="tag mid">PEG 中性</div>
+      <div class="name">PEG (PE/3Y 增速)</div>
+      <div class="value">约 1.6-1.9</div>
+      <div class="change">PE 40x / 增速 19-20%</div>
+      <div class="label">林奇 PEG 略贵</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高速</div>
+      <div class="name">营收 5Y CAGR</div>
+      <div class="value">约 8-12%</div>
+      <div class="change">2020-2025</div>
+      <div class="label">剔除新冠基数后</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">高速</div>
+      <div class="name">归母 5Y CAGR</div>
+      <div class="value">约 12-15%</div>
+      <div class="change">2020-2025</div>
+      <div class="label">结构升级</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">创新药增速</div>
+      <div class="value">+16.38%</div>
+      <div class="change">2026H1 创新药收入</div>
+      <div class="label">占总药品 63.16%</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">爆发</div>
+      <div class="name">非肿瘤创新药</div>
+      <div class="value">+73.97%</div>
+      <div class="change">2026H1</div>
+      <div class="label">第二增长曲线</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">催化剂</div>
+      <div class="name">未来 12-24 月</div>
+      <div class="value">多重</div>
+      <div class="change">Q3 业绩兑现</div>
+      <div class="label">新药获批 / BD</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h3>成长性判断：稳定增长 + 国际化加速 —— 扣非首次下滑警示，但长期复利型成长明确</h3>
+      <p>
+        2025 营收 316.29 亿（+13.0%）、归母 77.11 亿（+21.7%），结构持续优化；2026H1 营收 <b style="color:#fca5a5">154.56 亿（-1.94%）</b>、归母 <b style="color:#fbbf24">44.65 亿（+0.34%, 近乎持平）</b>、<b style="color:#f87171">扣非 37.30 亿（-12.71%, 首次下滑）</b>。<b style="color:#34d399">创新药收入 88.09 亿（+16.38%）</b>继续成为最大亮点；<b style="color:#34d399">非肿瘤创新药 25.45 亿（+73.97%）</b>的爆发是结构性突破（恒格列净 SGLT2、艾玛昔替尼自免、瑞卡西单抗心血管）。<b style="color:#fca5a5">核心警示</b>：抗肿瘤创新药 62.65 亿（+2.58%）仅小幅增长，反映吡咯替尼、阿帕替尼等成熟产品面临同类竞品围剿与 NRDL 价格调整。<br>
+        <b style="color:#34d399">增长动力来源：</b>(1)<b style="color:#34d399">创新药持续放量</b>（占药品销售收入 58% → 63%）；(2)<b style="color:#34d399">海外 BD 出海</b>（420 亿美元管线潜力，13 笔交易 BMS/GSK/Kailera/Braveheart）；(3)<b style="color:#34d399">非肿瘤新赛道</b>（GLP-1/双抗/ADC/罕见病/自免/心血管）；(4)<b style="color:#34d399">A+H 双平台</b>资本运作支撑研发；(5)<b style="color:#34d399">舒地胰岛素 8/28 全国首发</b> = 第二增长曲线兑现点。<br>
+        <b style="color:#fbbf24">⚠️ 数据局限：</b>2025 完整 PE/PB 五年分位数据未独立核验；PEG 因创新药行业属性不完全适用；2026H1 扣非 -12.71% 需观察 H2 是否企稳。<br>
+        <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1)Q3/Q4 业绩兑现（H2 创新药加速、扣非止跌）；(2)HRG2010 NDA 8/25 受理后获批时间表；(3)新一轮海外 BD 交易公布；(4)回购 10-20 亿实施进度；(5)2026 员工持股计划（5 折购股给 1269 人，三期解锁条件 2026-2028 累计创新药收入 732 亿，年均 244 亿）落地与考核兑现。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+  <div class="table-card">
+    <div class="table-title">🛡️ 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>研发能力</b></td><td class="ok">强</td><td>2026H1 研发投入 46.05 亿（+18.96%, 占营收 29.8%）；新增 IND 批件持续；全球首款 PD-L1/TGF-β 双抗已商业化；HRG2010 NDA 受理</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>商业化平台</b></td><td class="ok">强</td><td>肿瘤药销售网络全国第一、医院覆盖率行业领先、销售费用率持续优化；非肿瘤药医保准入后快速放量</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>国际化布局</b></td><td class="ok">强</td><td>累计 13 笔海外 BD，潜在总价值 420 亿美元；Kailera/Braveheart 双 NewCo 纳斯达克上市；A+H 双平台资本支撑</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>产品管线广度</b></td><td class="ok">强</td><td>抗肿瘤（71%）+ 非肿瘤（29%）双轮；代谢（GLP-1/恒格列净）、自免（艾玛昔替尼）、心血管（瑞卡西单抗）、罕见病（恒优达 PNH）等多领域</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>规模 / 成本优势</b></td><td class="warn">中等</td><td>原料药+制剂一体化、化学合成能力强，2025 净利率 24.4%；但与百济神州等生物药企在 CDMO 上无显著壁垒</td><td class="warn">⭐⭐⭐</td></tr>
+        <tr><td><b>品牌 / C 端溢价</b></td><td class="warn">中等</td><td>B 端医院/医生品牌力极强，但 C 端患者认知度低于消费品龙头；非肿瘤新药医保准入后品牌延伸有限</td><td class="warn">⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">优秀</div>
+      <div class="name">ROE 常态</div>
+      <div class="value">~14-16%</div>
+      <div class="change">2026H1 ROE 8.04%</div>
+      <div class="label">H1 < 全年（达标）</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">稳定</div>
+      <div class="name">毛利率</div>
+      <div class="value">约 85%</div>
+      <div class="change">创新药占比提升</div>
+      <div class="label">结构持续优化</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">稳健</div>
+      <div class="name">净利率</div>
+      <div class="value">约 24%</div>
+      <div class="change">2025 创新药贡献</div>
+      <div class="label">高于一般药企</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">行业第一</div>
+      <div class="name">行业地位</div>
+      <div class="value">"医药一哥"</div>
+      <div class="change">市值 + 创新药 + 国际化</div>
+      <div class="label">连续 8 年 TOP50</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">研发储备深</div>
+      <div class="name">管线深度</div>
+      <div class="value">国际级</div>
+      <div class="change">13 笔海外 BD 管线</div>
+      <div class="label">420 亿美元潜力</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">宽阔</div>
+      <div class="name">综合评级</div>
+      <div class="value" style="font-size:16px;">宽阔护城河</div>
+      <div class="change">复利型平台</div>
+      <div class="label">A 股核心资产</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>护城河结论：宽阔护城河 + 复利型平台 —— 研发 + 商业化 + 国际化三重壁垒</h3>
+      <p>
+        恒瑞医药在 <b style="color:#34d399">研发能力、商业化平台、国际化布局</b>三个维度具备最强护城河（创新药龙头 + 全国第一销售网络 + 420 亿美元海外 BD），在 <b style="color:#fbbf24">产品管线广度</b>维度具备次强护城河（非肿瘤创新药 +73.97% 爆发 + 舒地胰岛素发货 = 第二增长曲线）。ROE 常态约 14-16%、净利率约 24%、毛利率约 85%，<b style="color:#34d399">达到巴菲特"优秀 &gt;15%"标准</b>。<br>
+        公司属于"<b style="color:#c084fc">宽阔护城河 + 复利机器</b>"标的，是中国医药行业最具代表性的 A 股核心资产之一。<br>
+        <b style="color:#fca5a5">护城河侵蚀风险：</b>(1) 百济神州、信达生物、康方生物等创新药企在生物药/双抗/ADC 领域追赶；(2) 跨国药企（MNC）在中国市场降价（PD-1 单抗"内卷"）；(3) DRG/DIP 持续推进压缩单品种空间；(4) "被创新药开除了吗"舆论反映的<b style="color:#fca5a5">市场对 α 属性的质疑</b>——估值与同业相比"龙头溢价"是否合理？
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div>
+      <div>2024 / 2025 / 2026H1</div>
+      <div>格雷厄姆 + 凯恩斯视角</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入（亿）</div>
+      <div class="fin-val warn">约 280 / 316.29 / 154.56</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/ +13.02% / -1.94%</b>，2026H1 受仿制药 -16.1% + Q2 肿瘤药承压拖累</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（亿）</div>
+      <div class="fin-val warn">约 63 / 77.11 / 44.65</div>
+      <div class="fin-comment">YoY <b style="color:#34d399">/ +21.69% / +0.34%</b>，2026H1 净利润增速大幅放缓，Kailera 公允价值变动 8.21 亿 + GSK/Braveheart 许可 14.22 亿 合计<b style="color:#34d399">贡献占比近 50%</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">扣非归母净利（亿）</div>
+      <div class="fin-val down">约 60 / 74.10 / <b style="color:#f87171">37.30</b></div>
+      <div class="fin-comment"><b style="color:#f87171">2026H1 扣非 -12.71%（首次下滑）</b>，剔除 Kailera/许可收入后核心盈利 <b style="color:#fca5a5">显著恶化</b>，与净利润增速差距扩大警示</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流（亿）</div>
+      <div class="fin-val down">数据不足 / 数据不足 / 19.87</div>
+      <div class="fin-comment">2026H1 <b style="color:#f87171">-53.8%</b>，去年高基数（海外授权款到账），今年无可比现金流入，<b style="color:#fca5a5">现金转换效率需持续跟踪</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">自由现金流（亿）</div>
+      <div class="fin-val mid">未独立核验</div>
+      <div class="fin-comment">数据不足，但账面现金 380 亿反映长期经营现金创造能力强</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val ok">极低（搜狐披露总负债 57.83 亿）</div>
+      <div class="fin-comment"><b style="color:#34d399">财务结构非常健康</b>，无有息负债压力</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">账面现金及等价物（亿）</div>
+      <div class="fin-val ok">数据不足 / 数据不足 / 380.32</div>
+      <div class="fin-comment"><b style="color:#34d399">充足</b>，占总市值 12.4%，是估值"安全垫"+BD 弹药库 + 8/19 公告 10-20 亿回购底气</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款</div>
+      <div class="fin-val ok">数据不足</div>
+      <div class="fin-comment">医药商业应收账款周转健康（医院回款较快），无显著风险敞口</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">商誉 / 总资产</div>
+      <div class="fin-val ok">极低</div>
+      <div class="fin-comment"><b style="color:#34d399">极低</b>，主要靠内生研发与少量战略并购，无减值风险</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">研发投入占比</div>
+      <div class="fin-val ok">约 22-25%（H1 29.8%）</div>
+      <div class="fin-comment">研发强度位居行业前列，<b style="color:#34d399">是护城河的核心来源</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">对外许可（BD）收入</div>
+      <div class="fin-val ok">33.92 / 14.22（H1）</div>
+      <div class="fin-comment">GSK + Braveheart 里程碑；Kailera 股权<b style="color:#34d399">公允价值变动 8.21 亿</b>（一次性收益）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">近 3 年累计分红</div>
+      <div class="fin-val ok">38.22 亿</div>
+      <div class="fin-comment"><b style="color:#34d399">累计分红率 20.8%</b>，在创新药企中表现优</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">员工持股计划</div>
+      <div class="fin-val ok">2026-08-19 草案</div>
+      <div class="fin-comment">1269 人 5 折购股、三期解锁条件 2026-2028 累计创新药收入 732 亿（年均 244 亿，<b style="color:#fbbf24">较 2025 创新药 163.42 亿年均增速隐含约 14%</b>）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">回购计划</div>
+      <div class="fin-val ok">8/19 公告 + 8/27 报告书</div>
+      <div class="fin-comment"><b style="color:#34d399">10-20 亿 A 股回购</b>（上限价 81.78 元/股，期限 12 月）；现价 46.07 元远低于上限价，<b style="color:#34d399">执行空间极大</b></div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">💰</div>
+    <div class="text">
+      <h3>财务质量判断：账面极其健康 vs 扣非首次下滑警示 —— 账面安全垫厚实，但"账面利润含金量下降"</h3>
+      <p>
+        公司账面现金及等价物 <b style="color:#34d399">380.32 亿元</b>、资产负债率 <b style="color:#34d399">极低（总负债仅 57.83 亿）</b>、商誉占比 <b style="color:#34d399">极低</b>、大股东质押率 <b style="color:#34d399">0.9%</b>、研发投入占比 29.8% 维持高强度，<b style="color:#34d399">整体资产负债结构极其健康</b>。<br>
+        <b style="color:#fca5a5">关键警示</b>：2026H1 扣非净利润 <b style="color:#f87171">-12.71%（首次下滑）</b> = 核心盈利能力在退步；归母净利润 +0.34% 表面持平主要靠 <b style="color:#fbbf24">Kailera 股权公允价值变动 8.21 亿 + 许可收入 14.22 亿 = 22.43 亿非经常性收益</b>支撑，<b style="color:#fca5a5">两者合计占归母净利的 50%</b>。经营现金流 -53.8% 进一步印证"账面利润含金量下降"。<br>
+        <b style="color:#7dd3fc">后续验证重点：</b>2026 Q3/Q4 业绩披露后，<b style="color:#fbbf24">扣非是否止跌回升、经营现金流是否恢复常态、新一轮 BD 一次性收益能否延续</b>是<b style="color:#fbbf24">财务质量验证的核心</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+  <div class="table-card">
+    <div class="table-title">🧭 管理层与治理关键事项</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>实控人 / 灵魂人物</b></td><td>孙飘扬，医药行业资深企业家，2021 年复出重掌研发战略，引领创新药与国际化转型</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>管理层稳定性</b></td><td>核心高管团队稳定，研发-商业化-国际化三大体系完整，职业经理人结构成熟</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权激励历史</b></td><td>2023 年员工持股计划 5 折购股已落地；2026-08-19 公布新一期员工持股计划（1269 人，三期解锁条件 2026-2028 累计创新药收入 732 亿）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股东回报</b></td><td>近 3 年累计分红 38.22 亿（20.8% 分红率）；8/19 公告 10-20 亿 A股回购（上限价 81.78 元）+ 8/27 报告书进入实施；股东回报工具齐全</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>股权质押</b></td><td>大股东质押率 <b style="color:#34d399">0.9%</b>（极低），无强制平仓或控制权风险</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>违规记录</b></td><td>近 3 年无重大违规处罚记录</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>研发投入</b></td><td>2026H1 研发投入 46.05 亿（+18.96%, 占营收 29.8%），费用化 34.93 亿（+8.21%），远高于行业平均；2026Q1 IND 批件 26 个、CDE 突破性品种 6 项</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>国际化战略</b></td><td>2025-05-23 港股上市（1276.HK），A+H 双平台；累计 13 笔海外 BD（潜在 420 亿美元）；Kailera/Braveheart 双 NewCo 上市</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>历史业绩承诺</b></td><td>2025 营收 +13.0%、归母 +21.7% 兑现股权激励考核；2026 员工持股考核条件 2026-2028 累计创新药收入 732 亿（年均 244 亿 vs 2025 创新药 163.42 亿，隐含约 14% 年均增速，考核难度适中）</td><td class="ok">⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">治理结论：值得信任，但需关注"卖方乐观、买方撤退"结构。</b>全部维度均处于行业最优区间：孙飘扬长期专注主业、研发-商业化-国际化三体系成熟、连续股权激励绑定团队、A+H 双平台资本布局、无违规处罚、无减持无质押压力。<b style="color:#fca5a5">但需注意</b>：(1) 股东户数 53.92 万户（QoQ +17.64%，<b style="color:#fca5a5">散户化</b>）；(2) 证金公司退出前十大流通股东；(3) Q2 已披露持股减少机构超 90 家；(4) 主动偏股基金持股比例 4.03%（QoQ -0.25%）；(5) 舆论"被创新药开除了吗"质疑 α 属性 = <b style="color:#fca5a5">典型的"卖方乐观、买方撤退"结构</b>，修复需要基本面验证（Q3/Q4 业绩、H2 BD 兑现）而非评级推动。
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+  <div class="grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+    <div class="table-card">
+      <div class="table-title">📈 行业周期定位：创新药上行周期右侧 + BD 出海爆发期</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        中国创新药行业当前位于 <b style="color:#fbbf24">"上行周期右侧 + BD 出海爆发期"</b>。2025 全年 BD 出海授权交易额 <b style="color:#34d399">1356.55 亿美元（创历史新高）</b>，2026Q1 已超 570 亿美元（接近 2025 一半）；商业化层面，2025H1 国内创新药获批 43 款（同比 +59%），行业进入"<b style="color:#34d399">创新驱动 + 国际化兑现</b>"双轮驱动期。<br><br>
+        <b style="color:#7dd3fc">未来 3-5 年增长动力：</b>(1) 创新药商业化井喷（2025 行业创新药收入 TOP10 合计超 1000 亿）；(2) BD 出海成为常态化变现路径（License-out + NewCo + 海外授权）；(3) GLP-1、双抗、ADC、罕见病等新赛道布局；(4) 国产替代与全球同步开发；(5) 商保目录加速铺开与医保谈判常态化（199 种创新药累计纳入医保）。<br><br>
+        <b style="color:#fca5a5">周期下行风险：</b>第十一批集采覆盖恒瑞仿制药；DRG/DIP 推进压缩单品种利润；跨国药企在中国市场降价；2026H1 Q2 肿瘤药销售承压反映行业进入"淘汰赛"深水区。
+      </p>
+    </div>
+    <div class="table-card">
+      <div class="table-title">🏛️ 政策环境与产业链位置</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        <b style="color:#fbbf24">政策环境"中性偏多"：</b>2026 年医保局延续"控费+创新"双轨政策，第十一批集采通过 1 亿元以下规模产品不集采、设置"锚点价"防止极端低价冲击、引入复活机制等优化；北京等地发布"创新医药高质量发展若干措施（2026 年）"；<b style="color:#34d399">创新药政策从"控费优先"加速转向"创新驱动"</b>，医保谈判 8 年累计 199 种创新药纳入报销，商保目录加速铺开。2026 政府工作报告将生物医药从"新兴产业"提升为"<b style="color:#34d399">新兴支柱产业</b>"（仅次于集成电路与航空航天）。<br><br>
+        <b style="color:#c084fc">产业链位置：</b>创新药位于医药产业链中游（上游为 CRO/CDMO + 原料药，下游为医院/药店/电商/海外药企）。恒瑞在产业链中具备<b style="color:#34d399">研发-生产-商业化-国际化全链条能力</b>，A+H 双平台资本支撑 BD 弹药库。<br><br>
+        <b style="color:#34d399">行业判断：趋势向上（创新驱动 + 国际化兑现 + 周期右侧）。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 截至 2026-08-28 技术结构（8/29-8/30 周末休市）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>52 周高/低</td><td class="ok">45.26 / 74.04</td><td class="mid">8/31 最低 45.88 逼 52周低点；当前 46.07 已接近年内底部</td></tr>
+        <tr><td>近 1 月/近 1 年涨跌幅</td><td class="danger">-15.70% / -24.92%</td><td class="mid">短期快速回调 + 近 1 年大幅跑输大盘</td></tr>
+        <tr><td>MA5 / MA10 / MA20</td><td class="warn">46.98 / 49.01 / 51.33</td><td class="mid">8/31 收盘 46.07 略低于 MA5 = 短期空头排列</td></tr>
+        <tr><td>MA60 / MA120 / MA250</td><td class="danger">51.86 / 52.98 / 58.18</td><td class="mid">全部均线仍下压，反转需站稳 MA20（51.33）</td></tr>
+        <tr><td>MACD</td><td class="warn">DIF -1.76 / DEA -1.14 / 柱 -1.23</td><td class="mid">绿柱连续 3 日收窄，动能衰减放缓</td></tr>
+        <tr><td>RSI6 / RSI12</td><td class="warn">28.69 / 32.30</td><td class="mid">8/25 低点 RSI6 = 12.78（深度超卖）后修复</td></tr>
+        <tr><td>KDJ</td><td class="warn">K 13.26 / D 13.51 / J +12.77</td><td class="mid">J 值转正回升，金叉在即</td></tr>
+        <tr><td>BOLL</td><td class="warn">上轨 57.30 / 中轨 51.33 / 下轨 45.36</td><td class="mid">8/25 盘中破下轨后收回，现运行于下轨与中轨之间</td></tr>
+        <tr><td>近期成交量</td><td class="warn">8/28 缩量 25.23 亿（周内最低）</td><td class="mid">反抽无量，上攻动能不足</td></tr>
+        <tr><td>8/28 主力资金净流入</td><td class="danger">-3.73 亿（流出）</td><td class="mid">中户派发 + 散户接盘结构延续第二周</td></tr>
+        <tr><td>北向沪深股通持股</td><td class="mid">3.64 亿股（5.69%）</td><td class="mid">全周零变动，GIC 主动增持 384.38 万股（长线定价资金）</td></tr>
+        <tr><td>融资融券</td><td class="warn">融资余额 59.36 亿（占流通市值 1.97%，超 90% 分位）；融券余额 3325 万（超 60% 分位）</td><td class="mid">杠杆高位 + 空头加码</td></tr>
+        <tr><td>大股东质押率</td><td class="ok">0.9%（极低）</td><td>无>无强制平仓或控制权风险</td></tr>
+        <tr><td>关键支撑位</td><td class="ok">45.26 元（52周低点） / 45.36 元（BOLL下轨）</td><td>强>强支撑，破位下看 40 元</td></tr>
+        <tr><td>关键压力位</td><td class="warn">48 元（整数关 + 网格下限） / 51 元（MA20） / 52 元（MA60）</td><td>压>突破 48 看 51-52，站稳 52 才确认反转</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术面与资金流判断：底部区域 + 弱反抽 —— 52 周下沿附近，多空博弈白热化</h3>
+      <p>
+        <b style="color:#fbbf24">关键支撑位</b>45.26-45.88 元区间（52周低点附近 + 大盘医药板块密集成交区），<b style="color:#fbbf24">关键压力位</b>48 元（整数关 + 网格下限）/ 51 元（MA20）/ 52 元（MA60）。若 H2 创新药加速兑现 + 海外 BD 重大进展 + 扣非止跌，向上突破 48 元则打开 51-55 元空间；若 Q3 业绩再度承压或 BD 不及预期，可能下探 40-42 元。<br><br>
+        <b style="color:#7dd3fc">资金面：</b>8/28 主力资金净流出 <b style="color:#fca5a5">3.73 亿元</b>，超大单净流出 3.59 亿，散户净流入 3.73 亿 —— <b style="color:#fca5a5">"中户派发 + 散户接盘"结构第二周延续</b>，反弹缺乏机构增量资金；融资余额 59.36 亿（占流通市值 1.97%）超近一年 90% 分位水平（杠杆高位），8/27-28 连续去杠杆 -1.97 亿（追涨盘被套后止损）；融券余额 3325 万超 60% 分位（空头加码）。北向沪深股通持股 3.64 亿股（5.69%）全周零变动；<b style="color:#34d399">GIC 主动增持 384.38 万股（长线定价资金，越跌越买）</b>。<br><br>
+        <b style="color:#fca5a5">综合判断：</b>当前处于"<b style="color:#fbbf24">52 周下沿 + RSI 超卖修复 + KDJ 金叉在即</b>"的状态，但 <b style="color:#fca5a5">MACD 绿柱仅收窄而非翻红 + 反抽无量 + 散户化加剧 + "被创新药开除了吗"舆论</b> 四重压制下，技术面弱势震荡。需以<b style="color:#fbbf24">Q3 业绩扣非止跌</b>+<b style="color:#fbbf24">海外 BD 兑现</b>+<b style="color:#fbbf24">回购实施进度</b>三确认作为后续催化剂。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论打分 · Top 3 匹配</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num warn">4</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">8</div>
+      <div class="score-name">费雪成长</div>
+      <div class="score-bar"><div class="score-fill good" style="width:80%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5</div>
+      <div class="score-name">林奇 PEG</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">PEG 投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3</div>
+      <div class="score-name">邓普顿逆向</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4</div>
+      <div class="score-name">博格指数</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">6</div>
+      <div class="score-name">马克斯周期</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "15 问 · 寻找复利机器"</div>
+      <div class="method-score good">8 / 10</div>
+      <div class="method-desc">恒瑞具备典型费雪成长股特征：H1 研发投入 29.8% 占比（远高于行业）、创新药收入 +16.38%、非肿瘤创新药 +73.97% 突破、自主研发全球首款 PD-L1/TGF-β 双抗、海外 BD 累计 420 亿美元管线、A+H 双平台资本支撑。管理层可信、研发持续高强度投入、海外扩张明确，是 5-10 年长期复利型标的。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥇 巴菲特护城河</div>
+      <div class="method-author">沃伦·巴菲特 · "经济护城河"</div>
+      <div class="method-score good">8 / 10</div>
+      <div class="method-desc">恒瑞在研发能力、商业化平台、国际化布局三个维度具备最强护城河；ROE 常态 14-16% 达到"优秀 &gt;15%"标准；净利率约 24%、毛利率约 85%，是医药行业最佳盈利能力的代表。属于"宽阔护城河 + 复利机器"型 A 股核心资产。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">🥉 马克斯周期投资（次优）</div>
+      <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+      <div class="method-score mid">6 / 10</div>
+      <div class="method-desc">中国创新药行业位于"上行周期右侧 + BD 出海爆发期"，2025 BD 出海 1356.55 亿美元创历史新高；2026H1 Q2 肿瘤药承压可能是周期内的小回调，不改长期上行趋势；恒瑞处于"创新药 + 仿制药 + 国际化 + 第二增长曲线（舒地胰岛素）"四轮驱动。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">4. 达里奥全天候配置</div>
+      <div class="method-author">雷·达里奥 · "全天候策略"</div>
+      <div class="method-score mid">6 / 10</div>
+      <div class="method-desc">恒瑞在组合中作为"高质量成长"敞口，与经济增长相关性中性，与利率相关性弱，是组合中可作为医药行业核心配置的标的；但单股仓位不宜过高（≤ 5-8%）；A+H 双平台提供汇率对冲。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">5. 林奇 PEG 投资</div>
+      <div class="method-author">彼得·林奇 · "PEG & 增速匹配"</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">PE 39.58x 对应 19-20% 增速（48 家机构预测中位），PEG 约 1.6-1.9 略偏贵；但创新药行业 PEG 不完全适用（高研发投入压低短期净利率），中长期看管线兑现度是更重要的评估维度；2026H1 扣非 -12.71% 使 PEG 锚定更困难。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">6. 西蒙斯量化 / 凯恩斯 / 索罗斯</div>
+      <div class="method-author">综合趋势与反身性视角</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">西蒙斯：动量因子走弱但反转因子存在，趋势信号偏空（5 分）；凯恩斯：52 周下沿博弈、底部催化剂临近（5 分）；索罗斯：估值与基本面预期反馈环敏感，Q3 数据关键（5 分）。"卖方乐观、买方撤退"结构需基本面验证。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">7. 格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score warn">4 / 10</div>
+      <div class="method-desc">PE-TTM 39.58x、PB 4.74x 均高于行业均值，估值不便宜；但 380 亿账面现金 + 极低资产负债率 + 29.8% 高研发投入 + 10-20 亿回购支撑 = "账面安全但盈利锚定偏弱"，属"合理偏低、非深度折价"。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">8. 博格指数投资</div>
+      <div class="method-author">约翰·博格 · "指数化投资"</div>
+      <div class="method-score warn">4 / 10</div>
+      <div class="method-desc">非宽基指数红利逻辑标的，但累计分红 20.8%（38.22 亿）高于创新药均值；A 股创新药主题 ETF 核心持仓，间接通过 ETF 暴露更稳健；不适合作为纯指数化标的。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">9. 邓普顿逆向投资</div>
+      <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+      <div class="method-score bad">3 / 10</div>
+      <div class="method-desc">恒瑞不属于"在最悲观点买入"标的：估值不便宜、净利润为正、创新药收入占比 63% 已高、市场关注度极高。但 52 周下沿 + 员工持股 5 折购股 + 回购 10-20 亿 + GIC 主动增持 = "次级逆向加仓机会"。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>费雪 / 巴菲特看重护城河与复利能力 → 高度认可（8 分）；格雷厄姆 / 邓普顿看重估值与悲观点 → 严重不适用（3-4 分）—— "好公司但估值需纪律性"</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突点：</strong>林奇 PEG（5 分）vs 费雪成长（8 分）→ PEG 偏贵但行业属性使 PEG 不完全适用，<b style="color:#fca5a5">采纳费雪"长期复利 + 管线兑现"框架</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>冲突点：</strong>马克斯周期（6 分）vs 格雷厄姆深度价值（4 分）→ 周期右侧 vs 估值偏贵，倾向于"周期上行 + 高质量标的"逻辑，<b style="color:#fca5a5">避免纯估值博弈</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>冲突点（新增）：</strong>"卖方乐观（综合目标价 72.75 元、上行 53.74%）" vs "买方撤退（散户化 +17.64%、机构减仓 90+ 家）" → <b style="color:#fca5a5">修复需要 Q3 业绩兑现 + 扣非转正 + H2 BD 兑现三验证</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">费雪成长 + 巴菲特护城河</strong> 的"中国创新药龙头 + 国际化长期复利"为主线，叠加 <strong style="color:#fbbf24">马克斯周期"上行右侧"</strong>，用 <strong style="color:#fbbf24">格雷厄姆价格纪律</strong> 作为仓位与买点约束（PE 35-40x 上限 + 52 周下沿不追价 + 扣非止跌前分批），避免按亏损股博弈逻辑满仓，避免按"最悲观点"逻辑等待深度回调</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><strong>综合得分：5.5 / 10</strong>，对应评级：<strong style="color:#fbbf24">谨慎买入</strong>（较上期 5.7 微降 0.2 分，反映 2026H1 扣非 -12.71% + 经营现金流 -53.8% + "卖方乐观买方撤退" 结构；创新药龙头 + 国际化主线 + 52 周下沿分批限仓）</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和 BD 兑现做决策</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 仓位与分批建仓</div>
+      <div class="strategy-content">
+        <table class="compare-table" style="margin-bottom:10px;">
+          <thead>
+            <tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:#fbbf24">第一批</b></td><td><b style="color:#7dd3fc">45-48 元</b>区间（当前 46.07 附近，52 周下沿 + 回购报告书落地 + GIC 主动增持）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第二批</b></td><td><b style="color:#7dd3fc">42-45 元</b>区间（仅在 Q3 业绩扣非止跌 + H2 海外 BD 重大进展）</td><td class="warn">2%</td></tr>
+            <tr><td><b style="color:#fbbf24">第三批</b></td><td><b style="color:#7dd3fc">38-42 元</b>区间（仅在 2026 全年净利站上 90 亿 + 经营现金流恢复）</td><td class="warn">1%</td></tr>
+            <tr><td><b style="color:#fbbf24">上限</b></td><td>单股 ≤ 8%，组合中创新药单一标的合计 ≤ 10%</td><td class="ok">建议 ≤ 5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位（先减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        <strong>硬止损：</strong>收盘有效跌破 <strong class="hl-danger">40 元（约 -13%）</strong>，或 2026 三季报营收同比继续负增长且扣非仍下滑，<strong class="hl-danger">先减仓至 ≤ 2% 而非等待目标价</strong>。<br><br>
+        <strong>软止损：</strong>(1) 单季度扣非净利润同比转负（核心盈利能力恶化）；(2) 海外 BD 连续两个季度无新增重大交易；(3) 实控人或核心高管出现大额减持或新增大额股权质押；(4) 创新药占比连续两个季度回落至 60% 以下。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead>
+            <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">38-42 元</td><td class="warn">48-54 元</td><td class="ok">57-65 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">50-58 元</td><td class="ok">62-72 元</td><td class="ok">78-90 元</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2026E 净利 90 亿 × PE 35-40x；乐观假设：2026E 100 亿 × PE 38-42x（含 BD 一次性收益贡献）；保守假设：2026E 78 亿 × PE 32-36x（Q3/Q4 持续承压）。卖方综合目标价 72.75 元（48 家预测）位于乐观区间上沿，作为 12-24 个月参考。</p>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong class="hl-info">中长线（6-24 个月）</strong>，等待 2026 三季报、年报兑现 + 海外 BD 持续推进 + 扣非止跌回升；若 2026 全年净利突破 90 亿元（48 家预测中位）且 H1 创新药 88.09 亿增速持续，可考虑切换为 <strong class="hl-purple">长线（&gt;24 月）</strong>，作为 A 股医药核心配置长期持有。<br><br>
+        <strong>短线（&lt;3 月）</strong>不推荐——扣非 -12.71% 的逻辑需要 2-3 个季度验证，频繁交易易错失兑现窗口；当前散户化加剧（+17.64%）进一步放大短线交易风险。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">扣非归母净利润同比</strong>（核心盈利能力验证，<b style="color:#fbbf24">2026H1 -12.71% 是否在 Q3 企稳回升是评级修正关键</b>）<br>
+        2. <strong class="hl-warn">海外 BD 新增交易 + NewCo 上市进展</strong>（国际化兑现度，累计 420 亿美元管线能否落地）<br>
+        3. <strong class="hl-info">研发投入占比 + IND/CDE 突破性品种数量 + 经营现金流恢复</strong>（护城河持续性 + 现金转换质量）
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 2%）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">2026Q3 扣非净利润同比继续下滑 ≥ 10%</strong>（核心盈利能力恶化预期形成）<br>
+        2. <strong class="hl-danger">海外 BD 连续两个季度无新增重大交易</strong>（国际化兑现度下降 + 卖方乐观预期破灭）<br>
+        3. <strong class="hl-danger">实控人或核心高管</strong>出现大额减持或新增大额股权质押（治理折价）；回购计划中断执行
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 2026H1 扣非首次下滑 -12.71%（核心警示）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3 扣非净利润同比继续下滑 ≥ 10%，未能在 H2 止跌回升<br>
+        <strong>影响幅度：</strong>全年扣非可能下修至 70 亿以下；评级可能从谨慎买入下调至持有观察；目标价跌至保守区间（38-42 元，-17% ~ -9%）<br>
+        <strong>应对策略：</strong>每季度跟踪扣非同比、剔除 Kailera 公允价值变动 + 许可收入后的核心盈利；Q3 公告后立即重新评估加仓节奏
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 经营现金流 -53.8% + 资本运作依赖加深</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026Q3/Q4 经营现金流继续负增长；Kailera/Braveheart 等 NewCo 股权公允价值变动收益未能延续<br>
+        <strong>影响幅度：</strong>"账面利润含金量"持续恶化；卖方综合目标价 72.75 元依赖 2026E 净利 92.17 亿预期，若一次性收益大幅缩水，预期可能下修 10-20%<br>
+        <strong>应对策略：</strong>重点跟踪经营现金流绝对值与同比；区分"经常项目盈利"与"一次性资本收益"，避免被表面利润增速误导
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 3. "卖方乐观、买方撤退"结构 + 散户化加剧</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>股东户数持续走高（Q1 +25.7% → Q2 +17.64%）、证金退出前十、机构减仓 90+ 家、"被创新药开除了吗"舆论扩散<br>
+        <strong>影响幅度：</b>估值中枢下移至 PE 30-35x；股价可能跌破 40 元；卖方目标价 72.75 元成为"永远到不了的目标"<br>
+        <strong>应对策略：</b>关注股东户数、机构持仓、舆论指标（雪球/微博讨论度）；散户化加剧时降低仓位而非"接刀"
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 4. 集采 + DRG/DIP 政策压制 + 肿瘤药"内卷"</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>第十一批集采覆盖恒瑞核心仿制药/创新药、医保直接结算扩大、单品种价格大幅下调；跨国药企 PD-1 单抗大幅降价分流<br>
+        <strong>影响幅度：</strong>核心仿制药或创新药降价 30-50%，归母净利大幅压缩；2026H1 抗肿瘤创新药仅 +2.58% 已显示这一压力<br>
+        <strong>应对策略：</strong>跟踪国家医保局季度政策、地方医保结算落地节奏；评估非肿瘤创新药（+73.97%）能否对冲肿瘤药承压
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 5. 海外 BD 兑现节奏与汇率风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>已签海外 BD 协议（420 亿美元管线）里程碑兑现不及预期、海外药企战略调整、人民币汇率大幅波动<br>
+        <strong>影响幅度：</strong>2026E 一次性 BD 收入大幅低于预期（花旗已下调 2026/27/28 营收预测 -7%/-5%/-6%）；归母净利下修 10-20%<br>
+        <strong>应对策略：</strong>跟踪 BMS/GSK/Kailera/Braveheart 等合作方的研发进展披露；评估汇率波动对 BD 收入确认的影响；卖方目标价 72.75 元假设的兑现度
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 来源与复核记录</div>
+
+  <div class="data-note">
+    <strong>📌 主要数据来源（截至 2026-08-31）：</strong><br>
+    ✅ 公司公告：<span class="ok">2025 年年度报告</span>（2026-03-25 披露）、<span class="ok">2026 Q1 报告</span>（2026-04-23）、<span class="ok">2026 H1 半年度报告</span>（2026-08-19）、<span class="ok">2026 年 A 股员工持股计划草案</span>（2026-08-19）、<span class="ok">2026 年 H 股股份计划公告</span>（2026-08-21）、<span class="ok">2026 年 A 股回购报告书</span>（2026-08-27）、<span class="ok">HRG2010 胶囊 NDA 受理公告</span>（2026-08-25）<br>
+    ✅ 股价/市值快照：<span class="info">搜狐证券</span>（46.07 元、52 周 45.26-74.04）、<span class="info">新浪财经</span>（46.02-47.74、PE-TTM 39.53、PB 4.74、流通 2935.62 亿）、<span class="info">雪球</span>（PE-TTM 39.90、2026-08-31）、<span class="info">富途牛牛</span>（46.44、PE-TTM 39.97）、<span class="info">Yahoo Finance</span>（47.32、PE-TTM 40.79、近 1 年 -24.92%）、<span class="info">腾讯自选股</span>（区间跌 15.70%、振幅 18.30%）；多源核对<br>
+    ✅ 业绩分析：<span class="info">新华网 2026-08-20 半年报解读</span>（创新药 88.09 亿、+16.38%、占 63.16%）、<span class="info">中证网 2026-08-20</span>（研发 46.05 亿、占 29.8%）、<span class="info">北京新闻 2026-08-19</span>（NewCo 模式兑现）、<span class="info">中国经济网 2026-08-20</span>（"体检报告"扣非 -12.71% 警示）、<span class="info">新华网江苏 2026-08-20</span>（结构转型确认）<br>
+    ✅ 行业政策：<span class="info">第十一批国家集采公告</span>（国家医保局）、<span class="info">2026 年纠正医药购销领域和医疗服务中不正之风工作通知</span>（国家卫健委）、<span class="info">北京创新医药高质量发展若干措施（2026 年）</span>（北京医保局）<br>
+    ✅ 卖方研究：<span class="info">中金 2026-08-03 月报组合</span>（目标价 73.40 元、PE 2026E 38.4x）、<span class="info">花旗（Citi）8 月研报</span>（下调 2026/27/28 营收 -7%/-5%/-6%，维持买入，A 目标价 109 元/H 目标价 119 港元）、<span class="info">野村 8-20</span>（A 67.98 元/H 82.18 港元，维持买入）、<span class="info">摩根士丹利 8-25</span>（A 71 元/H 92 港元）、<span class="info">瑞银</span>（中性、目标价 54 元）、<span class="info">浦银国际 8-24</span>（持有、A 50 元）、<span class="info">华泰 8-21</span>（买入、≤89.16 元）、<span class="info">中信 3-31</span>（买入、≤84 元、2026 净利 96.12 亿）、<span class="info">综合目标价 72.75 元</span>（48 家机构聚合，上行 53.74%）<br>
+    ✅ 海外 BD：<span class="info">默沙东 Lp(a) 抑制剂 HRS-5346 20 亿美元</span>、<span class="info">GSK 125 亿美元组合授权</span>、<span class="info">HRS-1893 心肌肌球蛋白抑制剂海外授权</span>、<span class="info">BMS 152 亿美元战略合作</span>、<span class="info">Kailera Therapeutics (KLRA) 2026-04 纳斯达克上市</span>、<span class="info">Braveheart Bio (BRVE) 2026-08-06 纳斯达克上市</span>（中国金融网/同写意/经济观察网）<br>
+    ✅ 同业数据：<span class="warn">百济神州 2025 营收 382.05 亿（+40.4%）/ 归母 14.22 亿（扭亏）/ PE ~50x</span>；信达生物 2025 首次全年盈利 / 130.42 亿（+38.4%）；翰森制药 2025 150.28 亿（+22.6%）/ 归母 55.55 亿（+27.1%）；中国生物制药 2025 318.30 亿（+10.3%）/ 归母 23.43 亿（-33.0%）<br>
+    ✅ 资金流向（<span class="info">8/28 主力 -3.73 亿、融资余额 59.36 亿（90% 分位）、融券余额 3325 万（60% 分位）、GIC 主动增持 384.38 万股、北向 3.64 亿股零变动</span>）<br>
+    ⚠️ 数据局限：MA60/120/250 已获取（46.98/49.01/51.33/51.86/52.98/58.18）；北向资金近 30 日净流入流出、机构完整持仓变动未独立全口径核验；2026 三季报、年报 <span class="danger">尚未披露</span><br>
+    📊 <strong style="color:#fbbf24">所有价格、市值、估值、机构持仓快照均存在口径与时点差异；本页不构成买卖承诺。预测区间的差异足以令 12 个月目标价产生 ±27% 的波动，请以风险揭示为先。</strong>
+  </div>
+
+  <div class="footer">
+    恒瑞医药（600276）｜报告截止日 2026-08-31（周一收盘）｜11 种方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（巨潮资讯/新浪财经/东方财富/搜狐证券/雪球/investing.com/医药魔方/新华网/中证网/北京新闻/中国经济网）+ 公开行业政策文件 + 中金/花旗/野村/摩根士丹利/瑞银/华泰/中信 等券商研报
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-20 A股复盘 · 北证50暴涨3.88% 人形机器人接棒新主线</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg-base: #0f1419; --bg-mid: #1a2332; --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6); --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2); --border-mid: rgba(148, 163, 184, 0.3);
+    --text-primary: #f1f5f9; --text-body: #e8eef5; --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8; --text-faint: #64748b;
+    --up: #10b981; --up-light: #34d399; --up-pale: #6ee7b7;
+    --danger: #ef4444; --danger-light: #f87171; --danger-pale: #fca5a5;
+    --warn: #f59e0b; --warn-light: #fbbf24;
+    --info: #0ea5e9; --info-light: #38bdf8;
+    --purple: #a855f7; --purple-light: #c084fc;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body); min-height: 100vh; padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 1500px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(56,189,248,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.40);
+    border-radius: 20px; padding: 36px; margin-bottom: 24px;
+    position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(16,185,129,0.22), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 26px; font-weight: 700;
+    background: linear-gradient(90deg, #34d399, #38bdf8, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .header .subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+  .section-title {
+    font-size: 22px; margin: 32px 0 16px; padding-left: 14px;
+    border-left: 4px solid #34d399; color: var(--text-primary); font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .data-note {
+    background: var(--card-deep); border: 1px dashed var(--border-mid);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 13px; color: var(--text-muted); line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+  .theme-banner {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(16,185,129,0.10); border-left: 5px solid #10b981;
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 16px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #34d399; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(52,211,153,0.20); color: #34d399; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion.warn .conclusion-item .num { background: rgba(245,158,11,0.20); color: #fbbf24; }
+  .conclusion.danger .conclusion-item .num { background: rgba(239,68,68,0.20); color: #f87171; }
+  .conclusion.info .conclusion-item .num { background: rgba(56,189,248,0.20); color: #38bdf8; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+    <h1>🚀 2026-10-20 A股复盘 · 北证50暴涨3.88% · 人形机器人接棒新主线</h1>
+    <div class="subtitle">沪指 +0.12% 报 3735.37 · 三市成交 14716 亿（放量 227 亿）· 上涨 3665 家 · 涨停 54 家 · 北交所新政催化</div>
+    <div class="badges">
+      <span class="badge badge-up">🟢 指数分化 · 北证50/科创50 强势</span>
+      <span class="badge badge-source">📅 2026-10-20（周二）收盘</span>
+      <span class="badge badge-source">📊 同花顺 + 东方财富 + 新浪 + 证券时报</span>
+      <span class="badge badge-danger">🔴 防御三杀 · 保险/券商/银行齐跌</span>
+      <span class="badge badge-purple">🧠 北交所改革 + 特斯拉Optimus 双催化</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据口径与双源验证：</strong><br>
+    ✅ <span class="ok">五大指数收盘点位与涨跌幅</span> —— 东方财富行情接口（push2.eastmoney.com）与新浪财经行情接口（hq.sinajs.cn）<b>双源完全一致</b><br>
+    ✅ <span class="ok">ETF 涨跌幅</span> —— 同花顺《ETF收评》与东方财富行情接口 <b>双源完全一致</b><br>
+    ✅ <span class="ok">三市成交额</span> —— 东方财富分市场接口加总 14716.43 亿 vs 同花顺 14715 亿（差 1.43 亿，<span class="info-text">四舍五入误差</span>）<br>
+    ⚠️ <span class="warn-text">涨停 54 家 / 跌停 6 家</span> —— 东方财富涨停板池与跌停板池口径（同花顺收评未明示具体家数）；东财涨跌分布分档接口显示「涨幅≥10%」共 108 家（含 20cm/30cm 北交所与创业板个股），<b>与涨停池 54 家口径不同，不可混用</b><br>
+    ⚠️ <span class="warn-text">上涨家数</span> —— 东方财富涨跌分布接口 3665 家 vs 同花顺收评「上涨超 3700 只」，两者均为全 A 口径但统计样本与剔除规则不同，<b>差值约 35~100 家，属口径差而非数据冲突</b><br>
+    🔴 <span class="danger-text">D-1（2026-10-19）复盘文档缺失</span> —— 输出目录内最新一期为 <code>20261016.html</code>，10-19 无复盘产物；模块 ④ 中 D-1 段以行情接口反推的指数点位补充并明确标注，<b>板块定性不做凭记忆补全</b><br>
+    🔴 <span class="danger-text">主力资金口径</span> —— 同花顺为「主题/概念」口径，东方财富为「概念板块」口径，<b>两套口径并列呈现，不做合并加总</b>
+  </div>
+
+  <div class="theme-banner ok">
+    <div class="icon">🤖</div>
+    <div class="text">
+      <h3>主线第三次切换：政策资金（北交所）+ 产业催化（特斯拉 Optimus）双轮驱动，科技成长取代政策防御成为新主线</h3>
+      <p>
+        今日 A 股呈现<b class="info-text">「指数分化 + 极致结构」</b>格局：沪指微红 +0.12%，深成指 -0.14%、创业板指 -0.26%，但<b class="ok-text">科创50 +1.00%、北证50 +3.88%</b> 涨幅远超主板，小微盘与科技成长显著占优。<br>
+        三条新驱动同时落地：① <b class="info-text">证监会明确将稳步推出北证50 ETF 与北交所新股市值配售</b>（证券时报），直接点燃北交所，北证50 单日暴涨 3.88%；② <b class="ok-text">特斯拉 Optimus 量产临近</b>，人形机器人概念主力净流入 <b class="ok-text">50.58 亿居首</b>，机器人概念 45.80 亿次之；③ <b class="purple-text">吴清金融街论坛主题演讲</b>定调「稳市、改革、严监管、扩开放」，长周期考核机制与中长期资金入市预期强化。<br>
+        与此同时，<b class="danger-text">防御板块出现三杀</b>：保险 -2.25%（主力 -6.27 亿）、证券 -1.07%（主力 <b class="danger-text">-21.31 亿</b>）、银行 -1.12%、白酒 -1.11%，白酒自 D-2 的「防御延续」主线正式退潮；<b class="warn-text">黄金股 ETF 双双跌近 3.8%</b>，避险资产同步失血。市场呈现<b class="ok-text">「弃防御、抱科技」</b>的资金再配置。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 一、五大核心指数表现</div>
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">领涨</div>
+      <div class="name">北证50 · 899050</div>
+      <div class="value">982.87</div>
+      <div class="change ok-text">+36.72 / +3.88%</div>
+      <div class="label">证监会宣布稳步推出北证50 ETF + 新股市值配售；华密新材涨超 16% 领涨</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">强于主板</div>
+      <div class="name">科创50 · 000688</div>
+      <div class="value">1342.42</div>
+      <div class="change ok-text">+13.23 / +1.00%</div>
+      <div class="label">科创 AI ETF 涨 5.14% 领涨全市场，AI 硬件主线回流</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">微红</div>
+      <div class="name">上证指数 · 000001</div>
+      <div class="value">3735.37</div>
+      <div class="change ok-text">+4.45 / +0.12%</div>
+      <div class="label">权重搭台、题材唱戏；沪强深弱格局延续</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">走弱</div>
+      <div class="name">深证成指 · 399001</div>
+      <div class="value">11801.29</div>
+      <div class="change danger-text">-16.13 / -0.14%</div>
+      <div class="label">券商 -21.31 亿主力净流出拖累，深市权重承压</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">走弱</div>
+      <div class="name">创业板指 · 399006</div>
+      <div class="value">2739.20</div>
+      <div class="change danger-text">-7.09 / -0.26%</div>
+      <div class="label">医药医疗链（诊断服务 +9.53%）与指数权重背离</div>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 二、市场交易与资金信号</div>
+  <div class="market-stats">
+    <div class="stat-card up">
+      <div class="stat-name">三市成交额</div>
+      <div class="stat-value">14,716 亿</div>
+      <div class="stat-detail">沪 6,999.70 亿 + 深 7,561.42 亿 + 北 155.31 亿（东财分市场接口加总）<br>同花顺口径 14,715 亿 · <b style="color:#34d399">较上日放量 227 亿</b>（D-2 为 14,489 亿）</div>
+    </div>
+    <div class="stat-card up">
+      <div class="stat-name">上涨 / 下跌家数</div>
+      <div class="stat-value">3,665 / 1,602</div>
+      <div class="stat-detail">平盘 106 家，合计 5,373 家（东财涨跌分布接口）<br>同花顺收评口径「上涨超 3700 只」<br><b style="color:#34d399">涨跌比 2.29 : 1</b>，赚钱效应明显</div>
+    </div>
+    <div class="stat-card danger">
+      <div class="stat-name">涨停 / 跌停</div>
+      <div class="stat-value">54 / 6</div>
+      <div class="stat-detail">东财涨停板池 54 家（最高 4 连板）<br>跌停 6 家：芯能科技、福建金森、思源电气、蔚蓝锂芯、读者传媒、闽东电力<br>炸板率与连板高度<b style="color:#fbbf24">待核实</b></div>
+    </div>
+    <div class="stat-card up">
+      <div class="stat-name">风格与 ETF 信号</div>
+      <div class="stat-value">科技 &gt; 防御</div>
+      <div class="stat-detail">涨：科创AIETF <b style="color:#34d399">+5.14%</b> / 科创人工智能ETF +4.87% / 机器人ETF +4.84%<br>跌：黄金股ETF <b style="color:#fca5a5">-3.82%</b> / 黄金股ETF -3.81% / 香港证券ETF -3.38%<br>风格由「防御」切向「成长」</div>
+    </div>
+  </div>
+
+  <div class="section-title">🔀 三、主力资金净流入板块 TOP3</div>
+  <div class="flow-table">
+    <div class="flow-row header">
+      <div>排名</div><div>板块名称</div><div>主力净流入</div><div>板块表现与说明</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">1</div>
+      <div>人工智能 <span class="info-text" style="font-size:11px">（同花顺概念口径）</span></div>
+      <div class="flow-val up">+50.58 亿</div>
+      <div>同花顺《A股收评》披露。AI 硬件链集体走强：AI 芯片 +3.93%、AI 眼镜 +3.57%、AIPC +3.51%、AI 手机 +3.48%</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">2</div>
+      <div>机器人概念 <span class="info-text" style="font-size:11px">（同花顺概念口径）</span></div>
+      <div class="flow-val up">+45.80 亿</div>
+      <div>特斯拉 Optimus 量产临近 + 人形机器人 +3.44%。东财口径「人形机器人」+50.58 亿、「机器人概念」+49.44 亿（<b style="color:#fbbf24">两套口径金额接近但统计样本不同</b>）</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank up">3</div>
+      <div>虚拟现实 <span class="info-text" style="font-size:11px">（同花顺概念口径）</span></div>
+      <div class="flow-val up">+39.99 亿</div>
+      <div>混合现实 +4.02%、空间计算 +3.60%、3D 摄像头 +3.55%；凡拓数创 20cm 2 连板为龙头</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank info">补</div>
+      <div>东方财富概念口径 TOP5（交叉参考）</div>
+      <div class="flow-val info-text">+50.58 / +49.44 / +36.90 / +34.27 / +32.72 亿</div>
+      <div>人形机器人 +50.58 亿 → 机器人概念 +49.44 亿 → AI 眼镜 +36.90 亿 → 虚拟现实 +34.27 亿 → 智能穿戴 +32.72 亿</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-rank" style="color:#f87171">出</div>
+      <div>主力净流出居前（东方财富行业口径）</div>
+      <div class="flow-val down">-21.31 / -19.29 / -7.95 / -6.27 亿</div>
+      <div>证券 -21.31 亿 · 半导体 -19.29 亿 · 煤炭 -7.95 亿 · 保险 -6.27 亿；<b style="color:#f87171">资金从金融与资源撤出，集中流向 AI 硬件与人形机器人</b></div>
+    </div>
+  </div>
+
+  <div class="section-title">🧬 四、今日主线板块与逻辑（三段式脉络）</div>
+  <div class="mainlines">
+
+    <div class="mainline-card rank-1">
+      <div class="mainline-rank">1</div>
+      <div class="title">🤖 人形机器人 / AI 硬件链 · 特斯拉 Optimus 量产临近</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 升</span>
+        <span class="mainline-tag up">主力净流入 TOP1</span>
+        <span class="mainline-tag purple">特斯拉催化</span>
+        <span class="mainline-tag info">科创50 +1.00%</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-16）</b>：人形机器人未进入主线 TOP4（原主线为军工装备/飞行汽车/国企改革/白酒），本阶段定性「<b>未启动</b>」<br>
+        ├─ <b>D-1（2026-10-19）</b>：<span style="color:#fbbf24">⚠️ D-1 复盘文档缺失</span>，仅能由行情接口反推指数点位（沪 3730.92 / 深 11817.42 / 创 2746.29 / 北证 946.15），<b>板块定性不做补全</b><br>
+        └─ <b>今日（2026-10-20）</b>：人形机器人 <b>+3.44%</b>、机器人概念 +2.53%、主力净流入 50.58 亿居首 → <b style="color:#34d399">新主线确立</b> <b style="color:#34d399">🔼 升</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>机器人概念产业链全线走强 —— 通用设备 +4.06%、其他自动化设备 +4.46%、减速器 +3.43%、机器视觉 +3.93%，机器人 ETF +4.84%，科创 AI ETF +5.14% 领涨全市场。<br>
+        <b>催化：</b>特斯拉 Optimus V3 方案接近定型、计划 2026 年底前开启量产（供应商新剑传动问询函回复）；第三代人形机器人量产节点临近，产业链进入订单验证期。<br>
+        <b>切换归因：</b>D-2 主线的军工（珠海航展）与国企改革（央地整合）今日双双退潮（地面兵装 -2.47%、航天航空 -0.03% 主力净流出 5.0 亿），资金转向<b style="color:#fbbf24">确定性更高、有海外订单验证的 AI 硬件与机器人链</b>。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>吉大正元</b> 003029 · 4连板</span>
+        <span class="stock-chip"><b>福莱新材</b> 605488 · 2连板</span>
+        <span class="stock-chip"><b>宁波东力</b> 002164 · 2连板</span>
+        <span class="stock-chip"><b>泰尔股份</b> 002347 · 涨停</span>
+        <span class="stock-chip"><b>机器人ETF</b> 159272 +4.84%</span>
+      </div>
+    </div>
+
+    <div class="mainline-card rank-2">
+      <div class="mainline-rank">2</div>
+      <div class="title">🏛️ 北交所小微盘 · 证监会推 ETF 与市值配售</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔀 切</span>
+        <span class="mainline-tag up">北证50 +3.88%</span>
+        <span class="mainline-tag purple">政策直接催化</span>
+        <span class="mainline-tag warn">持续性待验证</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-16）</b>：北证50 <b style="color:#f87171">-1.81%</b> 重挫，原文定性「小盘弱势未止」，北交所未入主线<br>
+        ├─ <b>D-1（2026-10-19）</b>：<span style="color:#fbbf24">⚠️ D-1 复盘文档缺失</span>；由证券时报首页快照反推北证50 收 <b>946.15（-3.85%）</b>，延续弱势<br>
+        └─ <b>今日（2026-10-20）</b>：北证50 <b>+3.88%</b> 报 982.87，单日反包前两日跌幅 → <b style="color:#34d399">政策突发反转</b> <b style="color:#34d399">🔀 切</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>北证 50 单日暴涨 3.88%，全天跑赢沪指 3.76 个百分点；华密新材涨超 16% 领涨，嘉晨智能、格利尔两只北交所股收获 30cm 涨停。<br>
+        <b>催化：</b>证监会明确「<b style="color:#38bdf8">稳步推出北证 50 ETF、北交所新股市值配售</b>」等举措（证券时报），为北交所带来<b>增量长期资金与流动性改善预期</b>。<br>
+        <b>切换归因：</b>属<b style="color:#fbbf24">消息面驱动的单日突变</b>，非连续性资金趋势；D-2 弱势 → 今日暴涨的两日反转幅度过大，需警惕次日冲高回落。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>华密新材</b> 涨超 16%</span>
+        <span class="stock-chip"><b>嘉晨智能</b> 30cm 涨停</span>
+        <span class="stock-chip"><b>格利尔</b> 920641 30cm 涨停</span>
+        <span class="stock-chip">北证50 <b>982.87</b></span>
+      </div>
+    </div>
+
+    <div class="mainline-card rank-3">
+      <div class="mainline-rank">3</div>
+      <div class="title">🩺 医药医疗链 · 诊断服务与医美耗材异动</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag up">🔼 升</span>
+        <span class="mainline-tag info">创业板拖累项</span>
+        <span class="mainline-tag purple">创新药 BD 热潮</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-16）</b>：CRO 领跌（原文「元件/游戏/<b style="color:#f87171">CRO</b>/AI 视频/能源金属领跌」），医药内部结构性承压<br>
+        ├─ <b>D-1（2026-10-19）</b>：<span style="color:#fbbf24">⚠️ D-1 复盘文档缺失</span>，无板块定性<br>
+        └─ <b>今日（2026-10-20）</b>：其他数字媒体 +13.62% 领涨、诊断服务 <b>+9.53%</b>、医美耗材 +5.87%、医疗美容 +4.42%；海正药业 2 连板 → <b style="color:#34d399">CRO 领跌后反抽</b> <b style="color:#34d399">🔼 升</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>医药医疗链出现明显异动，诊断服务板块单日 +9.53%（迪安诊断领涨，主力净流入 3.18 亿），医美耗材 +5.87%（锦波生物领涨）；同期医药生物行业指数整体 +2.02%。<br>
+        <b>催化：</b>同花顺 ETF 收评提及「创新药 BD 热潮」延续，license-out 交易活跃度提升带动医药情绪修复。<br>
+        <b>⚠️ 背离提示：</b>医药细分大涨但<b style="color:#fca5a5">创业板指仍收跌 0.26%</b> —— 说明医药上涨集中于小市值细分龙头，<b style="color:#fbbf24">权重股未同步</b>，属结构性行情而非板块级反转，需观察持续性。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>迪安诊断</b> 诊断服务龙头</span>
+        <span class="stock-chip"><b>锦波生物</b> 医美耗材龙头</span>
+        <span class="stock-chip"><b>海正药业</b> 600267 · 2连板</span>
+        <span class="stock-chip"><b>凡拓数创</b> 301313 · 20cm 2连板</span>
+      </div>
+    </div>
+
+    <div class="mainline-card warn">
+      <div class="mainline-rank" style="background:rgba(245,158,11,0.25);color:#fbbf24">4</div>
+      <div class="title">📉 军工装备 / 商业航天 · D-2 主线退潮</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag danger">🔽 降</span>
+        <span class="mainline-tag warn">D-2 曾为 TOP1 主线</span>
+        <span class="mainline-tag info">催化未证伪</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-16）</b>：<b style="color:#34d399">军工装备爆发，晨曦航空 20cm 涨停</b>，标记 🔀 切（新主线爆发），催化为第十六届珠海航展 12/7-13 规模创新高<br>
+        ├─ <b>D-1（2026-10-19）</b>：<span style="color:#fbbf24">⚠️ D-1 复盘文档缺失</span>，无板块定性<br>
+        └─ <b>今日（2026-10-20）</b>：地面兵装 <b style="color:#f87171">-2.47%</b>（主力 -3.92 亿）、航天航空 -0.03%（主力 <b style="color:#f87171">-5.00 亿</b>）、通用航空 -0.33% → <b style="color:#fca5a5">未进涨幅榜</b> <b style="color:#fca5a5">🔽 降</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>D-2 复盘原文明确标注军工为「新主线爆发」，今日全链条走弱，航天航空概念主力净流出 5.0 亿。<br>
+        <b>催化状态：</b>珠海航展（12 月 7-13 日）催化<b>并未证伪</b>，属<b style="color:#fbbf24">「催化在、股价先走」的预期透支型退潮</b>。<br>
+        <b>切换归因：</b>资金在 D-2 已完成一轮低位建仓，今日<b style="color:#fca5a5">转向有即时产业验证的机器人/AI 硬件</b>，军工进入「等催化」状态。回看 12 月航展前，板块存在二次布局窗口。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>地面兵装</b> -2.47%</span>
+        <span class="stock-chip"><b>航天航空</b> -0.03% · 主力 -5.00亿</span>
+        <span class="stock-chip">珠海航展 <b>12/7-13</b></span>
+        <span class="stock-chip">通用航空 ETF D-2 曾 +6.17%</span>
+      </div>
+    </div>
+
+    <div class="mainline-card danger">
+      <div class="mainline-rank" style="background:rgba(239,68,68,0.25);color:#f87171">5</div>
+      <div class="title">🛡️ 防御三杀 · 白酒 / 券商 / 保险 / 黄金同步退潮</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag danger">🔽 降</span>
+        <span class="mainline-tag danger">资金撤离</span>
+        <span class="mainline-tag warn">避险资产失血</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-16）</b>：白酒列为领涨，原文标注「<b>防御主线延续 ━ 持</b>」，从 D-1 险资增持 H 股延续；证券、保险在 D-2 未入跌幅榜<br>
+        ├─ <b>D-1（2026-10-19）</b>：<span style="color:#fbbf24">⚠️ D-1 复盘文档缺失</span>，无板块定性<br>
+        └─ <b>今日（2026-10-20）</b>：白酒 <b style="color:#f87171">-1.11%</b>、证券 -1.07%（主力 <b style="color:#f87171">-21.31 亿</b>）、保险 -2.25%（主力 -6.27 亿）、银行 -1.12%、黄金股 ETF <b style="color:#f87171">-3.82%</b> → <b style="color:#fca5a5">防御主线彻底终结</b> <b style="color:#fca5a5">🔽 降</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>金融、地产、消费防御链集体失血，<b style="color:#fca5a5">证券主力净流出 21.31 亿为全市场最大单项流出</b>；黄金股 ETF 双只均跌近 3.8%（-3.82% / -3.81%）。<br>
+        <b>逻辑：</b>成交额放量 227 亿但<b style="color:#fca5a5">增量资金未流向防御板块</b>，说明市场风险偏好实打实抬升，而非指数维稳；黄金 ETF 同步大跌印证<b style="color:#fca5a5">避险交易阶段性出清</b>。<br>
+        <b>⚠️ 特别注意：</b>白酒已连续两日不在领涨序列（D-2 尚为领涨 → 今日 -1.11%），<b style="color:#fbbf24">防御主线连续性完全破坏</b>，不宜再作为防御底仓配置。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip"><b>保险Ⅱ</b> -2.25% · 主力 -6.27亿</span>
+        <span class="stock-chip"><b>证券Ⅱ</b> -1.07% · 主力 -21.31亿</span>
+        <span class="stock-chip"><b>白酒Ⅱ</b> -1.11%</span>
+        <span class="stock-chip"><b>黄金股ETF</b> 517520 -3.82%</span>
+        <span class="stock-chip"><b>香港证券ETF</b> 513090 -3.38%</span>
+      </div>
+    </div>
+
+    <div class="mainline-card warn">
+      <div class="mainline-rank" style="background:rgba(245,158,11,0.25);color:#fbbf24">6</div>
+      <div class="title">🏗️ 国企改革 · D-2 政策主线待验证</div>
+      <div class="mainline-tag-row">
+        <span class="mainline-tag warn">⏸ 数据缺口</span>
+        <span class="mainline-tag info">D-2 曾 +28.1 亿 TOP1</span>
+        <span class="mainline-tag purple">十五五央地整合</span>
+      </div>
+      <div class="flow-timeline">
+        📌 三段式时间脉络（D-2 → D-1 → 今日）<br>
+        ├─ <b>D-2（2026-10-16）</b>：<b style="color:#34d399">国企改革 +28.1 亿 TOP1（23 股涨停）</b>，央企国企改革 +20.04 亿 TOP2，标记 🔼 升；催化为「十五五」开局央地国企 6 组整合案例<br>
+        ├─ <b>D-1（2026-10-19）</b>：<span style="color:#fbbf24">⚠️ D-1 复盘文档缺失</span>，无板块定性<br>
+        └─ <b>今日（2026-10-20）</b>：<b style="color:#fbbf24">国企改革板块未进入今日涨幅 TOP15，亦未进入跌幅榜</b> → <b style="color:#fbbf24">今日表现数据缺口待核实</b>（不在任一榜单 ≠ 未涨跌幅）<br>
+        └─ 方向标识：<b style="color:#fbbf24">⏸ 停滞（非升非降，证据不足不做推断）</b>
+      </div>
+      <div class="mainline-desc">
+        <b>现象：</b>D-2 曾以 28.1 亿主力净流入、23 股涨停居 TOP1，今日未出现在涨跌幅两端榜单前列。<br>
+        <b>⚠️ 数据缺口声明：</b>本次采集的东方财富概念板块资金榜 TOP10 与行业涨跌幅榜 TOP15 均未包含国企改革板块，因此<b style="color:#fca5a5">无法确认其今日具体涨跌幅与资金流向</b>，此处<b style="color:#fca5a5">留空不编造</b>。<br>
+        <b>逻辑：</b>「十五五」央地整合的政策逻辑未变，但政策型主线的特点是<b style="color:#fbbf24">脉冲式</b>——资金一日集中涌入后往往需要数周冷却，需等待下一个政策节点（如重要会议或新增整合案例）再行布局。
+      </div>
+      <div class="mainline-stocks">
+        <span class="stock-chip">D-2 主力净流入 <b>+28.1 亿</b></span>
+        <span class="stock-chip">D-2 涨停 <b>23 股</b></span>
+        <span class="stock-chip">十五五 <b>6 组整合案例</b></span>
+        <span class="stock-chip">今日涨跌 <b style="color:#fca5a5">数据缺口待核实</b></span>
+      </div>
+    </div>
+
+  </div><div class="section-title warn">🪜 五、涨停天梯榜</div>
+  <div class="ladder">
+    <div class="ladder-tag lv-4">🏆 4 连板 · 吉大正元 <b>003029</b>（软件开发 / 数字水印）</div>
+    <div class="ladder-tag lv-3">🥈 3 连板 · 东安动力 <b>600178</b> · 大业股份 <b>603278</b> · 长春一东 <b>600148</b> · 海洋王 <b>002724</b> · 京城股份 <b>600860</b></div>
+    <div class="ladder-tag lv-2">🥉 2 连板 · 慕思股份 <b>001323</b> · 福莱新材 <b>605488</b> · 海正药业 <b>600267</b> · 宁波东力 <b>002164</b> · 科森科技 <b>603626</b> · 凡拓数创 <b>301313</b>（20cm）· 浙江荣泰 <b>603119</b> · 润建股份 <b>002929</b></div>
+    <div class="ladder-tag lv-1">1 连板 · 共 <b>40</b> 家（同为股份 002835 / 昂立教育 600661 / 三峡新材 600293 / 富春环保 002479 / 粤传媒 002181 / 星光股份 002076 / 九阳股份 002242 / 鲁阳节能 002088 / 骏亚科技 603386 / 泰尔股份 002347 / 格利尔 920641（30cm）等）</div>
+    <div class="ladder-tag danger">💀 跌停 6 家 · 芯能科技 603105 · 福建金森 002679 · 思源电气 002028 · 蔚蓝锂芯 002245 · 读者传媒 603999 · 闽东电力 000993</div>
+  </div>
+  <div class="data-note">
+    <strong>📌 天梯结构解读：</strong>最高板仅 <span class="warn-text">4 连板（吉大正元）</span>，2 板 8 家、3 板 5 家，<b>呈「中间厚、顶部薄」的梯形结构</b>——高度股赚钱效应不足但中位股接力活跃。同花顺《A股收评》独立确认「吉大正元 4 连板、海洋王 3 连板」，与东财涨停池一致。<br>
+    <span class="danger-text">炸板率、封板时间分布、连板晋级率数据缺口待核实</span>（本次采集的公开接口未提供该字段）。
+  </div>
+
+  <div class="section-title info">💹 六、ETF 涨跌榜</div>
+  <div class="etf-table">
+    <div class="etf-row header">
+      <div>排名</div><div>ETF 名称（代码）</div><div>涨跌幅</div><div>说明</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲1</div>
+      <div>科创 AI ETF 博时（<b>588790</b>）</div>
+      <div class="etf-val up">+5.14%</div>
+      <div>收 0.695 元 —— 全市场 ETF 领涨，科创 AI 硬件最强 beta 工具，同花顺与东财双源一致</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲2</div>
+      <div>科创人工智能 ETF 南方（<b>589230</b>）</div>
+      <div class="etf-val up">+4.87%</div>
+      <div>收 0.753 元 —— 与 588790 同属科创 AI 主题，形态一致印证主线</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank up">▲3</div>
+      <div>机器人 ETF 富国（<b>159272</b>）</div>
+      <div class="etf-val up">+4.84%</div>
+      <div>收 0.737 元 —— 直接对应人形机器人主线净流入 50.58 亿</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼1</div>
+      <div>黄金股 ETF 永赢（<b>517520</b>）</div>
+      <div class="etf-val down">-3.82%</div>
+      <div>收 1.814 元 —— ETF 领跌，避险资产阶段性出清</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼2</div>
+      <div>黄金股 ETF 国泰（<b>517400</b>）</div>
+      <div class="etf-val down">-3.81%</div>
+      <div>收 1.439 元 —— 同标的同步下跌，非单一产品流动性问题</div>
+    </div>
+    <div class="etf-row">
+      <div class="etf-rank down">▼3</div>
+      <div>香港证券 ETF 易方达（<b>513090</b>）</div>
+      <div class="etf-val down">-3.38%</div>
+      <div>收 1.659 元 —— 券商板块走弱的跨市场印证（A 股券商主力 -21.31 亿）</div>
+    </div>
+  </div>
+  <div class="data-note">
+    <strong>⚠️ ETF 双源核验与背离说明：</strong>以上 6 只 ETF 的涨跌幅经<b><span class="ok">同花顺《ETF收评》</span></b>与<b><span class="ok">东方财富行情接口</span></b>双源比对，<b>6/6 完全一致</b>，无偏差。<br>
+    本日<b class="info-text">未出现「个股 vs ETF」背离</b>：黄金方向为<b class="danger-text">股票与 ETF 同步下跌</b>（黄金股板块与两只黄金 ETF 同跌），并非结构性背离。同花顺 ETF 收评另提及「半导体/AI 涨、黄金跌，医药/券商无具体涨跌幅，仅提及创新药 BD 热潮」，其中<b class="warn-text">医药与券商 ETF 的具体涨跌幅在同花顺文中未明示，本报告不编造</b>。
+  </div>
+
+  <div class="section-title">📰 七、重要新闻与板块催化</div>
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>事件</div><div>关键数据</div><div>对 A 股影响</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🏛️ 证监会：稳步推出北证 50 ETF、北交所新股市值配售</div>
+      <div class="fin-val up">北证50 <b>+3.88%</b></div>
+      <div>为北交所引入<b style="color:#34d399">被动指数资金与增量配售需求</b>，直接引爆小微盘估值修复；华密新材涨超 16%，嘉晨智能、格利尔 30cm 涨停</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🧠 吴清 2026 金融街论坛年会主题演讲（10/19）</div>
+      <div class="fin-val info">稳市 · 改革 · 严监管 · 扩开放</div>
+      <div>提出健全<b>适配长期投资的长周期考核机制</b>、扩大中长期资金来源与入市方式、持续深化公募基金改革；为中长期资金入市奠定制度预期，利好宽基与高股息资产的中期估值修复</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">📦 9 月集成电路出口 449.51 亿美元，同比 +136%（海关总署 10/14 公布）</div>
+      <div class="fin-val up">同比 <b>+136%</b></div>
+      <div>增速<b style="color:#34d399">明显高于前三季度累计 +99.1%</b>；但 9 月出口<b>数量同比仅 +1%</b>，说明增长由价格（存储芯片短缺涨价）驱动 —— 利好半导体景气，但提示警惕「量增乏力」的估值透支</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🤖 特斯拉 Optimus V3 方案接近定型、2026 年底前开启量产</div>
+      <div class="fin-val up">人形机器人 <b>+50.58 亿</b></div>
+      <div>供应商新剑传动问询函回复「特斯拉机器人方案接近定型，即将量产」；<b style="color:#34d399">直接引爆人形机器人/减速器/机器视觉产业链</b>，成为今日第一主线</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🧾 首批 18 只主动权益 ETF 获批，助力中长期资金入市</div>
+      <div class="fin-val info">18 只</div>
+      <div>与吴清讲话形成<b>制度 + 产品</b>双重配套，利好宽基 ETF 与权益基金增量资金，为市场提供中长期流动性支撑</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">🔧 珠海航展（第十六届）12 月 7-13 日，规模创新高</div>
+      <div class="fin-val warn">催化仍有效</div>
+      <div>D-2 军工主线的核心催化<b>尚未证伪</b>，今日板块走弱属预期透支型回吐而非逻辑破坏；航展前存在二次布局窗口</div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 八、盘面核心结论</div>
+
+  <div class="conclusion ok">
+    <div class="conclusion-title">✅ 结论 1：政策资金 + 产业催化双轮驱动，主线完成第三次切换</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>主线更替：</b>今日主线由 D-2 的「军工装备 / 飞行汽车 / 国企改革 / 白酒」切换为「<b>人形机器人 / AI 硬件 + 北交所小微盘</b>」，两条新主线分别由特斯拉 Optimus 量产节点与证监会北交所新政驱动，属<b>消息面与产业面双验证</b>的新结构。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>资金验证：</b>主力净流入 TOP3 全部落在 AI 与机器人方向（人工智能 50.58 亿 / 机器人概念 45.80 亿 / 虚拟现实 39.99 亿），<b>三大主题合计吸金逾 136 亿</b>；同期证券 -21.31 亿、半导体 -19.29 亿净流出，<b>资金从金融/资源单向切换至科技成长</b>。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>指数印证：</b>科创50 +1.00%、北证50 +3.88% 显著跑赢沪指 +0.12% 与创业板 -0.26%，<b>涨幅结构与资金结构高度一致</b>，印证主线切换的真实性（非单纯权重护盘）。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>赚钱效应：</b>上涨 3665 家 / 下跌 1602 家，涨跌比 2.29:1；成交额放量 227 亿至 14716 亿，<b>放量伴随普涨</b>而非「放量滞涨」，市场处于健康的上行态势。</p></div>
+  </div>
+
+  <div class="conclusion danger">
+    <div class="conclusion-title">🔴 结论 2：防御体系全面崩塌，避险资产同步失血（核心风险）</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>防御三杀：</b>保险 -2.25%、证券 -1.07%、银行 -1.12%，三大金融权重同步下跌；<b>证券主力净流出 21.31 亿为全市场最大单项流出</b>，金融板块失去「稳定器」功能。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>白酒退潮：</b>白酒 -1.11%（主力 -1.61 亿），D-2 复盘原文将其标注为「防御主线延续 ━ 持」，<b>今日已跌出领涨序列，防御主线连续性完全破坏</b>，不宜再作为防御底仓。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>黄金出清：</b>黄金股 ETF 517520 -3.82%、517400 -3.81%，两只同标的同步下跌，<b>为市场风险偏好抬升的强反向信号</b>——避险资金正在有序撤出。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>高位股隐忧：</b>最高连板仅 4 板（吉大正元），呈「中间厚、顶部薄」梯形结构，<b>说明缺乏能带动情绪的绝对龙头</b>；一旦新主线（机器人/AI）出现分歧，缺少高标接力，回撤速度可能较快。</p></div>
+  </div>
+
+  <div class="conclusion info">
+    <div class="conclusion-title">🔵 结论 3：中期政策底清晰，制度红利支撑估值中枢上移</div>
+    <div class="conclusion-item"><span class="num">1</span><p><b>制度层：</b>吴清「稳市、改革、严监管、扩开放」四字方针 + 长周期考核机制 + 首批 18 只主动 ETF 获批，<b>构成「定调—机制—产品」的完整政策组合</b>，中长期资金入市的制度性障碍持续拆除。</p></div>
+    <div class="conclusion-item"><span class="num">2</span><p><b>流动性层：</b>吴清明确「稳步推出北证 50 ETF、北交所新股市值配售」，<b>为沉寂的小微盘市场打开了制度性增量资金通道</b>；北证50 单日 +3.88% 即为最直接的市场反馈。</p></div>
+    <div class="conclusion-item"><span class="num">3</span><p><b>基本面层：</b>9 月集成电路出口 449.51 亿美元、同比 +136%（远超前三季度 +99.1%），AI 算力外需强劲；但<b class="warn-text">出口数量同比仅 +1%，增长高度依赖涨价</b>，需警惕价格见顶后的业绩回落。</p></div>
+    <div class="conclusion-item"><span class="num">4</span><p><b>产业层：</b>特斯拉 Optimus 2026 年底量产 + 国内人形机器人 0-1 兑现节点，<b>机器人产业链具备跨年度的订单验证可见度</b>，非纯题材驱动。</p></div>
+  </div><div class="section-title warn">⚖️ 九、机构观点与市场分歧</div>
+  <div class="conflict-grid">
+    <div class="view-a">
+      <h4>🟢 多方：科技成长 + 制度红利的双主线共振</h4>
+      <p><b>国金证券（人形机器人 2026 年度策略）：</b>2026 年是<b>人形机器人 0-1 兑现的重要节点</b>，国产链头部本体出货量有望从数千台跨越到数万台，应用场景主要来自二次开发、导览、巡检；当前阶段<b>龙头确定性最强</b>。</p>
+      <p><b>招商证券（10 月月度策略）：</b>对 A 股<b>保持谨慎乐观</b>，预计市场表现有望较 9 月改善，节奏上<b>先把握风险偏好修复</b>，更重视<b>业绩兑现与攻守均衡</b>；海外流动性环境改善构成支撑。</p>
+      <p><b>制度派观点：</b>吴清金融街论坛讲话明确「健全适配长期投资的长周期考核机制、扩大中长期资金来源渠道和入市方式、壮大市场稳定力量」，配合首批 18 只主动 ETF 获批，<b>制度红利为市场提供中期估值底部支撑</b>。</p>
+      <p><b>资金面印证：</b>今日三大科技主题主力合计净流入逾 136 亿，上涨 3665 家 / 下跌 1602 家，<b>放量普涨印证多方逻辑</b>。</p>
+    </div>
+    <div class="view-b">
+      <h4>🔴 空方：高度不足 + 防御崩塌 + 涨价驱动脆弱</h4>
+      <p><b>龙头高度隐忧：</b>最高连板仅 4 板（吉大正元），2 板 8 家、3 板 5 家，<b>「中间厚、顶部薄」意味着缺乏能带动情绪的绝对龙头</b>，新主线一旦分歧缺乏高标接力。</p>
+      <p><b>防御失守风险：</b>证券主力净流出 21.31 亿为全市场最大单项流出；保险、银行、白酒同步下跌，<b>市场失去「进可攻退可守」的稳定器</b>，一旦新主线退潮缺乏缓冲。</p>
+      <p><b>基本面质疑：</b>9 月集成电路出口同比 +136% 看似强劲，但<b>出口数量同比仅 +1%</b>，增长几乎全部来自存储芯片涨价；一旦价格周期见顶，<b>相关板块的高增速业绩将面临基数与价格双杀</b>。</p>
+      <p><b>持续性质疑：</b>北证50 由 D-2 的 -1.81%、D-1 的 -3.85% 暴涨至今日 +3.88%，<b>两日反转幅度过大属消息面脉冲</b>；ETF 北证50 尚未落地，<b>政策预期与实际增量资金之间存在时间差</b>。</p>
+      <p><b>结构背离：</b>医药细分大涨（诊断服务 +9.53%）但创业板指仍收跌 -0.26%，<b>说明个股行情与指数走势背离，普涨基础不牢</b>。</p>
+    </div>
+  </div>
+  <div class="verdict">
+    <b>⚖️ 本文倾向：<span class="ok-text">谨慎看多 —— 认同多方「制度底 + 产业催化」的中期逻辑，但不认同当前点位追高的性价比。</span></b><br><br>
+    <b>倾向理由：</b>① 政策组合（吴清定调 + 长周期考核 + 18 只主动 ETF + 北证 50 ETF 配售）确实构成<b class="ok-text">制度性增量资金通道</b>，中期底部坚实；② 机器人主线的催化（特斯拉年底量产）是<b class="ok-text">可验证的订单节点</b>，非纯题材；③ 但今日北证 50 的暴涨、北交所两只 30cm 涨停，本质是<b class="warn-text">政策预期一次性定价</b>，叠加最高板仅 4 板、防御体系全面失守，说明<b class="danger-text">市场尚未形成稳定的主升结构</b>。<br><br>
+    <b>操作建议：</b><b class="ok-text">顺势但不追高</b> —— 机器人/AI 硬件主线可持有参与，但建议等回踩确认；北交所方向仅适合<b class="warn-text">小仓位事件驱动参与</b>（ETF 尚未落地，兑现时点不确定）；<b class="danger-text">暂不配置防御底仓（白酒/银行/保险）</b>，防御已失效；<b class="danger-text">黄金暂避</b>，避险资金出清尚未结束。
+  </div>
+
+  <div class="section-title info">🔭 十、后续展望与交易策略</div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <h4><span class="num">1️⃣</span> 后市展望</h4>
+      <p><b>短期（3-5 个交易日）：</b>主线延续概率较高。机器人/AI 硬件获得主力资金与 ETF 双重确认，北证 50 政策预期尚未被完全定价（ETF 尚未落地），<b>指数仍有结构性机会但缺乏系统性突破动力</b>。</p>
+      <p><b>关键位：</b>沪指 3735 点为今日收盘，向上看 <b>3780-3800</b> 整数压力；向下守 <b>3700</b>（D-2 收复点位）。创业板指 2739 为近端支撑，跌破则成长风格承压。</p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">2️⃣</span> 情绪判断</h4>
+      <p><b>情绪：<span style="color:#fbbf24">中性偏暖但未过热</span></b>。上涨 3665 家 + 涨停 54 家 + 放量 227 亿，三项指标同向向好；但最高板仅 4 板、跌停 6 家，<b>说明情绪高度不足、赚钱效应集中在中位股</b>。</p>
+      <p><b>警惕信号：</b>若后续出现「<b>最高板继续下移（4 板 → 3 板）+ 炸板率上升 + 跌停家数增加</b>」三条件共振，即为主线退潮前兆，需立即降仓。</p>
+    </div>
+    <div class="signal-card">
+      <h4><span class="num">3️⃣</span> 资金信号</h4>
+      <p><b>当前状态：<span style="color:#34d399">科技成长单极吸金</span></b>。主力净流入 TOP3 合计逾 136 亿全部为 AI/机器人；净流出 TOP4 合计超 55 亿为证券/半导体/煤炭/保险。</p>
+      <p><b>⚠️ 注意半导体背离：</b>半导体板块涨 2.93% 但<b style="color:#f87171">主力净流出 19.29 亿</b> —— 属「指数涨、资金撤」的典型分歧信号，说明部分资金借反弹兑现，<b>需观察明日半导体能否转为净流入</b>。</p>
+    </div>
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card mainline">
+      <h4>🟢 主攻方向 · 顺势而为（建议仓位 40%-50%）</h4>
+      <ul class="strategy-list">
+        <li><b>① 人形机器人产业链</b>（第一主线，主力净流入 50.58 亿 TOP1）—— 核心池：<b>吉大正元（003029，4 连板龙头）、福莱新材（605488）、宁波东力（002164）、泰尔股份（002347）</b>；工具：机器人 ETF 159272（+4.84%）</li>
+        <li><b>② AI 硬件 / 科创 AI</b>（科创 AI ETF +5.14% 领涨）—— 关注 AI 芯片、AI 眼镜、AIPC 链；工具：科创 AI ETF 588790、科创人工智能 ETF 589230</li>
+        <li><b>③ 虚拟现实 / 空间计算</b>（主力 39.99 亿 TOP3）—— 核心池：<b>凡拓数创（301313，20cm 2 连板）</b>、经纬股份、奥比中光-W</li>
+        <li><b>⚠️ 纪律：</b>不追 4 板以上高位股，等回踩 5 日线；单只个股仓位不超过总仓位 8%</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card defend">
+      <h4>🟡 防御 / 高低切方向（建议仓位 20%-25%）</h4>
+      <ul class="strategy-list">
+        <li><b>① 北交所小微盘（事件驱动，小仓位 5%-8%）</b> —— 催化：证监会推北证 50 ETF + 新股市值配售。核心池：华密新材、嘉晨智能、格利尔（920641）。<b style="color:#fbbf24">⚠️ ETF 未落地，兑现时点不确定，严格控制仓位与持有周期</b></li>
+        <li><b>② 医药医疗链（结构性 8%-10%）</b> —— 诊断服务 +9.53%、医美耗材 +5.87%；核心池：迪安诊断、锦波生物、海正药业（600267）。<b style="color:#fbbf24">⚠️ 仅小市值细分龙头异动，板块未整体反转</b></li>
+        <li><b>③ 高低切备选：军工（观察仓 5%）</b> —— 珠海航展 12/7-13 催化未证伪，今日属预期透支型回吐；可待回调后小仓位埋伏二次布局窗口</li>
+        <li><b>④ 国企改革（观察仓，暂不建仓）</b> —— D-2 曾 +28.1 亿 TOP1 / 23 股涨停，今日表现<b style="color:#fca5a5">数据缺口待核实</b>，等待下一个政策节点</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card avoid">
+      <h4>🔴 风险规避（建议规避）</h4>
+      <ul class="strategy-list">
+        <li><b>① 防御三杀链</b> —— 证券（主力 -21.31 亿）、保险（-2.25%）、银行（-1.12%）、白酒（-1.11%）：<b style="color:#fca5a5">防御功能已失效，不宜再作底仓配置</b></li>
+        <li><b>② 黄金与贵金属</b> —— 黄金股 ETF 517520 -3.82% / 517400 -3.81%，<b style="color:#fca5a5">避险资金出清尚未结束，短期规避</b></li>
+        <li><b>③ 资源与周期</b> —— 煤炭 -2.26%（主力 -7.95 亿）、动力煤 -2.36%（主力 -7.45 亿）、焦炭 -2.50%，<b style="color:#fca5a5">资金持续撤离</b></li>
+        <li><b>④ 军工 / 商业航天短线</b> —— 地面兵装 -2.47%、航天航空主力 -5.00 亿，<b style="color:#fca5a5">催化未到但预期透支，短线不参与</b></li>
+        <li><b>⑤ 涨价驱动的半导体高估值个股</b> —— 9 月集成电路出口数量同比仅 +1%，<b style="color:#fca5a5">增长全靠涨价，需警惕价格周期见顶</b></li>
+      </ul>
+    </div>
+
+    <div class="strategy-card master">
+      <h4>🧭 核心交易策略 · 总仓位建议 60%-75%</h4>
+      <ul class="strategy-list">
+        <li><b>总仓位：<span style="color:#fbbf24">60%-75%</span></b> —— 较 D-2 适度提升，理由：放量普涨（3665 涨 / 14716 亿）+ 政策制度底明确；但<b>不满仓</b>，因最高板仅 4 板、主线高度不足</li>
+        <li><b>核心矛盾：</b>主线高度不足（4 板）vs 资金持续流入（136 亿）—— 若明日<b>最高板不能上攻至 5 板</b>，则减仓至 50%-60%</li>
+        <li><b>止损纪律：</b>单只 -8% 无条件止损；板块整体回撤超 5% 降仓一半；<b>跌破沪指 3700 整数关 → 总仓位降至 40% 以下</b></li>
+        <li><b>关键时点：</b>① <b>10 月下旬 A 股三季报披露收官</b>（半导体/机器人业绩验证）；② <b>北证 50 ETF 正式获批与发售</b>（北交所主线的兑现时点）；③ <b>11 月中旬经济数据（10 月 CPI/PPI、信贷社融）</b>；④ <b>12 月 7-13 日珠海航展</b>（军工二次布局窗口）</li>
+        <li><b>⚠️ 最终倾向：</b><b style="color:#34d399">谨慎看多 · 顺势参与但拒绝追高</b> —— 认同制度红利与机器人产业催化的中期逻辑，但以 60%-75% 仓位、分批建仓、严格止损参与，不在政策脉冲日（今日）满仓买入</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 本报告完整数据来源清单（可追溯）：</strong><br>
+    <b>① 同花顺体系（算 1 个来源）</b>：<br>
+    　· A股收评 · <a href="https://news.10jqka.com.cn/20261020/c680877349.shtml" target="_blank">https://news.10jqka.com.cn/20261020/c680877349.shtml</a> —— 指数涨跌幅、三市成交额 14715 亿、主力净流入 TOP3、涨停股与连板、消息面<br>
+    　· ETF收评 · <a href="https://news.10jqka.com.cn/20261020/c680877347.shtml" target="_blank">https://news.10jqka.com.cn/20261020/c680877347.shtml</a> —— ETF 涨跌榜 TOP3/底部 TOP3<br>
+    <b>② 东方财富（独立第二来源）</b>：<br>
+    　· 行情接口 push2.eastmoney.com —— 五大指数收盘点位与涨跌幅、分市场成交额<br>
+    　· 涨停板池 push2ex.eastmoney.com / 跌停板池 / 涨跌分布接口 —— 涨停 54 家、跌停 6 家、涨跌家数 3665/1602<br>
+    　· 行业与概念板块接口 —— 涨跌幅榜、主力资金流向<br>
+    <b>③ 新浪财经（第三来源，用于指数点位交叉验证）</b>：hq.sinajs.cn —— 五大指数收盘点位，与东财<b>完全一致</b><br>
+    <b>④ 证券时报（非同源媒体）</b>：<br>
+    　· <a href="https://www.stcn.com/article/detail/4227475.html" target="_blank">《直线拉升，603626涨停！北证50大涨5%》</a> —— 证监会推北证50 ETF 与市值配售、主线板块<br>
+    　· <a href="https://www.stcn.com/article/detail/4225764.html" target="_blank">《证监会：全力维护资本市场安全稳定》</a> —— 吴清讲话要点<br>
+    <b>⑤ 中国证监会官网</b>：<a href="https://www.csrc.gov.cn/csrc/c106311/c7665578/content.shtml" target="_blank">吴清主席在 2026 金融街论坛年会上的主题演讲</a>（2026-10-19）<br>
+    <b>⑥ 海关总署数据（经财经媒体转载）</b>：9 月集成电路出口 449.51 亿美元、同比 +136%（发布日 2026-10-14）<br>
+    <b>⑦ 历史复盘文档</b>：<code>20261016.html</code>（D-2，主线板块三段式脉络唯一来源）；<span class="danger-text">20261019.html（D-1）缺失</span><br><br>
+    <span class="warn-text">⚠️ 数据缺口汇总（已按 SOP §4.5 留空标注，未编造）：</span><br>
+    　· D-1（2026-10-19）复盘文档缺失 → 模块 ④ 中 D-1 段仅反推指数点位，板块定性未补全<br>
+    　· 国企改革板块今日涨跌幅与资金流向（未进入涨跌榜与资金榜 TOP10）<br>
+    　· 炸板率、封板时间分布、连板晋级率<br>
+    　· 医药、券商主题 ETF 的具体涨跌幅（同花顺 ETF 收评未明示）<br>
+    　· 同花顺收评中的具体机构观点（同花顺原文未含机构观点章节）
+  </div>
+
+  <div class="footer">
+    📅 数据日期：2026-10-20（周二收盘）· 下一个交易日：2026-10-21（周三）<br>
+    📊 数据来源：同花顺 · 东方财富 · 新浪财经 · 证券时报 · 中国证监会官网 · 海关总署<br>
+    📌 历史对照：D-1 = 2026-10-19（<span class="danger-text">复盘文档缺失</span>）· D-2 = 2026-10-16（<span class="ok-text">20261016.html</span>）<br>
+    ⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供投资研究参考，<span class="warn-text">不构成任何投资建议</span>。市场有风险，投资需谨慎。<br>
+    🧠 主线三段式脉络基于已生成复盘文档原文提取，未凭记忆补全；所有衍生数据均已标注口径与估算方法。
+  </div>
+</div>
+</body>
+</html>

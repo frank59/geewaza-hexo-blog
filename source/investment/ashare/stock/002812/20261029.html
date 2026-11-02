@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-29 恩捷股份 (002812) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(245,158,11,0.22), rgba(16,185,129,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(245,158,11,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.28), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #fbbf24, #34d399, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #34d399; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size:12px; color:#94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.40); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:2; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(245,158,11,0.18), rgba(16,185,129,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(245,158,11,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fbbf24; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(245,158,11,0.10), rgba(16,185,129,0.10));
+    border:1px solid rgba(245,158,11,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #fbbf24; }
+  .conclusion-item .num { display:inline-block; background:#fbbf24; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🔋 恩捷股份 (002812) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">全球湿法隔膜龙头 · 隔膜涨价兑现 · 2026 单季净利近 10 亿 · 前瞻 PE 15.6x / 9.0x · 三季报更新版</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>谨慎买入</b>（盈利拐点已兑现 + 前瞻估值不贵 + 趋势未反转 · 分批限仓）</span>
+      <span class="badge badge-source">📅 数据日期：2026-10-29（周四午盘）</span>
+      <span class="badge badge-source">📊 股价 46.31 元 · 总市值 454.45 亿 · PE-TTM 22.46x · PB 1.75x</span>
+      <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 等 11 方法论 × 12 模块</span>
+      <span class="badge badge-success">✅ 核心催化：三季报归母 17.94 亿（+2179%）· Q3 单季 9.74 亿 · 隔膜满产超产</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-10-29 午盘）：</strong><br>
+    ✅ 股价 <span class="info">46.31 元</span>（10/29 午盘 -2.55%），总市值 <span class="info">454.45 亿元</span>，流通市值 <span class="info">379.53 亿元</span> · 来源：腾讯行情 + 新浪财经，双源核对一致<br>
+    ✅ 52 周区间：<span class="warn">39.76 – 87.14 元</span>，距高点 <span class="danger">-46.9%</span>、距低点 <span class="ok">+16.5%</span>；年初至今 <span class="danger">-17.64%</span>，近 60 日 <span class="danger">-12.54%</span>，近 5 日 <span class="ok">+8.58%</span><br>
+    ✅ 估值：PE-TTM <span class="warn">22.46x</span>、PB <span class="info">1.75x</span>；按机构一致预期 2026E 净利 28.9–29.3 亿测算 PE 约 <span class="ok">15.6x</span>，2027E 50.5 亿测算 PE 约 <span class="ok">9.0x</span><br>
+    ✅ 业绩基准（<span class="ok">2026 三季报，10/26 晚披露</span>）：营收 <span class="ok">142.26 亿(+49.07%)</span>、归母净利 <span class="ok">17.94 亿(+2178.8%)</span>、扣非 <span class="ok">18.26 亿</span>、毛利率 <span class="ok">32.51%</span>、经营现金流 <span class="ok">20.42 亿</span><br>
+    ✅ 2026Q3 单季：营收 <span class="ok">55.55 亿</span>、归母 <span class="ok">9.74 亿</span>、扣非 <span class="ok">9.76 亿</span>、毛利率约 <span class="ok">36.6%</span>、净利率 17.5%；单季节奏 Q1 2.60 亿 → Q2 5.60 亿 → Q3 9.74 亿<br>
+    ✅ 历史盈利：2022 <span class="info">+40 亿</span> → 2023 <span class="info">+25.27 亿</span> → 2024 <span class="danger">-5.56 亿</span> → 2025 <span class="ok">+1.43 亿</span> → 2026 前三季 <span class="ok">+17.94 亿</span><br>
+    ✅ 行业与筹码：全球湿法隔膜龙头，市占率约 <span class="ok">30%</span>（湿法超 35%）；2026Q3 末股东户数 <span class="ok">13.37 万户</span>，环比 <span class="ok">-16.59%</span>（筹码集中）<br>
+    ✅ 卖方观点：民族证券 <span class="info">买入 / 目标价 65 元</span>（2026/27E 28.9/50.5 亿）；东吴证券 <span class="info">买入 / 目标价不超过 77.1 元</span>（2026E 29.34 亿）；国金证券 <span class="info">买入</span><br>
+    ✅ 第二曲线：湖南恩捷硫化锂百吨级中试线、硫化物固态电解质具备供货能力；半固态隔膜批量供应卫蓝新能源等<br>
+    ⚠️ 关键警示：<span class="danger">资产负债率 46.57%、应收账款 89.78 亿（周转约 170 天）、固定资产 276.99 亿</span>；<span class="danger">大股东及一致行动人质押 1.69 亿股，占总股本 17.23%</span>；<span class="warn">2027 年新增产能释放与隔膜价格回落风险</span><br>
+    ⚠️ 数据局限：有息负债明细、商誉、股息率、北向资金、融资余额、公募/社保/QFII 持仓变动未独立全口径核验；同业 2026E 盈利预测未逐家核验
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">⚖️</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：盈利拐点已兑现 + 前瞻估值不贵 + 中期趋势未反转 —— 谨慎买入（5.9/10），持有观察仓、条件式补仓</h3>
+      <p>
+        恩捷股份在 <b style="color:#34d399">林奇 PEG（8 分）、费雪成长（7 分）、马克斯周期（7 分）</b>框架下得分偏高：2026 前三季营收 +49.07%、归母 17.94 亿（+2179%）、Q3 单季 9.74 亿、毛利率升至 32.51%，隔膜涨价与满产超产已兑现到利润表；按 2026E 28.9–29.3 亿、2027E 50.5 亿测算，前瞻 PE 仅 <b style="color:#34d399">15.6x / 9.0x</b>，PB 1.75x，在隔膜同业中估值最低、毛利率最高；<b style="color:#fbbf24">格雷厄姆（6 分）、巴菲特护城河（6 分）、邓普顿逆向（6 分）</b>中性（重资产、应收账款高、行业尚未真正出清）；<b style="color:#f87171">凯恩斯选美（4 分）、达里奥全天候（3 分）、博格指数（2 分）</b>偏低（股价仍在 MA60/120/250 下方、非指数型资产）。综合 <b style="color:#fbbf24">5.9/10 = 谨慎买入</b>。<br><br>
+        <b style="color:#7dd3fc">最终倾向：</b>以 <b style="color:#34d399">马克斯周期 + 林奇 PEG + 费雪成长</b> 作为决策主线（"周期反转兑现 + 前瞻估值便宜 + 量价齐升"），用 <b style="color:#fbbf24">格雷厄姆价格纪律</b>约束仓位（不追高、不越跌越买、42 元为纪律线）；<b style="color:#fca5a5">中期趋势未反转 + 2027 年供给释放 + 质押与应收账款</b> 是核心压制，需以"隔膜月度价格、单平净利、2027 供给节奏"三验证决定是否加仓。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-10-29 午盘 · 来源：腾讯行情 / 新浪财经 / 东方财富 / 公司 2026 三季报</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">恩捷股份</div>
+      <div class="change">代码 002812</div>
+      <div class="label">深交所主板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:16px;">锂电隔膜</div>
+      <div class="change">电力设备 / 电池材料</div>
+      <div class="label">全球湿法隔膜龙头</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:14px;">2016 年</div>
+      <div class="change">原"创新股份"</div>
+      <div class="label">2018 年置入隔膜资产</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">450 亿级</div>
+      <div class="name">总市值</div>
+      <div class="value">454.45 亿</div>
+      <div class="change">流通 379.53 亿</div>
+      <div class="label">总股本约 9.81 亿股</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">10/29 下跌</div>
+      <div class="name">当前股价</div>
+      <div class="value">46.31 元</div>
+      <div class="change">-2.55%</div>
+      <div class="label">52 周 39.76–87.14</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">前瞻 15.6x</div>
+      <div class="name">PE-TTM</div>
+      <div class="value" style="font-size:18px;">22.46 x</div>
+      <div class="change">2026E 15.6x / 2027E 9.0x</div>
+      <div class="label">TTM 归母约 20.2 亿</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">历史偏低</div>
+      <div class="name">PB (MRQ)</div>
+      <div class="value" style="font-size:18px;">1.75 x</div>
+      <div class="change">每股净资产约 26.5 元</div>
+      <div class="label">较 2026 年 5 月高点大幅回落</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">2026E</div>
+      <div class="name">2026E PE</div>
+      <div class="value" style="font-size:17px;">约 15.6 x</div>
+      <div class="change">净利 28.9–29.3 亿</div>
+      <div class="label">EPS 约 2.95 元</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">低分红</div>
+      <div class="name">股息率</div>
+      <div class="value" style="font-size:16px;">未独立核验</div>
+      <div class="change">近年基本不分红</div>
+      <div class="label">资本开支/偿债优先</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">46.57%</div>
+      <div class="name">资产负债率</div>
+      <div class="value" style="font-size:17px;">46.57%</div>
+      <div class="change">总负债 240.29 亿</div>
+      <div class="label">较 2026H1 小幅改善</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">偏高</div>
+      <div class="name">应收账款</div>
+      <div class="value">89.78 亿</div>
+      <div class="change">周转约 170 天</div>
+      <div class="label">下游电池厂占款较重</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">17.23%</div>
+      <div class="name">股权质押（总股本）</div>
+      <div class="value" style="font-size:17px;">17.23%</div>
+      <div class="change">占大股东持股 40.78%</div>
+      <div class="label">实控人李晓明家族</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">全球第一</div>
+      <div class="name">市占率（湿法隔膜）</div>
+      <div class="value" style="font-size:17px;">约 30%</div>
+      <div class="change">湿法超 35%</div>
+      <div class="label">2025 口径</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">筹码集中</div>
+      <div class="name">股东户数（Q3 末）</div>
+      <div class="value" style="font-size:17px;">13.37 万</div>
+      <div class="change">环比 -16.59%</div>
+      <div class="label">下跌过程中散户退出</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">谨慎买入</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （盈利拐点已兑现 · 前瞻估值不贵 · 中期趋势未反转 · 持有观察仓、条件式补仓）
+    </div>
+    <div class="comment">
+      恩捷股份在 <b style="color:#34d399">林奇 PEG（8 分）、费雪成长（7 分）、马克斯周期（7 分）</b>框架下得分偏高；<b style="color:#fbbf24">格雷厄姆（6 分）、巴菲特护城河（6 分）、邓普顿逆向（6 分）</b>中性；<b style="color:#f87171">凯恩斯选美（4 分）、达里奥全天候（3 分）、博格指数（2 分）</b>偏低。综合 <b style="color:#fbbf24">5.9/10 分 = 谨慎买入</b>。<br><br>
+      <b style="color:#7dd3fc">核心定位：</b>全球湿法隔膜绝对龙头（市占率约 30%、湿法超 35%），2026 前三季营收 142.26 亿（+49.07%）、归母 17.94 亿（+2179%）、Q3 单季 9.74 亿、毛利率 32.51%，隔膜涨价与满产超产已兑现到利润表；按 2026E 28.9–29.3 亿、2027E 50.5 亿测算，前瞻 PE 仅 15.6x / 9.0x，PB 1.75x，是隔膜同业中估值最低、毛利率最高的龙头。<b style="color:#fca5a5">核心压制：</b>股价仍在 MA60（49.88）、MA120（57.73）、MA250（57.53）下方，5 个月最大回撤约 47%，中期趋势尚未反转；2027 年新增产能释放与隔膜价格回落是最大周期风险；应收账款 89.78 亿、质押 17.23% 总股本、重资产模式构成财务约束。<br><br>
+      <b style="color:#fca5a5">操作总则：</b>已有观察仓可继续持有，不因短期波动盲目止损；补仓只在"右侧站稳 MA60"或"左侧回踩 42.6–43.3 不破"两种信号下分批执行；<b style="color:#fbbf24">42.00 元为纪律线</b>，跌破则退出观察仓；单股仓位建议 ≤ 5%（保守）至 ≤ 10%（上限），最多分 3 批。
+    </div>
+  </div>
+
+  <div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+  <div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+  <div class="safety-bar">
+    <div class="safety-title">📐 恩捷股份估值区间（PE 视角 · 数据日期 2026-10-29 · TTM + 前瞻）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">&lt; 12x · 深度价值（机会区）</div>
+      <div class="safety-seg seg-current">12–25x · 周期反转合理区（当前）</div>
+      <div class="safety-seg seg-over">&gt; 35x · 高估/透支</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>深度价值区</strong> · 2027E PE 9.0x 已接近</span>
+      <span><strong>当前</strong> · PE-TTM 22.46x / 2026E 15.6x</span>
+      <span><strong>透支区</strong> · 2026 年 5 月高点对应约 29x 2026E</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 隔膜同业估值与盈利对比（2026 三季报口径）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>PE-TTM</th><th>PB</th><th>2026 前三季归母</th><th>毛利率</th><th>定位</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:#7dd3fc">恩捷股份</b></td><td class="hl">002812.SZ</td><td class="ok">22.46x</td><td class="ok">1.75x</td><td class="ok">17.94 亿</td><td class="ok">32.51%</td><td class="mid">全球湿法隔膜龙头</td></tr>
+        <tr><td>星源材质</td><td class="hl">300568.SZ</td><td class="danger">65.82x</td><td class="ok">1.66x</td><td class="warn">3.54 亿</td><td class="mid">28.7%</td><td class="mid">干法+湿法</td></tr>
+        <tr><td>中材科技</td><td class="hl">002080.SZ</td><td class="warn">27.49x</td><td class="warn">2.05x</td><td class="ok">19.10 亿</td><td class="warn">21.7%</td><td class="mid">湿法隔膜+玻纤/叶片</td></tr>
+        <tr><td colspan="7" style="color:#94a3b8;">⚠️ 中材科技含玻纤、风电叶片等非隔膜业务，PE/毛利率不能与纯隔膜公司直接类比；星源材质 2026E 盈利预测未独立核验。数据来源：东方财富数据中心、腾讯行情，2026-10-29 午盘。</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#38bdf8">结论：</b>恩捷 PE-TTM 22.46x 在隔膜同业中最低，PB 1.75x 仅略高于星源，毛利率 32.51% 最高——<b style="color:#34d399">龙头盈利质量与估值性价比同时占优</b>。但需注意：<b style="color:#fbbf24">TTM 口径尚未完全反映 Q3 单季 9.74 亿的年化能力</b>；若按 Q3 单季年化（约 39 亿）测算，PE 仅约 11.7x，若按 2027E 50.5 亿测算则仅 9.0x。<b style="color:#fca5a5">周期股的低 PE 既可能是"便宜"，也可能是"盈利见顶"的信号</b>，这正是 2027 年需要验证的核心。
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>安全边际测算：以 46.31 元买入，未来 12 个月三情景</h3>
+      <p>
+        <b style="color:#fbbf24">保守情景（2027E 净利下修至 35 亿 / PE 12x）：</b>合理市值 420 亿 → <b style="color:#f87171">合理价约 42.8 元（-7.6%）</b><br>
+        <b style="color:#fbbf24">基准情景（2027E 净利 50.5 亿 / PE 12x）：</b>合理市值 606 亿 → <b style="color:#34d399">合理价约 61.8 元（+33%）</b><br>
+        <b style="color:#fbbf24">乐观情景（2027E 净利 50.5 亿 / PE 15x）：</b>合理市值 758 亿 → <b style="color:#34d399">合理价约 77.2 元（+67%），接近东吴证券目标价 77.1 元</b><br>
+        <b style="color:#fca5a5">综合判断：</b>当前 46.31 元对应 2027E 仅 9.0x，<b style="color:#34d399">风险收益比约 1:2.5 至 1:4</b>（下行 -8% ~ -13%，上行 +33% ~ +67%）；但这是建立在"2027 年 50.5 亿净利兑现"的乐观假设上。<b style="color:#fca5a5">若 2027 年隔膜价格转跌、净利只到 30–35 亿，合理价将回落至 37–43 元</b>，当前价并无显著安全垫。<b style="color:#c084fc">邓普顿视角：</b>股价已从 87 元跌至 46 元、情绪充分出清，但行业尚未真正出清（新增产能仍在释放），属于"反转确认后的次级逆向"，不是"极致悲观抄底"。
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:14px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:14px; color:#fbbf24; margin-bottom:24px;">
+    📊 <b>估值结论：TTM 合理、前瞻便宜、但"便宜"取决于 2027 年周期能否延续 —— 低 PE 是机会也是陷阱</b>
+  </div>
+
+  <div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">"寻找未来 5–10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="tag ok">加速</div>
+      <div class="name">Q3 单季归母</div>
+      <div class="value">9.74 亿</div>
+      <div class="change">环比 +74%</div>
+      <div class="label">Q1 2.60 → Q2 5.60 → Q3 9.74</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">修复</div>
+      <div class="name">Q3 单季毛利率</div>
+      <div class="value">36.6%</div>
+      <div class="change">较 H1 29.9% 继续提升</div>
+      <div class="label">涨价 + 满产超产</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">量价齐升</div>
+      <div class="name">2026 前三季营收</div>
+      <div class="value">+49.07%</div>
+      <div class="change">142.26 亿</div>
+      <div class="label">湿法出货约 120 亿平（+60%）</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">扭亏</div>
+      <div class="name">2026 前三季归母</div>
+      <div class="value">+2178.8%</div>
+      <div class="change">17.94 亿（上年 -0.86 亿）</div>
+      <div class="label">扣非 18.26 亿，质量真实</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">约 0.21 元</div>
+      <div class="name">单平净利（估算）</div>
+      <div class="value" style="font-size:17px;">约 0.21 元</div>
+      <div class="change">Q3 46 亿平出货测算</div>
+      <div class="label">涨价兑现的核心指标</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">2027E</div>
+      <div class="name">机构一致净利</div>
+      <div class="value" style="font-size:17px;">50.5 亿</div>
+      <div class="change">2026E 28.9–29.3 亿</div>
+      <div class="label">对应 2027E PE 9.0x</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📊</div>
+    <div class="text">
+      <h3>成长性判断：周期反转型高增长（非典型费雪复利）—— 量价齐升已兑现，2027 年持续性存疑</h3>
+      <p>
+        恩捷是典型的<b style="color:#fbbf24">周期成长股</b>而非费雪式"稳定复利机器"：盈利从 2022 年 +40 亿 → 2023 +25.27 亿 → 2024 -5.56 亿 → 2025 +1.43 亿 → 2026 前三季 +17.94 亿，波动剧烈。<b style="color:#34d399">2026 前三季营收 +49.07%、归母 +2179%、扣非 18.26 亿（高于归母，含金量好）、毛利率 32.51%</b>，增长来自"量增 + 价升"双重驱动：湿法隔膜前三季出货约 120 亿平（+60%），Q3 单季约 46 亿平（同比 +45%、环比 +10%），在满产基础上进一步超产；单平净利约 0.21–0.22 元。<br><br>
+        <b style="color:#34d399">林奇 PEG：</b>2026E PE 15.6x / 2027E 增速约 74% = <b style="color:#34d399">PEG 约 0.21</b>，表面极具吸引力；但<b style="color:#fca5a5">周期股 PEG 需大幅打折</b>——2027E 50.5 亿隐含"隔膜价格继续上涨 + 出货 200 亿平"的双重乐观假设，一旦价格回落，增速与估值会同时下修。<br><br>
+        <b style="color:#fca5a5">未来 12–24 个月催化剂：</b>(1) 隔膜月度价格能否延续上涨；(2) 2026 全年归母能否兑现 28–29 亿（Q4 约 11 亿）；(3) 2027 年供需紧平衡是否兑现；(4) 固态电解质/半固态隔膜订单放量；(5) 海外客户与产能突破。<b style="color:#fca5a5">风险：</b>2027 年二三线产能重启扩产、隔膜价格战复发，盈利与估值双杀。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+  <div class="table-card">
+    <div class="table-title">🛡️ 护城河六维评估</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>规模 / 成本优势</b></td><td class="ok">强</td><td>全球最大湿法隔膜产能，规模采购/能耗/良率摊薄带来显著成本优势，市占率约 30%（湿法超 35%）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><b>技术 / 专利</b></td><td class="ok">强</td><td>湿法隔膜工艺良率行业领先，专利布局完善；硫化物固态电解质、硫化锂中试线卡位下一代技术</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>客户粘性 / 转换成本</b></td><td class="ok">强</td><td>隔膜进入电池厂供应链需 1–2 年验证，绑定宁德时代/LG/比亚迪等头部客户，切换成本高</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>品牌</b></td><td class="warn">弱</td><td>B2B 工业品，品牌溢价弱，客户以性能/成本/稳定供货为核心考量</td><td class="warn">⭐⭐</td></tr>
+        <tr><td><b>网络效应</b></td><td class="warn">无</td><td>制造业无网络效应</td><td class="warn">⭐</td></tr>
+        <tr><td><b>牌照 / 政策</b></td><td class="warn">弱</td><td>无牌照壁垒，但符合新能源/储能政策鼓励方向</td><td class="warn">⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card warn">
+      <div class="tag warn">修复中</div>
+      <div class="name">ROE（前三季）</div>
+      <div class="value">6.86%</div>
+      <div class="change">年化约 9.1%</div>
+      <div class="label">仍低于巴菲特 15% 标准</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">修复</div>
+      <div class="name">毛利率</div>
+      <div class="value">32.51%</div>
+      <div class="change">Q3 单季约 36.6%</div>
+      <div class="label">较 2025 年 18.77% 大幅修复</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">周期波动</div>
+      <div class="name">净利率</div>
+      <div class="value">12.6%</div>
+      <div class="change">Q3 单季 17.5%</div>
+      <div class="label">盈利质量随价格波动</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">全球第一</div>
+      <div class="name">行业地位</div>
+      <div class="value" style="font-size:16px;">"湿法一哥"</div>
+      <div class="change">市占率约 30%</div>
+      <div class="label">绝对龙头</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">三重壁垒</div>
+      <div class="name">综合壁垒</div>
+      <div class="value" style="font-size:15px;">规模+技术+客户</div>
+      <div class="change">品牌/网络弱</div>
+      <div class="label">宽阔护城河</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">周期型</div>
+      <div class="name">生意本质</div>
+      <div class="value" style="font-size:15px;">重资产 + 强周期</div>
+      <div class="change">固定资产 276.99 亿</div>
+      <div class="label">非稳定复利型</div>
+    </div>
+    <div class="index-card mid">
+      <div class="tag mid">第二曲线</div>
+      <div class="name">固态电池布局</div>
+      <div class="value" style="font-size:15px;">硫化锂/硫化物</div>
+      <div class="change">百吨级中试线</div>
+      <div class="label">半固态隔膜已供货卫蓝</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🛡️</div>
+    <div class="text">
+      <h3>护城河结论：宽阔护城河 + 周期型重资产龙头 —— 规模/技术/客户三重壁垒，但盈利质量不稳定</h3>
+      <p>
+        恩捷在 <b style="color:#34d399">规模/成本、技术/专利、客户粘性</b>三个维度具备强护城河（全球最大湿法隔膜产能 + 良率领先 + 绑定头部电池厂），是典型的<b style="color:#c084fc">"宽阔护城河 + 周期型重资产制造业"</b>。但 <b style="color:#fca5a5">ROE 前三季仅 6.86%、固定资产 276.99 亿、应收账款 89.78 亿</b>，生意本质是"高资本开支 + 强周期"而非"轻资产 + 稳定复利"，<b style="color:#fca5a5">远未达到巴菲特"ROIC > 15%"的卓越标准</b>。<br><br>
+        <b style="color:#fca5a5">护城河侵蚀风险：</b>(1) 固态电池若跳过传统湿法隔膜，将颠覆现有技术路线（但 2030 年前全固态仍以高端小批量为主，半固态仍需隔膜）；(2) 二三线隔膜厂在盈利修复后重启扩产，2027 年后或再度过剩；(3) 下游电池厂垂直一体化自建隔膜产能的潜在威胁。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div>
+      <div>2024 / 2025 / 2026 前三季</div>
+      <div>格雷厄姆 + 凯恩斯视角</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入（亿）</div>
+      <div class="fin-val mid">101.64 / 136.33 / 142.26</div>
+      <div class="fin-comment">2026 前三季 YoY <b style="color:#34d399">+49.07%</b>，量价齐升；2024 同比 -15.6%、2025 同比 +34.1%，周期波动明显</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润（亿）</div>
+      <div class="fin-val warn">-5.56 / 1.43 / 17.94</div>
+      <div class="fin-comment">2024 亏损 → 2025 微利 → 2026 前三季 <b style="color:#34d399">+2178.8%</b>，周期反转确认；但基数低、波动大</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">扣非归母净利（亿）</div>
+      <div class="fin-val ok">未核验 / 1.11 / 18.26</div>
+      <div class="fin-comment">2026 前三季扣非 <b style="color:#34d399">18.26 亿，高于归母 17.94 亿</b>，<b style="color:#34d399">盈利质量真实</b>（非靠非经常损益）</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">毛利率</div>
+      <div class="fin-val ok">11.07% / 18.77% / 32.51%</div>
+      <div class="fin-comment">Q3 单季约 <b style="color:#34d399">36.6%</b>，涨价 + 满产超产共同驱动，<b style="color:#34d399">盈利修复核心信号</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流（亿）</div>
+      <div class="fin-val ok">未核验 / 11.44 / 20.42</div>
+      <div class="fin-comment">2026 前三季 <b style="color:#34d399">20.42 亿</b>，Q3 单季 8.80 亿；现金流与利润同步修复</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流 / 归母净利</div>
+      <div class="fin-val ok">— / 8.0x / 1.14</div>
+      <div class="fin-comment">2026 前三季 <b style="color:#34d399">1.14（&gt;1 为优秀）</b>，利润含金量健康；Q3 单季约 0.90，略低于 1</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val warn">— / — / 46.57%</div>
+      <div class="fin-comment">总负债 240.29 亿 / 总资产 515.96 亿；较 2026H1 小幅改善，但重资产模式下杠杆仍偏高</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">货币资金（亿）</div>
+      <div class="fin-val warn">— / — / 39.00</div>
+      <div class="fin-comment">较 2026H1 的 31.62 亿回升；<b style="color:#fbbf24">有息负债明细本期未独立核验</b>，需关注短债覆盖</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款（亿）</div>
+      <div class="fin-val down">— / — / 89.78</div>
+      <div class="fin-comment">周转约 <b style="color:#fca5a5">170 天</b>，下游电池厂占款较重；<b style="color:#fca5a5">存在减值与回款风险</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">存货（亿）</div>
+      <div class="fin-val mid">— / — / 15.66</div>
+      <div class="fin-comment">存货占营收约 11%，在隔膜涨价周期中库存压力可控</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">固定资产（亿）</div>
+      <div class="fin-val warn">— / — / 276.99</div>
+      <div class="fin-comment">占总资产 53.7%，<b style="color:#fbbf24">典型重资产模式</b>；产能利用率与折旧是盈利弹性关键</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资本开支（亿）</div>
+      <div class="fin-val mid">— / 17.35 / 11.97</div>
+      <div class="fin-comment">2026 前三季购建长期资产 11.97 亿，较 2025 年下降，<b style="color:#34d399">资本开支强度收敛</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">商誉 / 总资产</div>
+      <div class="fin-val warn">未独立核验</div>
+      <div class="fin-comment">历史并购较多（上海恩捷等），<b style="color:#fbbf24">需核验商誉规模及减值风险</b></div>
+    </div>
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">💰</div>
+    <div class="text">
+      <h3>财务质量判断：盈利与现金流同步修复，但资产负债表仍是最大约束</h3>
+      <p>
+        <b style="color:#34d399">正面：</b>2026 前三季归母 17.94 亿、扣非 18.26 亿（扣非高于归母）、经营现金流 20.42 亿（OCF/净利 1.14）、毛利率 32.51%、资本开支收敛至 11.97 亿——<b style="color:#34d399">利润、现金流、毛利率三条线同步改善，盈利质量真实</b>。<b style="color:#fca5a5">负面：</b>应收账款 89.78 亿（周转约 170 天）、固定资产 276.99 亿（占总资产 53.7%）、资产负债率 46.57%、有息负债明细与商誉未核验、质押 17.23% 总股本——<b style="color:#fca5a5">重资产 + 高应收 + 中等杠杆的组合，使公司在周期下行时缺乏缓冲</b>。<br><br>
+        <b style="color:#7dd3fc">后续验证重点：</b>(1) 2026 年报的应收账款账龄与减值计提；(2) 有息负债/短债结构与货币资金覆盖；(3) 经营现金流能否连续两个季度覆盖资本开支；(4) 分红政策是否恢复。若隔膜盈利持续，现金流有望进一步修复资产负债表；若价格转跌，高应收与重资产会放大业绩波动。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+  <div class="table-card">
+    <div class="table-title">🧭 管理层与治理关键事项</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>实控人 / 控股股东</b></td><td>李晓明家族（李晓明、李晓华兄弟），通过恩捷集团等主体持股；大股东及一致行动人合计持股约 4.15 亿股，累计质押 1.69 亿股（占总股本 17.23%、占其持股 40.78%）</td><td class="warn">⭐⭐⭐</td></tr>
+        <tr><td><b>管理层稳定性</b></td><td>创始人长期掌舵，核心管理层稳定；<b style="color:#fbbf24">2022-11 李晓明、李晓华曾被指定居所监视居住，2023-01 李晓华解除、2023-04 李晓明解除</b>，此后正常履职</td><td class="warn">⭐⭐⭐</td></tr>
+        <tr><td><b>股东回报</b></td><td>近年基本不分红或低分红，利润留存用于偿债与扩产，股东回报意识偏弱</td><td class="warn">⭐⭐</td></tr>
+        <tr><td><b>研发投入</b></td><td>布局硫化物固态电解质、硫化锂（湖南恩捷百吨级中试线）、半固态隔膜（已供货卫蓝新能源），研发强度未独立核验</td><td class="mid">⭐⭐⭐</td></tr>
+        <tr><td><b>战略聚焦</b></td><td>主攻隔膜主业 + 固态电解质第二曲线，战略清晰；历史并购较多，需核验整合质量</td><td class="ok">⭐⭐⭐⭐</td></tr>
+        <tr><td><b>违规记录</b></td><td>近 3 年无重大违规处罚记录（公开信息）；2022 年监视居住事件已解除，但仍是治理历史的负面印记</td><td class="warn">⭐⭐⭐</td></tr>
+        <tr><td><b>减持计划</b></td><td>本期未检索到明确的大额减持计划公告；<b style="color:#fbbf24">需持续跟踪</b>（数据缺口）</td><td class="warn">⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+      💡 <b style="color:#fbbf24">治理结论：基本可信，需持续跟踪。</b>创始人长期掌舵、战略聚焦、无重大违规，管理层专业能力较强；<b style="color:#fca5a5">但 40.78% 的大股东持股质押比例、2022 年监视居住历史、低分红政策</b>构成治理折价。<b style="color:#fca5a5">费雪视角下需重点关注</b>：行业反转期管理层是"激进扩张"还是"稳健修复资产负债表"；若在盈利修复期重启大规模扩产，可能埋下 2027–2028 年供给过剩的隐患。
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+  <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+    <div class="table-card">
+      <div class="table-title">📈 行业周期定位：出清完成 → 复苏上行（量价齐升）</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        锂电隔膜行业经历了一轮完整的<b style="color:#fca5a5">产能过剩 → 价格战 → 行业出清</b>周期：2022 年随新能源车爆发式扩产，2023–2024 年隔膜价格大幅下跌、行业陷入亏损（恩捷 2024 归母 -5.56 亿），二三线产能加速出清；<b style="color:#34d399">2025H2 行业见底反转</b>，2026 年<b style="color:#34d399">量价齐升</b>，隔膜价格企稳回升，头部企业产能利用率突破 80%，新增产能低于上年。<br><br>
+        <b style="color:#7dd3fc">周期位置判断：</b>处于<b style="color:#34d399">"出清完成 → 复苏上行"的中段</b>——行业反转已确认、盈利加速兑现（Q3 单季 9.74 亿），但尚未到全面过热。<b style="color:#fbbf24">需要警惕的是：</b>2027 年是新增产能集中释放的观察窗口，若需求增速跟不上，价格可能再度承压；当前市场给予 2027E 仅 9.0x PE，正是对这种"周期顶"担忧的定价。<br><br>
+        <b style="color:#fca5a5">周期下行风险：</b>盈利修复后二三线产能重启扩产；下游新能源车/储能增速放缓；隔膜价格战复发；固态电池技术路线替代（2030 年前影响有限）。
+      </p>
+    </div>
+    <div class="table-card">
+      <div class="table-title">🏛️ 政策环境与产业链位置</div>
+      <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+        <b style="color:#34d399">政策环境"鼓励"：</b>锂电隔膜是新能源汽车与储能产业链核心材料，受益于"双碳"战略、新能源汽车下乡、储能政策等持续支持；固态电池被列入国家重点研发方向，恩捷的硫化物电解质/硫化锂是第二曲线卡位。<br><br>
+        <b style="color:#c084fc">产业链位置：</b>恩捷处于锂电产业链<b style="color:#34d399">中游材料环节</b>（上游为 PP/PE 原料、设备；下游为宁德时代/LG/比亚迪等电池厂）。作为湿法隔膜龙头，2026 年具备<b style="color:#34d399">较强的对下游议价能力</b>（价格回升、满产超产），但整体仍受下游排产与整车/储能需求波动影响。<br><br>
+        <b style="color:#34d399">行业判断：周期趋势向上（出清完成 + 量价齐升 + 头部满产），但 2027 年新增产能与价格回落是最大变量。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 截至 2026-10-29 午盘 技术结构</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>均线排列</td><td class="danger">46.31 &lt; MA60 49.88 &lt; MA120 57.73 ≈ MA250 57.53</td><td class="mid">中期空头排列，趋势尚未反转；短期价格在 MA10 46.02 / MA20 45.92 上方纠缠</td></tr>
+        <tr><td>52 周高/低</td><td class="warn">87.14 / 39.76</td><td class="mid">距高点 -46.9%、距低点 +16.5%；5 个月最大回撤约 47%</td></tr>
+        <tr><td>近 5 日 / 20 日 / 60 日</td><td class="ok">+8.58%</td><td class="mid">5 日反弹强劲（10/23 涨停带动）；20 日 -1.66%、60 日 -12.54%，中期仍弱</td></tr>
+        <tr><td>年初至今</td><td class="danger">-17.64%</td><td class="mid">2025 年末收盘 56.23 元，年内跑输大盘</td></tr>
+        <tr><td>近期量能</td><td class="mid">10/23–26 约 37–38 万手 → 10/27–28 缩至 22–23 万手 → 10/29 半日 12.6 万手</td><td class="ok">涨停后缩量回调，非恐慌性出货；但上攻量能不足</td></tr>
+        <tr><td>股东户数</td><td class="ok">13.37 万户（Q3 末，环比 -16.59%）</td><td class="ok">下跌过程中散户退出、筹码集中，偏积极信号</td></tr>
+        <tr><td>关键支撑位</td><td class="ok">45.9–46.0（MA10/20）/ 42.0–42.7（10/21–10/23 低点）/ 39.76（52 周低点）</td><td class="ok">42.0 为双底颈线，是纪律线</td></tr>
+        <tr><td>关键压力位</td><td class="warn">47.5 / 48.98（10/26 高点）/ 49.88（MA60）/ 52–53（9 月高点）/ 57.5（MA120/250）</td><td class="warn">站上 49.9 才确认中期趋势修复</td></tr>
+        <tr><td>北向资金 / 融资余额</td><td class="warn">未独立核验</td><td class="mid">深市主板可交易，需盘中核验</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📡</div>
+    <div class="text">
+      <h3>技术面与资金流判断：短期反弹、中期仍弱 —— 基本面向上与技术面向下的背离</h3>
+      <p>
+        <b style="color:#34d399">短期偏强：</b>10/23 三季报预告后涨停（+10.01%）、10/26 冲高 48.98 元，近 5 日 +8.58%；随后 3 天缩量回调至 MA10/MA20 附近，<b style="color:#34d399">属于健康的缩量整理，而非放量出货</b>。<b style="color:#fca5a5">中期仍弱：</b>股价仍在 MA60（49.88）、MA120（57.73）、MA250（57.53）下方，5 个月回撤 47%，<b style="color:#fca5a5">趋势反转尚未确认</b>；48–50 元区间是 10 月反弹的强压力带。<br><br>
+        <b style="color:#7dd3fc">索罗斯反身性视角：</b>"隔膜涨价 → 盈利上修 → 股价反弹 → 融资/扩产能力增强"的正反馈正在启动，但股价从 87 元跌至 46 元的过程中，<b style="color:#fbbf24">市场已用"周期顶"逻辑压制估值</b>；要打破负反馈，需要 2026Q4 与 2027Q1 连续两个季度证明"价格不跌、单平净利不降"。<b style="color:#fca5a5">凯恩斯选美视角：</b>当前资金偏好科技成长，新能源材料板块关注度一般；恩捷需要"隔膜涨价 + 固态电池"双主题共振才能吸引增量资金。<br><br>
+        <b style="color:#fca5a5">综合判断：</b>短期不追高、中期等右侧。<b style="color:#34d399">右侧信号：收盘站上 49.90（MA60）且成交额放大至 18 亿以上</b>；<b style="color:#fbbf24">左侧信号：回踩 42.6–43.3 不破且隔膜价格继续上涨</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+  <div class="section-subtitle">11 种方法论打分 · Top 3 匹配 · 加权综合 5.9/10</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num warn">6</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7</div>
+      <div class="score-name">费雪成长</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">8</div>
+      <div class="score-name">林奇 PEG</div>
+      <div class="score-bar"><div class="score-fill good" style="width:80%"></div></div>
+      <div class="score-out">PEG 投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">6</div>
+      <div class="score-name">邓普顿逆向</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">2</div>
+      <div class="score-name">博格指数</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7</div>
+      <div class="score-name">马克斯周期</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 林奇 PEG 投资</div>
+      <div class="method-author">彼得·林奇 · "PEG &lt; 1"</div>
+      <div class="method-score good">8 / 10</div>
+      <div class="method-desc">2026E PE 15.6x、2027E 增速约 74%，PEG 约 0.21，表面极具吸引力；Q3 单季 9.74 亿、毛利率 36.6% 验证盈利加速。但周期股 PEG 需大幅打折——2027E 50.5 亿隐含价格继续上涨的乐观假设，一旦证伪，增速与估值双杀。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥈 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "寻找复利机器"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">2026 前三季营收 +49.07%、归母 +2179%、扣非 18.26 亿、湿法出货约 120 亿平（+60%），成长恢复强劲；固态电解质第二曲线提供期权。但盈利历史波动剧烈（2022 +40 亿→2024 -5.56 亿），是"周期反转型恢复"而非费雪式稳定复利。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥉 马克斯周期投资</div>
+      <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">隔膜行业走完"过剩→价格战→出清"，2025H2 见底、2026 量价齐升、头部满产超产；恩捷作为龙头是最大受益者。当前处"复苏上行"中段，是周期投资的持有窗口；但 2027 年新增产能释放是最大不确定性，故不给满分。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">4. 格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score warn">6 / 10</div>
+      <div class="method-desc">PE-TTM 22.46x、2026E 15.6x、PB 1.75x，估值不贵；但应收账款 89.78 亿、固定资产 276.99 亿、资产负债率 46.57%、有息负债与商誉未核验，"便宜"缺乏足够安全垫。周期股低 PE 需以"利润可持续"为前提。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">5. 巴菲特护城河 / 邓普顿逆向</div>
+      <div class="method-author">巴菲特 + 邓普顿 · "护城河 + 最悲观点"</div>
+      <div class="method-score warn">各 6 / 10</div>
+      <div class="method-desc">巴菲特：规模/技术/客户三重壁垒、市占率约 30%，但 ROE 仅 6.86%、重资产强周期，非典型复利标的。邓普顿：股价从 87 元跌至 46 元（-47%）、情绪出清，但行业尚未真正出清、新增产能仍在释放，属"反转确认后的次级逆向"。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">6. 凯恩斯 / 索罗斯 / 西蒙斯 / 达里奥 / 博格</div>
+      <div class="method-author">趋势、反身性与配置视角</div>
+      <div class="method-score warn">4 / 5 / 5 / 3 / 2</div>
+      <div class="method-desc">凯恩斯（4）：中期均线空头、资金关注度一般；索罗斯（5）：涨价→盈利→股价正反馈启动，但"周期顶"负反馈仍压制估值；西蒙斯（5）：短期反弹与中期弱势并存，均值回归与动量信号冲突；达里奥（3）：高波动周期股，全天候配置价值低；博格（2）：非宽基/红利指数标的。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>林奇 PEG（8 分）+ 费雪（7 分）+ 马克斯（7 分）看重"盈利加速 + 前瞻估值便宜 + 周期上行" → 高度认可；凯恩斯（4 分）+ 达里奥（3 分）看重"趋势与配置" → 中期均线空头、非配置型资产，结论偏空</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突原因：</strong>这是一只"基本面已右侧、股价仍左侧"的周期股——利润表已确认反转（Q3 单季 9.74 亿），但股价仍在 5 个月下降趋势中（MA60/120/250 下方），两类方法论的时间维度不同，冲突是必然的</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>冲突点：</strong>格雷厄姆（6 分）看重"低估值" vs 财务质量（应收 89.78 亿、重资产、质押 17.23%）→ <b style="color:#fca5a5">估值便宜但资产负债表不提供足够安全垫</b>，需以仓位纪律而非"越跌越买"来应对</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>冲突点（关键）：</strong>"卖方乐观（目标价 65–77 元、+40%~+67%）" vs "市场定价（2027E 仅 9.0x，隐含周期顶担忧）" → <b style="color:#fca5a5">分歧的核心是 2027 年隔膜价格与供给</b>，需用月度价格、单平净利、行业开工率三个高频指标持续验证</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">马克斯周期 + 林奇 PEG + 费雪成长</strong> 为决策主线（"周期反转兑现 + 前瞻估值便宜 + 量价齐升"），用 <strong style="color:#fbbf24">格雷厄姆价格纪律</strong>约束仓位（不追高、不无条件补仓、42 元为纪律线）；<b style="color:#fca5a5">避免按周期顶部逻辑满仓、避免按深度价值逻辑等待深度折价、避免忽视 2027 年供给与质押风险</b></p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><strong>综合得分：5.9 / 10</strong>，对应评级：<strong style="color:#fbbf24">谨慎买入</strong>（盈利拐点已兑现 + 前瞻估值不贵 + 趋势未反转 · 分批限仓）</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓；已有观察仓者重纪律、轻预测</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 仓位与分批建仓（条件式，不无条件摊薄）</div>
+      <div class="strategy-content">
+        <table class="compare-table" style="margin-bottom:10px;">
+          <thead>
+            <tr><th>动作</th><th>价格 / 条件</th><th>建议仓位</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:#fbbf24">持有观察仓</b></td><td>当前 46.31 元附近，已有仓位继续持有，不因短期波动止损</td><td class="warn">现有仓位</td></tr>
+            <tr><td><b style="color:#fbbf24">右侧补仓</b></td><td><b style="color:#7dd3fc">收盘站上 49.90（MA60）且成交额 &gt; 18 亿</b>（趋势确认）</td><td class="warn">+1%~2%</td></tr>
+            <tr><td><b style="color:#fbbf24">左侧补仓</b></td><td><b style="color:#7dd3fc">回踩 42.6–43.3 不破</b>，且隔膜月度价格继续上涨 / Q4 指引不降</td><td class="warn">+1%~2%</td></tr>
+            <tr><td><b style="color:#fbbf24">上限</b></td><td>单股 ≤ 5%（保守）/ ≤ 10%（上限），最多分 3 批</td><td class="ok">≤ 5%~10%</td></tr>
+          </tbody>
+        </table>
+        <b style="color:#fca5a5">核心纪律：</b>不要把"补仓摊薄成本"当作买入理由。成本是沉没成本，补仓只能基于"前瞻风险收益比改善"或"趋势确认"，而不是"已经亏了想摊平"。
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位与失效条件</div>
+      <div class="strategy-content">
+        <strong>纪律线：</strong>收盘有效跌破 <strong class="hl-danger">42.00 元</strong>（10/23 低点 + 双底颈线）→ 退出观察仓，不恋战。<br><br>
+        <strong>硬止损：</strong>跌破 <strong class="hl-danger">39.76 元</strong>（52 周低点）→ 周期反转逻辑证伪，无条件离场。<br><br>
+        <strong>软止损：</strong>(1) 隔膜月度价格转跌、毛利率回落至 28% 以下；(2) 2026Q4 或 2027Q1 单季净利环比大幅下滑；(3) 应收账款大额减值 / 质押风险升级 / 大股东减持公告。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead>
+            <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">42–45 元</td><td class="warn">58–62 元</td><td class="ok">72–77 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">48–55 元</td><td class="ok">70–80 元</td><td class="ok">90–100 元</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2027E 净利 50.5 亿 × 12x；乐观假设：2027E 50.5 亿 × 15x（含固态期权）；保守假设：2027E 下修至 35 亿 × 12x。卖方目标价：民族证券 65 元、东吴证券 77.1 元。⚠️ 周期股"盈利高点对应低 PE"，目标价上行空间伴随 2027 年后产能过剩风险。</p>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期</div>
+      <div class="strategy-content">
+        <strong class="hl-info">中线（6–12 个月）</strong>：等待 2026 全年业绩兑现（归母 28–29 亿）+ 2027 年供需紧平衡验证；若固态电解质订单放量，可考虑切换为 <strong class="hl-purple">长线（&gt;12 月）</strong>。<br><br>
+        <strong style="color:#fca5a5">短线（&lt;3 月）不推荐</strong>：中期均线仍空头，48–50 元压力带需要放量突破；频繁交易易错失周期兑现窗口。若做短线，42.6 元是必须遵守的止损。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（月度 / 季度）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">隔膜月度价格 + 单平净利</strong>（Q3 约 0.21 元/平，能否守住 0.20 元以上是周期持续性的核心）<br>
+        2. <strong class="hl-warn">出货量与行业开工率</strong>（Q3 约 46 亿平；头部开工率能否维持 80% 以上）<br>
+        3. <strong class="hl-info">2027 年新增产能释放节奏</strong>（供给是否超预期，是"低 PE"变成"价值陷阱"的关键）<br>
+        4. <strong class="hl-purple">质押 / 减持 / 应收账款减值</strong>（治理与资产负债表风险）
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓）</div>
+      <div class="strategy-content">
+        1. <strong class="hl-danger">隔膜价格连续 2 个月下跌，或单季毛利率回落至 28% 以下</strong>（周期反转逻辑破坏）<br>
+        2. <strong class="hl-danger">2026 全年归母不及 26 亿，或 2027Q1 单季净利环比下滑超 20%</strong>（盈利加速证伪）<br>
+        3. <strong class="hl-danger">收盘跌破 42.00 元，或出现大额减持 / 质押爆仓 / 应收大额减值</strong>（纪律与治理风险）
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 2027 年供给释放 / 隔膜价格回落（核心风险）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>盈利修复后二三线产能重启扩产，2027 年新增供给超预期，隔膜价格重新下行<br>
+        <strong>影响幅度：</strong>2027E 净利从 50.5 亿下修至 30–35 亿，估值与盈利双杀，股价或回落至 35–42 元（-10%~-25%）<br>
+        <strong>应对策略：</strong>月度跟踪隔膜价格与行业开工率；价格转跌即按卖出信号减仓，不因"低 PE"死扛
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 2. 应收账款与现金流风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>应收账款 89.78 亿（周转约 170 天）高企，下游电池厂经营承压或回款恶化<br>
+        <strong>影响幅度：</strong>计提大额信用减值，直接冲击净利润；若叠加资本开支，自由现金流可能转负<br>
+        <strong>应对策略：</strong>跟踪应收账款账龄与减值计提、经营现金流/净利比；连续两个季度 OCF/净利 &lt; 0.8 需警惕
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 3. 股权质押与治理风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>大股东及一致行动人质押 1.69 亿股（占总股本 17.23%、占其持股 40.78%）；若股价大幅下跌触及平仓线，或出现大额减持<br>
+        <strong>影响幅度：</strong>质押平仓/减持会形成抛压，压制估值；治理折价扩大<br>
+        <strong>应对策略：</strong>跟踪质押公告与平仓线、减持计划；质押比例进一步上升或减持落地即降低仓位
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 4. 技术路线替代风险（固态电池）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>全固态电池产业化加速，若跳过传统湿法隔膜，将颠覆现有技术路线<br>
+        <strong>影响幅度：</strong>长期需求萎缩；恩捷虽布局硫化物电解质/硫化锂，但面临新竞争者，第二曲线未必能完全对冲<br>
+        <strong>应对策略：</strong>跟踪固态电池量产节奏（2030 年前以高端小批量为主）与恩捷固态订单；半固态仍需隔膜，短期冲击有限
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 5. 趋势未反转 / 低 PE 陷阱</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>股价仍在 MA60/120/250 下方，5 个月回撤 47%；2027E 9.0x 的低 PE 可能是"周期顶"定价<br>
+        <strong>影响幅度：</strong>若基本面兑现但估值不修复，股价可能长期在 42–50 元区间震荡；若周期证伪，二次探底至 40 元以下<br>
+        <strong>应对策略：</strong>不追高、条件式补仓、42 元纪律线；等待右侧放量站上 49.9 元再加大仓位
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 来源与复核记录</div>
+
+  <div class="data-note">
+    <strong>📌 主要数据来源（截至 2026-10-29 午盘）：</strong><br>
+    ✅ 公司公告：<span class="ok">2026 年第三季度报告（10/26 晚披露）</span>（营收 142.26 亿 +49.07%、归母 17.94 亿 +2178.8%、扣非 18.26 亿、毛利率 32.51%、经营现金流 20.42 亿）；<span class="ok">2026 年前三季度业绩预增公告（10/13）</span>（预计归母 15.4–20.5 亿）；<span class="ok">2026 年半年报</span>（营收 86.71 亿、归母 8.20 亿、扣非 8.49 亿、经营现金流 11.62 亿）<br>
+    ✅ 股价/市值快照：<span class="info">腾讯行情</span>（46.31 元、10/29 午盘 -2.55%、总市值 454.45 亿、流通 379.53 亿、PE-TTM 22.46、PB 1.75）、<span class="info">新浪财经</span>（46.31 元，双源核对一致）<br>
+    ✅ 财务数据：<span class="info">东方财富数据中心</span>（2026 三季报资产负债表/利润表/现金流量表；总资产 515.96 亿、总负债 240.29 亿、货币资金 39.00 亿、应收账款 89.78 亿、存货 15.66 亿、固定资产 276.99 亿、资产负债率 46.57%）<br>
+    ✅ 技术指标：<span class="info">腾讯前复权日线</span>（MA5 47.24、MA10 46.02、MA20 45.92、MA30 46.46、MA60 49.88、MA120 57.73、MA250 57.53；52 周 39.76–87.14；YTD -17.64%）<br>
+    ✅ 筹码与治理：<span class="info">东方财富股东户数</span>（2026-09-30 为 13.37 万户，环比 -16.59%）；<span class="warn">质押公告</span>（大股东及一致行动人合计持股 4.15 亿股、累计质押 1.69 亿股，占总股本 17.23%、占其持股 40.78%）；<span class="warn">2022-11 李晓明/李晓华监视居住、2023 年先后解除</span>（公开公告与媒体报道）<br>
+    ✅ 行业与卖方：<span class="info">民族证券</span>（买入，目标价 65 元，2026/27E 28.9/50.5 亿）；<span class="info">东吴证券</span>（买入，目标价不超过 77.1 元，2026E 29.34 亿）；<span class="info">国金证券</span>（买入）；<span class="info">证券时报/财联社</span>（隔膜供需改善、新增产能低于上年、储能需求）<br>
+    ✅ 第二曲线：<span class="ok">湖南恩捷硫化锂百吨级中试线、硫化物固态电解质具备供货能力；半固态隔膜批量供应卫蓝新能源等</span><br>
+    ⚠️ 数据局限：有息负债明细、商誉、股息率、ROIC、研发投入占比、北向资金、融资余额、公募/社保/QFII 持仓变动未独立全口径核验；同业 2026E 盈利预测未逐家核验<br>
+    📊 <strong style="color:#fbbf24">所有价格、市值、估值快照均存在口径与时点差异；本页不构成买卖承诺。周期股盈利弹性极大，预测区间的差异足以令 12 个月目标价产生 ±30% 的波动，请以风险揭示为先。</strong>
+  </div>
+
+  <div class="footer">
+    恩捷股份（002812）｜报告截止日 2026-10-29（周四午盘）｜11 种方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（深交所/巨潮资讯）+ 腾讯行情 + 新浪财经 + 东方财富 + 证券时报 + 财联社 + 卖方研报
+  </div>
+
+</div>
+</body>
+</html>

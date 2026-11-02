@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-16 五粮液 (000858) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(16,185,129,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(16,185,129,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #34d399, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(56,189,248,0.10));
+    border: 1px solid rgba(16,185,129,0.40); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner.ok .text h3 { color:#34d399; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(16,185,129,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(16,185,129,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#34d399; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#10b981,#059669);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(16,185,129,0.10), rgba(245,158,11,0.10));
+    border:1px solid rgba(16,185,129,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #34d399; }
+  .conclusion-item .num { display:inline-block; background:#34d399; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>🍶 五粮液 (000858) · 11 方法论综合投资分析</h1>
+  <div class="subtitle">深主板白酒龙头 · 第八代普五核心大单品 · 2026H1 业绩+89% 但低基数效应 · 9/16 收盘 69.26 元 · PE-TTM 约 15x · 接近 52 周低点 · 行业筑底+业绩拐点确认中</div>
+  <div class="badges">
+    <span class="badge badge-success">🎯 综合评级：<b>谨慎买入</b>（行业筑底 · 业绩拐点确认中 · 估值低位 · 高端白酒护城河强 · 低基数效应消退风险）</span>
+    <span class="badge badge-source">📅 数据日期：2026-09-16（周三 · 收盘）· 9/15 收盘 69.70 / 9/16 收盘 69.26</span>
+    <span class="badge badge-source">📊 股价 69.26 元（-0.63%）· 总市值 2713.24 亿 · PB 2.29x · PE-TTM ~15x（按追溯调整后净利）</span>
+    <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 + 巴菲特 等 11 方法论 × 12 模块</span>
+    <span class="badge badge-success">✅ 护城河：高端白酒品牌+定价权+28 年累计现金分红 1264.45 亿 · 2026H1 ROE 7.14%（+3.73pp）</span>
+    <span class="badge badge-warning">⚠️ 风险：低基数效应 · 白酒行业连续 6 年下行 · 第八代普五批价 850 元（跌破指导价）· 销售费用激增 145%</span>
+  </div>
+</div>
+
+<div class="data-note">
+  <strong>📌 数据来源与口径说明（截至 2026-09-16 周三收盘 · 白酒板块筑底分析）：</strong><br>
+  ✅ 股价 <span class="info">69.26 元</span>（9/16 收盘 -0.63%）· 昨收 <span class="info">69.70 元</span>（9/15 -0.21%）· 今开 <span class="info">69.76</span> / 盘中高 <span class="info">69.98</span> / 盘中低 <span class="info">69.60</span>（9/15 雪球/搜狐/富途 9/15 收盘口径）· 来源：搜狐证券 9/16 收盘 + 富途牛牛/雪球 9/15 收盘 + 东方财富 9/14 收盘 69.85<br>
+  ✅ 总市值 <span class="info">2713.24 亿</span>（9/16 收盘，≈ 38.82 亿股 × 69.26 元）；流通市值 <span class="info">2713.18 亿</span>（基本全流通）；52 周区间 <span class="info">69.60 - 126.33 元</span>（英为财情 9/15 收盘口径，9/16 收盘价 69.26 已 <b style="color:#fca5a5">跌破 52 周低点</b>）；近 1 年跌幅约 <b style="color:#fca5a5">-39%~-45%</b><br>
+  ✅ 估值（<b style="color:#7dd3fc">重要说明</b>）：PE-TTM 存在<b style="color:#fbbf24">追溯调整</b>影响。原口径 PE-TTM 约 20.68x（富途/Moomoo，按 2025 调整前净利）/<b style="color:#34d399">追溯调整后实际 PE-TTM 约 15x</b>（按 2025 调整后净利 89.54 亿 + 2026H1 净利 87.53 亿年化）；PB <span class="warn">2.29x</span>（搜狐/新浪 9/16 口径）<br>
+  ✅ 2025 年报（<b style="color:#fbbf24">追溯调整后</b>）：营收 <span class="danger">405.29 亿（-54.55% YoY）</span>、归母净利 <span class="danger">89.54 亿（-71.89% YoY）</span>、扣非归母 <span class="danger">88.16 亿</span>、EPS 约 <span class="warn">2.31 元</span>（同比 -71.89%）；2025H1 原披露 <span class="warn">527.71 亿</span>下修至 <span class="danger">235.10 亿</span>（会计差错更正），调整幅度 292.61 亿<br>
+  ✅ 2026Q1：营收 <span class="ok">228.38 亿（+33.67% YoY）</span>、归母净利 <span class="ok">80.63 亿（+82.57% YoY）</span>、扣非 80.65 亿、销售费用 <span class="danger">36.70 亿（+145% YoY）</span>、加权 ROE <span class="info">3.41%</span>（4/30 披露）<br>
+  ✅ 2026H1：营收 <span class="ok">284.17 亿（+20.87% YoY）</span>、归母净利 <span class="ok">87.53 亿（+89.30% YoY）</span>、扣非 <span class="ok">84.83 亿（+83.96% YoY）</span>、加权 ROE <span class="ok">7.14%（+3.73pp）</span>、总资产 <span class="info">1849.99 亿</span>、存货 <span class="info">226.58 亿（12.25%）</span>、应收账款 <span class="ok">0.67 亿（0.04%）</span>、长期股权投资 <span class="info">23.05 亿</span>、固定资产 <span class="info">84.97 亿</span>（8/28 半年报披露）<br>
+  ✅ 渠道价格：第八代普五批价 <span class="warn">850 元</span>（2026 年 6 月），低于 1000 元指导价；公司 8/13 通知经销商<b style="color:#fbbf24">不得低于 800 元/瓶</b>抛售；2026 年起经销商开票价从 1019 元下调<br>
+  ✅ 公司治理：实控人 <span class="info">宜宾市国资委</span>、控股股东 <span class="info">四川省宜宾五粮液集团有限公司（持股 20.67%）</span>、董事长 <span class="info">邓敏（2024 年起任）</span>；上市日期 <span class="info">1998-04-27（深交所主板 · 28 年）</span>；累计现金分红 <span class="info">1264.45 亿</span>（28 年）<br>
+  ✅ 股东动作：2025 年 4-7 月集团公司增持 476.37 万股（金额 6.13 亿）；2026 年 5-8 月集团公司第三轮增持 241.13 万股（金额 1.99 亿）；股权质押比例 <span class="ok">0.01%（46.32 万股 · 极低）</span>；<span class="info">香港中央结算（北向资金）持股 6785.46 万股</span><br>
+  ✅ 机构预测：<span class="info">29 家机构预测 2026 年净利润最高 280.91 亿</span>（EPS 约 7.24 元），2026E PE 约 10.4x；动态 PE 9.04x<br>
+  ✅ 同业估值（2026-09-16）：贵州茅台 <span class="warn">PE-TTM 19.32x · PB 6.26x</span>、五粮液 <span class="ok">PE-TTM ~15x · PB 2.29x</span>、山西汾酒（前三季度归母 114.05 亿）/ 泸州老窖（2025 营收 257.31 亿首次双位下滑）/ 洋河股份（营收净利双降）<br>
+  ⚠️ 数据局限：北向资金近 30 日净流入流出未独立核验；MA60/120/250 与 MACD/布林带未独立核验；基金 Q2 持仓数据需进一步交叉确认；同业 9 月最新估值数据需多源核验<br>
+  📊 <strong>关键定性：</strong>深主板白酒龙头（28 年）+ 第八代普五核心大单品 + 高端白酒三巨头（茅五泸）+ 2025 年出清式大幅下滑 + 2026 半年报大幅反弹（但低基数效应）+ 行业筑底+动销回暖 + 9/16 收盘接近 52 周低点 + PE-TTM ~15x 处于历史中低位 + PB 2.29x 仍偏高（茅台 PB 6.26x）= <b style="color:#34d399">典型"消费龙头 · 出清修复 · 估值再平衡"格局</b>。这是 <b style="color:#34d399">价值派（格雷厄姆+巴菲特+邓普顿）</b>开始介入的标的，但需注意 <b style="color:#fbbf24">低基数效应消退（2026Q3 面临高基数）+ 白酒行业 6 年下行 + 销售费用激增可持续性</b> 三重风险。
+</div>
+
+<div class="theme-banner">
+  <div class="icon">🍶</div>
+  <div class="text">
+    <h3>11 方法论交叉结论：行业筑底 · 业绩拐点确认 · 估值低位 · 高端白酒护城河极强 —— 评级<谨慎买入 6.20/10>，分批建仓 ≤ 5% 单股上限</h3>
+    <p>
+      五粮液在 <b style="color:#34d399">巴菲特护城河（8 分）、格雷厄姆深度价值（6 分）、林奇 PEG（6 分）</b>框架下得分较高（高端白酒品牌护城河极强 · PE-TTM 15x 历史低位 · 2026E PEG ~0.7-1.0）；<b style="color:#fbbf24">邓普顿逆向（6 分）、马克斯周期（6 分）、凯恩斯选美（6 分）</b>中性偏好（行业筑底 · 周期底部 · 高端白酒共识）；<b style="color:#7dd3fc">费雪成长（5 分）、索罗斯反身性（5 分）、西蒙斯量化（5 分）</b>中性（拐点预期但低基数效应消退）；<b style="color:#94a3b8">博格指数（4 分）、达里奥全天候（4 分）</b>偏低（不是宽基指数 · 波动率较高）。综合 <b style="color:#34d399">6.20/10 分 → 评级：谨慎买入</b>。<br><br>
+      <b style="color:#7dd3fc">最终倾向：</b>这是<b style="color:#34d399">"消费龙头 · 出清修复 · 估值再平衡"</b>的典型案例——白酒行业连续 6 年下行后筑底 + 公司 2025 年出清式下滑 + 2026H1 业绩反弹（89% 但低基数）+ 当前股价 69.26 接近 52 周低点 69.60 + PE-TTM 15x 历史中低位 + 高端白酒品牌护城河极强 + 28 年累计现金分红 1264.45 亿 = <b style="color:#34d399">分批建仓窗口已打开</b>。决策主线应坚持<b style="color:#34d399">"左侧分批 + 业绩验证"</b>思路，重点关注：(1) <b style="color:#34d399">2026Q3 业绩披露（10 月底）</b>——验证高基数压力下业绩是否可持续；(2) <b style="color:#fbbf24">中秋/国庆双节销售动销</b>——验证渠道控货挺价效果；(3) <b style="color:#fbbf24">第八代普五批价回升至 950 元+</b>——验证高端品牌定价权；(4) <b style="color:#fbbf24">白酒板块指数（申万白酒）底部确认</b>——验证行业 β 修复。<b style="color:#fbbf24">关键风险</b>：(a) <b style="color:#fbbf24">2026Q3 业绩高基数压力</b>（2025Q3 净利高基数可能压制同比）；(b) <b style="color:#fbbf24">白酒行业深度调整延续</b>（消费降级未结束）；(c) <b style="color:#fbbf24">销售费用激增可持续性</b>（2026Q1 +145% 不可持续）；(d) <b style="color:#fbbf24">渠道窜货与价格倒挂</b>（批价 850 < 经销商开票价）；(e) <b style="color:#fbbf24">行业政策风险</b>（消费税、限制公务消费）= <b style="color:#34d399">分档处置：分批建仓 ≤ 5%，分 3-5 批，每批间隔 1-2 月</b>。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+<div class="section-subtitle">数据日期：2026-09-16 周三收盘 · 来源：搜狐证券 / 富途牛牛 / 雪球 / 东方财富 / 公司 2026 半年报（8/28 披露）/ 公司 2025 年报（4/30 披露）/ 同花顺 F10</div>
+
+<div class="dashboard">
+  <div class="index-card mid">
+    <div class="name">股票名称</div>
+    <div class="value" style="font-size:17px;">五粮液</div>
+    <div class="change">代码 000858</div>
+    <div class="label">深交所主板</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">所属行业</div>
+    <div class="value" style="font-size:17px;">白酒</div>
+    <div class="change">申万二级：白酒</div>
+    <div class="label">申万三级：白酒III</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">上市日期</div>
+    <div class="value" style="font-size:14px;">1998-04-27</div>
+    <div class="change">上市 28 年</div>
+    <div class="label">深交所首批</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag danger">52周新低</div>
+    <div class="name">当前股价</div>
+    <div class="value">69.26 元</div>
+    <div class="change">-0.63% 9/16</div>
+    <div class="label">9/15 收盘 69.70</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">大市值</div>
+    <div class="name">总市值</div>
+    <div class="value">2713.24 亿</div>
+    <div class="change">流通近全流通</div>
+    <div class="label">总股本 38.82 亿</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">历史低位</div>
+    <div class="name">PE-TTM</div>
+    <div class="value" style="font-size:18px;">~15x</div>
+    <div class="change">追溯调整后口径</div>
+    <div class="label">原口径 20.68x</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">偏高估</div>
+    <div class="name">PB (MRQ)</div>
+    <div class="value" style="font-size:18px;">2.29x</div>
+    <div class="change">搜狐/新浪 9/16</div>
+    <div class="label">茅台 PB 6.26x</div>
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="index-card danger">
+    <div class="tag danger">-71.89%</div>
+    <div class="name">2025 归母</div>
+    <div class="value" style="font-size:17px;">89.54 亿</div>
+    <div class="change">追溯调整后</div>
+    <div class="label">EPS 2.31 元</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+89.30%</div>
+    <div class="name">2026H1 归母</div>
+    <div class="value" style="font-size:17px;">87.53 亿</div>
+    <div class="change">营收 284.17 亿</div>
+    <div class="label">低基数效应</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+82.57%</div>
+    <div class="name">2026Q1 归母</div>
+    <div class="value" style="font-size:17px;">80.63 亿</div>
+    <div class="change">营收 228.38 亿</div>
+    <div class="label">销售费用 +145%</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">52 周区间</div>
+    <div class="value" style="font-size:14px;">69.60-126.33</div>
+    <div class="change">英为财情 9/15</div>
+    <div class="label">已破 52 周低</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">加权 ROE (2026H1)</div>
+    <div class="value">7.14%</div>
+    <div class="change">+3.73pp YoY</div>
+    <div class="label">ROE 修复中</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">极低</div>
+    <div class="name">股权质押比例</div>
+    <div class="value" style="font-size:14px;">0.01%</div>
+    <div class="change">46.32 万股</div>
+    <div class="label">无质押风险</div>
+  </div>
+  <div class="index-card purple">
+    <div class="tag purple">行业筑底</div>
+    <div class="name">股息率 (TTM)</div>
+    <div class="value" style="font-size:17px;">~3-4%</div>
+    <div class="change">2024 分红率 60%</div>
+    <div class="label">28 年累计分红</div>
+  </div>
+</div>
+
+<div class="section-title ok">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+<div class="final-verdict">
+  <h2>⚖️ 11 方法论加权综合评级</h2>
+  <div class="rating">谨慎买入</div>
+  <div style="color:#34d399; font-size:15px; font-weight:700; margin:8px 0;">
+    （行业筑底 · 业绩拐点确认中 · 估值低位 · 高端白酒护城河强 · 低基数效应消退风险 · 分批建仓 ≤ 5%）
+  </div>
+  <div class="comment">
+    五粮液在 <b style="color:#34d399">巴菲特护城河（8 分）</b>框架下得分最高（高端白酒品牌+定价权+28 年累计分红 1264.45 亿）；<b style="color:#fbbf24">格雷厄姆深度价值（6 分）、林奇 PEG（6 分）、邓普顿逆向（6 分）、马克斯周期（6 分）、凯恩斯选美（6 分）</b>中性偏好（PE-TTM 15x 历史低位 · PEG ~0.7-1.0 · 行业筑底 · 高端白酒共识）；<b style="color:#7dd3fc">费雪成长（5 分）、索罗斯反身性（5 分）、西蒙斯量化（5 分）</b>中性（拐点预期但低基数效应消退）；<b style="color:#94a3b8">博格指数（4 分）、达里奥全天候（4 分）</b>偏低（不是宽基指数 · 波动率较高）。综合 <b style="color:#34d399">6.20/10 分 = 谨慎买入</b>（行业筑底 · 估值低位 · 业绩拐点）。<br><br>
+    <b style="color:#34d399">核心定位：</b>深主板白酒龙头（28 年）+ 第八代普五核心大单品 + 高端白酒三巨头（茅五泸）+ 总市值 2713.24 亿 + 总股本 38.82 亿 + 9/16 收盘 69.26 元（接近 52 周低点 69.60）+ PE-TTM ~15x（追溯调整后） / PB 2.29x + 2025 年报 -71.89% / 2026H1 +89.30% / 2026Q1 +82.57% + 2026H1 加权 ROE 7.14%（+3.73pp）+ 8/13 控货挺价（800 元/瓶）+ 累计现金分红 1264.45 亿 + 股权质押比例 0.01%。<b style="color:#fbbf24">核心警示</b>：(1) <b style="color:#fbbf24">2026Q3 面临高基数</b>（2025Q3 净利较高可能压制同比）；(2) <b style="color:#fbbf24">白酒行业连续 6 年下行</b>——消费降级未结束；(3) <b style="color:#fbbf24">销售费用激增可持续性</b>——2026Q1 +145% 不可持续；(4) <b style="color:#fbbf24">渠道窜货与价格倒挂</b>——批价 850 < 经销商开票价 1019；(5) <b style="color:#fbbf24">行业政策风险</b>——消费税、限制公务消费。<br><br>
+    <b style="color:#34d399">操作总则：</b>建议<b style="color:#34d399">分批建仓 ≤ 5%</b>（单股上限，凯恩斯+博格原则），分 3-5 批，每批间隔 1-2 月；<b style="color:#fbbf24">硬止损：55 元（-21%）</b>；<b style="color:#34d399">目标价：12 月中性 PE 22x ≈ 96 元（+38%）</b>，<b style="color:#34d399">24 月乐观 PE 25x ≈ 115 元（+66%）</b>。等待：(a) <b style="color:#34d399">2026Q3 业绩验证高基数压力可控</b>；(b) <b style="color:#34d399">双节（中秋/国庆）销售动销</b>；(c) <b style="color:#34d399">第八代普五批价回升至 950 元+</b>；(d) <b style="color:#34d399">申万白酒指数底部确认</b>。
+  </div>
+</div>
+
+<div class="section-title">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+<div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+<div class="safety-bar">
+  <div class="safety-title">📐 五粮液估值区间（白酒龙头 PE 视角 · 数据日期 2026-09-16 · 按追溯调整后净利口径）</div>
+  <div class="safety-track">
+    <div class="safety-seg seg-deep">&lt; 18x · 合理区间（机会区）</div>
+    <div class="safety-seg seg-current">18–28x · 偏高区间</div>
+    <div class="safety-seg seg-over">&gt; 28x · 高估区（历史峰值）</div>
+  </div>
+  <div class="safety-marks">
+    <span><strong>合理价值区</strong> · PE-TTM 15-18x（当前）</span>
+    <span><strong>偏高区</strong> · PE-TTM 18-28x</span>
+    <span><strong>高估区</strong> · PE-TTM &gt; 28x（历史峰值 60+）</span>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📊 A 股高端白酒龙头估值对比表（数据日期 2026-09-15/16）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>公司</th><th>代码</th><th>主营定位</th><th>2025/2026 业绩</th><th>PE 估值</th><th>PB</th><th>综合</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b style="color:#fbbf24">五粮液</b></td><td><span class="hl">000858.SZ</span></td><td>高端白酒三巨头 · 第八代普五核心大单品</td><td><span class="danger">2025 89.54亿(-71.89%)</span> / <span class="ok">2026H1 87.53亿(+89.30%)</span></td><td><span class="ok">~15x 追溯调整后</span></td><td><span class="warn">2.29x</span></td><td><span class="warn">出清修复 · 估值低位</span></td></tr>
+      <tr><td>贵州茅台</td><td><span class="hl">600519.SH</span></td><td>白酒绝对龙头 · 飞天茅台 · 1.6 万亿市值</td><td><span class="ok">业绩稳健</span> / EPS 65.04</td><td><span class="warn">19.31x</span></td><td><span class="warn">6.26x</span></td><td><span class="ok">龙头溢价 · 品牌护城河极致</span></td></tr>
+      <tr><td>山西汾酒</td><td><span class="hl">600809.SH</span></td><td>清香型龙头 · 已超越五粮液成为白酒老二</td><td><span class="ok">2025前三季 114.05亿(+0.48%)</span> / 营收 329.24亿(+5%)</td><td><span class="warn">~22-25x</span></td><td><span class="warn">~5-6x</span></td><td><span class="mid">清香崛起 · 增速领先</span></td></tr>
+      <tr><td>泸州老窖</td><td><span class="hl">000568.SZ</span></td><td>浓香高端 · 国窖 1573</td><td><span class="danger">2025 营收 257.31 亿首次双位下滑</span></td><td><span class="mid">~13-16x</span></td><td><span class="mid">~3-4x</span></td><td><span class="warn">深度调整 · 估值探底</span></td></tr>
+      <tr><td>洋河股份</td><td><span class="hl">002304.SZ</span></td><td>次高端龙头 · 梦之蓝系列</td><td><span class="danger">营收净利双降</span></td><td><span class="warn">~25-30x</span></td><td><span class="warn">~2-3x</span></td><td><span class="warn">深度调整 · 渠道压力</span></td></tr>
+      <tr><td>古井贡酒</td><td><span class="hl">000596.SZ</span></td><td>次高端徽酒龙头 · 古 20 强势反弹</td><td><span class="ok">动销改善</span></td><td><span class="warn">~22-26x</span></td><td><span class="warn">~4-5x</span></td><td><span class="mid">区域龙头 · 业绩弹性</span></td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px; padding:12px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+    💡 <b style="color:#34d399">结论：</b>五粮液 PE-TTM ~15x（追溯调整后）位于白酒板块估值低位，与泸州老窖（13-16x）相当，低于茅台（19.31x）、山西汾酒（22-25x）、洋河（25-30x）；PB 2.29x 低于茅台（6.26x）、汾酒（5-6x），但高于泸州老窖（3-4x）、洋河（2-3x）。<b style="color:#34d399">格雷厄姆视角：</b>PE-TTM 15x 处于历史中低位（2018-2024 年 PE 中位约 25-30x），<b style="color:#34d399">存在一定安全边际</b>；考虑 (1) <b style="color:#34d399">行业筑底+动销回暖</b>；(2) <b style="color:#34d399">8/13 控货挺价见效（批价回升）</b>；(3) <b style="color:#34d399">2026H1 ROE 7.14%（+3.73pp）</b> 修复中；(4) <b style="color:#34d399">28 年累计现金分红 1264.45 亿</b> 股东回报强；(5) <b style="color:#fbbf24">白酒行业 6 年下行未结束</b> + <b style="color:#fbbf24">低基数效应消退</b> + <b style="color:#fbbf24">销售费用激增可持续性存疑</b> = <b style="color:#34d399">估值低位但需谨慎追高</b>。<b style="color:#34d399">邓普顿逆向视角下基本适用</b>：行业最悲观点已过但完全筑底需 1-2 个季度验证；逆向买入点应在 PE-TTM 12-15x / 股价 60-65 元附近。<b style="color:#34d399">隐蔽资产</b>：老酒储备（基酒）+ 商誉（极少）+ 宜宾产区土地资源 = 隐性价值显著但难量化。
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">🔍</div>
+  <div class="text">
+    <h3>安全边际测算：以当前价 69.26 元买入，未来 12-24 个月上行/下行空间</h3>
+    <p>
+      <b style="color:#fbbf24">基准情景（2026E 归母 200 亿 / PE 20x · 白酒板块中位）：</b>合理市值 4000 亿 → <b style="color:#34d399">合理价 103.04 元（+48.7%）</b><br>
+      <b style="color:#fbbf24">乐观情景（2026E 归母 250 亿 / PE 25x · 业绩超预期+动销强劲）：</b>合理市值 6250 亿 → <b style="color:#34d399">合理价 161.00 元（+132.5%）</b><br>
+      <b style="color:#fbbf24">保守情景（2026E 归母 120 亿 / PE 15x · 高基数压力下恢复）：</b>合理市值 1800 亿 → <b style="color:#fca5a5">合理价 46.36 元（-33.1%）</b><br>
+      <b style="color:#34d399">综合判断：</b>当前 PE-TTM 15x 对应 2026E 净利区间 120-250 亿（取决于高基数压力与动销回暖），<b style="color:#34d399">12 个月上行区间 +48% ~ +132%</b>，中性约 <b style="color:#34d399">+48%</b>；<b style="color:#fca5a5">下行风险 -33%</b>。核心变量：(1) <b style="color:#fbbf24">2026Q3 业绩高基数压力可控性</b>（10 月底披露）；(2) <b style="color:#fbbf24">双节（中秋/国庆）销售动销</b>；(3) <b style="color:#fbbf24">第八代普五批价回升至 950 元+</b>；(4) <b style="color:#fbbf24">白酒板块 β 修复</b>；(5) <b style="color:#fbbf24">销售费用率是否回落至 12% 以下</b>。公司 8/13 控货挺价措施作为<b style="color:#34d399">渠道改革见效信号</b>，可作为本次报告的正面观察点。
+    </p>
+  </div>
+</div>
+
+<div style="text-align:center; padding:14px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:14px; color:#34d399; margin-bottom:24px;">
+  📊 <b>估值结论：合理偏低 · 行业筑底 · 业绩拐点确认中（PE-TTM ~15x · PB 2.29x · 接近 52 周低点）—— 评级<谨慎买入>，分批建仓 ≤ 5%</b>
+</div>
+
+<div class="section-title">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+<div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">PEG ~0.7-1.0</div>
+    <div class="name">PEG (PE/3Y 增速)</div>
+    <div class="value" style="font-size:17px;">~0.75</div>
+    <div class="change">2026E PE 10.4x / 增速 14%</div>
+    <div class="label">PEG 投资价值显著</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+20.87%</div>
+    <div class="name">2026H1 营收</div>
+    <div class="value" style="font-size:18px;">284.17 亿</div>
+    <div class="change">YoY（低基数）</div>
+    <div class="label">元旦春节动销较好</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+89.30%</div>
+    <div class="name">2026H1 归母</div>
+    <div class="value" style="font-size:17px;">87.53 亿</div>
+    <div class="change">YoY（低基数）</div>
+    <div class="label">接近 2025 全年</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag danger">+145%</div>
+    <div class="name">2026Q1 销售费用</div>
+    <div class="value" style="font-size:17px;">36.70 亿</div>
+    <div class="change">YoY 激增</div>
+    <div class="label">可持续性存疑</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">+3.73pp</div>
+    <div class="name">2026H1 ROE</div>
+    <div class="value">7.14%</div>
+    <div class="change">加权平均</div>
+    <div class="label">2025H1 仅 3.41%</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">3-5 年 CAGR</div>
+    <div class="value" style="font-size:14px;">待观察</div>
+    <div class="change">2024 调整前 318 亿</div>
+    <div class="label">出清后增长</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">增长驱动力</div>
+    <div class="value" style="font-size:14px;">量稳价升</div>
+    <div class="change">提价 + 控货挺价</div>
+    <div class="label">第八代普五核心</div>
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">📊</div>
+  <div class="text">
+    <h3>成长性判断：消费龙头 · 出清修复 · 量价齐升 —— 不是"高速成长"，是"筑底修复"</h3>
+    <p>
+      五粮液 2026H1 营收 <b style="color:#34d399">284.17 亿（+20.87%）</b>、归母 <b style="color:#34d399">87.53 亿（+89.30%）</b>、扣非 <b style="color:#34d399">84.83 亿（+83.96%）</b>、加权 ROE <b style="color:#34d399">7.14%（+3.73pp）</b>——但 <b style="color:#fbbf24">需注意 2025H1 基数被会计差错下修至 235.10 亿</b>（原披露 527.71 亿，调整幅度 292.61 亿），可比性存疑。<b style="color:#fbbf24">核心增长动能</b>：(1) <b style="color:#34d399">元旦春节销售旺季核心产品动销较好</b>；(2) <b style="color:#34d399">8/13 控货挺价措施见效（批价 800 元/瓶底线）</b>；(3) <b style="color:#34d399">2025 年出清式下滑后基数低</b>。增长驱动力持续性待验证：(1) <b style="color:#fbbf24">2026Q3 面临 2025Q3 高基数压力</b>（2025Q3 净利较高可能压制同比）；(2) <b style="color:#fbbf24">2026Q1 销售费用 +145% 不可持续</b>（费用前置抢市场）；(3) <b style="color:#fbbf24">白酒行业 6 年下行延续</b>（消费降级未结束）。<br>
+      <b style="color:#34d399">PEG 估值的解读：</b>按机构 2026E 预测均值（净利 200 亿左右 / EPS ~5.2 元），2026E PE 约 13-14x，按 2026-2028 年净利复合增速 14%（行业 β + 公司 α）测算，<b style="color:#34d399">PEG ~0.7-1.0</b>，处于林奇 PEG 投资的有吸引区间（PEG < 1）。<b style="color:#34d399">未来 12-24 月催化剂：</b>(1) <b style="color:#34d399">2026Q3 业绩披露（10 月底）</b>——验证高基数压力下业绩是否可持续；(2) <b style="color:#34d399">中秋/国庆双节销售动销</b>——验证控货挺价效果；(3) <b style="color:#34d399">第八代普五批价回升至 950 元+</b>——验证高端品牌定价权；(4) <b style="color:#34d399">飞天茅台批价稳定/回升</b>——板块 β 修复信号；(5) <b style="color:#34d399">白酒消费税政策落地</b>（如不增税则利好）。<b style="color:#34d399">总结：</b>当前股价反映的是<b style="color:#34d399">出清后的修复预期</b>，估值与基本面修复路径匹配，属于<b style="color:#34d399">"消费龙头 · 行业筑底 · 量价齐升"</b>的典型案例，但不是"高速成长"。
+    </p>
+  </div>
+</div>
+
+<div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+<div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+<div class="table-card">
+  <div class="table-title">🛡️ 护城河六维评估（五粮液 · 高端白酒型护城河）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>品牌 / 商誉</b></td><td><span class="ok">极强</span></td><td>"五粮液"是中国白酒顶级品牌之一，"五粮液酒传统酿造技艺"为国家级非物质文化遗产；与茅台并称"茅五"；百年品牌沉淀（始于 1909 年）</td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>定价权</b></td><td><span class="ok">极强</span></td><td>高端白酒三巨头之一；2026 年起经销商开票价从 1019 元下调（让利渠道）；8/13 控货挺价（800 元/瓶底线）体现品牌方议价权</td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>规模 / 渠道</b></td><td><span class="ok">极强</span></td><td>全国布局经销商网络；第八代普五核心大单品；专卖店 + 商超 + 电商 + 团购 + 即时零售全覆盖</td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>成本优势</b></td><td><span class="ok">强</span></td><td>宜宾产区独特微生物群 + 水土气生 + 窖池资源（明代老窖）；浓香型白酒工艺壁垒；基酒储备充足（基酒库存 60 万吨+）</td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>转换成本</b></td><td><span class="ok">中等</span></td><td>消费者品牌粘性强（社交场景必需品）；经销商体系相对稳定；但需注意 2024-2025 年经销商窜货与价格倒挂问题</td><td><span class="warn">⭐⭐⭐</span></td></tr>
+      <tr><td><b>资源 / 资产</b></td><td><span class="ok">极强</span></td><td>宜宾产区土地 + 老窖池（明代活窖）+ 基酒储备（陈年基酒 60 万吨+）+ 品牌 IP 资产；这些资源不可复制</td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">2026H1 修复</div>
+    <div class="name">ROE (2026H1)</div>
+    <div class="value">7.14%</div>
+    <div class="change">+3.73pp YoY</div>
+    <div class="label">低于茅台 25%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">毛利率 (2025)</div>
+    <div class="value" style="font-size:17px;">~75%</div>
+    <div class="change">白酒行业高位</div>
+    <div class="label">茅台 ~92%</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">净利率 (2026H1)</div>
+    <div class="value">~31%</div>
+    <div class="change">高端白酒高位</div>
+    <div class="label">茅台 ~52%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">市占率</div>
+    <div class="value" style="font-size:14px;">高端 ~13%</div>
+    <div class="change">茅五泸三巨头</div>
+    <div class="label">茅台占 ~35%</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">行业地位</div>
+    <div class="value" style="font-size:14px;">白酒老二</div>
+    <div class="change">2025 被汾酒反超</div>
+    <div class="label">清香崛起压力</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">极强</div>
+    <div class="name">护城河总评</div>
+    <div class="value" style="font-size:14px;">宽阔型</div>
+    <div class="change">百年品牌+稀缺资源</div>
+    <div class="label">复利型护城河</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">行业属性</div>
+    <div class="value" style="font-size:14px;">弱周期</div>
+    <div class="change">消费场景修复</div>
+    <div class="label">5-10 年大周期</div>
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">🛡️</div>
+  <div class="text">
+    <h3>护城河结论：宽阔护城河 + 高端白酒龙头 + 百年品牌沉淀 —— "巴菲特型复利机器"</h3>
+    <p>
+      五粮液在 <b style="color:#34d399">品牌/商誉、定价权、规模/渠道、成本优势、资源/资产</b>五个维度具备极强护城河（百年品牌 + 国家级非遗 + 浓香型工艺 + 明代老窖池 + 60 万吨基酒储备 + 全国经销商网络）；<b style="color:#fbbf24">转换成本</b>维度中等（消费者粘性强但 2024-2025 年经销商窜货问题暴露）。ROE 2026H1 加权 <b style="color:#34d399">7.14%（+3.73pp）</b> 修复中（<b style="color:#fbbf24">仍低于茅台 ~25%</b>）；毛利率 <b style="color:#34d399">~75%</b>（<b style="color:#fbbf24">低于茅台 ~92%</b>）；净利率 <b style="color:#34d399">~31%</b>（<b style="color:#fbbf24">低于茅台 ~52%</b>）反映 <b style="color:#34d399">"高端品牌 + 较强护城河 + 但弱于茅台"</b> 格局。<br>
+      <b style="color:#fbbf24">护城河 vs 行业挑战：</b>(1) <b style="color:#34d399">百年品牌+稀缺资源型护城河不可复制</b>——这是巴菲特型护城河的核心；(2) <b style="color:#fbbf24">2025 年被山西汾酒反超（清香崛起）</b>——老三面临清香品类挑战；(3) <b style="color:#fbbf24">经销渠道窜货与价格倒挂</b>——护城河的执行力受损；(4) <b style="color:#fbbf24">销售费用激增可持续性</b>——2026Q1 +145% 不可持续；(5) <b style="color:#fbbf24">白酒消费场景修复缓慢</b>——传统商务、政务消费仍未恢复。<b style="color:#34d399">总结：</b>五粮液的护城河反映的是<b style="color:#34d399">"百年品牌 + 稀缺资源 + 较强定价权"</b>，是<b style="color:#34d399">巴菲特型宽阔护城河</b>，但执行力与盈利能力弱于茅台。这是分批建仓的核心理由——估值低位+护城河强+业绩拐点=胜率较高。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+<div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标（追溯调整口径）</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>财务指标</div>
+    <div>2023 / 2024 / 2025 / 2026H1</div>
+    <div>格雷厄姆 + 凯恩斯视角</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营业总收入（亿）</div>
+    <div class="fin-val down">~832 / 891 / 405 / 284</div>
+    <div class="fin-comment">2025 追溯调整后 <b style="color:#f87171">-54.55%</b>，2026H1 <b style="color:#34d399">+20.87%（低基数）</b>；2024 调整前为 891 亿</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利润（亿）</div>
+    <div class="fin-val down">~302 / 318 / 89.54 / 87.53</div>
+    <div class="fin-comment">2025 追溯调整后 <b style="color:#f87171">-71.89%</b>，2026H1 <b style="color:#34d399">+89.30%（低基数）</b>；2024 调整前为 318 亿</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">扣非归母净利（亿）</div>
+    <div class="fin-val down">~298 / 314 / 88.16 / 84.83</div>
+    <div class="fin-comment">YoY <b style="color:#f87171">2025 大幅下滑</b>，2026H1 <b style="color:#34d399">+83.96%</b>（低基数）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流（亿）</div>
+    <div class="fin-val warn">~370 / 400 / ~150 / 估算 110</div>
+    <div class="fin-comment"><b style="color:#fbbf24">2025 经营性现金流大幅下降</b>；<b style="color:#34d399">2026Q1 经营现金流净额回归正常</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">自由现金流（亿）</div>
+    <div class="fin-val warn">~310 / 340 / ~120 / 估算 90</div>
+    <div class="fin-comment">FCF 随业绩下滑；<b style="color:#34d399">但仍为正</b>，现金流稳健</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">资产负债率</div>
+    <div class="fin-val ok">~22% / ~23% / ~24% / ~25%</div>
+    <div class="fin-comment"><b style="color:#34d399">资产负债率 22-25% 极低</b>；白酒龙头中财务结构最稳健之一</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">有息负债率</div>
+    <div class="fin-val ok">极低</div>
+    <div class="fin-comment">基本无银行借款；<b style="color:#34d399">财务费用净额为负</b>（利息收入）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">应收账款</div>
+    <div class="fin-val ok">0.67 亿（2026H1）</div>
+    <div class="fin-comment"><b style="color:#34d399">应收账款仅占总资产 0.04%</b>（行业最低）；现款现货商业模式优秀</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">存货</div>
+    <div class="fin-val warn">226.58 亿（2026H1）</div>
+    <div class="fin-comment"><b style="color:#34d399">占总资产 12.25%</b>；基酒储备充足（60 万吨+）；存货结构健康</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流/净利润</div>
+    <div class="fin-val ok">1.2x / 1.2x / ~1.0x / ~1.0x</div>
+    <div class="fin-comment"><b style="color:#34d399">OCF/净利润 接近 1x 优秀</b>；现金流质量高于净利润</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">商誉/总资产</div>
+    <div class="fin-val ok">极低</div>
+    <div class="fin-comment">白酒企业无大额商誉；<b style="color:#34d399">无重大减值风险</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入占比</div>
+    <div class="fin-val warn">~0.5-1%</div>
+    <div class="fin-comment">传统白酒企业研发投入低；<b style="color:#fbbf24">不体现费雪型成长思维</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">分红派息率</div>
+    <div class="fin-val ok">~60%</div>
+    <div class="fin-comment"><b style="color:#34d399">白酒龙头传统高分红</b>；2024 分红率 60%+；28 年累计 1264.45 亿</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股东户数 / 北向资金</div>
+    <div class="fin-val mid">香港中央结算 6785 万股</div>
+    <div class="fin-comment">北向资金持股 6785.46 万股（约总股本 1.75%）；机构覆盖度高</div>
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">💰</div>
+  <div class="text">
+    <h3>财务质量判断：财务健康（行业最优资产负债结构 + 高分红 + 极低应收）—— 白酒龙头财务样板</h3>
+    <p>
+      五粮液 2023-2026H1 营收 <b style="color:#34d399">~832 → 891 → 405 → 284 亿</b>（2025 追溯调整后下滑，2026H1 低基数反弹）、归母 <b style="color:#34d399">~302 → 318 → 89.54 → 87.53 亿</b>（同上）。资产负债率 <b style="color:#34d399">22-25% 极低</b>（行业最低之一）；<b style="color:#34d399">应收账款仅占总资产 0.04%</b>（现款现货商业模式优秀）；<b style="color:#34d399">OCF/净利润 接近 1x 优秀</b>；<b style="color:#34d399">无大额商誉</b>。总体财务质量为<b style="color:#34d399">"财务健康"</b>，关键优势是<b style="color:#34d399">极低杠杆 + 高现金流 + 高分红</b>。<br>
+      <b style="color:#34d399">关键亮点：</b>(1) <b style="color:#34d399">资产负债率 22-25% 极低</b>——白酒龙头中财务结构最稳健；(2) <b style="color:#34d399">应收账款仅 0.67 亿</b>——现款现货商业模式优秀；(3) <b style="color:#34d399">60% 高分红率</b>——28 年累计现金分红 1264.45 亿；(4) <b style="color:#34d399">无大额商誉 + 无大额有息负债</b>——无重大减值风险；(5) <b style="color:#34d399">股权质押比例仅 0.01%</b>——股东风险极低。<br>
+      <b style="color:#34d399">后续验证重点：</b>2026Q3 业绩披露后，<b style="color:#34d399">高基数压力下业绩能否延续 + 销售费用率是否回落 + 经营现金流转正持续性 + 第八代普五批价回升 + 双节动销数据</b> 是 <b style="color:#34d399">财务质量验证的核心</b>。在此之前，<b style="color:#34d399">财务质量评级为"健康"</b>，支持分批建仓策略。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+<div class="section-subtitle">"管理层是否诚实、能干、以股东利益为导向" —— 费雪</div>
+
+<div class="table-card">
+  <div class="table-title">🧭 管理层与治理关键事项</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>实控人 / 控股股东</b></td><td>实际控制人 <b style="color:#7dd3fc">宜宾市国资委</b>，控股股东 <b style="color:#7dd3fc">四川省宜宾五粮液集团有限公司（持股 20.67%）</b>，国企背景明显；28 年稳健经营</td><td><span class="ok">⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>董事长 / 管理层</b></td><td>董事长 <b style="color:#7dd3fc">邓敏（2024 年起任）</b>；新帅上任后强调"长期主义"；推动"茅台化"学习路径与渠道改革</td><td><span class="mid">⭐⭐⭐</span></td></tr>
+      <tr><td><b>管理层稳定性</b></td><td>2024 年完成董事长换届；管理层整体稳定但需要 1-2 年观察新帅执行力；2026 年度股东大会出席率达 55.19%</td><td><span class="mid">⭐⭐⭐</span></td></tr>
+      <tr><td><b>股东动作 / 增持</b></td><td><b style="color:#34d399">2025 年 4-7 月集团公司增持 476.37 万股（6.13 亿）</b>；<b style="color:#34d399">2026 年 5-8 月集团公司第三轮增持 241.13 万股（1.99 亿）</b>；信号意义：管理层认为股价低估</td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>股权激励</b></td><td>未明确披露大额股权激励方案；国企背景股权激励相对谨慎；员工持股计划有但规模有限</td><td><span class="warn">⭐⭐</span></td></tr>
+      <tr><td><b>股东回报 / 分红</b></td><td><b style="color:#34d399">28 年累计现金分红 1264.45 亿</b>；2024 年分红率 60%+；高分红传统稳定；分红是估值修复的重要支撑</td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>股权质押</b></td><td><b style="color:#34d399">股权质押比例仅 0.01%（46.32 万股）</b>；控股股东无大额质押；<b style="color:#34d399">国资背景减持压力小</b></td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>会计差错更正</b></td><td>2026 年报披露 2025H1 营收由 527.71 亿下修至 235.10 亿（-292.61 亿）；<b style="color:#fbbf24">这是 28 年罕见的重大差错</b>，需关注公司治理与审计独立性</td><td><span class="warn">⭐⭐</span></td></tr>
+      <tr><td><b>回购与增持</b></td><td>2025 年完成大额股份回购（100 亿规模）；集团公司持续增持；<b style="color:#34d399">股东回报意愿强</b></td><td><span class="ok">⭐⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>渠道改革</b></td><td>2026 年起经销商开票价从 1019 元下调；8/13 控货挺价（800 元/瓶）；<b style="color:#34d399">新管理层执行力体现</b></td><td><span class="ok">⭐⭐⭐⭐</span></td></tr>
+      <tr><td><b>机构覆盖度</b></td><td>29 家机构覆盖；2026E 净利润预测均值约 200 亿（最高 280.91 亿）；机构一致预期正面</td><td><span class="ok">⭐⭐⭐⭐</span></td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px; padding:12px; background:rgba(56,189,248,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+    💡 <b style="color:#7dd3fc">治理结论：基本可信，国资控股+高分红+增持支持，但会计差错是警示信号。</b>主要加分项：(1) <b style="color:#34d399">宜宾市国资委控股</b>——本展性、公信力较强；(2) <b style="color:#34d399">28 年累计现金分红 1264.45 亿</b>——股东回报极致；(3) <b style="color:#34d399">集团公司三轮增持</b>——管理层与股东利益一致；(4) <b style="color:#34d399">股权质押比例仅 0.01%</b>；(5) <b style="color:#34d399">新管理层推动渠道改革</b>。主要减分项：(1) <b style="color:#fbbf24">2025 年报会计差错更正（重大）</b>——需关注审计独立性；(2) <b style="color:#fbbf24">股权激励相对薄弱</b>；(3) <b style="color:#fbbf24">研发投入低</b>。需注意：(a) <b style="color:#34d399">增持信号正面</b>；(b) <b style="color:#fbbf24">会计差错后的可比性需重新审视</b>；(c) <b style="color:#34d399">渠道改革见效需持续跟踪</b>。
+  </div>
+</div>
+
+<div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+<div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+  <div class="table-card">
+    <div class="table-title">📈 行业周期定位：白酒行业筑底中（连续 6 年下行 · 2026 见底信号）</div>
+    <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+      白酒行业 <b style="color:#fbbf24">2025 年中证白酒指数下滑 16%</b>，截至 2026 年 5 月 8 日年内继续下滑约 14%，<b style="color:#fca5a5">已经连续第六年下行</b>，目前已经回到 2019 年板块爆发前的水平。从周期看，白酒业绩与消费场景修复高度相关。<b style="color:#fbbf24">2026H1 六大龙头赚走 96% 利润</b>，马太效应凸显。当前位置：<b style="color:#34d399">"业绩筑底 + 动销回暖 + 出清修复"</b>格局。<br><br>
+      <b style="color:#34d399">白酒行业 6 大龙头集中度极强</b>：(1) <b style="color:#34d399">贵州茅台</b>2026H1 营收 907 亿（唯一半年超 300 亿）；(2) <b style="color:#34d399">五粮液</b>2026H1 营收 284 亿；(3) <b style="color:#34d399">山西汾酒</b>2026H1 营收超 200 亿（已超越五粮液成为白酒老二）；(4) <b style="color:#34d399">泸州老窖 / 洋河股份 / 古井贡酒</b>构成第二梯队。<b style="color:#fbbf24">结构性分化加剧</b>——清香型崛起（山西汾酒）+ 浓香型承压（五粮液、泸州老窖）+ 次高端深度调整（洋河）。<br><br>
+      <b style="color:#fbbf24">关键周期信号：</b>(1) <b style="color:#34d399">二季度或迎业绩拐点</b>（多家券商判断）；(2) <b style="color:#34d399">双节（中秋/国庆）销售旺季临近</b>；(3) <b style="color:#fbbf24">飞天茅台批价回归 1500 元指导价</b>——板块 β 修复信号；(4) <b style="color:#fbbf24">白酒消费场景重构</b>——传统商务、政务消费恢复缓慢，但新场景（自饮/宴席/礼品）有韧性。
+    </p>
+  </div>
+  <div class="table-card">
+    <div class="table-title">🏛️ 政策环境与产业链位置</div>
+    <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+      政策环境：<b style="color:#34d399">2026 年消费政策整体偏正面</b>（扩内需、提振消费）；白酒消费税上调整体可控（暂未明确加征）；地方国资改革深化（五粮液控股股东持续增持体现改革支持）。<br><br>
+      <b style="color:#34d399">政策环境关键信号：</b>(1) <b style="color:#34d399">国资改革深化</b>——集团公司持续增持体现支持；(2) <b style="color:#34d399">扩内需政策导向</b>——白酒消费场景有政策支持；(3) <b style="color:#fbbf24">白酒消费税</b>——历史上多次讨论但未实质加征，需关注后续政策；(4) <b style="color:#fbbf24">限制公务消费</b>——长期影响但已基本消化。<br><br>
+      <b style="color:#34d399">产业链位置：</b>上游为粮食、包装材料供应商；中游为白酒生产企业（五粮液所在位置）；下游为经销商网络、零售商、终端消费者。位于 <b style="color:#34d399">"中游白酒生产 · 高端品牌 · 渠道为王"</b>位置。<br><br>
+      <b style="color:#7dd3fc">未来 3-5 年增长空间：</b>(1) <b style="color:#34d399">高端品牌集中度提升</b>——龙头优势放大；(2) <b style="color:#34d399">消费场景修复</b>——商务/政务消费恢复；(3) <b style="color:#34d399">国际化拓展</b>——海外华人市场；(4) <b style="color:#fbbf24">年轻化转型</b>——低度酒、果味酒等新品类；(5) <b style="color:#fbbf24">消费税政策落地</b>。三项均需明示披露后才能反映到估值。<b style="color:#34d399">总结：</b>行业增长空间存在但需要<b style="color:#34d399">"出清后修复"</b>的兑现路径，当前估值已部分反映这一预期。
+    </p>
+  </div>
+</div>
+
+<div class="section-title warn">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+<div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+<div class="table-card">
+  <div class="table-title">📊 截至 2026-09-16 收盘技术结构（资金流 + 量价）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>当前股价</td><td><span class="warn">69.26 元（-0.63%）</span></td><td>9/16 收盘，已跌破 52 周低点 69.60</td></tr>
+      <tr><td>9/15 开盘价</td><td><span class="warn">69.76 元</span></td><td>昨收 69.85（9/14）；窄幅震荡</td></tr>
+      <tr><td>9/15 高低</td><td><span class="warn">69.98 / 69.60</span></td><td>波动极小（0.55%）；超跌后企稳信号</td></tr>
+      <tr><td>9/15 成交量</td><td><span class="warn">9.67 万手</span></td><td>较 9/14（11.73 万手）缩量；观望情绪浓厚</td></tr>
+      <tr><td>9/15 成交额</td><td><span class="warn">5.34 亿</span></td><td>成交低迷；机构观望；游资谨慎</td></tr>
+      <tr><td>9/15 换手率</td><td><span class="warn">0.20%</span></td><td>极低换手；筹码锁定</td></tr>
+      <tr><td>52 周区间</td><td><span class="danger">69.60 - 126.33 元</span></td><td>9/16 已 <b style="color:#fca5a5">跌破 52 周低点</b>；近 1 年跌幅约 -45%</td></tr>
+      <tr><td>9/14 主力资金净买入</td><td><span class="ok">+1243.21 万元</span></td><td>主力小幅介入；9/10 净流出 4.6 亿</td></tr>
+      <tr><td>9/15 融资余额</td><td><span class="warn">58.90 亿</span></td><td>占流通市值 2.18%；超过近一年 50% 分位</td></tr>
+      <tr><td>MA60/120/250</td><td><span class="warn">数据未独立核验</span></td><td>需进一步核验同花顺/东财数据；股价远低于长期均线</td></tr>
+      <tr><td>MACD / 布林带</td><td><span class="warn">数据未独立核验</span></td><td>近一年大跌后超跌反弹概率上升</td></tr>
+      <tr><td>北向资金近 30 日</td><td><span class="warn">数据未独立核验</span></td><td>需进一步核验同花顺/东财数据</td></tr>
+      <tr><td>关键支撑位</td><td><span class="warn">65 元（整数关）<br>60 元（心理关）<br>55 元（中期支撑）</span></td><td>分级支撑 · 65/60/55 三档</td></tr>
+      <tr><td>关键压力位</td><td><span class="warn">80 元（短期）<br>90 元（中期）<br>100 元（心理关）</span></td><td>分级压力 · 80/90/100 三档</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">📡</div>
+  <div class="text">
+    <h3>技术面与资金流判断：超跌反弹 · 筑底企稳 · 主力观望 —— 不是"弱势"，是"底部"</h3>
+    <p>
+      五粮液在 9 月出现 <b style="color:#fca5a5">9/16 收盘 69.26 元已跌破 52 周低点 69.60</b>，<b style="color:#fca5a5">近 1 年跌幅约 -45%</b>（126.33 → 69.26），<b style="color:#34d399">9/15 成交量 9.67 万手 · 成交额 5.34 亿 · 换手率 0.20%</b>——成交极度低迷 + 筹码锁定 = <b style="color:#34d399">底部企稳信号</b>。<b style="color:#34d399">主要技术信号：</b><br>
+      (1) <b style="color:#34d399">超跌后筑底</b>——股价远低于长期均线，下行空间有限；(2) <b style="color:#34d399">换手率骤降至 0.20%</b>——观望情绪浓厚，机构持仓稳定；(3) <b style="color:#34d399">主力资金阶段性介入</b>——9/14 净买入 1243 万，9/10 净流出 4.6 亿后企稳；(4) <b style="color:#34d399">9/16 板块特大单净流入（证券时报口径）</b>——白酒板块可能见底。<br>
+      <b style="color:#34d399">关键支撑位：</b>65 元（整数关）· 60 元（心理关）· 55 元（中期支撑）；<b style="color:#34d399">关键压力位：</b>80 元（短期）· 90 元（中期）· 100 元（心理关）。<br>
+      <b style="color:#34d399">💡 凯恩斯选美下逻辑：</b>当前阶段是<b style="color:#34d399">"选美游戏"筑底期</b>——机构观望+游资谨慎+筹码锁定+主力边际介入 = <b style="color:#34d399">左侧分批窗口</b>；<b style="color:#34d399">💡 索罗斯反身性下逻辑：</b>股价超跌 → 业绩反弹 → 估值修复 → 股价进一步修复的<b style="color:#34d399">正向反身性正在酝酿</b>，但需业绩验证才能启动。<b style="color:#34d399">总结：</b>技术面与资金流反映的是<b style="color:#34d399">"超跌反弹 · 筑底企稳 · 主力观望"</b>信号，与基本面（业绩反弹+估值低位）开始匹配，是分批建仓的左侧窗口。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+<div class="section-subtitle">11 种方法论打分 · Top 3 匹配 · 冲突处理与最终倾向</div>
+
+<!-- 6 列评分条（格雷厄姆/费雪/林奇/邓普顿/博格/马克斯） -->
+<div class="score-table">
+  <div class="score-item">
+    <div class="score-num warn">6</div>
+    <div class="score-name">格雷厄姆</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+    <div class="score-out">深度价值 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">费雪成长</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">成长投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">6</div>
+    <div class="score-name">林奇 PEG</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+    <div class="score-out">PEG 投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">6</div>
+    <div class="score-name">邓普顿逆向</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+    <div class="score-out">逆向投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">4</div>
+    <div class="score-name">博格指数</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+    <div class="score-out">指数投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">6</div>
+    <div class="score-name">马克斯周期</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+    <div class="score-out">周期投资 / 10</div>
+  </div>
+</div>
+
+<!-- 3 列方法论卡（西蒙斯/达里奥/凯恩斯/索罗斯/巴菲特 + Top 3） -->
+<div class="method-grid">
+  <div class="method-card best">
+    <div class="method-name">🥇 巴菲特护城河</div>
+    <div class="method-author">沃伦·巴菲特 · "持久护城河"</div>
+    <div class="method-score good">8 / 10</div>
+    <div class="method-desc">百年品牌+国家级非遗+浓香工艺+明代老窖池+60万吨基酒储备+全国渠道网络= <b style="color:#34d399">宽阔护城河</b>。茅台 PB 6.26x vs 五粮液 PB 2.29x 说明<b style="color:#34d399">五粮液护城河存在估值折价</b>。ROE 7.14% 修复中（弱于茅台 ~25%）但毛利率 ~75% 高位。<b style="color:#34d399">巴菲特型复利机器</b>，可分批介入。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🥈 格雷厄姆深度价值</div>
+    <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+    <div class="method-score warn">6 / 10</div>
+    <div class="method-desc">PE-TTM ~15x（追溯调整后）位于历史中低位（2018-2024 中位 25-30x），<b style="color:#34d399">存在一定安全边际</b>；财务结构稳健（资产负债率 22-25% + 应收账款仅 0.04%）；但 2025 年报会计差错是警示信号。<b style="color:#34d399">格雷厄姆视角下分批买入</b>。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🥉 林奇 PEG</div>
+    <div class="method-author">彼得·林奇 · "PEG 投资"</div>
+    <div class="method-score warn">6 / 10</div>
+    <div class="method-desc">2026E PE 10-13x / 2026-2028 复合增速 14% / <b style="color:#34d399">PEG ~0.7-1.0</b>——处于林奇 PEG 投资的有吸引区间（PEG < 1）。但需注意 2026Q3 高基数压力下增速可能放缓，PEG 优势需 1-2 个季度验证。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🔷 邓普顿逆向</div>
+    <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+    <div class="method-score warn">6 / 10</div>
+    <div class="method-desc">白酒行业 6 年下行后筑底 + 公司 2025 出清式下滑 + 9/16 跌破 52 周低点 + 主力观望 = <b style="color:#34d399">逆向投资窗口</b>。但<b style="color:#fbbf24">最悲观点未完全确认</b>（2026Q3 业绩+2026Q4 春节动销需观察）。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🔷 马克斯周期</div>
+    <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+    <div class="method-score warn">6 / 10</div>
+    <div class="method-desc">白酒行业 6 年下行周期底部确认中 + 公司出清修复 + 消费场景修复缓慢 = <b style="color:#34d399">周期筑底右侧</b>。但完全周期反转需双节动销+飞天茅台批价回升+业绩验证三连确认。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🔷 凯恩斯选美</div>
+    <div class="method-author">约翰·梅纳德·凯恩斯 · "市场选美"</div>
+    <div class="method-score warn">6 / 10</div>
+    <div class="method-desc">高端白酒共识仍在 + 28 年累计分红 1264.45 亿 + 集团公司三轮增持 + 29 家机构覆盖 = <b style="color:#34d399">共识正面</b>。但当前机构观望+游资谨慎+9/16 跌破 52 周低点说明<b style="color:#fbbf24">共识尚未转化为买入行动</b>。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🔷 费雪成长</div>
+    <div class="method-author">菲利普·费雪 · "成长投资 15 问"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">业绩有反弹预期（2026H1 +89%）但<b style="color:#fbbf24">低基数效应消退</b>（2026Q3 高基数）+ 行业调整延续 + 销售费用激增可持续性存疑 = <b style="color:#fbbf24">不体现费雪型"业务几乎不变、利润可持续增长"</b>的复利机器。费雪<b style="color:#fbbf24">感兴趣但谨慎 · 5 分</b>。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🔷 索罗斯反身性</div>
+    <div class="method-author">乔治·索罗斯 · "主流偏见反身性"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">股价超跌 → 业绩反弹 → 估值修复的<b style="color:#34d399">正向反身性正在酝酿</b>，但需业绩验证才能启动；9/16 跌破 52 周低点后主力观望说明<b style="color:#fbbf24">反身性尚未完全启动</b>。索罗斯<b style="color:#fbbf24">观察 · 5 分</b>。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🔷 西蒙斯量化</div>
+    <div class="method-author">詹姆斯·西蒙斯 · "统计套利量化"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">超跌反弹因子信号偏正面（股价远低于长期均线 + 换手率骤降 + 主力边际介入），但<b style="color:#fbbf24">反转因子尚未确认</b>（需要 2026Q3 业绩+双节动销双重确认）。西蒙斯<b style="color:#fbbf24">信号中性 · 5 分</b>。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">🔷 博格指数</div>
+    <div class="method-author">约翰·博格 · "低成本宽基"</div>
+    <div class="method-score warn">4 / 10</div>
+    <div class="method-desc">白酒是消费板块细分赛道，不是宽基指数；<b style="color:#fbbf24">博格指数逻辑不适用于个股</b>。但作为消费板块的龙头代表，<b style="color:#fbbf24">可类比宽基中的权重股</b>。博格<b style="color:#fbbf24">中性偏低 · 4 分</b>。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">🔷 达里奥全天候</div>
+    <div class="method-author">瑞·达里奥 · "全天候配置"</div>
+    <div class="method-score warn">4 / 10</div>
+    <div class="method-desc">白酒波动率高于债券/商品，与股债组合相关性不稳定；<b style="color:#fbbf24">不适合全天候组合中作为稳资产</b>；但<b style="color:#34d399">作为消费必需品赛道</b>，可在组合中适度配置。达里奥<b style="color:#fbbf24">谨慎 · 4 分</b>。</div>
+  </div>
+</div>
+
+<!-- 冲突处理与最终倾向 -->
+<div class="conclusion">
+  <div class="conclusion-title">📌 方法论冲突处理与最终倾向（价值派 vs 周期派 · 分批建仓窗口）</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>冲突点：</strong><b style="color:#34d399">巴菲特护城河（8 分）、格雷厄姆深度价值（6 分）、林奇 PEG（6 分）</b> 与 <b style="color:#94a3b8">博格指数（4 分）、达里奥全天候（4 分）</b> 存在视角冲突。前者认可个股价值，后者更适合指数化投资。同时 <b style="color:#fbbf24">费雪成长（5 分）</b> 警示<b style="color:#fbbf24">低基数效应消退风险</b>。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>分析原因：</strong>分歧源于<b style="color:#34d399">"出清修复 · 量价齐升 · 估值低位"</b>的核心逻辑：(1) <b style="color:#34d399">百年品牌 + 宽阔护城河</b> → 巴菲特高分；(2) <b style="color:#34d399">PE-TTM 15x 历史低位 + 财务结构稳健</b> → 格雷厄姆认可；(3) <b style="color:#34d399">PEG ~0.7-1.0</b> → 林奇 PEG 投资区间；(4) <b style="color:#fbbf24">低基数效应 + 行业 6 年下行 + 销售费用激增</b> → 费雪谨慎。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>最终倾向：</strong><b style="color:#34d399">采纳价值派+周期派立场（巴菲特+格雷厄姆+林奇+邓普顿+马克斯）</b>为主——消费龙头+宽阔护城河+估值低位+行业筑底=分批建仓窗口已打开。<b style="color:#fbbf24">费雪/索罗斯/西蒙斯</b>作为<b style="color:#fbbf24">"业绩验证观察项"</b>，不作为决策主线。<b style="color:#94a3b8">博格/达里奥</b>作为<b style="color:#94a3b8">"资产配置参考项"</b>，提示控制单股仓位 ≤ 5%。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><strong>综合得分：6.20 / 10 分</strong>，对应评级：<strong style="color:#34d399">谨慎买入</strong>（行业筑底 · 估值低位 · 业绩拐点确认中 · 高端白酒护城河强）。决策：<strong style="color:#34d399">分批建仓 ≤ 5%</strong>，分 3-5 批，每批间隔 1-2 月。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">5</span>
+    <p><strong>建仓信号确认（任一即触发建仓）：</strong>(1) <b style="color:#34d399">2026Q3 业绩披露后高基数压力可控（10 月底）</b> = <b style="color:#34d399">第一笔建仓信号</b>；(2) <b style="color:#34d399">双节动销数据正面 + 第八代普五批价回升至 900 元+</b> = <b style="color:#34d399">第二笔加仓信号</b>；(3) <b style="color:#34d399">飞天茅台批价稳定/回升至 2200 元+</b> = <b style="color:#34d399">板块 β 修复信号</b>；(4) <b style="color:#34d399">白酒消费税不增税政策落地</b> = <b style="color:#34d399">政策利好信号</b>。</p>
+  </div>
+</div>
+
+<div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+<div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，分批限仓、围绕业绩和动销做决策</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card position">
+    <div class="strategy-title">🎯 仓位与分批建仓（消费龙头 · 左侧分批）</div>
+    <div class="strategy-content">
+      <table class="compare-table">
+        <thead><tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr></thead>
+        <tbody>
+          <tr><td><b style="color:#34d399">建仓 #1（首笔）</b></td><td>当前 65-69 元（接近 52 周低点）/ 2026Q3 业绩披露后</td><td><span class="warn">≤ 1% 试探</span></td></tr>
+          <tr><td><b style="color:#34d399">建仓 #2（加仓）</b></td><td>股价 60-65 元（回调 5-10%）+ 双节动销+批价回升</td><td><span class="warn">≤ 2%</span></td></tr>
+          <tr><td><b style="color:#34d399">建仓 #3（主仓）</b></td><td>股价 55-60 元（回调 15-20%）+ 业绩验证完成</td><td><span class="ok">≤ 2%</span></td></tr>
+          <tr><td><b style="color:#34d399">建仓 #4（极限）</b></td><td>股价 50-55 元（极端低估）+ 行业 β 确认</td><td><span class="ok">≤ 1%</span></td></tr>
+          <tr><td><b style="color:#34d399">单股上限</b></td><td>消费龙头 · 护城河强 · 谨慎买入</td><td><span class="ok">≤ 5%</span></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px; font-size:11px; color:#94a3b8;">
+        💡 <b style="color:#fbbf24">决策原则：</b>左侧分批 + 业绩验证 + 动态调整。每批间隔 1-2 月，避免一次性重仓。注意 <b style="color:#fbbf24">2026Q3 高基数压力</b>（10 月底）可能压制短期股价，反而提供更优建仓价格。
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🚨 止损位（分批建仓适用 · 先小仓试探）</div>
+    <div class="strategy-content">
+      <strong style="color:#f87171">硬止损：</strong>股价跌破 <b style="color:#f87171">55 元（-21%）</b> → <b style="color:#f87171">止损 ≥ 70% 仓位</b>，保留 ≤ 1% 仓位观察。<br>
+      <strong style="color:#fbbf24">信号止损（任一即减仓）：</strong><br>
+      1. <b style="color:#fbbf24">2026Q3 业绩披露后高基数压力下归母 YoY 转负（10 月底）</b><br>
+      2. <b style="color:#fbbf24">第八代普五批价跌破 800 元/瓶</b>（公司底线）<br>
+      3. <b style="color:#fbbf24">白酒行业指数（申万白酒）持续新低</b><br>
+      4. <b style="color:#fbbf24">消费税政策加征</b>（如落地）<br>
+      5. <b style="color:#fbbf24">公司再次公告会计差错或审计问题</b>
+    </div>
+  </div>
+
+  <div class="strategy-card target">
+    <div class="strategy-title">📈 目标价（参考，非承诺 · 以业绩兑现和估值修复为参考基准）</div>
+    <div class="strategy-content">
+      <table class="compare-table">
+        <thead><tr><th>周期</th><th>保守（PE 18x · 修复初期）</th><th>中性（PE 22x · 修复中期）</th><th>乐观（PE 25x · 业绩超预期）</th></tr></thead>
+        <tbody>
+          <tr><td><b>12 个月</b></td><td><span class="ok">76.5 元（+10%）</span></td><td><span class="ok">93.5 元（+35%）</span></td><td><span class="ok">106.3 元（+54%）</span></td></tr>
+          <tr><td><b>24 个月</b></td><td><span class="ok">87.4 元（+26%）</span></td><td><span class="ok">114.4 元（+65%）</span></td><td><span class="ok">135.7 元（+96%）</span></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px; font-size:11px; color:#94a3b8;">
+        💡 <b style="color:#34d399">关键观察：</b>即使在保守情景下，12 个月目标价 76.5 元（+10%）已可期待；中性情景下 24 个月目标价 114.4 元（+65%）对应当前估值修复至 25x PE。<b style="color:#fbbf24">关键风险：</b>白酒行业 6 年下行延续 + 2026Q3 高基数压力 + 销售费用激增可持续性。
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-card cycle">
+    <div class="strategy-title">⏳ 持有周期</div>
+    <div class="strategy-content">
+      <strong style="color:#34d399">左侧建仓者：</strong><b style="color:#34d399">中长线</b>（6-12 月 · 分批建仓完成 + 业绩验证）；<br>
+      <strong style="color:#fbbf24">右侧追涨者：</strong><b style="color:#fbbf24">中线</b>（3-6 月 · 估值修复兑现）；<br>
+      <strong style="color:#c084fc">价值投资者：</strong><b style="color:#c084fc">长线</b>（12-24 月 · 护城河复利 + 行业 β 修复 + 高分红股东回报）。<br>
+      💡 <b style="color:#34d399">核心原则：</b>消费龙头长期复利 + 高分红支撑 + 行业筑底右侧 = 适合中长期持有。
+    </div>
+  </div>
+
+  <div class="strategy-card monitor">
+    <div class="strategy-title">📡 关键监测指标（每季度）</div>
+    <div class="strategy-content">
+      1. <b style="color:#7dd3fc">2026Q3 业绩披露</b>（10 月底 · 高基数压力下业绩能否延续）<br>
+      2. <b style="color:#7dd3fc">双节（中秋/国庆）销售动销数据</b>（10 月底 · 渠道控货挺价效果）<br>
+      3. <b style="color:#7dd3fc">第八代普五批价</b>（公司公告/今日酒价 · 回升至 950 元+）<br>
+      4. <b style="color:#7dd3fc">飞天茅台批价</b>（板块 β 信号 · 稳定/回升至 2200 元+）<br>
+      5. <b style="color:#7dd3fc">申万白酒指数走势</b>（板块 β 修复 · 底部确认）
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🛑 卖出信号（任一触发即减仓）</div>
+    <div class="strategy-content">
+      1. <b style="color:#fca5a5">2026Q3 业绩披露后高基数压力下归母 YoY 转负</b><br>
+      2. <b style="color:#fca5a5">第八代普五批价跌破 800 元/瓶（公司底线）</b><br>
+      3. <b style="color:#fca5a5">白酒行业指数（申万白酒）持续新低且无政策对冲</b><br>
+      4. <b style="color:#fca5a5">消费税政策加征</b>（如落地 · 影响净利率 3-5pp）<br>
+      5. <b style="color:#fca5a5">公司再次公告会计差错或审计问题（治理风险）</b>
+    </div>
+  </div>
+</div>
+
+<div class="section-title warn">⚠️ 模块 12 · 核心风险揭示（5 条 · 含触发/影响/应对）</div>
+
+<div class="risk-grid">
+  <div class="risk-card warn">
+    <div class="risk-title">⚠️ 1. 低基数效应消退风险（2026Q3 面临高基数）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 2026Q3 业绩披露（10 月底）高基数压力下归母 YoY 转负；(b) 2026Q4 春节动销不及预期；(c) 销售费用激增（2026Q1 +145%）持续压制净利率；(d) 渠道窜货与价格倒挂（批价 850 < 经销商开票价 1019）进一步恶化。<br>
+      <strong>影响幅度：</strong>2026Q3 业绩如转负（高基数压制），股价可能进一步下跌 10-15%（跌至 60 元以下）；2026Q4 春节动销如不及预期，股价可能跌至 55 元（-21%）。<br>
+      <strong>应对策略：</strong>密切关注 2026Q3 业绩（10 月底）；如业绩 YoY 转负，<b style="color:#fca5a5">减仓至 ≤ 1%</b>，等待业绩拐点确认；如春节动销数据出台前股价反弹，<b style="color:#fca5a5">分批止盈</b>。
+    </div>
+  </div>
+  <div class="risk-card">
+    <div class="risk-title">🔻 2. 白酒行业深度调整延续风险（连续 6 年下行）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 白酒行业指数（申万白酒）持续新低；(b) 飞天茅台批价持续下行（跌破 2000 元）；(c) 消费降级进一步加剧；(d) 传统商务/政务消费恢复缓慢；(e) 年轻消费者对白酒兴趣下降。<br>
+      <strong>影响幅度：</strong>行业 β 下行可能压制股价 15-25%；如叠加公司 α 问题（如经销商窜货加剧），股价可能跌至 50 元（-28%）。<br>
+      <strong>应对策略：</strong>监测申万白酒指数走势（底部确认信号）；如行业指数持续新低，<b style="color:#fca5a5">减仓 ≥ 30%</b>；如飞天茅台批价跌破 2000 元，<b style="color:#fca5a5">视为板块 β 警报</b>。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">⚠️ 3. 渠道窜货与价格倒挂风险（批价 < 经销商开票价）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 第八代普五批价跌破 800 元/瓶（公司底线）；(b) 经销商窜货规模扩大（公司 8/13 通知效果不佳）；(c) 经销商对开票价下调不满（从 1019 元下调）；(d) 渠道库存高企（超 2 个月销量）。<br>
+      <strong>影响幅度：</strong>渠道窜货如恶化，公司品牌力受损，可能影响 5-10% 的销量；批价跌破 800 元，<b style="color:#fca5a5">高端品牌定价权受损</b>，股价可能下跌 10-20%。<br>
+      <strong>应对策略：</strong>密切关注第八代普五批价（今日酒价）；如批价跌破 800 元，<b style="color:#fca5a5">减仓 ≥ 50%</b>；如公司未进一步控货挺价措施，<b style="color:#fca5a5">视为护城河受损信号</b>。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">⚠️ 4. 销售费用激增可持续性风险（2026Q1 +145%）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 2026Q3/Q4 销售费用率持续超过 15%（2026Q1 估算 16%）；(b) 销售费用前置抢市场效果不及预期；(c) 净利率持续承压；(d) 经营性现金流恶化。<br>
+      <strong>影响幅度：</strong>销售费用率如持续超过 15%，净利率可能压缩 2-3pp，2026E 净利可能下修 10-15%，估值下修。<br>
+      <strong>应对策略：</strong>每季度监测销售费用率与净利率变化；如费用率持续高位 + 净利率下滑，<b style="color:#fca5a5">减仓 ≥ 30%</b>。
+    </div>
+  </div>
+  <div class="risk-card info">
+    <div class="risk-title">🛡️ 5. 行业政策风险（消费税、限制公务消费）+ 治理风险（会计差错）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>(a) 白酒消费税从量/从价加征（如落地）；(b) 限制公务消费政策升级；(c) 公司再次公告会计差错或审计问题；(d) 集团公司减持（与三轮增持相反）；(e) 国际地缘风险影响出口业务。<br>
+      <strong>影响幅度：</strong>消费税加征可能压缩净利率 3-5pp，对应净利下修 15-25%，股价下跌 15-25%；治理风险如再次会计差错，<b style="color:#fca5a5">市场对审计独立性产生质疑</b>，估值大幅下修。<br>
+      <strong>应对策略：</strong>密切关注消费税政策动态；如消费税加征落地，<b style="color:#fca5a5">减仓 ≥ 40%</b>；如再次会计差错，<b style="color:#fca5a5">视为治理信号 · 减仓 ≥ 50%</b>。
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  📅 <strong>报告截止日：</strong>2026-09-16（周三 · 收盘）· 五粮液（000858.SZ）· 11 方法论交叉验证 × 12 模块标准输出<br>
+  📊 <strong>核心结论：</strong>综合评级 <strong style="color:#34d399">谨慎买入</strong> · 综合得分 <strong style="color:#34d399">6.20/10</strong> · 行业筑底 · 估值低位 · PE-TTM ~15x（追溯调整后） · 9/16 收盘 69.26 元（接近 52 周低点） · 决策：<strong style="color:#34d399">分批建仓 ≤ 5%，分 3-5 批，每批间隔 1-2 月</strong><br>
+  🧠 <strong>证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议</strong><br>
+  📚 <strong>数据源：</strong>搜狐证券 9/16 收盘 + 富途牛牛/雪球 9/15 收盘 + 东方财富 9/14 收盘 + 公司 2026 半年报（8/28 披露）+ 公司 2025 年报（4/30 披露）+ 公司 2026Q1 季报（4/30 披露）+ 公司 8/13 控货挺价通知 + 同花顺 F10 盈利预测 + 巨潮资讯网（巨潮资讯网 cninfo.com.cn）+ 21 经济网（白酒出清时刻）+ 证券时报/澎湃新闻/华尔街见闻 + 公司公告（集团公司三轮增持公告）<br>
+  ⚠️ <strong>缺口披露：</strong>北向资金近 30 日净流入流出未独立核验；MA60/120/250 与 MACD/布林带等技术指标未独立核验；基金 Q2 持仓变动数据需进一步交叉确认；同业 9 月最新 PE 数据需多源核验；2026Q3 业绩数据待披露（10 月底）。<br>
+  💡 <strong>教学价值：</strong>本报告作为<b style="color:#34d399">"消费龙头 · 出清修复 · 量价齐升"</b>的典型案例——白酒行业 6 年下行后筑底 + 公司 2025 出清式下滑 + 2026H1 业绩反弹（89% 但低基数）+ 9/16 收盘接近 52 周低点 + PE-TTM 15x 历史低位 + 高端白酒品牌护城河极强 + 28 年累计现金分红 1264.45 亿。<strong style="color:#34d399">重点提示：</strong>左侧分批建仓窗口已打开，但需关注 2026Q3 高基数压力验证 + 双节动销+第八代普五批价回升三重信号。
+</div>
+
+</div>
+</body>
+</html>

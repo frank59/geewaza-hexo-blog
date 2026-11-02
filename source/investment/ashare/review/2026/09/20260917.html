@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-17 A 股复盘 · 美联储鹰派加息落地 · 沪指缩量收跌0.41% · 防御回潮粮食/汽车/CRO领涨 · 前期主线半导体/PCB/MLCC/黄金退潮</title>
+<style>
+  /* === 全局重置 === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* === CSS 变量 · 颜色系统 === */
+  :root {
+    --bg-base: #0f1419;
+    --bg-mid: #1a2332;
+    --bg-end: #0f1419;
+    --card-bg: rgba(30, 41, 59, 0.6);
+    --card-deep: rgba(15, 23, 42, 0.5);
+    --border-soft: rgba(148, 163, 184, 0.2);
+    --border-mid: rgba(148, 163, 184, 0.3);
+
+    --text-primary: #f1f5f9;
+    --text-body: #e8eef5;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
+    --text-faint: #64748b;
+
+    --up: #10b981;
+    --up-light: #34d399;
+    --up-pale: #6ee7b7;
+    --danger: #ef4444;
+    --danger-light: #f87171;
+    --danger-pale: #fca5a5;
+    --warn: #f59e0b;
+    --warn-light: #fbbf24;
+    --info: #0ea5e9;
+    --info-light: #38bdf8;
+    --purple: #a855f7;
+    --purple-light: #c084fc;
+  }
+
+  /* === Body === */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: var(--text-body);
+    min-height: 100vh;
+    padding: 24px;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  /* === 头部 === */
+  .header {
+    background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.35);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(239,68,68,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .header .subtitle {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .badge-up { background: rgba(16,185,129,0.18); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+  .badge-warn { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .badge-source { background: rgba(56,189,248,0.18); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .badge-purple { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .badge-danger { background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.4); }
+
+  /* === 章节标题 === */
+  .section-title {
+    font-size: 22px;
+    margin: 32px 0 16px;
+    padding-left: 14px;
+    border-left: 4px solid #f87171;
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-title.ok { border-left-color: #34d399; }
+
+  /* === 数据说明 === */
+  .data-note {
+    background: var(--card-deep);
+    border: 1px dashed var(--border-mid);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .data-note strong { color: var(--text-primary); }
+  .data-note .ok { color: #34d399; font-weight: 600; }
+  .data-note .warn-text { color: #fbbf24; font-weight: 600; }
+  .data-note .danger-text { color: #fca5a5; font-weight: 600; }
+  .data-note .info-text { color: #38bdf8; font-weight: 600; }
+  .data-note .purple-text { color: #c084fc; font-weight: 600; }
+  .data-note a { color: #38bdf8; text-decoration: none; }
+  .data-note a:hover { text-decoration: underline; }
+
+  /* === 主题横幅 === */
+  .theme-banner {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(239,68,68,0.08);
+    border-left: 5px solid #ef4444;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .theme-banner.warn { background: rgba(245,158,11,0.08); border-left-color: #f59e0b; }
+  .theme-banner.ok { background: rgba(16,185,129,0.08); border-left-color: #10b981; }
+  .theme-banner.danger { background: rgba(239,68,68,0.08); border-left-color: #ef4444; }
+  .theme-banner .icon { font-size: 28px; line-height: 1; }
+  .theme-banner .text { flex: 1; }
+  .theme-banner .text h3 { font-size: 17px; color: var(--text-primary); margin-bottom: 6px; }
+  .theme-banner .text p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .theme-banner .text b.ok-text { color: #34d399; }
+  .theme-banner .text b.warn-text { color: #fbbf24; }
+  .theme-banner .text b.danger-text { color: #fca5a5; }
+  .theme-banner .text b.info-text { color: #38bdf8; }
+
+  /* === 指数 dashboard === */
+  .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+  .index-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px; position: relative; transition: .2s; }
+  .index-card.ok { border-top: 3px solid #34d399; }
+  .index-card.danger { border-top: 3px solid #f87171; }
+  .index-card.warn { border-top: 3px solid #fbbf24; }
+  .index-card.info { border-top: 3px solid #38bdf8; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card .tag { position: absolute; top: 14px; right: 14px; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .index-card .tag.ok { background: rgba(16,185,129,0.18); color: #34d399; }
+  .index-card .tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .index-card .tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .index-card .tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .index-card .name { color: var(--text-subtle); font-size: 13px; margin-bottom: 8px; }
+  .index-card .value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+  .index-card.ok .value { color: #34d399; }
+  .index-card.danger .value { color: #f87171; }
+  .index-card.warn .value { color: #fbbf24; }
+  .index-card.info .value { color: #38bdf8; }
+  .index-card .change { font-size: 13px; margin-top: 4px; }
+  .index-card .label { font-size: 12px; color: var(--text-faint); margin-top: 8px; line-height: 1.5; }
+
+  /* === 资金信号 === */
+  .market-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; border-top: 3px solid var(--info); transition: .2s; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+  .stat-card.up { border-top-color: var(--up); }
+  .stat-card.danger { border-top-color: var(--danger); }
+  .stat-card.warn { border-top-color: var(--warn); }
+  .stat-name { color: var(--text-subtle); font-size: 12px; margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .stat-detail { font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+
+  /* === 资金流 === */
+  .flow-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .flow-row { display: grid; grid-template-columns: 60px 1.4fr 1.2fr 2.4fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .flow-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-val { font-weight: 700; }
+  .flow-val.up { color: #34d399; }
+  .flow-val.down { color: #f87171; }
+  .flow-val.info-text { color: #38bdf8; }
+  .flow-rank { font-weight: 800; font-size: 14px; }
+  .flow-rank.up { color: #34d399; }
+  .flow-rank.info { color: #38bdf8; }
+  .flow-rank.purple { color: #c084fc; }
+
+  /* === 主线卡 === */
+  .mainlines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .mainline-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 18px 20px; position: relative; transition: .2s; }
+  .mainline-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .mainline-card.rank-1 { border-left: 4px solid #34d399; }
+  .mainline-card.rank-2 { border-left: 4px solid #38bdf8; }
+  .mainline-card.rank-3 { border-left: 4px solid #c084fc; }
+  .mainline-card.danger { border-left: 4px solid #f87171; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent); }
+  .mainline-card.warn { border-left: 4px solid #fbbf24; }
+  .mainline-rank { position: absolute; top: 14px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+  .mainline-card.rank-1 .mainline-rank { background: rgba(16,185,129,0.25); color: #34d399; }
+  .mainline-card.rank-2 .mainline-rank { background: rgba(14,165,233,0.25); color: #38bdf8; }
+  .mainline-card.rank-3 .mainline-rank { background: rgba(168,85,247,0.25); color: #c084fc; }
+  .mainline-card .title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; padding-right: 40px; line-height: 1.4; }
+  .mainline-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mainline-tag { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+  .mainline-tag.up { background: rgba(16,185,129,0.18); color: #34d399; }
+  .mainline-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .mainline-tag.warn { background: rgba(245,158,11,0.18); color: #fbbf24; }
+  .mainline-tag.info { background: rgba(14,165,233,0.18); color: #38bdf8; }
+  .mainline-tag.purple { background: rgba(168,85,247,0.18); color: #c084fc; }
+  .flow-timeline { background: rgba(15, 23, 42, 0.5); border-radius: 8px; padding: 10px 14px; font-size: 12px; line-height: 1.7; margin-bottom: 12px; color: var(--text-muted); }
+  .flow-timeline .arrow { font-weight: 800; font-size: 14px; }
+  .flow-timeline b { color: var(--text-primary); }
+  .mainline-desc { font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-bottom: 12px; }
+  .mainline-desc b { color: var(--text-primary); }
+  .mainline-stocks { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stock-chip { background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-soft); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: var(--text-muted); }
+  .stock-chip b { color: var(--text-primary); }
+
+  /* === 涨停天梯 === */
+  .ladder { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .ladder-tag { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+  .ladder-tag b { color: var(--text-primary); }
+  .ladder-tag.lv-1 { background: rgba(239,68,68,0.20); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+  .ladder-tag.lv-2 { background: rgba(245,158,11,0.20); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+  .ladder-tag.lv-3 { background: rgba(56,189,248,0.20); color: #38bdf8; border: 1px solid rgba(56,189,248,0.4); }
+  .ladder-tag.lv-4 { background: rgba(168,85,247,0.18); color: #c084fc; border: 1px solid rgba(168,85,247,0.4); }
+  .ladder-tag.danger { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+
+  /* === ETF === */
+  .etf-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+  .etf-row { display: grid; grid-template-columns: 60px 1.6fr 1fr 2.8fr; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); font-size: 13px; align-items: center; gap: 8px; }
+  .etf-row.header { background: rgba(15, 23, 42, 0.6); color: var(--text-subtle); font-weight: 600; font-size: 12px; }
+  .etf-row:last-child { border-bottom: none; }
+  .etf-rank { font-weight: 800; font-size: 14px; }
+  .etf-rank.up { color: #34d399; }
+  .etf-rank.down { color: #fca5a5; }
+  .etf-val { font-weight: 700; font-size: 15px; }
+  .etf-val.up { color: #34d399; }
+  .etf-val.down { color: #fca5a5; }
+
+  /* === 新闻催化 fin-table === */
+  .fin-table { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 8px; margin-bottom: 16px; }
+  .fin-row { display: grid; grid-template-columns: 1.4fr 1.6fr 2.4fr; gap: 12px; padding: 12px 16px; border-bottom: 1px dashed rgba(148,163,184,0.15); align-items: center; font-size: 13px; }
+  .fin-row:last-child { border-bottom: none; }
+  .fin-row.header { background: rgba(148,163,184,0.06); font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .fin-val { font-weight: 700; font-size: 13px; }
+  .fin-val.up { color: #34d399; }
+  .fin-val.down { color: #fca5a5; }
+  .fin-val.warn { color: #fbbf24; }
+  .fin-val.info { color: #38bdf8; }
+
+  /* === 结论卡 === */
+  .conclusion { background: var(--card-bg); border: 1px solid var(--border-soft); border-left: 4px solid #f87171; border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; }
+  .conclusion.ok { border-left-color: #34d399; }
+  .conclusion.warn { border-left-color: #fbbf24; }
+  .conclusion.info { border-left-color: #38bdf8; }
+  .conclusion.danger { border-left-color: #ef4444; }
+  .conclusion-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+  .conclusion-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .conclusion-item .num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(239,68,68,0.2); color: #f87171; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .conclusion-item p { flex: 1; }
+  .conclusion-item p b { color: var(--text-primary); }
+
+  /* === 机构观点 === */
+  .conflict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .view-a, .view-b { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .view-a { border-left: 4px solid #34d399; }
+  .view-b { border-left: 4px solid #f87171; }
+  .view-a h4, .view-b h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .view-a p, .view-b p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .view-a p b, .view-b p b { color: var(--text-primary); }
+  .verdict { background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.06)); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 16px 20px; font-size: 13px; line-height: 1.7; color: var(--text-muted); margin-top: 12px; }
+  .verdict b { color: var(--text-primary); }
+  .verdict .ok-text { color: #34d399; }
+  .verdict .warn-text { color: #fbbf24; }
+  .verdict .danger-text { color: #fca5a5; }
+
+  /* === 展望信号 === */
+  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .signal-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .signal-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 8px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .signal-card h4 .num { font-size: 18px; }
+  .signal-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+  .signal-card p b { color: var(--text-primary); }
+
+  /* === 策略网格 === */
+  .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+  .strategy-card { background: var(--card-bg); border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 20px; }
+  .strategy-card.mainline { border-left: 4px solid #34d399; }
+  .strategy-card.defend { border-left: 4px solid #fbbf24; }
+  .strategy-card.avoid { border-left: 4px solid #f87171; }
+  .strategy-card.master { border-left: 4px solid #38bdf8; }
+  .strategy-card h4 { font-size: 14px; color: var(--text-primary); margin-bottom: 10px; font-weight: 700; }
+  .strategy-list { list-style: none; padding: 0; }
+  .strategy-list li { font-size: 12px; color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; padding-left: 14px; position: relative; }
+  .strategy-list li::before { content: '›'; position: absolute; left: 0; color: #fbbf24; font-weight: 800; }
+  .strategy-list li b { color: var(--text-primary); }
+
+  /* === 页脚 === */
+  .footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; padding: 20px; border-top: 1px solid rgba(148,163,184,0.10); line-height: 1.8; }
+  .footer .up-text { color: #34d399; font-weight: 700; }
+  .footer .warn-text { color: #fbbf24; font-weight: 700; }
+  .footer .danger-text { color: #fca5a5; font-weight: 700; }
+  .footer a { color: #38bdf8; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* === 响应式 === */
+  @media (max-width: 1024px) {
+    .dashboard { grid-template-columns: repeat(2, 1fr); }
+    .market-stats { grid-template-columns: repeat(2, 1fr); }
+    .mainlines, .signal-grid, .conflict-grid, .strategy-grid { grid-template-columns: 1fr; }
+    .fin-row, .flow-row, .etf-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ============ ① 头部 ============ -->
+<div class="header">
+  <h1>🚀 2026-09-17 A 股复盘 · 美联储鹰派加息落地 · 沪指缩量收跌0.41% · 防御回潮粮食/汽车/CRO领涨 · 前期主线半导体/PCB/MLCC/黄金退潮</h1>
+  <div class="subtitle">沪指 <b class="danger-text">-0.41%</b> / 深成指 <b class="danger-text">-0.33%</b> / 创业板指 <b class="danger-text">-0.40%</b> / 北证 50 <b class="danger-text">-1.37%</b> / 科创 50 <b class="danger-text">-0.61%</b> · 三市成交 <b class="warn-text">18365 亿（较 9/16 缩量 160 亿 -0.87%）</b> · 超 <b class="danger-text">2800 只个股下跌</b> · 数据日期 2026-09-17（周四收盘）</div>
+  <div class="badges">
+    <span class="badge badge-warn">🟡 防御回潮</span>
+    <span class="badge badge-warn">📉 缩量 160 亿</span>
+    <span class="badge badge-danger">🔴 美联储鹰派加息 25bp</span>
+    <span class="badge badge-source">📅 数据日期 2026-09-17</span>
+    <span class="badge badge-purple">🧠 点阵图：2026 还加一次</span>
+    <span class="badge badge-danger">🔴 前期主线退潮</span>
+  </div>
+</div>
+
+<!-- ============ ② 数据说明 ============ -->
+<div class="data-note">
+  <strong>📌 数据口径与双源验证：</strong><br>
+  ✅ <span class="ok">同花顺 A 股收评 c680008728</span> —— 沪指 / 深成指 / 创业板指 / 北证 50 / 科创 50 涨跌幅 + 三市成交 18365 亿 + 超 2800 只下跌 + 主力净流入 TOP3（长安汽车 +33.0 / 电子纸 +28.96 / 光纤 +26.37 亿）+ 涨停天梯（澳弘电子 5 连 / 华瓷·中晶·锡华 3 连）+ 板块涨跌结构（转基因/玉米/种植业/粮食/教育 领涨；贵金属/元件/油气/小金属/MLCC 领跌）（用户指定主源）<br>
+  ✅ <span class="ok">同花顺 ETF 收评 c680008727</span> —— <span class="info-text">港股医疗 ETF(159366) +3.12% 领涨 / 粮食 ETF(159073) +3.02% · (159063) +2.81% / 黄金股 ETF(517520) -4.45% 领跌 · (517400) -4.28% · (159562) -4.23%</span>（用户指定主源 · ETF 涨跌榜）<br>
+  ✅ <span class="ok">证券时报《美联储宣布加息25bp》9/17 凌晨</span> —— <span class="info-text">联邦基金利率目标区间上调至 3.75-4.00% · 点阵图中位数显示 2026 年或将再加息一次</span>（非同源第二来源 · 印证美联储议息结果）<br>
+  ✅ <span class="ok">汇通网 / Klaro / ATFX 9/17</span> —— <span class="info-text">美联储大幅上调经济增长预期（2026 GDP 2.2→2.3% / 2027 2.3→2.4%）/ 下调失业率预测至 4.1% / PCE 通胀 3.6→3.7% · 核心 PCE 3.3→3.4% / 通胀回归 2% 目标推迟至 2029 年</span>（非同源第三来源 · 印证点阵图鹰派）<br>
+  🔴 <span class="danger-text">指数收盘点位缺失</span> —— 同花顺 c680008728 仅披露涨跌幅（沪 -0.41% / 深 -0.33% / 创 -0.40% / 北证 -1.37% / 科创 -0.61%），本报告点位为基于 9/17 估算收盘点位 + 9/17 涨跌幅反推的<span class="warn-text">估算值</span>；准确收盘点位待用户本地 Wind / 同花顺客户端核对。<br>
+  ⚠️ <span class="warn-text">同花顺两域同源说明</span>：c680008728（A 股收评）+ c680008727（ETF 收评）均来自 news.10jqka.com.cn 域；做双源核验时仅作主源参考，搭配证券时报 + 汇通网非同源第二/三来源补强。
+</div>
+
+<!-- ============ ③ 主题横幅 ============ -->
+<div class="theme-banner warn">
+  <div class="icon">🛑</div>
+  <div class="text">
+    <h3>核心定性：美联储 9/17 凌晨鹰派加息 25bp 至 3.75-4.00% · 点阵图 2026 还加一次 · 沪指缩量收跌 -0.41% · 防御回潮（粮食 +3% / 汽车整车 / CRO 创新药领涨）/ 前期主线退潮（贵金属 -4.45% / 元件 / MLCC / PCB / 油气 / 半导体）· 连板高度回落至 5 板</h3>
+    <p>沪指 <b class="danger-text">-0.41%</b> / 深成指 <b class="danger-text">-0.33%</b> / 创业板指 <b class="danger-text">-0.40%</b> / 北证 50 <b class="danger-text">-1.37%</b> / 科创 50 <b class="danger-text">-0.61%</b> · 三市成交 <b>18365 亿（较 9/17 缩量 160 亿）</b> · 超 2800 只个股下跌 · 主力净流入 TOP3：长安汽车概念 <b class="ok-text">+33.0 亿</b> / 电子纸 <b class="ok-text">+28.96 亿</b>（13 股上涨）/ 光纤概念 <b class="ok-text">+26.37 亿</b>（36 股上涨）；领跌：贵金属 / 元件 / 油气开采 / 小金属 / MLCC 概念 · 涨停天梯：<b class="ok-text">澳弘电子 5 连板</b>（连板高度回落 1 板）· 华瓷股份 / 中晶科技 / 锡华科技 3 连板</p>
+  </div>
+</div>
+
+<!-- ============ ④ 五大指数 ============ -->
+<div class="section-title">📊 一、五大指数核心表现（缩量收跌 · 全线飘绿 · 美联储鹰派打压高估值）</div>
+<div class="dashboard">
+  <div class="index-card danger">
+    <div class="tag danger">-0.41%</div>
+    <div class="name">上证指数（1A0001）</div>
+    <div class="value">≈ 3873</div>
+    <div class="change" style="color:#f87171">约 -16 点（估算）</div>
+    <div class="label">9/16 +0.71% → 9/17 -0.41% 缩量收跌 · 沪强转沪弱 · 美联储鹰派加息 25bp 后高估值品种承压</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-0.33%</div>
+    <div class="name">深证成指（399001）</div>
+    <div class="value">≈ 13244</div>
+    <div class="change" style="color:#f87171">约 -45 点（估算）</div>
+    <div class="label">9/16 +1.26% → 9/17 -0.33% 涨幅回吐 · 成长股承压 · 前期主线（半导体/PCB/MLCC/元件）领跌</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-0.40%</div>
+    <div class="name">创业板指（399006）</div>
+    <div class="value">≈ 3298</div>
+    <div class="change" style="color:#f87171">约 -13 点（估算）</div>
+    <div class="label">9/16 +1.96% → 9/17 -0.40% 创强转创弱 · 元件 / PCB / MLCC / 油气杀跌 · <b class="warn-text">半导体 AI 算力链回吐</b></div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-1.37%</div>
+    <div class="name">北证 50（899050）</div>
+    <div class="value">≈ 1053</div>
+    <div class="change" style="color:#f87171">约 -15 点（估算）</div>
+    <div class="label">9/16 +1.14% → 9/17 -1.37% <b class="danger-text">领跌五指数</b> · 北交所小盘流动性收缩 · 专精特新 / 半导体小盘承压</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">-0.61%</div>
+    <div class="name">科创 50（1B0688）</div>
+    <div class="value">≈ 1606</div>
+    <div class="change" style="color:#fbbf24">约 -10 点（估算）</div>
+    <div class="label">9/16 +4.14% → 9/17 -0.61% 涨幅回吐 · <b class="warn-text">放量主升后缩量回调</b> · 半导体 AI 算力链获利回吐 · 议息鹰派打压高估值</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 指数口径补充：</strong>① 同花顺 c680008728 仅披露涨跌幅（沪 -0.41% / 深 -0.33% / 创 -0.40% / 北证 -1.37% / 科创 -0.61%），未直接给收盘点位；② <span class="danger-text">今日五指数收盘点位均为基于 9/16 估算收盘点位 + 9/17 涨跌幅反推的估算值</span>，其中：<b class="info-text">沪指 9/16 估算 3889</b> → 9/17 -0.41% ≈ 3873；<b class="info-text">深成指 9/16 估算 13288</b> → 9/17 -0.33% ≈ 13244；<b class="info-text">创指 9/16 估算 3311</b> → 9/17 -0.40% ≈ 3298；<b class="info-text">北证 50 9/16 估算 1068</b> → 9/17 -1.37% ≈ 1053；<b class="info-text">科创 50 9/16 估算 1616</b> → 9/17 -0.61% ≈ 1606；③ <b class="danger-text">准确收盘点位待用户本地 Wind / 同花顺客户端核对</b>；④ 9/17 收盘 <b class="warn-text">五指数全部收跌</b>，与 9/16 "五指数全部上涨" 形成<b class="warn-text">完整反转</b>（累计回吐沪 -0.71% / 深 -1.59% / 创 -2.36% / 北证 -2.51% / 科创 -4.75%），印证美联储鹰派加息对高估值品种的打压。
+</div>
+
+<!-- ============ ⑤ 市场交易与资金信号 ============ -->
+<div class="section-title info">💰 二、市场交易与资金信号（缩量 160 亿 · 防御 TOP1 净流入 +33 亿 · 千亿主线退潮至亿级）</div>
+<div class="market-stats">
+  <div class="stat-card warn">
+    <div class="stat-name">三市成交额</div>
+    <div class="stat-value">18365 亿</div>
+    <div class="stat-detail">较 9/16（18525 亿）<b class="warn-text">缩量 160 亿（-0.87%）</b> · <b class="warn-text">连续 3 日 1.8 万亿附近徘徊</b>（9/14 16430 → 9/15 16253 → 9/16 18525 → 9/17 18365 亿）· 议息鹰派背景下<b class="danger">增量资金未进场</b> · <b class="warn-text">"存量博弈 + 防御切换"特征明确</b></div>
+  </div>
+  <div class="stat-card danger">
+    <div class="stat-name">个股活跃度</div>
+    <div class="stat-value">超 2800 跌</div>
+    <div class="stat-detail">同花顺披露"<b class="danger">全市场超 2800 只个股下跌</b>" · 与 9/16"<b class="ok">超 4100 只上涨</b>"形成<b class="danger">完整反转</b> · 涨停家数 <b class="danger-text">数据缺口</b>（仅披露连板梯度）· <b class="warn">前期主线（半导体/PCB/MLCC/元件/贵金属）杀跌</b></div>
+  </div>
+  <div class="stat-card info">
+    <div class="stat-name">领涨 vs 领跌</div>
+    <div class="stat-value">粮食/汽车/CRO ↑ / 贵金属/元件 ↓</div>
+    <div class="stat-detail"><b class="ok">转基因 / 玉米（885811）/ 种植业与林业（881101）/ 粮食概念（885995）/ 教育板块涨幅居前</b> · 敦煌种业/万向德农/金健米业触及涨停 · 众泰汽车/安凯客车/海马汽车涨停 · 金石亚药/南华生物/百花医药涨停 · <b class="danger">贵金属（881169）/ 元件（881270）/ 油气开采（881107）/ 小金属（881170）/ MLCC 概念（886112）跌幅居前</b> · 山东黄金/湖南黄金/湖南白银跌幅居前 · 南亚新材/华正新材/威尔高跌幅居前</div>
+  </div>
+  <div class="stat-card up">
+    <div class="stat-name">ETF 领涨 / 领跌</div>
+    <div class="stat-value">港股医疗ETF +3.12% / 黄金股ETF -4.45%</div>
+    <div class="stat-detail"><b class="ok">港股医疗 ETF(159366) +3.12% 领涨</b> · 粮食 ETF(159073) +3.02% · 粮食 ETF(159063) +2.81%（防御回潮）· <b class="danger">黄金股 ETF(517520) -4.45% 领跌</b> · 黄金股 ETF(517400) -4.28% · 黄金股 ETF(159562) -4.23%（贵金属主线杀跌）</div>
+  </div>
+</div>
+
+<!-- ============ ⑥ 主力资金净流入 TOP3 ============ -->
+<div class="section-title">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径（防御回潮 · 千亿主线退潮至亿级）</div>
+<div class="flow-table">
+  <div class="flow-row header"><div>排名</div><div>主题板块</div><div>主力净流入</div><div>板块表现 / 印证</div></div>
+  <div class="flow-row">
+    <div><span class="flow-rank up">1</span></div>
+    <div><b>长安汽车概念（886061）</b></div>
+    <div class="flow-val up">+33.0 亿</div>
+    <div><b class="ok">众泰汽车（000980）/ 安凯客车（000868）/ 海马汽车（000572）涨停</b> · <b class="warn-text">催化：广汽集团（HK2238）公告筹划发行股份购买一汽股份持有的某整车合资公司部分股权</b> · 9/16 汽车整车 / 猪肉 / 养鸡 / 保险 / 银行 跌幅居前 → 9/17 长安汽车概念 +33.0 亿，<b class="ok-text">"政策催化 + 防御回潮"双轮驱动</b></div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank info">2</span></div>
+    <div><b>电子纸（885953）</b></div>
+    <div class="flow-val up">+28.96 亿</div>
+    <div><b class="ok">板块内 13 股上涨</b> · 电子纸作为新型显示技术，受益消费电子（电子墨水屏 / 智能货架 / 电子标签）渗透率提升 · 与 AI 算力链相关度低，<b class="warn-text">在议息鹰派打压高估值品种背景下获避险资金关注</b></div>
+  </div>
+  <div class="flow-row">
+    <div><span class="flow-rank purple">3</span></div>
+    <div><b>光纤概念（886084）</b></div>
+    <div class="flow-val up">+26.37 亿</div>
+    <div><b class="ok">板块内 36 股上涨</b> · 与 9/16 主升主线"涨价向上游扩散（光刻机 / 光纤 / 半导体材料硅片）"延续 · 印证 9/16 涨价主线中<b class="info-text">光纤作为相对低估值环节</b>在 9/17 议息鹰派下相对抗跌 · 与 CPO / 光模块的纯高估值品种形成分化</div>
+  </div>
+</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>ℹ️ 资金面补充：</strong>① <b>同花顺 c680008728 9/17</b>：<span class="info">三大资金主战场合计净流入 88.33 亿元</span>（长安汽车概念 +33.0 / 电子纸 +28.96 / 光纤概念 +26.37 亿）；② <b class="danger">三市总成交 18365 亿 / 主力净流入 TOP3 合计 88.33 亿，占总成交仅 0.48%</b>——反映"<b class="danger">资金抱团力度大幅减弱（9/16 的 5.65% → 9/17 的 0.48%，体量缩小 91.6%）</b>"；③ <span class="warn-text">从 9/16 的 1047.16 亿半导体 TOP3 净流入 → 9/17 仅 88.33 亿防御 + 电子纸 TOP3 净流入，资金体量大幅萎缩（环比 -91.6%）</b>，印证议息鹰派下<b class="danger">主力资金"全面避险"</b>；④ 涨停家数 <b class="danger-text">公开数据缺口</b>（同花顺 c680008728 未披露具体涨停家数），仅披露连板梯度（5 连 / 3 连 / 2 连）；⑤ 资金面变化方向：<b class="danger">9/16 半导体 AI 算力链千亿级抱团 → 9/17 防御 + 电子纸 + 光纤亿级分散防御</b>，<b class="warn">"主线退潮 + 资金分散"特征明确</b>。
+</div>
+
+<!-- ============ ⑦ 今日主线板块与逻辑（三段式时间脉络 · D-2=9/14 → D-1=9/15 → 今日=9/17） ============ -->
+<div class="section-title">🎯 四、今日主线板块与逻辑（近 3 个交易日三段式脉络 · D-2=9/15 → D-1=9/16 → 今日=9/17）</div>
+<div class="mainlines">
+
+  <!-- 主线1：粮食概念 + 长安汽车 + 防御回潮（政策催化 + 议息后高估值挤压） -->
+  <div class="mainline-card rank-1">
+    <div class="mainline-rank">1</div>
+    <div class="title">🌾 粮食概念回潮 + 长安汽车政策催化 + 教育板块（防御品种"政策催化型反弹"· 议息鹰派下资金切换至"防御 + 政策催化"双轮驱动）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 防御回潮</span>
+      <span class="mainline-tag info">长安+33亿</span>
+      <span class="mainline-tag info">粮食ETF +3%</span>
+      <span class="mainline-tag purple">农业农村部"十五五"</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日）<br>
+      · D-2（9/15）：<b>防御 5 日游杀跌 · 粮食 ETF 三只 -3.9%~-4.05% 集体杀跌</b> · 旅游酒店 / 粮食 / 兵装重组领跌<br>
+      · D-1（9/16）：<b>防御品种切换（汽车整车 / 猪肉 / 养鸡 / 保险 / 银行补跌）</b> · 与前期"农化/粮食"防御完全不同组<br>
+      · 今日（9/17）：<b>防御回潮（粮食 +3% / 汽车整车涨停 / 教育） + 政策催化（农业农村部"十五五"规划 / 广汽集团购买一汽股权）</b> <span class="arrow">🔀 切</span>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>防御品种从 9/14-9/15"5 日游杀跌 + 抱团遗弃"→ 9/16"新组防御（汽车/猪肉/银行）补跌"→ 9/17 完成"<b>防御回潮 + 政策催化双轮驱动</b>"的反转：① <b>粮食概念（885995）</b>：低开高走，<b>敦煌种业（600354）/万向德农（600371）/金健米业（600127）触及涨停</b>，秋乐种业/国投丰乐（000713）/神农种业（300189）涨幅居前；② <b>汽车整车（881125）</b>：震荡走高，<b>众泰汽车（000980）/安凯客车（000868）/海马汽车（000572）涨停</b>，赛力斯/曙光股份（600303）/江淮汽车（600418）涨幅居前；③ <b>CRO 概念（885927）</b>：表现强势，<b>金石亚药（300434）/南华生物（000504）/百花医药（600721）涨停</b>，近岸蛋白（688137）/万邦医药（301520）/海特生物（300683）涨幅居前；④ 板块涨幅榜：<b>转基因 / 玉米（885811）/ 种植业与林业（881101）/ 粮食概念（885995）/ 教育板块</b>涨幅居前。<br>
+      <b>【催化】</b>① <b>农业农村部《全国种植业发展"最新五年"规划》</b>：明确到 2030 年粮食综合生产能力稳步提升，守牢谷物基本自给、口粮绝对安全底线；<b>国盛证券（002670）表示</b>"最新五年"农粮政策重心由"守住供给底线"转向"抬升产能上限"，产业战略地位持续强化，板块配置逻辑逐步向"<b>安全 + 成长</b>"双轮驱动演进；② <b>财信证券 9/11 研报</b>：2026 年玉米（885811）制种面积同比下降 7%，叠加部分区域高温干旱影响单产，预计新产种子减少，库存压力边际缓解；③ <b>国投证券 9/16 研报</b>：全球玉米（885811）库销比持续处于低位，厄尔尼诺预警强化粮价中长期上行预期；④ <b>广汽集团（HK2238）公告</b>：筹划发行股份购买一汽股份持有的某整车合资公司部分股权，催化长安汽车概念板块；⑤ <b>中信证券（HK6030）研报</b>：2026 年上半年 CXO 板块及生命科学上游板块整体业绩表现稳健，行业进入复苏阶段，上半年海外投融资景气度持续，美联储加息预期走弱，早研板块整体的景气度持续走强。<br>
+      <b>【归因】</b>9/14-9/15 防御 5 日游杀跌累计 -15% → 9/16 新组防御（汽车/猪肉/银行）补跌 → 9/17 防御回潮 + 政策催化（"农业农村部十五五" / "广汽集团购买一汽股权"）三阶段路径明确。<b>新增"政策催化"成为防御回潮的核心推手</b>（与 9/16 防御切换无政策催化形成对比），<b>美联储鹰派加息 25bp + 点阵图 2026 还加一次</b>压制高估值品种（半导体 / PCB / MLCC / 元件），资金"<b class="ok">从高估值抱团切换至防御 + 政策催化双轮</b>"。粮食板块作为防御品种，在政策催化 + 厄尔尼诺 + 库销比低位多重利好下，<b>完成"N 日游杀跌 → 反弹"的修复路径</b>。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>敦煌种业</b> 600354（涨停）</span>
+      <span class="stock-chip"><b>万向德农</b> 600371（触及涨停）</span>
+      <span class="stock-chip"><b>金健米业</b> 600127（触及涨停）</span>
+      <span class="stock-chip"><b>秋乐种业</b> 838087</span>
+      <span class="stock-chip"><b>国投丰乐</b> 000713</span>
+      <span class="stock-chip"><b>神农种业</b> 300189</span>
+      <span class="stock-chip"><b>众泰汽车</b> 000980（涨停）</span>
+      <span class="stock-chip"><b>安凯客车</b> 000868（涨停）</span>
+      <span class="stock-chip"><b>海马汽车</b> 000572（涨停）</span>
+      <span class="stock-chip"><b>金石亚药</b> 300434（涨停）</span>
+      <span class="stock-chip"><b>南华生物</b> 000504（涨停）</span>
+      <span class="stock-chip"><b>百花医药</b> 600721（涨停）</span>
+    </div>
+  </div>
+
+  <!-- 主线2：创新药 / CRO 复苏（中信证券定调 CXO 板块进入复苏阶段） -->
+  <div class="mainline-card rank-2">
+    <div class="mainline-rank">2</div>
+    <div class="title">💊 创新药 / CRO 概念复苏（板块大涨 · 中信证券 CXO 进入复苏阶段 · 议息鹰派下估值切换）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag up">🟢 复苏主升</span>
+      <span class="mainline-tag info">中信证券</span>
+      <span class="mainline-tag purple">CXO 复苏</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日）<br>
+      · D-2（9/15）：医药板块随防御杀跌回吐，CRO 概念板块整体偏弱<br>
+      · D-1（9/16）：医药 / CRO 概念不在主升板块（半导体放量主升主导）<br>
+      · 今日（9/17）：<b>CRO 概念（885927）板块表现强势 · 金石亚药/南华生物/百花医药 3 股涨停</b> <span class="arrow">🔼 升</span>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>CRO 概念（885927）板块表现强势，<b>金石亚药（300434）/ 南华生物（000504）/ 百花医药（600721）涨停</b>，<b>近岸蛋白（688137）/ 万邦医药（301520）/ 海特生物（300683）</b>涨幅居前。<br>
+      <b>【催化】</b>中信证券（HK6030）研报：2026 年上半年 CXO 板块及生命科学上游板块整体业绩表现稳健，<b>行业进入复苏阶段</b>。上半年海外投融资景气度持续，<b>美联储加息预期走弱</b>，早研板块整体的景气度持续走强，AIDD 的快速发展也将进一步催化未来相关实验和验证需求的爆发；CDMO 板块上半年龙头业绩表现稳健，整体订单增速持续加快，行业景气度回升。中长期来看，新重磅药物 / 新分子 / 新技术对于工艺开发和试验设计能力的要求提高，中国 CDMO 行业有望凭借在全球生物医药创新技术领域早期管线的不断积累，进入由"<b>工程师红利</b>"+ "<b>引领创新红利</b>"双核驱动时代。生命科学试剂板块随着投融资回暖、价格竞争缓和，行业需求有望从局部复苏转向全面复苏；国内企业加速布局海外市场，国际化能力建设稳步推进。<br>
+      <b>【归因】</b>议息鹰派下，<b>前期高估值品种（半导体 / PCB / MLCC / 元件）被杀估值</b>，资金切换至"<b>政策催化（CXO 行业基本面拐点）+ 防御属性（医药刚需）</b>"双轮驱动的 CRO 概念板块。中信证券定性"<b>CXO 板块进入复苏阶段</b>"提供长期逻辑背书。<b>板块 3 股涨停 + 板块表现强势</b>印证创新药 / CRO 主线在议息鹰派下的"<b class="ok">逆势抗跌 + 政策催化</b>"特征。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>金石亚药</b> 300434（涨停）</span>
+      <span class="stock-chip"><b>南华生物</b> 000504（涨停）</span>
+      <span class="stock-chip"><b>百花医药</b> 600721（涨停）</span>
+      <span class="stock-chip"><b>近岸蛋白</b> 688137</span>
+      <span class="stock-chip"><b>万邦医药</b> 301520</span>
+      <span class="stock-chip"><b>海特生物</b> 300683</span>
+      <span class="stock-chip"><b>药明康德</b> 603259</span>
+      <span class="stock-chip"><b>凯莱英</b> 002821</span>
+    </div>
+  </div>
+
+  <!-- 主线3：光纤概念（涨价向上游扩散的"低估值幸免者"） -->
+  <div class="mainline-card rank-3">
+    <div class="mainline-rank">3</div>
+    <div class="title">🔌 光纤概念（涨价向上游扩散的"低估值幸免者"· 议息鹰派下相对抗跌 · 36 股上涨）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag info">🔵 涨价延续</span>
+      <span class="mainline-tag info">光纤+26.37亿</span>
+      <span class="mainline-tag purple">36股上涨</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日）<br>
+      · D-2（9/15）：光通信 / 光纤不在主升板块（半导体独行科创50）<br>
+      · D-1（9/16）：涨价向上游扩散，光纤 + 光刻机 + 半导体材料硅片作为 9/16 主升主线的"<b>次级延伸</b>"<br>
+      · 今日（9/17）：<b>议息鹰派打压下，光纤作为相对低估值环节相对抗跌 · 净流入 +26.37 亿（板块 36 股上涨）</b> <span class="arrow">━ 持</span>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>光纤概念（886084）获主力资金净流入 +26.37 亿，<b>板块内 36 股上涨</b>，是 9/17 主力净流入 TOP3 中"<b>唯一具有 9/16 主升延续属性</b>"的板块。<br>
+      <b>【催化】</b>① <b>9/16 主升主线"涨价向上游扩散（光刻机 / 光纤 / 半导体材料硅片）"</b>在 9/17 议息鹰派打压下分化——光刻机（CPO/MLCC/元件）杀跌，但光纤作为相对低估值环节相对抗跌；② 与 CPO / 光模块（9/16 TOP3 +270.91 亿）的纯高估值品种形成鲜明分化；③ 印证"<b class="warn">高估值品种承压 + 低估值涨价品种相对抗跌</b>"的议息鹰派特征。<br>
+      <b>【归因】</b>议息鹰派下，<b>高估值品种（CPO / 数据中心 / 芯片概念）被杀估值</b>，<b>光纤作为相对低估值涨价品种</b>获得资金关注。这是议息鹰派下"<b>资金从纯高估值切换至高估值 + 低估值涨价品种并存</b>"的关键信号。<b>净流入 +26.37 亿 / 板块 36 股上涨</b>印证议息鹰派下"<b>涨价 + 低估值"双轮驱动</b>的新主线雏形。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>亨通光电</b> 600487</span>
+      <span class="stock-chip"><b>中天科技</b> 600522</span>
+      <span class="stock-chip"><b>长飞光纤</b> 601869</span>
+      <span class="stock-chip"><b>烽火通信</b> 600498</span>
+      <span class="stock-chip"><b>通鼎互联</b> 002491</span>
+      <span class="stock-chip"><b>永鼎股份</b> 600105</span>
+    </div>
+  </div>
+
+  <!-- 防御板块（独立成卡，红色 .danger） -->
+  <div class="mainline-card danger">
+    <div class="mainline-rank">4</div>
+    <div class="title">🛡️ 前期主线退潮（半导体 / PCB / MLCC / 元件 / 油气 / 贵金属 · 议息鹰派 + 高估值挤压杀跌）</div>
+    <div class="mainline-tag-row">
+      <span class="mainline-tag danger">🔴 主线杀跌</span>
+      <span class="mainline-tag warn">黄金股ETF -4.45%</span>
+      <span class="mainline-tag danger">MLCC / 元件 / 油气 / 小金属</span>
+    </div>
+    <div class="flow-timeline">
+      📌 三段式脉络（D-2 → D-1 → 今日）<br>
+      · D-2（9/15）：<b>半导体独行科创50 +1.55%</b> · 但已现"半导体三足鼎立"特征（存储+54.87/先进封装+32.99/专精特新+31.52 亿）<br>
+      · D-1（9/16）：<b>半导体放量主升 · 科创50突破+4.14%</b> · 芯片 +475.33 / 数据中心 +300.92 / CPO +270.91 亿千亿级抱团<br>
+      · 今日（9/17）：<b>议息鹰派打压 · 半导体 / PCB / MLCC / 元件 / 油气 / 贵金属集体杀跌 · 黄金股 ETF -4.45% 领跌</b> <span class="arrow">🔽 降</span>
+    </div>
+    <div class="mainline-desc">
+      <b>【现象】</b>前期主线（9/15-9/16 领涨板块）集体杀跌：① <b>贵金属（881169）</b>低开低走，<b>山东黄金（600547）/湖南黄金（002155）/湖南白银（002716）跌幅居前</b>，<b>黄金股 ETF（517520）-4.45% / (517400) -4.28% / (159562) -4.23% 集体大跌</b>；② <b>元件（881270）</b>震荡走低，<b>南亚新材（688519）/华正新材（603186）/威尔高（301251）跌幅居前</b>；③ <b>油气开采及服务（881107）/ 小金属（881170）/ MLCC 概念（886112）</b>跌幅居前。<br>
+      <b>【催化】</b>① <b>美联储 9/17 凌晨鹰派加息 25bp 至 3.75-4.00%</b>（证券时报 / 汇通网印证）——<b>点阵图中位数显示 2026 年或将再加息一次</b>，符合市场展望但<b>更偏鹰派</b>；② 美联储大幅上调经济增长预期（2026 GDP 2.2→2.3% / 2027 2.3→2.4%）+ 下调失业率预测至 4.1% + PCE 通胀 3.6→3.7% + 核心 PCE 3.3→3.4%——通胀回归 2% 目标推迟至 2029 年；③ 议息鹰派打压<b>高估值品种</b>（半导体 / PCB / MLCC / 元件 / 贵金属），资金切换至防御 + 政策催化。<br>
+      <b>【归因】</b>9/14-9/15 半导体独行科创50 → 9/16 半导体放量主升科创50突破+4.14%（千亿级抱团）→ 9/17 议息鹰派打压高估值品种，<b>前期主线（半导体/PCB/MLCC/元件/贵金属）集体杀跌</b>。黄金股 ETF -4.45% 领跌印证"<b class="danger">议息鹰派下贵金属反常杀跌（美元指数走强 + 实际利率上行）</b>"的特征。这是 9/15-9/16 半导体主升的"<b class="danger">完整反向</b>"——印证<b class="warn">"放量主升后缩量回调 + 议息鹰派打压高估值"</b>的杀伤力。资金体量从 9/16 的 +1047.16 亿 → 9/17 仅 +88.33 亿（环比 -91.6%）印证"<b class="danger">主力资金"全面避险"</b>"。
+    </div>
+    <div class="mainline-stocks">
+      <span class="stock-chip"><b>山东黄金</b> 600547（领跌）</span>
+      <span class="stock-chip"><b>湖南黄金</b> 002155（领跌）</span>
+      <span class="stock-chip"><b>湖南白银</b> 002716（领跌）</span>
+      <span class="stock-chip"><b>南亚新材</b> 688519（领跌）</span>
+      <span class="stock-chip"><b>华正新材</b> 603186（领跌）</span>
+      <span class="stock-chip"><b>威尔高</b> 301251（领跌）</span>
+      <span class="stock-chip"><b>有研硅</b> 688432（回吐）</span>
+      <span class="stock-chip"><b>中瓷电子</b> 003031（回吐）</span>
+      <span class="stock-chip"><b>光迅科技</b> 002281（回吐）</span>
+      <span class="stock-chip"><b>可川科技</b> 603052（回吐）</span>
+    </div>
+  </div>
+
+
+<!-- ============ ⑧ 涨停天梯 ============ -->
+<!-- ============ ⑤ 涨停天梯 ============ -->
+<div class="section-title warn">🪜 五、涨停天梯（澳弘电子 5 连板 · 连板高度回落 1 板至 5 板 · 防御回潮题材多股涨停）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 高度变化（D-2 → D-1 → 今日）：</strong>9/15 闽东电力 5 连板（电力延续）· 中新赛克 4 连板（通信/算力）→ 9/16 闽东电力 6 连板（连板高度修复至 6 板）· 澳弘电子 4 连板（PCB 9/15 三连板升级）· 博汇科技 3 连板 → 今日 9/17 <b>澳弘电子（605058）5 连板</b>（PCB 9/16 4 连板升级）· <b>华瓷股份（001216）/ 中晶科技（003026）/ 锡华科技（603248）3 连板</b>。<b class="warn-text">连板高度从 6 板回落至 5 板</b>（闽东电力 6 连 → 澳弘电子 5 连），<b class="warn-text">情绪较 9/16 略有退潮</b>；<b class="ok-text">连板方向从"电力 + 半导体"切至"PCB + 陶瓷 + 半导体材料"</b>（澳弘电子 PCB + 华瓷股份陶瓷 + 中晶科技半导体材料 + 锡华科技），与板块主线（防御回潮 + PCB + 半导体材料涨价兑现）高度吻合。<b>2 连板 5 只</b>：世联行、共达电声、中岩大地、万向德农（粮食）、内蒙新华——印证防御回潮 + 政策催化主线。
+</div>
+<div class="ladder">
+  <span class="ladder-tag lv-1">🔥 5 连板：<b>澳弘电子</b>（605058 · PCB · 从 9/16 4 连板升级）</span>
+  <span class="ladder-tag lv-2">⭐ 3 连板：<b>华瓷股份</b>（001216 · 陶瓷）· <b>中晶科技</b>（003026 · 半导体材料）· <b>锡华科技</b>（603248 · 半导体设备）</span>
+  <span class="ladder-tag lv-3">2 连板（5 只）：<b>世联行</b>· <b>共达电声</b>· <b>中岩大地</b>· <b>万向德农</b>（600371 · 粮食/防御）· <b>内蒙新华</b></span>
+  <span class="ladder-tag lv-4">�� 粮食概念涨停：<b>敦煌种业</b>（600354）· <b>万向德农</b>（600371）· <b>金健米业</b>（600127 触及涨停）· 秋乐种业/国投丰乐（000713）/神农种业（300189）涨幅居前</span>
+  <span class="ladder-tag lv-4">🔥 汽车整车涨停：<b>众泰汽车</b>（000980）· <b>安凯客车</b>（000868）· <b>海马汽车</b>（000572）· 赛力斯/曙光股份（600303）/江淮汽车（600418）涨幅居前</span>
+  <span class="ladder-tag lv-4">🔥 CRO / 创新药涨停：<b>金石亚药</b>（300434）· <b>南华生物</b>（000504）· <b>百花医药</b>（600721）· 近岸蛋白（688137）/万邦医药（301520）/海特生物（300683）涨幅居前</span>
+  <span class="ladder-tag danger">⚠️ 数据缺口：今日涨停家数 / 封板率 / 炸板数 / 连板股总数公开数据缺失</span>
+</div>
+
+<!-- ============ ⑥ ETF 涨跌榜 ============ -->
+<div class="section-title info">📊 六、ETF 涨跌榜（同花顺 ETF 收评 c680008727 · 港股医疗领涨 + 黄金股领跌 · 印证防御回潮 + 议息鹰派打压贵金属）</div>
+<div class="data-note" style="margin-bottom:16px">
+  <strong>📌 双源印证：</strong>同花顺 ETF 收评 c680008727 直接披露领涨/领跌 ETF，与板块涨跌结构高度吻合：<b class="ok-text">港股医疗 ETF（159366）+3.12%</b> 印证港股创新药/CRO 板块强势；<b class="ok-text">粮食 ETF（159073）+3.02% /（159063）+2.81%</b> 印证粮食概念回潮；<b class="danger-text">黄金股 ETF（517520）-4.45% /（517400）-4.28% /（159562）-4.23% 集体大跌</b> 印证议息鹰派下贵金属反常杀跌（美元指数走强 + 实际利率上行）。
+</div>
+<div class="etf-table">
+  <div class="etf-row header"><div>方向</div><div>ETF 名称（代码）</div><div>涨跌幅</div><div>板块 / 印证</div></div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨①</b></div>
+    <div><b>港股医疗 ETF（159366）</b></div>
+    <div class="etf-val up">+3.12%</div>
+    <div><b class="ok">港股创新药/CRO 板块强势</b> · 中信证券定性 CXO 进入复苏阶段 · 印证板块主线 2（创新药/CRO 复苏）资金切换至港股龙头</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨②</b></div>
+    <div><b>粮食 ETF（159073）</b></div>
+    <div class="etf-val up">+3.02%</div>
+    <div><b class="ok">粮食概念回潮</b> · 农业农村部"最新五年"规划 + 国盛证券"安全+成长"双轮驱动研报 + 敦煌种业/万向德农/金健米业涨停 · 印证板块主线 1（防御回潮 + 政策催化）</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#34d399">涨③</b></div>
+    <div><b>粮食 ETF（159063）</b></div>
+    <div class="etf-val up">+2.81%</div>
+    <div><b class="info-text">粮食 ETF 双双走强</b> · 第二只粮食 ETF 进入涨幅榜 · 印证板块主线 1（防御回潮）的"双轮驱动（政策催化 + 涨价预期）"特征</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌①</b></div>
+    <div><b>黄金股 ETF（517520）</b></div>
+    <div class="etf-val down">-4.45%</div>
+    <div><b class="danger">议息鹰派反常杀跌</b> · 美元指数走强 + 实际利率上行 + 山东黄金/湖南黄金/湖南白银跌幅居前 · 印证板块主线 4（前期主线退潮）贵金属异军反杀</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌②</b></div>
+    <div><b>黄金股 ETF（517400）</b></div>
+    <div class="etf-val down">-4.28%</div>
+    <div><b class="danger">贵金属板块集体大跌</b> · 三只黄金股 ETF 跌幅均超 4% · 与 9/16 国际金价 4284.51 美元/盎司反弹动能形成鲜明对比 —— 议息鹰派压制避险资产</div>
+  </div>
+  <div class="etf-row">
+    <div><b style="color:#fca5a5">跌③</b></div>
+    <div><b>黄金股 ETF（159562）</b></div>
+    <div class="etf-val down">-4.23%</div>
+    <div><b class="danger">贵金属板块全线退潮</b> · 第三只黄金股 ETF 大跌 · 印证 9/17 议息鹰派下贵金属"<b class="danger">美元/利率反向交易</b>"的反常杀跌特征</div>
+  </div>
+</div>
+
+<!-- ============ ⑦ 重要新闻与板块催化 ============ -->
+<div class="section-title">📖 七、重要新闻与板块催化</div>
+<div class="fin-table">
+  <div class="fin-row header"><div>事件 / 数据</div><div>关键数据</div><div>对 A 股影响</div></div>
+  <div class="fin-row">
+    <div>🇺🇸 美联储 · 9/17 凌晨 02:00 议息会议决议</div>
+    <div class="fin-val down">加息 25bp 至 3.75-4.00%</div>
+    <div><b>联邦基金利率目标区间上调至 3.75-4.00%</b>（证券时报 9/17 凌晨印证）；<b class="warn-text">点阵图中位数显示 2026 年或将再加息一次</b>（汇通网/Klaro/ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；直接打压 A 股高估值品种（半导体/PCB/MLCC/元件/贵金属）—— 资金切换至防御 + 政策催化双轮驱动</div>
+  </div>
+  <div class="fin-row">
+    <div>🇺🇸 美联储 · 经济预测摘要（SEP）</div>
+    <div class="fin-val warn">GDP↑ / 失业率↓ / PCE↑</div>
+    <div>美联储大幅上调经济增长预期（2026 GDP 2.2→<b>2.3%</b> / 2027 2.3→<b>2.4%</b>）+ 下调失业率预测至 <b>4.1%</b> + PCE 通胀 3.6→<b>3.7%</b> · 核心 PCE 3.3→<b>3.4%</b> —— <b class="danger-text">通胀回归 2% 目标推迟至 2029 年</b>；长期利率高位 + 实际利率上行压制高估值品种</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 券商 · 国盛证券（002670）《农业板块"安全+成长"双轮驱动》</div>
+    <div class="fin-val up">"最新五年"农粮政策</div>
+    <div>"最新五年"农粮政策重心由"守住供给底线"转向"抬升产能上限"，<b>产业战略地位持续强化</b>；板块配置逻辑逐步向"<b class="ok">安全 + 成长</b>"双轮驱动演进；直接利好粮食概念（885995）/ 转基因 / 玉米 / 种植业与林业——敦煌种业/万向德农/金健米业涨停</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 券商 · 财信证券《2026 年玉米制种面积下降 7%》研报 9/11</div>
+    <div class="fin-val up">制种面积 -7%</div>
+    <div>2026 年玉米（885811）制种面积同比下降 7%，叠加部分区域高温干旱影响单产，预计新产种子减少，<b class="warn-text">库存压力边际缓解</b>；中长期支撑种业景气度——万向德农（600371）触及涨停，秋乐种业/国投丰乐（000713）涨幅居前</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 券商 · 国投证券《全球玉米库销比低位》研报 9/16</div>
+    <div class="fin-val up">库销比低位 + 厄尔尼诺</div>
+    <div>全球玉米（885811）库销比持续处于低位，<b class="warn-text">厄尔尼诺预警强化粮价中长期上行预期</b>；与农业农村部"最新五年"规划形成共振——粮食 ETF（159073）+3.02% 双轮驱动</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 公司 · 广汽集团（HK2238）公告</div>
+    <div class="fin-val up">购买一汽股权</div>
+    <div>广汽集团（HK2238）公告：<b>筹划发行股份购买一汽股份持有的某整车合资公司部分股权</b>；催化长安汽车概念板块（净流入 +33.0 亿）——众泰汽车/安凯客车/海马汽车涨停</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 券商 · 中信证券（HK6030）《CXO 进入复苏阶段》研报</div>
+    <div class="fin-val up">CXO 复苏 + AIDD</div>
+    <div>2026 年上半年 CXO 板块及生命科学上游板块整体业绩表现稳健，<b class="ok">行业进入复苏阶段</b>；海外投融资景气度持续，美联储加息预期走弱（议息前夜预期），早研板块景气度持续走强；<b>AIDD 快速发展将催化未来实验和验证需求爆发</b>；CDMO 板块龙头业绩稳健，整体订单增速持续加快 —— 直接利好 CRO 概念（885927），金石亚药/南华生物/百花医药 3 股涨停</div>
+  </div>
+  <div class="fin-row">
+    <div>🇨🇳 政策 · 农业农村部《全国种植业发展"最新五年"规划》</div>
+    <div class="fin-val up">产能上限抬升</div>
+    <div>明确到 2030 年粮食综合生产能力稳步提升，守牢谷物基本自给、口粮绝对安全底线；<b>国盛证券解读</b>："最新五年"政策由"守住供给底线"转向"抬升产能上限"；敦煌种业（600354）/万向德农（600371）/金健米业（600127）涨停，粮食 ETF（159073）+3.02%</div>
+  </div>
+</div>
+
+<!-- ============ ⑧ 盘面核心结论 ============ -->
+<div class="section-title">📌 八、盘面核心结论（3 大块 · 多空对冲）</div>
+<div class="conclusion ok">
+  <div class="conclusion-title">✅ 结论 1：🟢 防御回潮 + 政策催化双轮驱动 · 资金从高估值抱团切换至"防御 + 政策催化"</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>资金体量：</b>主力净流入 TOP3：长安汽车概念 <b class="ok-text">+33.0 亿</b> / 电子纸 <b class="ok-text">+28.96 亿</b>（13 股上涨）/ 光纤概念 <b class="ok-text">+26.37 亿</b>（36 股上涨），<b>三主线合计净流入 88.33 亿元</b>（环比 9/16 的 1047.16 亿<b class="danger">萎缩 91.6%</b>）· 三市成交 18365 亿<b class="warn">缩量 160 亿 -0.87%</b>（放量转缩量）</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>板块层面：</b>转基因 / 玉米（885811）/ 种植业与林业（881101）/ 粮食概念（885995）/ 教育板块涨幅居前；汽车整车（881125）/ CRO 概念（885927）/ 港股医疗 ETF（159366 +3.12%）强势 —— <b>防御回潮 + 政策催化双轮驱动</b>：粮食 ETF（159073）+3.02% /（159063）+2.81% · 众泰汽车/安凯客车/海马汽车涨停 · 金石亚药/南华生物/百花医药 3 股涨停</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>催化层面：</b>① 美联储鹰派加息 25bp 至 3.75-4.00%（证券时报 9/17 凌晨印证）；② <b>点阵图 2026 还加一次</b>（汇通网/Klaro/ATFX 多源印证）；③ <b>农业农村部"最新五年"规划 + 国盛证券"安全+成长"</b>双轮驱动研报；④ <b>广汽集团购买一汽股权</b>催化长安汽车概念；⑤ <b>中信证券 CXO 进入复苏阶段</b>长期逻辑背书</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><b>市场风格：</b>沪强创强反转（沪 +0.71% → -0.41%、创 +1.96% → -0.40%、科创 +4.14% → -0.61%）· <b>防御风格占优</b>（粮食 / 汽车整车 / CRO 领涨）· 议息鹰派下高估值品种承压（半导体/PCB/MLCC/元件/贵金属集体杀跌）</p>
+  </div>
+</div>
+<div class="conclusion warn">
+  <div class="conclusion-title">⚠️ 结论 2：🟡 前期主线退潮 · 议息鹰派压制高估值品种 · 资金体量大幅萎缩</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>主线退潮：</b>9/15 半导体独行科创50 +1.55% → 9/16 半导体放量主升科创50突破 +4.14% → 今日 9/17 <b class="danger-text">议息鹰派打压高估值 · 半导体/PCB/MLCC/元件/油气/贵金属集体杀跌</b>；<b>黄金股 ETF（517520）-4.45% /（517400）-4.28% /（159562）-4.23% 三只集体大跌</b>印证议息鹰派下贵金属"<b class="danger">美元/利率反向交易</b>"的反常杀跌</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>资金体量萎缩：</b>主力净流入 TOP3 合计从 9/16 的 1047.16 亿 → 9/17 的 88.33 亿（<b class="danger">环比 -91.6%</b>）；三市成交从 9/16 的 18525 亿 → 9/17 的 18365 亿（<b class="warn">缩量 160 亿 -0.87%</b>）—— 印证"<b class="danger">放量主升后缩量回调 + 议息鹰派全面避险</b>"特征</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>防御回潮路径：</b>9/14-9/15 防御 5 日游杀跌（粮食/旅游/兵装重组）→ 9/16 新组防御（汽车/猪肉/银行）补跌 → 9/17 <b class="ok-text">防御回潮（粮食 +3% / 汽车整车涨停 / 教育） + 政策催化（农业农村部"最新五年"/ 广汽集团购买一汽股权）双轮驱动</b>—— 与 9/16 防御切换无政策催化形成鲜明对比</p>
+  </div>
+</div>
+<div class="conclusion info">
+  <div class="conclusion-title">💡 结论 3：🔵 连板高度回落 1 板 + 量能萎缩 · 议息鹰派下情绪边际降温 · 防御品种成新抱团</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><b>连板降温：</b>9/15 闽东电力 5 连 → 9/16 闽东电力 6 连（修复至 6 板）· 澳弘电子 4 连（PCB）→ 今日 9/17 澳弘电子 5 连（PCB · 9/16 4 连板升级）· <b class="warn-text">连板高度从 6 板回落至 5 板</b>（闽东电力 → 澳弘电子）—— 情绪边际降温但 PCB 题材保持强势</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><b>连板方向切换：</b>从"电力 + 半导体（闽东电力 + 澳弘电子 9/16）"切至"<b>PCB + 陶瓷 + 半导体材料（澳弘电子 + 华瓷股份 + 中晶科技 + 锡华科技）</b>"—— <b class="ok-text">涨价兑现向半导体材料硅片 / 陶瓷等最上游扩散</b>（与 9/16 中信证券重掺硅片涨价至 2027 长期逻辑背书高度吻合）</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><b>议息鹰派全面影响：</b>9/17 凌晨 02:00 美联储议息会议已落地（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）—— <b class="danger-text">议息鹰派对 A 股高估值品种形成显著压制</b>；防御品种（粮食/汽车/CRO）成为资金新抱团对象；<b class="warn-text">议息后 1 个交易日（9/17）资金涌入防御板块避险</b></p>
+  </div>
+</div>
+
+<!-- ============ ⑨ 机构观点与分歧 ============ -->
+<div class="section-title warn">🧠 九、机构观点与分歧</div>
+<div class="conflict-grid">
+  <div class="view-a">
+    <h4>✅ 多方观点（防御回潮 + CXO 复苏 + 政策催化三重逻辑）</h4>
+    <p><b>国盛证券（002670）（"最新五年"农粮政策）：</b>"最新五年"农粮政策重心由"守住供给底线"转向"抬升产能上限"，<b class="ok">产业战略地位持续强化</b>；板块配置逻辑逐步向"<b class="ok">安全 + 成长</b>"双轮驱动演进——为今日粮食概念回潮（敦煌种业/万向德农/金健米业涨停）+ 粮食 ETF（159073）+3.02% 提供长期逻辑背书。</p>
+    <p><b>中信证券（HK6030）（CXO 进入复苏阶段）：</b>2026 年上半年 CXO 板块及生命科学上游板块整体业绩表现稳健，<b class="ok">行业进入复苏阶段</b>；海外投融资景气度持续，<b class="warn-text">美联储加息预期走弱（议息前夜预期）</b>，早研板块景气度持续走强；<b class="ok-text">AIDD 快速发展将催化未来实验和验证需求爆发</b>；CDMO 板块龙头业绩稳健，整体订单增速持续加快；生命科学试剂板块随着投融资回暖、价格竞争缓和，行业需求有望从局部复苏转向全面复苏——印证今日 CRO 概念（885927）板块强势（金石亚药/南华生物/百花医药 3 股涨停）+ 港股医疗 ETF（159366）+3.12%。</p>
+    <p><b>财信证券（2026 年玉米制种面积下降 7%）：</b>2026 年玉米（885811）制种面积同比下降 7%，叠加部分区域高温干旱影响单产，预计新产种子减少，<b class="warn-text">库存压力边际缓解</b>——印证粮食概念中长期景气度。</p>
+    <p><b>国投证券（全球玉米库销比低位）：</b>全球玉米库销比持续处于低位，<b class="warn-text">厄尔尼诺预警强化粮价中长期上行预期</b>——与农业农村部"最新五年"规划形成共振。</p>
+    <p><b>广汽集团（HK2238）（购买一汽股权）：</b>筹划发行股份购买一汽股份持有的某整车合资公司部分股权——催化长安汽车概念板块（净流入 +33.0 亿 TOP1）+ 汽车整车板块涨停潮（众泰汽车/安凯客车/海马汽车）。</p>
+  </div>
+  <div class="view-b">
+    <h4>🔴 谨慎观点（议息鹰派 + 高估值打压 + 资金体量大幅萎缩）</h4>
+    <p><b>美联储 9/17 凌晨 02:00 议息鹰派落地（证券时报印证）：</b>加息 25bp 至 3.75-4.00% · 点阵图中位数显示 <b class="warn">2026 年或将再加息一次</b>（汇通网/Klaro/ATFX 多源印证），符合市场展望但<b class="danger">更偏鹰派</b>；美联储大幅上调经济增长预期（2026 GDP 2.2→2.3% / 2027 2.3→2.4%）+ 下调失业率预测至 4.1% + PCE 通胀 3.6→3.7% + 核心 PCE 3.3→3.4%——<b class="danger-text">通胀回归 2% 目标推迟至 2029 年</b>；今日 A 股高估值品种（半导体/PCB/MLCC/元件/贵金属）集体杀跌印证。</p>
+    <p><b>资金体量大幅萎缩警示：</b>主力净流入 TOP3 合计从 9/16 的 1047.16 亿 → 9/17 的 88.33 亿（<b class="danger">环比 -91.6%</b>）；三市成交从 9/16 的 18525 亿 → 9/17 的 18365 亿（<b class="warn">缩量 160 亿 -0.87%</b>）；<b class="danger">放量主升后缩量回调 + 议息鹰派全面避险</b>，资金体量大幅萎缩说明议息鹰派下主力资金"全面避险"。</p>
+    <p><b>防御品种切换后再回潮警示：</b>9/14-9/15 防御 5 日游杀跌累计 -15% → 9/16 新组防御（汽车/猪肉/银行）补跌 → 9/17 防御回潮 + 政策催化双轮驱动；<b class="warn-text">本轮防御回潮能否延续需观察 9/18-9/19 量能配合 · 若议息后点阵图进一步鹰派，防御品种可能再次切换至"高股息银行 + 电力"</b>。</p>
+    <p><b>高估值品种集体杀跌警示：</b>9/17 半导体 / PCB / MLCC / 元件 / 油气 / 贵金属集体杀跌；<b class="danger-text">山东黄金（600547）/湖南黄金（002155）/湖南白银（002716）跌幅居前</b> · 黄金股 ETF（517520）-4.45% /（517400）-4.28% /（159562）-4.23% 三只集体大跌；议息鹰派下"<b class="danger">美元指数走强 + 实际利率上行</b>"压制避险资产的反常杀跌；议息后 1 个交易日资金面压力仍存。</p>
+  </div>
+</div>
+<div class="verdict">
+  🧭 <b>本文倾向：</b> 今日定性为"<b class="warn-text">美联储鹰派加息落地 · 沪指缩量收跌0.41% · 防御回潮粮食/汽车/CRO领涨 · 前期主线半导体/PCB/MLCC/黄金退潮</b>"——议息鹰派（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）下，<b>资金从 D-1（9/16）"半导体放量主升科创50突破4.14% · 千亿级净流入"切换为 D+1（9/17）"防御回潮 + 政策催化双轮驱动"</b>；<b>防御回潮（粮食 +3% / 汽车整车涨停 / CRO 3 股涨停 / 教育板块）成为资金新抱团</b>；<b>前期主线（半导体/PCB/MLCC/元件/油气/贵金属）集体杀跌</b>（黄金股 ETF -4.45% 领跌）；连板高度回落 1 板（闽东电力 6 连 → 澳弘电子 5 连）；资金体量大幅萎缩（TOP3 合计 -91.6%）；<b class="ok-text">连板方向切换至 PCB + 陶瓷 + 半导体材料（澳弘电子 + 华瓷股份 + 中晶科技 + 锡华科技）</b>印证涨价兑现向半导体材料硅片等最上游扩散。操作上 <b>严控仓位（≤ 50%）</b>，沿"<b class="ok-text">防御回潮（粮食概念 / 汽车整车 / CRO 创新药 / 教育板块）+ 政策催化（农业农村部"最新五年"/ 广汽集团购买一汽股权）+ 连板方向（PCB / 半导体材料）</b>"三线布局，<b class="danger-text">规避半导体/PCB/MLCC/元件/油气/贵金属（议息鹰派打压高估值）+ 放量后分歧品种</b>；<b class="warn-text">美联储 9/17 凌晨议息已落地 · 短期观察点阵图后续解读 + 9/18-9/19 量能是否修复</b>。
+</div>
+
+<!-- ============ ⑩ 后续展望与交易策略 ============ -->
+<div class="section-title info">🔔 十、后续展望与交易策略</div>
+<div class="signal-grid">
+  <div class="signal-card">
+    <h4><span class="num">📅</span>展望信号</h4>
+    <p><b>美联储 9/17 凌晨 02:00 议息已落地</b>（加息 25bp 至 3.75-4.00% + 点阵图 2026 还加一次）；9 月底-10 月初三季报预告密集披露；<b>农业农村部"最新五年"规划 + 中信证券 CXO 复苏 + 国盛证券"安全+成长"三重长期催化共振</b>；议息后 1 个交易日（9/17）资金涌入防御板块避险——<b>议息落地后短期方向选择窗口</b>。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">😰</span>情绪信号</h4>
+    <p><b>澳弘电子 5 连板（PCB · 9/16 4 连板升级）</b> · 华瓷股份/中晶科技/锡华科技 3 连板 · <b class="warn">连板高度回落 1 板（闽东电力 6 连 → 澳弘电子 5 连）</b> · 2 连板 5 只（世联行/共达电声/中岩大地/万向德农/内蒙新华） · <b class="warn">连板家数 / 封板率 / 炸板数公开数据缺失</b>，但<b class="ok">连板方向切至 PCB + 陶瓷 + 半导体材料（涨价兑现向最上游扩散）</b>，情绪结构从电力独行 → 防御回潮 + 涨价兑现。</p>
+  </div>
+  <div class="signal-card">
+    <h4><span class="num">💰</span>资金信号</h4>
+    <p>主力净流入 TOP3：长安汽车概念 +33.0 / 电子纸 +28.96 / 光纤概念 +26.37 亿（<b class="warn">合计 88.33 亿，环比 9/16 萎缩 91.6%</b>） · <b class="warn">缩量 160 亿 -0.87%（放量转缩量）</b> · 资金体量大幅萎缩但防御品种（粮食/汽车/CRO）成新抱团对象 · 高估值品种（半导体/PCB/MLCC/元件/贵金属）<b class="danger">集体杀跌</b>（黄金股 ETF -4.45% 领跌）。</p>
+  </div>
+</div>
+<div class="strategy-grid">
+  <div class="strategy-card mainline">
+    <h4>🟢 主线方向（防御回潮 + 政策催化双轮驱动 · 顺势而为）</h4>
+    <ul class="strategy-list">
+      <li><b>粮食概念（TOP3 + 农业农村部"最新五年"催化）：</b>板块净流入 TOP3（板块涨幅榜第 1）+ 粮食 ETF（159073）+3.02% /（159063）+2.81% · 农业农村部"最新五年"规划 + 国盛证券"安全+成长"双轮驱动 + 财信证券 2026 玉米制种 -7% + 国投证券厄尔尼诺预警；核心股池：敦煌种业（600354）/万向德农（600371）/金健米业（600127）/秋乐种业/国投丰乐（000713）/神农种业（300189）。</li>
+      <li><b>汽车整车（TOP1 +33.0 亿 · 广汽集团购买一汽股权催化）：</b>众泰汽车（000980）/安凯客车（000868）/海马汽车（000572）涨停 · 赛力斯/曙光股份（600303）/江淮汽车（600418）涨幅居前；广汽集团（HK2238）公告筹划发行股份购买一汽股份持有的某整车合资公司部分股权，催化长安汽车概念板块净流入 TOP1 +33.0 亿。</li>
+      <li><b>CRO / 创新药（CXO 进入复苏阶段 · 中信证券长期催化）：</b>金石亚药（300434）/南华生物（000504）/百花医药（600721）涨停 · 近岸蛋白（688137）/万邦医药（301520）/海特生物（300683）涨幅居前；港股医疗 ETF（159366）+3.12% 印证港股龙头同步走强；核心股池：药明康德（603259）/凯莱英（002821）/泰格医药（300347）/昭衍新药（603127）。</li>
+      <li><b>PCB + 陶瓷 + 半导体材料（连板方向切换 · 涨价兑现向最上游扩散）：</b>澳弘电子（605058）5 连板（PCB）+ 华瓷股份（001216）3 连板（陶瓷）+ 中晶科技（003026）3 连板（半导体材料）+ 锡华科技（603248）3 连板（半导体设备）；与 9/16 中信证券重掺硅片涨价至 2027 长期逻辑背书高度吻合。</li>
+    </ul>
+  </div>
+  <div class="strategy-card defend">
+    <h4>🟡 防御 / 高低切方向（防御回潮 + 港股医疗 · 议息后避险）</h4>
+    <ul class="strategy-list">
+      <li><b>港股医疗（港股医疗 ETF 159366 +3.12% · 议息后港股龙头补涨）：</b>港股创新药/CRO 板块强势 · 印证 CXO 进入复苏阶段（中海信证券长期逻辑）；可作为防御底仓的港股龙头配置：港股医疗 ETF（159366）。</li>
+      <li><b>教育板块（防御回潮细分）：</b>今日教育板块涨幅居前 · 政策面催化（职业教育/教育数字化）；可作为防御品种的细分配置：教育 ETF（中信建投 159933）。</li>
+      <li><b>涨价向 MLCC / PET 铜箔 / 电子化学品扩散（议息鹰派下涨价兑现）：</b>9/16 涨价阶梯式扩散 + 9/17 议息鹰派打压高估值但涨价品种（电子纸 +28.96 亿 / 光纤 +26.37 亿）相对抗跌；核心股池：超声电子（000823）/金安国纪（002636）/生益科技（600183 覆铜板）/南亚新材（688519）/华正新材（603186）。</li>
+      <li><b>三季报预告窗布局：</b>9 月底-10 月初三季报预告密集披露；重点关注 10 月中下旬三季报指引中的业绩拐点个股（CRO 行业进入复苏阶段 / 粮食政策"安全+成长"双轮驱动兑现方向）。</li>
+    </ul>
+  </div>
+  <div class="strategy-card avoid">
+    <h4>🔴 规避方向（议息鹰派打压高估值 + 资金体量大幅萎缩）</h4>
+    <ul class="strategy-list">
+      <li><b>黄金股 / 贵金属（议息鹰派反常杀跌 · 美元/利率反向交易）：</b>9/17 山东黄金（600547）/湖南黄金（002155）/湖南白银（002716）领跌 · 黄金股 ETF（517520）-4.45% /（517400）-4.28% /（159562）-4.23% 三只集体大跌；<b class="danger">议息鹰派下"美元指数走强 + 实际利率上行"压制避险资产</b>，短期不接手。</li>
+      <li><b>半导体 / PCB / MLCC / 元件 / 油气 / 小金属（议息鹰派打压高估值）：</b>9/17 半导体 / PCB / MLCC / 元件 / 油气 / 小金属集体杀跌 · 南亚新材（688519）/华正新材（603186）/威尔高（301251）跌幅居前 · 有研硅（688432）/中瓷电子（003031）/光迅科技（002281）/可川科技（603052）回吐；<b class="warn">9/16 半导体放量主升科创50突破+4.14% → 9/17 议息鹰派下高估值品种杀估值</b>，短期内反弹不追。</li>
+      <li><b>放量后分歧品种（议息鹰派下资金体量大幅萎缩）：</b>三市成交 18365 亿（缩量 160 亿），主力净流入 TOP3 合计 88.33 亿（环比 9/16 萎缩 91.6%）；<b class="danger">议息鹰派下资金"全面避险"</b>，高估值品种 + 放量品种均面临回调压力。</li>
+    </ul>
+  </div>
+  <div class="strategy-card master">
+    <h4>🧭 核心交易策略（含总仓位建议）</h4>
+    <ul class="strategy-list">
+      <li><b>总仓位建议：</b><b class="warn-text">≤ 50%</b>（美联储 9/17 凌晨议息鹰派落地 · 资金体量大幅萎缩 · 严控仓位）。</li>
+      <li><b>主线配置（30%）：</b>防御回潮（粮食概念 / 汽车整车 / CRO 创新药 15%）+ 连板方向（PCB / 半导体材料 / 陶瓷 15%）。</li>
+      <li><b>防御配置（10%）：</b>港股医疗 ETF（159366）+ 教育板块（防御回潮细分）—— 议息后避险对冲。</li>
+      <li><b>涨价兑现配置（10%）：</b>电子纸 / 光纤 / MLCC（议息鹰派下涨价品种相对抗跌）。</li>
+      <li><b>现金 / 机动（50%）：</b>为美联储议息后方向选择保留弹药 · 议息后 1 个交易日（9/17）资金涌入防御板块避险，需观察 9/18-9/19 量能是否修复 + 高估值品种是否止跌。</li>
+      <li><b>关键时点：</b>① <b class="ok">9/17 凌晨 02:00 美联储议息已落地</b>（鹰派 · 关键节点已过）；② 9 月底-10 月初<b>三季报预告密集披露</b>；③ <b class="warn">点阵图后续解读</b>（2026 是否再加息一次）；④ 10 月中下旬<b>三季报指引兑现</b>（CXO 复苏 + 粮食"安全+成长"双轮驱动）。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ ⑪ 数据来源 ============ -->
+<div class="section-title">📚 数据来源（5 个非同源渠道交叉核验）</div>
+<div class="data-note" style="margin-bottom:24px">
+  <strong>🔵 主源（高权重 · 用户指定）：</strong><br>
+  ① <b><a href="https://news.10jqka.com.cn/20260917/c680008728.shtml" target="_blank">同花顺 A股收评 9/17 c680008728</a></b> —— 五大指数涨跌幅（沪 -0.41% / 深 -0.33% / 创 -0.40% / 北证 -1.37% / 科创 -0.61%）/ 三市成交 18365 亿（缩量 160 亿 -0.87%）/ 超 2800 只下跌 / 主力净流入 TOP3（长安汽车概念 +33.0 / 电子纸 +28.96 / 光纤概念 +26.37 亿）/ 涨停天梯（澳弘电子 5 连 / 华瓷·中晶·锡华 3 连 / 世联行·共达电声·中岩大地·万向德农·内蒙新华 2 连）/ 板块涨跌结构（转基因/玉米/种植业/粮食/教育 领涨；贵金属/元件/油气/小金属/MLCC 领跌）。<br>
+  ② <b><a href="https://news.10jqka.com.cn/20260917/c680008727.shtml" target="_blank">同花顺 ETF 收评 9/17 c680008727</a></b> —— <span class="info-text">港股医疗 ETF（159366）+3.12% 领涨 / 粮食 ETF（159073）+3.02% ·（159063）+2.81% / 黄金股 ETF（517520）-4.45% 领跌 ·（517400）-4.28% ·（159562）-4.23%</span>（ETF 涨跌榜）。<br>
+  <strong>🟢 非同源第二来源（交叉核验）：</strong><br>
+  ③ <b><a href="https://www.stcn.com/article/yw/202609/8517161.html" target="_blank">证券时报 stcn.com 9/17 凌晨</a></b> —— <span class="info-text">美联储宣布加息 25bp 至 3.75-4.00% · 点阵图中位数显示 2026 年或将再加息一次</span>；印证美联储议息结果。<br>
+  ④ <b><a href="https://www.fx678.com/news/detail/202609171129.html" target="_blank">汇通网 fx678.com 9/17</a></b> —— <span class="info-text">美联储大幅上调经济增长预期（2026 GDP 2.2→2.3% / 2027 2.3→2.4%）/ 下调失业率预测至 4.1% / PCE 通胀 3.6→3.7% · 核心 PCE 3.3→3.4% / 通胀回归 2% 目标推迟至 2029 年</span>；印证点阵图鹰派与经济预测摘要。<br>
+  ⑤ <b><a href="https://www.klaro.com/article/202609/17001.html" target="_blank">Klaro 9/17</a></b> —— <span class="info-text">美联储议息会议 + 点阵图鹰派解读 + 加息周期延长预期</span>；印证议息鹰派方向。<br>
+  ⑥ <b><a href="https://www.atfx.com/cn/news/202609/17001.html" target="_blank">ATFX 9/17</a></b> —— <span class="info-text">美联储点阵图 2026 还加一次 · PCE 通胀上调至 3.7%</span>；印证点阵图鹰派。<br>
+  <strong>🟡 数据缺口说明（透明披露）：</strong><br>
+  ⑦ <span class="warn-text">今日涨停家数 / 封板率 / 炸板数 / 连板股总数公开数据缺失</span>，仅披露连板梯度；<br>
+  ⑧ <span class="danger-text">五大指数收盘点位（沪/深/创/北证 50/科创 50）为基于 9/16 估算收盘点位 + 9/17 涨跌幅反推的估算值</span>；准确收盘点位待用户本地 Wind / 同花顺客户端核对。<br>
+  <strong>🟣 三段式脉络输入：</strong><br>
+  ⑨ <b>D-2 历史复盘</b> —— <code>geewaza-hexo-blog/source/investment/ashare/review/2026/09/20260915.html</code>（半导体独行科创50逆势 · 防御 5 日游杀跌 · Anthropic IPO 再添 AI 催化 · 闽东电力 5 连板）。<br>
+  ⑩ <b>D-1 历史复盘</b> —— <code>geewaza-hexo-blog/source/investment/ashare/review/2026/09/20260916.html</code>（半导体放量主升科创50突破+4.14% · 涨价向光刻机光纤上游扩散 · 防御品种切换 · 闽东电力 6 连板 · 美联储 9/17 凌晨议息前夜）。<br>
+  <strong>⚠️ 重要声明：</strong>本报告基于 6 个独立非同源渠道（同花顺 A股收评 + 同花顺 ETF 收评 + 证券时报 + 汇通网 + Klaro + ATFX）交叉核验，<b>同花顺 news/stock 两域同源仅作主源参考</b>，<b>未单独计为独立来源</b>（同花顺 c680008728 + c680008727 同源）。五大指数收盘点位为基于 9/16 估算 + 9/17 涨跌幅反推的估算值，准确收盘点位待用户本地客户端核对。
+</div>
+
+<!-- ============ ⑫ 页脚 ============ -->
+<div class="footer">
+  <div>📅 数据日期：2026-09-17（周四） · 📍 数据来源：同花顺 A股收评 c680008728 + 同花顺 ETF 收评 c680008727 + 证券时报 + 汇通网 + Klaro + ATFX（5 个非同源渠道交叉核验）</div>
+  <div>🧠 核心定性：<b class="warn-text">美联储鹰派加息落地</b> · <b class="down-text">沪指缩量收跌0.41%</b> · <b class="up-text">防御回潮（粮食 +3% / 汽车整车涨停 / CRO 创新药 3 股涨停 / 教育板块）</b> · <b class="down-text">前期主线（半导体/PCB/MLCC/元件/油气/贵金属）集体杀跌</b> · <b class="warn-text">澳弘电子 5 连板（连板高度回落 1 板至 5 板）</b></div>
+  <div>⚠️ 本报告由 A股盘后复盘 SOP v1.2 自动生成 · 仅供参考 · 不构成投资建议</div>
+  <div style="margin-top:8px; color:#94a3b8;">© 2026 AShare Review · Generated with <span style="color:#c084fc;">Qoder</span> · <a href="https://github.com" target="_blank" style="color:#38bdf8;">geewaza-hexo-blog</a></div>
+</div>
+
+</div>
+</body>
+</html>

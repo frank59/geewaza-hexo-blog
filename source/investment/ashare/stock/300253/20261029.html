@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-29 卫宁健康 (300253) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(245,158,11,0.22), rgba(56,189,248,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(245,158,11,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.28), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #fbbf24, #38bdf8, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#fca5a5; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(56,189,248,0.10));
+    border: 1px solid rgba(16,185,129,0.45); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#34d399; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; flex-wrap:wrap; gap:6px; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(245,158,11,0.18), rgba(56,189,248,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(245,158,11,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fbbf24; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:820px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(245,158,11,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(56,189,248,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #fbbf24; }
+  .conclusion-item .num { display:inline-block; background:#fbbf24; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>🧬 卫宁健康 (300253) · 11 方法论综合投资分析</h1>
+  <div class="subtitle">医疗信息化龙头（IDC 核心系统份额 11.9%，连续六年第一）· 收入拐点已确认、利润拐点未至 · 现价较 2026-01 高点回撤 57.6%</div>
+  <div class="badges">
+    <span class="badge badge-warning">🎯 综合评级：<b>持有观察 3.76/10</b>（收入端修复 vs 扣非亏损扩大 + 治理折价）</span>
+    <span class="badge badge-source">📅 数据日期：2026-10-29（周四）14:26 盘中快照</span>
+    <span class="badge badge-source">📊 股价 6.82 元 · 总市值 150.3 亿 · PE-TTM 亏损 · PB 2.79 · PS(2025) 7.1x</span>
+    <span class="badge badge-purple">🧠 11 方法论 × 12 模块（权重归一化 ÷1.05）</span>
+    <span class="badge badge-success">✅ 2026 前三季营收 14.82 亿（+14.4%）· WiNEX 上线 450+ 家 · Q3 单季亏损同比收窄 48%</span>
+    <span class="badge badge-danger">⚠️ 扣非 -2.47 亿（同比 -8.7%）· 毛利率 31.4%（2023 年 45.0%）· 11.75 亿转债临近兑付</span>
+  </div>
+</div>
+
+<div class="data-note">
+  <strong>📌 数据来源与口径说明（行情基准 2026-10-29 14:26 盘中快照；生成于 2026-10-29）：</strong><br>
+  ✅ 行情双源核验：股价 <span class="info">6.82 元</span>（腾讯证券 qt.gtimg.cn 6.82，14:26:36 快照）；前收 7.10 元，当日 -3.94%；总市值 <span class="info">150.3 亿元</span>（22.01 亿股 × 6.82，自算；腾讯接口 150.35 亿）、流通市值 126.5 亿元（流通股 18.55 亿股，占比 84.2%）；PB <span class="ok">2.79</span>（6.82 ÷ 每股净资产 2.4426 元，自算；腾讯 2.80）；PE-TTM <span class="danger">亏损</span>（腾讯显示 -40.30，因 TTM 归母净利为 -3.73 亿元，PE 无经济意义）<br>
+  ✅ 财务数据（新浪财经三大报表 + 东方财富 F10 主要指标，均为<b>公司定期报告口径</b>）：2026 三季报（<b>2026-10-28 披露</b>）营收 14.82 亿元（+14.38%）、归母 -2.41 亿元（同比 +0.35%）、扣非 -2.47 亿元（同比 -8.71%）、经营现金流 +0.07 亿元、毛利率 31.37%、净利率 -17.80%、加权 ROE -4.37%、资产负债率 32.91%、应收账款周转 183 天；2025 年报营收 21.06 亿元（-24.30%）、归母 -3.74 亿元、扣非 -3.55 亿元、经营现金流 +5.55 亿元、毛利率 32.8%；2024 年报营收 27.82 亿元（-12.05%）、归母 +0.88 亿元、扣非 +1.24 亿元、毛利率 41.7%<br>
+  ✅ 资产负债表（2026-09-30）：货币资金 15.18 亿元、应收账款 9.81 亿元、无形资产 12.87 亿元、开发支出 2.38 亿元、商誉 4.10 亿元、资产总计 81.22 亿元、负债合计 26.73 亿元；<span class="warn">有息负债合计 11.98 亿元</span>（短期借款 0.06 + 一年内到期的非流动负债 11.75 + 租赁负债 0.17），其中 11.75 亿元系"卫宁转债"（123104，发行规模 9.70 亿元、期限 6 年、初始转股价 17.76 元、2026-07-09 起下修至 7.02 元）重分类 → <span class="warn">净现金仅 3.20 亿元</span>（占市值 2.1%）<br>
+  ✅ 技术指标：MA5/10/20/60/120/250、52 周区间、区间涨跌幅均由腾讯未复权日 K（2020-08 至 2026-10，1501 根）与前复权日 K（641 根）自行计算；PB 历史分位由 2021-10 至 2026-10 共 1212 个交易日收盘价 ÷ 对应报告期每股净资产计算（分位 <span class="ok">17%</span>）<br>
+  ✅ 同业快照（2026-10-29 14:26 同一时点，腾讯接口，双源之一）：创业慧康 PB 1.42 / 市值 52.7 亿、万达信息 PB 7.94 / 68.3 亿、东华软件 PE 55.4 / PB 1.58 / 196.2 亿、久远银海 PE 72.4 / PB 2.96 / 49.9 亿、嘉和美康 PB 1.82 / 22.3 亿；同业 2025 年报与 2026 三季报财务取自东方财富数据中心（2026-10-29 拉取）<br>
+  ✅ 机构与股东：股东户数 <span class="info">108,498 户</span>（2026-10-20，环比 -1.01%）；基金持仓（季报口径，仅前十大）5.27%（2026-09-30），中报全口径 8.17%；机构一致预期（3 家，截至 2026-10-23）2026E 营收 24.53 亿 / 归母 0.52 亿、2027E 营收 28.28 亿 / 归母 2.09 亿；华泰证券 2026-08-26 目标价 9.47 元<br>
+  ⚠️ 数据缺口：<span class="warn">北向资金（陆股通）持股变动未独立核验</span>；<span class="warn">主力/大单资金流未获取</span>；<span class="warn">2026 年新签合同总额无公开披露</span>；<span class="warn">AI 产品（WiNGPT/Copilot）单独收入未披露</span>；<span class="warn">商誉减值在子公司层面的分布未获取</span>；<span class="warn">2026 年四季度及全年业绩尚无公司指引</span>；同业 PS 为"总市值 ÷ 2025 年营业收入"的粗略代理，非严格 TTM 口径<br>
+  📊 <strong>关键定性：</strong>这是一家 <b style="color:#34d399">"收入已修复、利润仍失血"</b> 的行业龙头 —— 营收连续三个季度正增长（Q1 +15.2% / Q2 +20.8% / Q3 +6.8%），WiNEX 已上线 450+ 家医院，份额仍居第一；但 <b style="color:#fca5a5">毛利率从 2023 年 45.0% 一路降至 31.4%，扣非亏损反而扩大 8.7%，Q3 单季营收仍比 2024 年同期低 29.3%</b>；同时 <b style="color:#fbbf24">11.75 亿元转债将在 2027 年 3 月进入兑付窗口，而转股价 7.02 元高于现价 6.82 元</b>，形成"上行摊薄、下行失血"的双向压制。
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">⚖️</div>
+  <div class="text">
+    <h3>11 方法论交叉结论：估值分位低 ≠ 便宜 —— 归一化综合 3.76/10，评级"持有观察"，不追高、等右侧利润拐点</h3>
+    <p>
+      在 <b style="color:#fbbf24">邓普顿逆向（6 分）、马克斯周期（5 分）</b>框架下，卫宁具备"行业 2025 年见底 + 股价 -58% + PB 处于五年 17% 分位"的逆向条件；<b style="color:#38bdf8">费雪成长（4 分）、巴菲特护城河（4 分）、索罗斯反身性（4 分）</b>中性偏弱 —— 份额第一、转换成本高，但护城河未能转化为资本回报（ROIC 为负）；<b style="color:#f87171">格雷厄姆（2 分，PE 失锚、PB 2.79 远高于 1.5 的深度价值线）、博格（2 分，个股非宽基）、达里奥（2 分，高 β 无配置价值）</b>垫底。<br><br>
+      <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#fbbf24">邓普顿逆向 + 马克斯周期</b>作为观察框架，但 <b style="color:#fca5a5">否决"低 PB = 便宜"的简单结论</b> —— 按 2025 年营收计的 PS 7.1x 是医疗 IT 同业最高（创业 5.0x、久远 4.0x、万达 3.4x、东华 1.5x），而卫宁恰恰是其中亏损最晚、毛利下滑最快的一家。<b style="color:#34d399">操作上：现价 6.82 元不构成买点，等待"单季扣非转正 + 毛利率站上 33%"双确认；若回落至 6.40 元以下可按 3 批左侧建仓，仓位上限 3%，硬止损 5.60 元。</b>
+    </p>
+  </div>
+</div>
+
+<div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+<div class="section-subtitle">数据日期：2026-10-29 14:26 盘中 · 来源：腾讯证券快照（双源之一）+ 公司 2026 三季报（2026-10-28 披露）</div>
+
+<div class="dashboard">
+  <div class="index-card mid">
+    <div class="name">股票名称</div>
+    <div class="value" style="font-size:16px;">卫宁健康</div>
+    <div class="change">WINNING · 300253</div>
+    <div class="label">深交所创业板 · 2011-08-18 上市</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">所属行业</div>
+    <div class="value" style="font-size:14px;">计算机-软件</div>
+    <div class="change">行业应用软件 · 医疗 IT</div>
+    <div class="label">医院 HIS/CIS 核心系统，IDC 份额 11.9% 第一</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">上市年限</div>
+    <div class="value" style="font-size:15px;">15 年</div>
+    <div class="change">2011-08-18</div>
+    <div class="label">创业板首批医疗信息化标的之一</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">总市值</div>
+    <div class="value">150.3 亿</div>
+    <div class="change">22.01 亿股 × 6.82</div>
+    <div class="label">腾讯接口 150.35 亿（一致）</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">流通市值</div>
+    <div class="value">126.5 亿</div>
+    <div class="change">流通占比 84.2%</div>
+    <div class="label">流通股 18.55 亿股</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">盘中价</div>
+    <div class="value">6.82 元</div>
+    <div class="change">-3.94%（前收 7.10）</div>
+    <div class="label">2026-10-29 14:26 快照</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">52 周区间</div>
+    <div class="value" style="font-size:15px;">6.47 - 16.09</div>
+    <div class="change">距高点 -57.6%</div>
+    <div class="label">低点 2026-06-29 / 高点 2026-01-14</div>
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="index-card avoid">
+    <div class="name">PE-TTM</div>
+    <div class="value">亏损</div>
+    <div class="change">TTM 归母 -3.73 亿</div>
+    <div class="label">腾讯显示 -40.30，无经济意义</div>
+  </div>
+  <div class="index-card avoid">
+    <div class="name">PE-2026E</div>
+    <div class="value">289x</div>
+    <div class="change">一致预期 0.52 亿</div>
+    <div class="label">3 家机构，目标价均值 9.47 元</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">PB</div>
+    <div class="value">2.79</div>
+    <div class="change">五年分位 17%</div>
+    <div class="label">每股净资产 2.4426 元（2026Q3）</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">PS（2025 营收）</div>
+    <div class="value">7.1x</div>
+    <div class="change">同业最高</div>
+    <div class="label">TTM 口径 6.6x（22.93 亿营收）</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">股息率</div>
+    <div class="value">0%</div>
+    <div class="change">2025 年度不派现</div>
+    <div class="label">2024 年度 10 派 0.15 元（已实施）</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">近 1 月涨跌</div>
+    <div class="value">-4.6%</div>
+    <div class="change">近 3 月 +4.6%</div>
+    <div class="label">近 6 月 -20.3%</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">近 1 年涨跌</div>
+    <div class="value">-21.5%</div>
+    <div class="change">年初至今 -22.7%</div>
+    <div class="label">21/63/126/250 交易日窗口 · 未复权（自算）</div>
+  </div>
+</div>
+
+<div class="section-title warn">⚖️ 模块 2 · 综合评级（一句话定位）</div>
+<div class="section-subtitle">"份额第一 + 收入拐点"遇上"毛利率塌陷 + 治理折价"—— 观察，不是买入</div>
+
+<div class="final-verdict">
+  <h2>⚖️ 11 方法论加权综合评级</h2>
+  <div class="rating">持有观察</div>
+  <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+    综合得分 3.76 / 10（权重归一化 ÷1.05）· 落入 3.5-4.9 区间 · 单股仓位上限 3%
+  </div>
+  <div class="comment">
+    <strong style="color:#34d399">已确认的正向变化：</strong>营收连续三季正增长（Q1 +15.2% / Q2 +20.8% / Q3 +6.8%），前三季 +14.4%；WiNEX 上线 450+ 家医疗机构；IDC 核心系统份额 11.9% 连续六年第一；Q3 单季亏损 0.64 亿元，同比收窄 48%；PB 处于五年 17% 分位（2.79x vs 中位 3.34x）。<br>
+    <strong style="color:#fca5a5">尚未解决的负向事实：</strong>毛利率由 2023 年 45.0% 降至 2026Q3 的 31.4%（三年蒸发 13.6pct）；扣非归母亏损同比扩大 8.7%（-2.47 亿），归母"持平"主要来自非经常性损益波动；Q3 单季营收 4.88 亿元仍比 2024Q3 的 6.90 亿元低 29.3%；应收账款周转 183 天（2023 年 116 天）；净现金仅 3.20 亿元，11.75 亿元转债 2027 年 3 月到期。<br>
+    <strong style="color:#fbbf24">结论：</strong>这是一笔"等待型"标的 —— 价格已反映悲观，但尚未反映"利润拐点"。以 2027 年一致预期净利 2.09 亿元计，现价对应 <strong>72x</strong>；以 PS 计则是同业最贵。因此不给"买入"，给"持有观察"，并设置明确的右侧验证条件。
+  </div>
+</div>
+<div class="section-title ok">🎚️ 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+<div class="section-subtitle">PB 五年分位 17% 看似便宜，但 PE 失锚、PS 同业最贵、净资产质量存疑 —— 三条估值线索指向不同结论</div>
+
+<div class="safety-bar">
+  <div class="safety-title">🏷️ PB 估值区间定位（2021-10 至 2026-10，1212 个交易日）</div>
+  <div class="safety-track">
+    <div class="safety-seg seg-deep" style="flex:3;">低估 &lt;2.28x</div>
+    <div class="safety-seg seg-current" style="flex:4;">当前 2.79x（17% 分位）</div>
+    <div class="safety-seg seg-over" style="flex:3;">高估 &gt;4.24x</div>
+  </div>
+  <div class="safety-marks">
+    <span>五年最低 <strong>1.95x</strong>（2024 年）</span>
+    <span>五年中位 <strong>3.34x</strong></span>
+    <span><strong>当前 2.79x</strong>（自算）</span>
+    <span>五年最高 <strong>7.92x</strong>（2021 年）</span>
+    <span>2026 年高点 <strong>5.84x</strong>（1 月）</span>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>估值指标</div>
+    <div>数值</div>
+    <div>解读与口径</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PE-TTM</div>
+    <div class="fin-val down">亏损（负值）</div>
+    <div class="fin-comment">TTM 归母净利 -3.73 亿元（2026 前三季 -2.41 亿 + 2025Q4 -1.32 亿），PE 无法作为估值锚。<b style="color:#fbbf24">按格雷厄姆框架，亏损 + 无股息 + PB 2.79 &gt; 1.5，深度价值条件全部不满足</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PE-2026E / 2027E</div>
+    <div class="fin-val down">289x / 72x</div>
+    <div class="fin-comment">基于 3 家机构一致预期（2026E 归母 0.52 亿、2027E 2.09 亿，截至 2026-10-23）。<b style="color:#fca5a5">注意：这些预测均在三季报（-2.41 亿）披露前给出，存在下修风险</b>；若 2026 全年亏损 2.6 亿元，则 2026E PE 失效</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PB</div>
+    <div class="fin-val warn">2.79x</div>
+    <div class="fin-comment">每股净资产 2.4426 元（2026Q3，归母权益 54.68 亿元 ÷ 22.01 亿股）。五年分位 17%，处于历史低位区。<b style="color:#fbbf24">但净资产含无形资产 12.87 亿元 + 开发支出 2.38 亿元 + 商誉 4.10 亿元，合计 19.35 亿元（占净资产 35.4%）</b>；若剔除无形资产与商誉，调整后 PB 约 4.3x（估算）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PS（市值/营收）</div>
+    <div class="fin-val down">7.1x（2025）/ 6.6x（TTM）</div>
+    <div class="fin-comment"><b style="color:#fca5a5">医疗 IT 同业最高</b>：创业慧康 5.0x、嘉和美康 5.5x、久远银海 4.0x、万达信息 3.4x、东华软件 1.5x（均按 2025 年营收）。市场为"份额第一 + WiNEX 替换 + AI 医疗"支付了显著溢价，而卫宁的毛利率在同业中下滑最快</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">EV / 净现金</div>
+    <div class="fin-val warn">净现金 3.20 亿</div>
+    <div class="fin-comment">货币资金 15.18 亿 - 有息负债 11.98 亿（含转债 11.75 亿）= 净现金 3.20 亿元，仅占市值 2.1%；EV ≈ 147.1 亿元 → EV/S(TTM) 6.4x。<b style="color:#fbbf24">若按"现金 15.18 亿"直接视为安全垫，将严重高估 —— 转债兑付在 2027 年 3 月前必须解决</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股息率</div>
+    <div class="fin-val down">0%</div>
+    <div class="fin-comment">2025 年度不分配不转增（2026-04-15 年报），2026 中报亦不分配；2024 年度为 10 派 0.15 元（对应当年股息率约 0.16%）。<b style="color:#fca5a5">无股息保护，纯博弈型持仓</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">隐蔽资产 / 清算价值</div>
+    <div class="fin-val warn">有限</div>
+    <div class="fin-comment">长期股权投资 4.45 亿元（2026Q3，持续产生投资亏损，2026 前三季投资收益 -0.21 亿元）；递延所得税资产 3.25 亿元（依赖未来盈利实现）；<b style="color:#fca5a5">无形资产 12.87 亿元主要为资本化软件，清算价值远低于账面</b>。格雷厄姆式净流动资产（流动资产 45.22 亿 - 总负债 26.73 亿 = 18.49 亿）仅相当于市值的 12.3%</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📐 安全边际测算（12 个月，三情景）</div>
+  <div class="compare-table">
+    <table class="compare-table">
+      <thead>
+        <tr><th>情景</th><th>核心假设</th><th>估值方法</th><th>对应市值</th><th>目标价</th><th>相对现价</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="danger">保守</td>
+          <td>2026 全年亏损 2.6 亿元，2027 仍微亏；毛利率维持 31% 以下；转债以现金兑付</td>
+          <td>PB 2.0x（接近 2024 年底部 1.95x）</td>
+          <td class="danger">108 亿</td>
+          <td class="danger">4.90 元</td>
+          <td class="danger">-28%</td>
+        </tr>
+        <tr>
+          <td class="warn">中性</td>
+          <td>2027 营收 26.4 亿元（低于一致预期 28.3 亿），净利 1.8 亿元；PS 6.0x</td>
+          <td>PS 6.0x × 2027E 营收 26.4 亿（≈市值 158 亿）</td>
+          <td class="warn">158 亿</td>
+          <td class="warn">7.20 元</td>
+          <td class="warn">+6%</td>
+        </tr>
+        <tr>
+          <td class="ok">乐观</td>
+          <td>2027 营收 28.3 亿元（达一致预期），净利 2.5 亿元；毛利率回升至 35%；AI 医疗出现可确认订单</td>
+          <td>PS 7.2x × 2027E 营收 28.3 亿（≈市值 204 亿）</td>
+          <td class="ok">204 亿</td>
+          <td class="ok">9.20 元</td>
+          <td class="ok">+35%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fin-comment" style="margin-top:10px;">
+    <b style="color:#fbbf24">安全边际结论：</b>中性情景目标价 7.20 元相对现价仅 +6%，而保守情景下行 -28% —— <b style="color:#fca5a5">风险收益比约 1:4.7，不具备安全边际</b>。当前价格对应 2027E PE 72x，已隐含"2027 年净利翻倍至 2 亿以上"的乐观假设；若扭亏时点推迟至 2028 年，则现价无支撑。三情景价为估算，非公司指引。
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">⚔️ 同业估值与经营对比（5 家可比公司）</div>
+  <div class="compare-table">
+    <table class="compare-table">
+      <thead>
+        <tr><th>公司</th><th>代码</th><th>2025 营收/同比</th><th>2025 归母</th><th>2026Q3 营收/同比</th><th>2026Q3 归母</th><th>总市值</th><th>PE-TTM</th><th>PB</th><th>PS（2025）</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hl">卫宁健康</td><td>300253</td>
+          <td>21.06 亿 / -24.3%</td>
+          <td class="danger">-3.74 亿</td>
+          <td class="ok">14.82 亿 / +14.4%</td>
+          <td class="danger">-2.41 亿</td>
+          <td>150.3 亿</td><td class="danger">亏损</td><td class="warn">2.80</td><td class="danger">7.1x</td>
+        </tr>
+        <tr>
+          <td>创业慧康</td><td>300451</td>
+          <td>10.52 亿 / -26.1%</td><td class="danger">-4.02 亿</td>
+          <td class="danger">6.88 亿 / -20.1%</td><td class="danger">-3.11 亿</td>
+          <td>52.7 亿</td><td class="danger">亏损</td><td>1.42</td><td>5.0x</td>
+        </tr>
+        <tr>
+          <td>万达信息</td><td>300168</td>
+          <td>20.26 亿 / +0.7%</td><td class="danger">-5.72 亿</td>
+          <td>13.76 亿 / +3.6%</td><td class="danger">-2.07 亿</td>
+          <td>68.3 亿</td><td class="danger">亏损</td><td class="danger">7.94</td><td>3.4x</td>
+        </tr>
+        <tr>
+          <td>东华软件</td><td>002065</td>
+          <td>129.28 亿 / -3.0%</td><td class="ok">+4.77 亿</td>
+          <td>86.07 亿 / +1.4%</td><td class="ok">+2.28 亿</td>
+          <td>196.2 亿</td><td>55.4</td><td>1.58</td><td>1.5x</td>
+        </tr>
+        <tr>
+          <td>久远银海</td><td>002777</td>
+          <td>12.32 亿 / -8.0%</td><td class="ok">+0.77 亿</td>
+          <td class="danger">6.30 亿 / -8.3%</td><td class="ok">+0.35 亿</td>
+          <td>49.9 亿</td><td>72.4</td><td>2.96</td><td>4.0x</td>
+        </tr>
+        <tr>
+          <td>嘉和美康</td><td>688246</td>
+          <td>4.04 亿 / -31.7%</td><td class="danger">-2.50 亿</td>
+          <td>1.74 亿(H1) / -20.6%</td><td class="danger">-0.80 亿(H1)</td>
+          <td>22.3 亿</td><td class="danger">亏损</td><td>1.82</td><td>5.5x</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fin-comment" style="margin-top:10px;">
+    口径：市值/PE/PB 为 2026-10-29 14:26 腾讯接口快照；财务为东方财富数据中心（2025 年报、2026 三季报，嘉和美康尚未披露三季报以中报替代）；PS 为"总市值 ÷ 2025 年营业收入"粗略代理。东华软件营收含金融与智算业务，非纯医疗 IT。<br>
+    <b style="color:#38bdf8">横向结论：</b>①行业 6 家中 4 家亏损，仅东华与久远盈利；②卫宁是唯一"营收恢复两位数增长"的公司（+14.4%），份额在集中；③但卫宁 PS 7.1x 为最高，PB 2.80 处中位，<b style="color:#fca5a5">"最好的基本面 + 最贵的估值"同时成立</b> —— 这正是它评级只能给"持有观察"的原因。
+  </div>
+</div>
+
+<div class="section-title">🌱 模块 4 · 成长性维度（费雪 + 林奇）</div>
+<div class="section-subtitle">修复性增长，不是复利型成长 —— 收入创新高之前，谈"成长股"为时尚早</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>成长指标</div>
+    <div>数值</div>
+    <div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营收 CAGR（2020-2025）</div>
+    <div class="fin-val down">-1.5%</div>
+    <div class="fin-comment">22.67 亿（2020）→ 21.06 亿（2025），五年零增长；其中 2021-2025 四年 CAGR 为 -6.4%。峰值是 2023 年 31.63 亿元，<b style="color:#fca5a5">当前收入较峰值低 33%</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利 CAGR</div>
+    <div class="fin-val down">由盈转亏</div>
+    <div class="fin-comment">4.91 亿（2020）→ 3.58 亿（2023）→ 0.88 亿（2024）→ -3.74 亿（2025）；2026 前三季 -2.41 亿元。<b style="color:#fca5a5">利润的下降幅度（-176%）远大于收入（-33%）</b>，说明是"毛利率 + 费用刚性 + 减值"的三重挤压</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">2026 年内节奏</div>
+    <div class="fin-val ok">逐季修复（收入端）</div>
+    <div class="fin-comment">Q1 营收 3.97 亿（+15.2%）/ 归母 +0.14 亿；Q2 营收 5.97 亿（+20.8%）/ 归母 -1.90 亿（中报集中计提合同资产减值 0.95 亿）；Q3 营收 4.88 亿（+6.8%）/ 归母 -0.64 亿（同比收窄 48%）。<b style="color:#34d399">收入连续三季正增长，亏损环比大幅收窄</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">真实基数（vs 2024）</div>
+    <div class="fin-val down">仍低 22.5%</div>
+    <div class="fin-comment">2026 前三季 14.82 亿 vs 2024 前三季 19.13 亿（-22.5%）；2026Q3 单季 4.88 亿 vs 2024Q3 6.90 亿（-29.3%）。<b style="color:#fbbf24">"同比 +14.4%"是建立在 2025 年塌陷基数上的修复，不是扩张</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PEG</div>
+    <div class="fin-val down">不适用（失真）</div>
+    <div class="fin-comment">基期净利为负，PEG 无意义。<b style="color:#fbbf24">若强行用 2027E 净利 2.09 亿倒推，2026-2029 年净利需从 0.52 亿增至 5 亿（股权激励目标），CAGR 达 113%，对应 PEG 0.64 —— 但这一路径依赖"2026 年即扭亏"，已被前三季 -2.41 亿证伪</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入强度</div>
+    <div class="fin-val mid">约 26.5%（估算）</div>
+    <div class="fin-comment">2026 前三季研发费用 2.57 亿元（占营收 17.4%）+ 开发支出净增 1.35 亿元 = 投入约 3.92 亿元，占营收约 26.5%（<b style="color:#fbbf24">估算值，含资本化</b>）。高投入是产品力来源，也是当期利润的主要压力；<b style="color:#fca5a5">开发支出从 2025 年末 1.03 亿回升至 2.38 亿，资本化率重新上行，需警惕"利润后置"</b></div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">🚀 未来 12-24 个月催化剂与驱动力</div>
+  <div class="compare-table">
+    <table class="compare-table">
+      <thead><tr><th>驱动力 / 催化剂</th><th>时间窗口</th><th>可验证信号</th><th>对业绩的弹性</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="hl">WiNEX 存量替换</td><td>2026-2028 持续</td>
+          <td>已上线 450+ 家医疗机构；<b>收入占比未披露</b>（数据缺口）</td>
+          <td class="ok">高 —— 若单院 ARPU 提升，可同时修复收入与毛利</td>
+        </tr>
+        <tr>
+          <td class="hl">DRG/DIP 3.0 与医保合规 IT</td><td>2026-09 已发布，2027 年落地</td>
+          <td>医保局 2026-09-02 发布 3.0 版；2026H1 自查自纠退回 72 亿元 → 医院合规系统刚需</td>
+          <td class="ok">中高 —— 病案质控、成本核算模块单价高、毛利好</td>
+        </tr>
+        <tr>
+          <td>县域医共体 / 强基工程</td><td>2025-2027</td>
+          <td>中央资金约 88 亿元（2025-08 方案）；曲靖市医共体 3,698 万元中标（2026-10-13）</td>
+          <td class="warn">中 —— 项目分散、单体金额小、实施成本高</td>
+        </tr>
+        <tr>
+          <td>医疗信创国产化</td><td>2026-2027</td>
+          <td>2026 年从"加分项"转为"入场券"，是少数不被削减的预算</td>
+          <td class="warn">中 —— 替换期毛利率通常偏低</td>
+        </tr>
+        <tr>
+          <td class="hl">AI 医疗（WiNGPT / Copilot）</td><td>2027+</td>
+          <td>2026 年成立 AI 医疗事业部，覆盖 100+ 临床场景；<b>单独收入未披露</b>；行业收费闭环未跑通</td>
+          <td class="danger">高但不确定 —— 目前是估值叙事，不是利润来源</td>
+        </tr>
+        <tr>
+          <td>减值出清</td><td>2026Q4-2027</td>
+          <td>商誉余额 4.10 亿（2025 已减值 0.88 亿）；合同资产 2026H1 减值 0.95 亿</td>
+          <td class="ok">中 —— 减值一次性出清是扭亏的必要条件</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fin-comment" style="margin-top:10px;"><b style="color:#38bdf8">成长性结论：周期修复型增长（非稳定复利型）。</b>收入驱动力真实存在（WiNEX 替换 + 医保合规 + 信创），但行业总盘子 2026-2030 年 CAGR 仅 5.7%（IDC），卫宁的两位数增长本质是"抢份额 + 低基数"，<b style="color:#fbbf24">可持续性取决于毛利率能否止跌 —— 否则增收不增利将长期化</b>。</div>
+</div>
+
+<div class="section-title">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+<div class="section-subtitle">份额第一、转换成本高 —— 但护城河没有变成钱：ROIC 为负，毛利率三年蒸发 13.6pct</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>护城河维度</div>
+    <div>评估</div>
+    <div>依据</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">品牌 / 行业地位</div>
+    <div class="fin-val ok">强</div>
+    <div class="fin-comment">IDC《中国医疗核心业务系统市场份额，2025》：卫宁 <b>11.9% 排名第一，2020-2025 连续六年第一</b>（东软 9.8%、万达 7.2%、创业 6.5%，2024 年数据）。但份额由 2024 年 12.6% 降至 11.9%（-0.7pct），<b style="color:#fbbf24">领先优势在收窄</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">转换成本</div>
+    <div class="fin-val ok">强</div>
+    <div class="fin-comment">HIS/CIS 是医院核心业务系统，替换涉及数据迁移、流程重构与停机风险，替换周期通常 8-10 年；卫宁在医院端沉淀 20 余年实施经验。<b style="color:#34d399">这是最真实的护城河</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">规模效应</div>
+    <div class="fin-val mid">中</div>
+    <div class="fin-comment">营收 21.06 亿元（2025）高于创业慧康 10.52 亿、嘉和美康 4.04 亿、久远银海 12.32 亿，但低于东华软件（含非医疗业务 129.28 亿）。<b style="color:#fbbf24">软件项目制下规模效应弱，人天成本随规模线性上升</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">技术 / 产品</div>
+    <div class="fin-val mid">中</div>
+    <div class="fin-comment">WiNEX 微服务架构 + WiNGPT 医疗大模型（2025-05 发布 3.0 版）；但同业均在做同类升级，<b style="color:#fbbf24">技术未形成可量化的定价权</b>（毛利率反证）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">牌照 / 准入</div>
+    <div class="fin-val down">弱</div>
+    <div class="fin-comment">医院 IT 无特许经营牌照，仅需软件企业与等保资质，<b style="color:#fca5a5">进入壁垒主要来自客户关系与案例积累，而非法定壁垒</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">网络效应 / 成本优势</div>
+    <div class="fin-val down">弱</div>
+    <div class="fin-comment">无网络效应；成本端受人力成本刚性约束，2026 前三季管理费用同比 +53.12%，<b style="color:#fca5a5">规模扩张并未带来单位成本下降</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">ROIC（资本回报）</div>
+    <div class="fin-val down">负值</div>
+    <div class="fin-comment">TTM 归母 -3.73 亿元，NOPAT 为负 → <b style="color:#fca5a5">ROIC 显著低于资本成本（约 8%）</b>。巴菲特式判据"ROIC &gt; 15% 为优秀"完全不满足；对比历史：2023 年 ROE 6.65%、2020 年 11.3%（估算），从未达到卓越水平</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">毛利率 / 净利率稳定性</div>
+    <div class="fin-val down">严重恶化</div>
+    <div class="fin-comment">毛利率：54.1%（2020）→ 45.0%（2023）→ 41.7%（2024）→ 32.8%（2025）→ <b>31.4%（2026Q3）</b>，五年下滑 22.7pct；净利率：21.7% → -17.8%。<b style="color:#fca5a5">这是"生意本质"恶化的核心证据：议价权转移 + 项目定制化 + 硬件/服务占比上升</b></div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 护城河裁决</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>护城河类型：</strong>狭窄护城河 —— 由"高转换成本 + 医院客户关系 + 份额第一"构成，可持续性中等（替换周期长），但不具备定价权（毛利率反证）。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>致命弱点：</strong>护城河保护的是"收入"，不是"利润"。医院客户预算受医保控费与财政约束，公司在招标中缺乏提价能力；同时 WiNEX 替换期需要让利换份额，导致毛利率结构性下移。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>巴菲特视角结论：</strong>"好生意"的定义是长期高 ROIC，卫宁当前不满足。若 2027 年毛利率回到 35% 以上、单季扣非转正，可重新评估为"困境反转"；在此之前，只能按"周期修复"定价。</p>
+  </div>
+</div>
+
+<div class="section-title danger">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+<div class="section-subtitle">资产负债表尚可，利润表失血，现金流靠 Q4 集中回款 —— 财务评级：瑕疵</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>核心指标（2023 → 2024 → 2025 → 2026Q3）</div>
+    <div>数值</div>
+    <div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营业收入（亿元）</div>
+    <div class="fin-val mid">31.63 → 27.82 → 21.06 → 14.82(9M)</div>
+    <div class="fin-comment">同比 +2.3% → -12.0% → -24.3% → <b>+14.4%</b>；2026 年为修复年，但前三季仍低于 2024 年同期 22.5%</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利润（亿元）</div>
+    <div class="fin-val down">3.58 → 0.88 → -3.74 → -2.41(9M)</div>
+    <div class="fin-comment">2025 年首次年度亏损；2026 前三季亏损同比持平（+0.35%），但主要靠非经常性损益，<b style="color:#fca5a5">扣非同比 -8.7%，实际恶化</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">扣非归母净利润（亿元）</div>
+    <div class="fin-val down">3.33 → 1.24 → -3.55 → -2.47(9M)</div>
+    <div class="fin-comment">扣非连年下滑，2026 前三季 -2.47 亿 &gt; 2025 全年 -3.55 亿的 70%，<b style="color:#fca5a5">全年扣非亏损大概率超过 2025 年</b>（保守估算 -3.3 至 -3.6 亿）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流（亿元）</div>
+    <div class="fin-val warn">1.85 → 4.08 → 5.55 → 0.07(9M)</div>
+    <div class="fin-comment">2025 年 OCF 5.55 亿 &gt; 净利（含 2.52 亿减值回加），现金流质量尚可；但 2026 前三季 OCF 仅 0.07 亿元，<b style="color:#fbbf24">回款高度集中在 Q4（2025Q4 单季贡献约 5.66 亿），全年现金流能否维持取决于年底结算</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">自由现金流（亿元）</div>
+    <div class="fin-val down">-1.28 → +1.02 → +3.35 → -1.05(9M)</div>
+    <div class="fin-comment">资本开支 3.13 → 3.06 → 2.20 → 1.12 亿元（含资本化研发）；2026 前三季 FCF 为负，<b style="color:#fca5a5">若 Q4 回款不及预期，自由现金流将连续两年为负</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">资产负债率</div>
+    <div class="fin-val ok">33.5% → 32.2% → 34.3% → 32.9%</div>
+    <div class="fin-comment">绝对水平健康（&lt;40%），但 2026Q3 流动负债由 17.40 亿升至 25.86 亿（转债重分类），<b style="color:#fbbf24">流动比率由 2.83 降至 1.75</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">有息负债（亿元）</div>
+    <div class="fin-val warn">10.6 → 10.9 → 11.2 → 12.0</div>
+    <div class="fin-comment">主要为卫宁转债 9.70 亿元本金（账面 11.75 亿，含利息调整），短期借款仅 0.06 亿元；<b style="color:#fca5a5">2027 年 3 月进入兑付窗口，净现金从 15.1 亿骤降至 3.2 亿</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">应收账款周转天数</div>
+    <div class="fin-val down">116 → 149 → 190 → 183</div>
+    <div class="fin-comment">2026Q3 应收账款余额 9.81 亿元（较 2025 年末 10.32 亿下降 5%，是少数正向信号）；但周转天数仍高达 183 天，<b style="color:#fca5a5">医院客户回款周期长是行业通病，创业慧康坏账计提率已由 22.7% 升至 33.7%</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">存货周转天数</div>
+    <div class="fin-val warn">497 天（9M 年化）</div>
+    <div class="fin-comment">存货余额仅 1.10 亿元（软件企业存货主要为在施项目），绝对金额小，周转天数高属行业特性，不构成实质风险</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流 / 净利润</div>
+    <div class="fin-val down">0.52 → 4.64 → 失真 → 失真</div>
+    <div class="fin-comment">净利为负时该比值无意义（标注失真）；<b style="color:#34d399">正面理解：2025 年在亏损下仍实现 OCF 5.55 亿，说明亏损主要来自非现金减值（2.52 亿）而非现金流失</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">商誉 / 总资产</div>
+    <div class="fin-val ok">6.9% → 5.7% → 4.8% → 5.0%</div>
+    <div class="fin-comment">商誉余额 4.10 亿元（2026Q3），占总资产 5.0%，低于 10% 健康线；2025 年已计提商誉减值 0.88 亿元，<b style="color:#fbbf24">剩余减值空间约 4 亿元，若子公司业绩不达预期仍有二次减值可能</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">毛利率</div>
+    <div class="fin-val down">45.0% → 41.7% → 32.8% → 31.4%</div>
+    <div class="fin-comment"><b style="color:#fca5a5">最重要的恶化指标</b>：三年蒸发 13.6pct。原因推断：WiNEX 替换期让利、项目定制化比例上升、服务与硬件占比提高、人力成本上涨（管理费用 +53%）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">净利率</div>
+    <div class="fin-val down">10.0% → 1.8% → -18.2% → -17.8%</div>
+    <div class="fin-comment">费用刚性突出：2026 前三季研发费用率 17.4% + 销售费用率 16.1% + 管理费用率 12.2% = 45.7%，<b style="color:#fca5a5">而毛利率仅 31.4% —— 结构性亏损，非一次性因素</b></div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 财务质量结论：瑕疵（非风险，但远未健康）</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>资产负债表：尚可。</strong>资产负债率 32.9%，商誉占比 5.0%，无长期借款；但净现金仅 3.2 亿，11.75 亿转债待兑付，流动性缓冲薄。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>利润表：失血。</strong>毛利率 31.4% 覆盖不了 45.7% 的三费 + 研发费用率，这是"结构性亏损"，靠削减费用扭亏的空间有限（研发削减将伤害 WiNEX 竞争力）。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>现金流：季节性依赖。</strong>2025 全年 OCF 5.55 亿但 2026 前三季仅 0.07 亿，Q4 回款是生死线；若 2026Q4 回款低于 4 亿元，OCF 将大幅低于 2025 年。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><strong>资产质量隐忧：</strong>无形资产 12.87 亿 + 开发支出 2.38 亿 = 15.25 亿元（占总资产 18.8%），主要为资本化研发；若未来收入不达预期，将面临摊销压力与减值测试。</p>
+  </div>
+</div>
+<div class="section-title danger">👔 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+<div class="section-subtitle">治理折价是本标的最被低估的风险 —— 实控人刑事定罪 + 监管警示函 + 激励目标注定落空</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>治理维度</div>
+    <div>评估</div>
+    <div>事实与依据</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">实控人与持股</div>
+    <div class="fin-val warn">周炜、王英夫妇</div>
+    <div class="fin-comment">直接持股 <b>12.78%</b>；周炜原任董事长（原定任期 2024-03-21 至 2027-03-02）。持股比例不高，<b style="color:#fbbf24">控制权稳定性依赖家族一致行动，抗收购能力一般</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">刑事与合规事件</div>
+    <div class="fin-val down">重大负面</div>
+    <div class="fin-comment">① 2025-11-05 公告：周炜及全资子公司深圳卫宁中天涉<b>单位行贿罪</b>，一审判处周炜有期徒刑一年六个月、罚金 20 万元，子公司罚金 80 万元；② 2025-11-09 周炜辞去董事长，<b>刘宁</b>接任，周炜之子周成（31 岁）被提名为非独立董事候选人；③ 2026-03-22 披露二审终审结果；④ <b>2026-06-15 上海证监局对公司及周炜出具警示函</b>（内控缺陷、未及时披露子公司行贿被判事项）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股权质押</div>
+    <div class="fin-val ok">0.12%</div>
+    <div class="fin-comment">截至 2026-09-11 质押总股数 269.79 万股，占总股本 0.12% —— <b style="color:#34d399">质押风险极低，是治理层面少见的正面项</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">减持记录</div>
+    <div class="fin-val warn">高管减持</div>
+    <div class="fin-comment">董事/高管靳茂于 2025-12-18 至 2026-01-14 减持 128.36 万股，<b>均价 12.75 元</b>，套现约 1,636 万元；实控人层面 2025-2026 年无减持公告。高管在高位（12.75 元，现价 6.82 元）精准减持，<b style="color:#fbbf24">信号意义偏负</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股权激励</div>
+    <div class="fin-val down">目标注定落空</div>
+    <div class="fin-comment">2026-02 推出：授予 1 亿股、授予价 5.32 元、覆盖 703 人；<b>考核归母净利 2026-2029 年分别 ≥0.8 / 1.8 / 3 / 5 亿元</b>。2026 前三季归母 -2.41 亿元 → <b style="color:#fca5a5">2026 年 0.8 亿元目标已实质性落空</b>（需 Q4 单季盈利 3.2 亿元）。2026-08 因 4 人离职作废 40.15 万股</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">回购执行</div>
+    <div class="fin-val down">象征性</div>
+    <div class="fin-comment">2026-04 回购方案获批，截至 2026-08-31 累计回购仅 <b>477.26 万元</b>，相对 150 亿市值不足 0.03% —— <b style="color:#fca5a5">"护盘"意愿与能力均有限</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入</div>
+    <div class="fin-val ok">强度高</div>
+    <div class="fin-comment">2026 前三季研发费用 2.57 亿元（营收占比 17.4%），加上资本化部分合计投入约 3.92 亿元（约占营收 26.5%，估算）；研发人员占比 <span class="warn">未独立核验</span>。<b style="color:#34d399">投入强度是产品竞争力的来源，但也是当期利润的最大拖累</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">机构与散户结构</div>
+    <div class="fin-val warn">散户为主</div>
+    <div class="fin-comment">股东户数 <b>108,498 户</b>（2026-10-20，环比 -1.01%），户均持股约 2.03 万股；基金持仓（季报前十口径）5.27%，与 2025 年同期 5.59% 基本持平；前十大股东合计 18.79%（2026-09-30）。<b>北向、社保、QFII 变动数据缺口</b></div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 治理结论：需要警惕</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>核心问题不是"老板犯错"，而是"内控失效"。</strong>单位行贿涉及销售合规体系，警示函指向信息披露与内控缺陷 —— 在医疗反腐与医保监管高压期，这类历史包袱会直接影响医院招标资格与地方政府项目获取。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>激励目标与现实的缺口，是最大的"预期管理"风险。</strong>2026 年 0.8 亿元净利目标已不可能完成，公司大概率需要在下一次董事会调整考核指标（或让激励自然失效）。若调整，将被市场解读为"下调增长预期"；若不调整，核心团队激励落空，人才流失风险上升。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>可对冲的正面因素：</strong>质押率仅 0.12%、无实控人减持、新董事长刘宁已接任近一年、经营层（总经理王涛）稳定。治理风险是"估值折价"而非"生存风险"。</p>
+  </div>
+</div>
+
+<div class="section-title">🏭 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+<div class="section-subtitle">行业 2025 年见底、2026 年弱复苏（CAGR 5.7%）—— 卫宁的超额增长来自抢份额，不是行业 β</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>维度</div>
+    <div>判断</div>
+    <div>依据</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">周期阶段</div>
+    <div class="fin-val warn">底部 → 弱复苏</div>
+    <div class="fin-comment">IDC：中国医疗软件系统解决方案市场 2025 年 237.0 亿元，2030 年 313.2 亿元，<b>2026-2030 年 CAGR 仅 5.7%</b>（旧预测为 11.5%）；2024 年 230.3 亿元（+11.8%）→ 2025 年仅微增约 3%。<b style="color:#fbbf24">行业已从"增量建设"切换为"存量替换 + 区域统筹"</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">政策环境</div>
+    <div class="fin-val mid">结构性分化</div>
+    <div class="fin-comment">利好：DRG/DIP 3.0（2026-09-02 发布，2025 年覆盖 91.8% 出院人次）、医保基金监管五年行动计划（2026-2030）、医疗信创、强基工程（中央资金约 88 亿元）；利空：医院收入端受医保控费挤压、反腐导致招标延期与首付比例下降、<b>"四标合一"新评价标准预计 2027 年推行 → 2026-2027 年存在观望空窗</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">3-5 年增长空间</div>
+    <div class="fin-val warn">低速（5-6%）</div>
+    <div class="fin-comment">总量增长有限，增量来自：县域医共体/基层数智化（政策资金驱动）、医保合规与 DRG 成本核算（刚性）、信创替换（强制）、AI 应用（尚未收费闭环）。<b style="color:#fbbf24">龙头的增长只能来自份额提升与单客户 ARPU 提升</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">产业链位置</div>
+    <div class="fin-val mid">中游软件供应商</div>
+    <div class="fin-comment">上游为服务器/云资源（华为云等）、下游为公立医院与卫健委。<b>议价权弱</b>：上游云厂商（华为、阿里）正以 AI 底座切入医疗，下游医院预算受医保与财政双重约束，<b style="color:#fca5a5">软件商被夹在中间，这是毛利率下滑的产业根源</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">竞争格局</div>
+    <div class="fin-val ok">龙头地位稳固</div>
+    <div class="fin-comment">IDC 2025：卫宁 11.9% 第一（连续六年），东软 9.8%、万达 7.2%、创业 6.5%。追赶者普遍亏损（创业 2026 前三季亏 3.11 亿、嘉和亏 2.50 亿），<b style="color:#34d399">短期无人能挑战卫宁份额</b>；真正威胁来自华为云、讯飞医疗等"绕过 HIS 从 AI 底座切入"的跨界者</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">AI 医疗落地度</div>
+    <div class="fin-val warn">有产品、无收费闭环</div>
+    <div class="fin-comment">2026 年卫宁设 AI 医疗事业部，覆盖 100+ 临床场景，WiNEX Copilot 随 WiNEX 部署；但 <b>AI 单独收入未披露</b>；行业层面 AI 辅助诊断在价格立项中多为"扩展项"而非必选，<b style="color:#fbbf24">医院仍是投入方而非付费方</b>。参照讯飞医疗 2026H1 营收 4.46 亿（+49.4%），说明院端 AI 可收费，但偏"AI+基层/公卫"项目制</div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 周期定位裁决：底部区域的"份额收割者"，但不是"周期反转弹性最大者"</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>马克斯周期视角：</strong>行业已过最差时刻（2025 年增速降至约 3%），但复苏力度弱（未来五年 CAGR 5.7%），不属于"周期底部高弹性"品种。卫宁的 +14% 是"份额集中"而非"行业回暖"，这意味着增速会随份额提升空间收窄而回落。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>达里奥视角：</strong>医疗 IT 属于"政策驱动 + 财政支出"敏感型资产，与宏观流动性、地方财政高度相关；在当前财政紧平衡环境下，不具备全天候配置价值。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>关键跟踪变量：</strong>①2027 年"四标合一"《数智医院建设与应用评价标准》是否落地（决定新一轮评级采购周期）；②医保 DRG 3.0 配套系统的招标节奏；③华为云/讯飞在院端的份额渗透。</p>
+  </div>
+</div>
+
+<div class="section-title danger">📉 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+<div class="section-subtitle">空头排列、跌破全部均线、距 52 周低点仅 5.4% —— 技术面无任何右侧信号</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>技术指标</div>
+    <div>数值</div>
+    <div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">现价 / 当日</div>
+    <div class="fin-val down">6.82 元 / -3.94%</div>
+    <div class="fin-comment">2026-10-29 14:26 快照；三季报披露后（10-27）连续两日下跌，当日再跌 3.94%，<b style="color:#fca5a5">市场对"亏损未收窄"投了反对票</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">均线系统（MA）</div>
+    <div class="fin-val down">全部跌破</div>
+    <div class="fin-comment">MA5 7.10 / MA10 7.08 / MA20 7.08 / MA60 7.16 / MA120 7.37 / MA250 8.39；<b style="color:#fca5a5">价格低于全部均线，且均线呈空头排列（MA5≈MA10≈MA20 &lt; MA60 &lt; MA120 &lt; MA250），中期趋势向下</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">52 周区间位置</div>
+    <div class="fin-val down">距高点 -57.6%</div>
+    <div class="fin-comment">区间 6.47（2026-06-29）至 16.09（2026-01-14）；现价距低点仅 <b>+5.4%</b>，距高点 -57.6%。2026 年 1 月的 16.09 元为 AI 医疗概念炒作高点，随后因行贿案与业绩暴雷连续下跌</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">阶段涨跌幅</div>
+    <div class="fin-val down">1 年 -21.5%</div>
+    <div class="fin-comment">近 1 月 -4.6%、近 3 月 +4.6%、近 6 月 -20.3%、近 1 年 -21.5%、年初至今 -22.7%（按 21/63/126/250 交易日窗口，未复权收盘价，自算）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">成交量</div>
+    <div class="fin-val warn">无量下跌</div>
+    <div class="fin-comment">5 日均量 57.5 万手 / 60 日均量 54.1 万手 = <b>1.06 倍</b>；下跌过程中未见恐慌性放量，也无底部放量吸筹特征 —— <b style="color:#fbbf24">典型的"无人问津"状态</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">关键支撑 / 压力</div>
+    <div class="fin-val mid">6.47 / 7.16-7.40</div>
+    <div class="fin-comment">支撑：<b>6.47 元</b>（2026-06-29 低点，距现价 -5.1%）、5.15 元（2024 年低点，硬支撑）；压力：<b>7.08-7.16 元</b>（MA20/MA60 密集区）、7.40 元（2026-10-26 高点）、8.39 元（年线）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">机构持仓变化</div>
+    <div class="fin-val mid">基本持平</div>
+    <div class="fin-comment">基金持仓（季报口径，仅前十大）5.27%（2026-09-30）vs 5.59%（2025-09-30），机构汇总 10.82% vs 10.49%，<b>同比口径基本持平</b>；中报全口径 8.17%（与季报不可直接比较）；股东户数 10.85 万户（-1.01%）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">北向 / 主力资金</div>
+    <div class="fin-val warn">数据缺口</div>
+    <div class="fin-comment"><span class="warn">陆股通持股变动、主力净流入均未独立核验</span>，本模块不做方向判断，避免以推测代替数据</div>
+  </div>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">⚠️</div>
+  <div class="text">
+    <h3>技术面结论：弱势 —— 空头排列 + 无量阴跌，无任何右侧介入信号</h3>
+    <p>
+      股价自 2026-01-14 的 16.09 元下跌至 6.82 元，<b>回撤 57.6%</b>，且跌破全部均线；MA5/10/20 在 7.08-7.10 收敛，MA60 在 7.16 压制，<b style="color:#fca5a5">7.08-7.16 是短期最强阻力区，未有效收复前不应视为止跌</b>。下方 <b style="color:#fbbf24">6.47 元</b>是 2026 年 6 月低点，也是多头最后的防线；若失守，下一支撑看 5.15 元（2024 年低点）。成交量 5 日/60 日仅 1.06 倍，<b>既无恐慌盘出清，也无资金进场</b>，属于"时间换空间"的磨底阶段 —— 对左侧交易者，磨底期的机会成本可能很高。
+    </p>
+  </div>
+</div>
+
+<div class="section-title warn">🎯 模块 10 · 多方法论视角下的最终评级（核心）</div>
+<div class="section-subtitle">11 种方法论独立打分（1-10）→ 加权（权重合计 105%）→ 归一化 ÷1.05 → 综合 3.76/10</div>
+
+<div class="score-table">
+  <div class="score-item">
+    <div class="score-num bad">2</div>
+    <div class="score-name">格雷厄姆<br>深度价值</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+    <div class="score-out">PE 失锚 / PB 2.79 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">4</div>
+    <div class="score-name">费雪<br>成长投资</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+    <div class="score-out">投入高但收入零增长 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">3</div>
+    <div class="score-name">林奇<br>PEG</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+    <div class="score-out">基期为负，PEG 失真 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">6</div>
+    <div class="score-name">邓普顿<br>逆向投资</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+    <div class="score-out">-58% + PB 17% 分位 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">2</div>
+    <div class="score-name">博格<br>指数投资</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+    <div class="score-out">个股非宽基 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">马克斯<br>周期投资</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">行业见底，复苏弱 / 10</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📋 11 方法论评分与加权明细（权重归一化 ÷1.05）</div>
+  <div class="compare-table">
+    <table class="compare-table">
+      <thead><tr><th>方法论</th><th>权重</th><th>得分</th><th>加权贡献</th><th>核心判据</th></tr></thead>
+      <tbody>
+        <tr><td class="hl">格雷厄姆 · 深度价值</td><td>15%</td><td class="danger">2</td><td>0.30</td><td>PE 为负、PB 2.79 高于 1.5、零股息、NCAV 仅为市值 12.3%</td></tr>
+        <tr><td class="hl">邓普顿 · 逆向投资</td><td>15%</td><td class="warn">6</td><td>0.90</td><td>股价 -57.6%、PB 五年 17% 分位、行业 2025 见底；但盈利尚未见底</td></tr>
+        <tr><td class="hl">马克斯 · 周期投资</td><td>15%</td><td class="warn">5</td><td>0.75</td><td>行业增速由 11.8% 降至 5.7%，处底部但弹性弱；份额集中是主要增量</td></tr>
+        <tr><td class="hl">巴菲特 · 护城河</td><td>15%</td><td class="danger">4</td><td>0.60</td><td>份额 11.9% 第一、转换成本高；但 ROIC 为负、毛利率三年 -13.6pct</td></tr>
+        <tr><td>费雪 · 成长投资</td><td>10%</td><td class="danger">4</td><td>0.40</td><td>研发强度约 26.5%，但营收五年 CAGR -1.5%，成长未兑现</td></tr>
+        <tr><td>林奇 · PEG</td><td>10%</td><td class="danger">3</td><td>0.30</td><td>基期净利为负，PEG 不适用；强行测算需 113% 净利 CAGR</td></tr>
+        <tr><td>凯恩斯 · 选美/趋势</td><td>5%</td><td class="danger">3</td><td>0.15</td><td>空头排列、无量阴跌，市场情绪处于冰点但未见反转</td></tr>
+        <tr><td>西蒙斯 · 量化</td><td>5%</td><td class="danger">3</td><td>0.15</td><td>动量因子为负（1 年 -21.5%），无统计反转信号</td></tr>
+        <tr><td>索罗斯 · 反身性</td><td>5%</td><td class="danger">4</td><td>0.20</td><td>负反馈进行中：亏损→激励失效→人才流失风险；AI 叙事是唯一正反馈可能</td></tr>
+        <tr><td>博格 · 指数投资</td><td>5%</td><td class="danger">2</td><td>0.10</td><td>个股非宽基 ETF，方法论不适用（形式打分）</td></tr>
+        <tr><td>达里奥 · 全天候</td><td>5%</td><td class="danger">2</td><td>0.10</td><td>高 β 政策敏感资产，无分散化配置价值</td></tr>
+        <tr style="background:rgba(56,189,248,0.08);">
+          <td class="mid">合计</td><td class="mid">105%</td><td class="mid">—</td><td class="mid">3.95</td><td class="mid">3.95 ÷ 1.05 = <b style="color:#34d399">3.76 / 10</b> → 持有观察（3.5-4.9）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fin-comment" style="margin-top:10px;">说明：权重设定遵循方法论（邓普顿/马克斯/格雷厄姆/巴菲特各 15%，费雪/林奇各 10%，其余 5 项各 5%），合计 105%，故加权和需除以 1.05 归一化后再对评级门槛，以保证与历史报告可比。</div>
+</div>
+
+<div class="method-grid">
+  <div class="method-card mid">
+    <div class="method-name">🥇 匹配度第 1 · 邓普顿逆向</div>
+    <div class="method-author">John Templeton · 得分 6/10</div>
+    <div class="method-desc">"在最悲观点买入"的条件已具备大半：股价从 16.09 元跌至 6.82 元（-58%）、PB 处五年 17% 分位、行业增速见底、卖方覆盖萎缩至 2 家、市场情绪冰点。<b style="color:#fbbf24">但逆向投资的前提是"最坏已知"</b> —— 卫宁的最坏时刻是否已过，取决于 2026Q4 单季能否扭亏，目前无法确认。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🥈 匹配度第 2 · 马克斯周期</div>
+    <div class="method-author">Howard Marks · 得分 5/10</div>
+    <div class="method-desc">行业周期位置清晰（2025 年见底、2026 年弱复苏），公司是"份额收割者"。<b style="color:#fbbf24">但本轮周期是"总量低增长"型底部，不是"供需反转"型底部</b>，反转弹性远小于典型周期股；用周期框架只能得出"不再更差"，无法得出"显著变好"。</div>
+  </div>
+  <div class="method-card bad">
+    <div class="method-name">🥉 匹配度第 3 · 巴菲特护城河（反例）</div>
+    <div class="method-author">Warren Buffett · 得分 4/10</div>
+    <div class="method-desc">护城河（转换成本 + 份额）真实存在，但<b style="color:#fca5a5">"护城河宽不宽"的最终检验是 ROIC</b>。卫宁 ROIC 为负，说明护城河保护的是收入规模，不是资本回报。按巴菲特标准，这是"有护城河但生意变差"的典型，应等 ROIC 回到 10% 以上再谈长期持有。</div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 方法论冲突处理与最终倾向（三段式）</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>冲突点：</strong>邓普顿（6 分）/ 马克斯（5 分）给出"逆向机会"，而格雷厄姆（2 分）/ 巴菲特（4 分）/ 林奇（3 分）给出"不予买入"。核心分歧在于：<b>估值分位低（PB 17%）是否是买入理由？</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>分析原因：</strong>低 PB 与负 ROE 同时出现，是"价值陷阱"的经典组合 —— 净资产收益率持续为负会侵蚀每股净资产（BVPS 已由 2024 年 2.721 元降至 2.443 元），<b>低 PB 分位是"分母缩水"造成的，不是"分子便宜"造成的</b>。同时 PS 7.1x 为同业最贵，说明市场并未真正给出折价。方法论冲突的根源是：<b>格雷厄姆看资产与盈利，邓普顿看情绪与位置，两者在"盈利未止跌"时必然分歧</b>。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>最终倾向：</strong>采纳 <b style="color:#fbbf24">邓普顿 + 马克斯</b>的"观察框架"（承认位置已低、值得跟踪），但 <b style="color:#fca5a5">否决其"买入结论"</b>，以格雷厄姆与巴菲特标准设定门槛 —— <b>必须看到单季扣非转正 + 毛利率站上 33% 双确认，才升级为"谨慎买入"</b>。在此之前维持"持有观察 3.76/10"，仓位上限 3%，且仅在 6.40 元以下分批介入。风险提示：若 2027 年 3 月转债兑付导致现金流失血、或 2026 年报再现大额减值，评级将下调至"减持"。</p>
+  </div>
+</div>
+<div class="section-title ok">🎯 模块 11 · 操作策略与建议</div>
+<div class="section-subtitle">评级"持有观察" → 仓位上限 3% · 现价不追 · 左侧分 3 批 · 硬止损 5.60 元</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card position">
+    <div class="strategy-title">⚖️ 1. 建议仓位（凯恩斯 + 博格原则）</div>
+    <div class="strategy-content">
+      <strong>单股仓位上限 <span class="hl-warn">3%</span></strong>（对应"持有观察 3.5-4.9"档，SOP 规定 ≤3%）。<br>
+      当前建议：<strong>0-1% 观察仓（可选）</strong>，理由是价格虽已回撤 57.6%，但盈利拐点未确认，且 2027 年 3 月转债兑付是明确的流动性事件。<br>
+      若组合需要医疗 IT 暴露，建议以 <span class="hl-info">东华软件（盈利）</span>为主、卫宁为辅，避免行业敞口集中于单一亏损标的。
+    </div>
+  </div>
+  <div class="strategy-card stop">
+    <div class="strategy-title">🛑 2. 止损位（纪律优先）</div>
+    <div class="strategy-content">
+      <strong>硬止损：<span class="hl-danger">5.60 元</span></strong>（收盘价口径，较 6.10 元平均成本 -8.2%）。<br>
+      <strong>逻辑：</strong>6.47 元为 2026-06-29 低点，跌破视为"最后防线失守"；5.60 元留出 13% 的破位缓冲，同时高于 2024 年低点 5.15 元。<br>
+      <strong>时间止损：</strong>若 2027-04-30 前（2026 年报 + 2027 一季报披露完毕）仍未出现单季扣非转正，无论盈亏均减半。
+    </div>
+  </div>
+  <div class="strategy-card target">
+    <div class="strategy-title">🎯 3. 目标价（三情景）</div>
+    <div class="strategy-content">
+      <strong>12 个月：</strong>保守 <span class="hl-danger">4.90 元</span> / 中性 <span class="hl-warn">7.20 元</span> / 乐观 <span class="hl-ok">9.20 元</span><br>
+      <strong>24 个月：</strong>中性 <span class="hl-ok">8.60 元</span>（假设 2028 年净利 3.2-3.4 亿元、PE 55x）<br>
+      <strong>机构参照：</strong>华泰证券 2026-08-26 目标价 9.47 元（在三季报 -2.41 亿披露前给出，存在下修风险）；一致预期目标价均值 9.47 元（仅 2-3 家覆盖）。<br>
+      三情景均为本报告估算，非公司指引。
+    </div>
+  </div>
+  <div class="strategy-card cycle">
+    <div class="strategy-title">⏳ 4. 持有周期与建仓节奏</div>
+    <div class="strategy-content">
+      <strong>周期定位：中线（3-12 个月）</strong>，以 2026 年报与 2027 一季报为验证窗口；不建议长线（>12 月）重仓，除非 2027 年毛利率与 ROIC 同步修复。<br>
+      <strong>分批建仓（3 批，仅在 6.40 元以下执行）：</strong><br>
+      · 第 1 批 40%：<span class="hl-info">6.40 元</span>（跌破 MA60 后首次触及）<br>
+      · 第 2 批 35%：<span class="hl-info">5.95 元</span>（较首批 -7%）<br>
+      · 第 3 批 25%：<span class="hl-info">5.60 元</span>（接近止损线，仅在前两批已确认止跌时执行）<br>
+      现价 6.82 元<b>不建议追入</b>。
+    </div>
+  </div>
+  <div class="strategy-card monitor">
+    <div class="strategy-title">📡 5. 关键监测指标（每季度）</div>
+    <div class="strategy-content">
+      <strong>① 单季毛利率 ≥ 33%</strong>（当前 31.4%，是"增收不增利"是否结束的第一信号）<br>
+      <strong>② 单季扣非亏损 ≤ 0.30 亿元</strong>（当前 Q3 单季 -0.61 亿元）<br>
+      <strong>③ 应收账款 + 合同资产周转天数 ≤ 170 天</strong>（当前 183 天）<br>
+      辅助：WiNEX 收入占比是否单独披露、经营性现金流是否恢复至 4 亿元/年以上、股权激励考核是否调整。
+    </div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">🔔 卖出信号（任一触发即执行）</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>基本面信号：</strong>2026 年报或 2027 一季报单季毛利率跌破 <b>28%</b>，或单季扣非亏损扩大至 1 亿元以上 —— 说明"增收不增利"已固化为商业模式，估值逻辑失效。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>资产质量信号：</strong>应收账款 + 合同资产合计周转天数突破 <b>220 天</b>，或单季计提减值超过 1.5 亿元 —— 说明医院回款环境进一步恶化，现金流失血。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>估值信号：</strong>股价反弹至 <b>9.20 元</b>以上（对应 2027E PE 约 92x、PS 7.2x）而 2027 年中报净利未达 1 亿元 —— 属于"叙事透支业绩"，应主动兑现。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><strong>治理信号：</strong>再出现监管立案/处罚、审计意见非标、实控人变更或核心高管（总经理/财务负责人）离职 —— 治理折价将从"估值压制"升级为"生存风险"。</p>
+  </div>
+</div>
+
+<div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条核心 + 1 条附加上行风险）</div>
+<div class="section-subtitle">每条含触发条件 / 影响幅度 / 应对策略 —— 按发生概率与杀伤力排序</div>
+
+<div class="risk-grid">
+  <div class="risk-card">
+    <div class="risk-title">🔻 1. 毛利率结构性下滑不可逆</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>2026 年报毛利率低于 31%，或 2027 年仍未见回升至 33% 以上。<br>
+      <strong>影响幅度：</strong>毛利率每下降 1pct，按 2027E 营收 26 亿元计，减少毛利 0.26 亿元，相当于 2027E 净利的 14%；若毛利率长期停留在 31%，公司永远无法回到 2023 年 3.6 亿元的盈利水平。<br>
+      <strong>应对策略：</strong>把"毛利率"作为第一监测指标；若 2026 年报毛利率低于 31%，不建仓；已持仓则减半。
+    </div>
+  </div>
+  <div class="risk-card">
+    <div class="risk-title">🔻 2. 应收与合同资产减值反复</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>单季计提减值超 1.5 亿元，或应收账款周转天数突破 220 天。<br>
+      <strong>影响幅度：</strong>2025 年减值 2.52 亿元（商誉 0.88 亿 + 应收 0.99 亿 + 其他），直接导致年度亏损；2026H1 合同资产减值 0.95 亿元。若 2026Q4 再计提 1.5 亿元以上，全年亏损将扩大至 4 亿元+，每股净资产再降 0.07 元。<br>
+      <strong>应对策略：</strong>跟踪季报"信用减值损失/资产减值损失"科目；出现大额计提当日减仓 50%，不等年报。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">🔻 3. 11.75 亿元转债兑付与转股摊薄双向压制</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>2027 年 3 月到期前，股价持续低于转股价 7.02 元 → 债券持有人选择回售/兑付；或股价升破 7.02 元触发集中转股。<br>
+      <strong>影响幅度：</strong>兑付路径：货币资金 15.18 亿元（2026Q3）需支出约 9.7 亿元本金 + 利息，净现金由 3.20 亿元转为约 -6 亿元，2027 年现金流与分红能力被锁死；转股路径：约 1.38 亿股新增股份（按 7.02 元测算），摊薄比例约 6.3%。<br>
+      <strong>应对策略：</strong>把"转债余额与转股进度"列入季报必读项；兑付落地前不重仓；若出现"下修到底仍无法转股"，视为现金流风险升级。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">🔻 4. 治理与合规折价扩大</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>新增监管处罚/立案、审计意见非标、实控人进一步涉案或控制权变动、股权激励考核指标大比例下调。<br>
+      <strong>影响幅度：</strong>医院客户在医疗反腐与医保监管高压期对供应商合规审查趋严，单位行贿定罪记录可能影响部分区域的招标资格；估值层面，治理折价通常体现为 10-20% 的 PE/PB 折让（对照同业）。<br>
+      <strong>应对策略：</strong>减持至观察仓（≤1%）；若涉及立案调查或审计非标，直接清仓。
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">🔻 5. 行业 β 弱 + 收入增速回落</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>单季营收同比增速连续两个季度低于 5%，或 2027 年"四标合一"新标准推迟落地导致招标进一步延后。<br>
+      <strong>影响幅度：</strong>若 2027 年营收仅增长 5%（而非一致预期 15%），按 PS 6.0x 计市值约 133 亿元，对应股价 6.04 元（较现价 -11%）；同时固定费用刚性将使亏损扩大。<br>
+      <strong>应对策略：</strong>把"单季营收增速"与"新增中标金额"列为季度跟踪项；增速跌破 5% 则下调评级至"减持"。
+    </div>
+  </div>
+  <div class="risk-card info">
+    <div class="risk-title">🔹 6.（附加）AI 叙事退潮风险</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>AI 医疗概念整体降温，或公司连续两个报告期不披露 AI 相关订单/收入。<br>
+      <strong>影响幅度：</strong>2026-01 股价冲至 16.09 元的部分溢价来自 AI 医疗叙事，叙事退潮时估值可能向"纯软件 PS 4-5x"回归，对应股价约 4.8-6.0 元。<br>
+      <strong>应对策略：</strong>不把 AI 作为买入理由；仅当出现"可确认的 AI 收入科目"时才纳入估值。
+    </div>
+  </div>
+</div>
+
+<div class="data-note" style="margin-top:24px;">
+  <strong>📌 来源与复核记录（按模块）：</strong><br>
+  ✅ 模块 1/9：行情与 K 线 —— 腾讯证券（qt.gtimg.cn 6.82 元、150.35 亿市值、PB 2.80、PE -40.30；web.ifzq.gtimg.cn 日 K 1501 根），2026-10-29 14:26 快照；技术指标由本报告自算（均线、52 周区间、区间涨跌幅、成交量比）<br>
+  ✅ 模块 3/4/6：财务与估值 —— 新浪财经三大报表（2020-2026Q3，含 2026-09-30 报告期）+ 东方财富 F10 主要指标（毛利率 31.37%、扣非 -2.47 亿、ROE -4.37%、应收周转 183 天、资产负债率 32.91%）；东方财富数据中心同业 2025 年报 / 2026 三季报（2026-10-29 拉取）；PB 分位由 1212 个交易日收盘价 ÷ 报告期每股净资产自算<br>
+  ✅ 模块 7：公司公告与监管 —— 2025-11-05 一审判决公告、2025-11-09 董事长变更、2026-03-22 二审终审披露、2026-06-15 上海证监局警示函、2026-02 股权激励计划、2026-04/08 回购进展、2026-07-08 转债转股价下修公告（9.44 → 7.02 元）、股东户数（东方财富，2026-10-20）、基金持仓（东方财富机构持仓，2026-09-30）<br>
+  ✅ 模块 8：行业 —— IDC《中国医疗软件系统解决方案市场预测，2026-2030》（经公司 2026 半年报引用：2025 年 237.0 亿元 / 2030 年 313.2 亿元 / CAGR 5.7%）、IDC《中国医疗核心业务系统市场份额，2025》（卫宁 11.9% 第一）、国家医保局 DRG/DIP 3.0（2026-09-02）、医保基金监管五年行动计划（2026-05）、医疗卫生强基工程（2025-08，中央资金约 88 亿元）、2025 版智慧医疗分级评价标准<br>
+  ✅ 模块 11：机构预期 —— 东方财富/同花顺盈利预测（2026E 营收 24.53 亿 / 归母 0.52 亿；2027E 营收 28.28 亿 / 归母 2.09 亿；3 家机构，截至 2026-10-23）；华泰证券 2026-08-26《收入拐点显现，AI 医疗蓄力成长》目标价 9.47 元<br>
+  ⚠️ 未独立核验（已在正文标注）：北向资金持股变动、主力资金净流入、商誉减值的子公司分布、WiNEX 与 AI 产品收入占比、2026 年新签合同总额、研发人员占比、同业 PS 的 TTM 口径<br>
+  📐 <strong>计算口径说明：</strong>①总市值 = 6.82 元 × 22.01 亿股 = 150.3 亿元（与腾讯接口 150.35 亿元一致）；②PB = 6.82 ÷ 2.4426（2026Q3 每股净资产）= 2.79；③净现金 = 货币资金 15.18 - 有息负债 11.98 = 3.20 亿元；④11 方法论加权综合 = Σ(得分×权重) ÷ 1.05 = 3.95 ÷ 1.05 = 3.76；⑤三情景目标价为估算，非公司指引或机构一致目标价。
+</div>
+
+<div class="footer">
+  卫宁健康（300253）｜报告截止日 2026-10-29（周四）14:26 盘中快照｜11 方法论交叉验证 × 12 模块标准输出<br>
+  证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+  数据源：公司定期报告（2026 三季报 / 2025 年报 / 2024 年报，经新浪财经与东方财富交叉核对）+ 腾讯证券行情 + 巨潮资讯公告 + IDC 行业数据 + 国家医保局政策文件<br>
+  本报告为个人研究记录，盘中数据可能随交易变化；据此操作，风险自担。
+</div>
+</div>
+</body>
+</html>

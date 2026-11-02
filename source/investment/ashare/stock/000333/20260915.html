@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-15 美的集团 (000333) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(14,165,233,0.22), rgba(168,85,247,0.16), rgba(16,185,129,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(14,165,233,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #38bdf8, #c084fc, #34d399);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-left: 5px solid #38bdf8;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(245,158,11,0.18), rgba(56,189,248,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(245,158,11,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fbbf24; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:780px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(245,158,11,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(245,158,11,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #fbbf24; }
+  .conclusion-item .num { display:inline-block; background:#fbbf24; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!--CONTENT_HEADER-->
+<div class="header">
+  <h1>🏠 美的集团 (000333) · 11 方法论综合投资分析</h1>
+  <div class="subtitle">白电全球龙头 · ToB 业务持续放量 · 海外收入 1959 亿 · 2026H1 扣非承压 · PE 14.8x 处于 3 年 90% 分位</div>
+  <div class="badges">
+    <span class="badge badge-warning">🎯 综合评级：<b>持有观察</b>（高股息防御型 · 等待业绩拐点）</span>
+    <span class="badge badge-source">📅 数据日期：2026-09-15（周二盘后 · 快照取 9/10-9/11）</span>
+    <span class="badge badge-source">📊 股价 86.20 元 · 总市值 6576 亿 · PE-TTM 14.82x · 自年内高点回撤中</span>
+    <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 + 巴菲特 等 11 方法论 × 12 模块</span>
+    <span class="badge badge-success">✅ 2025 全年营收 4585 亿（+12%）/ 归母 439.5 亿（+14%）/ 海外 1959 亿</span>
+    <span class="badge badge-danger">⚠️ 2026H1 营收 +3.46% / 归母 +1.66% / 扣非同比下降（业务结构调整承压）</span>
+  </div>
+</div>
+
+<!--CONTENT_DATA_NOTE-->
+<div class="data-note">
+  <strong>📌 数据来源与口径说明（截至 2026-09-15，盘后）：</strong><br>
+  ✅ 股价 <span class="info">86.20 元</span>（东方财富 9/10 收盘）、<span class="info">86.83 元</span>（搜狐 9/11 收盘）、<span class="info">87.50 元</span>（搜狐 9/11 盘前报价）；总市值 <span class="info">6576 亿元</span>，流通市值 <span class="info">5935 亿元</span>，总股本 76.29 亿股（流通 68.85 亿股）· 来源：东方财富 / 搜狐证券 / 理杏仁 / 新浪财经（9/10-9/11 多源核对）<br>
+  ✅ PE-TTM <span class="warn">14.82 x</span>（理杏仁 9/11 数据 · 静态 PE 14.96x / 动态 PE 14x）、<b style="color:#fbbf24">3 年分位 89.67%（处于历史偏高估区间）</b>、PB <span class="warn">3.11 x</span>（国信证券 9/10 报告：2.90x）、PEG <span class="warn">1.07</span>、市销率 PS <span class="mid">1.41 x</span>、市现率 PCF <span class="mid">12.27 x</span><br>
+  ✅ 财务基准（2025 年报）：营业总收入 <span class="ok">4585 亿元（+12.08%）</span>、归母净利润 <span class="ok">439.45 亿元（+14.03%）</span>、利润总额 531 亿元（标普全球）、海外收入 <span class="ok">1959 亿元</span>、经营现金流 ~605 亿元、智能家居业务板块占比 ~62%（数据日期 2026-03-30 披露）<br>
+  ✅ 财务基准（2026H1）：营业总收入 <span class="ok">2610.52 亿元（+3.46%）</span>、归母净利润 <span class="ok">264.46 亿元（+1.66%）</span>、<b style="color:#f87171">扣非归母净利润 195.95 亿元（同比下降）</b>、EPS 3.52 元；2026Q1 营收 1315.81 亿（+2.45%）（数据日期 2026-08-29 披露）<br>
+  ✅ 业务结构（2026Q1）：楼宇科技 108 亿（+10.1%）、机器人与自动化（库卡）82 亿（+11.8%）、工业技术 68 亿（-11.7%）；ToB 业务占比 ~22%（持续提升）；海外收入占比 ~42%（2025 年）<br>
+  ✅ 卖方一致预期（国信 9/10 + 同花顺）：<span class="info">2026-2028 归母 470/511/552 亿（国信）/ 469/500/532 亿（同花顺）</span>，对应 PE <span class="info">14x/13.2x/12.4x</span>（同花顺口径）；一致评级 <span class="ok">"买入"</span>（同花顺 9/11）；国信证券 9/10 维持盈利预测<br>
+  ✅ 关键事件：<span class="ok">2026/09/03 完成 2026 年 A 股持股计划非交易过户</span> + <span class="ok">2026/08/29 披露 2026 半年报</span> + <span class="ok">2026/03/31 公布 2025 年度利润分配（每 10 股派 38 元）</span> + <span class="ok">2026/03/31 公告 2025 年回购方案（15-30 亿 / 价格 ≤100 元）</span><br>
+  ✅ 分红派息：2025 年度每 10 股派 38 元（含税）→ 3.8 元/股，86 元股价对应<span class="ok">股息率约 4.4%</span>（A 股 / 全年口径）；H 股股息率类似（按港元换算）<br>
+  ⚠️ 数据局限：MA60/120/250 沿用 9/10 收盘基准（动态数据需进一步核验）；9/12-9/15 因周末/中秋节假期未交易日较多；2026Q3 财报预计 10 月下旬披露；外资（北向）Q3 持仓变动数据未独立核验<br>
+  ⚠️ 关键警示：<span class="danger">2026H1 扣非同比下降</span>（具体数值未在公告中独立核验）= 主营利润承压；<span class="warn">PE 14.82x 在 3 年 90% 分位偏高估</span>；<span class="warn">2026 营收增速从 12% → 3.46% 大幅放缓</span>；<span class="warn">国补政策覆盖范围从 2025 年 12 类家电缩减至 6 类（补贴上限 2000 → 补贴比例 15%）</span><br>
+  📊 <strong>关键定性：</strong>白电全球龙头 + 巴菲特护城河典范 + 海外稳健 + ToB 业务持续放量 + 高股息 4.4% + 2025 全年业绩双位数增长；但 <b style="color:#fbbf24">2026H1 营收/扣非增速明显放缓 + PE 在历史 90% 分位高估 + 国补退坡 + 地产下行压制</b> = <b style="color:#fbbf24">"高股息防御型 + 估值消化期"</b>格局。
+</div>
+<!--CONTENT_THEME_BANNER-->
+<div class="theme-banner warn">
+  <div class="icon">🏠</div>
+  <div class="text">
+    <h3>11 方法论交叉结论：高股息防御型 + 估值消化期 —— 评级<持有观察 5.4/10>，仓位 ≤ 3%，等待业绩拐点确认</h3>
+    <p>
+      美的集团在 <b style="color:#34d399">巴菲特护城河（9 分）、达里奥全天候（6 分）</b>框架下持续得分极高（白电全球龙头 + 海外 1959 亿 + ToB 业务持续放量 + 库卡机器人 + 4.4% 高股息 + 高 ROE 稳定）；<b style="color:#fbbf24">博格指数（5 分）、马克斯周期（5 分）、费雪成长（5 分）、西蒙斯量化（5 分）、凯恩斯选美（5 分）、索罗斯反身性（5 分）</b>中性；<b style="color:#f87171">格雷厄姆深度价值（4 分）、林奇 PEG（4 分）、邓普顿逆向（3 分）</b>偏低（PE 14.8x 在 3 年 90% 分位偏高 + 2026H1 扣非下滑 + 增速放缓）。综合 <b style="color:#fbbf24">5.35/10 分 → 上调为 5.4/10（考虑护城河与高股息加分项）= 持有观察</b>（高股息防御型 · 等待业绩拐点确认）。<br><br>
+      <b style="color:#7dd3fc">最终倾向：</b>采纳 <b style="color:#34d399">巴菲特护城河 + 达里奥全天候</b>框架作为决策主线（"白电全球龙头 + 多元化业务结构 + 高 ROE 现金流稳定 + 高股息 4.4%"），叠加 <b style="color:#fbbf24">格雷厄姆价格纪律</b>（PE 14.8x 接近 90% 分位 + 2026H1 扣非下滑）+ <b style="color:#f87171">邓普顿逆向警示</b>（基本面未至最悲观点、股价在历史高位）形成<b style="color:#fbbf24">"优质龙头 + 高估消化期"</b>格局；需以<b style="color:#fbbf24">2026Q3 业绩拐点确认 + ToB 业务持续放量 + 海外增长韧性 + 国补退坡压力测试</b>四验证作为后续催化剂。<b style="color:#fca5a5">关键风险</b>：2026H1 扣非同比下降 + PE 14.8x 在 3 年 90% 分位偏高估 + 营收增速从 12% → 3.46% 大幅放缓 + 国补范围缩减 + 地产下行压制白电需求 = <b style="color:#fbbf24">需避开单一重仓，分散配置中可作为高分杬防御底仓</b>。
+    </p>
+  </div>
+</div>
+
+<!--CONTENT_MODULE_1-->
+<div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+<div class="section-subtitle">数据日期：2026-09-15 盘后 · 来源：东方财富 / 搜狐证券 / 理杏仁 / 国信证券（9/10 报告）/ 公司公告（2025 年报 / 2026H1 半年报）</div>
+
+<div class="dashboard">
+  <div class="index-card mid">
+    <div class="name">股票名称</div>
+    <div class="value" style="font-size:17px;">美的集团</div>
+    <div class="change">代码 000333</div>
+    <div class="label">深交所主板</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">所属行业</div>
+    <div class="value" style="font-size:17px;">家用电器</div>
+    <div class="change">白色家电（空调/冰箱/洗衣机）</div>
+    <div class="label">申万二级 / 三级：空调</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">上市日期</div>
+    <div class="value" style="font-size:14px;">2013-09-18</div>
+    <div class="change">整体上市 13 年</div>
+    <div class="label">2013 吸并美的电器上市</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">超大市值</div>
+    <div class="name">总市值</div>
+    <div class="value">6576 亿</div>
+    <div class="change">流通 5935 亿</div>
+    <div class="label">A 股顶级蓝筹</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">近期高位</div>
+    <div class="name">当前股价</div>
+    <div class="value">86.20 元</div>
+    <div class="change">9/10 收盘</div>
+    <div class="label">总股本 76.29 亿</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">偏高估</div>
+    <div class="name">PE-TTM</div>
+    <div class="value" style="font-size:18px;">14.82 x</div>
+    <div class="change">3 年分位 89.67%</div>
+    <div class="label">静态 14.96x / 动态 14x</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">中位</div>
+    <div class="name">PB (MRQ)</div>
+    <div class="value" style="font-size:18px;">3.11 x</div>
+    <div class="change">BVPS 27.82 元</div>
+    <div class="label">国信预测 2.90x</div>
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">高分红</div>
+    <div class="name">股息率</div>
+    <div class="value" style="font-size:17px;">4.4%</div>
+    <div class="change">10 派 38 元（含税）</div>
+    <div class="label">2025 年度方案</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">双位数</div>
+    <div class="name">2025 营收增速</div>
+    <div class="value">+12.08%</div>
+    <div class="change">全年 4585 亿</div>
+    <div class="label">YoY 稳定双位数</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">放缓明显</div>
+    <div class="name">2026H1 营收增速</div>
+    <div class="value">+3.46%</div>
+    <div class="change">vs 2025H1</div>
+    <div class="label">同比+9pct 放缓</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">稳健</div>
+    <div class="name">海外收入</div>
+    <div class="value">1959 亿</div>
+    <div class="change">2025 年全年</div>
+    <div class="label">占营收 42.7%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">多元</div>
+    <div class="name">ToB 业务占比</div>
+    <div class="value">~22%</div>
+    <div class="change">楼宇/机器人/工业</div>
+    <div class="label">第二增长曲线</div>
+  </div>
+  <div class="index-card warn">
+    <div class="tag warn">下调</div>
+    <div class="name">PEG</div>
+    <div class="value">1.07</div>
+    <div class="change">PE 14.8 / 增速 14%</div>
+    <div class="label">林奇视角偏高</div>
+  </div>
+  <div class="index-card mid">
+    <div class="tag mid">低负债</div>
+    <div class="name">资产负债率</div>
+    <div class="value" style="font-size:17px;">~63%</div>
+    <div class="change">2025 年末</div>
+    <div class="label">财务稳健</div>
+  </div>
+</div>
+
+<!--CONTENT_MODULE_2-->
+<div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+
+<div class="final-verdict">
+  <h2>⚖️ 11 方法论加权综合评级</h2>
+  <div class="rating">持有观察</div>
+  <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+    （白电全球龙头 · 高股息 4.4% 防御型 · 2026H1 扣非承压 · PE 14.8x 处于 3 年 90% 分位 · 仓位 ≤ 3%）
+  </div>
+  <div class="comment">
+    美的集团在 <b style="color:#34d399">巴菲特护城河（9 分）、达里奥全天候（6 分）</b>框架下持续得分极高；<b style="color:#fbbf24">博格指数（5 分）、马克斯周期（5 分）、费雪成长（5 分）、西蒙斯量化（5 分）、凯恩斯选美（5 分）、索罗斯反身性（5 分）</b>中性；<b style="color:#f87171">格雷厄姆深度价值（4 分）、林奇 PEG（4 分）、邓普顿逆向（3 分）</b>偏低。综合 <b style="color:#fbbf24">5.4/10 分 = 持有观察</b>（高股息防御型 · 等待业绩拐点确认）。<br><br>
+    <b style="color:#7dd3fc">核心定位：</b>全球家电龙头（市占率全球前三）+ 2025 全年营收 4585 亿（+12%）/ 归母 439.5 亿（+14%）/ 海外 1959 亿 + ToB 业务持续放量（楼宇 +10.1% / 库卡 +11.8%）+ 高股息 4.4%（10 派 38 元）+ 稳定高 ROE + 强现金流；<b style="color:#fca5a5">核心警示</b>：2026H1 营收增速从 +12% → +3.46% 大幅放缓 + <b style="color:#fca5a5">扣非归母同比下降</b>（2026H1 195.95 亿）= 主营利润承压 + PE 14.82x 在 3 年 90% 分位偏高估 + 国补覆盖范围从 12 类缩减至 6 类（补贴比例 20% → 15%）+ 地产下行压制白电需求。<br><br>
+    <b style="color:#fca5a5">操作总则：</b>按 ≤ 3% 仓位作为高分杬防御底仓配置，不重仓、不一次性投入；中长线持有（12-24 个月）等待<b style="color:#fbbf24">2026Q3 业绩拐点确认 + ToB 业务持续放量 + 海外增长韧性 + 国补退坡压力测试</b>四验证。若 PE 回调至 13x 以下（股价 ~75 元）或 2026 全年净利突破 480 亿，可考虑上调至<b style="color:#fbbf24">谨慎买入（≤ 5%）</b>；若扣非下滑趋势延续且 PE 仍在 90% 分位，需下调至<b style="color:#f87171">减持（≤ 1%）</b>。
+  </div>
+</div>
+
+<!--CONTENT_MODULE_3-->
+<div class="section-title info">📐 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+<div class="section-subtitle">"以合理价格买入卓越公司，远胜于以卓越价格买入合理的公司" —— 格雷厄姆</div>
+
+<div class="safety-bar">
+  <div class="safety-title">📐 美的集团估值区间（白电龙头 PE 视角 · 数据日期 2026-09-15）</div>
+  <div class="safety-track">
+    <div class="safety-seg seg-deep">&lt; 12x · 深度价值（机会区）</div>
+    <div class="safety-seg seg-current">12–15x · 合理区间（当前）</div>
+    <div class="safety-seg seg-over">&gt; 15x · 偏贵/透支</div>
+  </div>
+  <div class="safety-marks">
+    <span><strong>深度价值区</strong> · 净利 470 亿+ × 12x 以下</span>
+    <span><strong>当前</strong> · PE-TTM 14.82x（3 年 90% 分位）</span>
+    <span><strong>透支区</strong> · 净利<460 亿 × 15x+</span>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📊 白电三巨头同业估值对比表（数据日期 2026-09-10/15）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>公司</th><th>代码</th><th>主营定位</th><th>2025 营收</th><th>2025 归母</th><th>PE 估值</th><th>PB</th><th>综合</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b style="color:#7dd3fc">美的集团</b></td><td class="hl">000333.SZ</td><td>白电全栈 + ToB + 海外</td><td class="ok">4585 亿 (+12%)</td><td class="ok">439.5 亿 (+14%)</td><td class="warn">14.82x TTM</td><td class="warn">3.11x</td><td class="warn">3 年 90% 分位偏高估</td></tr>
+      <tr><td>格力电器</td><td class="hl">000651.SZ</td><td>空调龙头 + 多元化</td><td class="ok">~2000 亿</td><td class="ok">~270 亿</td><td class="mid">中低</td><td class="mid">中位</td><td class="mid">空调龙头 · 估值较低</td></tr>
+      <tr><td>海尔智家</td><td class="hl">600690.SH</td><td>白电全栈 + 海外</td><td class="ok">3023 亿 (+5.71%)</td><td class="ok">同比+15%+</td><td class="mid">中位</td><td class="mid">中位</td><td class="mid">卡萨帝高端 + 全球化</td></tr>
+      <tr><td>海信家电</td><td class="hl">000921.SZ</td><td>白电 + 中央空调</td><td class="mid">~900 亿</td><td class="mid">~35 亿</td><td class="mid">中低</td><td class="mid">中位</td><td class="mid">中央空调龙头</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px; padding:12px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+    💡 <b style="color:#fbbf24">结论：</b>美的 PE-TTM 14.82x 处于 3 年 90% 分位（理杏仁 9/11），明显高于 5 年中位约 12-13x；PB 3.11x 接近历史中位但考虑 ROE 25%+ 的高净资产收益率后估值合理偏高。<b style="color:#fbbf24">格雷厄姆视角：</b>PE 14.82x / 动态 PE 14x 对应 2026E 净利 469-470 亿（中位），位于<b style="color:#fbbf24">"合理偏贵"</b>区间上限；考虑 (1) <b style="color:#34d399">2025 全年业绩双位数增长（+12%/+14%）</b> + (2) <b style="color:#34d399">海外收入 1959 亿（占 42.7%）全球化对冲</b> + (3) <b style="color:#34d399">ToB 业务持续放量（楼宇+10%/库卡+12%）</b> + (4) <b style="color:#34d399">高股息 4.4% + 高 ROE + 强经营现金流</b> + (5) <b style="color:#34d399">2026-2028 净利增速预期 +7%/+9%/+8%（国信）/ PEG 1.07</b> + (6) <b style="color:#34d399">15-30 亿回购（价格 ≤100 元）+ 30+ 亿股东持股计划</b> = <b style="color:#fbbf24">"估值合理偏贵（高股息+护城河支撑）"</b>。但 <b style="color:#fca5a5">2026H1 扣非下滑 + PE 90% 分位高估</b> = <b style="color:#fbbf24">估值消化期</b>。<b style="color:#f87171">邓普顿逆向视角下不适用</b>：股价在历史高位、基本面未至最悲观点，逆向机会尚未出现。
+  </div>
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">🔍</div>
+  <div class="text">
+    <h3>安全边际测算：以当前价 86.20 元买入，未来 12 个月下行空间</h3>
+    <p>
+      <b style="color:#fbbf24">基准情景（2026E 归母 469 亿 / PE 13-15x）：</b>合理市值 6097-7035 亿 → <b style="color:#fbbf24">合理价 79.9-92.2 元（-7.3% ~ +7.0%）</b><br>
+      <b style="color:#fbbf24">乐观情景（2026E 480 亿 / PE 15-17x）：</b>合理市值 7200-8160 亿 → <b style="color:#34d399">合理价 94.4-106.9 元（+9.5% ~ +24.0%）</b><br>
+      <b style="color:#fbbf24">保守情景（2026E 450 亿 / PE 11-13x）：</b>合理市值 4950-5850 亿 → <b style="color:#f87171">合理价 64.9-76.7 元（-24.7% ~ -11.0%）</b><br>
+      <b style="color:#fca5a5">综合判断：</b>PE-TTM 14.82x 对应 2026E 净利区间 450-480 亿，下行至 450 亿 PE 升至 14.7x、上行至 480 亿 PE 降至 14.1x，<b style="color:#fbbf24">12 个月目标价波动区间 -25% ~ +24%</b>，中枢约 0%（基本平当前）。核心变量：(1) 2026Q3/Q4 业绩拐点（若扣非下滑收窄或转正，估值可上修）；(2) ToB 业务持续放量节奏（库卡机器人 +11.8%）；(3) 国补退坡压力测试结果；(4) 海外业务韧性（1959 亿 / 占 42.7%）。<b style="color:#c084fc">隐蔽资产：</b>15-30 亿回购库存股 + 库卡机器人技术储备 + 海外品牌价值 + 高股息 4.4% 提供下行保护。
+    </p>
+  </div>
+</div>
+
+<div style="text-align:center; padding:14px; background:rgba(245,158,11,0.10); border-radius:8px; font-size:14px; color:#fbbf24; margin-bottom:24px;">
+  📊 <b>估值结论：合理偏贵（PE 3 年 90% 分位偏高估 · 但高股息+护城河提供下行保护）—— 评级<持有观察>，等待业绩拐点确认</b>
+</div>
+<!--CONTENT_MODULE_4-->
+<div class="section-title info">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+<div class="section-subtitle">"寻找未来 5-10 年能持续高增长的公司" —— 费雪 · PEG 与增长动能分析</div>
+
+<div class="dashboard">
+  <div class="index-card warn">
+    <div class="tag warn">偏高估</div>
+    <div class="name">PEG (PE/3Y 增速)</div>
+    <div class="value">1.07</div>
+    <div class="change">PE 14.8 / 增速 7-9%</div>
+    <div class="label">林奇 PEG 不优</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">双位数</div>
+    <div class="name">营收 3Y CAGR</div>
+    <div class="value">~9%</div>
+    <div class="change">2023-2025 增速</div>
+    <div class="label">高于 GDP 增速</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">双位数</div>
+    <div class="name">归母 3Y CAGR</div>
+    <div class="value">~10%</div>
+    <div class="change">2023-2025</div>
+    <div class="label">持续创新高</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">增长</div>
+    <div class="name">海外业务</div>
+    <div class="value">1959 亿</div>
+    <div class="change">2025 年（+双位数）</div>
+    <div class="label">占总营收 42.7%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">增长</div>
+    <div class="name">楼宇业务</div>
+    <div class="value">+10.1%</div>
+    <div class="change">2026Q1 同比</div>
+    <div class="label">ToB 业务主力</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">增长</div>
+    <div class="name">库卡机器人</div>
+    <div class="value">+11.8%</div>
+    <div class="change">2026Q1 同比</div>
+    <div class="label">中国业务突出</div>
+  </div>
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">📊</div>
+  <div class="text">
+    <h3>成长性判断：成熟龙头 + 增速放缓 + ToB 第二曲线 —— 从"高速成长期"转为"高质量复合增长期"</h3>
+    <p>
+      2025 全年营收 <b style="color:#34d399">4585 亿（+12.08%）</b>、归母 <b style="color:#34d399">439.5 亿（+14.03%）</b>，业绩历史新高且双位数增长；<b style="color:#fbbf24">2026H1 营收 2610.52 亿（+3.46%）/ 归母 264.46 亿（+1.66%）/ 扣非 195.95 亿（同比下降）</b> 明显放缓，反映 "2026 年是大宗商品原材料价格、能源物流、行业需求调整的多重压力期"。<b style="color:#34d399">多元化结构提供对冲：</b>2026Q1 楼宇科技 +10.1% / 库卡机器人 +11.8% / 工业技术 -11.7%；海外收入 1959 亿（占 42.7%）提供全球市场对冲。<br>
+      <b style="color:#34d399">增长动力来源：</b>(1) <b style="color:#34d399">海外品牌与渠道持续深化</b>（东南亚、欧洲、北美以 OBM 提升贴牌率）；(2) <b style="color:#34d399">ToB 业务转型成功</b>（楼宇、机器人、工业技术、新能源占 ~22% 且增速高于 ToC）；(3) <b style="color:#34d399">库卡机器人中国业务复苏</b>（2025 年库卡在中国表现尤为突出）；(4) <b style="color:#34d399">家居品类高端化与智能化</b>（COLMO / 东芝）；(5) <b style="color:#34d399">高股息 4.4% + 回购 15-30 亿</b> 为股东价值提供下行保护。<br>
+      <b style="color:#fbbf24">⚠️ 数据局限：</b>2026Q3 财报预计 10 月下旬披露（本报告基于 2026H1 + 卖方预测外推）；PEG 在成熟期不完全适用（增速放缓 + 现金流稳定是龙头型价值）；海外业务扣非未拆分披露；同业（格力/海尔）9 月最新完整 PE 估值需进一步交叉确认。<br>
+      <b style="color:#fca5a5">未来 12-24 月催化剂：</b>(1) <b style="color:#fbbf24">2026Q3 业绩披露</b>（预计 10 月下旬，扣非能否转正是评级修正关键）；(2) <b style="color:#fbbf24">国补政策延续与覆盖</b>（2026 年 1 月 6 类家电继续，新一轮覆盖面与补贴比例是关键）；(3) <b style="color:#fbbf24">地产以旧换新叠加</b>（8/26-12/31 北京等地持续发放家电以旧换新补贴，护城河优于同业）；(4) <b style="color:#fbbf24">库卡机器人中国业务量产</b>（人形机器人赛道、产业链向下延伸）；(5) <b style="color:#fbbf24">15-30 亿回购实施</b>（价格 ≤100 元，实际护航股价）。
+    </p>
+  </div>
+</div>
+
+<!--CONTENT_MODULE_5-->
+<div class="section-title info">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+<div class="section-subtitle">"真正伟大的生意必须有持久的护城河" —— 巴菲特</div>
+
+<div class="table-card">
+  <div class="table-title">🛡️ 护城河六维评估（美的集团 · 消费/制造龙头属性）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>护城河类型</th><th>评估</th><th>证据</th><th>评级</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>品牌 / 渠道</b></td><td class="ok">极强</td><td>美的 / COLMO / 华凌 / 东芝 / Eureka / Comfee / AEG 等多品牌矩阵；全球 60+ 国家渠道；ToC 三、四级市场超过 10 万家网点覆盖；2025 年 ToC 业务智能家居板块营收 ~62%</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>规模优势</b></td><td class="ok">极强</td><td>营收 4585 亿（白电全球前三 / 空调全球第一）；归母 439.5 亿；总市值 6576 亿；海外收入 1959 亿（占 42.7%）；品类覆盖空调、冰箱、洗衣机、厨电、小家电等全面品</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>成本优势</b></td><td class="ok">强</td><td>全产业链整合（电机、变频器、控制器自产）；全球供应链优化；规模采购；柔性生产；安徽、佛山、苏州多基地错峰运营</td><td class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>技术 / 研发</b></td><td class="ok">强</td><td>研发投入连续 5 年超 100 亿；2025 年研发占营收 ~3.6%；智能制造与人工智能全面应用；库卡机器人（机器人四大家族之一）领先于同业</td><td class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>牌照 / 合规</b></td><td class="mid">中等</td><td>能效法规门槛提升（领跑者制度）；3C 认证；RoHS/REACH 合规；但传统白电不依赖独家牌照</td><td class="mid">⭐⭐⭐</td></tr>
+      <tr><td><b>转换成本</b></td><td class="mid">中等</td><td>ToC 品牌粘性较弱（同类产品可替换）；ToB 转换成本较高（运维服务、安装、维修、备件供应链）；业务多元化提供交叉销售粘性</td><td class="mid">⭐⭐⭐</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="dashboard">
+  <div class="index-card ok">
+    <div class="tag ok">极高</div>
+    <div class="name">ROE</div>
+    <div class="value">25%+</div>
+    <div class="change">稳定高 ROE</div>
+    <div class="label">低于格力但高于同业</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">稳定</div>
+    <div class="name">毛利率</div>
+    <div class="value">~25%</div>
+    <div class="change">2025 年估算</div>
+    <div class="label">低于 30% 但稳定</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">稳定</div>
+    <div class="name">净利率</div>
+    <div class="value">9.6%</div>
+    <div class="change">2025 年估算</div>
+    <div class="label">同业领先</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">龙头</div>
+    <div class="name">空调市占率</div>
+    <div class="value">~25%</div>
+    <div class="change">全球第一</div>
+    <div class="label">格力 ~20% / 海尔 ~15%</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">多元</div>
+    <div class="name">业务集中度</div>
+    <div class="value">Top5</div>
+    <div class="change">空调/冰箱/洗衣机/厨电/小家电</div>
+    <div class="label">多元化对冲单品类风险</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">宽阔</div>
+    <div class="name">综合评级</div>
+    <div class="value" style="font-size:16px;">宽阔护城河</div>
+    <div class="change">品牌 + 规模 + 多元化</div>
+    <div class="label">长期复利型标的</div>
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">🛡️</div>
+  <div class="text">
+    <h3>护城河结论：宽阔护城河 + 多元化业务结构 + 全球龙头 + 高股息 —— 典型的"巴菲特型长期复利标的"</h3>
+    <p>
+      美的集团在 <b style="color:#34d399">品牌/渠道、规模优势、成本优势、技术/研发</b>四个维度具备极强护城河（多品牌矩阵 + 10 万家网点 + 4585 亿营收 + 1959 亿海外 + 库卡机器人）；<b style="color:#fbbf24">牌照/合规、转换成本</b>维度中等护城河（白电非独家牌照驱动 + ToC 转换成本低）。ROE 25%+ 稳定、毛利率 ~25% 稳定、净利率 9.6% 同业领先，反映 <b style="color:#34d399">"多元化龙头 + 规模复利"</b>格局。公司属于 <b style="color:#c084fc">"宽阔护城河 + 长期复利型 + 高分红" </b>标的，是巴菲特"特许经营权式商业模式"在中国 A 股的典范。<br>
+      <b style="color:#fca5a5">护城河侵蚀风险：</b>(1) 国补退坡后需求可能受压；(2) 原材料价格（铜、铝、钢板）波动对毛利率影响；(3) 海外贸易摩擦（关税壁垒、本地化要求）；(4) 同业价格战（格力/海尔在低端市场反扑）；(5) ToC 业务受地产下行影响；(6) <b style="color:#fca5a5">库卡机器人业务增速能否持续是 ToB 估值的核心变量</b>。
+    </p>
+  </div>
+</div>
+
+<!--CONTENT_MODULE_6-->
+<div class="section-title info">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+<div class="section-subtitle">"股票代表企业的所有权" —— 格雷厄姆 · 最近 3 年核心财务指标</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>财务指标</div>
+    <div>2023 / 2024 / 2025</div>
+    <div>格雷厄姆 + 凯恩斯视角</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营业总收入（亿）</div>
+    <div class="fin-val">3720 / 4091 / 4585</div>
+    <div class="fin-comment">YoY <b style="color:#34d399">+8.5% / +10.0% / +12.1%</b>，2025 创历史新高且双位数增长</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利润（亿）</div>
+    <div class="fin-val">337 / 385 / 439.5</div>
+    <div class="fin-comment">YoY <b style="color:#34d399">+14.0% / +14.2% / +14.0%</b>，持续双位数增长（2024-2025）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">扣非归母净利（亿）</div>
+    <div class="fin-val warn">328 / 376 / 约 432</div>
+    <div class="fin-comment">YoY <b style="color:#34d399">+14% / +14.6% / +14.9%</b>，核心盈利能力稳健；<b style="color:#fca5a5">2026H1 扣非 195.95 亿同比下降</b>，警示信号</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流（亿）</div>
+    <div class="fin-val">约 580 / 605 / 估计 700+</div>
+    <div class="fin-comment"><b style="color:#34d399">持续强经营现金流</b>，远超净利润（OCF/净利润 ~1.5-1.6x）= 质量优良</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">自由现金流（亿）</div>
+    <div class="fin-val warn">约 450 / 500 / 估计 550</div>
+    <div class="fin-comment">FCF 持续覆盖净利润 + 资本开支；<b style="color:#34d399">高质量现金流</b>支撑高股息</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">资产负债率</div>
+    <div class="fin-val">~64% / ~63% / ~63%</div>
+    <div class="fin-comment"><b style="color:#34d399">资产负债率 63% 处于行业合理区间</b>；白电行业普遍较高（含预收账款）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">有息负债率</div>
+    <div class="fin-val mid">较低</div>
+    <div class="fin-comment"><b style="color:#34d399">有息负债占比低</b>（现金充沛 / 净现金状态），财务费用为负</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">应收账款周转天数</div>
+    <div class="fin-val warn">~50 / ~52 / ~55</div>
+    <div class="fin-comment"><b style="color:#fbbf24">应收账款周转天数 50-55 天（ToB 业务为主）</b>，符合 B 端业务特征但需持续跟踪</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">存货周转天数</div>
+    <div class="fin-val ok">~60 / ~65 / ~65</div>
+    <div class="fin-comment">存货周转稳健，与空调销售季节性匹配</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营现金流/净利润</div>
+    <div class="fin-val ok">约 1.7x / 1.6x / 1.6x</div>
+    <div class="fin-comment"><b style="color:#34d399">OCF/净利润 > 1.5x 优秀</b>，说明净利润含金量高（凯恩斯现金流视角）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">商誉/总资产</div>
+    <div class="fin-val warn">~5%</div>
+    <div class="fin-comment">商誉主要来自库卡收购（2017 年）；<b style="color:#34d399">5% 商誉总资产占比健康</b>，无重大减值风险</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入占比</div>
+    <div class="fin-val ok">~3.5-3.7%</div>
+    <div class="fin-comment">研发投入 100+ 亿（连续 5 年）；<b style="color:#34d399">全产业链自主研发</b>（变频、电机、智能控制、机器人）</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">分红派息率</div>
+    <div class="fin-val ok">~60-70%</div>
+    <div class="fin-comment"><b style="color:#34d399">高分红派息</b>；2025 每 10 派 38 元，<b style="color:#34d399">股息率 4.4%</b>，股东回报优</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股东户数 / 机构持仓</div>
+    <div class="fin-val mid">~30 万户</div>
+    <div class="fin-comment">股东户数众多（A 股蓝筹特征）；机构持仓占比稳定（公募/北向/社保/QFII）</div>
+  </div>
+</div>
+
+<div class="theme-banner">
+  <div class="icon">💰</div>
+  <div class="text">
+    <h3>财务质量判断：财务优秀（多元化龙头典型画像）—— 高 ROE + 强现金流 + 高分红，但 2026H1 扣非下滑是警示信号</h3>
+    <p>
+      美的 2023-2025 年营收 <b style="color:#34d399">+8.5%/+10%/+12%</b>、归母 <b style="color:#34d399">+14%/+14%/+14%</b> 持续双位数增长；<b style="color:#34d399">经营现金流 ~700 亿（OCF/净利润 1.5-1.6x 优秀）</b> + <b style="color:#34d399">自由现金流 ~550 亿</b> + <b style="color:#34d399">商誉仅 ~5%</b> + <b style="color:#34d399">净现金状态</b> + <b style="color:#34d399">派息率 60-70%</b> + <b style="color:#34d399">ROE 25%+</b> = <b style="color:#34d399">多元化龙头典型画像</b>，财务质量优秀。<br>
+      <b style="color:#fca5a5">关键警示</b>：<b style="color:#fca5a5">2026H1 扣非归母同比下降（195.95 亿）</b>是近 5 年罕见的负面信号，反映原材料价格上行 + 需求结构调整 + ToB 业务投入加大等多重因素压制；应收账款周转天数 50-55 天需持续跟踪（ToB 业务为主）；国补退坡可能进一步压制 H2 业绩。<br>
+      <b style="color:#7dd3fc">后续验证重点：</b>2026Q3/Q4 业绩披露后，<b style="color:#fbbf24">扣非能否转正 + 经营现金流持续 + 应收账款质量 + 海外业务韧性</b>是<b style="color:#fbbf24">财务质量验证的核心</b>。
+    </p>
+  </div>
+</div>
+<!--CONTENT_MODULE_7-->
+<div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+<div class="section-subtitle">"管理层是否诚着、能干、以股东利益为导向" —— 费雪</div>
+
+<div class="table-card">
+  <div class="table-title">🧭 管理层与治理关键事项</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>维度</th><th>关键事实</th><th>评估</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>实控人</b></td><td>何享健（创始人，1942 年生，2020 年退居幕后，佛山首富）；仍掌战略方向；控股股东美的控股有限公司持股 35.49%</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>管理层稳定性</b></td><td>方洪波（董事长兼总裁，1967 年生，2012 年接任）主导职业经理人体系；高层稳定 10+ 年；职业经理人机制为 A 股民企典范</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>股权激励历史</b></td><td>连续多轮限制性股票激励 + 员工持股计划（2023、2024、2025、2026）；2026 年 A 股持股计划于 9/3 完成非交易过户；2025 年回购 15-30 亿（价格 ≤100 元）用于激励</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>股东回报</b></td><td>2025 每 10 派 38 元（合计 290 亿）；分红派息率 60-70%；连续多年高分红；A 股顶级蓝筹身份</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>股权质押</b></td><td>控股股东及一致行动人质押率低；<b style="color:#34d399">无质押压力</b>，无控制权风险</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>违规记录</b></td><td>近 3 年无重大违规处罚记录；2025 年报、2026H1 半年报已披露无异常；财务报告获审计机构无保留意见</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>研发投入</b></td><td>研发投入 100+ 亿（连续 5 年）；研发占营收 ~3.6%；全产业链研发能力（变频、电机、智能控制、机器人）</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>资本运作</b></td><td>2017 年收购库卡机器人（机器人四大家族之一）；多元拓展（楼宇/工业技术/新能源/医疗/物流）；资本运作以业务并购为主，股权资本运作稳健</td><td class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>历史业绩承诺</b></td><td>2025 全年营收 +12% / 归母 +14% 超额完成股权激励考核；2023-2025 连续 3 年双位数增长；多年保持创历史新高</td><td class="ok">⭐⭐⭐⭐⭐</td></tr>
+      <tr><td><b>企业公民与社会责任</b></td><td>ESG 评级领先（A 股蓝筹）；高温、甘蔪等社会贡献；绿色制造与可持续发展领先</td><td class="ok">⭐⭐⭐⭐</td></tr>
+      <tr><td><b>机构覆盖度</b></td><td>机构覆盖广泛（券商研究所 30+ 家 / 公募 / 北向 / QFII / 社保）；融资余额 <b style="color:#34d399">32.41 亿（9/10 占流通市值 0.54%，低于近一年 10% 分位）</b> = 机构资金偏中性</td><td class="mid">⭐⭐⭐</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px; padding:12px; background:rgba(16,185,129,0.10); border-radius:8px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+    💡 <b style="color:#34d399">治理结论：值得信任， A 股蓝筹治理典范。</b>全部维度均处于行业最优区间：何享健家族控股 + 方洪波职业经理人体系 + 连续股权激励 + 高分红 + 无质押 + 无违规 + 研发投入领先 + 多年连续创新高 + 机构覆盖广泛。<b style="color:#fbbf24">A 股民企中治理最优秀的公司之一</b>，与贵州茅台、招商银行、中国神华同列。<b style="color:#fca5a5">需注意：</b>(1) <b style="color:#fca5a5">实控人退居幕后、控股股东集中持股 35.49%</b>（职业经理人机制运行良好但需持续监督）；(2) <b style="color:#fca5a5">2026 年 A 股持股计划完成非交易过户</b>（9/3）需关注后续减持节奏；(3) <b style="color:#fca5a5">9/10 融资余额 32.41 亿虽处于低位但反映机构资金中性</b>。
+  </div>
+</div>
+
+<!--CONTENT_MODULE_8-->
+<div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+<div class="section-subtitle">"周期永远不会消失，理解周期是投资最重要的事" —— 霍华德·马克斯</div>
+
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+  <div class="table-card">
+    <div class="table-title">📈 行业周期定位：成熟期 + 国补退坡 + 地产压制 + ToB 业务驱动</div>
+    <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+      中国白电行业当前位于 <b style="color:#fbbf24">"成熟期顶部 + 国补退坡 + 地产下行 + ToB 业务驱动"</b>的多重压力期。<b style="color:#34d399">2026 年家电以旧换新范围从 12 类缩减至 6 类（冰箱/洗衣机/电视/空调/电脑/热水器）</b>、补贴比例从 20% 下调至 15%、补贴上限从 2000 元下调；<b style="color:#34d399">但叠加以旧换新与能效提升</b>，部分地区（北京 8/26-12/31）持续发放补贴并扩大二级能效产品范围。<br><br>
+      <b style="color:#7dd3fc">未来 3-5 年增长动力：</b>(1) <b style="color:#34d399">ToB 业务转型</b>（楼宇科技 +10.1% / 库卡机器人 +11.8% 明显高于 ToC 业务）；(2) <b style="color:#34d399">全球化深化</b>（海外 1959 亿 / 占 42.7%，东南亚/欧洲/北美品牌化与本地化制造）；(3) <b style="color:#34d399">高端化与智能化</b>（COLMO / 卡萨帝 / 东芝 / AI 家电）；(4) <b style="color:#34d399">新能源与热泵</b>（双碳背景下节能产品需求增长）；(5) <b style="color:#34d399">机器人与自动化</b>（库卡机器人产业链向下延伸）。<br><br>
+      <b style="color:#fca5a5">周期下行风险：</b>地产下行压制新房需求；原材料价格波动（铜、铝、钢板）；全球贸易摩擦（关税壁垒、本地化要求）；同业价格战（格力/海尔在低端市场反扑）；全球需求放缓。
+    </p>
+  </div>
+  <div class="table-card">
+    <div class="table-title">🏛️ 政策环境与产业链位置</div>
+    <p style="font-size:13px; color:#cbd5e1; line-height:1.7;">
+      <b style="color:#fbbf24">政策环境"中性偏多"：</b>2026 年家电以旧换新、数码和智能产品购新补贴（发改委 1/8 发布）覆盖 6 类家电 + 4 类数码智能产品；<b style="color:#34d399">商务部 5 部门联合推动</b>；部分地区（北京 8/26-12/31）扩大能效产品范围；中央经济工作会议提"以旧换新 + 设备更新"双轮驱动。但补贴比例从 20% → 15%、上限从 2000 → 下调 = <b style="color:#fbbf24">政策力度减弱</b>。<br><br>
+      <b style="color:#c084fc">产业链位置：</b>美的位于家电产业链中下游（上游为压缩机/电机/钢板/铜，中游为整机制造，下游为渠道商/消费者）。美的在产业链中具备 <b style="color:#34d399">全栈能力</b>（变频、压缩机、电机、控制器自产 + 整机 + 品牌 + 渠道），是中国家电产业链最具代表性的纵向一体化企业之一；ToB 业务（楼宇、机器人、新能源）使产业链向下延伸。<br><br>
+      <b style="color:#34d399">行业判断：成熟期顶部 + ToB 转型驱动 + 全球化对冲。</b>美的在 ToC 业务承压期，依靠 ToB 业务 + 海外品牌 + 高股息提供增长韧性。
+    </p>
+  </div>
+</div>
+
+<!--CONTENT_MODULE_9-->
+<div class="section-title">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+<div class="section-subtitle">"市场选美理论：预测他人会选什么" —— 凯恩斯</div>
+
+<div class="table-card">
+  <div class="table-title">📊 截至 2026-09-11 技术结构（含 8/1-9/11 完整数据）</div>
+  <table class="compare-table">
+    <thead>
+      <tr><th>指标</th><th>结果</th><th>含义</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>52 周高/低</td><td class="ok">~73 / ~95 元</td><td class="mid">2026 年低 ~73 元（4 月）→ 8 月初高点 ~92 元 → 9/10 收盘 86.20 元（较高点 -6.3%）；近一年区间反映震荡上行趋势</td></tr>
+      <tr><td>近 1 月涨跌幅</td><td class="warn">震荡</td><td class="mid">8 月震荡上行 → 9 月震荡调整；股价在 84-92 元区间运行；接近近期高点区域</td></tr>
+      <tr><td>MA20 / MA60 / MA120</td><td class="ok">估约 86 / 85 / 84</td><td class="mid">股价 86.20 在 MA20/MA60/MA120 之上，但 MA 趋于走平，短期动能偏中性</td></tr>
+      <tr><td>MA250</td><td class="mid">估约 75</td><td class="mid">MA250 远低于现价 = 中长期趋势依然向上；但价格与 MA250 偏离较大 = <b style="color:#fca5a5">估值压力</b></td></tr>
+      <tr><td>MACD</td><td class="warn">DIF/DEA 弱势</td><td class="mid">MACD 估计在零轴附近，红柱转绿柱；动能转弱，需关注零轴支撑</td></tr>
+      <tr><td>RSI6 / RSI12</td><td class="warn">估约 50 / 55</td><td class="mid">RSI 处于中性区域，未达超买也未达超卖；技术面中性</td></tr>
+      <tr><td>BOLL（估）</td><td class="warn">中轨 ~85 / 上轨 ~92</td><td class="mid">股价接近中轨；中轨提供支撑；上轨为压力位</td></tr>
+      <tr><td>近期成交量</td><td class="warn">9/10 正常水平</td><td class="mid">未独立核验；大盘蓝筹交易量平稳；交投不活跃</td></tr>
+      <tr><td>主力资金流</td><td class="warn">中性偏紧</td><td class="mid">9/8 融资余额 34.60 亿（环比+1.34%）→ 9/10 32.41 亿（环比-6.3%）；<b style="color:#34d399">融资余额低于近一年 10% 分位</b> = 机构资金偏中性</td></tr>
+      <tr><td>北向资金</td><td class="warn">Q2 减持</td><td class="mid">截至 2026-06-30 北向沪深股通持股 8.93 亿股（较上季末 -8.21%），排名 Q2 减持前列；<b style="color:#fca5a5">北向资金有所减持</b></td></tr>
+      <tr><td>深股通持股比例</td><td class="mid">1.39%</td><td class="mid">深股通持股 1.39% 处于中性水平；融资融券 1.53% 表明机构资金偏中性</td></tr>
+      <tr><td>A 股持股计划</td><td class="ok">9/3 完成</td><td class="mid">2026 年 A 股持股计划于 9/3 完成非交易过户；后续减持节奏需关注</td></tr>
+      <tr><td>大股东质押</td><td class="ok">0%</td><td class="mid">控股股东无质押压力</td></tr>
+      <tr><td>关键支撑位</td><td class="ok">80 / 84 / 86 元</td><td class="mid">BOLL 中轨 ~85 / MA60 估 ~85 / MA20 估 ~86 = 关键支撑区</td></tr>
+      <tr><td>关键压力位</td><td class="warn">90 / 92 / 95 元</td><td class="mid">8 月高点 92 / BOLL 上轨 ~92 / 近期高点 92 = 关键压力区</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">📡</div>
+  <div class="text">
+    <h3>技术面与资金流判断：估值消化期 + 高位震荡 + 资金中性 —— 处于"高位震荡 + 估值消化"状态</h3>
+    <p>
+      <b style="color:#fbbf24">关键支撑位</b>80 元（心理位）/ 84 元（MA60 估）/ 85 元（BOLL 中轨）/ 86 元（MA20 估），<b style="color:#fbbf24">关键压力位</b>90 元（心理位）/ 92 元（8 月高点 + BOLL 上轨）/ 95 元（近期高点）。若 2026Q3 业绩扣非转正 + ToB 业务持续放量 + 国补延续，向上突破 92 元则打开 95-100 元空间；若 Q3 扣非继续承压 + 国补退坡，可能下探 80-84 元区间。<br><br>
+      <b style="color:#7dd3fc">资金面：</b>9/10 融资余额 32.41 亿（<b style="color:#34d399">低于近一年 10% 分位</b>）反映机构资金偏中性；9/8 融资余额 34.60 亿（环比+1.34%但连续 2 日增长）反映 9 月上旬资金面温和；深股通持股 1.39% 处于中性偏低水平；北向资金 Q2 减持 8.21% 体现外资偏谨慎；A 股持股计划 9/3 完成过户。<b style="color:#fbbf24">综合资金信号中性偏紧</b>，未出现主力流出迹象但也未现明显介入。<br><br>
+      <b style="color:#fca5a5">综合判断：</b>当前处于"<b style="color:#fbbf24">估值消化期 + 高位震荡 + 资金中性</b>"状态。<b style="color:#fbbf24">股价在 84-92 元区间震荡</b>，反映多空双方在 PE 14.8x + 2026H1 扣非下滑 + 高股息防御三重因素下平衡。需以<b style="color:#fbbf24">2026Q3 业绩拐点确认 + ToB 业务持续放量 + 国补退坡压力测试 + 北向资金恢复流入</b>四确认作为后续催化剂。<b style="color:#34d399">高分杬防御特征：</b>高股息 4.4% + 回购护盘 + 高 ROE + 强现金流提供下行保护。
+    </p>
+  </div>
+</div>
+<!--CONTENT_MODULE_10-->
+<div class="section-title info">🎚️ 模块 10 · 多方法论视角下的最终评级</div>
+<div class="section-subtitle">11 种方法论打分 · Top 3 匹配</div>
+
+<div class="score-table">
+  <div class="score-item">
+    <div class="score-num warn">4</div>
+    <div class="score-name">格雷厄姆</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+    <div class="score-out">深度价值 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">费雪成长</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">成长投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">4</div>
+    <div class="score-name">林奇 PEG</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+    <div class="score-out">PEG 投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">3</div>
+    <div class="score-name">邓普顿逆向</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+    <div class="score-out">逆向投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">博格指数</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">指数投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">马克斯周期</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">周期投资 / 10</div>
+  </div>
+</div>
+
+<div class="method-grid">
+  <div class="method-card best">
+    <div class="method-name">🥇 巴菲特护城河投资</div>
+    <div class="method-author">沃伦·巴菲特 · "经济护城河"</div>
+    <div class="method-score good">9 / 10</div>
+    <div class="method-desc">美的在品牌/渠道（多品牌矩阵 + 全球 60+ 国家渠道 + 10 万家网点）、规模优势（4585 亿营收 / 白电全球前三）、成本优势（全产业链整合）、技术/研发（100+ 亿/年研发）四个维度具备极强护城河；ROE 25%+ 稳定、毛利率 ~25% 稳定、净利率 9.6% 同业领先；多元化业务结构（白电 + ToB + 海外 + 机器人）提供长期复利能力。属于"宽阔护城河 + 长期复利型 + 高分红"标的，是巴菲特"特许经营权式商业模式"在中国 A 股的典范。</div>
+  </div>
+  <div class="method-card best">
+    <div class="method-name">🥇 达里奥全天候配置</div>
+    <div class="method-author">雷·达里奥 · "全天候策略"</div>
+    <div class="method-score good">6 / 10</div>
+    <div class="method-desc">美的作为白电龙头，在组合中作为"防御型 + 现金流稳定型 + 高股息" 底仓；与利率、通胀、汇率的相关性中等，与经济增长相关性中等偏低；强经营现金流（OCF/净利润 1.5-1.6x）+ 高派息率（60-70%）+ 高 ROE（25%+）使其在通胀环境下表现优于纯增长型标的；适合作为消费类配置中的"防御核心"。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🥉 马克斯周期投资</div>
+    <div class="method-author">霍华德·马克斯 · "理解周期"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">中国白电行业位于"成熟期顶部 + 国补退坡 + 地产下行"多重压力期，但 ToB 业务（楼宇 +10.1% / 库卡 +11.8%）与全球化（海外 1959 亿 / 占 42.7%）提供增长韧性；美的处于行业成熟期龙头的位置，能力超越同业（格力/海尔）但增速放缓；周期投资视角下："成熟期龙头 + 多周期对冲 + 高股息防御"。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">4. 费雪成长投资</div>
+    <div class="method-author">菲利普·费雪 · "15 问 · 寻找复利机器"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">美的在 2023-2025 年保持双位数增长（营收 +8.5%/+10%/+12%，归母 +14%/+14%/+14%）创历史新高；但 <b style="color:#fca5a5">2026H1 营收 +3.46% / 归母 +1.66% / 扣非同比下降</b> 反映从"高速成长期"转为"成熟期"；ToB 业务（库卡机器人 +11.8%）与海外业务（1959 亿 / +双位数）是费雪"未来 5-10 年增长动能"的关键，但增速不及雷赛智能等小盘成长股。费雪视角下："成熟期龙头 + 增速放缓 + ToB 第二曲线"。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">5. 博格指数投资</div>
+    <div class="method-author">约翰·博格 · "指数化投资"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">美的不是宽基指数标的；作为高分杬可类比红利低波指数（中证红利、家电ETF）；但作为 A 股顶级蓝筹，可通过"红利低波 ETF"间接覆盖（费用更低 / 分散性更强）；不适合作为纯指数化标的。博格视角下："高分杬防御型 + 可通过 ETF 间接覆盖"。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">6. 西蒙斯量化投资</div>
+    <div class="method-author">吉姆·西蒙斯 · "统计套利"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">量化因子视角：大盘蓝筹低 Beta 特征；动量因子中性（近期震荡调整）；反转因子偏多（PE 14.8x 在 90% 分位偏高估但高股息提供下行保护）；质量因子偏多（高 ROE + 强现金流 + 高分红）；价值因子中性（PE/PB 合理但 PEG 1.07 偏高）。西蒙斯视角下："低 Beta 蓝筹 + 多因子中性"。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">7. 凯恩斯选美投资</div>
+    <div class="method-author">约翰·凯恩斯 · "市场选美理论"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">市场情绪：A 股蓝筹共识股；机构覆盖广泛（券商 30+ 家 / 公募 / 北向 / QFII / 社保）；融资余额低于近一年 10% 分位反映机构资金中性；北向 Q2 减持 8.21% 反映外资谨慎；A 股持股计划 9/3 完成过户。凯恩斯视角下："A 股顶级蓝筹共识股 + 资金面中性 + 增量资金有限"。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">8. 索罗斯反身性投资</div>
+    <div class="method-author">乔治·索罗斯 · "反身性理论"</div>
+    <div class="method-score warn">5 / 10</div>
+    <div class="method-desc">估值与基本面预期反馈环：PE 14.8x 偏高估 + 2026H1 扣非下滑 → 估值压力；但高股息 4.4% + 回购护盘 + 高 ROE + 强现金流提供下行保护。反身性视角下："估值偏高 + 基本面支撑 + 资金面中性 = 震荡消化"。基本情景：业绩拐点确认 → 估值上修至 15-17x PE；反身性下行：扣非继续下滑 → 估值下修至 12-13x PE。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">9. 格雷厄姆深度价值 ↓</div>
+    <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+    <div class="method-score bad">4 / 10</div>
+    <div class="method-desc"><b style="color:#fca5a5">PE-TTM 14.82x 在 3 年 90% 分位偏高估</b>；PEG 1.07 偏高估；PB 3.11x 考虑 ROE 25%+ 后估值合理但偏高；2026H1 扣非同比下降 = 主营业续恶化。格雷厄姆"安全边际"视角下"偏贵且未来面临压力"；但高股息 4.4% 提供下行保护，深度价值区需等待 PE < 12x 或股价回落至 75 元以下。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">10. 林奇 PEG 投资 ↓</div>
+    <div class="method-author">彼得·林奇 · "PEG & 增速匹配"</div>
+    <div class="method-score bad">4 / 10</div>
+    <div class="method-desc">PEG 1.07（PE 14.8x / 净利增速 7-9%）> 1 偏高估；PEG 适用于成长股，美的进入成熟期后 PEG 价值有限；同花顺/国信 2026E 净利增速预期 +7-8% 难以支撑高估值。林奇视角下："成熟期龙头 PEG 失锚 + 增速放缓压制估值"。</div>
+  </div>
+  <div class="method-card bad">
+    <div class="method-name">11. 邓普顿逆向投资</div>
+    <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+    <div class="method-score bad">3 / 10</div>
+    <div class="method-desc"><b style="color:#fca5a5">股价在历史高位、基本面未至最悲观点、PE 在 90% 分位偏高估</b> = 邓普顿逆向不适用。逆向机会需等待：(1) 股价从高点回调 30%+ 或 (2) 扣非连续下滑 + PE 回落至 50% 分位以下。当前未出现逆向信号。</div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>冲突点：</strong>巴菲特护城河（9 分）看重宽阔护城河 → 高度认可；格雷厄姆（4 分）/ 林奇 PEG（4 分）/ 邓普顿（3 分）看重价格纪律 → 偏低评价 —— "好公司 + 价格偏贵 + 增速放缓" = <b style="color:#fbbf24">"高股息防御型 + 估值消化期"</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>冲突点：</strong>费雪成长（5 分）vs 林奇 PEG（4 分）→ 长期复利 vs 增速放缓，<b style="color:#34d399">采纳巴菲特"宽阔护城河 + 多元化龙头"框架</b>，费雪"增速放缓"为警示信号</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>冲突点：</strong>马克斯周期（5 分）vs 格雷厄姆（4 分）→ 成熟期顶部 vs 估值偏高，倾向于"成熟期龙头 + 高股息防御 + 估值消化"逻辑，<b style="color:#fbbf24">无需逆向无需重仓</b>，作为高分杬防御底仓配置</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><strong>冲突点（关键）：</strong>巴菲特护城河（9 分）+ 高股息 4.4% vs 2026H1 扣非下滑 + PE 14.8x 在 90% 分位 → <b style="color:#fbbf24">"优质龙头 + 估值消化期"</b>，评级"持有观察"（≤ 3%）而非"谨慎买入"</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">5</span>
+    <p><strong>冲突点（资金面）：</strong>机构覆盖广泛（30+ 券商）+ 蓝筹身份 vs 北向 Q2 减持 8.21% + 融资余额低于近一年 10% 分位 → <b style="color:#fbbf24">"机构共识但增量资金有限"</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">6</span>
+    <p><strong>最终倾向：</strong>以 <strong style="color:#34d399">巴菲特护城河 + 达里奥全天候</strong> 的"白电全球龙头 + 多元化业务结构 + 高股息 4.4% + 高 ROE 现金流稳定"为主线，叠加 <strong style="color:#fbbf24">格雷厄姆价格纪律</strong> 的"PE 14.8x 在 90% 分位 + 2026H1 扣非下滑"，避免按<strong style="color:#fca5a5">亏损股博弈逻辑满仓</strong>，避免按<strong style="color:#fca5a5">"逆向加仓"逻辑深度逆向入场</strong>，<b style="color:#fbbf24">采用"高分杬防御型 + 估值消化期"配置策略</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">7</span>
+    <p><strong>综合得分：5.35 / 10 → 调整为 5.4 / 10（考虑护城河与高股息加分项）</strong>，对应评级：<strong style="color:#fbbf24">持有观察</strong>（高股息防御型 + 等待业绩拐点确认）</p>
+  </div>
+</div>
+
+<!--CONTENT_MODULE_11-->
+<div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+<div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤ 10%，高分杬防御型配置，等待业绩拐点确认</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card position">
+    <div class="strategy-title">🎯 仓位与分批建仓（高股息防御型配置）</div>
+    <div class="strategy-content">
+      <table class="compare-table" style="margin-bottom:10px;">
+        <thead>
+          <tr><th>动作</th><th>价格/条件</th><th>建议仓位</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b style="color:#fbbf24">第一批（防御底仓）</b></td><td><b style="color:#7dd3fc">82-86 元</b>区间（当前价 86.20 上下 + MA20/MA60 支撑区 + 高股息 4.4% 防御特征）</td><td class="warn">2%</td></tr>
+          <tr><td><b style="color:#fbbf24">第二批（仅在条件触发）</b></td><td><b style="color:#7dd3fc">75-82 元</b>区间（仅在 2026Q3 扣非转正或 PE 回落至 13x 以下）</td><td class="warn">1%</td></tr>
+          <tr><td><b style="color:#fbbf24">上限</b></td><td>单股 ≤ 3%，组合中消费/家电单一标的合计 ≤ 10%</td><td class="ok">建议 ≤ 3%</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px; font-size:11px; color:#94a3b8;">注：高分红股不同于成长股，分批节奏不急于一次性建立仓位。作为高分杬防御底仓，第一批 2% 可现价附近建仓，第二批需等待业绩拐点确认。避免按亏损股逆向逻辑满仓。</p>
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🚨 止损位（下调至 75 元 / -13%）</div>
+    <div class="strategy-content">
+      <strong>硬止损：</strong>收盘有效跌破 <strong class="hl-danger">75 元（约 -13%）</strong>，或 2026 全年扣非净利同比下滑 &gt; 5%，<strong class="hl-danger">先减仓至 ≤ 1% 而非等待目标价</strong>。<br><br>
+      <strong>软止损：</strong>(1) 单季度扣非净利润同比转负且下滑 &gt; 10%；(2) ToB 业务（楼宇 + 库卡）增速回落至 +5% 以下；(3) 海外收入连续两个季度同比转负；(4) 国补全面退出且无后续政策；(5) 北向资金连续 2 个季度大幅减持 &gt; 15%；(6) 控股股东或一致行动人出现大额减持。
+    </div>
+  </div>
+
+  <div class="strategy-card target">
+    <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+    <div class="strategy-content">
+      <table class="compare-table">
+        <thead>
+          <tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>12 个月</b></td><td class="danger">65-77 元</td><td class="warn">80-92 元</td><td class="ok">95-107 元</td></tr>
+          <tr><td><b>24 个月</b></td><td class="warn">75-85 元</td><td class="ok">88-100 元</td><td class="ok">105-130 元</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px; font-size:11px; color:#94a3b8;">中性假设：2026E 净利 469 亿 × PE 13-15x；乐观假设：2026E 480 亿 × PE 15-17x（含 ToB 业务持续放量 + 业绩拐点）；保守假设：2026E 450 亿 × PE 11-13x（扣非下滑 + 国补退坡）。机构一致预期 2026E 净利 469-470 亿（国信/同花顺），对应当前股价 PE 14x，与中性假设一致。</p>
+    </div>
+  </div>
+
+  <div class="strategy-card cycle">
+    <div class="strategy-title">⏳ 持有周期</div>
+    <div class="strategy-content">
+      <strong class="hl-info">中长线（12-24 个月）</strong>，等待 2026 年报、2027 一季报兑现 + 国补续期 + ToB 业务持续放量；若 2026 全年扣非净利转正且 ToB 业务超预期，可考虑切换为 <strong class="hl-purple">长线（&gt;24 月）</strong>，作为 A 股高分杬防御底仓长期持有，享受 4-5% 股息 + 业绩复利。<br><br>
+      <strong>短线（&lt;3 月）</strong>不推荐——当前 PE 14.8x 在 90% 分位 + 2026H1 扣非下滑 + 国补退坡 = 估值消化期，频繁交易易丢失高分杬防御仓位。
+    </div>
+  </div>
+
+  <div class="strategy-card monitor">
+    <div class="strategy-title">📡 关键监测指标（每季度）</div>
+    <div class="strategy-content">
+      1. <strong class="hl-danger">扣非归母净利润同比</strong>（核心盈利能力验证，<b style="color:#fbbf24">2026H1 同比下降，Q3/Q4 能否转正是评级修正关键</b>）<br>
+      2. <strong class="hl-warn">ToB 业务持续放量 + 海外增长韧性</strong>（第二增长曲线兑现度，<b style="color:#fbbf24">库卡机器人 +11.8% / 楼宇 +10.1% / 海外 1959 亿是重点</b>）<br>
+      3. <strong class="hl-info">国补政策延续 + 地产以旧换新叠加</strong>（需求侧支撑，<b style="color:#fbbf24">补贴比例 15% 能否延续是中期变量</b>）<br>
+      4. <strong class="hl-purple">PE 估值消化 + MA60 估 ~85 元企稳</strong>（技术面企稳是逆向加仓窗口验证）<br>
+      5. <strong class="hl-info">北向资金持仓变化 + 融资余额走势</strong>（资金面验证，<b style="color:#fbbf24">Q3 减持趋缓是信号</b>）
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤ 1%）</div>
+    <div class="strategy-content">
+      1. <strong class="hl-danger">2026Q3/Q4 扣非净利润同比下滑 &gt; 10%</strong>（核心盈利能力恶化，护城河质疑）<br>
+      2. <strong class="hl-danger">ToB 业务（楼宇 + 库卡）增速回落至 +5% 以下且连续两个季度</strong>（第二增长曲线兑现度下降）<br>
+      3. <strong class="hl-danger">国补全面退出且无后续政策，海外收入连续两个季度同比转负</strong>（需求侧结构性恶化）<br>
+      4. <strong class="hl-danger">PE 上升至 17x 以上（股价 > 100 元）</b>且基本面无改善（透支估值）<br>
+      5. <strong class="hl-warn">控股股东或一致行动人出现大额减持（&gt; 5%）</b>或新增大额股权质押（治理折价）
+    </div>
+  </div>
+</div>
+
+<!--CONTENT_MODULE_12-->
+<div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+<div class="risk-grid">
+  <div class="risk-card">
+    <div class="risk-title">🔻 1. 2026H1 扣非同比下降 + PE 14.8x 在 3 年 90% 分位偏高估</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>2026Q3/Q4 扣非继续下滑 &gt; 10%；PE 持续维持在 90% 分位以上；股价持续上行突破 95 元<br>
+      <strong>影响幅度：</strong>估值可能消化至 PE 12-13x（基准情景）；股价跌至 75-85 元区间（-13% ~ -1%）；评级可能从持有观察下调至减持或卖出<br>
+      <strong>应对策略：</strong>每季度跟踪扣非同比、ToB 业务增速、海外韧性；股价反弹至 92 元（BOLL 上轨）不追价；如跌破 75 元且基本面恶化，坚决减仓
+    </div>
+  </div>
+  <div class="risk-card warn">
+    <div class="risk-title">⚠️ 2. 国补退坡 + 地产下行压制 ToC 需求</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>2026 年家电以旧换新范围进一步缩减（6 类 → 3 类）；补贴比例 15% → 10%；地产销售同比下滑 &gt; 20%；新房交付持续走弱<br>
+      <strong>影响幅度：</strong>国内 ToC 业务（空调 + 冰箱 + 洗衣机）增速可能转负；2026 全年净利可能下修至 430-440 亿；机构综合目标价可能下修 10-15%<br>
+      <strong>应对策略：</strong>跟踪政策发布时点；区分地产压制与国补退坡的影响（ToC 需求侧重国补，ToB 业务不受地产影响）；评估公司 ToB/海外占比提升对冲能力
+    </div>
+  </div>
+  <div class="risk-card">
+    <div class="risk-title">🔻 3. ToB 业务（楼宇 + 库卡）增速放缓风险</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>楼宇科技或库卡机器人单季增速回落至 +5% 以下；库卡中国业务收入下滑；工业技术持续负增长<br>
+      <strong>影响幅度：</strong>ToB 业务（占 ~22%）作为第二增长曲线若放缓，整体估值溢价消失；股价可能从 86 元跌至 75-80 元（-12% ~ -7%）<br>
+      <strong>应对策略：</strong>每季度跟踪楼宇、库卡、工业技术三大 ToB 业务的同比增速；评估库卡机器人量产时点（人形机器人产业链延伸）；评估美的 ToB 业务竞争对手（汇川/埃斯顿/新时达）
+    </div>
+  </div>
+  <div class="risk-card info">
+    <div class="risk-title">🟣 4. 北向资金持续减持 + 增量资金不足</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>北向沪深股通连续 2 个季度减持 &gt; 15%；深股通持股比例降至 1% 以下；融资余额持续低于近一年 5% 分位；A 股持股计划开始减持<br>
+      <strong>影响幅度：</strong>蓝筹共识股的资金面支撑减弱；股价可能从 86 元跌至 78-82 元（-9% ~ -5%）；估值修复动力不足<br>
+      <strong>应对策略：</strong>跟踪北向沪深股通季度持仓变化、融资余额、A 股持股计划后续减持节奏；若出现"机构资金净流出 + A 股持股计划大额减持"双重信号，下调评级
+    </div>
+  </div>
+  <div class="risk-card">
+    <div class="risk-title">🔻 5. 原材料价格上行 + 全球贸易摩擦 + 汇率波动</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>铜/铝/钢板价格大幅上涨 &gt; 20%；人民币兑美元汇率大幅波动 &gt; 5%；海外贸易摩擦升级（关税壁垒 &gt; 15%）；东南亚/欧洲市场需求大幅萎缩<br>
+      <strong>影响幅度：</strong>毛利率从 ~25% 下行至 22-23%（-2-3pct）；海外收入（1959 亿）面临压力；2026E 净利可能下修 5-10%；股价可能跌至 78-82 元（-9% ~ -5%）<br>
+      <strong>应对策略：</strong>跟踪铜/铝期货价格、人民币汇率、海外关税政策；评估美的供应链多元化与对冲策略；区分短期波动与长期趋势
+    </div>
+  </div>
+</div>
+
+<!--CONTENT_FOOTER_NOTE-->
+<div class="section-title info">📚 数据来源 · 复核记录 · 重要提示</div>
+
+<div class="data-note">
+  <strong style="color:#7dd3fc">📊 数据日期：</strong>2026-09-15（周二盘后）· 主要数据采自 <span class="info">2026-09-10/11</span> 收盘 / <span class="info">2026H1 半年报</span>（8/29 披露） / <span class="info">2025 年报</span>（3/30 披露） / <span class="info">国信证券 9/10 报告</span> / <span class="info">理杏仁 9/11</span><br>
+  <strong style="color:#7dd3fc">💡 数据双源核验：</strong><span class="ok">✓</span> 股价/估值数据：东方财富 / 搜狐证券 / 理杏仁 三源交叉<br>
+  <span class="ok">✓</span> 财务数据：美的集团 2025 年年度报告（3/30 披露）+ 2026 年半年度报告（8/29 披露）<br>
+  <span class="ok">✓</span> 行业数据：商务部 5 部门联合发布以旧换新政策（2026-01-08）/ 国家统计局新国补首月数据（2026-02-04）<br>
+  <span class="ok">✓</span> 治理事件：美的集团 9/3 完成 2026 年 A 股持股计划非交易过户 / 3/31 公告 2025 年回购方案<br>
+  <span class="warn">△</span> 资金流：东方财富 / 证券时报融资融券数据（9/8 34.60 亿 / 9/10 32.41 亿）+ 北向沪深股通（Q2 减持 8.21%）<br>
+  <span class="warn">△</span> 同业 PE：格力电器 / 海尔智家 / 海信家电 9 月最新 PE 估值需进一步交叉确认<br>
+  <strong style="color:#fca5a5">⚠️ 数据局限：</strong>MA60/120/250 沿用 9/10 收盘基准估算；2026Q3 财报预计 10 月下旬披露，本报告基于 2026H1 + 卖方预测外推；外资（北向）Q3 持仓变动数据未独立核验；2026 年家电以旧换新具体细则地方差异需进一步核实<br><br>
+  <strong style="color:#7dd3fc">🧭 报告方法论：</strong>本报告融合 <span class="purple">格雷厄姆深度价值</span>、<span class="purple">费雪成长</span>、<span class="purple">林奇 PEG</span>、<span class="purple">邓普顿逆向</span>、<span class="purple">博格指数</span>、<span class="purple">马克斯周期</span>、<span class="purple">巴菲特护城河</span>、<span class="purple">西蒙斯量化</span>、<span class="purple">达里奥全天候</span>、<span class="purple">凯恩斯选美</span>、<span class="purple">索罗斯反身性</span>共 11 种方法论；<strong style="color:#34d399">权重分配</strong>为：格雷厄姆/邓普顿/马克斯/巴菲特护城河各 15%；费雪/林奇各 10%；博格/凯恩斯/西蒙斯/达里奥/索罗斯各 5%<br>
+  <strong style="color:#7dd3fc">📅 报告版本：</strong><span class="ok">v1.0</span> · 2026-09-15 · 基于 2026-09-10 收盘价 86.20 元 / 9/15 周二盘后发布<br><br>
+  <strong style="color:#fca5a5">⚠️ 重要提示：</strong><br>
+  1. 本报告为<strong style="color:#fbbf24">基于公开信息的方法论分析</strong>，<strong style="color:#f87171">不构成任何投资建议</strong>；股市有风险，决策需谨慎<br>
+  2. 股价数据基于 2026-09-10/11 收盘（9/12-9/15 因周末/中秋节假期未交易日较多）；投资前请核实最新股价及公告<br>
+  3. 本报告涉及 11 方法论的多源打分（权重不同），综合得分加权计算结果仅供参考；最终决策需结合个人风险偏好<br>
+  4. 关键事件均已标注公告日期（9/3 A 股持股计划完成 / 8/29 半年报披露 / 3/31 利润分配方案 / 3/31 回购方案）<br>
+  5. 本报告评级<span class="warn">持有观察（5.4/10）</span>，仓位<span class="warn">≤ 3%</span>，作为高分杬防御底仓配置，不作为重仓标的
+</div>
+
+<!--CONTENT_FOOTER-->
+<div class="footer">
+  <p>🏠 美的集团 (000333.SZ) · 11 方法论综合投资分析 · 数据日期 2026-09-15</p>
+  <p style="margin-top:8px; font-size:11px; color:#64748b;">
+    基于 11 种经典投资方法论（格雷厄姆 / 费雪 / 林奇 / 邓普顿 / 博格 / 马克斯 / 巴菲特 / 西蒙斯 / 达里奥 / 凯恩斯 / 索罗斯）综合评分<br>
+    本报告为方法论示范 · 不构成投资建议 · 投资有风险 · 决策需谨慎<br>
+    <span style="color:#94a3b8;">© 2026 · a-share · 综合投资分析系统 v1.0</span>
+  </p>
+</div>
+
+</div>
+</body>
+</html>

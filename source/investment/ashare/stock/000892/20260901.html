@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-09-01 欢瑞世纪 (000892) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(239,68,68,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #f87171; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size:12px; color:#94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10));
+    border: 1px solid rgba(239,68,68,0.40); border-left: 5px solid #f87171;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#fca5a5; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:760px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(239,68,68,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:2; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:3; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:5; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .radar-wrap { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; text-align:center; }
+  .radar-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:8px; }
+  .radar-svg { max-width:560px; width:100%; height:auto; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-card.ok { background:rgba(16,185,129,0.10); border-color:rgba(16,185,129,0.30); border-left-color:#10b981; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-card.ok .risk-title { color:#34d399; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .quote-card { background:linear-gradient(135deg, rgba(168,85,247,0.14), rgba(56,189,248,0.08));
+    border:1px solid rgba(168,85,247,0.35); border-left:5px solid #c084fc;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; text-align:center; }
+  .quote-text { color:#e9d5ff; font-size:17px; font-style:italic; line-height:1.7; margin-bottom:8px; }
+  .quote-author { color:#c084fc; font-size:12px; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(239,68,68,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(239,68,68,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fca5a5; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#ef4444,#dc2626);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:820px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(239,68,68,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(239,68,68,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #f87171; }
+  .conclusion-item .num { display:inline-block; background:#f87171; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🎬 欢瑞世纪 (000892) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">深主板影视剧制作 · AI 短剧主题催化下的连板小票 · 近 4 年 3 次亏损 · 高质押 + 前实控人债务未了 · 纯资金博弈</div>
+    <div class="badges">
+      <span class="badge badge-danger">🎯 综合评级：<b>减持</b>（3.1/10 · 题材喧嚣 vs 基本面持续失血）</span>
+      <span class="badge badge-source">📅 数据日期：2026-09-01（周二收盘）</span>
+      <span class="badge badge-source">📊 股价 4.73 元 · 总市值 46.40 亿 · PE-TTM -11.9x（亏损） · PB 9.18x</span>
+      <span class="badge badge-purple">🧠 格雷厄姆 + 费雪 + 林奇 + 邓普顿 + 博格 + 马克斯 等 11 方法论 × 12 模块</span>
+      <span class="badge badge-danger">🔴 2026H1 归母 -1.44 亿（同比扩大 2147%）· 整体质押 30.64%</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-09-01）：</strong><br>
+    ✅ 股价 <span class="danger">4.73 元</span>（9/1 <span class="danger">涨停 +10.00%</span>，连板 1 天；8/31 收盘 4.30 元、涨停 +9.97%）· 总市值 <span class="info">46.40 亿元</span>、流通市值 <span class="info">33.62 亿元</span> · 来源：腾讯自选股 / 东方财富行情快照（2026-09-01 收盘，多源核对）<br>
+    ✅ 52 周区间：<span class="warn">2.92（2026-07-27）— 9.87（2026-02-11）元</span>，振幅 101.61% · 年初至今 <span class="danger">-32.23%</span> · 近 5 日 <span class="danger">+26.47%</span>、近 20 日 <span class="warn">+13.43%</span><br>
+    ✅ 估值：<span class="danger">PE-TTM -11.91x（亏损，无估值意义）</span>、<span class="danger">PB 9.18x</span>（同业多在 1.5—5x）、股息率 <span class="danger">0.00%</span>、每股净资产仅 <span class="danger">0.52 元</span><br>
+    ✅ 2026H1 半年报：营收 <span class="ok">2.48 亿（+25.24%）</span>、归母净利 <span class="danger">-1.44 亿（同比 -2147.62%，上年同期 -639 万）</span>、扣非 <span class="danger">-1.42 亿（-546.97%）</span>、EPS <span class="danger">-0.15 元</span><br>
+    ✅ 2026H1 盈利质量：<span class="danger">毛利率 -8.14%</span>、<span class="danger">净利率 -58.05%</span>、<span class="danger">加权 ROE -25.52%</span>、经营现金流 <span class="warn">-2371 万（同比收窄 81.92%，仍为净流出）</span><br>
+    ✅ 资产负债：总资产 <span class="danger">10.53 亿（-24.72%）</span>、归母净资产 <span class="danger">5.06 亿（-20.37%）</span>、应收账款周转率 <span class="danger">0.59 次（半年）</span>、存货周转率 <span class="warn">0.79 次（半年）</span><br>
+    ✅ 主营构成（2026H1）：影视剧及衍生品 <span class="ok">1.96 亿（78.94%，+45.57%）</span>、艺人经纪 <span class="danger">5218 万（21.04%，-17.78%）</span>、海外收入 52.27 万（0.21%）<br>
+    ✅ 历史业绩：2025 营收 5.27 亿 / 归母 <span class="danger">-2.52 亿</span> · 2024 营收 3.85 亿 / 归母 <span class="danger">-2.41 亿</span> · 2023 营收 3.36 亿 / 归母 <span class="danger">-3.84 亿</span> · 2022 营收 5.96 亿 / 归母 <span class="ok">+507 万</span>（<b>近 4 年 3 次亏损</b>）<br>
+    ✅ 治理：实控人 <span class="warn">赵枳程</span>（2020 年由钟君艳 / 陈援变更）；<span class="danger">钟君艳 + 陈援 + 浙江欢瑞合计持股 12.77%，因质押违约被动减持，历史公告涉诉标的金额合计约 5.32 亿，仍存被执行风险</span>；<span class="danger">整体质押比例 30.64%</span>（第三方鹰眼归类为"风险"类）；2016 年借壳重组业绩补偿累计约 <span class="danger">8.99 亿未达成</span>；股东户数 4.02 万户（环比 -2.55%）<br>
+    ✅ 技术面（9/1）：MA5 4.11 / MA10 3.92 / MA20 4.01 / MA30 3.81 / <span class="warn">MA60 3.72</span> / <span class="danger">MA120 4.53</span> / <span class="danger">MA250 5.81</span> · MACD（DIF 0.113 / DEA 0.055 / 柱 0.116 翻红）· 布林上轨 4.515 / 中轨 4.007 / 下轨 3.499 · <span class="danger">KDJ：K 72.96 / D 50.78 / J 117.33（超买）</span> · ADX 27.89 · VR 177.85<br>
+    ✅ 资金：9/1 主力净流入 <span class="danger">3909 万</span>（超大单 +4635 万 / 大单 -726 万 / 中单 -1707 万 / 小单 -2202 万）· 9/1 成交 5618 万、换手 1.67%（<span class="warn">缩量涨停，封单质量待次日验证</span>）· 8/31 成交 2.26 亿、换手 7.52% · 北向 6/30 持 1586.44 万股（占流通 2.23%，较上季末 +20.59%）· 7/13 龙虎榜北向净买 2569.82 万、机构净买 6380 万<br>
+    ✅ 行业：2026H1 全国电影票房 <span class="danger">173.5 亿（-40.6%）</span> · 同业 H1 预告普遍亏损（北京文化 -3300~-4500 万 / 慈文传媒 -2500~-3700 万 / 横店影视 -7500~-5200 万 / 上海电影 1301 万、-80.07% / 光线传媒净利 2327 万、<span class="danger">-98.85%</span>）<br>
+    ✅ 题材：<span class="purple">《微短剧发展管理办法》9/1 正式实施</span>（规范 AI 短剧）· 芒果 TV AIGC 剧《后西游记》8/31 上线，9/1 触发短剧板块涨停潮，欢瑞被资金列为"AI 短剧三驾马车"之一 · 2026 微短剧市场规模预测约 1500 亿 / 短剧约 400 亿 · 行业侧数据：约 <span class="danger">98.7% 的 AI 短剧尚未回本</span>（样本 77 部仅 1 部回本）<br>
+    ⚠️ <b>数据局限</b>：机构完整持仓变动、应收账款账龄明细、剧目储备与排播表、短剧业务收入拆分未做全口径独立核验；同业估值对比取 <b>2026-08-19</b> 截面，与 9/1 现价存在时滞；卖方覆盖极少（无成体系一致预期目标价），故未列示机构目标价区间；PS 为估算值<br>
+    🔴 <b>关键定性</b>：本次涨停是<b>纯主题事件驱动</b>（政策落地 + 头部平台 AIGC 剧上线 + 板块情绪共振），<b>与公司自身基本面改善无关</b>——2026H1 亏损同比扩大约 21 倍、净资产半年消耗 20%、毛利率为负、前实控人层面债务风险未解。短线动量与长期价值严重背离。
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">🎭</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：题材喧嚣掩盖基本面持续失血 —— 减持（3.1/10），反弹即减仓</h3>
+      <p>
+        欢瑞世纪仅在 <b style="color:#34d399">凯恩斯选美（7 分）</b> 与 <b style="color:#fbbf24">索罗斯反身性（6 分）</b> 两个框架下得分偏高——它是当下 AI 短剧主题里<b>最"好讲故事"</b>的壳：市值小（46 亿）、股价低（4.73 元）、从 9.87 跌到 2.92 已回撤 52%、筹码结构趋于集中、有真实影视制作资质与艺人资源，符合游资"低市值 + 高弹性 + 强题材"三要素；9/1 微短剧新规落地与《后西游记》AIGC 剧上线形成<b>事件驱动的正反馈</b>。<br><br>
+        但在所有<b>基本面框架</b>下它几乎全线失守：<b style="color:#f87171">林奇 PEG（1 分）</b>——连续亏损导致 PEG 无法计算，成长缺乏盈利支撑；<b style="color:#f87171">博格指数（1 分）</b>与 <b style="color:#f87171">达里奥全天候（1 分）</b>——纯个股高波动资产，不具备任何配置价值；<b style="color:#f87171">格雷厄姆（2 分）</b>——PB 9.18x、每股净资产 0.52 元，意味着每股资产价值不到股价的九分之一，安全边际为负；<b style="color:#f87171">巴菲特护城河（2 分）</b>——影视制作是典型"项目制手艺活"，无定价权、无转换成本、艺人可流失、爆款不可复制；<b style="color:#f87171">马克斯周期（3 分）</b>与 <b style="color:#f87171">费雪成长（3 分）</b>——行业总量下行（H1 票房 -40.6%），公司尚未证明短剧能规模化盈利。<br><br>
+        <b style="color:#7dd3fc">最终倾向：</b>这是一个 <b style="color:#fca5a5">"凯恩斯式博弈标的"，而非"巴菲特式投资标的"</b>。加权合计 <b style="color:#fca5a5">3.1/10 = 减持</b>。对趋势 / 题材交易者，可在 5 日均线（4.11 元）之上小仓位参与，跌破 4.00 元无条件离场；对配置型 / 价值型资金，应<b style="color:#fca5a5">完全规避</b>；对已有持仓者，<b style="color:#fbbf24">本次连板是极佳的减仓窗口</b>——在题材最热、流动性最好的时候出货，而不是等退潮后割肉。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-09-01 · 来源：腾讯自选股 / 东方财富 / 深交所公告（2026H1 半年报）</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">欢瑞世纪</div>
+      <div class="change">代码 000892</div>
+      <div class="label">深交所主板</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:16px;">影视院线</div>
+      <div class="change">申万二级传媒</div>
+      <div class="label">三级影视动漫制作</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">上市日期</div>
+      <div class="value" style="font-size:15px;">1999-01-15</div>
+      <div class="change">老牌重组股</div>
+      <div class="label">2016 年影视资产借壳</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">小盘题材</div>
+      <div class="name">总市值</div>
+      <div class="value">46.40 亿</div>
+      <div class="change">流通 33.62 亿</div>
+      <div class="label">流通占比 72.5%</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">9/1 涨停</div>
+      <div class="name">当前股价</div>
+      <div class="value">4.73 元</div>
+      <div class="change">+10.00%</div>
+      <div class="label">连板 1 天 · 缩量</div>
+    </div>
+    <div class="index-card avoid">
+      <div class="tag danger">亏损</div>
+      <div class="name">PE-TTM</div>
+      <div class="value" style="font-size:19px;">-11.9 x</div>
+      <div class="change">无估值意义</div>
+      <div class="label">近 4 年 3 次亏损</div>
+    </div>
+    <div class="index-card avoid">
+      <div class="tag danger">畸高</div>
+      <div class="name">PB (MRQ)</div>
+      <div class="value" style="font-size:19px;">9.18 x</div>
+      <div class="change">每股净资产 0.52 元</div>
+      <div class="label">同业均值 2—5x</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card danger">
+      <div class="tag danger">0 分红</div>
+      <div class="name">股息率 (TTM)</div>
+      <div class="value" style="font-size:18px;">0.00%</div>
+      <div class="change">多年未分红</div>
+      <div class="label">无现金回报兜底</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">振幅 102%</div>
+      <div class="name">52 周区间</div>
+      <div class="value" style="font-size:15px;">2.92—9.87</div>
+      <div class="change">低点 7/27 · 高点 2/11</div>
+      <div class="label">高位回撤 -52%</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">YTD</div>
+      <div class="name">年初至今</div>
+      <div class="value" style="font-size:19px;">-32.23%</div>
+      <div class="change">显著弱于大盘</div>
+      <div class="label">主趋势仍向下</div>
+    </div>
+    <div class="index-card ok">
+      <div class="tag ok">5 日</div>
+      <div class="name">近 5 日涨幅</div>
+      <div class="value" style="font-size:19px;">+26.47%</div>
+      <div class="change">20 日 +13.43%</div>
+      <div class="label">主题资金推动</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">缩量涨停</div>
+      <div class="name">换手率 (9/1)</div>
+      <div class="value" style="font-size:19px;">1.67%</div>
+      <div class="change">8/31 为 7.52%</div>
+      <div class="label">成交额 5618 万</div>
+    </div>
+    <div class="index-card warn">
+      <div class="tag warn">人数</div>
+      <div class="name">在职员工</div>
+      <div class="value" style="font-size:19px;">141 人</div>
+      <div class="change">法人：赵枳程</div>
+      <div class="label">轻资产项目制</div>
+    </div>
+    <div class="index-card purple">
+      <div class="tag purple">户数降</div>
+      <div class="name">股东户数</div>
+      <div class="value" style="font-size:19px;">4.02 万</div>
+      <div class="change">环比 -2.55%</div>
+      <div class="label">筹码趋于集中</div>
+    </div>
+  </div>
+  <div class="section-title warn">🎚️ 模块 2 · 估值维度：PB 9.18x 的"故事定价"</div>
+  <div class="section-subtitle">亏损股无 PE 锚，只能看 PB / PS / 净资产质量三条腿——三条全废</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>估值口径</div><div>数值</div><div>解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PE-TTM</div>
+      <div class="fin-val down">-11.91 x</div>
+      <div class="fin-comment">分母为负，估值方法失效。市场已完全放弃用盈利给这家公司定价，转而以"题材 + 壳价值 + 筹码结构"定价。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PB (MRQ)</div>
+      <div class="fin-val down">9.18 x</div>
+      <div class="fin-comment">每股净资产仅 <b style="color:#f87171">0.52 元</b>，股价 4.73 元 = 净资产的 <b>9.1 倍</b>。同业 PB 多在 1.5—5x（芒果 1.19 / 捷成 1.51 / 华策 1.72 / 慈文 2.38 / 北京文化 4.95），欢瑞在<b style="color:#fca5a5">连亏损股里也是最贵的一档</b>。格雷厄姆口径下安全边际为负。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PS (TTM，估算)</div>
+      <div class="fin-val warn">约 8.8 x</div>
+      <div class="fin-comment">按 2025 营收 5.27 亿 / 市值 46.4 亿粗算。影视制作公司合理 PS 通常 2—4x（华策约 4.5x），欢瑞<b style="color:#fbbf24">营收规模小却享受龙头级 PS</b>，纯粹由题材溢价支撑（<span style="color:#64748b">估算值，未独立核验</span>）。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">净资产消耗速度</div>
+      <div class="fin-val down">-20.37%（半年）</div>
+      <div class="fin-comment">归母净资产从 2025 年末约 6.35 亿降至 2026H1 的 <b style="color:#f87171">5.06 亿</b>，半年蒸发 1.29 亿。按 2026H1 的亏损节奏线性外推，<b style="color:#fca5a5">账面净资产约 1.5—2 年即可能被亏穿</b>，届时 PB 被动飙升并可能触发退市风险警示。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股息率 / 股东回报</div>
+      <div class="fin-val down">0.00%</div>
+      <div class="fin-comment">连续多年未分红，无回购记录。对配置型资金而言，<b style="color:#fca5a5">持有收益 100% 依赖股价博弈</b>，没有任何现金流兜底。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">估值重估触发条件</div>
+      <div class="fin-val purple">需"硬兑现"</div>
+      <div class="fin-comment">只有当短剧 / AIGC 业务 <b style="color:#c084fc">单季贡献真实收入 ≥ 1 亿且毛利率转正</b>，或出现明确的资产注入 / 重大重组公告，当前 9.18x PB 才有被"业绩追平"的可能。<b style="color:#fca5a5">仅有题材热度无法支撑估值。</b></div>
+    </div>
+  </div>
+
+  <div class="safety-bar">
+    <div class="safety-title">🎚️ 安全边际定位条（基于 PB 与每股净资产 0.52 元）</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">深度价值区（PB &lt; 2x）</div>
+      <div class="safety-seg seg-current">合理区（PB 2—4x）</div>
+      <div class="safety-seg seg-over">题材高估区（PB &gt; 4x）← 现价 9.18x</div>
+    </div>
+    <div class="safety-marks">
+      <span>对应股价：<strong>&lt; 1.04 元</strong></span>
+      <span>对应股价：<strong>1.04 — 2.08 元</strong></span>
+      <span>当前：<strong style="color:#f87171">4.73 元（超出合理上沿 127%）</strong></span>
+    </div>
+  </div>
+
+  <div class="section-title">📈 模块 3 · 成长性维度：营收增长是真的，但"越卖越亏"</div>
+  <div class="section-subtitle">2026H1 营收 +25.24%，归母亏损却扩大约 21 倍——这是本报告最关键的一处背离</div>
+
+  <div class="table-card">
+    <div class="table-title">📅 近 5 期业绩轨迹（单位：亿元）</div>
+    <table class="compare-table">
+      <tr>
+        <th>报告期</th><th>营业收入</th><th>营收同比</th><th>归母净利润</th><th>净利同比</th><th>EPS（元）</th><th>定性</th>
+      </tr>
+      <tr>
+        <td>2022 年报</td><td>5.96</td><td>—</td><td class="ok">+0.051</td><td class="ok">盈利</td><td class="ok">0.01</td><td>微利，最后一个盈利年度</td>
+      </tr>
+      <tr>
+        <td>2023 年报</td><td>3.36</td><td class="danger">-43.6%</td><td class="danger">-3.84</td><td class="danger">转亏</td><td class="danger">-0.40</td><td>大幅计提 / 主业塌陷</td>
+      </tr>
+      <tr>
+        <td>2024 年报</td><td>3.85</td><td class="mid">+14.6%</td><td class="danger">-2.41</td><td class="ok">减亏 37%</td><td class="danger">-0.25</td><td>减亏但未转正</td>
+      </tr>
+      <tr>
+        <td>2025 年报</td><td>5.27</td><td class="ok">+36.9%</td><td class="danger">-2.52</td><td class="warn">亏损略扩</td><td class="danger">-0.26</td><td>增收不增利</td>
+      </tr>
+      <tr style="background:rgba(239,68,68,0.08);">
+        <td><b class="hl">2026H1</b></td><td class="hl">2.48</td><td class="ok">+25.24%</td><td class="danger">-1.44</td><td class="danger">-2147.62%</td><td class="danger">-0.15</td><td class="danger">营收增 / 亏损暴增</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🧩 2026H1 主营构成拆分</div>
+    <table class="compare-table">
+      <tr><th>业务板块</th><th>收入</th><th>占比</th><th>同比</th><th>解读</th></tr>
+      <tr>
+        <td>影视剧及衍生品</td><td class="mid">1.96 亿</td><td class="hl">78.94%</td><td class="ok">+45.57%</td><td>收入增长主引擎，但对应整体毛利率为负——<b class="danger">增收不增利的核心症结</b></td>
+      </tr>
+      <tr>
+        <td>艺人经纪</td><td class="mid">5218 万</td><td class="hl">21.04%</td><td class="danger">-17.78%</td><td>持续萎缩，反映核心艺人流失与议价能力下降</td>
+      </tr>
+      <tr>
+        <td>海外收入</td><td class="mid">52.27 万</td><td class="hl">0.21%</td><td>—</td><td>可忽略，出海故事尚无实质落地</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">📉</div>
+    <div class="text">
+      <h3>成长性致命伤：毛利率 -8.14% —— 卖得越多，亏得越多</h3>
+      <p>
+        2026H1 影视剧业务收入同比 +45.57%，看似强劲，但公司整体毛利率是 <b style="color:#f87171">-8.14%</b>。这意味着<b>每一块钱的影视剧收入，其成本加费用超过一块零八分</b>。在这种成本结构下，营收增长不是利好，而是<b style="color:#fca5a5">亏损放大器</b>——这也直接解释了为什么营收 +25% 而亏损扩大约 21 倍。<br><br>
+        更值得警惕的是：影视剧业务的成本主要是<b>前置刚性投入</b>（演员片酬、制作、宣发），而收入确认依赖<b>平台采购价与排播档期</b>。在 2026H1 全国票房 -40.6%、平台普遍压价的背景下，<b style="color:#fbbf24">行业议价权正在从制作方向平台方转移</b>。欢瑞作为非头部制作公司，缺乏爆款议价能力，只能被动承受"高成本 + 低售价"的剪刀差。<b style="color:#fca5a5">费雪框架下，这不是"成长"，是"失血式扩张"。</b>
+      </p>
+    </div>
+  </div>
+  <div class="section-title ok">🛡️ 模块 4 · 护城河与生意本质：项目制手艺活，无定价权</div>
+  <div class="section-subtitle">巴菲特视角：这门生意能不能抵御竞争对手的攻击？答案是——不能</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>护城河维度</div><div>评级</div><div>依据</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">品牌 / 内容 IP</div>
+      <div class="fin-val warn">弱（3/10）</div>
+      <div class="fin-comment">曾出品《古剑奇谭》《盗墓笔记》等现象级作品，但 <b style="color:#fbbf24">IP 热度难以沉淀为可持续现金流</b>，近年缺乏新的全民级爆款。影视 IP 半衰期极短，无法形成长期心智占有。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">转换成本</div>
+      <div class="fin-val down">无（1/10）</div>
+      <div class="fin-comment">视频平台（芒果 / 爱奇艺 / 腾讯 / 优酷）采购剧集时可自由更换制作方，<b style="color:#f87171">欢瑞对客户零锁定</b>。艺人经纪同理——合约到期即可转投他家，2026H1 艺人经纪收入 -17.78% 正是护城河失效的直接证据。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">网络效应</div>
+      <div class="fin-val down">无（1/10）</div>
+      <div class="fin-comment">影视制作不具备网络效应——不会因为看的人多而变得更有价值。这与芒果超媒（平台型）有本质区别：芒果 PE 22.5x 而欢瑞亏损，背后正是商业模式的差距。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">成本优势</div>
+      <div class="fin-val down">无（2/10）</div>
+      <div class="fin-comment">毛利率 -8.14% 说明<b style="color:#f87171">连成本都覆盖不了</b>，遑论成本优势。头部公司（光线、华策）尚可靠规模与发行网络摊薄成本，欢瑞体量太小（年营收 5 亿级）无法摊薄。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">牌照 / 政策壁垒</div>
+      <div class="fin-val warn">存在但无排他（4/10）</div>
+      <div class="fin-comment">持有《电视剧制作许可证》等资质，构成行业准入门槛，但全国持证人数量以千计，<b style="color:#fbbf24">牌照不构成任何排他性保护</b>。9/1 微短剧新规反而<b>提高了合规成本</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">护城河总评</div>
+      <div class="fin-val down">2/10 · 无护城河</div>
+      <div class="fin-comment">这是一家 <b style="color:#fca5a5">"项目制手艺活"公司</b>：每一部剧都是一次重新投标，上一次的成功无法保证下一次的订单。巴菲特所说的"收费桥梁"，在这里不存在。</div>
+    </div>
+  </div>
+
+  <div class="quote-card">
+    <div class="quote-text">"我们喜欢的是那种即使由一个笨蛋来经营，也能赚钱的生意——因为迟早会有一个笨蛋来经营它。"</div>
+    <div class="quote-author">— 沃伦·巴菲特</div>
+  </div>
+
+  <div class="section-title danger">💰 模块 5 · 财务质量体检：九项指标，四项亮红灯</div>
+  <div class="section-subtitle">2026H1 半年报 · 数据口径来自公司公告与行情终端</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>财务指标</div><div>2026H1</div><div>体检结论</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营业收入</div>
+      <div class="fin-val">2.48 亿（+25.24%）</div>
+      <div class="fin-comment">✅ <b style="color:#34d399">唯一亮点</b>。规模在恢复，但半年体量仍仅为 2022 全年（5.96 亿）的四成左右。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利润</div>
+      <div class="fin-val down">-1.44 亿（-2147.62%）</div>
+      <div class="fin-comment">🔴 亏损额超过营收的 58%。半年亏掉 1.44 亿，而全年营收才 5 亿量级，<b style="color:#fca5a5">亏损与营收严重不成比例</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">销售毛利率</div>
+      <div class="fin-val down">-8.14%</div>
+      <div class="fin-comment">🔴 <b style="color:#f87171">最严重信号</b>。售价低于成本，说明主营业务本身不赚钱，可能源于剧集减值、平台压价或成本失控。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">销售净利率</div>
+      <div class="fin-val down">-58.05%</div>
+      <div class="fin-comment">🔴 每实现 100 元收入，净亏 58 元。费用压力进一步放大了毛利率的负值。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">加权平均 ROE</div>
+      <div class="fin-val down">-25.52%</div>
+      <div class="fin-comment">🔴 半年 -25.52%，年化约 -50%。<b style="color:#fca5a5">这是对股东权益的高速毁灭</b>，在格雷厄姆与巴菲特框架下均为"一票否决项"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营活动现金流</div>
+      <div class="fin-val warn">-2371 万（+81.92%）</div>
+      <div class="fin-comment">🟡 <b style="color:#fbbf24">唯一边际改善项</b>——同比大幅收窄 81.92%，但仍为净流出。说明公司尚未实现自我造血，仍依赖存量资金或外部融资维持运转。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款周转率</div>
+      <div class="fin-val down">0.59 次（半年）</div>
+      <div class="fin-comment">🔴 年化约 1.2 次，<b style="color:#f87171">回款周期长达 300 天以上</b>。影视行业对平台方议价弱，应收账款是最大的减值雷区。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">存货周转率</div>
+      <div class="fin-val warn">0.79 次（半年）</div>
+      <div class="fin-comment">🟡 存货主要为"在产品影视剧"，周转慢是行业特性，但在亏损背景下意味着 <b style="color:#fbbf24">大量资金沉淀在未播剧集中，减值风险高</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">总资产 / 归母净资产</div>
+      <div class="fin-val down">10.53 亿 / 5.06 亿</div>
+      <div class="fin-comment">🔴 总资产较年初 <b style="color:#f87171">-24.72%</b>、净资产 <b style="color:#f87171">-20.37%</b>，半年缩表四分之一，是典型的 <b style="color:#fca5a5">"失血型缩表"</b>，而非主动的结构优化。</div>
+    </div>
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">🩸</div>
+    <div class="text">
+      <h3>财务体检结论：净资产正以年化 40%+ 的速度被消耗</h3>
+      <p>
+        按 2026H1 的亏损速度线性外推，全年归母亏损约 <b style="color:#f87171">-2.9 亿</b>（<span style="color:#64748b">估算值，未考虑季节性</span>），而当前归母净资产仅 <b>5.06 亿</b>。这意味着：<b style="color:#fca5a5">若亏损节奏不变，约 1.7 年后净资产将逼近 0</b>，届时若同时营收低于 3 亿，将触发退市风险警示（*ST）的净资产为负 / 营收不达标条件。<br><br>
+        唯一的缓和因素是经营现金流同比收窄 81.92%，说明公司在压缩开支、加快回款上确有动作。<b style="color:#fbbf24">但"少流血"不等于"止血"</b>——需要看到<b>单季毛利率转正 + 经营现金流转正</b>两个条件同时满足，才能确认基本面拐点。<b style="color:#fca5a5">目前两个条件均未满足。</b>
+      </p>
+    </div>
+  </div>
+  <div class="section-title warn">🏛️ 模块 6 · 管理层与公司治理：本次分析的最大扣分项</div>
+  <div class="section-subtitle">治理风险不是"隐忧"，而是已经公告在案的既成事实</div>
+
+  <div class="table-card">
+    <div class="table-title">🏛️ 治理要素核查表</div>
+    <table class="compare-table">
+      <tr><th>核查项</th><th>现状</th><th>风险等级</th><th>说明</th></tr>
+      <tr>
+        <td>实际控制人</td><td class="mid">赵枳程</td><td class="warn">中</td><td>2020 年由创始人钟君艳 / 陈援变更为赵枳程，<b class="warn">控制权发生过变更</b>，新老股东利益格局复杂</td>
+      </tr>
+      <tr style="background:rgba(239,68,68,0.08);">
+        <td>股份质押</td><td class="danger">整体质押 30.64%</td><td class="danger">高</td><td>第三方（鹰眼）已将其归类为 <b class="danger">"风险"类</b>。高质押在股价下跌时易形成"下跌 → 平仓 → 再下跌"的负反馈</td>
+      </tr>
+      <tr style="background:rgba(239,68,68,0.08);">
+        <td>前股东债务</td><td class="danger">涉诉约 5.32 亿</td><td class="danger">高</td><td>钟君艳 + 陈援 + 浙江欢瑞（合计持股 12.77%）因 <b class="danger">质押违约被动减持</b>，历史公告标的金额合计约 5.32 亿，<b class="danger">仍存在被执行风险</b>，随时可能冲击二级市场</td>
+      </tr>
+      <tr>
+        <td>业绩补偿义务</td><td class="danger">累计约 8.99 亿未达成</td><td class="danger">高</td><td>源于 2016 年借壳重组时的业绩承诺（累计约 2.41 + 2.90 + 3.68 亿），<b class="danger">历史遗留问题悬而未决</b>，补偿能否到位存在不确定性</td>
+      </tr>
+      <tr>
+        <td>分红与股东回报</td><td class="danger">多年 0 分红</td><td class="warn">中</td><td>无分红、无回购记录，中小股东<b class="warn">无任何现金回报</b>，收益完全依赖股价博弈</td>
+      </tr>
+      <tr>
+        <td>信息披露质量</td><td class="mid">合规披露，未见近期违规</td><td class="warn">中</td><td>未见近期监管处罚或问询记录（<span style="color:#64748b">本项未做全历史穿透核查</span>）</td>
+      </tr>
+      <tr>
+        <td>股东结构变化</td><td class="ok">股东户数降至 4.02 万</td><td class="ok">低（偏正面）</td><td>户数环比 -2.55%，<b class="ok">筹码趋于集中</b>，短线利于资金推动，但也意味着流动性风险上升</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="theme-banner danger">
+    <div class="icon">⚖️</div>
+    <div class="text">
+      <h3>治理结论：这是"减持"评级中最硬的一条理由</h3>
+      <p>
+        在 11 方法论框架下，<b style="color:#f87171">达里奥全天候（1 分）</b> 与 <b style="color:#f87171">博格指数（1 分）</b> 打低分的核心原因正是治理：一家<b>实控人易主、前实控人持股质押违约且涉诉约 5.32 亿、整体质押率 30.64%、历史业绩补偿 8.99 亿未了结</b>的公司，其资产安全性与信息透明度都存在结构性缺陷。<br><br>
+        对机构资金而言，这类标的通常会被<b style="color:#fca5a5">直接列入禁投池</b>——不是因为估值贵，而是因为<b style="color:#fca5a5">无法通过合规风控</b>。这也是为什么该股长期缺乏卖方覆盖、没有成体系的一致预期目标价。<b style="color:#fbbf24">散户在此类标的上与游资博弈，信息劣势与资金劣势同时存在。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title info">🌐 模块 7 · 行业与周期定位：总量下行中的结构性机会</div>
+  <div class="section-subtitle">马克斯周期视角：行业处在周期的哪个位置？——收缩期中段，尚未见底</div>
+
+  <div class="table-card">
+    <div class="table-title">🎬 2026H1 影视板块同业业绩预告（行业寒冬全景）</div>
+    <table class="compare-table">
+      <tr><th>公司</th><th>代码</th><th>2026H1 归母净利</th><th>同比</th><th>状态</th></tr>
+      <tr><td>光线传媒</td><td class="hl">300251</td><td class="mid">+2327 万</td><td class="danger">-98.85%</td><td class="warn">勉强盈利，断崖下滑</td></tr>
+      <tr><td>上海电影</td><td class="hl">601595</td><td class="mid">+1301 万</td><td class="danger">-80.07%</td><td class="warn">院线端承压</td></tr>
+      <tr><td>北京文化</td><td class="hl">000802</td><td class="danger">-3300 ~ -4500 万</td><td class="danger">亏损</td><td class="danger">制作端失血</td></tr>
+      <tr><td>慈文传媒</td><td class="hl">002343</td><td class="danger">-2500 ~ -3700 万</td><td class="danger">亏损</td><td class="danger">制作端失血</td></tr>
+      <tr><td>横店影视</td><td class="hl">603103</td><td class="danger">-7500 ~ -5200 万</td><td class="danger">由盈转亏</td><td class="danger">上年同期 +2.02 亿</td></tr>
+      <tr style="background:rgba(239,68,68,0.08);">
+        <td><b>欢瑞世纪</b></td><td class="hl">000892</td><td class="danger">-1.44 亿（已披露）</td><td class="danger">-2147.62%</td><td class="danger">亏损幅度居前</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🏢 同业估值对比（申万二级"影视院线"，截面：2026-08-19）</div>
+    <table class="compare-table">
+      <tr><th>公司</th><th>代码</th><th>股价（元）</th><th>PE</th><th>PB</th><th>总市值</th><th>备注</th></tr>
+      <tr><td>芒果超媒</td><td class="hl">300413</td><td>14.84</td><td class="ok">22.49</td><td class="ok">1.19</td><td>277.61 亿</td><td>平台型，盈利能力最强</td></tr>
+      <tr><td>光线传媒</td><td class="hl">300251</td><td>10.85</td><td class="ok">19.04</td><td class="mid">3.20</td><td>318.29 亿</td><td>头部制作，尚有盈利</td></tr>
+      <tr><td>儒意电影</td><td class="hl">002739</td><td>8.46</td><td class="mid">34.80</td><td class="mid">2.38</td><td>178.66 亿</td><td>—</td></tr>
+      <tr><td>捷成股份</td><td class="hl">300182</td><td>4.79</td><td class="mid">66.71</td><td class="ok">1.51</td><td>127.60 亿</td><td>—</td></tr>
+      <tr><td>华策影视</td><td class="hl">300133</td><td>6.65</td><td class="mid">66.50</td><td class="ok">1.72</td><td>124.68 亿</td><td>同为制作方，PB 仅 1.72</td></tr>
+      <tr><td>视觉中国</td><td class="hl">000681</td><td>16.94</td><td class="warn">142.59</td><td class="mid">3.28</td><td>118.68 亿</td><td>—</td></tr>
+      <tr><td>北京文化</td><td class="hl">000802</td><td>4.36</td><td class="danger">亏损</td><td class="warn">4.95</td><td>31.21 亿</td><td>同为亏损，PB 4.95</td></tr>
+      <tr><td>慈文传媒</td><td class="hl">002343</td><td>4.87</td><td class="danger">亏损</td><td class="mid">2.38</td><td>23.07 亿</td><td>同为亏损，PB 2.38</td></tr>
+      <tr><td>百纳千成</td><td class="hl">300291</td><td>4.83</td><td class="danger">亏损</td><td class="mid">2.25</td><td>45.49 亿</td><td>同为亏损，PB 2.25</td></tr>
+      <tr style="background:rgba(239,68,68,0.10);">
+        <td><b>欢瑞世纪</b></td><td class="hl">000892</td><td class="danger">4.73</td><td class="danger">亏损</td><td class="danger">9.18</td><td>46.40 亿</td><td class="danger">亏损股中 PB 最高</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🎢</div>
+    <div class="text">
+      <h3>周期定位：行业在收缩，短剧是唯一结构性增量——问题是欢瑞还没证明自己吃得到</h3>
+      <p>
+        <b style="color:#f87171">下行侧</b>：2026H1 全国电影票房 173.5 亿、同比 <b>-40.6%</b>，长视频平台采购预算同步收缩，传统影视制作端遭遇<b>产能过剩 + 议价权流失</b>的双重挤压。同业 H1 预告几乎全线亏损，说明这是<b>行业性而非公司性</b>的困境。<br><br>
+        <b style="color:#34d399">上行侧</b>：微短剧是唯一高速增长的细分赛道（2026 市场规模预测约 1500 亿，短剧约 400 亿），且 AIGC 大幅降低了制作成本，理论上给中小制作公司提供了"弯道超车"的窗口。9/1《微短剧发展管理办法》正式实施，长期看是<b>规范行业、淘汰劣质产能</b>，对有牌照、有制作能力的正规军偏正面。<br><br>
+        <b style="color:#fbbf24">但必须冷静</b>：行业数据显示约 <b style="color:#f87171">98.7% 的 AI 短剧尚未回本</b>（样本 77 部仅 1 部回本）。短剧赛道的特点是<b>门槛低、竞争者众、爆款率极低</b>——它更像彩票而非护城河。欢瑞在此赛道<b style="color:#fca5a5">尚未有可验证的收入拆分数据</b>，2026H1 财报中也未单独列示短剧收入，<b style="color:#fca5a5">故事与业绩之间仍存在巨大鸿沟。</b>
+      </p>
+    </div>
+  </div>
+  <div class="section-title warn">📡 模块 8 · 技术面与资金流：短线强、中期弱，超买信号已现</div>
+  <div class="section-subtitle">9/1 收盘技术快照 · 各类指标呈现典型"脉冲式反弹"特征</div>
+
+  <div class="table-card">
+    <div class="table-title">📊 均线系统与技术指标（2026-09-01）</div>
+    <table class="compare-table">
+      <tr><th>指标</th><th>数值</th><th>相对现价 4.73</th><th>信号</th></tr>
+      <tr><td>MA5</td><td class="mid">4.11</td><td class="ok">现价高于 15.1%</td><td class="ok">短期多头</td></tr>
+      <tr><td>MA10</td><td class="mid">3.92</td><td class="ok">现价高于 20.7%</td><td class="ok">短期多头</td></tr>
+      <tr><td>MA20</td><td class="mid">4.01</td><td class="ok">现价高于 18.0%</td><td class="ok">短期多头</td></tr>
+      <tr><td>MA30</td><td class="mid">3.81</td><td class="ok">现价高于 24.1%</td><td class="ok">短期多头</td></tr>
+      <tr><td>MA60</td><td class="mid">3.72</td><td class="ok">现价高于 27.2%</td><td class="ok">中期刚翻多</td></tr>
+      <tr><td>MA120</td><td class="warn">4.53</td><td class="warn">现价高于 4.4%</td><td class="warn">刚刚上穿，不牢靠</td></tr>
+      <tr><td>MA250</td><td class="danger">5.81</td><td class="danger">现价低于 18.6%</td><td class="danger">年线仍在上方压制</td></tr>
+      <tr><td>MACD</td><td class="mid">DIF 0.113 / DEA 0.055 / 柱 0.116</td><td class="ok">柱体翻红</td><td class="ok">短线金叉</td></tr>
+      <tr><td>布林带</td><td class="mid">上 4.515 / 中 4.007 / 下 3.499</td><td class="danger">现价 4.73 已<b>突破上轨</b></td><td class="danger">超买，回归压力大</td></tr>
+      <tr><td>KDJ</td><td class="danger">K 72.96 / D 50.78 / J 117.33</td><td class="danger">J 值 &gt; 100</td><td class="danger">严重超买</td></tr>
+      <tr><td>ADX</td><td class="mid">27.89</td><td class="warn">&gt; 25</td><td class="warn">趋势强度确立</td></tr>
+      <tr><td>VR</td><td class="mid">177.85</td><td class="warn">偏高区间</td><td class="warn">量能过热</td></tr>
+    </table>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">💵 资金流与筹码（9/1 及近期）</div>
+    <table class="compare-table">
+      <tr><th>资金类型</th><th>净额</th><th>解读</th></tr>
+      <tr><td>主力净流入（9/1）</td><td class="danger">+3909 万</td><td class="ok">主力资金明显净流入，是当日涨停的直接推力</td></tr>
+      <tr><td>超大单</td><td class="danger">+4635 万</td><td class="warn">大资金主导，典型的游资 / 量化打板特征</td></tr>
+      <tr><td>大单</td><td class="mid">-726 万</td><td class="warn">中大户在涨停板上派发</td></tr>
+      <tr><td>中单</td><td class="mid">-1707 万</td><td class="warn">中户流出</td></tr>
+      <tr><td>小单</td><td class="mid">-2202 万</td><td class="warn">散户流出（涨停板上被洗出）</td></tr>
+      <tr><td>成交额 / 换手（9/1）</td><td class="warn">5618 万 / 1.67%</td><td class="danger"><b>缩量涨停</b>——封单结构看似强，但成交量仅为 8/31 的四分之一，需次日放量验证，否则易成"一日游"</td></tr>
+      <tr><td>北向资金（6/30）</td><td class="mid">1586.44 万股（占流通 2.23%）</td><td class="ok">较上季末 +20.59%，外资在低位有加仓动作</td></tr>
+      <tr><td>龙虎榜（7/13）</td><td class="mid">北向净买 2569.82 万 / 机构净买 6380 万</td><td class="warn">机构曾在 7 月参与，但当时股价约 3.3—3.5 元区间，成本远低于现价</td></tr>
+    </table>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">⚡</div>
+    <div class="text">
+      <h3>技术面结论：短线是"可交易的强"，中期是"待验证的弱"</h3>
+      <p>
+        <b style="color:#34d399">正面</b>：股价已站上 MA5/10/20/30/60/120 六条均线，MACD 柱体翻红、ADX 27.89 确认趋势强度、主力资金净流入 3909 万——短线技术形态<b>确实转强</b>，这是客观事实。<br><br>
+        <b style="color:#f87171">但三个信号必须警惕</b>：① <b>KDJ 的 J 值 117.33</b>，远超 100 的超买阈值；② 股价 <b>4.73 元已突破布林上轨 4.515</b>，统计上回归中轨（4.01）的概率显著上升；③ <b>MA250 年线在 5.81 元</b>，现价仍低于年线 18.6%，<b style="color:#fca5a5">大周期趋势并未反转</b>，本次只是下行趋势中的强反弹。<br><br>
+        <b style="color:#fbbf24">最关键的是量能</b>：9/1 换手仅 1.67%、成交 5618 万，约为 8/31（7.52%、2.26 亿）的四分之一。缩量涨停有两种可能——<b>惜售（好）</b>或<b>接盘不足（坏）</b>，需要次日开盘放量来分辨。<b style="color:#fca5a5">若次日高开低走且成交额放大至 3 亿以上，基本可确认为出货。</b>
+      </p>
+    </div>
+  </div>
+  <div class="section-title danger">🧬 模块 9 · 11 方法论独立打分</div>
+  <div class="section-subtitle">每套方法论独立结论，再按权重汇总。打分范围 0—10，越高越值得投资</div>
+
+  <div class="method-grid">
+    <div class="method-card bad">
+      <div class="method-name">1️⃣ 格雷厄姆 · 深度价值</div>
+      <div class="method-author">Benjamin Graham · 安全边际</div>
+      <div class="method-score bad">2 / 10</div>
+      <div class="method-desc">
+        核心要求"价格显著低于内在价值"。欢瑞 <b>每股净资产 0.52 元 vs 股价 4.73 元</b>，PB 9.18x，<b style="color:#fca5a5">安全边际为负</b>。格雷厄姆对亏损企业的基本要求是"流动资产净值 &gt; 市值"，此处完全不满足。
+      </div>
+    </div>
+
+    <div class="method-card weak">
+      <div class="method-name">2️⃣ 费雪 · 成长股</div>
+      <div class="method-author">Philip Fisher · 15 要点</div>
+      <div class="method-score warn">3 / 10</div>
+      <div class="method-desc">
+        费雪看重"营收增长的可持续性 + 利润率 + 管理层诚信"。欢瑞营收 +25.24% 勉强及格，但 <b style="color:#f87171">毛利率 -8.14%</b> 说明增长靠"赔本赚吆喝"；研发投入与管理层诚信度均无法验证。<b style="color:#fbbf24">失血式扩张，非费雪式成长。</b>
+      </div>
+    </div>
+
+    <div class="method-card bad">
+      <div class="method-name">3️⃣ 林奇 · PEG</div>
+      <div class="method-author">Peter Lynch · GARP</div>
+      <div class="method-score bad">1 / 10</div>
+      <div class="method-desc">
+        PEG 需要正的 EPS 增长率。欢瑞 <b style="color:#f87171">近 4 年 3 次亏损</b>，EPS 为负，PEG 在数学上<b>无定义</b>。林奇对"困境反转股"有专门分类，但要求"资产负债表干净 + 有明确催化剂"，欢瑞两者皆缺。
+      </div>
+    </div>
+
+    <div class="method-card mid">
+      <div class="method-name">4️⃣ 邓普顿 · 逆向投资</div>
+      <div class="method-author">John Templeton · 极度悲观点</div>
+      <div class="method-score warn">4 / 10</div>
+      <div class="method-desc">
+        邓普顿在"最悲观的时刻"买入。欢瑞从 9.87 跌到 2.92（-70%），7/27 见到低点，<b style="color:#fbbf24">情绪确已极度悲观</b>；行业面（票房 -40.6%）也在谷底附近。但邓普顿同时要求<b>"公司能活到反转那天"</b>——欢瑞净资产年化消耗 40%+，<b style="color:#fca5a5">生存能力存疑，故只给 4 分。</b>
+      </div>
+    </div>
+
+    <div class="method-card bad">
+      <div class="method-name">5️⃣ 博格 · 指数投资</div>
+      <div class="method-author">John Bogle · 低成本宽基</div>
+      <div class="method-score bad">1 / 10</div>
+      <div class="method-desc">
+        博格框架下，任何单一个股都不应成为核心配置，何况是 <b style="color:#f87171">46 亿市值、0 分红、连年亏损、高质押</b>的微盘题材股。此框架本质是"拒绝参与"，1 分表示完全不适用。
+      </div>
+    </div>
+
+    <div class="method-card weak">
+      <div class="method-name">6️⃣ 马克斯 · 周期定位</div>
+      <div class="method-author">Howard Marks · 钟摆与周期</div>
+      <div class="method-score warn">3 / 10</div>
+      <div class="method-desc">
+        马克斯问"钟摆现在在哪"。影视行业目前处于<b>收缩期中段</b>——票房 -40.6%、同业普遍亏损、平台压价，<b style="color:#fca5a5">尚未见到明确的出清信号</b>（没有大规模产能退出或并购整合）。短剧是新钟摆，但欢瑞的位置尚未确立。
+      </div>
+    </div>
+
+    <div class="method-card bad">
+      <div class="method-name">7️⃣ 巴菲特 · 护城河</div>
+      <div class="method-author">Warren Buffett · 经济特许权</div>
+      <div class="method-score bad">2 / 10</div>
+      <div class="method-desc">
+        检验四要素：品牌（IP 半衰期短，3/10）、转换成本（平台可自由换供应商，1/10）、网络效应（不存在，1/10）、成本优势（毛利率为负，2/10）。<b style="color:#fca5a5">无一项达标，综合 2 分。</b>
+      </div>
+    </div>
+
+    <div class="method-card best">
+      <div class="method-name">8️⃣ 凯恩斯 · 选美理论</div>
+      <div class="method-author">Keynes · 猜别人会选谁</div>
+      <div class="method-score good">7 / 10</div>
+      <div class="method-desc">
+        不问"它值多少钱"，只问"<b>别人会不会觉得它好</b>"。欢瑞是当前 AI 短剧主题下<b style="color:#34d399">最标准的"选美标的"</b>：低市值、低价、超跌、有真实牌照、题材契合度高、筹码集中。<b style="color:#fbbf24">这是本报告中唯一的高分维度。</b>
+      </div>
+    </div>
+
+    <div class="method-card mid">
+      <div class="method-name">9️⃣ 西蒙斯 · 量化动量</div>
+      <div class="method-author">Jim Simons · 统计套利</div>
+      <div class="method-score warn">5 / 10</div>
+      <div class="method-desc">
+        动量因子（5 日 +26.47%、20 日 +13.43%）强；资金因子（主力净流入 3909 万）正面；但<b style="color:#fbbf24">反转因子发出警告</b>——KDJ J 值 117、股价破布林上轨，短周期均值回归概率上升。多空因子对冲后中性。
+      </div>
+    </div>
+
+    <div class="method-card bad">
+      <div class="method-name">🔟 达里奥 · 全天候</div>
+      <div class="method-author">Ray Dalio · 风险平价</div>
+      <div class="method-score bad">1 / 10</div>
+      <div class="method-desc">
+        全天候要求资产在四种经济环境中都有稳定表现。欢瑞是 <b style="color:#f87171">高 beta、零息、负盈利、低流动性</b>的单一权益资产，在任何经济情景下都无法提供稳定回报，且与其他资产相关性高（同涨同跌），<b style="color:#fca5a5">不具备分散化价值。</b>
+      </div>
+    </div>
+
+    <div class="method-card mid">
+      <div class="method-name">1️⃣1️⃣ 索罗斯 · 反身性</div>
+      <div class="method-author">George Soros · 正反馈循环</div>
+      <div class="method-score warn">6 / 10</div>
+      <div class="method-desc">
+        索罗斯寻找"认知与现实互相强化"的循环。当前<b style="color:#34d399">正反馈正在形成</b>：微短剧新规落地 → 板块情绪升温 → 欢瑞涨停 → 媒体点名"AI 短剧三驾马车" → 更多资金关注。<b style="color:#fbbf24">但反身性也会反向作用</b>——一旦题材证伪，下跌同样陡峭。
+      </div>
+    </div>
+  </div>
+
+  <div class="radar-wrap">
+    <div class="radar-title">📡 六维能力雷达（估值 / 成长 / 财务 / 护城河 / 治理 / 技术）</div>
+    <svg class="radar-svg" viewBox="0 0 520 440">
+      <g transform="translate(260,205)">
+        <polygon points="0,-160 138.56,-80 138.56,80 0,160 -138.56,80 -138.56,-80" fill="none" stroke="rgba(148,163,184,0.15)" stroke-width="1"/>
+        <polygon points="0,-128 110.85,-64 110.85,64 0,128 -110.85,64 -110.85,-64" fill="none" stroke="rgba(148,163,184,0.15)" stroke-width="1"/>
+        <polygon points="0,-96 83.14,-48 83.14,48 0,96 -83.14,48 -83.14,-48" fill="none" stroke="rgba(148,163,184,0.15)" stroke-width="1"/>
+        <polygon points="0,-64 55.43,-32 55.43,32 0,64 -55.43,32 -55.43,-32" fill="none" stroke="rgba(148,163,184,0.15)" stroke-width="1"/>
+        <polygon points="0,-32 27.71,-16 27.71,16 0,32 -27.71,16 -27.71,-16" fill="none" stroke="rgba(148,163,184,0.15)" stroke-width="1"/>
+
+        <line x1="0" y1="0" x2="0" y2="-160" stroke="rgba(148,163,184,0.18)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="138.56" y2="-80" stroke="rgba(148,163,184,0.18)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="138.56" y2="80" stroke="rgba(148,163,184,0.18)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="0" y2="160" stroke="rgba(148,163,184,0.18)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="-138.56" y2="80" stroke="rgba(148,163,184,0.18)" stroke-width="1"/>
+        <line x1="0" y1="0" x2="-138.56" y2="-80" stroke="rgba(148,163,184,0.18)" stroke-width="1"/>
+
+        <polygon points="0,-32 41.57,-24 27.71,16 0,32 -27.71,16 -96.99,-56"
+                 fill="rgba(239,68,68,0.25)" stroke="#f87171" stroke-width="2"/>
+
+        <circle cx="0" cy="-32" r="4" fill="#f87171"/>
+        <circle cx="41.57" cy="-24" r="4" fill="#f87171"/>
+        <circle cx="27.71" cy="16" r="4" fill="#f87171"/>
+        <circle cx="0" cy="32" r="4" fill="#f87171"/>
+        <circle cx="-27.71" cy="16" r="4" fill="#f87171"/>
+        <circle cx="-96.99" cy="-56" r="5" fill="#fbbf24"/>
+
+        <text x="0" y="-178" fill="#f87171" font-size="13" font-weight="700" text-anchor="middle">估值 2</text>
+        <text x="152" y="-88" fill="#cbd5e1" font-size="13" text-anchor="start">成长 3</text>
+        <text x="152" y="94" fill="#cbd5e1" font-size="13" text-anchor="start">财务 2</text>
+        <text x="0" y="182" fill="#cbd5e1" font-size="13" text-anchor="middle">护城河 2</text>
+        <text x="-152" y="94" fill="#cbd5e1" font-size="13" text-anchor="end">治理 2</text>
+        <text x="-152" y="-88" fill="#fbbf24" font-size="13" font-weight="700" text-anchor="end">技术 7</text>
+      </g>
+    </svg>
+    <div style="color:#94a3b8; font-size:11px; margin-top:6px;">
+      六个维度中五项 ≤ 3 分，唯一亮点是技术动量（7 分）——<b style="color:#fbbf24">这是典型的"动量强、质地弱"结构</b>，与"减持"评级一致
+    </div>
+  </div>
+  <div class="section-title danger">⚖️ 模块 10 · 加权汇总与最终评级</div>
+  <div class="section-subtitle">权重依据方法论 SOP：价值 / 周期 / 护城河类权重最高，博弈类权重最低</div>
+
+  <div class="table-card">
+    <div class="table-title">⚖️ 11 方法论加权汇总表</div>
+    <table class="compare-table">
+      <tr><th>方法论</th><th>得分</th><th>权重</th><th>加权值</th><th>核心理由（一句话）</th></tr>
+      <tr><td>格雷厄姆 · 深度价值</td><td class="danger">2</td><td class="hl">15%</td><td class="danger">0.30</td><td>PB 9.18x，每股净资产 0.52 元，安全边际为负</td></tr>
+      <tr><td>邓普顿 · 逆向投资</td><td class="warn">4</td><td class="hl">15%</td><td class="warn">0.60</td><td>情绪已极度悲观，但公司生存能力存疑</td></tr>
+      <tr><td>马克斯 · 周期定位</td><td class="warn">3</td><td class="hl">15%</td><td class="warn">0.45</td><td>行业收缩期中段，尚未见出清信号</td></tr>
+      <tr><td>巴菲特 · 护城河</td><td class="danger">2</td><td class="hl">15%</td><td class="danger">0.30</td><td>项目制手艺活，四要素无一达标</td></tr>
+      <tr><td>费雪 · 成长股</td><td class="warn">3</td><td class="hl">10%</td><td class="warn">0.30</td><td>营收增但毛利率 -8.14%，失血式扩张</td></tr>
+      <tr><td>林奇 · PEG</td><td class="danger">1</td><td class="hl">10%</td><td class="danger">0.10</td><td>连续亏损，PEG 无数学定义</td></tr>
+      <tr><td>凯恩斯 · 选美理论</td><td class="ok">7</td><td class="hl">5%</td><td class="ok">0.35</td><td>AI 短剧主题下最标准的博弈标的</td></tr>
+      <tr><td>西蒙斯 · 量化动量</td><td class="warn">5</td><td class="hl">5%</td><td class="warn">0.25</td><td>动量强但超买信号已现，因子对冲后中性</td></tr>
+      <tr><td>索罗斯 · 反身性</td><td class="warn">6</td><td class="hl">5%</td><td class="warn">0.30</td><td>正反馈正在形成，但反向同样陡峭</td></tr>
+      <tr><td>博格 · 指数投资</td><td class="danger">1</td><td class="hl">5%</td><td class="danger">0.05</td><td>微盘亏损题材股，完全不适用</td></tr>
+      <tr><td>达里奥 · 全天候</td><td class="danger">1</td><td class="hl">5%</td><td class="danger">0.05</td><td>高 beta 零息负盈利，无分散化价值</td></tr>
+      <tr style="background:rgba(239,68,68,0.12);">
+        <td><b>加权综合得分</b></td><td>—</td><td class="hl">100%</td><td class="danger"><b>3.05</b></td><td><b class="danger">→ 四舍五入 3.1 / 10</b></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num bad">2</div>
+      <div class="score-name">估值吸引力</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+      <div class="score-out">PB 9.18x · 安全边际为负</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">3</div>
+      <div class="score-name">成长质量</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:30%"></div></div>
+      <div class="score-out">增收不增利 · 毛利率 -8.14%</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">2</div>
+      <div class="score-name">财务健康</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+      <div class="score-out">ROE -25.52% · 净资产 -20.37%</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">2</div>
+      <div class="score-name">护城河</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+      <div class="score-out">项目制 · 无定价权</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">2</div>
+      <div class="score-name">治理质量</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+      <div class="score-out">质押 30.64% · 涉诉 5.32 亿</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">7</div>
+      <div class="score-name">技术动量</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">站上六条均线 · 但已超买</div>
+    </div>
+  </div>
+
+  <div class="final-verdict">
+    <h2>🎯 最终裁决</h2>
+    <div class="rating">减持 · 3.1/10</div>
+    <div class="comment">
+      评级区间映射：<b style="color:#fca5a5">2.0—3.4 = 减持</b>（7.0+ 买入 / 5.0—6.9 谨慎买入 / 3.5—4.9 持有观察 / 2.0—3.4 减持 / &lt;2.0 清仓回避）。<br>
+      欢瑞世纪在 11 套方法论中<b>仅 2 套（凯恩斯、索罗斯）给出正面评价，且这两套本质是"博弈框架"而非"价值框架"</b>；所有价值、质量、周期、配置框架均给出不及格分数。<br>
+      <b style="color:#fbbf24">结论：本次涨停是题材事件驱动，不是基本面拐点。已有持仓者应利用流动性兑现，未持仓者不建议追高。</b>
+    </div>
+  </div>
+  <div class="section-title warn">🎯 模块 11 · 操作策略与建议（分三档）</div>
+  <div class="section-subtitle">按投资者类型分 6 档：已有持仓（防御）/ 未持仓（规避）/ 题材交易者（小仓位主攻）/ 目标价区间 / 监控信号 / 仓位与周期 —— 请对号入座</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">🟡 档位 A · 已有持仓者（防御为主）</div>
+      <div class="strategy-content">
+        <b>核心动作：<span class="hl-warn">利用本次连板分批减仓，不追加</span></b><br>
+        · 第一批：<span class="hl-warn">4.50—4.73 元</span> 减 <b>40%</b>（当前价即可执行，流动性最好）<br>
+        · 第二批：<span class="hl-warn">4.20—4.40 元</span> 再减 <b>30%</b>（若冲高回落至该区间）<br>
+        · 第三批：<span class="hl-warn">3.80—4.00 元</span> 清仓剩余（对应 MA20 / MA30 支撑区）<br>
+        · <b>触发即走</b>：任一时点<b>放量跌破 4.00 元</b>（布林中轨 4.007 + MA20 4.01 附近），<span class="hl-danger">剩余仓位全部离场，不再等待</span><br>
+        · <b>不建议做 T</b>：微盘题材股的日内波动由游资主导，散户做 T 胜率极低
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🔴 档位 B · 未持仓 / 价值型资金（规避）</div>
+      <div class="strategy-content">
+        <b>核心动作：<span class="hl-danger">完全规避，不参与</span></b><br>
+        · <span class="hl-danger">不建议新建仓</span>：PB 9.18x、连续亏损、0 分红、高质押，任何价值/配置框架下均不合格<br>
+        · 若确实要博短线，<b>仓位上限 ≤ 总资金 2%</b>，并预设 -8% 硬止损（<span class="hl-danger">4.35 元</span>）<br>
+        · <b>绝对禁止</b>：融资买入、重仓押注、把短线博弈做成"长期套牢后价值投资"<br>
+        · 真正值得等的是<b>右侧信号</b>：单季毛利率转正 + 经营现金流转正 + 短剧收入单独披露，三者同时出现再考虑
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">🟢 档位 C · 趋势 / 题材交易者（小仓位主攻）</div>
+      <div class="strategy-content">
+        <b>核心动作：<span class="hl-ok">仅在严格纪律下小仓位参与</span></b><br>
+        · 参与前提：<span class="hl-info">次日开盘必须放量</span>（成交额 ≥ 1.5 亿），缩量高开则放弃<br>
+        · 持仓条件：<b>股价站稳 MA5（4.11 元）之上</b>方可持有<br>
+        · 止盈参考：<span class="hl-ok">5.20—5.50 元</span>（对应 MA120 上方与前期密集成交区下沿）<br>
+        · 止损纪律：<span class="hl-danger">跌破 4.00 元立即无条件离场</span>，不摊薄、不补仓<br>
+        · 持有周期：<span class="hl-purple">≤ 5 个交易日</span>，这是事件驱动行情，不做波段转中线
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">🟣 档位 D · 目标价区间（3 个月视角，情景推演）</div>
+      <div class="strategy-content">
+        <b>保守情景（概率约 45%）：</b><span class="hl-danger">2.80—3.20 元</span><br>
+        &nbsp;&nbsp;题材退潮 + 三季报延续亏损 → 回踩 7/27 低点 2.92 附近<br>
+        <b>中性情景（概率约 40%）：</b><span class="hl-warn">3.50—4.20 元</span><br>
+        &nbsp;&nbsp;题材降温但无新增利空 → 在 MA30—MA60 区间震荡<br>
+        <b>乐观情景（概率约 15%）：</b><span class="hl-ok">5.50—6.50 元</span><br>
+        &nbsp;&nbsp;短剧/AIGC 业务落地大单 + 行业政策持续加码 → 挑战年线 5.81<br>
+        <span style="color:#64748b">（以上为情景推演，非预测；公司无卖方一致预期，无机构目标价可参考）</span>
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">🔵 档位 E · 关键监控信号（触发即重估）</div>
+      <div class="strategy-content">
+        <b>看多信号（任一出现即上调评级）：</b><br>
+        · <span class="hl-ok">三季报单季毛利率转正</span>（当前 -8.14%）<br>
+        · <span class="hl-ok">短剧 / AIGC 业务首次单独披露收入</span>且单季 ≥ 5000 万<br>
+        · <span class="hl-ok">前实控人质押违约问题实质性解决</span>（5.32 亿涉诉了结）<br>
+        · <span class="hl-ok">经营现金流转正</span>（当前 -2371 万）<br><br>
+        <b>看空信号（任一出现即下调至清仓回避）：</b><br>
+        · <span class="hl-danger">大比例计提减值</span>导致净资产进一步大幅缩水<br>
+        · <span class="hl-danger">收到交易所问询函 / 监管处罚</span><br>
+        · <span class="hl-danger">前实控人持股被司法拍卖或强制划转</span><br>
+        · <span class="hl-danger">次日高开低走 + 成交额放大至 3 亿以上</span>（确认为出货）
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">🟣 档位 F · 仓位与周期建议</div>
+      <div class="strategy-content">
+        · <b>建议仓位：</b><span class="hl-danger">价值型 0%</span> / 题材型 ≤ 2%<br>
+        · <b>持有周期：</b><span class="hl-purple">题材型 ≤ 5 个交易日</span>，不留过夜不加仓<br>
+        · <b>硬止损：</b><span class="hl-danger">4.00 元</span>（较现价 -15.4%），跌破即走<br>
+        · <b>加仓条件：</b><span class="hl-info">不建议加仓</span>——基本面未提供任何加仓依据<br>
+        · <b>时间窗口：</b>密切关注 <span class="hl-warn">2026 年三季报（通常 10 月下旬披露）</span>，这是验证"亏损是否延续"的最近节点
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">🚩 模块 12 · 核心风险揭示（五条）</div>
+  <div class="section-subtitle">按"发生概率 × 冲击强度"排序</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 风险一 · 主题退潮风险（概率高 / 冲击强）</div>
+      <div class="risk-desc">
+        本轮上涨完全由 AI 短剧主题驱动（9/1 新规落地 +《后西游记》上线）。一旦《后西游记》播放数据不及预期，或板块龙头切换，<b>整个板块会集体杀跌</b>，欢瑞作为跟风小票跌幅往往大于龙头。历史上该股 2/13 曾跌停，波动性极大。<b style="color:#fca5a5">这是当前最可能发生、也最需要防范的风险。</b>
+      </div>
+    </div>
+
+    <div class="risk-card">
+      <div class="risk-title">🔻 风险二 · 实控人层面债务与被动减持（概率中高 / 冲击强）</div>
+      <div class="risk-desc">
+        前实控人钟君艳 + 陈援 + 浙江欢瑞合计持股 12.77%，因质押违约被动减持，涉诉标的约 <b>5.32 亿</b>，<b style="color:#fca5a5">仍存在被执行风险</b>；整体质押比例 <b>30.64%</b>（鹰眼"风险"类）。若股价再次下跌触发平仓线，将形成"下跌 → 平仓 → 再下跌"的负反馈，且司法拍卖会直接在二级市场形成抛压。
+      </div>
+    </div>
+
+    <div class="risk-card">
+      <div class="risk-title">🔻 风险三 · 财务持续恶化与退市风险（概率中 / 冲击极强）</div>
+      <div class="risk-desc">
+        2026H1 归母 -1.44 亿、净资产半年消耗 20.37% 至 5.06 亿。按此速度约 <b>1.7 年净资产逼近 0</b>。若 2026 全年营收低于 3 亿且净利润为负，或净资产为负，将触发 <b style="color:#fca5a5">退市风险警示（*ST）</b>。此外应收账款周转率仅 0.59 次、存货周转 0.79 次，<b>大额减值计提的可能性不能排除</b>。
+      </div>
+    </div>
+
+    <div class="risk-card warn">
+      <div class="risk-title">🟡 风险四 · 历史业绩补偿悬而未决（概率中 / 冲击中）</div>
+      <div class="risk-desc">
+        2016 年借壳重组时的业绩承诺累计约 <b>8.99 亿未达成</b>（2.41 + 2.90 + 3.68 亿）。补偿义务能否履行、以何种方式履行（现金 / 股份）仍存在不确定性。这一历史遗留问题既影响报表（补偿收益确认时点），也影响市场对管理层诚信度的判断。
+      </div>
+    </div>
+
+    <div class="risk-card warn">
+      <div class="risk-title">🟡 风险五 · AI 短剧行业洗牌风险（概率高 / 冲击中）</div>
+      <div class="risk-desc">
+        行业数据显示约 <b style="color:#fbbf24">98.7% 的 AI 短剧尚未回本</b>（样本 77 部仅 1 部回本）。短剧赛道门槛低、竞争极度激烈、爆款率极低。9/1《微短剧发展管理办法》实施后，<b>合规成本上升 + 平台分成规则调整</b>可能进一步压缩中小制作方的利润空间。<b>欢瑞能否在此赛道真正赚到钱，目前无任何财报数据支撑。</b>
+      </div>
+    </div>
+
+    <div class="risk-card info">
+      <div class="risk-title">🟣 补充观察 · 流动性与信息劣势</div>
+      <div class="risk-desc">
+        股东户数降至 4.02 万户、换手率波动剧烈（9/1 仅 1.67% vs 8/31 的 7.52%），说明<b>筹码集中但流动性不稳定</b>。同时该股长期缺乏卖方覆盖、无一致预期目标价，<b style="color:#c084fc">散户在信息获取上处于明显劣势</b>——你所看到的题材逻辑，很可能是资金希望你看到的。
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📌 模块 13 · 核心结论 · 六条</div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 一句话总结：这是一家"故事很好、报表很差"的公司，短线可博弈，中线不可持有</div>
+
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><b>涨停与基本面无关：</b>9/1 涨停 +10.00% 是 AI 短剧主题事件驱动（微短剧新规 9/1 落地 + 芒果 TV《后西游记》AIGC 剧 8/31 上线），<b>公司自身 2026H1 亏损反而同比扩大 2147.62% 至 -1.44 亿</b>。题材与业绩严重背离。</p>
+    </div>
+
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><b>"越卖越亏"是最致命的问题：</b>营收 +25.24% 看似增长，但毛利率 <b>-8.14%</b>、净利率 -58.05%、ROE -25.52%。在这种成本结构下，营收增长是<b>亏损放大器</b>而非利好。影视剧收入 +45.57% 反而带来了更大的亏损。</p>
+    </div>
+
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><b>估值没有任何安全垫：</b>每股净资产仅 0.52 元，股价 4.73 元 = 净资产的 9.1 倍（PB 9.18x），<b>在连亏损的同业里也是最贵的一档</b>（慈文 2.38x / 百纳 2.25x / 北京文化 4.95x）。0 分红、PE 为负、PS 估算约 8.8x，格雷厄姆口径下安全边际为负。</p>
+    </div>
+
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><b>治理风险是硬伤：</b>整体质押 30.64%（鹰眼"风险"类）、前实控人持股质押违约涉诉约 5.32 亿仍存被执行风险、2016 年重组业绩补偿 8.99 亿未了结。这类标的通常被机构<b>直接列入禁投池</b>，也解释了为何长期无卖方覆盖。</p>
+    </div>
+
+    <div class="conclusion-item">
+      <span class="num">5</span>
+      <p><b>技术面强但已超买：</b>股价站上 MA5/10/20/30/60/120 六条均线，MACD 柱体翻红、主力净流入 3909 万——短线确实转强。但 <b>KDJ 的 J 值 117.33、股价突破布林上轨 4.515</b>，且 MA250 年线（5.81）仍在上方压制，<b>大周期趋势并未反转</b>，9/1 换手仅 1.67% 的缩量涨停需次日放量验证。</p>
+    </div>
+
+    <div class="conclusion-item">
+      <span class="num">6</span>
+      <p><b>最终评级：减持（3.1/10）。</b>11 方法论中仅凯恩斯（7 分）与索罗斯（6 分）两个<b>博弈框架</b>给出正面评价，价值 / 质量 / 周期 / 配置框架全线不及格。<b>已有持仓者应利用本次连板分批减仓（4.50—4.73 减 40%），未持仓者不建议追高；情景推演 3 个月目标区间：保守 2.80—3.20 / 中性 3.50—4.20 / 乐观 5.50—6.50 元。</b></p>
+    </div>
+  </div>
+
+  <div class="quote-card">
+    <div class="quote-text">"在别人贪婪时恐惧，在别人恐惧时贪婪——但前提是，你得先确认这家公司还活着。"</div>
+    <div class="quote-author">— 改编自沃伦·巴菲特（针对困境反转股的必要约束）</div>
+  </div>
+
+  <div class="footer">
+    📅 数据日期：2026-09-01（周二收盘） · 📊 数据来源：腾讯自选股 / 东方财富行情快照 / 深交所公司公告（2026H1 半年报） / 申万行业分类 / 公开新闻（微短剧新规、AIGC 剧上线）<br>
+    🧠 分析框架：11 方法论（格雷厄姆 / 费雪 / 林奇 / 邓普顿 / 博格 / 马克斯 / 巴菲特 / 凯恩斯 / 西蒙斯 / 达里奥 / 索罗斯）× 13 模块<br>
+    ⚠️ 免责声明：本报告为基于公开信息的方法论演示与投资研究记录，<b>不构成任何投资建议</b>。所载数据未经审计，部分指标（PS、全年亏损、目标价区间）为估算或情景推演，已在正文标注。股市有风险，投资需谨慎，据此操作风险自担。
+  </div>
+
+</div>
+</body>
+</html>

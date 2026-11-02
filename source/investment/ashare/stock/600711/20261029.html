@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-10-29 盛屯矿业 (600711) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(239,68,68,0.22), rgba(245,158,11,0.16), rgba(168,85,247,0.10));
+    border: 1px solid rgba(239,68,68,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.28), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #f87171, #fbbf24, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-title.info { border-left-color: #38bdf8; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#fca5a5; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(56,189,248,0.10));
+    border: 1px solid rgba(16,185,129,0.45); border-left: 5px solid #34d399;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner.info { border-color:rgba(56,189,248,0.4); border-left-color:#38bdf8;
+    background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(168,85,247,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#34d399; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner.info .text h3 { color:#7dd3fc; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { font-size:11px; color:#94a3b8; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.warn { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(245,158,11,0.18), rgba(56,189,248,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(245,158,11,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#fbbf24; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:820px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(16,185,129,0.10), rgba(56,189,248,0.10));
+    border:1px solid rgba(56,189,248,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #34d399; }
+  .conclusion-item .num { display:inline-block; background:#34d399; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>🏔️ 盛屯矿业 (600711) · 11 方法论综合投资分析</h1>
+  <div class="subtitle">刚果金铜钴 + 印尼镍 + 国内铅锌金 · 基本盘已切换为「铜」（2026H1 能源金属占收入 75.5%）· 股价 YTD -43.9% 创新低，PE-TTM 处 5 年 15.2% 分位 · 10-31 三季报为最近验证节点</div>
+  <div class="badges">
+    <span class="badge badge-warning">🎯 综合评级：<b>谨慎买入 5.10/10</b>（低估值 + 量增可验证，但治理污点与 61.69% 负债率压制上限）</span>
+    <span class="badge badge-source">📅 数据日期：2026-10-29（周四）10:49 盘中快照 · 生成 2026-10-29</span>
+    <span class="badge badge-source">📊 股价 8.47 元 · 总市值 261.77 亿 · PE-TTM 9.65 · PB 1.48</span>
+    <span class="badge badge-purple">🧠 格雷厄姆 + 邓普顿 + 马克斯 + 巴菲特 等 11 方法论 × 12 模块</span>
+    <span class="badge badge-success">✅ 2026H1 归母 18.04 亿（+71.37%）· 铜产量 13.32 万吨（+29.82%）· 经营现金流 22.85 亿</span>
+    <span class="badge badge-danger">⚠️ 今日 8.42 创年内新低 · 主力 32 日净流出 5.75 亿 · 卡隆威可采年限仅 3.42 年</span>
+  </div>
+</div>
+
+<div class="data-note">
+  <strong>📌 数据来源与口径说明（行情基准 2026-10-29 10:49:43 盘中快照；生成于 2026-10-29）：</strong><br>
+  ✅ 行情双源核验：股价 <span class="info">8.47 元</span>（腾讯证券 qt.gtimg.cn 8.47 / 东方财富 push2 8.48，同一时点）；总市值 <span class="info">261.77 亿元</span>（腾讯 30.906 亿股 × 8.47，自算 261.71 亿）/ 东财 262.08 亿；总股本 = 流通股本 = 30.9061 亿股（东财 f84/f85 均为 3,090,611,551），<span class="info">全流通</span><br>
+  ✅ 估值双源 + 内部一致性校验：PE-TTM <span class="ok">9.65</span>（腾讯）/ PE 动 7.26（东财 f162）/ PE 静 13.35（腾讯）；PB <span class="ok">1.48</span>（腾讯 f46 与东财 f167 一致）；按 2026H1 归母净资产 178.76 亿自算每股净资产 5.78 元 → PB 1.46。<b>三口径自洽验证：TTM 归母 = 2025A 19.61 + 2026H1 18.04 − 2025H1 10.52 = 27.12 亿，261.77 ÷ 27.12 = 9.65</b>，与腾讯 PE-TTM 完全吻合<br>
+  ✅ 2026H1 财务（公司 2026 年半年度报告，<b>2026-07-30 公告原文</b>）：营业收入 <span class="ok">192.64 亿元（+39.56%）</span>、归母净利 <span class="ok">18.04 亿元（+71.37%）</span>、扣非归母 19.13 亿元（+64.63%）、经营现金流 22.85 亿元（+29.49%）、总资产 505.81 亿元、归母净资产 178.76 亿元、资产负债率 <span class="danger">61.69%（较年初 +2.85pct）</span>、基本 EPS 0.595 元、加权 ROE 10.471%（+3.863pct，扣非 11.106%）；非经常性损益 <span class="warn">-1.09 亿元</span>（公允价值变动及处置 -1.72 亿）；境外资产 247.81 亿元（占总资产 48.99%）；Q1 营收 93.54 亿 / 归母 10.20 亿，<b>Q2 营收 99.10 亿 / 归母 7.84 亿（环比 -23%）</b><br>
+  ✅ 2025A（<b>2026-03-20 年报</b>）：营收 300.03 亿元（+16.60%）、归母 <span class="danger">19.61 亿元（-2.19%）</span>、扣非 25.29 亿元（+38.54%）、毛利率 19.13%、经营现金流 25.92 亿元（-6.19%）、资产负债率 58.84%、加权 ROE 12.135%；2025Q4 单季归母 2.60 亿（环比 -59.97%）、Q4 经营现金流 <span class="danger">-4.84 亿元</span>。2024A 营收 257.30 亿 / 归母 20.05 亿 / 毛利率 19.50% / 负债率 54.97%；2023A 营收 244.56 亿 / 归母 <span class="danger">2.65 亿</span> / 毛利率 11.02% / 负债率 57.04%<br>
+  ✅ 产量（公司公告）：2025 年铜 20.74 万吨（+17.48%）、钴 0.92 万吨（-30.58%）、镍 4.94 万吨（+50.42%）、锌 32.63 万吨；2026H1 铜 <span class="ok">13.32 万金属吨（+29.82%）</span>、钴 0.37 万（-32.73%）、镍 2.12 万（-13.47%）、刚果金铜 13.22 万吨（BMS 7.44 万吨）；2026 年计划铜 23 / 钴 1.5 / 镍 6 / 锌 30 万吨、黄金 380 公斤<br>
+  ✅ 主营构成（2025 年报分产品）：铜 140.71 亿（占 46.90%，毛利率 28.88%）、锌 64.69 亿（21.56%，毛利率 <span class="danger">-5.27%</span>）、镍 42.86 亿（14.29%，毛利率 <span class="danger">0.32%</span>）、贸易服务及其他 37.92 亿（12.64%，毛利率 35.75%）、钴 10.11 亿（3.37%，毛利率 53.76%）；<b>2026H1 分板块：能源金属 145.43 亿占 75.49%（毛利率 27.03%）、基本金属 42.13 亿占 21.87%（9.50%）、贸易及其他 5.09 亿占 2.64%</b><br>
+  ✅ 技术指标（腾讯前复权 K 线 321 根，2025-07-02~2026-10-29 自行计算）：MA5/10/20/60/120/250 = 8.59/8.90/9.46/10.63/11.08/12.31；MACD DIF -0.5841 / DEA -0.5140 / 柱 -0.1402（前三日 -0.2108 / -0.1812 / -0.1483）；RSI14 <span class="info">24.38</span>；BOLL20 上 10.74 / 中 9.46 / 下 8.18；52 周区间取<b>不复权</b>口径 <span class="danger">8.42 ~ 18.73</span>（腾讯不复权 K 线，250 个交易日）<br>
+  ✅ 资金流（东方财富 fflow 逐日接口，<b>2026-09-02~2026-10-23 共 32 个交易日</b>）：主力净额 <span class="danger">-5.75 亿元</span>（超大单 -2.62 亿 / 大单 -3.13 亿 / 中单 -0.53 亿 / 小单 +6.29 亿），32 日中仅 9 日主力净流入；近 30 日主力 -5.23 亿，近 10 日 -3.59 亿<br>
+  ✅ 机构持仓（东财 RPT_F10_MAIN_ORGHOLD 全部机构合计口径）：占流通比例 2025-12-31 <span class="danger">34.50%</span> → 2026-03-31 <span class="danger">25.21%</span>（-9.29pct）→ 2026-06-30 27.97%（+2.76pct）；2026-09-30 为 <span class="warn">1.01%（IS_COMPLETE=0，披露未完成，不可比）</span><br>
+  ✅ 北向资金：2026-09-30 持股 2644.33 万股、占 A 股 <span class="info">0.86%</span>、持股市值 2.68 亿元、环比 -1.46%（东财 RPT_MUTUAL_HOLDSTOCKNORTH_STA）；<span class="warn">因沪深港通个股披露机制调整，北向日度数据已不提供，近 30 日日度净流入数据缺口</span><br>
+  ✅ 估值分位（东财 RPT_VALUEANALYSIS_DET，2021-01-04~2026-10-28，1408 个交易日）：PE-TTM 当前 9.91（10-28 收盘口径），5 年区间 7.83–67.52、中位 21.31 → <span class="ok">15.2% 分位</span>；PB(MRQ) 当前 1.50，5 年区间 0.71–3.42、中位 1.52 → <span class="warn">49.5% 分位</span><br>
+  ✅ 同业快照（2026-10-28 收盘同一时刻，腾讯接口）：洛阳钼业 PE 10.00 / PB 3.18 / 市值 3008 亿、华友钴业 9.42 / 1.16 / 584 亿、紫金矿业 10.40 / 3.56 / 7432 亿、江西铜业 10.93 / 1.39 / 1266 亿、西部矿业 9.80 / 2.93 / 734 亿、金诚信 12.16 / 2.97 / 374 亿<br>
+  ✅ 机构预期（同花顺 F10 盈利预测，<b>截至 2026-10-29，仅 5 家机构</b>）：2026E EPS 均值 1.11 元（1.03–1.19）、归母 34.26 亿元（+74.67%）、营收 357.11 亿元（+19.02%）；2027E EPS 1.45 / 净利 44.82 亿；2028E EPS 1.81 / 净利 56.12 亿；评级 <span class="ok">买入 4 + 增持 1</span>，无中性及以下；<span class="warn">目标价字段为空（无目标价数据）</span><br>
+  ⚠️ 数据缺口：<span class="warn">2026 三季报截至 2026-10-29 尚未披露</span>（公司预约披露日 2026-10-31）；北向资金近 30 日日度数据；公募/社保/QFII 分类型持仓明细；应收账款与存货周转天数的绝对值（仅可推算存货）；自由现金流（资本开支明细未取得）；2026H1 分产品（铜/钴/镍/锌）收入与毛利率（半年报仅按板块与地区披露）；权益资源量（公司仅披露资源量/储量，未披露权益调整后口径）；SMM 电解钴 23 万元/吨原始报价页（仅取得新闻转述）；2026-08-06 刚果金禁止铜/钴精矿出口行政指令原文与税率细则；<span class="warn">资金流 2026-10-26 至 10-29 共 4 个交易日因接口限流未能取得</span><br>
+  📊 <strong>关键定性：</strong>公司基本面已从 2023 年的困境反转切换为 <b style="color:#34d399">「铜驱动的高盈利 + 钴拖累的结构分化」</b>——2026H1 归母 18.04 亿已相当于 2025 全年的 92%，且扣非增速（+64.63%）高于归母增速；<b style="color:#fbbf24">但股价同期 YTD -43.92%、今日 8.42 创年内新低，估值被动压缩至 PE 5 年 15.2% 分位</b>；<b style="color:#fca5a5">真正的压力不在当下盈利，而在三处结构性约束：① 电解钴价从 42 万元/吨（H1 均价）跌至 23 万元/吨（10-23），117.76 亿元存货面临 Q4 跌价计提；② 卡隆威可采年限仅 3.42 年，Nkoyi（30% 权益）基建 18 个月 + 达产 24 个月，产量接续缺口落在 2028–2029；③ 61.69% 资产负债率、200.85 亿元有息负债、113.15 亿元对外担保（占净资产 63.30%），叠加 2024 年证监会立案与会计差错更正史</b>。
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">🏔️</div>
+  <div class="text">
+    <h3>11 方法论交叉结论：低估值 + 量增兑现 vs 治理污点 + 高杠杆 + 钴价退潮 —— 评级「谨慎买入 5.10/10」，只配试仓</h3>
+    <p>
+      盛屯矿业在 <b style="color:#fbbf24">林奇 PEG（7 分）、格雷厄姆深度价值（5 分）、邓普顿逆向（6 分）、费雪成长（6 分）</b>框架下分布相对均衡；<b style="color:#38bdf8">马克斯周期（5 分）、凯恩斯选美（5 分）、索罗斯反身性（5 分）</b>中性；<b style="color:#f87171">巴菲特护城河（4 分，资源禀赋非经济护城河 + 2024 年证监会处罚记录）、西蒙斯量化（4 分，动量与资金流双负）、达里奥全天候（4 分，高杠杆 + 商品 beta 集中）、博格指数（3 分，非宽基标的）</b>四项拖累显著。加权归一化（权重和 105%）后综合 <b style="color:#fbbf24">5.10/10</b>，落在「谨慎买入」区间（5.0–6.4），距「买入」门槛 6.5 尚差 1.40 分。<br><br>
+      <b style="color:#7dd3fc">最终倾向：</b>本标的的核心矛盾是 <b style="color:#34d399">「基本盘（铜）确实在变好」与「市场正在定价另外三件事（钴价退潮、杠杆、治理）」之间的落差</b>。11 方法论中最适配有色周期股的是 <b style="color:#fbbf24">邓普顿逆向（6 分）+ 马克斯周期（5 分）+ 格雷厄姆深度价值（5 分）</b>三轴——它们指向「铜价与产量双升驱动的盈利是真的、且价格已过度反映悲观预期」；但这三条轴同时被同一件事否决：<b style="color:#fca5a5">2024 年的会计差错更正与证监会行政处罚，让「账面盈利是否经得起追索」成为悬在估值上方的折价项</b>。因此不采纳「林奇 PEG 0.23 表观低估」作为主决策依据。<br><br>
+      <b style="color:#fbbf24">操作立场：</b>试仓 <b>1.0–1.5%</b>（总仓上限 3%，不超过 SOP 的 5% 单股上限），以 <b style="color:#38bdf8">8.30–8.50 元为第 1 批区间</b>；核心变量是 <b style="color:#fca5a5">10-31 三季报的单季归母与存货跌价计提金额</b>——若 Q3 单季归母 ≥ 8 亿且无大额跌价计提，则事件后可加至 3%；若 Q3 单季归母 < 6 亿或计提跌价准备超 5 亿，则维持试仓不加仓。止损 <b style="color:#f87171">7.55 元</b>（跌破 8.00 元整数关且 3 日不收回）。持有周期 <b style="color:#c084fc">中线 6–12 个月</b>，目标价中性 10.50 元 / 乐观 14.50 元 / 保守 5.65 元。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+<div class="section-subtitle">数据日期：2026-10-29 10:49 盘中 · 来源：腾讯证券 / 东方财富（双源核验）+ 公司公告（2026 半年报、2025 年报、2026 一季报业绩预告）</div>
+
+<div class="dashboard">
+  <div class="index-card purple">
+    <div class="name">股票名称</div>
+    <div class="value">盛屯矿业</div>
+    <div class="label">盛屯矿业集团股份有限公司 · 福建厦门</div>
+  </div>
+  <div class="index-card purple">
+    <div class="name">股票代码</div>
+    <div class="value">600711</div>
+    <div class="label">上交所主板 · 人民币 CNY</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">所属行业</div>
+    <div class="value">铜</div>
+    <div class="change">有色金属-基本金属-铜</div>
+    <div class="label">证监会：采矿业-有色金属矿采选业</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">上市日期</div>
+    <div class="value">1996-05-31</div>
+    <div class="change">上市 30 年</div>
+    <div class="label">注册资本 30.906 亿元</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">总市值</div>
+    <div class="value">261.77 亿</div>
+    <div class="change">30.906 亿股 × 8.47</div>
+    <div class="label">东财口径 262.08 亿</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">流通市值</div>
+    <div class="value">261.77 亿</div>
+    <div class="change">全流通</div>
+    <div class="label">流通股本 = 总股本 30.906 亿</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">-2.64%</div>
+    <div class="name">当前股价</div>
+    <div class="value">8.47 元</div>
+    <div class="change">今开 8.69 / 最高 8.70</div>
+    <div class="label">最低 8.42 = 年内新低 · 昨收 8.70</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">52 周区间</div>
+    <div class="value">8.42 ~ 18.73</div>
+    <div class="change">距年内高 -54.7%</div>
+    <div class="label">不复权口径 · 高点 2026-01-29</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">低分位</div>
+    <div class="name">PE-TTM</div>
+    <div class="value">9.65</div>
+    <div class="change">5 年 15.2% 分位</div>
+    <div class="label">TTM 归母 27.12 亿（自算校验一致）</div>
+  </div>
+  <div class="index-card ok">
+    <div class="name">PE-2026E</div>
+    <div class="value">7.61</div>
+    <div class="change">前瞻口径</div>
+    <div class="label">8.47 ÷ 机构一致预期 EPS 1.11</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">PB</div>
+    <div class="value">1.48</div>
+    <div class="change">5 年 49.5% 分位</div>
+    <div class="label">自算 1.46（2026H1 BVPS 5.78 元）</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">股息率</div>
+    <div class="value">1.16%</div>
+    <div class="change">2025 年度分红口径</div>
+    <div class="label">每股 0.098 元；近 12 月已派 0.148 元 ≈ 1.75%</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">近 1 月涨跌幅</div>
+    <div class="value">-22.55%</div>
+    <div class="change">21 个交易日</div>
+    <div class="label">腾讯前复权收盘序列</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">近 1 年涨跌幅</div>
+    <div class="value">-16.60%</div>
+    <div class="change">YTD -43.92%</div>
+    <div class="label">不复权口径 · 年初 15.14 元</div>
+  </div>
+</div>
+
+<div class="section-title warn">⚖️ 模块 2 · 综合评级（一句话定位）</div>
+
+<div class="final-verdict">
+  <h2>⚖️ 11 方法论加权综合评级</h2>
+  <div class="rating">谨慎买入</div>
+  <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+    （铜量价双升的可信盈利 + PE 5 年 15.2% 分位，但被钴价退潮、61.69% 负债率与 2024 年治理污点压制）
+  </div>
+  <div class="comment">
+    综合得分 <b style="color:#fbbf24">5.10 / 10</b>（权重归一化后：Σ(方法论得分 × 权重) = 5.35 ÷ 1.05）。<br>
+    <b style="color:#34d399">加分项</b>：2026H1 归母 18.04 亿（+71.37%）、扣非 19.13 亿（+64.63%）、经营现金流 22.85 亿（OCF/净利 1.27）、铜产量 13.32 万吨（+29.82%）、PE-TTM 9.65 处 5 年 15.2% 分位、2025 分红 + 回购占归母 43.81%。<br>
+    <b style="color:#fca5a5">减分项</b>：资产负债率 61.69%（+2.85pct）、有息负债 200.85 亿（较年初 +24.5%）、对外担保 113.15 亿（占净资产 63.30%）、商誉 9.09 亿、控股股东质押占其持股 50.44%、2024 年证监会立案 + 300 万罚款 + 2021–2023 年会计差错更正 + ST 一年、卡隆威可采年限仅 3.42 年、自有矿山仅占原材料成本 2.41%、股价 8.42 创年内新低且主力 32 日净流出 5.75 亿。<br>
+    <b style="color:#fbbf24">一句话定位：好资产（铜）+ 贵杠杆（负债）+ 脏历史（治理）——估值便宜给了机会，但风险预算只能给到试仓级别。</b>
+  </div>
+</div>
+
+<div class="section-title ok">🎚️ 模块 3 · 估值维度（格雷厄姆 + 邓普顿）</div>
+<div class="section-subtitle">PE 分位来自东财 RPT_VALUEANALYSIS_DET（2021-01-04 ~ 2026-10-28，1408 个交易日）· 同业为 2026-10-28 收盘同一时刻快照</div>
+
+<div class="safety-bar">
+  <div class="safety-title">🎚️ PE-TTM 五年分位与当前锚点</div>
+  <div class="safety-track">
+    <div class="safety-seg seg-deep">深度低估区 0–30% 分位</div>
+    <div class="safety-seg seg-current">合理区 30–70%（当前 15.2% 分位，位于此处）</div>
+    <div class="safety-seg seg-over">高估区 70–100%</div>
+  </div>
+  <div class="safety-marks">
+    <span>5 年最低 <strong>7.83</strong></span>
+    <span>5 年中位 <strong>21.31</strong></span>
+    <span>5 年最高 <strong>67.52</strong></span>
+  </div>
+  <div class="safety-marks" style="margin-top:4px;">
+    <span>2026 年区间 <strong>9.91 ~ 28.10</strong></span>
+    <span>当前 <strong style="color:#34d399">9.65（15.2% 分位）</strong></span>
+    <span>PB 分位 <strong style="color:#fbbf24">49.5%（中性）</strong></span>
+  </div>
+</div>
+
+<div class="table-card">
+  <div class="table-title">📊 同业可比公司估值对比（2026-10-28 收盘同一时刻 · 腾讯接口）</div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>公司</th><th>代码</th><th>收盘价(元)</th><th>总市值(亿)</th><th>PE-TTM</th><th>PB</th>
+        <th>2026H1 营收(亿)/同比</th><th>2026H1 归母(亿)/同比</th><th>资产负债率</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="hl">盛屯矿业</td><td class="hl">600711</td><td class="hl">8.70</td><td class="hl">268.9</td>
+        <td class="hl">9.91</td><td class="hl">1.50</td>
+        <td>192.64 / <span class="ok">+39.56%</span></td>
+        <td>18.04 / <span class="ok">+71.37%</span></td>
+        <td class="danger">61.69%</td>
+      </tr>
+      <tr>
+        <td>洛阳钼业</td><td>603993</td><td>14.06</td><td>3008.0</td>
+        <td class="ok">10.00</td><td class="danger">3.18</td>
+        <td>1353.20 / +42.78%</td><td>161.52 / +86.27%</td>
+        <td class="ok">52.16%</td>
+      </tr>
+      <tr>
+        <td>华友钴业</td><td>603799</td><td>30.85</td><td>584.2</td>
+        <td class="ok">9.42</td><td class="ok">1.16</td>
+        <td>555.68 / +49.39%</td><td>35.07 / +29.38%</td>
+        <td class="danger">64.28%</td>
+      </tr>
+      <tr>
+        <td>紫金矿业</td><td>601899</td><td>27.95</td><td>7432.1</td>
+        <td class="mid">10.40</td><td class="danger">3.56</td>
+        <td>1941.78 / +15.78%</td><td>391.70 / +68.17%</td>
+        <td class="ok">49.55%</td>
+      </tr>
+      <tr>
+        <td>江西铜业</td><td>600362</td><td>36.56</td><td>1266.0</td>
+        <td class="warn">10.93</td><td class="ok">1.39</td>
+        <td>3071.55 / +19.53%</td><td>86.32 / +106.77%</td>
+        <td class="danger">65.48%</td>
+      </tr>
+      <tr>
+        <td>西部矿业</td><td>601168</td><td>30.80</td><td>734.0</td>
+        <td class="ok">9.80</td><td class="danger">2.93</td>
+        <td>394.43 / +24.74%</td><td>41.69 / +123.00%</td>
+        <td class="ok">53.72%</td>
+      </tr>
+      <tr>
+        <td>金诚信</td><td>603979</td><td>59.88</td><td>373.5</td>
+        <td class="danger">12.16</td><td class="danger">2.97</td>
+        <td>76.41 / +20.97%</td><td>16.14 / +45.30%</td>
+        <td class="ok">46.17%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:12px; font-size:11px; color:#64748b; line-height:1.7;">
+    口径说明：收盘价/市值/PE-TTM/PB 为 2026-10-28 收盘同一时刻腾讯快照；财务数据为公司公告口径（2026H1 半年报）；资产负债率为 2026-06-30 时点。同行样本为市场对「铜 + 钴 + 矿业服务」三类资产的组合定价，非严格可比公司集合。
+  </div>
+</div>
+
+<div class="theme-banner info">
+  <div class="icon">🛡️</div>
+  <div class="text">
+    <h3>安全边际测算：三情景下行 / 上行空间，以及「便宜」到底便宜在哪</h3>
+    <p>
+      <b style="color:#34d399">保守情景（下行 -33%）：</b>铜价回落至 11,700 美元/吨（2026 年内低点）+ 钴价跌破 18 万元/吨 → 2026 实际归母降至约 25 亿元（EPS 0.81 元），周期股中枢估值 7x → <b>5.65 元</b>。<br>
+      <b style="color:#fbbf24">基准情景（上行 +24%）：</b>2026 归母兑现一致预期 34.26 亿元（EPS 1.11 元），铜价维持 13,000–14,000 美元/吨，估值随盈利可见度提升至 9.5x → <b>10.50 元</b>。<br>
+      <b style="color:#38bdf8">乐观情景（上行 +71%）：</b>2027 归母 44.82 亿元（EPS 1.45 元）部分提前反映，铜价站上 15,000 美元/吨，Nkoyi 交割后建设进度超预期，估值 10x → <b>14.50 元</b>。<br><br>
+      <b style="color:#7dd3fc">「便宜」的构成拆解：</b>PE-TTM 9.65 对应的 15.2% 历史分位，主要由<b>两处主动折价</b>造成 —— ① <b>分母失真</b>：5 年 PE 中位 21.31 锚定的是 2021–2023 年「钴价暴涨 + 业绩塌陷」的高估值泡沫期，用中位数锚定当前 PE 会系统性高估「便宜」的程度；② <b>治理折价</b>：2024 年证监会立案与会计差错更正史在 A 股通常对应 10–20% 的永久性估值折价。<b>PB 1.48 处 5 年 49.5% 分位（中位 1.52）恰好印证这一点</b>——市场对净资产没有给出折价，说明折价全部体现在利润端（担心盈利不可持续），而非资产端（担心资产不值钱）。<br>
+      <b style="color:#fbbf24">估值维度结论：合理偏低（偏「合理」一端，未达「深度折价」）。</b>PE 端接近深度折价，但 PB 端中性 + 杠杆与治理折价未消除，安全边际存在但并不厚——这正是综合评级只给到 5.10 而非 7 分以上的关键原因。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">📈 模块 4 · 成长性维度（费雪 + 林奇）</div>
+<div class="section-subtitle">财务为公司公告口径；一致预期来自同花顺 F10（5 家机构，截至 2026-10-29）</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>成长性指标</div><div>数值</div><div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">PEG（PE-TTM / 3 年净利 CAGR）</div>
+    <div class="fin-val ok">0.23</div>
+    <div class="fin-comment">TTM PE 9.65 ÷ 42.1%（2025A 19.61 亿 → 2028E 56.12 亿的三年复合增速）。若改用前瞻 PE 7.61 则 PEG = 0.18。<b>警示：</b>林奇本人明确不建议对周期股使用 PEG——分母高度依赖铜价维持高位的假设，若铜价回落、净利零增长，PEG 即失效（分母归零）。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营收 CAGR（2023A→2026E）</div>
+    <div class="fin-val ok">13.4%</div>
+    <div class="fin-comment">244.56 亿 → 300.03 亿（2025A）→ 357.11 亿（2026E 一致预期）。营收增速稳健但远低于利润增速，说明利润弹性来自价格与结构而非单纯放量。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利 CAGR（2023A→2028E）</div>
+    <div class="fin-val warn">84.6%</div>
+    <div class="fin-comment">2.65 亿 → 19.61 亿 → 2026E 34.26 亿 → 2028E 56.12 亿。<b>基期极低导致该指标严重失真</b>，仅说明困境反转已完成，不可作为「成长性已被证明」的依据。更有意义的是 2024A→2028E 的 29.3% CAGR。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">扣非增速 vs 归母增速</div>
+    <div class="fin-val ok">+64.63% &gt; +71.37% 接近</div>
+    <div class="fin-comment">2026H1 扣非 19.13 亿元高于归母 18.04 亿元，非经常性损益 -1.09 亿元（主要为金融资产公允价值变动及处置 -1.72 亿），<b>利润含金量没有水分</b>。反观 2025A：归母 19.61 亿（-2.19%）却扣非 25.29 亿（+38.54%），差额来自 -5.67 亿非经常性损益——两期互相印证，说明公司利润表受金融资产波动扰动较大，评估盈利时须以扣非为准。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">主营驱动力拆解</div>
+    <div class="fin-val mid">量增为主 · 价格为辅</div>
+    <div class="fin-comment">① <b>量</b>：2026H1 铜 13.32 万吨（+29.82%），刚果金铜 13.22 万吨，2026 年计划铜 23 万吨；② <b>价</b>：2026H1 铜价同比 +36.86%、镍 +14.08%、钴 +99.08%（均价 42 万/吨）、金 +53.20%（中邮证券口径）；③ <b>结构</b>：能源金属占收入比重由 2025A 的 25.69% 跃升至 2026H1 的 75.49%，<b>公司已基本完成从「多金属贸易商」到「铜公司」的切换</b>；④ <b>负面抵消</b>：锌毛利率 -5.27%、镍毛利率 0.32%，两块业务仍在盈亏线附近。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">未来 12–24 个月催化剂</div>
+    <div class="fin-val mid">5 项</div>
+    <div class="fin-comment">① <b>2026-10-31 三季报</b>（最近节点，2 天后）；② Nkoyi（刚果金铜钴）3 亿美元收购 50% 股权 → 间接取得 30% 采矿权权益，<b>2026-07 已交割</b>，采矿权证至 2040-01-13，基建期 18 个月 + 达产期 24 个月；③ 西藏海腾 65% 股权（7.085 亿）巴嘎拉东铅锌银探矿权，查明 Ag 1140 吨 @148.50 g/t、Pb 19.70 万吨、Zn 33.25 万吨（探矿权至 2031-07-27）；④ Loncor Gold（加拿大）100% 股权 13.90 亿元，2026H1 完成交割，增厚金资源；⑤ 贵州一期满产、二期试生产（30 万吨硫酸镍 / 30 万吨磷酸铁 / 1 万金属吨电池级钴）、大理三鑫争取 2026Q4 试生产。</div>
+  </div>
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">📈</div>
+  <div class="text">
+    <h3>成长性维度结论：高速成长，但增长的「质量」存在两个瑕疵</h3>
+    <p>
+      <b style="color:#34d399">成立的部分：</b>铜产量的增长是<b>可验证、可追踪的实体增长</b>（2026H1 +29.82%，2026 计划 23 万吨），不是会计口径游戏；扣非增速快于归母增速说明利润来自主业；经营现金流 22.85 亿元覆盖归母 18.04 亿元（比值 1.27）说明收入有现金支撑；资源接续路径清晰（卡隆威 → Nkoyi → 贵州镍钴 → 西藏银铅锌 → 加拿大黄金）。<br>
+      <b style="color:#fbbf24">瑕疵一：增长的价格成分被市场线性外推。</b>2026H1 铜价同比 +36.86%、钴价同比 +99.08%，而钴价在 Q3 已从 9 月初 30.50 万元/吨跌至 10-23 的 23 万元/吨，<b>同比高基数即将转为同比负贡献</b>。中邮证券口径显示 2026H1 钴价环比已 -5.51%——这意味着 Q3/Q4 的同比读数会显著弱于 H1，机构 2026E 全年 +74.67% 的增长假设中，H1 已贡献 18.04 亿，H2 需再赚 16 亿才能达标。<br>
+      <b style="color:#fbbf24">瑕疵二：研发投入几乎为零，无法支撑「产品型」成长叙事。</b>2026H1 研发投入 0.286 亿元（占营收 0.15%，同比 -2.78%），研发人员 173 人。这是资源型公司的常态，但对费雪式投资者是硬伤——成长必须全部来自资源获取与产量爬坡，而非技术壁垒。<br><br>
+      <b style="color:#fbbf24">成长性维度结论：高速成长（量增驱动 + 价格助推），但不可按「消费/科技股式的高质量成长」给予估值溢价。</b>
+    </p>
+  </div>
+</div>
+
+<div class="section-title">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+<div class="section-subtitle">资源数据来自 2025 年报「自有矿山基本情况」表与 2026 半年报；ROE 为公司披露的加权口径</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>护城河六维</div><div>评级</div><div>依据</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">品牌</div>
+    <div class="fin-val down">无</div>
+    <div class="fin-comment">B2B 原材料供应商，客户为冶炼厂与电池材料厂，终端品牌溢价无法传导至矿端。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">网络效应</div>
+    <div class="fin-val down">无</div>
+    <div class="fin-comment">不适用。资源型企业的「网络」仅体现为贸易客户关系，但贸易业务毛利率虽高（35.75%）却仅占收入 12.64%，且 2026H1 已降至 2.64%。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">规模优势</div>
+    <div class="fin-val down">偏弱</div>
+    <div class="fin-comment">2025 年铜产量 20.74 万吨，量级显著小于洛阳钼业（2026H1 归母 161.52 亿）、紫金矿业（7412 亿市值）与江西铜业（3071 亿营收）。规模不足以形成采购议价或销售议价优势。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">技术 / 工艺</div>
+    <div class="fin-val warn">中等</div>
+    <div class="fin-comment">刚果金湿法冶金（卡隆威）运营经验 + BMS 二期扩建至 12 万金属吨铜 + 2025 年报披露的「全流程技术改造与工程建设」，属工程Know-how，非不可复制技术。研发投入占比 0.15%，不支持「技术壁垒」叙事。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">牌照 / 资源禀赋</div>
+    <div class="fin-val warn">有，但年限硬约束</div>
+    <div class="fin-comment"><b>卡隆威（刚果金）铜钴矿：资源量 718 万吨、铜储量 16.11 万吨、钴储量 2.29 万吨，品位铜 2.70%/钴 0.62%，年处理 210 万吨，采矿证至 2045-10-22</b>——但按储量与年处理量推算，<b>可采年限仅 3.42 年</b>。公司以 Nkoyi（30% 权益，采矿证至 2040 年）承接，<b>但基建 18 个月 + 达产 24 个月意味着产量接续缺口落在 2028–2029 年</b>。这是被市场普遍低估的硬约束。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">转换成本</div>
+    <div class="fin-val down">无</div>
+    <div class="fin-comment">标准化金属产品，客户可自由切换供应商。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">成本优势</div>
+    <div class="fin-val down">弱</div>
+    <div class="fin-comment"><b>关键事实：2025 年原材料总成本 149.74 亿元中，自有矿山仅占 2.41%。</b>这意味着盛屯的绝大部分成本来自外购精矿与冶炼加工——冶炼环节不产生护城河（全球 TC 已跌至 -225 美元/干吨，冶炼厂反而向矿山让利），公司赚的是「矿价 + 加工费」的价差，而非资源禀赋的超额利润。与洛钼（自有矿占比高）、紫金（自有矿 + 全球化并购能力）存在本质差距。</div>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>盈利质量指标</div><div>数值</div><div>解读</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">加权 ROE</div>
+    <div class="fin-val warn">10.471%</div>
+    <div class="fin-comment">2026H1 口径（同比 +3.863pct），扣非 ROE 11.106%；2025 全年 12.135%（扣非 15.644%）。年化看似接近 20%，但属铜钴高价格的周期高点，且建立在 200.85 亿元有息负债之上——ROIC 显著低于 ROE，估算 <b>低于 10%</b>，未达巴菲特「优秀」（>15%）门槛。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">毛利率稳定性</div>
+    <div class="fin-val down">波动大</div>
+    <div class="fin-comment">2023A 11.02% → 2024A 19.50% → 2025A 19.13% → 2026H1 22.87%。三年区间跨度 11.85pct，标准差极高，反映纯价格驱动的盈利结构。2025Q4 单季归母环比 -59.97% 已是实证。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">行业地位</div>
+    <div class="fin-val mid">国内铜资源第二梯队</div>
+    <div class="fin-comment">总市值 261.77 亿元，在 A 股铜/钴标的中规模最小（洛钼 3008 亿 / 紫金 7432 亿 / 江铜 1266 亿 / 华友 584 亿 / 西部矿业 734 亿）。刚果金铜产能 23 万金属吨/年，全球钴配额获取能力明显弱于洛阳钼业（2026 年获 31,200 吨）。</div>
+  </div>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">🛡️</div>
+  <div class="text">
+    <h3>护城河维度结论：无护城河（资源禀赋 ≠ 经济护城河）</h3>
+    <p>
+      巴菲特的护城河定义是「能在长期内保护 superior returns 的结构性优势」。盛屯矿业拥有的是<b style="color:#fbbf24">资源禀赋（储量与采矿权）</b>——这是「存量资源」而非「经济护城河」，因为它无法阻止竞争者获取同样的资源，也无法阻止商品价格向边际成本收敛。三条硬证据：<b style="color:#f87171">① 自有矿山仅占原材料成本 2.41%（规模与成本优势不成立）；② ROE 10.47% 且 ROIC 估算 <10%（资本回报未达优秀门槛）；③ 毛利率三年波动 11.85pct（盈利非稳定复利型）</b>。<br>
+      叠加 2024 年证监会立案处罚与前期会计差错更正史，<b style="color:#fca5a5">在费雪与巴菲特的框架下，管理层的可信度折价与财务的稳健性折价会同时压低合理估值中枢</b>——这是本报告给出「巴菲特护城河 4 分」而非 5–6 分的根本原因。<br><br>
+      <b style="color:#fbbf24">但也要给出一个公允的对冲事实：</b>盛屯 2025 年分红 3.032 亿元 + 回购 5.561 亿元 = 8.593 亿元，占归母净利 <b style="color:#34d399">43.81%</b>，并已制定《未来三年（2026-2028）股东回报规划》承诺每年现金分红不低于可分配利润 10%。在周期股中，愿意在周期高点把现金还给股东的少数派（现金同样是"选择权"），这是对冲治理疑虑的实打实证据，只是它不改变护城河本身的评级。
+    </p>
+  </div>
+</div>
+
+<div class="section-title">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+<div class="section-subtitle">2023A / 2024A / 2025A / 2026H1 四年对照 · 数据来源：公司 2025 年报、2026 半年报、2026 一季报业绩预告（2026-04-01）</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>核心指标</div><div>2026H1 / 2025A / 2024A / 2023A</div><div>解读与判断</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">营业收入（亿元）</div>
+    <div class="fin-val ok">192.64 / 300.03 / 257.30 / 244.56</div>
+    <div class="fin-comment">2026H1 同比 <b style="color:#34d399">+39.56%</b>；2025A +16.60%。三年营收 CAGR 约 7.1%，2026 年加速。收入规模稳定扩张，无异常收缩。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">归母净利润（亿元）</div>
+    <div class="fin-val ok">18.04 / 19.61 / 20.05 / 2.65</div>
+    <div class="fin-comment">2026H1 同比 <b style="color:#34d399">+71.37%</b>；2025A <b style="color:#f87171">-2.19%</b>；2023A 仅 2.65 亿。<b>关键观察：2026H1 单半年利润已等于 2025 全年的 92%</b>。Q2 单季归母 7.84 亿，环比 Q1 的 10.20 亿下滑 23%（中邮证券口径：Q2 计提资产减值 -1.26 亿、信用减值 -0.43 亿、公允价值变动 -2.34 亿、所得税 -1.55 亿）。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">扣非归母净利（亿元）</div>
+    <div class="fin-val ok">19.13 / 25.29 / 18.25 / 2.68</div>
+    <div class="fin-comment">2026H1 <b style="color:#34d399">+64.63%</b>；2025A <b style="color:#34d399">+38.54%</b>。扣非连续两年高增且 2026H1 已达 2025 全年的 75.7%，<b>主业盈利改善真实</b>。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">经营活动现金流（亿元）</div>
+    <div class="fin-val ok">22.85 / 25.92 / 27.63 / 4.89</div>
+    <div class="fin-comment">2026H1 同比 +29.49%。但 2025A 同比 -6.19%，且 <b style="color:#fca5a5">2025Q4 单季经营现金流 -4.84 亿元</b>——年内现金流呈明显季度失衡，H2 回款质量需跟踪。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">OCF / 归母净利</div>
+    <div class="fin-val ok">1.27</div>
+    <div class="fin-comment">22.85 ÷ 18.04 = <b style="color:#34d399">1.27</b>，大于 1，<b>利润现金含量优秀</b>（格雷厄姆式关键指标通过）。2025A 该比值为 1.32。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">自由现金流</div>
+    <div class="fin-val warn">数据缺口</div>
+    <div class="fin-comment"><span class="warn">未独立核验</span>（半年报资本开支明细未取得）。可参考的间接信号：总资产较年初 +17.32%（505.81 亿），在扩产周期内，FCF 大概率显著低于 OCF，<b>不宜按 OCF 1.27 的质量直接外推自由现金流</b>。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">资产负债率</div>
+    <div class="fin-val down">61.69%</div>
+    <div class="fin-comment">轨迹：57.04%(2023末) → 54.97%(2024末) → 58.84%(2025末) → <b style="color:#f87171">61.69%(2026H1，较年初 +2.85pct)</b>。<b>唯一持续恶化的核心指标</b>。按格雷厄姆对工业企业 2/3（66.7%）的上限，尚未击穿，但缓冲空间不足两年。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">有息负债（亿元）</div>
+    <div class="fin-val down">200.85</div>
+    <div class="fin-comment">2025 末 161.34 亿 → 2026H1 <b style="color:#f87171">200.85 亿</b>（+24.5%）。结构：短期借款 112.70 亿 + 一年内到期非流动负债 8.00 亿 + 长期借款 71.21 亿 + 长期应付款 8.94 亿。<b>短债占比 56%</b>，期限结构偏短，对利率与再融资环境敏感。利率区间 0.8%–8%（上交所问询函回复口径）。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">对外担保（亿元）</div>
+    <div class="fin-val down">113.15</div>
+    <div class="fin-comment">占归母净资产 <b style="color:#f87171">63.30%</b>，其中对资产负债率 >70% 的对象担保 79.41 亿（2025 末分别为 80.25 亿 / 55.94 亿）。上交所 2026 年问询函已就此专项问询。<b>是本标的最被低估的隐性风险之一。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">存货（亿元）</div>
+    <div class="fin-val danger">117.76</div>
+    <div class="fin-comment">2025 末 102.15 亿 → 2026H1 <b style="color:#f87171">117.76 亿</b>。按 H1 营业成本 148.59 亿估算，<b>存货周转天数约 144 天（半年口径）</b>。<b>核心风险点：</b>2026H1 电解钴均价约 42 万元/吨，而 2026-10-23 现货已跌至约 23 万元/吨（-45%），<b>高价库存的跌价准备压力将在 Q4 集中释放</b>。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">应收账款周转天数</div>
+    <div class="fin-val warn">数据缺口</div>
+    <div class="fin-comment"><span class="warn">未独立核验</span>（半年报应收账款绝对额与账龄未逐项提取）。上交所 2026-05-08 问询函曾重点关注境外资产 194.52 亿（占 45.12%）、境外存款 20.42 亿与存货 102.15 亿。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">商誉（亿元）</div>
+    <div class="fin-val ok">9.09</div>
+    <div class="fin-comment">原值 12.61 亿、减值准备 3.46 亿，净值 9.09 亿（2026H1），占总资产 <b style="color:#34d399">1.80%</b>、占归母净资产 5.55%，<b>远低于 10% 健康线</b>。2025 年计提减值 1,175.86 万元，核心商誉未减值（科立鑫珠海资产组账面 5.79 亿 vs 可收回 6.78 亿）。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">受限资金 / 受限资产（亿元）</div>
+    <div class="fin-val warn">36.77 / 未核验</div>
+    <div class="fin-comment">2026H1 受限货币资金 36.77 亿元（其他货币资金全部受限）；2025 末受限资产 105.02 亿、受限资金 42.90 亿。半年报受限资产附注明细<span class="warn">未独立核验</span>。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">衍生品损益（亿元）</div>
+    <div class="fin-val warn">-1.22</div>
+    <div class="fin-comment">2026H1 商品 + 外汇衍生品对税前利润影响 -1.22 亿元（未指定套期关系，全额计入当期损益）；2026H1 非经常性损益 -1.09 亿元亦主要来自公允价值变动及处置 -1.72 亿。<b>公司套保有效性不足，商品价格波动会直接放大利润表噪音</b>。</div>
+  </div>
+</div>
+
+<div class="theme-banner warn">
+  <div class="icon">💰</div>
+  <div class="text">
+    <h3>财务质量维度结论：财务健康（利润端优秀）但杠杆端有瑕疵 —— 呈现「利润表向上、资产负债表向下」的剪刀差</h3>
+    <p>
+      <b style="color:#34d399">利润表与现金流是扎实的：</b>2026H1 营收 +39.56%、扣非 +64.63%、OCF 22.85 亿、OCF/净利 1.27、商誉/总资产 1.80%、毛利率 22.87%（三年最高）。<b>这些不是「纸面利润」——有现金、有产量、有扣非支撑。</b><br>
+      <b style="color:#fca5a5">但资产负债表在持续变紧：</b>资产负债率三年从 54.97% 升至 61.69%；有息负债半年增加 39.5 亿元；对外担保 113.15 亿元（净资产 63.30%）且其中 79.41 亿元指向负债率超 70% 的对象；短债占 56%；存货半年增加 15.6 亿元至 117.76 亿元；受限资金 36.77 亿元。<br>
+      <b style="color:#fbbf24">剪刀差的本质：</b>盈利改善主要来自<b>价格上涨</b>（铜 +36.86%、钴 +99.08% 同比），而非单位成本下降或周转加快；而价格上涨同时推高了备货资金需求（存货 +15.6 亿）与扩产资本开支（BMS 技改、贵州二期、Nkoyi 3 亿美元投资承诺），<b>于是利润越好、杠杆越高、存货越贵</b>——一旦价格转向，这三个变量会同时反向作用。<br><br>
+      <b style="color:#fbbf24">财务质量维度结论：财务健康（有瑕疵）——盈利质量通过所有关键测试，但杠杆、担保与存货三项构成明确的下行放大器。</b>
+    </p>
+  </div>
+</div>
+
+<div class="section-title">🏛️ 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+<div class="section-subtitle">治理数据来自公司公告、上交所问询函回复与证监会处罚文书</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>治理维度</div><div>现状</div><div>证据与判断</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">实控人背景与持股</div>
+    <div class="fin-val warn">姚雄杰 · 合计 17.95%</div>
+    <div class="fin-comment">控股股东深圳盛屯集团持股 14.80%（457,494,897 股），一致行动人深圳市盛屯实业 1.84%（5,700 万股），<b>实际控制人姚雄杰直接持股仅 1.30%（4,030.5 万股）</b>，合计控制 17.95%。<b>控制权比例偏低 + 实控人直接持股极薄，是「控制权稳定性」与「小股东利益一致性」的双重隐忧。</b>公司注册地厦门、总部厦门，法定代表人 / 董事长熊波（2026-08-15 第十二届董事会换届后任职）。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股权质押</div>
+    <div class="fin-val down">占其持股 50.44%</div>
+    <div class="fin-comment">截至 2026-05-01 公告日，控股股东及一致行动人累计质押 279,840,000 股，占其持股 <b style="color:#f87171">50.44%</b>、占总股本 9.05%（盛屯集团 2.6074 亿股 / 56.99%，盛屯实业 1,910 万股 / 33.51%）。2026H1 股东表披露冻结股份为 0；2026-04-24 与 2026-09-04 两次「解除质押」公告。<b>质押率过半属于需要持续监控的警戒线，若股价继续下探存在平仓与被动减持的双重压力。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">违规 / 处罚历史</div>
+    <div class="fin-val down">证监会立案 + ST 一年</div>
+    <div class="fin-comment"><b style="color:#f87171">完整链条：</b>2023-08-30 上交所通报批评〔2023〕111 号（业绩预告更正不及时）→ 2024-04-19 厦门证监局责令改正 + 警示函[2024]9 号 → 2024-04-21 董事会通过<b>2021、2022 年报及 2023 年分季度财务数据前期会计差错更正</b> → 2024-05-17 证监会立案告知书（证监立案字 0282024006 号，涉嫌信息披露违法违规）→ 2024-06-29 上交所纪律处分通报批评 → 2024-07-30 行政处罚事先告知书 → 2024-07-31 停牌 1 天、2024-08-01 起实施其他风险警示（<b>ST 盛屯</b>）→ 2024-08-05《行政处罚决定书》[2024]3 号：公司责令改正、警告、罚款 300 万元，张振鹏/陈东/翁雄各 150 万元、周贤锦 100 万元，12 名时任董监高被出具警示函 → 2025-08-13 停牌 1 天 → <b>2025-08-14 撤销 ST</b>（处罚满 12 个月 + 追溯重述 + 已计提投资者索赔预计负债 200 万元）。<b>这是本标的最大的单点扣分项。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">2026 年监管问询</div>
+    <div class="fin-val warn">问询函 4 问</div>
+    <div class="fin-comment">2026-05-08 回复上交所《2025 年年报信息披露监管问询函》（上证公函[2026]0580 号），四问直指要害：① <b>业绩波动与毛利率下滑</b>（2025 营收 +16.6% 但净利 -2.19%，Q1 收入占全年 18.89%，Q4 净利环比 -59.97%）；② 境外资产 194.52 亿占 45.12%、境外存款 20.42 亿、存货 102.15 亿占 23.69%；③ 流动性（受限资金 42.90 亿、受限资产 105.02 亿、对外担保 80.25 亿，其中对资产负债率 >70% 对象 55.94 亿）；④ <b>套期保值（期货衍生品大额亏损）</b>。<b>问询函本身不构成违规认定，但连续被问询意味着信息披露质量尚未被市场完全信任。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">研发投入与人员</div>
+    <div class="fin-val down">0.15% / 173 人</div>
+    <div class="fin-comment">2026H1 研发投入 0.286 亿元（费用化，同比 -2.78%），占营收 0.15%；2025A 研发投入 5,275.93 万元（占营收 0.18%），研发人员 173 人。<b>对资源型公司属正常水位，但意味着公司完全不具备「技术驱动型成长」的选项</b>——增长路径只能是获取更多资源。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股权激励与员工持股</div>
+    <div class="fin-val warn">已回购未授予</div>
+    <div class="fin-comment">2025-08-29 回购方案：拟回购 1.37%–1.64% 股本、金额 5–6 亿元，<b>用于员工持股计划或股权激励</b>；已回购 58,623,000 股（占 1.90%，存放于回购专户），实际回购金额 5.561 亿元。<b>但截至 2026-06-30 尚未实施任何股权激励 / 员工持股计划授予</b>——回购的激励功能尚未兑现，管理层与中小股东的利益绑定仍待观察。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">减持与业绩承诺</div>
+    <div class="fin-val ok">基本无减持 · 无承诺事项</div>
+    <div class="fin-comment">2024–2026 年未见控股股东 / 大股东减持计划公告；仅 2025-03-07 副总经理邹亚鹏个人减持 10 万股（数量微小）。2026H1「董监高持股变动」栏为「不适用」。公司无业绩承诺事项（重组上市类公司特有），不适用该项考核。<b>股东行为层面未见踩线。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">股东回报承诺</div>
+    <div class="fin-val ok">43.81% 分红回购比</div>
+    <div class="fin-comment">2025 年度现金分红 3.032 亿元 + 回购 5.561 亿元 = 8.593 亿元，占 2025 归母净利 <b style="color:#34d399">43.81%</b>；2026 半年度另派每股 0.05 元（合计 1.516 亿元，占 H1 归母 8.40%，2026-09-17 实施）。《未来三年（2026-2028）股东回报规划》（2026-04-21）：每年现金分红不低于当年可分配利润 10%，三年累计不低于最近三年年均可分配利润的 30%。</div>
+  </div>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">🏛️</div>
+  <div class="text">
+    <h3>治理维度结论：需要警惕（唯一明确低于「基本可信」的一票否决项）</h3>
+    <p>
+      11 方法论框架中，治理问题不是「扣几分」的软性因素，而是<b style="color:#f87171">会同时压制多个方法论上限的硬约束</b>：对格雷厄姆而言，2021–2022 年报与 2023 分季度数据需做<b>前期会计差错更正</b>，直接削弱「历史盈利记录可作为估值锚」这一前提；<b style="color:#f87171">对费雪而言，费雪 15 问的第一问就是「公司诚信与管理层的可信赖度」，2024 年的证监会立案 + 300 万罚款 + ST 一年几乎是这一问的直接反例</b>；对邓普顿而言，「会计可疑则不碰」是铁律；对巴菲特而言「我不喜欢与这类管理层打交道」是著名表述。<br>
+      <b style="color:#fbbf24">正面事实需要同时记录（避免单向叙事）：</b>① 2025-08-14 已撤销 ST，距今已满一年，处罚事项结清并计提了 200 万元投资者索赔预计负债；② 2026-08-15 完成董事会换届，熊波任董事长，治理层有实质更新；③ 2024–2026 年控股股东与大股东无减持；④ 控股股东质押率虽高但冻结股份为 0，且两次解除质押；⑤ 回购与分红力度大（43.81%），股东回报意识明显强于 2024 年之前。<br><br>
+      <b style="color:#f87171">综合判定：需要警惕。</b>治理折价（估计对应 A 股同类事件 10–20% 的永久性估值折价）已在 PB 1.48（5 年 49.5% 分位）中被部分定价，但**无法确认是否被充分定价**——这是本次给不出「买入」评级的核心原因之一，也是仓位必须限制在 1.0–1.5% 试仓的直接依据。
+    </p>
+  </div>
+</div>
+
+<div class="section-title info">🌊 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+<div class="section-subtitle">价格数据来自 SMM / 生意社 / 百川盈孚 / 新浪期货（经媒体转述者已标注）；供需判断为机构口径，本报告不自行预测</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>品种 / 维度</div><div>当前位置</div><div>周期判断与对盛屯的含义</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">铜（第一大收入来源）</div>
+    <div class="fin-val warn">价格处年内高位区</div>
+    <div class="fin-comment">LME 铜 2026-10-29 报 14,440.4 美元/吨（YTD +15.7%），年内高 14,875（2026-09-10）、低 11,700（2026-03-23）；沪铜主连 2026-10-28 收 109,200 元/吨（YTD +11.2%），年内高 114,160（01-30）。供给侧：ICSG 口径 2026H1 全球铜矿产量同比 -1.1%（精矿口径 -2.6%）、Grasberg 2026 年产量降 27%、Cochilco 上调 2026 铜价预测至 5.55 美元/磅；TC/RC 年度长单基准 0 美元/吨，10/16 全国 TC 一度 -225.63 美元/干吨。<b>但价格已在年内高点附近而非底部，安全边际来自「供给扰动延续」而非「价格超跌」。</b>盛屯 2026H1 铜毛利率 28.88%（-6.35pct）——即便价格上行，毛利率仍在下滑，说明加工费与成本端在挤压矿端利润。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">钴（高毛利但已退潮）</div>
+    <div class="fin-val danger">价格自高点腰斩 · 下行段</div>
+    <div class="fin-comment">SMM 电解钴现货：2026-01-06 高点 46.3 万元/吨 → 09-03 30.50 万 → <b>2026-10-23 约 23 万元/吨</b>（较年初 -46%、较高点约 -50%）；硫酸钴 10-23 跌至 4.9 万元/吨（跌破 5 万）；MB 钴 10-19 基准价 26.25 美元/磅，10-23 标准级 20.5–23.8 美元/磅（2025 均价 16.08 美元，+42.81%）。<b>供给端：</b>刚果金 2025-02 禁令 → 2025-10-16 转配额制，2026 / 2027 年度上限各 96,600 吨（不足该国 2024 年钴产量 22 万吨的一半），洛阳钼业获 2026 年 31,200 吨。<b>需求端：</b>机构口径分歧极大——Fastmarkets 称 2026 结构性短缺 1.07 万吨，而 SMM（2025–2030 供应 CAGR 9% 高于需求）与钛媒体（产量口径过剩 13 万吨）判断过剩。<b>盛屯 2026H1 钴产量 0.37 万金属吨（-32.73%）、钴产品收入 -30.64%，已先于价格感受到配额收缩；钴业务 2025A 毛利率 53.76% 是全公司最高，恰恰因为体量小（占收入 3.37%）尚不足以对冲。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">锌 / 镍（拖累项）</div>
+    <div class="fin-val down">亏损 / 盈亏线附近</div>
+    <div class="fin-comment">2025A 锌产品收入 64.69 亿（占 21.56%）但毛利率 <b style="color:#f87171">-5.27%</b>（负毛利）；镍产品 42.86 亿（14.29%）毛利率 <b style="color:#f87171">0.32%</b>（几乎不赚钱）。这两块合计占收入 35.85% 却几乎不贡献利润，是「有色大宗周期底部」的典型特征（华泰 2025-09 给出的 2026–27 钴价中枢 35 万元/吨以上判断已被现价 23 万推翻）。<b>周期底部提供的是「未来修复期权」，不是当期利润。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">磷化工链条</div>
+    <div class="fin-val mid">加工环节 · 无采矿权</div>
+    <div class="fin-comment">公司贵州项目为年产 30 万吨硫酸镍、30 万吨磷酸铁、1 万金属吨电池级钴金属（盛屯能源金属化学（贵州），福泉），<b>属磷化工加工而非磷矿采矿</b>——2025 年报与 2026 半年报全文均无「磷矿」字样，亦无磷产品分部。行业侧：湖北 30% 品位磷矿石 1,050 元/吨（同比 +1%）、磷酸一铵 3,926 元/吨（同比 +20%）、二铵 4,395 元/吨（同比 +23%）、硫磺 7,527 元/吨（同比 +201%）；2026-03-14 至 08-31 阶段性暂停磷肥出口，1–8 月一铵出口 -89.15%、二铵 -96.53%。<b>磷化工对盛屯是成本端与镍钴前驱体配套，不构成独立利润中心。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">政策环境</div>
+    <div class="fin-val warn">中性偏紧 · 双向风险</div>
+    <div class="fin-comment">刚果金配额制对盛屯是<b>双向的</b>：限制钴出口 → 支撑钴价（利好），但同时压缩公司自身可出口量（利空，2026H1 钴产量 -32.73% 即为直接体现）。另据东方财富快讯转述，2026-08-06 刚果金行政指令<b>禁止铜精矿与钴精矿出口</b>并推出对具经济价值矿业副产品开征新税框架——<b>该指令未取得一手原文与税率细则，属未独立核验信息，但若属实将直接冲击公司的原料采购与精矿出口路径，列为高优先级跟踪项。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">产业链位置</div>
+    <div class="fin-val mid">上游为主 + 中游冶炼 + 贸易</div>
+    <div class="fin-comment">2026H1 能源金属（铜钴镍）占收入 75.49%、基本金属 21.87%、贸易及其他仅 2.64%（2025A 贸易占 12.64%，占比快速下降）。<b>这意味着「贸易商属性」正在快速下降、矿业属性上升——是正向变化</b>；但 2025 年原材料总成本中自有矿山仅占 2.41%，说明实际加工外购原料的比重仍高，<b>属性切换尚未完成</b>。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">行业未来 3–5 年增长空间</div>
+    <div class="fin-val ok">铜：中性偏多 · 钴：中性偏空</div>
+    <div class="fin-comment">铜：Cochilco 预计 2026 全球铜矿产量 +0.5% 至 2330 万吨、2027 +4.7%，智利 2026 -2% 至 530 万吨——中期供给增速有限，支撑价格中枢；钴：配额制锁死供给上限，但需求端受三元电池向 LFP / 钠电切换拖累，机构口径分歧未消解。<b>盛屯未来的增长叙事必须建立在「铜 + 镍」而非「钴」之上。</b></div>
+  </div>
+</div>
+
+<div class="theme-banner info">
+  <div class="icon">🌊</div>
+  <div class="text">
+    <h3>行业与周期维度结论：周期高位（铜）+ 结构性下滑（钴/锌/镍）的混合位置</h3>
+    <p>
+      <b style="color:#fbbf24">核心矛盾：</b>公司 46.90% 的收入来自处于<b style="color:#f87171">价格年内高位区</b>的铜（虽然供给逻辑仍偏紧），而毛利率最高（53.76%）的钴正处于<b style="color:#f87171">自高点腰斩的下行段</b>。这构成一个「利润支柱正在换位」的时点：<b>旧支柱（钴）塌陷、新支柱（铜）尚未在价格上兑现全部潜力</b>。<br>
+      <b style="color:#fbbf24">对马克斯周期法的直接含义：</b>周期股投资的核心是「在周期底部买入、顶部卖出」，而盛屯当前的位置是<b style="color:#fbbf24">「铜在顶部区 + 钴锌镍在底部区 + 盈利在上升段」</b>——<b>既不是典型的周期底部买点，也不是明确的顶部卖点，而是「周期换挡期」</b>。这比纯粹的底部标的更难把握，也决定了「等铜价回调再买」比「现在买成长」更符合周期股的方法论纪律。<br><br>
+      <b style="color:#7dd3fc">全天候配置视角（达里奥）：</b>盛屯在组合中的角色是「通胀受益 + 增长受损」象限的高 beta 品种，且承担了商品价格、刚果金国别、汇率（境外资产占 48.99%）、利率（有息负债 200.85 亿）四重风险暴露，<b>与股票/债券的相关性不足以提供有效分散</b>。同时高杠杆使其在「通胀下行 + 增长下行」象限中承受双重打击。<b>组合层面只应作为小比例卫星仓，而非核心配置。</b>
+    </p>
+  </div>
+</div>
+
+<div class="section-title danger">📡 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+<div class="section-subtitle">技术指标由腾讯前复权 K 线（2025-07-02 ~ 2026-10-29，321 根）自行计算 · 资金流为东方财富逐日接口（2026-09-02 ~ 2026-10-23，32 个交易日）</div>
+
+<div class="dashboard">
+  <div class="index-card danger">
+    <div class="tag danger">全线下方</div>
+    <div class="name">均线结构</div>
+    <div class="value">空头排列</div>
+    <div class="change">价 &lt; MA5 &lt; MA10 &lt; … &lt; MA250</div>
+    <div class="label">收盘 8.47 低于 MA5 8.59 / MA10 8.90 / MA20 9.46</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">MA60 / MA120 / MA250</div>
+    <div class="value">10.63 / 11.08 / 12.31</div>
+    <div class="change">-20.82% / -24.02% / -31.62%</div>
+    <div class="label">距年线 31.62%，中长期趋势彻底走坏</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">MACD</div>
+    <div class="value">DIF -0.5841</div>
+    <div class="change">DEA -0.5140 · 柱 -0.1402</div>
+    <div class="label">零轴下双线发散，DIF 仍创新低，未见金叉</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">MACD 柱状体</div>
+    <div class="value">连续 3 日收窄</div>
+    <div class="change">-0.2108 → -0.1812 → -0.1483 → -0.1402</div>
+    <div class="label">下跌动能边际减弱，但 DIF 仍在探新低</div>
+  </div>
+  <div class="index-card ok">
+    <div class="tag ok">超卖</div>
+    <div class="name">RSI14</div>
+    <div class="value">24.38</div>
+    <div class="change">已进入超卖区（&lt;30）</div>
+    <div class="label">Wilder 平滑口径</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">BOLL20</div>
+    <div class="value">下轨 8.18</div>
+    <div class="change">中轨 9.46 / 上轨 10.74</div>
+    <div class="label">带宽 27.14%，收盘 8.42 贴近下轨</div>
+  </div>
+  <div class="index-card danger">
+    <div class="tag danger">持续流出</div>
+    <div class="name">主力资金（32 日）</div>
+    <div class="value">-5.75 亿</div>
+    <div class="change">近30日 -5.23 亿 · 近10日 -3.59 亿</div>
+    <div class="label">32 日中仅 9 日主力净流入</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">超大单 / 大单</div>
+    <div class="value">-2.62 / -3.13 亿</div>
+    <div class="change">小单净流入 +6.29 亿</div>
+    <div class="label">机构派发、散户承接的典型结构</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">机构持仓占流通</div>
+    <div class="value">27.97%</div>
+    <div class="change">2025末 34.50% → 2026Q1 25.21%</div>
+    <div class="label">2026Q1 减持 -9.29pct，H1 小幅回补 +2.76pct</div>
+  </div>
+  <div class="index-card warn">
+    <div class="name">北向持股</div>
+    <div class="value">0.86%</div>
+    <div class="change">2026-09-30 环比 -1.46%</div>
+    <div class="label">持股市值 2.68 亿 · 日度数据已不再披露</div>
+  </div>
+  <div class="index-card danger">
+    <div class="name">成交量趋势</div>
+    <div class="value">-22.8%</div>
+    <div class="change">近 60 日均量较前 60 日</div>
+    <div class="label">近60日均 86.1 万手 · 近5日均 46.4 万手</div>
+  </div>
+  <div class="index-card mid">
+    <div class="name">今日量比</div>
+    <div class="value">1.50</div>
+    <div class="change">换手率 0.82%</div>
+    <div class="label">较近 5 日放量下跌（负量价组合）</div>
+  </div>
+</div>
+
+<div class="fin-table">
+  <div class="fin-row header">
+    <div>关键点位</div><div>价格</div><div>含义</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">第一支撑</div>
+    <div class="fin-val warn">8.42 元</div>
+    <div class="fin-comment">2026-10-29 盘中最低 = <b>52 周新低</b>。跌破则打开 2025 年低位空间（不复权 2025-01-06 前复权低点 4.42 元），但短期缺乏承接盘。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">第二支撑</div>
+    <div class="fin-val warn">8.00 元</div>
+    <div class="fin-comment">整数心理关口 + 相对前低平台的整数抽象位。<b>跌破 8.00 且 3 日不能收回，触发止损纪律（硬止损 7.55 元）。</b></div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">第一压力</div>
+    <div class="fin-val mid">8.59 元</div>
+    <div class="fin-comment">MA5（8.586）。站上并回踩不破是超卖反弹的第一确认位。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">第二压力</div>
+    <div class="fin-val mid">8.90 ~ 9.07 元</div>
+    <div class="fin-comment">MA10（8.896）+ 10-23 收盘价 9.07。10 月下旬破位起点，反弹至此需量能配合。</div>
+  </div>
+  <div class="fin-row">
+    <div class="fin-name">强压力</div>
+    <div class="fin-val danger">9.46 元</div>
+    <div class="fin-comment">MA20 / BOLL 中轨。收复此位才谈得上中期趋势修复；10-15 的 9.44 元在两周前刚失守，是密集套牢区。</div>
+  </div>
+</div>
+
+<div class="theme-banner danger">
+  <div class="icon">📡</div>
+  <div class="text">
+    <h3>技术面维度结论：破位弱势（超卖但趋势与资金双双未修复）</h3>
+    <p>
+      <b style="color:#f87171">趋势层：</b>收盘价位于 MA5/10/20/60/120/250 <b>全部六条均线下方</b>，且呈标准空头排列（8.47 &lt; 8.59 &lt; 8.90 &lt; 9.46 &lt; 10.63 &lt; 11.08 &lt; 12.31），距年线 -31.62%。MACD 的 DIF（-0.5841）与 DEA（-0.5140）在零轴下方持续发散，<b>DIF 仍在创出新低</b>——柱状体的连续收窄（-0.2108 → -0.1402）只是 DEA 下行更快造成的算术效果，<b>不构成底部信号</b>。今日 8.42 创 52 周新低。<br>
+      <b style="color:#fbbf24">超卖层：</b>RSI14 = 24.38（超卖区）、收盘贴近 BOLL 下轨 8.18、量比 1.50 伴随放量下跌、32 日主力资金净流出 5.75 亿元且仅 9 日为正、小单净流入 6.29 亿元——<b>典型的「机构派发、散户接盘」结构</b>，而非「机构吸筹、散户割肉」的底部反转结构。这是本报告在技术面不给出任何积极信号的原因。<br>
+      <b style="color:#f87171">资金与筹码层：</b>机构持仓占流通比 2025 年末 34.50% → 2026Q1 25.21%（-9.29pct）→ 2026H1 27.97%（+2.76pct），<b>整体处于一年半以来的低位</b>；北向持股 0.86% 且环比 -1.46%；成交量近 3 个月较前 3 个月萎缩 22.8%，说明抛压并非放量恐慌式出货而是<b>持续缩量的阴跌 + 局部放量下跌</b>——这类结构通常需要更长时间与更明确的催化才能反转。<br><br>
+      <b style="color:#fbbf24">凯恩斯选美视角：</b>铜是 2026 年 A 股最明确的主线之一（铜价 YTD +15.7%、TC 深度负值、全球矿端扰动），但盛屯并非该主线的资金首选标的（总市值 261.77 亿为可比集合中最小），叠加主力资金持续净流出，<b>「选美」框架在当下不成立——它不是被选中的那一个。</b>唯一具备博弈价值的是 <b style="color:#38bdf8">10-31 三季报这个二元事件窗口</b>。
+    </p>
+  </div>
+</div>
+
+<div class="section-title ok">🎯 模块 10 · 多方法论视角最终评级</div>
+<div class="section-subtitle">11 种方法论独立打分（1–10 分）· 权重：格雷厄姆/邓普顿/马克斯/巴菲特各 15%，费雪/林奇各 10%，博格/凯恩斯/西蒙斯/达里奥/索罗斯各 5%（合计 105%，加权后归一化 ÷1.05）</div>
+
+<div class="score-table">
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">格雷厄姆</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">深度价值 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">6</div>
+    <div class="score-name">费雪</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+    <div class="score-out">成长投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num good">7</div>
+    <div class="score-name">林奇</div>
+    <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+    <div class="score-out">PEG 投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">6</div>
+    <div class="score-name">邓普顿</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:60%"></div></div>
+    <div class="score-out">逆向投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num bad">3</div>
+    <div class="score-name">博格</div>
+    <div class="score-bar"><div class="score-fill bad" style="width:30%"></div></div>
+    <div class="score-out">指数投资 / 10</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num warn">5</div>
+    <div class="score-name">马克斯</div>
+    <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+    <div class="score-out">周期投资 / 10</div>
+  </div>
+</div>
+
+<div class="method-grid">
+  <div class="method-card best">
+    <div class="method-name">🥇 林奇 · PEG 投资</div>
+    <div class="method-author">彼得·林奇 · 权重 10%</div>
+    <div class="method-score good">7 分</div>
+    <div class="method-desc">PEG = 9.65 ÷ 42.1% = <b>0.23</b>（前瞻口径 0.18），表观上远低于 1。<b>扣分理由：</b>林奇本人明确指出 PEG 不适用于周期股——此处分母 42.1% 完全依赖「铜价维持高位」的假设，且一致预期仅覆盖 5 家机构、覆盖周期股时系统性偏乐观。给 7 分是承认数值信号，扣分是承认其适用性存疑。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🥈 邓普顿 · 逆向投资</div>
+    <div class="method-author">约翰·邓普顿 · 权重 15%</div>
+    <div class="method-score warn">6 分</div>
+    <div class="method-desc">股价 YTD -43.92%、距年内高 -54.7%、今日创 52 周新低、PE 5 年 15.2% 分位、RSI 24 超卖——「最悲观时刻」的外部特征<b>极为典型</b>；而 2026H1 业绩同比 +71.37% 属「基本面反向上行」。<b>扣分理由：</b>（1）2024 年会计差错更正与证监会处罚史触碰邓普顿「会计可疑则不碰」铁律；（2）钴价从 46.3 万跌到 23 万属趋势性下行而非出清式恐慌，缺少「行业出清」证据。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">🥉 费雪 · 成长投资</div>
+    <div class="method-author">彼得·费雪 · 权重 10%</div>
+    <div class="method-score warn">6 分</div>
+    <div class="method-desc">加分：铜产量 +29.82% 是可验证的实体增长；扣非 +64.63% 证明利润来自主业；资源接续路径清晰（Nkoyi → 贵州 → 西藏 → 加拿大）。<b>扣分：</b>研发投入占比 0.15%、研发人员 173 人，成长完全依赖资源获取而非产品创新；2024 年证监会立案处罚与 ST 一年，在费雪 15 问的「管理层可信赖度」一栏是重大减分。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">格雷厄姆 · 深度价值</div>
+    <div class="method-author">沃伦·格雷厄姆 · 权重 15%</div>
+    <div class="method-score warn">5 分</div>
+    <div class="method-desc">加分：PE-TTM 9.65（5 年 15.2% 分位）、商誉/总资产 1.80%、净利润连续为正、OCF/净利 1.27。<b>扣分：</b>资产负债率 61.69% 与 200.85 亿元有息负债使「资产负债表防御性」不达标；股息率 1.16% 远低于 2% 标准；PB 1.48 处 49.5% 分位（中性）；2023 年才刚扭亏，盈利记录过短。</div>
+  </div>
+  <div class="method-card mid">
+    <div class="method-name">马克斯 · 周期投资</div>
+    <div class="method-author">霍华德·马克斯 · 权重 15%</div>
+    <div class="method-score warn">5 分</div>
+    <div class="method-desc">核心矛盾：占收入 46.90% 的铜已在年内高位区（LME 14,440 / 年内高 14,875），占收入 21.56% 的锌毛利率 -5.27%、14.29% 的镍毛利率 0.32% 处周期底部。<b>「周期换挡期」既非底部买点也非顶部卖点</b>；库存 117.76 亿是价格高位的负向放大器。</div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">凯恩斯 · 选美理论</div>
+    <div class="method-author">约翰·凯恩斯 · 权重 5%</div>
+    <div class="method-score warn">5 分</div>
+    <div class="method-desc">铜确为 2026 年主线之一（TC 深度负值、全球矿端扰动），但盛屯总市值 261.77 亿为可比集合中最小，主力资金 32 日净流出 5.75 亿、机构持仓处于一年半低位。<b>资金没有选中它 —— 「选美」框架在当下不成立。</b></div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">索罗斯 · 反身性</div>
+    <div class="method-author">乔治·索罗斯 · 权重 5%</div>
+    <div class="method-score warn">5 分</div>
+    <div class="method-desc">正向反身性已演绎完毕（2026-01 钴价暴涨 200% → 股价 18.73 → 业绩改善）；当前处于<b>负向反身性</b>：钴价跌 → 股价跌 → 机构减仓 → 再跌。市场可能仍锚定「2023 年只赚 2.65 亿」的旧认知（5 年 PE 中位 21.31 即为证据）。<b>10-31 三季报是反身性可能重新转向的节点。</b></div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">西蒙斯 · 量化投资</div>
+    <div class="method-author">吉姆·西蒙斯 · 权重 5%</div>
+    <div class="method-score bad">4 分</div>
+    <div class="method-desc">动量因子极差（YTD -43.92%、近 1 月 -22.55%）；资金流因子负（主力 32 日净流出 5.75 亿）；波动率因子中性偏正（缩量 + RSI 超卖 + BOLL 下轨具备均值回归特征）。<b>三项中仅均值回归一项为正，且尚未确认。</b></div>
+  </div>
+  <div class="method-card weak">
+    <div class="method-name">达里奥 · 全天候配置</div>
+    <div class="method-author">瑞·达里奥 · 权重 5%</div>
+    <div class="method-score bad">4 分</div>
+    <div class="method-desc">商品价格、刚果金国别、汇率（境外资产 48.99%）、利率（有息负债 200.85 亿）四重风险暴露集中，与股债相关性不足以有效分散；<b>高杠杆使其在「通胀下行 + 增长下行」象限承受双重打击</b>。组合层面只宜作小比例卫星仓。</div>
+  </div>
+  <div class="method-card bad">
+    <div class="method-name">巴菲特 · 护城河</div>
+    <div class="method-author">沃伦·巴菲特 · 权重 15%</div>
+    <div class="method-score bad">4 分</div>
+    <div class="method-desc">六维仅「牌照 / 资源禀赋」一项成立（且卡隆威可采年限仅 3.42 年，Nkoyi 达产要等到 2029 年）；<b>自有矿山仅占原材料成本 2.41%</b>，成本优势不成立；ROE 10.47%、ROIC 估算 &lt;10%，未达优秀门槛；2024 年证监会处罚记录触及巴菲特「管理层可信度」底线。</div>
+  </div>
+  <div class="method-card bad">
+    <div class="method-name">博格 · 指数投资</div>
+    <div class="method-author">约翰·博格 · 权重 5%</div>
+    <div class="method-score bad">3 分</div>
+    <div class="method-desc">单一个股，非低成本宽基工具；无被动资金关注度证据（全流通但市值小、成交额萎缩 22.8%）；分红率尚可（2025 分红 + 回购占归母 43.81%）但不改变其非指数标的属性。<b>本方法论对盛屯基本不适用。</b></div>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+  <div class="conclusion-item">
+    <span class="num">1</span>
+    <p><strong>冲突点 A（估值 vs 质量）：</strong>林奇 PEG 7 分、格雷厄姆 5 分给出的信号是「便宜，可以买」；而巴菲特护城河 4 分给出的信号是「这门生意本身没有护城河、这笔资产负债表撑不住周期波动」。同一只股票，估值维度给买入信号，质量维度给规避信号。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">2</span>
+    <p><strong>分析原因：</strong>这不是分析框架的缺陷，而是<b>周期股的固有特征</b>——周期股在价格底部时 PE 看起来便宜（分母是峰值利润），而 ROIC 与护城河恰恰在价格底部最难看（分母是谷价利润）。盛屯的 PE 9.65 之所以处 5 年 15.2% 分位，很大程度上是「用 2026 年的高利润去比 2021–2023 年的低利润」，这不是「市场犯错」，而是<b>市场对未来利润可持续性的合理怀疑</b>。具体怀疑对象有三：钴价腰斩后的同比读数、117.76 亿元高价存货的跌价计提、2024 年会计差错更正所留下的「盈利质量可信度」折价。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">3</span>
+    <p><strong>冲突点 B（周期 vs 成长）：</strong>马克斯周期 5 分指向「铜价已在年内高位，不是周期买点，等回调」；费雪成长 6 分与林奇 PEG 7 分指向「产量 +29.82% 的成长是实体的、可以现在买」。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">4</span>
+    <p><strong>分析原因：</strong>两者都对，但适用不同时间尺度。<b>量增的部分（铜产量 2026H1 +29.82%、2026 计划 23 万吨、Nkoyi 30% 权益）是已签约、已在建的确定性增量，不依赖铜价假设</b>；<b>价增的部分（铜价 +36.86%、钴价 +99.08% 同比）完全依赖商品价格，2026H2 的同比基数已经反转</b>。因此两者的正确综合是：<b>按「量的确定性」给成长估值，按「价的不确定性」给周期折价</b>。</p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">5</span>
+    <p><strong>最终倾向：</strong>采纳 <b style="color:#fbbf24">邓普顿逆向（6 分）+ 格雷厄姆深度价值（5 分）+ 马克斯周期（5 分）</b>三轴作为决策主线，<b style="color:#38bdf8">林奇 PEG（7 分）仅作辅助参考而不作主决策依据</b>（周期股 PEG 适用性存疑），<b style="color:#fca5a5">巴菲特护城河（4 分）作为仓位上限的硬约束</b>。理由：这三轴共同指向「价格已过度反映悲观预期，而最核心的经营变量（铜产量）在改善」；但它们无法消除「盈利质量可信度」与「高杠杆」这两个折价因子。<b>结论落点不是「买入」，而是「用极小仓位在二元事件窗口博取赔率」——因为 5.10 分对应的是「值不值得跟踪并小仓位参与」，而非「值不值得重仓」。</b></p>
+  </div>
+  <div class="conclusion-item">
+    <span class="num">6</span>
+    <p><strong>最终倾向的风险提示：</strong>本倾向成立的<b style="color:#fca5a5">唯一关键前提是「2026H1 的盈利真实且可持续」</b>。若 10-31 三季报出现「单季归母 &lt; 6 亿」或「存货跌价准备计提 &gt; 5 亿」，则该前提被证伪，综合评分应下调至 4 分以下（持有观察 / 减持），届时即使 PE 更低也不应加仓。<b>低 PE 不是加仓理由，盈利验证才是。</b></p>
+  </div>
+</div>
+
+<div class="final-verdict">
+  <h2>⚖️ 11 方法论加权综合评级</h2>
+  <div class="rating">谨慎买入</div>
+  <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+    5.10 / 10 —— Σ(得分 × 权重) = 5.35 ÷ 1.05（权重和 105% 归一化）
+  </div>
+  <div class="comment">
+    格雷厄姆 5（15%）· 费雪 6（10%）· 林奇 7（10%）· 邓普顿 6（15%）· 博格 3（5%）· 马克斯 5（15%）· 西蒙斯 4（5%）· 达里奥 4（5%）· 凯恩斯 5（5%）· 索罗斯 5（5%）· 巴菲特 4（15%）<br>
+    <b style="color:#fbbf24">「谨慎买入 5.10/10」= 低估值与量增可验证，但治理污点 + 61.69% 负债率 + 钴价退潮三重压制上限；试仓 1.0–1.5%，总仓上限 3%，10-31 三季报为主要验证节点。</b>
+  </div>
+</div>
+
+<div class="section-title ok">🧭 模块 11 · 操作策略与建议</div>
+<div class="section-subtitle">凯恩斯 + 博格原则：单股权重 ≤ 10%；本标的因治理与杠杆因素进一步下调 · 现价 8.47 元（2026-10-29 10:49 盘中）</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card position">
+    <div class="strategy-title">💰 建议持仓比例</div>
+    <div class="strategy-content">
+      <strong>建议仓位：<span class="hl-warn">1.0 – 1.5% 试仓，总仓上限 3%</span></strong><br>
+      · SOP 单股上限 5%（凯恩斯 + 博格）→ 本标的因 2024 年证监会处罚记录 + 61.69% 负债率 + 113.15 亿元对外担保，<span class="hl-danger">主动下调至 3% 硬上限</span><br>
+      · 首笔 <span class="hl-info">1.0–1.5%</span>；10-31 三季报验证通过后最多加至 <span class="hl-ok">3.0%</span>；<span class="hl-danger">任何时点不得突破 3%</span><br>
+      · 若已有持仓成本高于 10 元，<span class="hl-danger">反弹至 9.46 元（MA20）优先减仓至 1.5% 以内</span>，不摊薄
+    </div>
+  </div>
+
+  <div class="strategy-card target">
+    <div class="strategy-title">🎯 买入策略 · 分 5 批建仓</div>
+    <div class="strategy-content">
+      <strong>价格区间与间隔：</strong><br>
+      · 第 1 批 <span class="hl-info">8.30 – 8.50 元</span>（现价区间）· <strong>1.0–1.5%</strong> · 立即<br>
+      · 第 2 批 <span class="hl-warn">7.70 – 7.90 元</span>（-8%）· <strong>+0.5–0.8%</strong> · 间隔 2 周<br>
+      · 第 3 批 <span class="hl-warn">7.20 – 7.40 元</span>（-14%）· <strong>+0.5%</strong> · 间隔 2–3 周<br>
+      · 第 4 批 <span class="hl-danger">6.60 – 6.80 元</span>（-21%）· <strong>+0.5%</strong> · 仅在 Q3/Q4 无重大减值时<br>
+      · 第 5 批 <span class="hl-danger">6.00 – 6.20 元</span>（-27%）· <strong>+0.5%</strong> · 需铜价站上 13,000 美元确认<br>
+      <strong>纪律：</strong>越跌越买但总仓不破 3%；<span class="hl-danger">若跌破 7.55 元（硬止损）则停止所有买入并离场</span>，不摊平亏损。
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🛑 止损位</div>
+    <div class="strategy-content">
+      <strong>硬止损：<span class="hl-danger">7.55 元</span></strong>（较现价 -10.9%）<br>
+      · 触发条件：<span class="hl-danger">收盘价跌破 7.55 元（同时已跌破 8.00 元整数关），且 3 个交易日内不能收回</span><br>
+      · 技术依据：8.42 为 52 周新低、8.00 为整数心理关；跌破后无近端支撑，下一档看 7.20 元<br>
+      · 补充止损：<span class="hl-warn">若单日收盘跌幅 &gt; 9% 且伴随主力资金净流出超 3 亿，次日无条件减半仓</span>（不看盘面情绪，机械执行）<br>
+      · <strong>基本面止损优先级高于技术止损：</strong>若 Q3/年报出现存货跌价计提 &gt; 5 亿或扣非归母同比转负，<span class="hl-danger">无论价格位置立即清仓</span>
+    </div>
+  </div>
+
+  <div class="strategy-card target">
+    <div class="strategy-title">🎯 目标价（三情景）</div>
+    <div class="strategy-content">
+      <strong>12 个月目标（2027-10 前后）：</strong><br>
+      · 保守 <span class="hl-danger">5.65 元（-33%）</span> — 铜价回落至 11,700 美元、钴价跌破 18 万，净利降至 25 亿、PE 7x<br>
+      · 中性 <span class="hl-info">10.50 元（+24%）</span> — 2026 归母兑现 34.26 亿（EPS 1.11）、铜价 13,000–14,000、PE 9.5x<br>
+      · 乐观 <span class="hl-ok">14.50 元（+71%）</span> — 2027 归母 44.82 亿（EPS 1.45）提前反映、铜价站上 15,000、Nkoyi 进度超预期、PE 10x<br>
+      <strong>24 个月目标（2028-10 前后）：</strong><br>
+      · 保守 <span class="hl-danger">5.00 元</span> · 中性 <span class="hl-info">12.50 元</span>（2027E EPS 1.45 × 8.6x）· 乐观 <span class="hl-ok">18.00 元</span>（2028E EPS 1.81 × 10x）<br>
+      · 中性情景已计入 2025 年度分红 0.098 元 + 2026 中期 0.05 元的现金回报
+    </div>
+  </div>
+
+  <div class="strategy-card cycle">
+    <div class="strategy-title">🕐 持有周期</div>
+    <div class="strategy-content">
+      <strong>中线 6 – 12 个月</strong>（对应 SOP 的「中线 3–12 月」）<br>
+      · <span class="hl-info">分两个子周期</span>：<br>
+      &nbsp;&nbsp;① <strong>事件周期（0–1 个月）</strong>：2026-10-31 三季报为最近验证节点，事件前后波动放大<br>
+      &nbsp;&nbsp;② <strong>基本面周期（6–12 个月）</strong>：观察 2026 年报（2027-03）与 2027H1 的存货跌价消化进度、铜产量是否达成 23 万吨计划、Nkoyi 基建是否按 18 个月推进<br>
+      · <span class="hl-danger">不进入短线（&lt;3 月）交易</span>：技术面处于破位后寻底阶段，波动率高但无趋势，配合不足；<span class="hl-warn">不预设 &gt;12 个月的长线持有</span>——在卡隆威 3.42 年可采年限与高杠杆未解决前，长线持有的赔率不足
+    </div>
+  </div>
+
+  <div class="strategy-card monitor">
+    <div class="strategy-title">📡 关键监测指标（每季度 3 项）</div>
+    <div class="strategy-content">
+      <strong>① 三季报/年报的盈利质量三件套</strong><br>
+      · 单季归母净利（Q3 基准线 8 亿）与扣非归母<br>
+      · <span class="hl-danger">存货跌价准备计提金额（Q4 基准线：不超过 5 亿）</span><br>
+      · 经营现金流单季值（Q3 为负则视为红灯）<br>
+      <strong>② 商品价格双锚</strong><br>
+      · LME 铜（关键位：<span class="hl-danger">跌破 11,700 美元</span> / 站上 15,000 美元）<br>
+      · 国内电解钴（关键位：<span class="hl-danger">跌破 18 万元/吨</span> / 回到 28 万元/吨）<br>
+      · 刚果金 2026-08-06 铜/钴精矿出口禁令行政指令的正式文本与税率细则<br>
+      <strong>③ 资源接续与资金面</strong><br>
+      · Nkoyi 基建开工时点（18 个月倒推 → 应于 2027 年底建成）<br>
+      · 主力资金 5 日净额转正时点<br>
+      · 控股股东质押比例（当前占其持股 50.44%，升破 60% 为红线）
+    </div>
+  </div>
+
+  <div class="strategy-card stop">
+    <div class="strategy-title">🔔 卖出信号（5 个触发条件）</div>
+    <div class="strategy-content">
+      <strong>① 基本面证伪：</strong>2026 三季报或年报<span class="hl-danger">单季归母 &lt; 6 亿</span>，或扣非归母同比转负 → 立即清仓（无论价格）<br>
+      <strong>② 价格崩塌：</strong>LME 铜<span class="hl-danger">跌破 11,700 美元/吨</span>（年内低点），或电解钴跌破 18 万元/吨 → 减仓一半<br>
+      <strong>③ 技术破位：</strong>收盘价<span class="hl-danger">跌破 7.55 元</span>且 3 日不收回 → 全部离场<br>
+      <strong>④ 财务恶化：</strong>资产负债率升破 <span class="hl-danger">65%</span>，或对外担保余额超净资产 <span class="hl-danger">70%</span>，或有息负债突破 230 亿 → 减仓一半<br>
+      <strong>⑤ 治理与合规：</strong>刚果金进一步收紧铜/钴出口且公司铜产量受影响，或公司<b>再度发生会计差错更正 / 收到监管问询或立案</b> → 无条件清仓
+    </div>
+  </div>
+</div>
+
+<div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+
+<div class="risk-grid">
+  <div class="risk-card">
+    <div class="risk-title">🔻 1. 钴价断崖 + 117.76 亿元高价存货跌价计提</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>国内电解钴现货跌破 20 万元/吨（2026-10-23 已约 23 万，较 2026H1 均价 42 万下跌约 45%）；或三季报/年报单季存货跌价准备计提 &gt; 5 亿元。<br>
+      <strong>影响幅度：</strong>存货 117.76 亿元，若按 15% 计提则一次性影响利润约 17.7 亿元，<strong>相当于 2026E 全年一致预期净利 34.26 亿元的 52%</strong>，可单季把 2026 全年净利从 34 亿打到 17 亿附近，PE-TTM 将由 9.65 被动抬升至约 19.5；同时 2026H1 的同比高基数将被 Q3/Q4 反向抹平。<br>
+      <strong>应对策略：</strong>三季报前只保留 1.0–1.5% 试仓；严格监控单季跌价计提金额，超 5 亿立即减仓一半；把「存货跌价计提」列为第一监测指标，不等价格信号。
+    </div>
+  </div>
+
+  <div class="risk-card">
+    <div class="risk-title">🔻 2. 高杠杆 + 113.15 亿元对外担保（占净资产 63.30%）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>资产负债率突破 65%（当前 61.69%，年初 +2.85pct）；或担保余额超过归母净资产 70%；或再融资环境收紧导致短债（占比 56%）滚续受阻。<br>
+      <strong>影响幅度：</strong>有息负债 200.85 亿元、利率区间 0.8%–8%。若综合融资成本上行 100bp，<strong>年化利息支出增加约 2.0 亿元，直接吞噬 2026E 净利的 6%</strong>；若被担保方（其中 79.41 亿元指向资产负债率 &gt;70% 的对象）出现代偿，公司需计提预计负债，净资产将同步受损——这是「盈利冲击 + 资产减值」双杀路径，对应格雷厄姆与巴菲特框架中的最差情形。<br>
+      <strong>应对策略：</strong>仓位硬上限 3%；将「资产负债率 &gt; 65%」「担保/净资产 &gt; 70%」设为强制减仓触发线；担保公告纳入每季度必读跟踪项。
+    </div>
+  </div>
+
+  <div class="risk-card">
+    <div class="risk-title">🔻 3. 治理与合规污点 · 2024 年证监会立案 + 会计差错更正 + ST 一年</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>再度出现会计差错更正、监管问询升级、实控人/高管减持、或控股股东质押比例升破 60%（当前 50.44%）。<br>
+      <strong>影响幅度：</strong>2024 年的完整处罚链条（2021、2022 年报及 2023 分季度数据差错更正 → 证监会立案 → 300 万元罚款 + 4 名高管 100–150 万元罚款 + 12 名董监高警示函 → 2024-08-01 起 ST → 2025-08-14 撤销 ST）已在 A 股同类事件中形成 10–20% 的永久性估值折价，并直接压低「历史盈利可作为估值锚」的可信度。此外实控人姚雄杰直接持股仅 1.30%（合计控制 17.95%），控制权比例偏薄叠加过半质押率，<strong>股价进一步下跌可能触发被动减持与控制权稳定性担忧的负反馈</strong>。<br>
+      <strong>应对策略：</strong>治理因素是本标的仓位的硬约束（上限 3% 而非 5%）；把「零新增监管事项」写入持仓前提条件；一旦出现新的会计更正或立案，无条件清仓。
+    </div>
+  </div>
+
+  <div class="risk-card warn">
+    <div class="risk-title">🔻 4. 铜价高位回落 + 内部品类错配（锌负毛利 / 镍零毛利）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>LME 铜跌破 11,700 美元/吨（2026 年内低点）；或铜价高位下行叠加全球冶炼产能释放使加工费再度扩张；或锌价 / 镍价继续探底导致亏损业务扩大。<br>
+      <strong>影响幅度：</strong>铜产品占 2025 年收入 46.90%，毛利率 28.88%——<strong>该业务毛利率已在价格上行年度下滑 6.35pct，说明加工费挤压已抵消大部分涨价红利</strong>；若铜价回落 20%，收入端减少约 56 亿元（按 2025 基数），叠加锌业务 21.56% 收入已为负毛利（-5.27%）、镍 14.29% 收入毛利率仅 0.32%，<strong>整体净利率可能由 6.5% 快速压缩至 2% 以下</strong>，2027E 净利 44.82 亿元的一致预期存在下修风险。<br>
+      <strong>应对策略：</strong>不追高、不在铜价高位扩大仓位（第 4、5 批建仓均要求铜价确认）；把「LME 铜 11,700 美元」设为减仓触发线；关注 TC/RC 变化作为铜矿端景气的先行指标。
+    </div>
+  </div>
+
+  <div class="risk-card info">
+    <div class="risk-title">🔻 5. 资源接续缺口 + 刚果金国别与汇率风险（境外资产占总资产 48.99%）</div>
+    <div class="risk-desc">
+      <strong>触发条件：</strong>卡隆威（刚果金铜钴矿，铜储量 16.11 万吨 / 钴 2.29 万吨，年处理 210 万吨）<strong>可采年限仅 3.42 年</strong>，2028–2029 年出现产量接续缺口；Nkoyi 基建（18 个月）或达产（24 个月）延期；刚果金加税或进一步限制铜/钴精矿出口；刚果金法郎大幅波动。<br>
+      <strong>影响幅度：</strong>Nkoyi 于 2026-07 完成交割、采矿权证至 2040-01-13、铜品位 1.66%（高于卡隆威 2.70% 之外的开采门槛），但<strong>基建 + 达产合计 42 个月意味着 2028–2029 年无法有效接续卡隆威的产量</strong>，期间公司需依赖 BMS（2025 年末产能 12 万金属吨铜、2026H1 产量 7.44 万吨）超产弥补——一旦超产受限，铜产量 23 万吨的 2026 年计划即无法延续。叠加境外资产 247.81 亿元（占总资产 48.99%），<strong>刚果金政治、税制与汇率三重国别风险直接作用于 49% 的资产基础</strong>；另有西藏海腾标的 2026H1 净资产 -721.80 万元（尚未生产）。<br>
+      <strong>应对策略：</strong>跟踪 Nkoyi 基建节点公告（每季度）；把「卡隆威剩余可采年限」与「BMS 达产率」纳入核心跟踪；国别风险敞口作为不提高仓位上限的理由之一。
+    </div>
+  </div>
+</div>
+
+<div class="data-note" style="margin-top:24px;">
+  <strong>📌 来源与复核记录：</strong><br>
+  ① <strong>公司公告（权威口径）</strong>：《2026 年半年度报告》（2026-07-30，cninfo finalpage/2026-07-30/1225446751.PDF）、《2025 年年度报告》（2026-03-20，finalpage/2026-03-20/1225019183.PDF）、《2026 年半年度业绩预增公告》（2026-07-11，编号 2026-045）、2026 年一季度业绩预增公告（2026-04-01，编号 2026-023）、Nkoyi 收购公告（2026-04-08，finalpage/2026-04-08/1225082217.PDF）、西藏海腾进展公告（2026-09-25，finalpage/2026-09-25/1225546582.PDF）、撤销 ST 相关公告（2025-08-13）、上交所《2025 年年报信息披露监管问询函》回复（2026-05-08，上证公函[2026]0580 号）<br>
+  ② <strong>行情与估值</strong>：腾讯证券 qt.gtimg.cn（2026-10-29 10:49:43 快照）；东方财富 push2.eastmoney.com/api/qt/stock/get（secid=1.600711）；东方财富 RPT_VALUEANALYSIS_DET（2021-01-04 ~ 2026-10-28）；腾讯前复权 / 不复权 K 线（web.ifzq.gtimg.cn，321 根 / 260 根）；东方财富 RPT_F10_MAIN_ORGHOLD（机构持仓，REPORT_DATE 2023-12-31 ~ 2026-09-30）；东方财富 RPT_MUTUAL_HOLDSTOCKNORTH_STA（北向，TRADE_DATE 2026-09-30）；东方财富 datacenter F10 RPT_F10_BASIC_ORGINFO（公司档案，LISTING_DATE 1996-05-31）<br>
+  ③ <strong>资金流</strong>：东方财富 fflow daykline 接口（secid=1.600711），样本 2026-09-02 ~ 2026-10-23 共 32 个交易日；<span class="warn">2026-10-26 ~ 10-29 共 4 个交易日因接口限流未能取得</span><br>
+  ④ <strong>行业与价格</strong>：SMM 新能源、钛媒体、生意社、shmet 中国国际镍钴年会、财联社、百川盈孚、新浪财经（hf_CAD / InnerFutures cu0）、ICSG 与 Cochilco 口径（均为媒体转述，<span class="warn">未取得一手原文</span>）<br>
+  ⑤ <strong>机构预期与研报</strong>：同花顺 F10 盈利预测（截至 2026-10-29，5 家机构）；国信证券刘孟峦 2026-08-18《半年报点评》；中邮证券李帅华 2026-08-03《公司点评》（首次覆盖）；浙商证券毕春晖 2026-09-26；国联民生邱祖学 2026-07-30；民生证券 2025-11-19《铜钴为基，黄金启新元》深度<br>
+  ⑥ <strong>交叉校验已完成</strong>：① PE-TTM 9.65 = 261.77 亿 ÷ TTM 归母 27.12 亿（19.61 + 18.04 − 10.52），与腾讯字段完全一致；② PE 静 13.35 = 261.77 ÷ 19.61；PE 动 7.26 = 261.77 ÷ 36.08（H1 年化），与东财 f162 一致；③ PB 1.46（自算 8.47 ÷ BVPS 5.78）与腾讯 1.48 / 东财 1.48 一致；④ 2026H1 营业成本 148.59 亿 = 192.64 × (1 − 22.87%) 校验通过；⑤ 总市值 30.906 亿股 × 8.47 = 261.71 亿 vs 东财 262.08 亿（按 8.48）一致<br>
+  ⑦ <strong>衍生数据标注</strong>：存货周转天数 144 天（半年口径，= 117.76 ÷ 148.59 × 182，推算值）；ROIC &lt;10%（估算值，基于 ROE 与有息负债结构推算，非公司披露）；PEG 0.23 / 0.18（自算，基于一致预期）；目标价三情景（自算，基于 EPS × PE 假设）；安全边际三情景（自算）；CAGR 各项（自算）
+</div>
+
+<div class="footer">
+  盛屯矿业（600711）｜报告截止日 2026-10-29（周四）10:49 盘中快照 · 生成 2026-10-29｜11 方法论交叉验证 × 12 模块标准输出<br>
+  证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+  数据源：公司公告（巨潮资讯 cninfo · 上交所）· 腾讯证券 · 东方财富 · 同花顺 F10 · SMM · 生意社 · 百川盈孚 · 新浪财经 · 券商研报（国信 / 中邮 / 浙商 / 国联民生 / 民生）
+</div>
+
+</div>
+</body>
+</html>

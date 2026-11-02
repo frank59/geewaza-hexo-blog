@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="QyXahWZDarp7f3CmNgYHfj">
+<head data-page-node-id="y8RCEKjmEh4UEPnDAw99qo">
+<meta charset="UTF-8" data-page-node-id="5z2rVwbdO1GFoIfYRYX25D">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="MKkOPEdNeqB2b609VJXwyP">
+<title>2026-09-04 A股复盘 · 放量冲高回落，科技杀跌猪肉AI逆势</title>
+<style>
+  :root{
+    --bg-base:#0f1419; --bg-mid:#1a2332; --bg-end:#0f1419;
+    --card-bg:rgba(30,41,59,0.6); --card-deep:rgba(15,23,42,0.5);
+    --border-soft:rgba(148,163,184,0.2); --border-mid:rgba(148,163,184,0.3);
+    --text-primary:#f1f5f9; --text-body:#e8eef5; --text-muted:#cbd5e1; --text-subtle:#94a3b8; --text-faint:#64748b;
+    --up:#10b981; --up-light:#34d399; --up-soft:#6ee7b7;
+    --down:#ef4444; --down-light:#f87171; --down-soft:#fca5a5;
+    --warn:#f59e0b; --warn-light:#fbbf24;
+    --info:#0ea5e9; --info-light:#38bdf8;
+    --purple:#a855f7; --purple-light:#c084fc;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(135deg,#0f1419 0%,#1a2332 50%,#0f1419 100%);
+    color:var(--text-body); min-height:100vh; padding:24px; line-height:1.6; }
+  .container { max-width:1500px; margin:0 auto; }
+
+  /* === 头部 === */
+  .header { background:linear-gradient(135deg,rgba(239,68,68,0.22),rgba(245,158,11,0.16),rgba(168,85,247,0.10));
+    border:1px solid rgba(239,68,68,0.35); border-radius:20px; padding:36px; margin-bottom:24px; position:relative; overflow:hidden; }
+  .header::before { content:""; position:absolute; top:-60px; left:-60px; width:200px; height:200px;
+    background:radial-gradient(circle,rgba(239,68,68,0.25),transparent 70%); border-radius:50%; }
+  .header h1 { font-size:34px; background:linear-gradient(90deg,#f87171,#fbbf24,#c084fc);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:8px; font-weight:700; }
+  .header .subtitle { color:var(--text-muted); font-size:15px; position:relative; }
+  .badges { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; position:relative; }
+  .badge { display:inline-block; padding:5px 12px; border-radius:8px; font-size:12px; font-weight:600; }
+  .badge-up { background:rgba(16,185,129,0.18); color:#34d399; }
+  .badge-source { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .badge-warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .badge-purple { background:rgba(168,85,247,0.18); color:#c084fc; }
+  .badge-danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+
+  /* === 章节标题 === */
+  .section-title { font-size:22px; margin:32px 0 16px; padding-left:14px; border-left:4px solid #f87171; color:var(--text-primary); font-weight:700; }
+  .section-title.warn { border-left-color:#fbbf24; }
+  .section-title.info { border-left-color:#38bdf8; }
+
+  /* === 数据说明 === */
+  .data-note { border:1px dashed var(--border-mid); border-radius:12px; padding:16px 20px; margin-bottom:24px; font-size:13px; color:var(--text-muted); background:rgba(15,23,42,0.4); }
+  .data-note strong { color:var(--text-primary); }
+  .ok { color:#34d399; } .danger { color:#fca5a5; } .warn { color:#fbbf24; } .info { color:#38bdf8; } .mid { color:#c084fc; } .avoid { color:#fca5a5; font-weight:700; }
+  .danger-text { color:#fca5a5; } .warn-text { color:#fbbf24; } .info-text { color:#38bdf8; } .purple-text { color:#c084fc; }
+
+  /* === 主题横幅 === */
+  .theme-banner { display:flex; gap:16px; align-items:flex-start; background:rgba(239,68,68,0.08); border-left:5px solid #ef4444; border-radius:12px; padding:18px 20px; margin-bottom:8px; }
+  .theme-banner.warn { background:rgba(245,158,11,0.08); border-left-color:#f59e0b; }
+  .theme-banner .icon { font-size:28px; line-height:1; }
+  .theme-banner .text h3 { font-size:17px; color:var(--text-primary); margin-bottom:6px; }
+  .theme-banner .text p { font-size:13px; color:var(--text-muted); }
+
+  /* === 指数卡 === */
+  .dashboard { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:24px; }
+  .index-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:20px; position:relative; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.info { border-top:3px solid #38bdf8; }
+  .index-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.3); transition:.2s; }
+  .index-card .tag { position:absolute; top:14px; right:14px; font-size:11px; padding:3px 8px; border-radius:6px; font-weight:600; }
+  .index-card .tag.ok { background:rgba(16,185,129,0.18); color:#34d399; }
+  .index-card .tag.danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .index-card .tag.warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .index-card .tag.info { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .index-card .name { color:var(--text-subtle); font-size:13px; margin-bottom:8px; }
+  .index-card .value { font-size:24px; font-weight:700; color:var(--text-primary); }
+  .index-card.ok .value { color:#34d399; }
+  .index-card.danger .value { color:#f87171; }
+  .index-card.warn .value { color:#fbbf24; }
+  .index-card.info .value { color:#38bdf8; }
+  .index-card .change { font-size:13px; margin-top:4px; }
+  .index-card .label { font-size:12px; color:var(--text-faint); margin-top:8px; }
+
+  /* === 资金信号 === */
+  .market-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+  .stat-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:20px; border-top:3px solid var(--border-mid); }
+  .stat-card.up { border-top-color:#34d399; }
+  .stat-card.danger { border-top-color:#f87171; }
+  .stat-card.warn { border-top-color:#fbbf24; }
+  .stat-card.info { border-top-color:#38bdf8; }
+  .stat-card .stat-name { color:var(--text-subtle); font-size:13px; margin-bottom:8px; }
+  .stat-card .stat-value { font-size:24px; font-weight:700; }
+  .stat-card.up .stat-value { color:#34d399; }
+  .stat-card.danger .stat-value { color:#f87171; }
+  .stat-card.warn .stat-value { color:#fbbf24; }
+  .stat-card.info .stat-value { color:#38bdf8; }
+  .stat-card .stat-detail { font-size:12px; color:var(--text-faint); margin-top:6px; }
+
+  /* === 表格型卡 === */
+  .flow-table,.etf-table,.fin-table { display:grid; gap:0; margin-bottom:24px; border:1px solid var(--border-soft); border-radius:12px; overflow:hidden; }
+  .flow-row,.etf-row,.fin-row { display:grid; padding:12px 16px; border-bottom:1px dashed rgba(148,163,184,0.15); align-items:center; font-size:13px; }
+  .flow-row.header,.etf-row.header,.fin-row.header { background:rgba(148,163,184,0.08); font-weight:700; color:var(--text-primary); }
+  .flow-table { grid-template-columns:0.6fr 1.6fr 1.2fr 2.4fr; }
+  .etf-table { grid-template-columns:0.6fr 2fr 1fr 1.4fr; }
+  .fin-table { grid-template-columns:1.4fr 1.6fr 2.4fr; }
+  .flow-row:last-child,.etf-row:last-child,.fin-row:last-child { border-bottom:none; }
+  .flow-val.up { color:#34d399; font-weight:700; } .flow-val.down { color:#fca5a5; }
+  .etf-val.up { color:#34d399; font-weight:700; } .etf-val.down { color:#fca5a5; font-weight:700; }
+  .fin-val.up { color:#34d399; } .fin-val.down { color:#fca5a5; } .fin-val.warn { color:#fbbf24; } .fin-val.info { color:#38bdf8; }
+
+  /* === 主线卡 === */
+  .mainlines { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+  .mainline-card { background:var(--card-bg); border:1px solid var(--border-soft); border-left:4px solid var(--border-mid); border-radius:12px; padding:18px; position:relative; }
+  .mainline-card.rank-1 { border-left-color:#fbbf24; }
+  .mainline-card.rank-2 { border-left-color:#38bdf8; }
+  .mainline-card.rank-3 { border-left-color:#c084fc; }
+  .mainline-card.defend { border-left-color:#ef4444; background:rgba(239,68,68,0.06); }
+  .mainline-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.3); transition:.2s; }
+  .mainline-rank { position:absolute; top:14px; right:16px; width:28px; height:28px; border-radius:50%; background:rgba(148,163,184,0.12); color:var(--text-muted); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; }
+  .mainline-card .title { font-size:16px; font-weight:700; color:var(--text-primary); margin-bottom:10px; padding-right:40px; }
+  .mainline-tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+  .mainline-tag { font-size:11px; padding:3px 8px; border-radius:6px; font-weight:600; }
+  .mainline-tag.up { background:rgba(16,185,129,0.18); color:#34d399; }
+  .mainline-tag.warn { background:rgba(245,158,11,0.18); color:#fbbf24; }
+  .mainline-tag.danger { background:rgba(239,68,68,0.18); color:#fca5a5; }
+  .mainline-tag.info { background:rgba(14,165,233,0.18); color:#38bdf8; }
+  .mainline-tag.purple { background:rgba(168,85,247,0.18); color:#c084fc; }
+  .mainline-desc { color:var(--text-muted); font-size:13px; line-height:1.6; margin-bottom:10px; }
+  .mainline-desc b { color:var(--text-primary); }
+  .flow-timeline { font-size:12px; color:var(--text-faint); background:rgba(15,23,42,0.4); border-radius:8px; padding:10px 12px; margin-bottom:10px; line-height:1.7; }
+  .flow-timeline .arrow { color:#fbbf24; font-weight:700; }
+  .mainline-stocks { display:flex; flex-wrap:wrap; gap:6px; }
+  .stock-chip { font-size:11px; padding:2px 8px; border-radius:6px; background:rgba(148,163,184,0.1); color:var(--text-muted); }
+  .stock-chip b { color:#fbbf24; }
+
+  /* === 涨停天梯 === */
+  .ladder { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
+  .ladder-tag { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:10px; font-size:13px; font-weight:600; background:var(--card-bg); border:1px solid var(--border-soft); }
+  .ladder-tag.lv-1 { border-left:4px solid #ef4444; color:#fca5a5; }
+  .ladder-tag.lv-2 { border-left:4px solid #fbbf24; color:#fbbf24; }
+  .ladder-tag.lv-3 { border-left:4px solid #38bdf8; color:#38bdf8; }
+  .ladder-tag.lv-4 { border-left:4px solid #c084fc; color:#c084fc; }
+  .ladder-tag b { color:#fff; }
+
+  /* === 信号卡 === */
+  .signal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
+  .signal-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:18px; border-top:3px solid var(--info); }
+  .signal-card h4 { font-size:15px; color:var(--text-primary); margin-bottom:8px; }
+  .signal-card p { font-size:13px; color:var(--text-muted); }
+  .signal-card .num { display:inline-block; width:22px; height:22px; border-radius:50%; background:rgba(14,165,233,0.2); color:#38bdf8; text-align:center; line-height:22px; font-size:12px; font-weight:700; margin-right:6px; }
+
+  /* === 核心结论 === */
+  .conclusion { background:var(--card-bg); border:1px solid var(--border-soft); border-left:3px solid var(--border-mid); border-radius:12px; padding:18px 20px; margin-bottom:16px; }
+  .conclusion.ok { border-left-color:#34d399; }
+  .conclusion.warn { border-left-color:#fbbf24; }
+  .conclusion.info { border-left-color:#38bdf8; }
+  .conclusion.danger { border-left-color:#ef4444; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:10px; }
+  .conclusion.ok .conclusion-title { color:#34d399; }
+  .conclusion.warn .conclusion-title { color:#fbbf24; }
+  .conclusion.info .conclusion-title { color:#38bdf8; }
+  .conclusion.danger .conclusion-title { color:#fca5a5; }
+  .conclusion-item { display:flex; gap:10px; margin-bottom:8px; font-size:13px; color:var(--text-muted); align-items:flex-start; }
+  .conclusion-item .num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:rgba(239,68,68,0.18); color:#fca5a5; text-align:center; line-height:22px; font-size:12px; font-weight:700; }
+  .conclusion-item p { line-height:1.6; }
+
+  /* === 分歧卡 === */
+  .conflict-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  .view-a,.view-b { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:18px; }
+  .view-a { border-top:3px solid #34d399; }
+  .view-b { border-top:3px solid #f87171; }
+  .view-a h4,.view-b h4 { font-size:15px; margin-bottom:8px; }
+  .view-a h4 { color:#34d399; } .view-b h4 { color:#fca5a5; }
+  .view-a p,.view-b p { font-size:13px; color:var(--text-muted); margin-bottom:6px; }
+  .verdict { background:rgba(168,85,247,0.08); border:1px solid rgba(168,85,247,0.3); border-radius:12px; padding:16px 20px; margin-bottom:24px; font-size:14px; color:var(--text-body); }
+  .verdict b { color:#c084fc; }
+
+  /* === 策略矩阵 === */
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px; }
+  .strategy-card { background:var(--card-bg); border:1px solid var(--border-soft); border-radius:12px; padding:18px; border-left:4px solid var(--border-mid); }
+  .strategy-card.mainline { border-left-color:#34d399; }
+  .strategy-card.defend { border-left-color:#fbbf24; }
+  .strategy-card.avoid { border-left-color:#ef4444; }
+  .strategy-card.core { border-left-color:#c084fc; }
+  .strategy-card h4 { font-size:15px; color:var(--text-primary); margin-bottom:10px; }
+  .strategy-list { list-style:none; font-size:13px; color:var(--text-muted); }
+  .strategy-list li { padding:5px 0; border-bottom:1px dashed rgba(148,163,184,0.12); }
+  .strategy-list li:last-child { border-bottom:none; }
+  .strategy-list b { color:var(--text-primary); }
+
+  /* === 页脚 === */
+  .footer { text-align:center; color:var(--text-faint); font-size:12px; margin-top:32px; padding:16px; border-top:1px solid rgba(148,163,184,0.1); line-height:1.8; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .market-stats { grid-template-columns:repeat(2,1fr); }
+    .mainlines,.signal-grid { grid-template-columns:1fr; }
+    .conflict-grid,.strategy-grid { grid-template-columns:1fr; }
+    .flow-table,.etf-table,.fin-table { grid-template-columns:1fr; }
+    .flow-row,.etf-row,.fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body data-page-node-id="NRwBkd6mjEpJ3AyqClG80R">
+<div class="container" data-page-node-id="wzvSzObn6xwzCauH87KU6h">
+
+  <!-- ① 头部 -->
+  <div class="header" data-page-node-id="Xubb2zCk7IT9xG2j4wHBdA">
+    <h1 data-page-node-id="5cPw1Jo436z9IHpBtENd2K">🚀 2026-09-04 A股复盘 · 放量冲高回落，科技杀跌猪肉AI逆势</h1>
+    <div class="subtitle" data-page-node-id="S6atju80l6Q7x1e8njYB5M">五大指数集体收跌 · 成交额 20510 亿（放量 2708 亿） · 2444 涨 / 2914 跌 · 数据日期 2026-09-04（周五）</div>
+    <div class="badges" data-page-node-id="R9umAgFDKqc2CiL8VlwKFg">
+      <span class="badge badge-danger" data-page-node-id="RN3BewVZDtR71zzKTIv7eN">🔴 五大指数全跌</span>
+      <span class="badge badge-warn" data-page-node-id="1k9BLrsX4CjFFH44Q7QxUb">🟡 放量下跌 2914 只下挫</span>
+      <span class="badge badge-up" data-page-node-id="VuD3qw2hQRctXEonTqt72k">🟢 猪肉 / AI应用逆势</span>
+      <span class="badge badge-source" data-page-node-id="tkh66L2tTfz86HrxVeDlQE">📅 数据 2026-09-04</span>
+      <span class="badge badge-purple" data-page-node-id="ix8UFzrrGfJHOZ2fgVEwYA">🧠 GPT-6 Astra 催化</span>
+    </div>
+  </div>
+
+  <!-- ② 数据说明（双源验证） -->
+  <div class="data-note" data-page-node-id="FB5FvO09T0PKbCzD1oGLN8">
+    <strong data-page-node-id="lRBaDiKY7mCHMdCK2DIto6">📌 数据口径与双源验证：</strong><br data-page-node-id="GiITaFOQWcr9qQfAur1jTx">
+    ✅ <span class="ok" data-page-node-id="i4X1yH9fGS00BAKY0vSXSI">已验证数据（绿色高亮）</span>：指数点位 / 涨跌幅、成交额、涨跌家数、涨停天梯、主力净流入 TOP3、ETF 涨跌，已由 <b data-page-node-id="1E0vpyR7PHeIfbkZ4xqviZ">同花顺收评 + ETF日报（Wind 口径）</b> 与 <b data-page-node-id="cmCdrgAFS9yC7UDnzQryHd">东方财富财富号 / 头条 / 中国基金报（非同源第二来源）</b> 交叉核验一致。<br data-page-node-id="sn1yNJqjnIQXCNhMQXHxQK">
+    ⚠️ <span class="warn-text" data-page-node-id="XvHqyMS8DgD13yPCEVPU6R">口径说明</span>：主力净流入 TOP3 采用 <b data-page-node-id="IZ3MJlESxPa2AGKgXErXdI">同花顺主题/概念口径</b>；申万一级行业口径（传媒 +63 亿、农林牧渔 +32.9 亿、电子 -247.9 亿）作为对照在文内标注，二者不可混用。<br data-page-node-id="TFG9rp1rY22xjYxUlVpOws">
+    🔴 <span class="danger-text" data-page-node-id="JHtKFZw1v3JGzN7pmkeIi2">数据缺口</span>：半导体设备 ETF、科创成长 ETF、工业母机 ETF 仅披露「重挫逾 3% / 显著回调」方向性描述，未披露具体净值跌幅，已在 ETF 表中标「缺口待核实」。<br data-page-node-id="c1lu3NaQ8QapK3Uo0lxidw">
+    ℹ️ <span class="info-text" data-page-node-id="bkdffosYxIWZAeYpbdFCGc">同源声明</span>：同花顺 news/stock 两域同源，仅计 1 个来源；第二来源取东方财富 / 头条 / 中国基金报，满足双源核验要求。
+  </div>
+
+  <!-- ③ 主题横幅 -->
+  <div class="theme-banner" data-page-node-id="zpCTU32yPA5TKXlrGsERSV">
+    <div class="icon" data-page-node-id="0UH1HLIRKdStvDTbMwxbgV">🛑</div>
+    <div class="text" data-page-node-id="Je347LpVASKbU7sHFoLfqr">
+      <h3 data-page-node-id="fTqrMUL5JFw7YIXNP3Fq1G">核心定性：高开低走放量大跳水 · 4000 点关口前剧烈换手 · 资金「高低切」从科技硬件转向猪肉与 AI 应用</h3>
+      <p data-page-node-id="SgGkfSeqMr9OGAPvzyBHdQ">隔夜美股大涨带动 A 股高开，沪指早盘冲高至 3980 点（距 4000 仅 20 点）三次受阻；午后受「非农避险 + 特朗普谣言 + 半导体融券传闻」三重扰动集体跳水翻绿，最低探 3915 点；尾盘 10 分钟抄底资金回拉。全市场放量至 2.05 万亿（放量 2708 亿）却用来「砸盘」，呈典型放量下跌 + 高低切换特征。</p>
+    </div>
+  </div>
+
+  <!-- ④ 五大核心指数 -->
+  <div class="section-title" data-page-node-id="PJwXZahCnWyoLqlmY9PY52">📊 一、五大核心指数表现</div>
+  <div class="dashboard" data-page-node-id="GVfxZIZoSnodChlYTidF5P">
+    <div class="index-card danger" data-page-node-id="5BHcavdPg2VEuxT0n2kRpg">
+      <div class="tag danger" data-page-node-id="B0kQ78s4eehJbdqEPASlIZ">跌</div>
+      <div class="name" data-page-node-id="voWa9gr8o4oeMzAYkexmuf">上证指数（1A0001）</div>
+      <div class="value" data-page-node-id="LZRUX55AIkuEjtht0cnXFZ">3930.12</div>
+      <div class="change" style="color:#f87171" data-page-node-id="YwShEQUrrJKIZpzduaaLI6">-0.30%</div>
+      <div class="label" data-page-node-id="TgEA9Ng21HsOMjSJ6SuFKC">早盘冲高 3980 受阻，午后翻绿</div>
+    </div>
+    <div class="index-card danger" data-page-node-id="5Y2jp208AgxLt3MqgbFRoU">
+      <div class="tag danger" data-page-node-id="MCLzRDXbq2k39GPfbJM8Vi">跌</div>
+      <div class="name" data-page-node-id="3EqSZOfQ7GofHzGfHdF5Cn">深证成指（399001）</div>
+      <div class="value" data-page-node-id="BdlXdpIXLMlF1RBIjEAiDR">13516.97</div>
+      <div class="change" style="color:#f87171" data-page-node-id="XcByn9ecyS99hjPv0HR6oz">-0.79%</div>
+      <div class="label" data-page-node-id="VifbPMKPEQR0Ok7xP1C7Ez">权重拖累，跟随主板走弱</div>
+    </div>
+    <div class="index-card danger" data-page-node-id="190W5QlQKbSx1HWQ3js7FX">
+      <div class="tag danger" data-page-node-id="u9rbivDBJC65EYt5rddQ0I">跌</div>
+      <div class="name" data-page-node-id="EINlBPP2Tik3u84vLjUjSJ">创业板指（399006）</div>
+      <div class="value" data-page-node-id="eeDki8ZcbCt9bmcs8P9LYr">3286.55</div>
+      <div class="change" style="color:#f87171" data-page-node-id="GPRJpiZk8Ms2FZ5Cm5NVQx">-0.78%</div>
+      <div class="label" data-page-node-id="ZEZHNUbI1xnteKwRxZX25i">成长风格同步承压</div>
+    </div>
+    <div class="index-card danger" data-page-node-id="DYcze4xnpRiQHO3VHW5ql8">
+      <div class="tag danger" data-page-node-id="wV8AdxQ4VveyqVPBCTSeJA">领跌</div>
+      <div class="name" data-page-node-id="JgdALLy4HqOIa5nS3MnDdv">科创50（1B0688）</div>
+      <div class="value" data-page-node-id="MxBSnMouBqVTDSacDHAYF4">1577.36</div>
+      <div class="change" style="color:#f87171" data-page-node-id="My71iaiTCSx537XRgghpFl">-2.10%</div>
+      <div class="label" data-page-node-id="xkNV7g4lJRx5T41bjB5iEG">半导体权重重挫，高开低走</div>
+    </div>
+    <div class="index-card danger" data-page-node-id="gzs7q3bTgXiBJg5029x43Y">
+      <div class="tag danger" data-page-node-id="CKeKVGlsCtQgeUSEF02Klw">微跌</div>
+      <div class="name" data-page-node-id="d6UkFtBasL2GK3ZsqGosF1">北证50</div>
+      <div class="value" data-page-node-id="QZRw4kQMvCKOqvCBOrXPZd">1087.66</div>
+      <div class="change" style="color:#f87171" data-page-node-id="0z7JbvJ3CnSCUMYZmvBSo4">-0.10%</div>
+      <div class="label" data-page-node-id="V9dWQ89wEVvljngZDLAMOY">相对抗跌，小盘活跃度尚可</div>
+    </div>
+  </div>
+
+  <!-- ⑤ 市场交易与资金信号 -->
+  <div class="section-title info" data-page-node-id="bNVSTtBj6bR56LZptA3uJX">💰 二、市场交易与资金信号</div>
+  <div class="market-stats" data-page-node-id="2kBEmR2EyspuMij0MYYnBk">
+    <div class="stat-card warn" data-page-node-id="VG5ZXlnzVxcDXUhRaBn91w">
+      <div class="stat-name" data-page-node-id="gw30o2RM3B9pzjgQyGDoSQ">三市成交额</div>
+      <div class="stat-value" data-page-node-id="EdMLNXI4Qr9kPkjSOIEvIx">20510 亿</div>
+      <div class="stat-detail" data-page-node-id="PJzqb0qXLJW1n0ZpNACdEs">较上日放量 <b style="color:#fbbf24" data-page-node-id="czKhTI6OeTQVyfwO9vCJPm">+2708 亿</b> · 放量下跌</div>
+    </div>
+    <div class="stat-card danger" data-page-node-id="W79QLYykbXu78YEpfXJedO">
+      <div class="stat-name" data-page-node-id="zfQnPS1txviGYtLFhCn9Lk">涨跌家数</div>
+      <div class="stat-value" data-page-node-id="LvpzckDqw9Fx9q8kCkda2E">2444 / 2914</div>
+      <div class="stat-detail" data-page-node-id="gMtPOeDaqTxeUYs4GU7SVg">涨 / 跌 · 跌多涨少，<b style="color:#fca5a5" data-page-node-id="Bug0TUGthJJRj2a3yfSHKe">41 涨停 / 9 跌停</b></div>
+    </div>
+    <div class="stat-card info" data-page-node-id="gsrLXSTQYTEHEQxk5JSCfi">
+      <div class="stat-name" data-page-node-id="YE9dQVwBJvWGaCC4IwKSyj">领涨 vs 领跌</div>
+      <div class="stat-value" data-page-node-id="l3aIh2DpecuapLaAw5GqDt">猪肉 +4% / 半导体 -2.85%</div>
+      <div class="stat-detail" data-page-node-id="wxt58cyjdiEfm8Uul3WRfk">农业防御 vs 科技硬件，极致分化</div>
+    </div>
+    <div class="stat-card info" data-page-node-id="jwl4Bg2DILxnEJ4s6HCiSt">
+      <div class="stat-name" data-page-node-id="GySdB1og7W0VRt6BpQwF54">ETF 领涨 / 领跌</div>
+      <div class="stat-value" data-page-node-id="owKWzQpONCjDzewbyY89ga">养殖 +4.60% / 半导体设备 -3%+</div>
+      <div class="stat-detail" data-page-node-id="6xv0ffME04wyyq9kcAjkfa">养殖 ETF 霸榜前十，科技 ETF 承压</div>
+    </div>
+  </div>
+
+  <!-- ⑥ 主力资金净流入 TOP3 -->
+  <div class="section-title" data-page-node-id="Ia5KoFS5nydTLfuZSj70ZG">📈 三、主力资金净流入板块 TOP3 · 同花顺主题板块口径</div>
+  <div class="flow-table" data-page-node-id="HFd6CJLiMa8LPFVld9kQFh">
+    <div class="flow-row header" data-page-node-id="2wiDiGlIZCOYTeCBVjyzti"><div data-page-node-id="AYf6emo8IxFcDXUqmnvEDW">排名</div><div data-page-node-id="G5vBxBfaY6Dd8BpQaXIm8M">主题板块</div><div data-page-node-id="1wDGHH5w0rsPQnUzkQgMbZ">主力净流入</div><div data-page-node-id="BIPoR7RCywOCrNdG6oELmj">板块表现</div></div>
+    <div class="flow-row" data-page-node-id="CUJMGR3U2T7XemBww0cQ7U">
+      <div data-page-node-id="oql7ugUEq2E8gwSXWGcxiO"><b style="color:#fbbf24" data-page-node-id="Fw9HaCYZV5lF9F8w46TGhJ">1</b></div>
+      <div data-page-node-id="IZsWOeo003zVZixJ3jJxWw"><b data-page-node-id="qqO7JY23Dk6V6A27Omd84X">虚拟数字人（885950）</b></div>
+      <div class="flow-val up" data-page-node-id="T121hvXqKDBXC2AZjy3Nky">+52.81 亿</div>
+      <div data-page-node-id="BQAOpATvAfLia2yJJKlM9r">板块内 3 股涨停，122 股上涨</div>
+    </div>
+    <div class="flow-row" data-page-node-id="pJd2xnvMt0wWvykFgRnR8H">
+      <div data-page-node-id="T3TJF1TtINcMGHJY4Hq4dc"><b style="color:#38bdf8" data-page-node-id="bV1JcfDIBl0LCC0Ypeg8Bu">2</b></div>
+      <div data-page-node-id="97LcNvKa0ABJfF8G2lE3mY"><b data-page-node-id="311TAOOxuQShGAWShFuIig">AI应用</b></div>
+      <div class="flow-val up" data-page-node-id="ylEbbSItGfZcbYlotHtcSW">+51.63 亿</div>
+      <div data-page-node-id="CMJeRhjFh3TdUnBVog3EZM">板块内 12 股涨停，556 股上涨（全市场第一主线）</div>
+    </div>
+    <div class="flow-row" data-page-node-id="vBW2X4EuAEOc0jRQq9yV6h">
+      <div data-page-node-id="91gQlGfaiCKicSCmsU5Alt"><b style="color:#c084fc" data-page-node-id="28BhxxltX5rogI5caJp3pq">3</b></div>
+      <div data-page-node-id="RHycO7oFnJXQeDUwJ1RM3G"><b data-page-node-id="njuvbm5q03tRznYOuY2srW">文化传媒概念（885418）</b></div>
+      <div class="flow-val up" data-page-node-id="AJaKqHZCZNCI6Q3KsjghVm">+42.08 亿</div>
+      <div data-page-node-id="1TvR963QQSHhhWomEz8gCg">板块内 5 股涨停，146 股上涨</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-bottom:24px" data-page-node-id="YfxvwvpAZjNqvmxMFXtyyz">
+    <strong data-page-node-id="KVW4ut4pZsLsLKVWTnkC1g">ℹ️ 申万一级行业口径对照（非同花顺主题口径）：</strong> 行业资金净流入前三为 <span class="ok" data-page-node-id="DVkHN3CMLPOIX6cnB6uQ4E">广告营销 +38.62 亿</span>、<span class="ok" data-page-node-id="itgU6QPhXRr8oiCZeo7ws2">软件开发 +23.58 亿</span>、<span class="ok" data-page-node-id="anbHgBa136o85El2AB4CVH">航海装备 +21.87 亿</span>；净流出端 <span class="danger" data-page-node-id="eMkKwGLw2AgU9yDF11LJFL">电子 -247.9 亿</span>（单日居首）。主力全天净流出约 <span class="danger" data-page-node-id="4IPu3BGHwBShuYkPYBAgFF">434 亿</span>（连续第 4 日），小单净流入 456 亿，呈「机构出货、散户接盘」格局，钱在搬家而非离场。
+  </div>
+
+  <!-- ⑦ 今日主线板块与逻辑（三段式时间脉络） -->
+  <div class="section-title" data-page-node-id="rFzrivyRAaRhLIksp6Gc1M">🎯 四、今日主线板块与逻辑（近 3 个交易日三段式脉络）</div>
+  <div class="mainlines" data-page-node-id="VfN3p4sd1v6nEgsowJ9Gnd">
+
+    <!-- 主线1：猪肉/养殖 -->
+    <div class="mainline-card rank-1" data-page-node-id="AqSlmD84uiPxkthSS3QqDd">
+      <div class="mainline-rank" data-page-node-id="cHi8khRaDQUSQnwjU3mHXC">1</div>
+      <div class="title" data-page-node-id="FMxSCVUfvD5llAXqCA53ha">猪肉 / 养殖（农业防御分支切换）</div>
+      <div class="mainline-tag-row" data-page-node-id="IJuxMAtIYvT54Vs6yRJfxj">
+        <span class="mainline-tag up" data-page-node-id="hR0oCSVl1j1V2TzjQI8QjW">🟢 爆发</span>
+        <span class="mainline-tag warn" data-page-node-id="hKuCmHHT00p0q9EPJAdN5r">猪周期反转</span>
+        <span class="mainline-tag info" data-page-node-id="lFNCA5XaPDK6G0PPqcscCA">防御主线</span>
+        <span class="mainline-tag purple" data-page-node-id="19YTBXfQpE0ymrLciub6RD">高低切</span>
+      </div>
+      <div class="flow-timeline" data-page-node-id="OFDaSAwfa4PHSVXDIYdP1Z">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br data-page-node-id="ckDxCmSDFFt3qgF2HQEA9H">
+        · D-2（9/1）：粮食/农业为 <b data-page-node-id="aF5gFIrwKg16tjeCkALg3B">主线1（主升浪）</b>，粮食 ETF 霸榜 +6.48%，种业 13 股涨停<br data-page-node-id="Y5deVx7KwNmgUjECHKemrM">
+        · D-1（9/3）：粮食概念连续 2 日重挫（9/2 -5.95% → 9/3 -5.78%）退潮，农业主线分歧<br data-page-node-id="vvNWTIcX7apfkBG3EN2btH">
+        · 今日（9/4）：猪肉/养殖逆势爆发，养殖 ETF 批量 +4%+，罗牛山等多股涨停 <span class="arrow" data-page-node-id="eKN1MeJ2jFCPbDuu237fRM">🔀 切</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="JGZp3mYKrct1GFW90PeQgy">
+        <b data-page-node-id="HN07eLtkkpGJUR62RzC5Pw">【现象】</b>猪肉、养鸡板块全天强势，养殖 ETF 前十席位全被养殖/畜牧包揽（国泰 159865 +4.60% 居首）。<br data-page-node-id="ng3GDqCPhTIADPOVJHYVni">
+        <b data-page-node-id="zxRARLF2FwH3JlHl8mRJKt">【催化】</b>猪周期反转逻辑强化——能繁母猪存栏去化至 3780 万头（距政策红线仅 0.8%），猪价较 7 月初 +19.8%；厄尔尼诺确认形成叠加农业涨价预期；统计局生猪(外三元)10.9 元/kg 环比 -0.9%，去化延续。<br data-page-node-id="iHkEPru7x2RcFNNGhXF4wT">
+        <b data-page-node-id="rurZGRHhVc7AQloNK48J73">【归因】</b>农业内部由「粮食」切换至「猪肉养殖」，资金从高估值科技转向低位确定性。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="GSCON0ZTpKw7xtvj56PbdQ">
+        <span class="stock-chip" data-page-node-id="K84sANxbz5teHBmEfbV9Gg"><b data-page-node-id="stmi4ChKxPmJ4uqhP0WOYr">罗牛山</b> 000735</span>
+        <span class="stock-chip" data-page-node-id="NvbnlgOwioSi9TDnPJ3XgB"><b data-page-node-id="A2PMDEGX5ldEZlUia1w6o8">新五丰</b> 600975</span>
+        <span class="stock-chip" data-page-node-id="xokyiNDK0xCg3KxjikOIcv"><b data-page-node-id="0ZaZQqJ6AVDvb0HhToMwXA">正虹科技</b> 000702</span>
+        <span class="stock-chip" data-page-node-id="AQuJQFH0tXJSC5TmA5lLg4"><b data-page-node-id="i8w4o3sMr7QUBUfNTvvWIs">新希望</b> 000876</span>
+        <span class="stock-chip" data-page-node-id="QqnWQirTd4OVK6CRl3HDsM">唐人神 002567</span>
+        <span class="stock-chip" data-page-node-id="UvHgpjokDojuhUuiertFD3">神农集团 605296</span>
+      </div>
+    </div>
+
+    <!-- 主线2：AI应用/文化传媒 -->
+    <div class="mainline-card rank-2" data-page-node-id="AhvxwEiHRit6XRJqFGMLqH">
+      <div class="mainline-rank" data-page-node-id="q2ASN1ci62MstMKLc6WHRP">2</div>
+      <div class="title" data-page-node-id="OBE1CRBvjl57fYtIcr1Nes">AI应用 / 文化传媒 / 虚拟数字人（高低切）</div>
+      <div class="mainline-tag-row" data-page-node-id="pTCJCf9nr04TwqgqDGCgT6">
+        <span class="mainline-tag up" data-page-node-id="4QAWyf3S8Ceny5nLFRRyK1">🟢 获资金青睐</span>
+        <span class="mainline-tag warn" data-page-node-id="1zsJMwgRK7G1MXF0L1dMxY">GPT-6 催化</span>
+        <span class="mainline-tag purple" data-page-node-id="MFVbgN8VcH5cBGkUeZ0MdH">硬件→应用</span>
+      </div>
+      <div class="flow-timeline" data-page-node-id="GBCgaY1pFLqLUTnjejelwE">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br data-page-node-id="dwhkHPbnaM3AJas0Lzrehs">
+        · D-2（9/1）：AI 算力链二次调整（科创50 -2.19%，元件领跌），资金切向防御<br data-page-node-id="2pigFv4ptdDnxCYmxKqUgB">
+        · D-1（9/3）：液冷服务器为 <b data-page-node-id="6WwtLCC1mgfyV5nEuKdQ1V">主线1（领涨）</b>，AI 硬件仍强但现分歧<br data-page-node-id="pzrmCEBXBxHlcYZCfha75w">
+        · 今日（9/4）：AI应用 +51.63 亿 / 虚拟数字人 +52.81 亿 / 文化传媒 +42.08 亿居净流入 TOP3，硬件却暴跌 <span class="arrow" data-page-node-id="2QjGbgLahYacEWSRvEnvyG">🔀 切</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="EhnTVoEfjNonHd0b3nEtva">
+        <b data-page-node-id="3k9fCqgDTEK8fORtCUEtLt">【现象】</b>AI应用板块 12 股涨停、556 股上涨，虚拟数字人、文化传媒同步获主力大额净流入。<br data-page-node-id="C4opssvZEybPOkfgCFfgXx">
+        <b data-page-node-id="9mhuR6EtO0COSkHCPw2ceq">【催化】</b>OpenAI 9/3 发布 GPT-6 Astra（可操作计算机、替用户编程/科研/做 PPT），国金证券 9/2 研报指 AI 广告 eCPM 同比 +108%；硬件高位获利盘出逃，资金避高就低。<br data-page-node-id="wDCnMUFjFW8mBXWQBzK6if">
+        <b data-page-node-id="iIsD3Fmjw4KHzvc0Tvjo2x">【归因】</b>AI 行情从「算力硬件」切至「应用/传媒」，属高位兑现后的内部轮动。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="DLd2K9zBKilFXKIwGZr3Jd">
+        <span class="stock-chip" data-page-node-id="apF1Jy4ff96pD8c63utNrt"><b data-page-node-id="xLNAEIhZFxa2fJ4wducHDu">易点天下</b> 301171</span>
+        <span class="stock-chip" data-page-node-id="YBuDC2IHzZJ2QqciZWoBjI"><b data-page-node-id="AbOTETPWMaEMMjB1lhXlur">蓝色光标</b> 300058</span>
+        <span class="stock-chip" data-page-node-id="yNSyZkiCtwcijR9ZhTmr4E"><b data-page-node-id="GFXgo8i9sHg54c6bFVWFfT">芒果超媒</b> 300413</span>
+        <span class="stock-chip" data-page-node-id="InxvkEAxZ4tES9GTIUJ6jV"><b data-page-node-id="KpQJ8uea12BghLRoXueBr4">龙版传媒</b> 605577（5连板）</span>
+        <span class="stock-chip" data-page-node-id="7KAI3Oxwujqq4p5B3GalsS">中国出版</span>
+      </div>
+    </div>
+
+    <!-- 主线3：半导体/算力硬件 退潮 -->
+    <div class="mainline-card rank-3 defend" data-page-node-id="UvnKMV6ewG2Bni50QDVgCI">
+      <div class="mainline-rank" data-page-node-id="smrKIxRvcXFEFlMGOtFpAr">3</div>
+      <div class="title" data-page-node-id="peHuUqDHqxmUDt7Qdb1oHF">半导体 / 算力硬件（高位退潮）</div>
+      <div class="mainline-tag-row" data-page-node-id="Z1Xd0yXCkzTJ5LJClDBlal">
+        <span class="mainline-tag danger" data-page-node-id="0iX2mfxf14TiPsTeYjn9pG">🔴 领跌</span>
+        <span class="mainline-tag warn" data-page-node-id="hSVAQZZzquA4BQDxWitXei">获利盘出逃</span>
+        <span class="mainline-tag info" data-page-node-id="wqy5BVmFpGsXK5dCoOGSS8">关税扰动</span>
+      </div>
+      <div class="flow-timeline" data-page-node-id="fVaF050NqOjUb57hUceSjg">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br data-page-node-id="1tknb7Ld4EmFVZlcXXx5zN">
+        · D-2（9/1）：AI 算力链调整（半导体走弱，PCB -8%）<br data-page-node-id="68emlHw3YCHfdugxdS7gzt">
+        · D-1（9/3）：液冷服务器 <b data-page-node-id="PAFxmtJmYn82xQwJe3rvYB">领涨（主线1）</b>，硬件仍强<br data-page-node-id="1sXhLvmEeyziHljkJff3dt">
+        · 今日（9/4）：半导体产业链领跌全场（申万 -2.85%），多股重挫 <span class="arrow" data-page-node-id="1rOGzN82IeA5hwaySSiXHW">🔽 降</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="QEFLVP0hXLu5oZHIEvsFvt">
+        <b data-page-node-id="Mz9GPUWCUB66ZiwLcjSFoU">【现象】</b>华虹宏力 -8.88%、国科微 -9.97%、强一股份 -10.23%，<b data-page-node-id="nCM9C3iEnQt9Z6KggbRCrC">浪潮信息午后跌停</b>（千亿市值、成交额全市场第二、净卖出约 16 亿）。<br data-page-node-id="7z7M5iqzELQaiH4FeXSW7G">
+        <b data-page-node-id="F8Da8t6DE3ST7dECn5wl08">【催化】</b>美商务部考虑对进口半导体加征新一轮关税；机构高位抱团瓦解；半导体融券传闻扰动；量化模型负反馈放大跌幅。<br data-page-node-id="TOI2GOxtrHYCojUxE27Sgj">
+        <b data-page-node-id="ooHSdqzpNBAFXZqG5NotT1">【归因】</b>前期涨幅过大 + 外部利空，高位主线进入退潮期。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="ig0Jr208Lag7FBlHdf0shY">
+        <span class="stock-chip" data-page-node-id="JldpGS2jco4bIdAiw4Qnqy"><b data-page-node-id="k2yYdFNelDDH5ZXWbsvsE4">浪潮信息</b> 000977（跌停）</span>
+        <span class="stock-chip" data-page-node-id="VB8FLyLGhK6yxb1QeSyedc">华虹宏力 688347</span>
+        <span class="stock-chip" data-page-node-id="E3GvEOhtETpDUSe8eKxFHo">国科微 300672</span>
+        <span class="stock-chip" data-page-node-id="O8TegqBbro2dJle7OQ5pCo">强一股份 688809</span>
+      </div>
+    </div>
+
+    <!-- 主线4：白酒/种植业 防御延续 -->
+    <div class="mainline-card defend" data-page-node-id="BoDh1J5DYDTGwME8WpF3kG">
+      <div class="mainline-rank" data-page-node-id="Qyw7Qq0VFAttgwCquFx9tO">4</div>
+      <div class="title" data-page-node-id="mfVLp0yQBgxTC9XLWCUdqM">白酒 / 种植业与林业（防御主线延续）</div>
+      <div class="mainline-tag-row" data-page-node-id="JdZKeDHkI6uIDfNcEpGFTt">
+        <span class="mainline-tag up" data-page-node-id="E03VCF2f03Az0yStCELKu9">🟢 低开高走</span>
+        <span class="mainline-tag info" data-page-node-id="HVYcyN6k8nR6h0HtNkabnO">低位蓝筹</span>
+        <span class="mainline-tag purple" data-page-node-id="5jZ9aTjGo2Ns1eh2wYuAmf">承接资金</span>
+      </div>
+      <div class="flow-timeline" data-page-node-id="o0SfuaZGrDrB8TdLeZMFbh">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br data-page-node-id="llo5bnYpNYT62qxPwn3Bfn">
+        · D-2（9/1）：大消费/农业为 <b data-page-node-id="y16OFZIUgKoOWOZ3rgqBZG">四大防御主线之一</b><br data-page-node-id="rEtEH6Wljbbm5j9Y6ryuwg">
+        · D-1（9/3）：防御主线分歧，资金转向非银金融+机械设备+有色<br data-page-node-id="tCTS1fYCxgxJEwrWSvsaEP">
+        · 今日（9/4）：白酒高开高走、种植业低开高走，多股涨停 <span class="arrow" data-page-node-id="uZwO4TG62wvmV2zCwClcpC">━━ 持</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="sr3XLIgV5cu5I11K9Sby8W">
+        <b data-page-node-id="WdkaDrZaEbIMgxHKRtDJCI">【现象】</b>白酒板块泸州老窖、顺鑫农业、山西汾酒涨幅居前；种植业与林业亚盛集团、敦煌种业、平潭发展涨停，登海种业、万向德农跟涨。<br data-page-node-id="JDcNRLhDzMuWstDC0HCFoX">
+        <b data-page-node-id="VZDC1LkuRLtb47Chny4xZ0">【催化】</b>市场避险情绪下，低位低估值蓝筹承接高位科技出逃资金，防御属性凸显。<br data-page-node-id="379ji9t86XzPhzk2zlqC9F">
+        <b data-page-node-id="EojeBOfQ9CSDhM0HeP5JdO">【归因】</b>防御主线在震荡市中持续有效，与猪肉养殖构成「农业+消费」双防御。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="CTKM4tHvTlb4xQpbN7czjF">
+        <span class="stock-chip" data-page-node-id="EcXc6fBFils9YkMniC0YPB"><b data-page-node-id="umZvq7AZGDfdv5ORK1xRt8">泸州老窖</b> 000568</span>
+        <span class="stock-chip" data-page-node-id="FQkH6BdYkssMpitYcY61em"><b data-page-node-id="jwK9fTSsy1ea8AlxMsfjIw">山西汾酒</b> 600809</span>
+        <span class="stock-chip" data-page-node-id="SbwTxZDj32ZVE6858hrpEt"><b data-page-node-id="utZ56yfqtcQ35Es0VcYLi7">亚盛集团</b> 600108（2连板）</span>
+        <span class="stock-chip" data-page-node-id="NrAMKWs347zdxjK5eNayiM">敦煌种业 600354</span>
+        <span class="stock-chip" data-page-node-id="MX4FgMybNzHA9mfjQmQGQV">登海种业 002041</span>
+      </div>
+    </div>
+
+    <!-- 主线5：中船系/军工 -->
+    <div class="mainline-card rank-1" data-page-node-id="qq4xuoXNsVuXVjQS2yZryf">
+      <div class="mainline-rank" data-page-node-id="HxfT9vOufskPFtDHgNaWhM">5</div>
+      <div class="title" data-page-node-id="7wda8t1AroAlK2fDyAonRp">中船系 / 军工（事件驱动上行）</div>
+      <div class="mainline-tag-row" data-page-node-id="yDtoYeddxuTTZ8H3VhCCU9">
+        <span class="mainline-tag up" data-page-node-id="NMwCm5D7eiump2ADkM3Zi5">🟢 涨幅居前</span>
+        <span class="mainline-tag warn" data-page-node-id="MqlB8GGEWKC8IzDTDpQ94m">军贸订单</span>
+        <span class="mainline-tag info" data-page-node-id="ntao7WNCarKwecp13xhJjZ">十五五</span>
+      </div>
+      <div class="flow-timeline" data-page-node-id="ohU4wghOXNK6FeUGr2QIf6">
+        📌 三段式脉络（D-2 → D-1 → 今日）<br data-page-node-id="CgsWTFMh4n7FAf87ojKfdl">
+        · D-2（9/1）：军工未列主线<br data-page-node-id="P4Kke0gqktbkspWWjr5G0U">
+        · D-1（9/3）：军工航天事件驱动「一日游」（美伊冲突原油 +8.69%）<br data-page-node-id="hLBCzBhbDSzCy755LFXrea">
+        · 今日（9/4）：中船系涨幅居前，板块活跃 <span class="arrow" data-page-node-id="sFOLbdHI0WNAYbhIuxhQny">🔼 升</span>
+      </div>
+      <div class="mainline-desc" data-page-node-id="Dg1WS42dr5LNpdLGVh3AMj">
+        <b data-page-node-id="KVVLBpWAWZCjpyNlVsNkCO">【现象】</b>中船系位列今日涨幅居前板块，船舶行业高景气延续。<br data-page-node-id="k3SBTP4ipaftxSFjAyZrnP">
+        <b data-page-node-id="ABXe6O6rkw5uLmBdaN51J2">【催化】</b>军工由「强预期弱现实」向「强预期强现实」转变，十五五规划落地 + 军贸订单增长；中国船舶在手订单 5263 亿排至 2028 年，1-8 月新签订单同比 +152%。<br data-page-node-id="YypoWjR7leSJBvmfJ7PA8Z">
+        <b data-page-node-id="WYu86Lr5bjv2CHMHzKCEx9">【归因】</b>事件 + 景气双击，军工成为科技退潮期的替代主线之一。
+      </div>
+      <div class="mainline-stocks" data-page-node-id="sVIFqsRS5k2qzipJUOoIB9">
+        <span class="stock-chip" data-page-node-id="uzPM5VXyMvYG6FFsW1l2Gi">中船系（中国船舶等）</span>
+        <span class="stock-chip" data-page-node-id="1ZBrmbw6ahdb2w8jUysAbo">中集集团</span>
+        <span class="stock-chip" data-page-node-id="cOvAhyxAcEOD5Dq09A5JYP">中国动力</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ⑧ 涨停天梯 -->
+  <div class="section-title warn" data-page-node-id="LmExwfeZ8OiabbsPWN0HFa">🚩 五、涨停天梯榜</div>
+  <div class="ladder" data-page-node-id="a2gP0k1Myh9eTmR2agj98c">
+    <div class="ladder-tag lv-1" data-page-node-id="3alj7TFkXZEM6EWwRiZm4G">5 连板 · <b data-page-node-id="gYKnLS4kwNCBS2aUt3F5Tp">龙版传媒</b> 605577（AI应用/传媒）</div>
+    <div class="ladder-tag lv-2" data-page-node-id="bra2xawoFq73VS2oSLmHn6">2 连板 · <b data-page-node-id="J7W4uAjbWkd0F4yVMrvQPT">爱仕达</b> 002403</div>
+    <div class="ladder-tag lv-2" data-page-node-id="RCcM4i9MnBCID9qxohe0eb">2 连板 · <b data-page-node-id="aiCOT3gZzRItpUMup7TA4L">亚盛集团</b> 600108（种植业）</div>
+    <div class="ladder-tag lv-2" data-page-node-id="QRFhv7SHIa2vjAihOldfHt">2 连板 · <b data-page-node-id="2GPkN5qqoLPSnPi8hnrQCY">百大集团</b> 600865</div>
+    <div class="ladder-tag lv-2" data-page-node-id="RiTox0y6d3b2z3MtKBCwcG">2 连板 · <b data-page-node-id="W9fyYLMmVGlHmfjzMvqfkS">海通发展</b> 603162</div>
+    <div class="ladder-tag lv-2" data-page-node-id="Faf1byDx7lOckKUB5QjX1W">2 连板 · <b data-page-node-id="dhBMBuY8BsTGdaCauKteEA">新炬网络</b> 605398</div>
+    <div class="ladder-tag lv-2" data-page-node-id="65ENYHHPElydM3WJy28wFB">2 连板 · <b data-page-node-id="0y9t1J2jxnBilDqhBCeG3n">恒盛能源</b> 605580</div>
+  </div>
+  <div class="data-note" style="margin-bottom:24px" data-page-node-id="Nc9NGIDSkQiIKhESwyIZyG">
+    <strong data-page-node-id="OEKavEKWEAvPXbxZGZSfZX">⚠️ 情绪提示：</strong> 连板仅 7 只、20cm 涨停归零、炸板率冲至 60%，情绪「三连冰」；但跌停仅 9 家（非几十家大退潮），属放量急杀的风险快速出清，而非漫长阴跌开端。
+  </div>
+
+  <!-- ⑨ ETF 涨跌榜 -->
+  <div class="section-title info" data-page-node-id="0OFEBSeGGXQ9b41mKQsi2H">📡 六、ETF 涨跌榜 · Wind 口径（同花顺 ETF 日报）</div>
+  <div class="etf-table" data-page-node-id="uO97DhMt1SbVY2fNRFWfnJ">
+    <div class="etf-row header" data-page-node-id="4TajFBmlCQw8mxYfLBic5f"><div data-page-node-id="5SQtzNpZJnlHPEH9ShEXNE">方向</div><div data-page-node-id="1vNEgIM22FsqySFuL5xIps">ETF 品种</div><div data-page-node-id="WB3FLbkng7IZSIetHDgAR4">涨跌幅</div><div data-page-node-id="k5sBKoKZeZNunPbK64CRXv">备注</div></div>
+    <div class="etf-row" data-page-node-id="whHgKOAIywc8Fe3H3B0Ezb">
+      <div data-page-node-id="fylXdedeHDUvo1XUQdELHL"><b style="color:#34d399" data-page-node-id="ub52Or8OsEWX9b48dEEuOa">涨①</b></div>
+      <div data-page-node-id="iXV5oaE7fAEkA8kwQLXacx">养殖ETF国泰（159865）</div>
+      <div class="etf-val up" data-page-node-id="szEIDrZPRDJ8fKle2yiIBL">+4.60%</div>
+      <div data-page-node-id="HuuoGmXGHXHUqWIj8FNmc0">养殖主题霸榜前十，农业全线爆发</div>
+    </div>
+    <div class="etf-row" data-page-node-id="7LApCIp6GCESvj6GUfzjEH">
+      <div data-page-node-id="W9h5ehIVj2on9NPTI7e6mf"><b style="color:#34d399" data-page-node-id="RNqfU70DB6k1b6UM2jnjYw">涨②</b></div>
+      <div data-page-node-id="uZUxg4SveNElBBIrHYBfHa">养殖ETF永赢（159165）/ 畜牧养殖ETF招商（516670）</div>
+      <div class="etf-val up" data-page-node-id="3e8EcEO68wnerhLGJ8dlcZ">+4.58%</div>
+      <div data-page-node-id="qd7ATuFLEyz8QrneSLkqTA">并列居前</div>
+    </div>
+    <div class="etf-row" data-page-node-id="yaq4I4GEBXOrfNFsE2Wew4">
+      <div data-page-node-id="AfxCu1CkNC4EFwkbrP2Hxn"><b style="color:#34d399" data-page-node-id="Y5Zzc7sp1jaYejK6pMN9sZ">涨③</b></div>
+      <div data-page-node-id="ErBtJyrudwu5Fc38GEdVpl">养殖ETF万家（159023）/ 养殖ETF平安（516760）</div>
+      <div class="etf-val up" data-page-node-id="3OyP2dEXTHWYTCThEBrFBq">+4.47% / +4.44%</div>
+      <div data-page-node-id="vicg5JF43qAwUHZ8YKoTD9">涨幅前十全为养殖/畜牧</div>
+    </div>
+    <div class="etf-row" data-page-node-id="GUtFC1v4wrNSx7utmZbLzi">
+      <div data-page-node-id="UQyWUAhE8lEbmhqmGGdfko"><b style="color:#fca5a5" data-page-node-id="nvFAL6BKhsLmHQDU4E7s0n">跌①</b></div>
+      <div data-page-node-id="vIUkfAFWklX6ZlHiuVx9kj">半导体设备ETF</div>
+      <div class="etf-val down" data-page-node-id="XcMEG30M586vzPYlTJNcbu">-3%+（缺口待核实）</div>
+      <div data-page-node-id="zzr8NpN0AZm1C1QW3pMbu5">科技成长显著回调，具体净值跌幅未披露</div>
+    </div>
+    <div class="etf-row" data-page-node-id="rvVx8CqxIxQMfWfNJMmWSh">
+      <div data-page-node-id="aG0QfxPspFMxsIBsBCVRl9"><b style="color:#fca5a5" data-page-node-id="4b8EdEzyhUyt9tOhWvN926">跌②</b></div>
+      <div data-page-node-id="xGWJXkEYlzCIWAYBfWM6fK">科创成长ETF</div>
+      <div class="etf-val down" data-page-node-id="jeR7oHUfL1nOJbJ6OY6PC0">显著回调（缺口待核实）</div>
+      <div data-page-node-id="f45rweqUSBVxzUq94SBZvH">与科创50 -2.10% 共振</div>
+    </div>
+    <div class="etf-row" data-page-node-id="Q9B3wtZOegrB6GCGZ6WFrP">
+      <div data-page-node-id="eYcyHPGskFx7T9oBFgoT0W"><b style="color:#fca5a5" data-page-node-id="Xn7CinwyLwEgENeSROZF0c">跌③</b></div>
+      <div data-page-node-id="53kb0ZwGWDklzaH1SGrUfE">工业母机ETF</div>
+      <div class="etf-val down" data-page-node-id="zE1yAFISFuKOqquksgfnBW">同步承压（缺口待核实）</div>
+      <div data-page-node-id="NkQKUTMPky1IY0srY4MzVs">科技成长内部明显分化</div>
+    </div>
+  </div>
+  <div class="data-note" style="margin-bottom:24px" data-page-node-id="eJVfUGksPw683QBnjkNGPT">
+    <strong data-page-node-id="oLlodOoWu0QXHEwF0i3C1E">📌 活跃度补充：</strong> 短融ETF海富通（511360）成交 429.73 亿居首；换手率方面港股通医疗ETF华夏（520510）307.45%、港股通信息技术ETF华夏（526000）208.66%，跨境 QDII 与债券型交投两旺。下周一（9/7）9 只 ETF 启动募集、3 只上市。
+  </div>
+
+  <!-- ⑩ 重要新闻与板块催化 -->
+  <div class="section-title" data-page-node-id="EiGdDgq268UiYAIeiNvnEN">📖 七、重要新闻与板块催化</div>
+  <div class="fin-table" data-page-node-id="zdMx83Du4wn5eCeqxAnn7H">
+    <div class="fin-row header" data-page-node-id="VXWBMiWj0ARtSI1W1Mk7I8"><div data-page-node-id="QJvzj1waYrKBJ7e0hnYLvf">事件 / 数据</div><div data-page-node-id="0jXUbQeWWiXpEFtJ1Wc7l5">关键数据</div><div data-page-node-id="rhio5NkDflfWAvapv5voHf">对 A 股影响</div></div>
+    <div class="fin-row" data-page-node-id="6tEyCtPAUVrJnAFDi5pNoB">
+      <div data-page-node-id="brYaf77E907BCN25SE66HQ">🇨🇳 国内 · 猪周期反转</div>
+      <div class="fin-val info" data-page-node-id="DN0BDsw6YVRyWvQYhxdOfS">能繁母猪 3780 万头；猪价较 7 月初 +19.8%；生猪 10.9 元/kg 环比 -0.9%</div>
+      <div data-page-node-id="wSn6naGWrgoD1OWkmEUbWv">去化加速确认周期拐点，猪肉/养殖全天爆发，养殖 ETF 霸榜</div>
+    </div>
+    <div class="fin-row" data-page-node-id="B8sEOZDZsVHshDFu6CrBLj">
+      <div data-page-node-id="gFp0N24eivXWG1zBI3LrZq">🇺🇸 海外 · OpenAI GPT-6 Astra</div>
+      <div class="fin-val up" data-page-node-id="1L8iG9ZrYK5IL59qA08BdW">9/3 发布，可操作计算机；国金研报 AI 广告 eCPM +108%</div>
+      <div data-page-node-id="ywfKXaScjQWlgigreU3jv2">AI应用/文化传媒/虚拟数字人获主力净流入 TOP3，高低切核心催化</div>
+    </div>
+    <div class="fin-row" data-page-node-id="OzBv7x3z9SOhcOjTpcYm0V">
+      <div data-page-node-id="oyaNxpMXp3NxFdMAqt4Pea">🌐 全球 · 美国非农 & 美联储</div>
+      <div class="fin-val warn" data-page-node-id="qOHBsYiaQrz9ekL7SqQdmb">今晚 20:30 美 8 月非农；9/16 议息；下周三 CPI</div>
+      <div data-page-node-id="Jgj50LDygzOxGEynAMldp2">非农「暴雷」担忧致资金提前避险，是午后跳水首要导火索</div>
+    </div>
+    <div class="fin-row" data-page-node-id="e8EWYd2h3aIbsNAXXESWpY">
+      <div data-page-node-id="lT14CyEQ5P6GFNIRxyAnoi">🇨🇳 政策 · 流动性</div>
+      <div class="fin-val warn" data-page-node-id="EQJ3yZNuEBcB6hpM12TRfq">央妈连续 3 日暂停 7 天逆回购「零投放」</div>
+      <div data-page-node-id="pJXqC2dwSgqer2hrkkOfbc">流动性边际收紧，存量博弈下高位板块缺乏承接</div>
+    </div>
+    <div class="fin-row" data-page-node-id="OU3Jj6iTKeaC5y93j4EvzC">
+      <div data-page-node-id="aKomLqp1BPAG3mRAbVp0uG">🇺🇸 海外 · 半导体关税</div>
+      <div class="fin-val down" data-page-node-id="VlZ0CkGSYaCdlaxowqsZsb">美商务部考虑对进口半导体加征新一轮关税</div>
+      <div data-page-node-id="9imb7BR7HlmBbCcgVf3ijv">叠加高位抱团瓦解，半导体产业链领跌全场</div>
+    </div>
+  </div>
+
+  <!-- ⑪ 盘面核心结论 -->
+  <div class="section-title" data-page-node-id="4vhJKHiSboUluSE0A4RZjm">📌 八、盘面核心结论</div>
+
+  <div class="conclusion ok" data-page-node-id="7VuecNTvxe8CKOo7KC3czG">
+    <div class="conclusion-title" data-page-node-id="ZawuAllWbgtGTqAoOn4vEo">✅ 结论 1：正面主线——高低切成功，结构性机会仍在</div>
+    <div class="conclusion-item" data-page-node-id="LeZBLCZSOPWTNdbgSFQPyY"><span class="num" data-page-node-id="TgAT5CnffLc76X2T7a0Fg8">1</span><p data-page-node-id="RSDQaUvl7EhXHaHcTIOuXj"><b data-page-node-id="rYbOs6TJqxoNDznQYpfGqM">AI 应用接力：</b>AI应用 +51.63 亿 / 虚拟数字人 +52.81 亿 / 文化传媒 +42.08 亿居主力净流入 TOP3，12 股涨停，GPT-6 Astra 催化下应用端成避风港。</p></div>
+    <div class="conclusion-item" data-page-node-id="wFczm7eZMRdknUolxVii6Z"><span class="num" data-page-node-id="1F2FC1sEIWa5v4XmaHM9Y7">2</span><p data-page-node-id="nNtzOFxYkhBKrKcq1LKMWV"><b data-page-node-id="UGvRMLZqHVORu9iyJGJVb2">农业防御爆发：</b>猪肉/养殖逆势大涨，养殖 ETF 前十霸榜；猪周期反转 + 厄尔尼诺涨价预期共振。</p></div>
+    <div class="conclusion-item" data-page-node-id="w9Q17aWOAPkErBTabHw0SW"><span class="num" data-page-node-id="owvvMBiUkFfkkHSo6reO10">3</span><p data-page-node-id="2brtrPV0CafaVOWbux2P8C"><b data-page-node-id="vCmAae9lXVjAS6wAGOFJTQ">尾盘有承接：</b>最低探 3915 后抄底资金回拉，机构资金逆势净买入，显示多空在 3900 一带博弈激烈，非单边溃败。</p></div>
+  </div>
+
+  <div class="conclusion warn" data-page-node-id="CyULnbC2mhXd3T3HmDBuHo">
+    <div class="conclusion-title" data-page-node-id="oljpGu1KLv7VlOq3izxeGY">⚠️ 结论 2：风险信号——科技硬件退潮 + 放量下跌</div>
+    <div class="conclusion-item" data-page-node-id="in2QavJvZssYC4yabfWZ8d"><span class="num" data-page-node-id="iWABY5lRGYkaTAoepASmed">1</span><p data-page-node-id="kbIona9IPmVqCpbwI9pHRV"><b data-page-node-id="gG5XHAG1nOfT0kRIqeoPAd">半导体高位杀跌：</b>申万半导体 -2.85%，浪潮信息跌停、华虹宏力 -8.88%、国科微 -9.97%，前期热门液冷/算力硬件集体退潮。</p></div>
+    <div class="conclusion-item" data-page-node-id="Kv1QxWE88TcRXKlxW0deEc"><span class="num" data-page-node-id="OSrno5WA8esxjKY7GCHa9p">2</span><p data-page-node-id="mDRsYAmyFwJu8aP5YODtOu"><b data-page-node-id="Jf7HDPR96xptxkaG4Up3sA">放量下跌：</b>成交 2.05 万亿（放量 2708 亿）却收跌，2914 只个股下挫，赚钱效应偏弱。</p></div>
+    <div class="conclusion-item" data-page-node-id="vsAyl8pkIFvNNIGc17D2yX"><span class="num" data-page-node-id="1eK9TGXcXbbHoK5AjzGAGv">3</span><p data-page-node-id="PsqrUopXGTsEzvDCcoE9bx"><b data-page-node-id="qq0VQcwVpF8TdItXbGik0c">外部扰动密集：</b>非农（今夜）、CPI（下周三）、美联储议息（9/16）三窗叠加，叠加特朗普谣言与融券传闻，短期情绪脆弱。</p></div>
+  </div>
+
+  <div class="conclusion info" data-page-node-id="xfWHLXLZDOjGO0Koo17O9G">
+    <div class="conclusion-title" data-page-node-id="wSJOmyv9m4VxfUxvWJ7KcG">🔵 结论 3：中期支撑——向上趋势未改，等待换手充分</div>
+    <div class="conclusion-item" data-page-node-id="8A6WqzfpF1WF9UBcepdPJW"><span class="num" data-page-node-id="UWyi2yGI4vZVHaA8m5ycLt">1</span><p data-page-node-id="RQZ26zL8cUefJuieuVZE8b"><b data-page-node-id="8LPjMHSxlFjYu5PRsv3El6">海外货币环境：</b>美联储 9 月降息预期高，全球资本流向重塑利好权益；张忆东判断 AI 行情至少延续至明年。</p></div>
+    <div class="conclusion-item" data-page-node-id="gWE1mNIcJipBRi7CZWuJG8"><span class="num" data-page-node-id="kGSWB9EPzklhEOQCmU6SLX">2</span><p data-page-node-id="df2kDs8igKX62VhlXSFIWj"><b data-page-node-id="ohS071AqS5F37KOnIK347D">技术位：</b>3910-3920 为短线支撑（今日最低 3915 获撑），3990 三次碰三次回落，需放量方能突破 4000。</p></div>
+    <div class="conclusion-item" data-page-node-id="sFaNFvJwivE76puEZzmPuu"><span class="num" data-page-node-id="et3230YhoPujuMwH93yN8y">3</span><p data-page-node-id="oMTDuNKEQsnk8hd3yaSwwt"><b data-page-node-id="W0GfVn8lCdFv2avERDXHG8">筹码：</b>科技 7 月套牢盘仍在头顶，需震荡换手才有第二春；猪肉等防御仅具对冲价值，难撑指数。</p></div>
+  </div>
+
+  <!-- ⑫ 机构观点与分歧 -->
+  <div class="section-title warn" data-page-node-id="jdmPg0a6JJzyeCtQkbE8t9">🚩 九、机构观点与分歧</div>
+  <div class="conflict-grid" data-page-node-id="UaVlmSWb3kk1WwODyadAkw">
+    <div class="view-a" data-page-node-id="XGNqkigI9GfFY7kqAHwR3W">
+      <h4 data-page-node-id="cnWHHPsBnmBZ6gaAaKBJ64">✅ 多方观点（趋势向上）</h4>
+      <p data-page-node-id="RCar09zkFcgcCkp2GgBYJ4"><b data-page-node-id="KDRgXUOTAkCeqWiIixiA8z">招商证券：</b>A股仍处于盈利驱动的上行第三阶段，9 月市场仍有望延续反弹，节奏上先涨后震荡。</p>
+      <p data-page-node-id="KvNZMQZ6spar3CpI34wIT0"><b data-page-node-id="GnK5Ki0BX6G0HEgAtafqDY">海通国际 张忆东：</b>三季度美债长端利率有望冲高回落，AI 行情至少可延续至明年，短期震荡蓄势是在确认新逻辑。</p>
+      <p data-page-node-id="9JeODyDdVbpvrNawextk57"><b data-page-node-id="neyvJhUFsEiPIhsyLRvoN1">中国银河：</b>A股向上趋势不改，短期在偏高中枢运行，经历上涨后将阶段性震荡整固。</p>
+    </div>
+    <div class="view-b" data-page-node-id="XQ5GRrBNGtVjiDoT1TOzH3">
+      <h4 data-page-node-id="O5YhILoTIi1nm4gDsWZCbu">🔴 谨慎观点（控仓等待）</h4>
+      <p data-page-node-id="uFoHmpu6ZSonFNC9CPOGwV"><b data-page-node-id="UMSUPaLTGScjvblEctHHTx">华泰证券：</b>短期主线不清晰，建议沿「高景气 + 低拥挤度 + 政策边际催化」寻找结构性机会，优先业绩能见度高的方向。</p>
+      <p data-page-node-id="mMW8OBnm4H8tPHPwOmliLO"><b data-page-node-id="LLo6V36faPzZFsvi0SdOv0">广发证券 赵愚睿：</b>短期波动源于技术性整固需求，调整本质属健康换手、非趋势逆转，但市场未见过热风险。</p>
+      <p data-page-node-id="fH2jdXzq4268NftGrUZuDl"><b data-page-node-id="NuWwUFmQ82y3s7OC4E1MCa">市场共识：</b>4000 点前需充分换手消化获利盘，外部变量密集，管住手比抓机会重要。</p>
+    </div>
+  </div>
+  <div class="verdict" data-page-node-id="ZpGguUAIdwmB5CAbCzLc9p">
+    🧭 <b data-page-node-id="mQYgTN6cKTneW8dfq4bVY1">本文倾向：</b> 短期（1-2 周）定性为「4000 点关口前的震荡洗盘」，中期向上趋势未逆转。操作上<b data-page-node-id="vstmSGNTSy7HHvT85fwDWo">控仓等待非农/CPI 落地</b>，沿「AI应用 + 农业防御 + 业绩确定性」做高低切，不追高、逢回调布局；3910-3920 为短线生命线。
+  </div>
+
+  <!-- ⑬ 后续展望与交易策略 -->
+  <div class="section-title info" data-page-node-id="tER8UaTQZGR4cDRVvMUuTz">🔔 十、后续展望与交易策略</div>
+  <div class="signal-grid" data-page-node-id="rzBK8hS1L621B9qiimOGMK">
+    <div class="signal-card" data-page-node-id="manTLECzC11dig9qktC0G2">
+      <h4 data-page-node-id="z3qLJrkhCN6zwI8A2J40es"><span class="num" data-page-node-id="aNbdssIObCacjVRXyl4vpn">📅</span>展望信号</h4>
+      <p data-page-node-id="wsxuMAhmm5yJrQfgTWA7f1">今夜 20:30 美国 8 月非农是唯一主线，直接决定 9/16 议息定价；下周三还有美国 CPI。数据落地前市场难选方向。</p>
+    </div>
+    <div class="signal-card" data-page-node-id="pgOfYATeaze5RryPBf2Ygi">
+      <h4 data-page-node-id="Fck31M8Sbw12AaB1gqJJG3"><span class="num" data-page-node-id="mqsBCpxTDEmzD8QBwCcAIo">😰</span>情绪信号</h4>
+      <p data-page-node-id="5HJzNl8atpimGD7fgHYutz">炸板率 60%、连板仅 7、20cm 归零，情绪三连冰；但跌停仅 9 家，属急杀出清而非大退潮，风险释放快。</p>
+    </div>
+    <div class="signal-card" data-page-node-id="J3ZKER8hA1Y7tu5mwvIhKo">
+      <h4 data-page-node-id="g7BudmrVdy8DnKVtDBGihr"><span class="num" data-page-node-id="rsPSUyy3laCSdIBsD7fzuF">💰</span>资金信号</h4>
+      <p data-page-node-id="t0ZYPJuB0ZWdYqpyoAaz8w">主力净流出约 434 亿（连续 4 日），小单 +456 亿；钱在搬家——从算力硬件搬向 AI应用、从科技搬向猪肉白酒。</p>
+    </div>
+  </div>
+
+  <div class="strategy-grid" data-page-node-id="dOQmYgjG67InBaWs874nUc">
+    <div class="strategy-card mainline" data-page-node-id="7Qa95FXkEq5f6iwUGUao8e">
+      <h4 data-page-node-id="xP8GebgpjAASojZSLMFDtu">🟢 主线方向（顺势而为）</h4>
+      <ul class="strategy-list" data-page-node-id="ct6nYDLiOe4II9nQsxSlSz">
+        <li data-page-node-id="ndcHy32FemV8WU5h540SMQ"><b data-page-node-id="SAPvOH7zGOYCZPpkBYi4NL">AI应用/传媒/虚拟数字人：</b>高低切避高就低，GPT-6 订单 9 月密集验证（易点天下、蓝色光标、芒果超媒、龙版传媒）。</li>
+        <li data-page-node-id="3WnJkjPLEU7oo5SNcskCU4"><b data-page-node-id="pmZACXs1ZJUIEyMm6JOZjm">猪肉/养殖：</b>猪周期反转逻辑，逢回调布局（罗牛山、新希望、神农集团、唐人神）。</li>
+        <li data-page-node-id="QBRk192UmxBZEA9ey8wuVr"><b data-page-node-id="sIaHY6a3Om9cVrGMwTcanp">军工/中船系：</b>十五五 + 军贸订单景气（中国船舶、中国动力）。</li>
+      </ul>
+    </div>
+    <div class="strategy-card defend" data-page-node-id="EhMBZVsLuiVirP2thU4j3C">
+      <h4 data-page-node-id="6p2YSHhvMYPHFk7B1U0DjW">🟡 防御 / 高低切方向</h4>
+      <ul class="strategy-list" data-page-node-id="GsjxEWLhQnZkxw5XLL1UAO">
+        <li data-page-node-id="h2g1gVsVFPEDO0cs9sZCpA"><b data-page-node-id="j7tL2iQSjDnWrIzcGbdlsK">白酒：</b>泸州老窖、山西汾酒、顺鑫农业，低位蓝筹承接。</li>
+        <li data-page-node-id="D5PMrtJk78yB2k6Wa4OJl7"><b data-page-node-id="jfq587MHtknURADQgjzUgS">种植业/农业：</b>亚盛集团、敦煌种业、登海种业，与猪肉构成双防御。</li>
+        <li data-page-node-id="uWq7YdTMhspPEAbILwZsfd"><b data-page-node-id="oTlHmiWvpFTvqt1KP1rGtd">银行高股息：</b>险资等长线资金持续流入，对冲波动。</li>
+      </ul>
+    </div>
+    <div class="strategy-card avoid" data-page-node-id="kQSiZaAWK8zBa6QJb8WGBg">
+      <h4 data-page-node-id="Ec3o1YR0H2OA1CWe7ZtFZu">🔴 风险规避</h4>
+      <ul class="strategy-list" data-page-node-id="1LA5XDOxK8uFoy7Oy3Vo1k">
+        <li data-page-node-id="PgmNAKWguAjziRGFGh1MOU"><b data-page-node-id="uTwA5KRrIxFlFzKQplVdqx">半导体硬件高位：</b>浪潮信息、华虹宏力、国科微、强一股份，退潮未止。</li>
+        <li data-page-node-id="ljafITErGDzmBZhKVQs2Ks"><b data-page-node-id="npTBvAhORQQApyUJ1H5Akm">液冷/算力退潮：</b>前期热门题材获利盘重，规避追高。</li>
+        <li data-page-node-id="95BGIB3CPEwFz6jukQjxHI"><b data-page-node-id="YOi05vH1EoIoCFAhynEt2b">高位连板题材：</b>情绪三连冰，谨防毕业照式杀跌。</li>
+      </ul>
+    </div>
+    <div class="strategy-card core" data-page-node-id="4RGi9xLXwrq0yHjwAA6wIV">
+      <h4 data-page-node-id="oEa245KlW24pXKzkaGCBv9">🧭 核心交易策略</h4>
+      <ul class="strategy-list" data-page-node-id="GBj78yrCb84WCuqTv21t7v">
+        <li data-page-node-id="HJJrVDWEivXv9knHmYYptV"><b data-page-node-id="7L3AUXzB9A7Q1CoADPx7LO">总仓位：</b>建议 ≤ 50-60%，非农/CPI 落地前不激进。</li>
+        <li data-page-node-id="zUotghDh0PldTaSEBo30sb"><b data-page-node-id="TzgF2mjnnYqalWS6a6N9Kq">关键位：</b>3910-3920 短线生命线；3990-4000 三次受阻，无量不过。</li>
+        <li data-page-node-id="08B2M003CvNXROuF8qEgCQ"><b data-page-node-id="jeqtGrinBaLsK2NgtY5Zed">节奏：</b>不追高、等回调；优先业绩确定性 + 低拥挤度方向；周末管住手。</li>
+        <li data-page-node-id="NxQD3YugKN5FbRz6boVK70"><b data-page-node-id="MHWHCViMUp2RAbsiYjGtUM">风险事件：</b>今夜 20:30 非农、下周三 CPI、9/16 美联储议息。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ⑭ 数据来源（底部） -->
+  <div class="data-note" data-page-node-id="5hyFeaLqNKSVTbhgQ0uzlg">
+    <strong data-page-node-id="yH5POee3nLHZWRTU4GcJxA">📌 数据来源与链接：</strong><br data-page-node-id="N4zFNiHt1PptoFoDMBnpGB">
+    ✅ 同花顺 A股收评（新闻域）：<a href="https://news.10jqka.com.cn/20260904/8190381897861680e54.shtml" style="color:#38bdf8" data-page-node-id="pQFDiEMErVmbRySHYwNiNB">https://news.10jqka.com.cn/20260904/8190381897861680e54.shtml</a>（发布 2026-09-04 15:01）<br data-page-node-id="UxD5lSGZLJQhrkEuhz4yWG">
+    ✅ 同花顺 ETF 收评（Wind 口径）：<a href="https://t.10jqka.com.cn/pid_687767149.shtml" style="color:#38bdf8" data-page-node-id="By9L36nJKBzKyVRw1gTOWo">https://t.10jqka.com.cn/pid_687767149.shtml</a>（发布 2026-09-04 15:24）<br data-page-node-id="UJskKZBlMN5AOAtWGHopJ2">
+    ✅ 第二来源（非同源）：东方财富财富号《走得好好的，午后为什么突然跳水？》、头条（油城平歌）、中国基金报《高开低走，发生了什么事》（指数点位/成交额/涨跌家数交叉验证）<br data-page-node-id="QmcBj7GfBJO028zk803Dzq">
+    📅 数据日期：2026-09-04（周五）· 下一交易日：2026-09-07（周一）
+  </div>
+
+  <!-- ⑮ 页脚 -->
+  <div class="footer" data-page-node-id="9Te8CmI89MBvpskEpGSerD">
+    📅 数据日期：2026-09-04（周五收盘）· 下一交易日：2026-09-07（周一）<br data-page-node-id="5bqXq8NZ6vEvXTBcefJxQK">
+    📊 数据来源：同花顺 / 东方财富 / 头条 / 中国基金报 / Wind（ETF）<br data-page-node-id="shz96Buo5s8mi9uAOBmVG8">
+    ⚠️ 免责声明：本报告所有数据均来自公开渠道，仅供研究参考，不构成任何投资建议；市场有风险，投资需谨慎。
+  </div>
+
+</div>
+</body>
+</html>
