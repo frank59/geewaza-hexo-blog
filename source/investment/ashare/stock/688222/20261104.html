@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-11-04 成都先导 (688222) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(168,85,247,0.16), rgba(16,185,129,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(16,185,129,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #38bdf8, #c084fc, #34d399);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-left: 5px solid #38bdf8;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.good { border-left:4px solid #38bdf8; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.mid { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(56,189,248,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(56,189,248,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#7dd3fc; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#0ea5e9,#0284c7);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:820px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.10));
+    border:1px solid rgba(56,189,248,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #38bdf8; }
+  .conclusion-item .num { display:inline-block; background:#38bdf8; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🧬 成都先导 (688222) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">DNA 编码化合物库（DEL）药物发现平台龙头 · 2026 前三季归母 +50.1% · PE-TTM 90.4x / 2026E 97.7x · 近 1 月回撤 21.3%</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>持有观察</b>（4.68/10）</span>
+      <span class="badge badge-source">📅 数据日期：2026-11-04（14:11 盘中快照）</span>
+      <span class="badge badge-source">📊 35.18 元 · 总市值 141.13 亿 · PE-TTM 90.44x · PB 8.88x · 股息率 0.37%</span>
+      <span class="badge badge-purple">🧠 11 方法论 × 12 模块 · 权重归一化 ÷1.05</span>
+      <span class="badge badge-danger">⚠️ 今日 +4.83% 但盘中最低 31.22 元，振幅 13.71%</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-11-04 14:11 盘中快照）：</strong><br>
+    ✅ 行情：<span class="info">35.18 元（+4.83%）</span>，昨收 33.56、今开 33.25、最高 35.82、<span class="warn">最低 31.22</span>，均价 33.35，振幅 <span class="danger">13.71%</span>，换手率 6.67%，成交 2,675.5 万股 / 8.92 亿元；总市值 <span class="info">141.13 亿元</span>（全流通，总股本 4.0117 亿股）· 来源：腾讯财经实时行情 + 总股本反推校验<br>
+    ✅ 估值内部自洽校验：141.13 ÷ 1.5605（TTM 归母）= <span class="ok">90.44</span> = 行情 PE-TTM ✓；141.13 ÷ 1.0951（2025 归母）= <span class="ok">128.88</span> = PE 静 ✓；141.13 ÷ 15.8998（2026Q3 末归母权益）= <span class="ok">8.88</span> = PB ✓；141.13 ÷ 7.0576（TTM 营收）= 20.00x PS<br>
+    ✅ TTM 归母推导：2025 全年 1.0951 + 2026 前三季 1.3942 − 2025 前三季 0.9287 = <span class="info">1.5605 亿元</span>；TTM 营收 = 5.2557 + 5.4998 − 3.6979 = 7.0576 亿元<br>
+    ✅ 财务口径：<span class="warn">2026 年三季报（数据取自新浪财经三大报表原始页，2026-09-30 列）</span>——前三季营收 5.4998 亿（+48.70%）、归母 1.3942 亿（+50.08%）、扣非口径半年报 7,698 万（+42.80%）、经营现金流 1.8051 亿、研发费用 6,259 万（占营收 11.38%）<br>
+    ✅ 年度序列：2023 营收 3.7132 亿 / 归母 0.4072 亿；2024 营收 4.2699 亿 / 归母 0.5136 亿；2025 营收 5.2557 亿（+23.1%）/ 归母 1.0951 亿（+113.2%）/ 扣非 1.13 亿（+96.27%）、毛利率 54.22%<br>
+    ✅ 一致预期（同花顺 F10，截至 2026-11-04，近 6 个月 7 家机构）：2026E 归母 <span class="info">1.46 亿元</span>（+33.46%）/ EPS 0.36 元；2027E 归母 <span class="info">1.97 亿元</span>（+34.9%）/ EPS 0.49 元 → 对应 2026E PE 97.7x、2027E PE 71.8x<br>
+    ✅ 价格区间：52 周 <span class="warn">21.33 – 47.58 元</span>（腾讯前复权日线 321 根）；阶段涨幅：近 1 周 -3.48%、近 1 月 <span class="danger">-21.28%</span>、近 3 月 +16.03%、近 6 月 +28.63%、近 1 年 +55.11%、年初至今 +50.86%<br>
+    ✅ 业务数据：2026 年半年报——DEL 收入 1.6569 亿（+62.14%）、FBDD/SBDD 0.8509 亿（+30.43%）、OBT 0.5403 亿（+94.03%）、TPD 845.66 万（+12.25%）、DataSer 1,543.52 万；上半年 IP 转让及里程碑费约 3,700 万元，达成 13 个项目 IP 转让；累计完成 148 个项目、约 1,500 个活性化合物实体分子转让；累计服务全球 700+ 客户<br>
+    ✅ 分红：2026 年 10 派 1.3 元（含税），股权登记日 2026-06-17，除权除息 2026-06-18 → 股息率 0.37%<br>
+    ⚠️ 数据缺口：① 本次采集环境中东方财富行情/资金流接口不可达（连接层空响应），主力资金逐日净流入、北向持股未取得；② 机构持仓明细、融资余额未取得；③ 2026 三季报未单独披露分板块收入与扣非，Q3 单季扣非为推算口径；④ 2022 年之前分部数据未逐项核对；⑤ 2028E 盈利为本报告按 2027E 一致预期 × 35% 外推，非机构预测；⑥ 自研管线（HG146/HG254/参股先衍生物）的公允价值无第三方估值，本报告仅作期权价值定性处理<br>
+    ⚠️ 口径说明：本报告价格为 2026-11-04 14:11 盘中快照，非收盘价；盘中数据会继续变动，收盘后 PE/PB 需按当日收盘价重算。所有"亿元"单位如无特别说明指人民币。
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">⚖️</div>
+    <div class="text">
+      <h3>11 方法论交叉结论：生意（费雪 7.0 / 巴菲特 7.0）与产业周期（马克斯 6.0）站得住，价格（格雷厄姆 2.4 / 林奇 2.0）站不住 —— 加权 4.68/10（持有观察）</h3>
+      <p>
+        成都先导是 A 股稀缺的<b style="color:#34d399">"上游卖水人"型平台公司</b>：以 DEL 库（含类环肽库容超 5,000 亿分子）为核心，向 700 多家全球药企输出新分子实体，商业模式是"研发服务费 + IP 转让费 + 里程碑费"的长尾结构。2026 前三季营收 5.50 亿（+48.7%）、归母 1.39 亿（+50.1%），毛利率从 2023 年 49.25% 一路抬升到 58.33%，经营现金流/净利 1.29 —— <b style="color:#34d399">增长是真的，质量也在改善</b>。<br><br>
+        但<b style="color:#f87171">价格已经把好消息全部定价，还多定价了一部分</b>：PE-TTM 90.4x、2026E PE 97.7x、2027E PE 71.8x、PB 8.88x，PEG（按 2026E 增速 33.5% 计）2.92；TTM 营收 7.06 亿对应 20 倍 PS。用一致预期推 12 个月中枢约 <b style="color:#fbbf24">27 元</b>，较现价 35.18 元约有 <b style="color:#f87171">-23%</b> 空间；24 个月中枢约 33 元，仍未回到现价。<br><br>
+        <b style="color:#7dd3fc">操作倾向：</b>现价<b style="color:#f87171">不买</b>。股价 10 月见 47.58 元后一个月回撤 21.3%，MACD 死叉且绿柱放大，短期动量走坏；产业股东（华博医疗、钧天投资）年内已多轮减持、9 月又抛出 1.63% 的新减持计划。<b style="color:#fbbf24">未持仓者等 26–28 元区间且季报验证扣非增速后再说；已持仓者 ≤3% 仓位、28.50 元硬止损、反弹到 40 元以上分批减。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📊 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">数据日期：2026-11-04 14:11 盘中 · 来源：腾讯财经 / 新浪财经 / 同花顺 F10 / 公司 2026 年三季报</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">股票名称</div>
+      <div class="value" style="font-size:17px;">成都先导</div>
+      <div class="change">代码 688222</div>
+      <div class="label">上交所科创板 · 2020-04-16 上市</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">所属行业</div>
+      <div class="value" style="font-size:16px;">医药生物 / 药物发现</div>
+      <div class="change">DEL 平台 · CXO 上游</div>
+      <div class="label">申万化学制药 / 创新药产业链</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">总市值</div>
+      <div class="value">141.1 亿</div>
+      <div class="change">流通 141.1 亿</div>
+      <div class="label">全流通 · 总股本 4.0117 亿股</div>
+    </div>
+    <div class="index-card danger">
+      <div class="tag danger">高波动</div>
+      <div class="name">当前股价</div>
+      <div class="value">35.18 元</div>
+      <div class="change">+4.83%</div>
+      <div class="label">盘中 31.22 – 35.82 元</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">估值</div>
+      <div class="value">90.4x</div>
+      <div class="change">PB 8.88x</div>
+      <div class="label">PE-TTM / 2026E 97.7x</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">股息率</div>
+      <div class="value">0.37%</div>
+      <div class="change">派息 0.13 元</div>
+      <div class="label">分红率约 47.6%（对 2025 年）</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">52 周区间</div>
+      <div class="value" style="font-size:16px;">21.33 – 47.58</div>
+      <div class="change">距高点 -26.1%</div>
+      <div class="label">近 1 月 -21.3% / 近 1 年 +55.1%</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="name">2026 前三季营收</div>
+      <div class="value">5.50 亿</div>
+      <div class="change">+48.70%</div>
+      <div class="label">Q3 单季 2.04 亿（+42.9%）</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">2026 前三季归母</div>
+      <div class="value">1.394 亿</div>
+      <div class="change">+50.08%</div>
+      <div class="label">Q3 单季 0.587 亿（+37.1%）</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">毛利率（9M）</div>
+      <div class="value">58.33%</div>
+      <div class="change">三年连升</div>
+      <div class="label">2023 49.3% → 2024 51.9% → 2025 54.2%</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">ROE（9M 年化）</div>
+      <div class="value">约 12%</div>
+      <div class="change">2025 全年 7.4%</div>
+      <div class="label">轻资产、高毛利、低杠杆</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">资产负债率</div>
+      <div class="value">28.75%</div>
+      <div class="change">净现金 7.3 亿</div>
+      <div class="label">含 2 亿元应付债券</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">经营现金流（9M）</div>
+      <div class="value">1.805 亿</div>
+      <div class="change">OCF/NP 1.29</div>
+      <div class="label">自由现金流 0.656 亿</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">股东户数</div>
+      <div class="value">2.74 万</div>
+      <div class="change">较 6 月末 +10.6%</div>
+      <div class="label">2026-09-30，筹码趋于分散</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+  <div class="section-subtitle">11 方法论加权 4.68/10 · 不是"坏公司"，而是"好公司 + 坏价格"—— 成长与护城河可给 7 分，估值只能给 2 分</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">持有观察</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （DEL 平台稀缺 · 增长与现金流真实 · 但 PE 90x 已透支 2027 年一致预期 · 现价不新建仓）
+    </div>
+    <div class="comment">
+      费雪 7.0、巴菲特 7.0、马克斯 6.0，生意与产业周期两条腿都站得住：DEL 库容与类环肽平台全球第一梯队，2026 前三季营收 +48.7%、归母 +50.1%，毛利率 58.33%，OCF/NP 1.29，净现金 7.3 亿元且资产负债率仅 28.75%。但格雷厄姆 2.4、林奇 2.0、西蒙斯 3.5，价格与动量两条腿拖后腿：PE-TTM 90.4x、2026E PE 97.7x、2027E 71.8x、PB 8.88x、PS 20.0x，PEG 2.92；MACD 死叉且绿柱放大，股价跌破 MA20/MA30/MA60。<br><br>
+      加权得分 <b style="color:#7dd3fc">4.68/10</b>（Σ得分×权重 = 491.0，÷1.05 = 467.6 → 4.68），对应评级<b style="color:#fbbf24">"持有观察"</b>，建议单股仓位 ≤3%、不新建仓，已持仓者 28.50 元硬止损。<b style="color:#34d399">这是一家值得放进自选股并长期跟踪的好平台公司，但不是此刻值得买入的价格。</b>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 为什么是"持有观察"，不是"减持"或"买入"？</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>为什么不是"买入"（6.5+）：</strong>买入评级要求"好公司 + 好价格"，这里只满足前半句。PE-TTM 90.4x、2027E PE 71.8x，意味着即使一致预期 2027 年归母 1.97 亿元全部兑现，现价仍对应 71.8 倍；用 2027E 给 55 倍（对 35% 增速已属慷慨）折出 12 个月合理价约 27 元，较现价仍有 -23% 空间。估值这一项直接把加权分压到 5 以下。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>为什么不是"减持"（2.0–3.4）：</strong>基本面没有恶化迹象，反而是加速的。营收增速从 2024 年 +15.0%、2025 年 +23.1% 抬升到 2026 前三季 +48.7%；毛利率三年连升 9 个百分点；OCF/NP 1.29 说明利润有现金支撑；净现金 7.3 亿元、负债率 28.75%，不存在"活不到反转"的问题。用邓普顿的标准衡量，这不是"要死的公司"。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>最终定位：</strong>"稀缺平台 + 过热价格"的组合。做法是<b style="color:#fbbf24">用费雪/巴菲特框架决定"要不要研究它"，用格雷厄姆/林奇框架决定"多少钱才买"</b>；研究结论是"要"，交易结论是"等"。价格锚：26–28 元区间分批、28.50 元以下止损、40 元以上减仓。</p>
+    </div>
+  </div>
+
+  <div class="section-title danger">🎚️ 模块 3 · 估值：90 倍 PE 的"稀缺性溢价"还能撑多久</div>
+  <div class="section-subtitle">PE-TTM 90.44x · 2026E 97.7x / 2027E 71.8x · PB 8.88x · PS 20.0x · PEG 2.92 · Graham Number 仅 5.89 元</div>
+
+  <div class="dashboard">
+    <div class="index-card danger">
+      <div class="name">PE-TTM</div>
+      <div class="value">90.44x</div>
+      <div class="change">2026E 97.7x</div>
+      <div class="label">TTM 归母 1.5605 亿</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">PE（静 / 动）</div>
+      <div class="value" style="font-size:17px;">128.9 / 75.9</div>
+      <div class="change">静态口径更贵</div>
+      <div class="label">2025 归母 1.0951 亿</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">PB</div>
+      <div class="value">8.88x</div>
+      <div class="change">BVPS 3.96 元</div>
+      <div class="label">归母净资产 15.90 亿</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">PS-TTM</div>
+      <div class="value">20.0x</div>
+      <div class="change">TTM 营收 7.06 亿</div>
+      <div class="label">CXO 上游高位区间</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">PEG</div>
+      <div class="value">2.92</div>
+      <div class="change">2026E PE ÷ 33.5%</div>
+      <div class="label">林奇标准要求 &lt; 1</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">股息率</div>
+      <div class="value">0.37%</div>
+      <div class="change">派息 0.13 元</div>
+      <div class="label">分红率 47.6%，但收益率极低</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">净现金 / 市值</div>
+      <div class="value">5.2%</div>
+      <div class="change">净现金 7.32 亿</div>
+      <div class="label">货币 8.18 + 交金 2.80 − 有息 3.65</div>
+    </div>
+  </div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>估值维度</div>
+      <div>当前读数</div>
+      <div>解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PE-TTM 交叉验证</div>
+      <div class="fin-val down">90.44x</div>
+      <div class="fin-comment">市值 141.13 亿 ÷ TTM 归母 1.5605 亿 = 90.44，与行情接口完全一致，取数无误。作为对照，公司 2024 年归母仅 0.51 亿元时，当前市值对应 PE 高达 275x —— 估值是被"两年翻三倍的利润"追回来的，不是股价跌回来的。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">一致预期估值</div>
+      <div class="fin-val down">97.7x / 71.8x</div>
+      <div class="fin-comment">7 家机构一致预期 2026E 归母 1.46 亿元、2027E 1.97 亿元。按现价 35.18 元折算，2026E PE 97.7x、2027E 71.8x。即便把时间拨到 2027 年底，估值仍在 70 倍以上 —— 这是本报告给出"持有观察"的核心依据。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PEG（林奇口径）</div>
+      <div class="fin-val down">2.92</div>
+      <div class="fin-comment">2026E PE 97.7x ÷ 2026E 增速 33.5% = 2.92，远高于林奇要求的 1.0。若改用 2025 年实际增速 113.2%（低基数失真）计算，PEG 降至 0.86 看似合格，但这是"低基数幻觉"：2024 年归母仅 0.51 亿元，113% 的增速不可能持续。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PB 与 ROE 匹配度</div>
+      <div class="fin-val down">8.88x / 12%</div>
+      <div class="fin-comment">PB 8.88x 隐含的合理 ROE 应在 20% 以上（PB = ROE × PE），但目前年化 ROE 仅约 12%、2025 全年 7.4%。按"PB/ROE"粗算溢价倍数约 0.74（8.88 ÷ 12），高于 0.5 的舒适阈值，说明净资产被显著溢价定价。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PS 与毛利率匹配</div>
+      <div class="fin-val warn">20.0x / 58.33%</div>
+      <div class="fin-comment">20 倍 PS 对应 58.33% 毛利率、25.35% 归母净利率。若按 25% 稳态净利率折算，PS 20x ≈ PE 80x，与 PE-TTM 互相印证。对一家仍在扩张期的平台公司，20x PS 不便宜，但也不是"市梦率"级别的荒谬定价。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">Graham Number</div>
+      <div class="fin-val down">5.89 元</div>
+      <div class="fin-comment">√(22.5 × TTM EPS 0.389 × BVPS 3.963) = 5.89 元。现价 35.18 元是格雷厄姆上限的 <b>5.97 倍</b>。这不是说公司该跌到 6 元，而是说这家公司从定义上就不属于格雷厄姆体系的可投资范围 —— 它是费雪式的成长股，只能用成长股的尺子量。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">自由现金流收益率</div>
+      <div class="fin-val down">0.62%</div>
+      <div class="fin-comment">2026 前三季 FCF = 经营现金流 1.805 亿 − 资本开支 1.149 亿 = 0.656 亿，年化约 0.875 亿，对应 141 亿市值仅 0.62%。原因是公司在扩产：在建工程从 2025 年末 1.70 亿增至 2026Q3 的 2.49 亿（+46%），并新发 2 亿元应付债券。扩张期的低 FCF 收益率是合理的，但它无法为当前估值提供任何支撑。</div>
+    </div>
+  </div>
+
+  <div class="safety-bar">
+    <div class="safety-title">🛡️ 安全边际刻度：当前价格落在"高估区"</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">深度价值 &lt; 20 元</div>
+      <div class="safety-seg seg-current">合理区间 20 – 30 元</div>
+      <div class="safety-seg seg-over">高估区 &gt; 30 元（当前 35.18 元）</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>20 元</strong> ≈ 2027E 41x</span>
+      <span><strong>30 元</strong> ≈ 2027E 61x</span>
+      <span><strong>35.18 元</strong> = 2027E 71.8x</span>
+      <span><strong>47.58 元</strong> = 2027E 97x（10 月高点）</span>
+    </div>
+    <div style="margin-top:12px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      说明：区间划分依据为"2027E 一致预期 EPS 0.49 元 × 40/60/80 倍 PE"。40 倍对应高增长创新药上游的估值下限，60 倍为成长溢价上限，80 倍以上属于情绪定价。当前 71.8x 已接近情绪区上沿。
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🧮 估值敏感性：不同 PE × 不同盈利兑现度的价格矩阵</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>盈利情景（归母）</th><th>40x</th><th>55x</th><th>70x</th><th>85x</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2026E 1.46 亿（一致预期）</td><td class="danger">14.6 元</td><td class="warn">20.0 元</td><td class="warn">25.5 元</td><td class="warn">30.9 元</td></tr>
+        <tr><td>2027E 1.97 亿（一致预期）</td><td class="warn">19.6 元</td><td class="warn">27.0 元</td><td class="ok">34.4 元</td><td class="ok">41.7 元</td></tr>
+        <tr><td>2028E 2.66 亿（本报告外推）</td><td class="ok">26.5 元</td><td class="ok">36.5 元</td><td class="ok">46.4 元</td><td class="ok">56.4 元</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      读法：现价 35.18 元 <b style="color:#fbbf24">正好落在"2027E × 70x"这一格</b>。也就是说，市场已经把 2027 年的盈利、并且按 70 倍的高估值一次性付给了你。要让现价显得合理，必须同时满足"2027 年兑现 + 维持 70 倍估值"两个条件；只要其中一个打折，价格就要向下修正。
+    </div>
+  </div>
+
+  <div class="section-title ok">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">营收三年 CAGR 18.9% → 2026 前三季 +48.7% 加速 · 归母三年 CAGR 64.0% · 毛利率三年 +9.1 个百分点</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>年度 / 期间</div>
+      <div>营收 · 归母</div>
+      <div>成长质量解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2023 年</div>
+      <div class="fin-val mid">3.713 亿 · 0.407 亿</div>
+      <div class="fin-comment">毛利率 49.25%，研发费用 0.796 亿（占营收 21.4%）。这是典型的"平台建设期"：收入体量小，研发投入占比高，利润被压制。全年经营现金流 1.252 亿、资本开支 0.537 亿，FCF 0.715 亿 —— 轻资产模型的现金创造能力从一开始就不差。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2024 年</div>
+      <div class="fin-val ok">4.270 亿 · 0.514 亿</div>
+      <div class="fin-comment">营收 +15.00%、归母 +26.14%，毛利率升至 51.86%。研发费用率降到 15.8%，规模效应开始显现。这一年是"拐点前夜"：利润增速首次超过收入增速。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2025 年</div>
+      <div class="fin-val ok">5.256 亿 · 1.095 亿</div>
+      <div class="fin-comment">营收 +23.09%、归母 +113.22%、扣非 +96.27%，毛利率 54.22%。分板块：DEL 2.50 亿（+25.4%）、FBDD/SBDD 1.54 亿（+27.9%）、OBT 0.753 亿（+56.7%）、TPD 0.164 亿（-9.7%）、ChemSer 0.224 亿（+31.1%）。利润翻倍的主因是"里程碑收入兑现 + 费用率摊薄"，而非一次性收益（扣非增速与归母接近）。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2026 前三季</div>
+      <div class="fin-val ok">5.500 亿 · 1.394 亿</div>
+      <div class="fin-comment">营收 +48.70%、归母 +50.08%，毛利率进一步升至 58.33%，归母净利率 25.35%。前三季营收已超 2025 全年（5.256 亿）。这是三年里第一次出现"收入加速 + 利润率同步抬升"的组合，成长质量最高的一期。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2026 Q3 单季</div>
+      <div class="fin-val warn">2.040 亿 · 0.587 亿</div>
+      <div class="fin-comment">营收同比 +42.9%、归母 +37.1%，增速较 Q2（营收 +54.2%）有所回落，但仍显著高于 2024–2025 年的中枢。单季毛利率与费用率未单独披露，是本报告的数据缺口。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2026 H1 分板块</div>
+      <div class="fin-val ok">DEL +62.1% · OBT +94.0%</div>
+      <div class="fin-comment">DEL 1.657 亿（+62.14%，含 IP 转让与里程碑费约 3,700 万）、FBDD/SBDD 0.851 亿（+30.43%）、OBT 0.540 亿（+94.03%，小核酸一站式项目放量）、TPD 0.085 亿（+12.25%）、DataSer 0.154 亿（摩熵智能并表）。三大主力板块同时加速，是 2026 年最重要的变化。</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="name">营收 3 年 CAGR</div>
+      <div class="value">18.9%</div>
+      <div class="change">2022→2025</div>
+      <div class="label">2026 9M 加速至 +48.7%</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">归母 3 年 CAGR</div>
+      <div class="value">64.0%</div>
+      <div class="change">0.248→1.095 亿</div>
+      <div class="label">低基数，参考价值有限</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">毛利率变化</div>
+      <div class="value">+9.1pct</div>
+      <div class="change">49.25%→58.33%</div>
+      <div class="label">2023 → 2026Q3</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">研发费用率</div>
+      <div class="value">11.38%</div>
+      <div class="change">2023 为 21.4%</div>
+      <div class="label">绝对额仍增长 4.5%</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">归母净利率</div>
+      <div class="value">25.35%</div>
+      <div class="change">2024 仅 12.03%</div>
+      <div class="label">两年翻倍</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">扣非增速波动</div>
+      <div class="value" style="font-size:16px;">+126% → +3%</div>
+      <div class="change">Q1 → Q2</div>
+      <div class="label">收入确认节奏不稳定</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">2026E 一致预期</div>
+      <div class="value">+33.5%</div>
+      <div class="change">归母 1.46 亿</div>
+      <div class="label">7 家机构，增速预期低于前三季</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>成长性的三个"真"与一个"疑"</h3>
+      <p>
+        <b style="color:#34d399">真一：需求侧有产业验证。</b>DEL 板块 +62%、OBT +94%，对应的是全球创新药投融资回暖与小核酸赛道爆发，不是靠单一客户或单一项目撑起来的。<br>
+        <b style="color:#34d399">真二：增长有现金支撑。</b>9M 经营现金流 1.805 亿 > 归母 1.394 亿（OCF/NP 1.29），应收账款 1.183 亿仅占 9M 营收 21.5%，且较 2025 年末（1.061 亿）增幅温和，不存在"以应收换收入"。<br>
+        <b style="color:#34d399">真三：模式有长尾。</b>累计 148 个项目 IP 转让、约 1,500 个活性化合物，里程碑费从数百万到数千万元不等，随客户推进临床会持续释放，这是"一次性服务费"不具备的期权价值。<br>
+        <b style="color:#fbbf24">疑一：扣非增速极不稳定。</b>2026Q1 扣非 +126.4%，Q2 只有 +2.60%（归母 +80% 主要靠非经常性/汇兑口径差异），Q3 未单独披露。说明单季利润受项目节点、汇兑损益（H1 汇兑损失约 1,400 万元）影响很大，用单季数据外推会失真。一致预期 2026E 仅 +33.5%，明显低于前三季的 +50%，也反映了机构对 Q4 费用集中确认的谨慎。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title ok">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">DEL 库容与类环肽平台构成技术型护城河 · 转换成本中等 · 定价权体现在 58% 毛利率 · 但 ROE 仅 12%，护城河宽度属"窄到中等"</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>护城河来源</div>
+      <div>强度评级</div>
+      <div>证据与反面检验</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">技术壁垒（核心）</div>
+      <div class="fin-val">强</div>
+      <div class="fin-comment">DEL 库是"重资产在数据、轻资产在厂房"的稀缺资产：类环肽库容超 5,000 亿分子、涵盖 1,500 余种非天然氨基酸、十余种环化方式，分子环内氨基酸覆盖 3–15 个。这类库需要数年合成积累，无法用资本短期砸出来 —— 这是公司最硬的一条护城河，也是它能在全球拿到 700+ 客户的根本原因。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">客户转换成本</div>
+      <div class="fin-val warn">中等</div>
+      <div class="fin-comment">正面：一旦客户把某个靶点的筛选交给公司，后续优化、合成、生物学评价会自然延伸，且 IP 转让后里程碑费绑定客户多年。反面：研发服务本质是"项目制"，单一项目结束后客户可以换供应商；前五名客户 2025 年合计占营收 38.6%（第一、二名各约 13.5%/13.2%），集中度不低，但也没到"被单一大客户绑架"的程度。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">定价权</div>
+      <div class="fin-val">较强</div>
+      <div class="fin-comment">毛利率从 2023 年 49.25% 提升到 2026 前三季 58.33%，三年抬升 9.1 个百分点，且是在收入增长 48.7% 的同时实现的 —— 这说明增长不是靠降价换来的。研发服务能持续提价/提结构，是护城河最直接的财务证据。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">规模效应</div>
+      <div class="fin-val warn">中等</div>
+      <div class="fin-comment">研发费用率从 21.4%（2023）降到 11.38%（2026Q3），管理/销售费用率同步摊薄，说明平台型固定成本正在被收入稀释。但公司收入体量仅 7 亿量级，相对药明康德等 CXO 巨头仍属"小平台"，规模壁垒尚未形成绝对优势。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">商业模式长尾</div>
+      <div class="fin-val">较强</div>
+      <div class="fin-comment">"服务费（FFS/FTE）+ IP 转让费 + 里程碑费 + 远期销售分成"四层结构。已累计 148 个项目、约 1,500 个化合物 IP 转让，2026H1 单期达成 13 个。里程碑金额从数百万到数千万元，只要客户管线推进到临床/上市，收入会自动兑现 —— 这是普通 CRO 没有的期权价值。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">护城河 × ROE（反面检验）</div>
+      <div class="fin-val down">偏弱</div>
+      <div class="fin-comment">巴菲特要求"护城河最终体现为高 ROE 且低资本消耗"。公司 ROE 年化约 12%、2025 全年 7.4%，且当前正大额扩产（在建工程 2.49 亿 ≈ 固定资产 2.42 亿，另发 2 亿债券）。护城河"有"，但还没转化成股东回报率 —— 这正是巴菲特只能给 7 分而非 9 分的原因。</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🧪 平台能力清单（2026 年半年报口径）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>技术平台</th><th>能力边界</th><th>2026H1 收入</th><th>同比</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="hl">DEL</td><td>DNA 编码化合物库设计、合成、筛选及拓展应用；类环肽、分子胶、共价、片段库</td><td class="ok">1.657 亿</td><td class="ok">+62.14%</td></tr>
+        <tr><td class="hl">FBDD/SBDD</td><td>基于分子片段与三维结构的药物设计（英国 Vernalis 子公司）</td><td class="ok">0.851 亿</td><td class="ok">+30.43%</td></tr>
+        <tr><td class="hl">OBT</td><td>寡核苷酸药物研发：核苷单体合成、序列设计、递送、CMC 一站式</td><td class="ok">0.540 亿</td><td class="ok">+94.03%</td></tr>
+        <tr><td class="hl">TPD</td><td>PROTAC / 分子胶 / RIPTAC 等临近诱导药物；自研新型 CRBN 配体</td><td class="warn">0.085 亿</td><td class="warn">+12.25%</td></tr>
+        <tr><td class="hl">CPM</td><td>类环肽平台：库容 &gt;5,000 亿分子，最快 8 个月靶点到 PCC</td><td class="mid">并入 DEL 统计</td><td class="mid">—</td></tr>
+        <tr><td class="hl">HAILO</td><td>"DEL + AI + 自动化"一体化分子优化平台，高通量 DMTA 循环</td><td class="mid">能力型，不单列收入</td><td class="mid">—</td></tr>
+        <tr><td class="hl">DataSer</td><td>摩熵智能（2025 年 12 月并表）生命科学数据系统与 AI 数据服务</td><td class="ok">0.154 亿</td><td class="ok">新增并表</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      自研管线：HG146 已完成 CDE 沟通交流、正在制定关键临床计划；HG254（2025Q4 立项 → PCC 确认）正开展 IIT 研究；参股子公司先衍生物 LDR2402（AGT 靶点超长效降压）已进入 II 期临床，LDR2515（INHBE 靶点减重）IND 已获 CDE 受理。这些管线的公允价值无第三方估值，本报告不计入目标价，仅视为"免费的看涨期权"。
+    </div>
+  </div>
+
+  <div class="section-title danger">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">14 项指标 · 10 项通过 / 3 项中性 / 1 项不通过 · 总体结论："干净的资产负债表 + 尚在爬坡的 ROE"</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>指标（2026-09-30）</div>
+      <div>读数</div>
+      <div>体检结论</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">毛利率</div>
+      <div class="fin-val">58.33%</div>
+      <div class="fin-comment">✅ 三年连升 9.1 个百分点，且是在收入 +48.7% 的同时实现，说明提价/提结构成立。研发服务平台能达到 58% 毛利率，属行业上游水平。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">归母净利率</div>
+      <div class="fin-val">25.35%</div>
+      <div class="fin-comment">✅ 2024 年 12.03% → 2026 前三季 25.35%，两年翻倍。利润率的提升来自费用率摊薄（研发费用率 21.4% → 11.38%）与高毛利业务占比提升，不是靠非经常性收益。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">ROE（年化）</div>
+      <div class="fin-val warn">约 12%</div>
+      <div class="fin-comment">⚠️ 2025 全年 7.4%，2026 前三季年化约 12%。对比 8.88 倍 PB，ROE 明显偏低 —— 这是"高估值 + 中 ROE"的典型组合，需要未来两三年 ROE 持续爬升才能消化估值。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流 / 归母净利</div>
+      <div class="fin-val">1.29</div>
+      <div class="fin-comment">✅ 9M 经营现金流 1.805 亿 &gt; 归母 1.394 亿。2023/2024/2025 年的 OCF/NP 分别为 3.08 / 2.49 / 1.98，长期大于 1，是"A 股少见的利润含金量高"的公司。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">自由现金流</div>
+      <div class="fin-val warn">0.656 亿</div>
+      <div class="fin-comment">⚠️ 9M FCF = OCF 1.805 − 资本开支 1.149 = 0.656 亿。资本开支从 2024 年 0.717 亿跳到 2025 年 1.605 亿、2026 前三季 1.149 亿，公司在扩产（小核酸原料药第二条生产线）。扩张期 FCF 被压制是主动选择，但需跟踪投产后的回报率。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收账款 / 9M 营收</div>
+      <div class="fin-val">21.5%</div>
+      <div class="fin-comment">✅ 应收账款 1.183 亿，较 2025 年末 1.061 亿仅 +11.5%，远低于营收 +48.7% 的增速 —— 没有用放宽账期换收入。这一点比很多高增长制造业公司干净得多。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">存货 / 9M 营收</div>
+      <div class="fin-val">9.6%</div>
+      <div class="fin-comment">✅ 存货 0.530 亿，绝对额小、周转快，符合研发服务型企业的特征，不存在存货积压风险。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val">28.75%</div>
+      <div class="fin-comment">✅ 总负债 6.436 亿 / 总资产 22.390 亿。较 2025 年末 22.88% 上升 5.87 个百分点，主因新发 2 亿元应付债券 + 长期借款 1.02 亿，属主动加杠杆扩产，不是被动失血。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">净现金</div>
+      <div class="fin-val">7.32 亿</div>
+      <div class="fin-comment">✅ 货币资金 8.176 亿 + 交易性金融资产 2.800 亿 − 有息负债 3.653 亿（短借 0.633 + 长借 1.020 + 应付债券 2.000）= 7.32 亿，占市值 5.2%。即便三年不赚钱，公司也能靠现金活下去 —— 邓普顿最看重的"活到反转"条件成立。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">商誉</div>
+      <div class="fin-val warn">1.144 亿</div>
+      <div class="fin-comment">⚠️ 占总资产 5.1%、占归母权益 7.2%，来自 2025 年 12 月并表摩熵智能等标的。绝对额可控，但需每年做减值测试；若摩熵智能业绩不达预期，存在一次性减值风险（对 1.56 亿 TTM 利润而言，1.14 亿商誉不算小）。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资本开支强度</div>
+      <div class="fin-val warn">在建/固定 102.7%</div>
+      <div class="fin-comment">⚠️ 在建工程 2.489 亿 ≈ 固定资产 2.423 亿，另有 0.662 亿无形资产。这意味着未来 1–2 年折旧会明显上升，若新增产能利用率不足，毛利率会有压力。这是 2027 年最需要验证的财务变量。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">研发投入</div>
+      <div class="fin-val">6,259 万</div>
+      <div class="fin-comment">✅ 9M 研发费用 6,259 万（占营收 11.38%），H1 同比 +55.85%，绝对额仍在扩张。费率下降是分母变大的结果，不是砍研发 —— 对平台型公司而言这是正确的事。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">有息负债结构</div>
+      <div class="fin-val">3.65 亿</div>
+      <div class="fin-comment">✅ 短借 0.633 亿、长借 1.020 亿、应付债券 2.000 亿，长短配比合理；货币资金 8.18 亿足以覆盖全部有息负债 2.2 倍，无短期偿付压力。2023–2025 年财务费用为负（利息收入大于支出），2026 年新增债券利息后需重新观察。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">分红与回购</div>
+      <div class="fin-val">派息 0.13 元</div>
+      <div class="fin-comment">⚠️ 2026 年 10 派 1.3 元，合计约 0.52 亿元，分红率约 47.6%（对 2025 年归母）。分红意愿尚可，但股息率仅 0.37%，对估值无任何支撑作用 —— 这家公司的估值完全建立在成长预期上。</div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">✅</div>
+    <div class="text">
+      <h3>财务面是这份报告里最"干净"的部分 —— 也是评级没有跌到"减持"的原因</h3>
+      <p>
+        与很多 A 股高估值成长股"高增长靠垫资、利润靠应收"不同，成都先导的报表有三处硬证据：<b style="color:#34d399">① 应收账款增速（+11.5%）远低于营收增速（+48.7%）</b>；<b style="color:#34d399">② 连续三年 OCF/NP 大于 1（3.08 / 2.49 / 1.98）</b>；<b style="color:#34d399">③ 净现金 7.32 亿元、有息负债仅 3.65 亿元</b>。这三条同时成立的公司，在 90 倍 PE 的标的里非常少见。<br><br>
+        唯一的瑕疵是<b style="color:#fbbf24">资本开支周期</b>：在建工程已达固定资产的 102.7%，2027 年起折旧压力会显现。如果新增的小核酸原料药产线能与 OBT 板块 +94% 的增速匹配，这次扩产就是正确的下注；如果 OBT 增速回落，就会出现"产能空转 + 毛利率下台阶"的双杀。这是本报告给它"观察"而不是"回避"的关键分野。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">👥 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">实控人增持 + 低行权价股权激励是正面项 · 产业股东连续减持、股东户数快速增加是负面项 · 治理评级：中性偏负</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>治理维度</div>
+      <div>评级</div>
+      <div>事实与判断</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">控制权稳定性</div>
+      <div class="fin-val">稳定</div>
+      <div class="fin-comment">实际控制人为李进（JIN LI），一致行动人为宁波聚智先导生物科技合伙企业。公司 2020 年 4 月 16 日科创板上市，至今控制权未发生变更，无控制权争夺历史。股权相对分散但实控人地位清晰。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">实控人增减持</div>
+      <div class="fin-val ok">净增持</div>
+      <div class="fin-comment">实控人一致行动人宁波聚智先导于 2025-05-23 起 12 个月内计划增持不超过 5,000 万元，2025.10.13–2026.01.30 期间已实际增持 94.56 万股（占流通股 0.24%）。在股价高位仍执行增持计划，是管理层信心的直接信号。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">管理层激励</div>
+      <div class="fin-val">强绑定但成本低</div>
+      <div class="fin-comment">2026-09-22 股权激励实施，窦登峰、耿世伟、刘观赛、JIN LI、刘红哿等 5 名高管合计增持 16.18 万股，成交均价 13.86 元/股。以 35.18 元现价计算浮盈约 154%，利益绑定充分；但行权价仅为现价的 39%，激励"含金量"更多来自股价上涨而非业绩门槛，需在后续年报中核对考核条件。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">产业股东减持</div>
+      <div class="fin-val down">持续净流出</div>
+      <div class="fin-comment">华博医疗：2025.09.04–11.24 减持 200 万股、2026.05.29–06.30 减持 170.3 万股、2026.07.01–08.11 减持 219.7 万股；钧天投资：2025.08.28–11.03 减持 185.9 万股、2026.07.10–08.12 减持 352.4 万股。2026-05-13 两方联合抛出不超过 1,407 万股（3.51%）的减持计划，8 月底到期后，钧天又于 2026-09-03 抛出新一轮不超过 654.4 万股（1.63%）、至 12 月 2 日的减持计划。<b style="color:#f87171">减持是连续、多轮、跨越一年的行为，不是偶发</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">筹码结构</div>
+      <div class="fin-val warn">趋于分散</div>
+      <div class="fin-comment">股东户数 2026-09-30 为 27,391 户，较 2026-06-30 的 24,764 户增加 10.6%，较 2025 年末 20,546 户增加 33.3%。户数在股价高位快速上升，通常意味着筹码从机构/大股东向散户转移 —— 与产业股东减持的方向一致，构成短期负面信号。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">并购与并表</div>
+      <div class="fin-val warn">需观察</div>
+      <div class="fin-comment">2025 年 12 月通过参与设立的蓉创先导基金增资控股摩熵智能并纳入合并报表，形成商誉 1.144 亿元。摩熵智能 2026H1 贡献 DataSer 收入 1,543.52 万元，协同逻辑（数据 + AI 辅助药物发现）成立，但并入不足一年，整合效果与业绩承诺尚无完整年度数据可验证。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">监管记录</div>
+      <div class="fin-val ok">无重大瑕疵</div>
+      <div class="fin-comment">历史可查记录中仅有 2022-06-01 收到年报问询函（已完成回复），2023 年以来未见立案调查、行政处罚或公开谴责。在新《证券法》严监管环境下，这一点比很多同规模科创板公司干净。</div>
+    </div>
+  </div>
+
+  <div class="section-title">🌐 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">全球药物研发支出中单位数增长 · 小核酸/类环肽/TPD 三条细分线高景气 · 行业周期处于"复苏早中期"，但股价已交易到"景气高点"</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>行业维度</div>
+      <div>判断</div>
+      <div>依据与推演</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">行业空间</div>
+      <div class="fin-val">大而稳</div>
+      <div class="fin-comment">据公司半年报引用的第三方数据：全球药品支出预计到 2028 年达约 2.3 万亿美元（IQVIA），未来几年复合增速约 5%–8%；全球制药市场 2025 年约 1.74 万亿美元，2033 年预计 2.78 万亿美元，CAGR 约 6.1%（Grand View Research）。上游药物发现服务的增速通常高于终端药品支出，属于"长坡厚雪"型赛道。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">周期位置（马克斯框架）</div>
+      <div class="fin-val warn">复苏早中期</div>
+      <div class="fin-comment">全球生物医药投融资在 2023–2024 年经历寒冬，2025 年起回暖。公司的收入曲线是最好的温度计：+15.0%（2024）→ +23.1%（2025）→ +48.7%（2026 前三季），呈加速态势，说明行业需求确实在复苏。<b>行业周期位置偏早中期，但股票估值已经按"景气顶部"定价</b> —— 这是马克斯所说的"周期没错，价格错了"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">细分景气度排序</div>
+      <div class="fin-val">OBT &gt; DEL &gt; FBDD &gt; TPD</div>
+      <div class="fin-comment">OBT（小核酸）+94.03% 最快，对应 GLp-1 减重、降脂、降压等慢病小核酸药物的全球研发热潮；DEL（+62.14%）受益于定制库多元化（类环肽库、分子胶库）；FBDD/SBDD（+30.43%）稳健；TPD（+12.25%）仍在商业模式转型期。公司收入结构正好踩在最景气的两条线上。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">竞争格局</div>
+      <div class="fin-val warn">细分领先，整体中小</div>
+      <div class="fin-comment">DEL 技术领域全球主要玩家包括本公司、X-Chem（美）、Nuevolution（已被收购）等，公司以库容规模与类环肽特色处于第一梯队（同业具体份额与收入未独立核验）。但放到整个 CXO 行业，公司 7 亿元收入体量属于中小型，与药明康德、康龙化成等平台型巨头不在一个量级，抗周期能力弱于头部。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">政策环境</div>
+      <div class="fin-val ok">中性偏正面</div>
+      <div class="fin-comment">国内：创新药审评加速、丙类医保目录探索、科创板对未盈利生物医药的包容度，均有利于上游药物发现服务。海外：美国生物安全法案类立法对 CXO 存在潜在扰动，但公司收入以"分子发现服务"为主、不涉及大规模生产外包，直接冲击相对有限 —— 该判断为定性推演，未做量化测算。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">汇率影响（达里奥视角）</div>
+      <div class="fin-val warn">不可忽视</div>
+      <div class="fin-comment">公司客户遍布北美、欧洲、亚洲、大洋洲，海外收入占比高。2026H1 汇兑损失约 1,400 万元，剔除后利润总额约 1.0064 亿元。对全年 1.5 亿元量级的利润而言，汇率波动可以造成 ±10% 以上的扰动，这是"高估值 + 高外币敞口"组合下的额外波动源。</div>
+    </div>
+  </div>
+
+  <div class="section-title danger">📡 模块 9 · 技术面与资金流：一个月回撤 21%，MACD 死叉，趋势已转弱</div>
+  <div class="section-subtitle">现价 35.18 元位于 MA5/MA10 附近、但仍在 MA20/MA30/MA60 之下 · MACD 绿柱放大 · 今日振幅 13.71%，盘中最低 31.22 元</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">MA5 / MA10</div>
+      <div class="value" style="font-size:17px;">35.85 / 35.68</div>
+      <div class="change">现价贴近</div>
+      <div class="label">短期均线走平</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">MA20</div>
+      <div class="value">36.85</div>
+      <div class="change">现价 -4.5%</div>
+      <div class="label">短期压力位</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">MA30 / MA60</div>
+      <div class="value" style="font-size:17px;">38.78 / 36.49</div>
+      <div class="change">均在上方</div>
+      <div class="label">中期均线压制</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">MA120 / MA250</div>
+      <div class="value" style="font-size:17px;">33.05 / 29.70</div>
+      <div class="change">仍在上行</div>
+      <div class="label">长期趋势未破</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">MACD</div>
+      <div class="value" style="font-size:17px;">-0.62</div>
+      <div class="change">DIF -0.66 / DEA -0.35</div>
+      <div class="label">死叉且绿柱放大</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">换手率</div>
+      <div class="value">6.67%</div>
+      <div class="change">20 日均量 2,356 万股</div>
+      <div class="label">今日 2,676 万股，放量</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">今日振幅</div>
+      <div class="value">13.71%</div>
+      <div class="change">31.22 – 35.82</div>
+      <div class="label">长下影 + 放量反弹</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📉 技术面五项检查</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>维度</th><th>读数</th><th>信号</th><th>解读</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>趋势结构</td><td>35.18 元</td><td class="danger">短期空头</td><td>10 月高点 47.58 元 → 今日最低 31.22 元，一个月最大回撤 34.4%；已跌破 MA20/MA30/MA60，形成"均线压顶"结构。但 MA120（33.05）与 MA250（29.70）仍上行，长期上升趋势未被破坏。</td></tr>
+        <tr><td>均线系统</td><td>MA5 35.85 / MA20 36.85</td><td class="warn">纠缠转弱</td><td>MA5 与 MA10 已走平并向下靠拢，MA20 开始下弯。典型的"上涨趋势结束、进入震荡消化"形态，尚无反转信号。</td></tr>
+        <tr><td>MACD</td><td>DIF -0.655 / DEA -0.347</td><td class="danger">看空</td><td>10 月下旬形成死叉，当前绿柱 -0.617 且较前一日继续放大（前一日约 -0.66），说明下跌动能仍在释放，尚未出现"绿柱缩短"的企稳信号。</td></tr>
+        <tr><td>量能</td><td>今日 2,676 万股 / 换手 6.67%</td><td class="warn">放量分歧</td><td>近 5 日均量 3,019 万股、20 日均量 2,356 万股，今日量能高于 20 日均值但低于近 5 日峰值。盘中最低 31.22 元后拉回 35.18 元，收出长下影，说明 31 元附近有承接，但放量下跌后的反抽持续性需要观察 2–3 个交易日。</td></tr>
+        <tr><td>支撑 / 压力</td><td>支撑 31.22 / 29.60；压力 36.85 / 38.78</td><td class="mid">区间震荡</td><td>下方：31.22 元（今日低点 &amp; 20 日低点）、29.60 元（60 日低点）、29.70 元（MA250），三者构成 29.6–31.2 元强支撑带。上方：36.85 元（MA20）、38.78 元（MA30）、44.02 元（20 日高点）逐级压制。</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      ⚠️ 资金流数据缺口：本次采集环境东方财富资金流接口不可达，主力资金逐日净流入、北向持股、融资余额均未取得，因此本模块不含资金流判断。仅以价格、成交量、换手率做技术推演，结论置信度低于含资金流的完整分析。
+    </div>
+  </div>
+
+  <div class="section-title">🎚️ 模块 10 · 多方法论视角下的最终评级（核心）</div>
+  <div class="section-subtitle">11 种方法论独立打分 · 权重合计 105%，按 Σ(得分×权重)÷1.05 归一化 · 综合 4.68/10</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num bad">2.4</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:24%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7.0</div>
+      <div class="score-name">费雪</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">2.0</div>
+      <div class="score-name">林奇</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:20%"></div></div>
+      <div class="score-out">PEG / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4.5</div>
+      <div class="score-name">邓普顿</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:45%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3.5</div>
+      <div class="score-name">博格</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:35%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">6.0</div>
+      <div class="score-name">马克斯</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:60%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num good">7.0</div>
+      <div class="score-name">巴菲特</div>
+      <div class="score-bar"><div class="score-fill good" style="width:70%"></div></div>
+      <div class="score-out">护城河 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3.5</div>
+      <div class="score-name">西蒙斯</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:35%"></div></div>
+      <div class="score-out">量化 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4.0</div>
+      <div class="score-name">达里奥</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">全天候 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">5.0</div>
+      <div class="score-name">凯恩斯</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:50%"></div></div>
+      <div class="score-out">选美理论 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4.5</div>
+      <div class="score-name">索罗斯</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:45%"></div></div>
+      <div class="score-out">反身性 / 10</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🧮 加权计算：Σ(得分×权重) = 491.0，÷1.05 = 467.6 → 4.68/10</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>方法论</th><th>得分</th><th>权重</th><th>加权分</th><th>一句话依据</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>格雷厄姆</td><td class="danger">2.4</td><td>15%</td><td>36.0</td><td>PE 90.4x、PB 8.88x、Graham Number 仅 5.89 元（现价 5.97 倍）；股息率 0.37%。虽然净现金 7.32 亿、负债率 28.75% 两项财务安全达标，但估值条件完全不满足，属格雷厄姆体系外标的</td></tr>
+        <tr><td>费雪</td><td class="ok">7.0</td><td>10%</td><td>70.0</td><td>DEL 类环肽库容 &gt;5,000 亿分子、1,500 余种非天然氨基酸，技术领先；研发费用率 11.38% 且绝对额 +55.85%（H1）；管理层专注主业 20 余年。扣分项：研发费率的"相对下降"依赖收入放大，绝对投入仍小于药明系</td></tr>
+        <tr><td>林奇</td><td class="danger">2.0</td><td>10%</td><td>20.0</td><td>PEG = 97.7（2026E PE）÷ 33.5（2026E 增速）= 2.92，是林奇 1.0 阈值的近 3 倍。PEG 2.9 的成长股属于"好公司、坏价格"的教科书案例</td></tr>
+        <tr><td>邓普顿</td><td class="warn">4.5</td><td>15%</td><td>67.5</td><td>产业周期自 2025 年回暖（收入增速 +23% → +49%），但股价过去一年 +55%、近 3 月 +16%，情绪并不悲观；PE 90x 更谈不上"最大悲观点"。逆向逻辑只成立在"行业周期"层面，不成立于"个股价格"层面</td></tr>
+        <tr><td>博格</td><td class="danger">3.5</td><td>5%</td><td>17.5</td><td>52 周振幅 123%（21.33–47.58）、单日振幅 13.71%，波动率远超宽基；单一细分赛道、单一技术路线（DEL），无法作为被动持有的底仓</td></tr>
+        <tr><td>马克斯</td><td class="mid">6.0</td><td>15%</td><td>90.0</td><td>行业周期位置偏早中期（全球生物医药投融资回暖、小核酸放量），公司收入增速同步加速，周期方向判断正确；但股价已按"景气顶部"定价，周期对了、赔率错了</td></tr>
+        <tr><td>巴菲特</td><td class="ok">7.0</td><td>15%</td><td>105.0</td><td>技术型窄护城河：库容积累难复制、客户 700+、毛利率三年 +9.1pct 有定价权、里程碑长尾；但 ROE 仅 12%、需持续资本开支（在建/固定 102.7%），护城河未转化为高股东回报，故不给 8 分以上</td></tr>
+        <tr><td>西蒙斯</td><td class="danger">3.5</td><td>5%</td><td>17.5</td><td>MACD 死叉且绿柱放大（-0.617）、跌破 MA20/MA30/MA60，动量因子、趋势因子均为负；仅超跌反弹因子为正。量化视角下当前是"下跌中继"而非"底部确认"</td></tr>
+        <tr><td>达里奥</td><td class="warn">4.0</td><td>5%</td><td>20.0</td><td>高波动、高估值、高外币敞口（H1 汇兑损失 1,400 万），与创新药主题高度相关，不能作为全天候组合的分散器；只能小仓位卫星配置</td></tr>
+        <tr><td>凯恩斯</td><td class="warn">5.0</td><td>5%</td><td>25.0</td><td>市场共识仍偏乐观（7 家机构覆盖、一致预期增长 33%），但 9 月末股东户数环比 +10.6%，说明"选美"参与者正从专业机构扩散到散户 —— 共识尚未破裂，但结构在劣化</td></tr>
+        <tr><td>索罗斯</td><td class="warn">4.5</td><td>5%</td><td>22.5</td><td>基本面反身性仍在（业绩加速 → 估值抬升 → 融资扩产），但股价反身性已断裂：10 月见 47.58 元后一个月 -34.4%，正反馈转负反馈；产业股东连续减持是负反馈的催化剂</td></tr>
+        <tr><td><b>合计</b></td><td class="hl">—</td><td class="hl">105%</td><td class="hl">491.0</td><td><b>491.0 ÷ 1.05 = 467.6 → 4.68/10，对应"持有观察"</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card best">
+      <div class="method-name">🥇 费雪成长投资</div>
+      <div class="method-author">菲利普·费雪 · "寻找能持续成长的公司"</div>
+      <div class="method-score good">7.0 / 10</div>
+      <div class="method-desc">营收增速 +15.0% → +23.1% → +48.7%，是"加速"而非"匀速"；毛利率 49.25% → 58.33% 三年连升；研发费用绝对额 H1 +55.85%。费雪最看重的"管理层是否有决心在现有产品线之外继续开发新产品"，公司用类环肽库（5,000 亿分子）、分子胶库、小核酸递送三条新线做了回答。扣分在于研发投入的绝对规模仍小于头部 CXO。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">🥈 巴菲特护城河</div>
+      <div class="method-author">沃伦·巴菲特 · "护城河决定长期复利"</div>
+      <div class="method-score good">7.0 / 10</div>
+      <div class="method-desc">DEL 库是"时间的朋友"—— 5,000 亿分子的类环肽库、1,500 余种非天然氨基酸、十余种环化方式，靠资本三年砸不出来。客户 700+、累计 148 个项目 IP 转让，转换成本中等偏高。但 ROE 仅 12%（2025 年 7.4%）、在建工程已达固定资产 102.7%，护城河尚未转化为高资本回报，因此给 7 分而非 8 分以上。</div>
+    </div>
+    <div class="method-card good">
+      <div class="method-name">🥉 马克斯周期</div>
+      <div class="method-author">霍华德·马克斯 · "周期位置决定赔率"</div>
+      <div class="method-score mid">6.0 / 10</div>
+      <div class="method-desc">行业周期判断是对的：全球生物医药投融资 2023–2024 年见底、2025 年回暖，公司收入增速同步从 +15% 提到 +49%。但马克斯强调"周期位置"要和"价格"一起看 —— 行业在早中期，股票却交易在景气顶部估值。方向分高、赔率分低，综合 6 分。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">邓普顿逆向</div>
+      <div class="method-author">约翰·邓普顿 · "在最悲观点买入"</div>
+      <div class="method-score mid">4.5 / 10</div>
+      <div class="method-desc">"活到反转"的条件是满足的（净现金 7.32 亿、负债率 28.75%、OCF/NP 1.29），但"最悲观点"完全不成立：一年涨 55%、机构覆盖 7 家、一致预期增长 33%。回撤 26% 不等于悲观，只是从"贪婪"回到"中性"。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">格雷厄姆深度价值</div>
+      <div class="method-author">本杰明·格雷厄姆 · "安全边际"</div>
+      <div class="method-score bad">2.4 / 10</div>
+      <div class="method-desc">财务安全的一半是达标的（净现金、低负债），但估值门槛完全不符：Graham Number 5.89 元，现价是其 5.97 倍；PB 8.88x、PE 90.4x。按格雷厄姆的定义，这只股票根本不该进入备选池。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">林奇 PEG</div>
+      <div class="method-author">彼得·林奇 · "PEG &lt; 1 是成长股的入场券"</div>
+      <div class="method-score bad">2.0 / 10</div>
+      <div class="method-desc">2026E PE 97.7x ÷ 33.5% 增速 = PEG 2.92，接近林奇阈值的 3 倍。用 2025 年 113% 增速算出 PEG 0.86 是低基数幻觉 —— 2024 年归母仅 0.51 亿元，这种增速不可能线性外推。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点：</strong>费雪（7.0）、巴菲特（7.0）、马克斯（6.0）看到"好平台 + 好周期"，格雷厄姆（2.4）、林奇（2.0）看到"贵得离谱"，西蒙斯（3.5）看到"趋势走坏"。同一家公司，评价从 2 分到 7 分，跨度达 5 分。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>分析原因：</strong>这不是"好公司 vs 坏公司"的分歧，而是"好生意 vs 好价格"的经典错位。所有方法论对<b>公司质量</b>的判断高度一致（营收加速、毛利率连升、现金流健康、净现金充裕、技术领先）；分歧全部集中在<b>价格</b>上 —— 费雪愿意为成长付溢价，格雷厄姆与林奇不愿意。巴菲特那句"以合理的价格买入优秀的公司"在这里被市场解读成了"以任何价格买入优秀的公司"。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>最终倾向：</strong>采用"费雪 + 巴菲特"框架承认其稀缺性（进入自选池、持续跟踪），但用"格雷厄姆 + 林奇"框架执行买入纪律（<b style="color:#fbbf24">PEG 回到 1.5 以下、或股价回到 26–28 元再启动</b>）。也就是说：<b style="color:#34d399">研究上给它"买入"的关注度，交易上给它"观察"的评级</b>。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">4</span>
+      <p><strong>综合得分：4.68 / 10</strong>，对应评级：<strong style="color:#fbbf24">持有观察</strong>（基本面优秀但估值透支，不新建仓），建议单股仓位 ≤3%，持有周期以"季度财报 + 估值回落"双条件触发，不做时间承诺。</p>
+    </div>
+  </div>
+
+  <div class="section-title">💡 模块 11 · 操作策略与建议（核心输出）</div>
+  <div class="section-subtitle">凯恩斯 + 博格原则：单股 ≤10%；本标的因"估值透支 + 动量转弱"，建议上限 ≤3%，且不新建仓</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">📊 仓位比例与组合定位（单股 ≤3%）</div>
+      <div class="strategy-content">
+        <strong>建议上限：</strong>单股 ≤ <span class="hl-warn">3%</span>（总组合市值口径），当前建议新增仓位 <span class="hl-danger">0%</span>。<br><br>
+        <strong>为什么不是 5% 或 10%：</strong>凯恩斯/博格原则允许单股 ≤10%，但本标的 PE-TTM 90x、单日振幅 13.71%、52 周振幅 123%，风险预算是普通标的的 2–3 倍。给 3% 已经是"高波动折价"后的上限。<br><br>
+        <strong>组合定位：</strong>创新药产业链的卫星仓位，<b>不作为底仓</b>；若组合已持有 CXO / 创新药 ETF，相关敞口合计 ≤8%。该标的与港股 18A、美股 XBI 高度相关，不能当分散器。<br><br>
+        <strong>适用人群：</strong>只适合能承受 -30% 以上回撤、且愿意逐季读财报的投资者。追求稳健的投资者应直接跳过，等估值回到 26 元以下再谈。
+      </div>
+    </div>
+
+    <div class="strategy-card position">
+      <div class="strategy-title">🎯 分批节奏（现价 35.18 元不建仓）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead><tr><th>动作</th><th>价格 / 条件</th><th>建议仓位</th></tr></thead>
+          <tbody>
+            <tr><td><b>观察</b></td><td>现价 35 元附近：不建仓，等估值或业绩消化</td><td class="danger">0%</td></tr>
+            <tr><td><b>第一批</b></td><td>28–30 元（2027E 约 57–61x），且 2026 年报扣非增速 ≥25%</td><td class="warn">1.2%</td></tr>
+            <tr><td><b>第二批</b></td><td>26–28 元（2027E 约 53–57x），且 Q4/Q1 经营现金流仍为正</td><td class="warn">1.0%</td></tr>
+            <tr><td><b>第三批</b></td><td>22–24 元（2027E 约 45–49x），或 PEG 回落至 1.5 以下</td><td class="warn">0.8%</td></tr>
+            <tr><td><b>右侧加仓</b></td><td>放量站回 MA60（约 36.5 元）且站稳 3 日，同时 MACD 金叉</td><td class="ok">0.5%</td></tr>
+            <tr><td><b>上限</b></td><td>单股 ≤ 3%（评级"持有观察"对应 ≤3%）</td><td class="ok">≤3%</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:10px; color:#94a3b8; font-size:11px;">注：左侧三批合计 3.0%；右侧确认属于追涨，只在基本面二次加速时才用。若股价直接跌穿 22 元且无基本面恶化，可一次性补足至 3%。</div>
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚨 止损位（已持仓者必看）</div>
+      <div class="strategy-content">
+        <strong>硬止损：</strong>收盘价连续 3 个交易日跌破 <span class="hl-danger">28.50 元</span>，或持仓成本回撤 <span class="hl-danger">-20%</span>，二者先触发者为准。<br><br>
+        <strong>软止损：</strong>跌破 <span class="hl-warn">31.00 元</span>（今日低点 31.22 下方）且成交量放大 50% 以上，先减半仓；跌破 28.50 元清至 ≤1%。<br><br>
+        <strong>逻辑：</strong>28.50 元位于三道支撑之下 —— 60 日低点 29.60 元、MA250 29.70 元、今日低点 31.22 元。若三者相继失守，意味着 2025 年 10 月以来的整段上升趋势被否定，此时不应再用"基本面好"对抗价格。<br><br>
+        <strong>为什么不是更高：</strong>本标的单日振幅 13.71%，用 31 元做硬止损极易被单日插针扫出；给到 28.50 元是"容忍波动、不容忍趋势破坏"的折中。
+      </div>
+    </div>
+
+    <div class="strategy-card target">
+      <div class="strategy-title">📈 目标价（参考，非承诺）</div>
+      <div class="strategy-content">
+        <table class="compare-table">
+          <thead><tr><th>周期</th><th>保守</th><th>中性</th><th>乐观</th></tr></thead>
+          <tbody>
+            <tr><td><b>12 个月</b></td><td class="danger">19.6 元</td><td class="warn">27.0 元</td><td class="ok">39.2 元</td></tr>
+            <tr><td><b>24 个月</b></td><td class="warn">25.2 元</td><td class="ok">31.8 元</td><td class="ok">46.4 元</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:10px; color:#cbd5e1; font-size:11px; line-height:1.7;">
+          <b>12M 假设：</b>以 2027E 一致预期 EPS 0.49 元为锚 —— 保守 = 40x（增速降档至 20%）；中性 = 55x；乐观 = 80x（维持当前 70–90x 估值带的偏上沿）。概率权重 30% / 50% / 20%，加权中枢约 <b style="color:#fbbf24">27.2 元</b>。<br>
+          <b>24M 假设：</b>以本报告外推的 2028E 归母 2.66 亿元（2027E × 1.35）、EPS 0.663 元为锚 —— 保守 = 38x；中性 = 48x；乐观 = 70x，加权中枢约 <b style="color:#34d399">32.7 元</b>。<br>
+          <b>现价 35.18 元对应：</b>12M 中性 <span class="hl-danger">-23%</span>、乐观 +11%；24M 中性 <span class="hl-warn">-9.6%</span>、乐观 +32%。<b>12 个月内赔率约 1 : 0.8，不足以支撑当前买入</b>；若在 26–28 元建仓，12M 赔率改善至约 1 : 1.7。<br>
+          <b>未计入：</b>自研管线 HG146 / HG254 与参股先衍生物 LDR2402、LDR2515 的期权价值。若其中任一管线进入 III 期或对外授权，上述目标价存在上修可能；本报告不为此支付溢价。
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 持有周期与退出节奏</div>
+      <div class="strategy-content">
+        <strong>周期：</strong>以<b>季度财报</b>为节奏，不做时间承诺。本标的盈利确认依赖项目节点，单季波动大，用"季度验证"替代"持有 N 个月"。<br><br>
+        <strong>持有前提（三选二）：</strong>① 营收增速 ≥25%；② 毛利率 ≥55%；③ OCF/NP ≥0.8。任一季度跌破两条，缩短持有周期并降低仓位。<br><br>
+        <strong>退出：</strong>达到 12M 中性 27 元不急于减（可能仍低估）；达到乐观 34.4 元附近先减 1/3；达到 24M 中性 31.8 元以上分批减至 ≤1%；若 PEG 重新回到 3 以上，无论盈亏都减半。<br><br>
+        <strong>不做的事：</strong>不因为"创新药牛市"而延长持有；不因为"管线有想象力"而支付溢价；不参与 30 元以上的一字板追涨。
+      </div>
+    </div>
+
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 关键监测指标（每季度）</div>
+      <div class="strategy-content">
+        1. <strong>分板块增速：</strong>DEL 能否维持 +40% 以上、OBT 能否维持 +50% 以上。这两条是"景气叙事"的支柱。<br>
+        2. <strong>扣非单季增速：</strong>2026Q2 仅 +2.60%，若 Q4 与 2027Q1 连续两季低于 20%，说明增长质量下滑。<br>
+        3. <strong>IP 转让与里程碑收入：</strong>H1 约 3,700 万元、达成 13 个项目。关注单期项目数与单项目金额的变化。<br>
+        4. <strong>在建工程转固与毛利率：</strong>在建 2.49 亿转固后，若毛利率跌破 55%，说明产能利用率不足。<br>
+        5. <strong>股东减持进度：</strong>钧天投资 2026-09-03 起的 654.4 万股（1.63%）减持是否执行完毕，以及是否再抛新计划。<br>
+        6. <strong>汇率：</strong>人民币兑美元季度变动对利润总额的影响（H1 汇兑损失约 1,400 万元）。
+      </div>
+    </div>
+
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 卖出信号（任一触发即减仓至 ≤1%）</div>
+      <div class="strategy-content">
+        1. <strong>毛利率连续两个季度 &lt; 52%</strong>，或归母净利率 &lt; 18%（说明提价逻辑破坏）。<br>
+        2. <strong>营收增速连续两个季度 &lt; 20%</strong>，且 DEL 板块增速 &lt; 25%（说明景气叙事破裂）。<br>
+        3. <strong>OCF/NP 连续两个季度 &lt; 0.5</strong>，或应收账款增速连续两季高于营收增速（说明开始用账期换收入）。<br>
+        4. <strong>产业股东单季度减持超过总股本 2%</strong>，或实控人方转为减持。<br>
+        5. <strong>股价放量跌破 28.50 元</strong>（收盘连续 3 日），或海外生物安全类立法出现针对性条款并影响订单。<br>
+        6. <strong>PEG 重新回到 3.0 以上</strong>（股价上涨而盈利预期未上修）—— 这是"估值透支"的量化红线。
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+  <div class="section-subtitle">每条风险给出"触发条件 → 影响幅度 → 应对策略"，按季度复盘，不做"长期信仰"</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 估值回归风险（首要风险）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>市场风险偏好下降、创新药板块整体杀估值；或 2026 年报 / 2027 一季报增速低于一致预期（2026E +33.5%、2027E +34.9%）。<br>
+        <strong>影响幅度：</strong>当前 PE-TTM 90.4x、2027E PE 71.8x。若估值回到 45x（对 35% 增速仍属合理），对应股价约 22 元，跌幅 <b style="color:#f87171">-37%</b>；回到 55x 对应 27 元，跌幅 -23%。估值的向下弹性远大于基本面的向下弹性。<br>
+        <strong>应对策略：</strong>把"PEG ≤ 1.5"作为建仓硬条件；不在 PE 70x 以上新增仓位；已持仓者用 28.50 元硬止损锁定最大回撤。
+      </div>
+    </div>
+
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 2. 单季业绩波动 / 汇兑风险（经营）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>项目节点确认节奏变化导致单季收入确认不足（2026Q2 扣非仅 +2.60% 即是先例）；人民币快速升值造成汇兑损失（H1 约 1,400 万元）。<br>
+        <strong>影响幅度：</strong>公司海外收入占比高、单季利润基数小（Q3 单季归母 0.587 亿元），1,400 万元汇兑损失即可拖累利润总额约 12%。若叠加项目确认递延，单季利润可能同比负增长，引发股价剧烈反应。<br>
+        <strong>应对策略：</strong>以"滚动四季度"而非单季数据做判断；关注 RMB 汇率与公司外币资产规模；单季暴雷不急于加仓，等两个季度确认趋势。
+      </div>
+    </div>
+
+    <div class="risk-card">
+      <div class="risk-title">🔻 3. 产业股东减持 / 筹码分散（治理）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>华博医疗、钧天投资继续执行或新抛减持计划；股东户数继续两位数增长；限售解禁节点。<br>
+        <strong>影响幅度：</strong>过去 12 个月两家产业股东已多轮减持（单轮 170–352 万股），2026-09-03 起仍有不超过 654.4 万股（1.63%）的减持窗口至 12 月 2 日。按当前日均成交 2,700 万股测算，1.63% 约相当于 0.24 个交易日的成交量 —— 冲击可控，但持续压制估值情绪，尤其在股价高位时放大跌幅。<br>
+        <strong>应对策略：</strong>把"减持公告"纳入事件日历；不在减持窗口期内追高；若出现"实控人方也减持"的信号，直接降至 ≤1%。
+      </div>
+    </div>
+
+    <div class="risk-card warn">
+      <div class="risk-title">⚠️ 4. 产能扩张 / 折旧 / 毛利率风险（财务）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>在建工程（2.489 亿元）转固后产能利用率不足；小核酸原料药第二条生产线投产但 OBT 订单不及预期；新增 2 亿元应付债券推高财务费用。<br>
+        <strong>影响幅度：</strong>在建工程已达固定资产的 102.7%，按 10 年折旧估算，每年新增折旧约 0.25 亿元，相当于 2026 年预计归母（1.46 亿）的 17%。若收入不能同步增长，毛利率可能从 58.33% 回落至 52–54%，叠加财务费用上升，净利率下修 3–5 个百分点。<br>
+        <strong>应对策略：</strong>逐季跟踪"在建工程转固金额 + 毛利率 + OBT 收入增速"三项；若连续两季毛利率 &lt;52%，按卖出信号处理。
+      </div>
+    </div>
+
+    <div class="risk-card info">
+      <div class="risk-title">🛡️ 5. 海外政策 / 客户集中 / 技术路线风险（外部）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>美国生物安全法案类立法出现针对"药物发现服务"的条款；前五大客户（2025 年合计 38.6%）订单分流；DEL 之外的 FBDD、AI 分子设计等路线出现替代性突破。<br>
+        <strong>影响幅度：</strong>公司业务网络覆盖北美、欧洲、亚洲及大洋洲，海外收入占比高；若北美客户因政策合规要求转移订单，极端情形下海外收入下修 10%–20%。客户一、二名各占约 13.5%/13.2%，单一客户流失即对应双位数收入缺口。<br>
+        <strong>应对策略：</strong>跟踪美国相关立法进展与公司公告；关注前五大客户占比的年度变化；技术上跟踪 OBT/TPD 板块收入占比提升（分散单一技术路线依赖）。
+      </div>
+    </div>
+  </div>
+
+  <div class="data-note" style="margin-top:32px;">
+    <strong>📌 来源与复核记录：</strong><br>
+    ✅ 行情与估值：腾讯财经实时行情（2026-11-04 14:11 快照）+ 新浪财经行情页交叉核对；PE/PB/PS 均由"总市值 ÷ 对应财务口径"反推自校验，三项全部吻合（90.44 / 8.88 / 20.00）。<br>
+    ✅ 财务数据：新浪财经三大报表原始页（利润表 ctrl/2023、2024、2026；资产负债表 ctrl/2025、2026；现金流量表 ctrl/2023、2024、2025、2026），提取 2026-09-30 / 2025-12-31 / 2024-12-31 / 2023-12-31 四列数据；与公司 2026 年半年报正文披露的分板块收入、IP 转让项目数、研发投入金额交叉核对一致。<br>
+    ✅ 业务与治理：同花顺 F10（公司大事 / 主营构成 / 业绩预测 / 股东户数）2026-11-04 抓取；公司 2026 年半年报"管理层讨论与分析"原文（DEL 类环肽库容、非天然氨基酸数量、最快 8 个月靶点到 PCC、自研管线 HG146/HG254、参股先衍生物 LDR2402/LDR2515）。<br>
+    ⚠️ 数据缺口：东方财富行情与资金流接口在本次采集环境中不可达（连接层空响应），因此主力资金净流入、北向持股、融资余额、机构持仓明细均未取得；本报告技术面模块仅基于价格与成交量。<br>
+    ⚠️ 推算项明示：① TTM 归母与 TTM 营收为"2025 全年 + 2026 前三季 − 2025 前三季"推导；② 2026Q3 单季数据为三季报累计减半年报累计；③ 2026Q3 扣非未披露，文中引用的是半年报扣非；④ 2028E 归母 2.66 亿元为本报告按 2027E 一致预期 ×35% 外推，非机构预测；⑤ 毛利率、净利率等比率均由报表原始科目计算。<br>
+    ⚠️ 免责：本报告为方法论演示与信息整理，不构成个性化投资建议。所有目标价为情景推演，不构成收益承诺。市场有风险，决策需自负。
+  </div>
+
+
+  <div class="footer">
+    成都先导（688222）｜报告截止 2026-11-04 14:11 盘中｜11 方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司定期报告与临时公告（上交所 / 巨潮资讯）+ 腾讯财经行情 + 新浪财经三大报表 + 同花顺 F10
+  </div>
+
+</div>
+</body>
+</html>
