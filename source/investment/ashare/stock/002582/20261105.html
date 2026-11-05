@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-11-05 好想你 (002582) · 11 方法论综合投资分析</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+    color: #e8eef5; min-height: 100vh; padding: 24px; line-height: 1.6; }
+  .container { max-width: 1500px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(168,85,247,0.16), rgba(16,185,129,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-radius: 20px; padding: 36px;
+    margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content:''; position:absolute; top:-50%; right:-10%; width:500px; height:500px;
+    background: radial-gradient(circle, rgba(16,185,129,0.30), transparent 70%); border-radius:50%; }
+  .header h1 { font-size: 32px; background: linear-gradient(90deg, #38bdf8, #c084fc, #34d399);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; position: relative; }
+  .header .subtitle { color: #cbd5e1; font-size: 15px; position: relative; margin-bottom: 16px; }
+  .header .badges { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; }
+  .badge-success { background: rgba(16,185,129,0.22); color:#34d399; border:1px solid rgba(16,185,129,0.45); }
+  .badge-warning { background: rgba(245,158,11,0.22); color:#fbbf24; border:1px solid rgba(245,158,11,0.45); }
+  .badge-danger  { background: rgba(239,68,68,0.22); color:#fca5a5; border:1px solid rgba(239,68,68,0.45); }
+  .badge-source  { background: rgba(56,189,248,0.22); color:#38bdf8; border:1px solid rgba(56,189,248,0.45); }
+  .badge-purple  { background: rgba(168,85,247,0.22); color:#c084fc; border:1px solid rgba(168,85,247,0.45); }
+
+  .section-title { font-size: 22px; margin: 36px 0 14px 0; padding-left: 14px;
+    border-left: 4px solid #38bdf8; color: #f1f5f9; display:flex; align-items:center; gap:10px; }
+  .section-title.warn { border-left-color: #fbbf24; }
+  .section-title.ok   { border-left-color: #34d399; }
+  .section-title.danger { border-left-color: #f87171; }
+  .section-subtitle { font-size: 13px; color: #94a3b8; margin: -8px 0 16px 18px; }
+
+  .data-note { background: rgba(30,41,59,0.4); border:1px dashed rgba(148,163,184,0.3);
+    border-radius:8px; padding:14px 18px; margin-bottom:24px; font-size:12px; color:#94a3b8; line-height:1.7; }
+  .data-note strong { color:#cbd5e1; }
+  .data-note .ok { color:#34d399; font-weight:700; }
+  .data-note .warn { color:#fbbf24; font-weight:700; }
+  .data-note .danger { color:#f87171; font-weight:700; }
+  .data-note .info { color:#38bdf8; font-weight:700; }
+  .data-note .purple { color:#c084fc; font-weight:700; }
+
+  .theme-banner { background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(168,85,247,0.10));
+    border: 1px solid rgba(56,189,248,0.40); border-left: 5px solid #38bdf8;
+    border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .theme-banner.warn { border-color:rgba(245,158,11,0.4); border-left-color:#fbbf24;
+    background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(14,165,233,0.10)); }
+  .theme-banner.danger { border-color:rgba(239,68,68,0.4); border-left-color:#f87171;
+    background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(245,158,11,0.10)); }
+  .theme-banner .icon { font-size:32px; }
+  .theme-banner .text { flex:1; }
+  .theme-banner .text h3 { color:#7dd3fc; font-size:17px; margin-bottom:4px; }
+  .theme-banner.warn .text h3 { color:#fbbf24; }
+  .theme-banner.danger .text h3 { color:#fca5a5; }
+  .theme-banner .text p { color:#cbd5e1; font-size:13px; line-height:1.7; }
+
+  .dashboard { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
+  .index-card { background: rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:14px; transition: transform 0.3s, box-shadow 0.3s; position:relative; }
+  .index-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .index-card.avoid { border-top:3px solid #ef4444; }
+  .index-card.danger { border-top:3px solid #f87171; }
+  .index-card.warn { border-top:3px solid #fbbf24; }
+  .index-card.ok { border-top:3px solid #34d399; }
+  .index-card.mid { border-top:3px solid #38bdf8; }
+  .index-card.purple { border-top:3px solid #c084fc; }
+  .index-card .name { font-size:11px; color:#94a3b8; margin-bottom:6px; }
+  .index-card .value { font-size:20px; font-weight:800; margin-bottom:3px; }
+  .index-card .change { font-size:11px; font-weight:600; }
+  .index-card.avoid .value, .index-card.avoid .change { color:#ef4444; }
+  .index-card.danger .value, .index-card.danger .change { color:#f87171; }
+  .index-card.warn .value, .index-card.warn .change { color:#fbbf24; }
+  .index-card.ok .value, .index-card.ok .change { color:#34d399; }
+  .index-card.mid .value, .index-card.mid .change { color:#38bdf8; }
+  .index-card.purple .value, .index-card.purple .change { color:#c084fc; }
+  .index-card .label { margin-top:6px; font-size:10px; color:#64748b; line-height:1.4; }
+  .index-card .tag { position:absolute; top:10px; right:10px; padding:2px 6px;
+    border-radius:4px; font-size:10px; font-weight:700; }
+  .tag.danger { background:rgba(239,68,68,0.25); color:#fca5a5; }
+  .tag.warn   { background:rgba(245,158,11,0.25); color:#fbbf24; }
+  .tag.ok     { background:rgba(16,185,129,0.25); color:#34d399; }
+  .tag.mid    { background:rgba(56,189,248,0.25); color:#7dd3fc; }
+  .tag.purple { background:rgba(168,85,247,0.25); color:#c084fc; }
+
+  .table-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; overflow-x:auto; }
+  .table-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:12px; min-width:680px; }
+  .compare-table th { background:rgba(15,23,42,0.6); color:#f1f5f9; font-weight:700;
+    padding:10px 8px; text-align:left; border-bottom:2px solid rgba(148,163,184,0.3); }
+  .compare-table td { padding:9px 8px; color:#cbd5e1; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .compare-table tr:hover td { background:rgba(56,189,248,0.06); }
+  .compare-table .hl { color:#c084fc; font-weight:700; }
+  .compare-table .ok { color:#34d399; font-weight:700; }
+  .compare-table .warn { color:#fbbf24; font-weight:700; }
+  .compare-table .danger { color:#f87171; font-weight:700; }
+  .compare-table .mid { color:#38bdf8; font-weight:700; }
+
+  .fin-table { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .fin-row { display:grid; grid-template-columns:1.4fr 1.8fr 2.4fr; gap:14px; align-items:center;
+    padding:11px 0; border-bottom:1px dashed rgba(148,163,184,0.15); }
+  .fin-row:last-child { border-bottom:none; }
+  .fin-row.header { border-bottom:2px solid rgba(148,163,184,0.3); font-weight:700; color:#f1f5f9; }
+  .fin-name { color:#f1f5f9; font-size:13px; font-weight:700; }
+  .fin-val { color:#34d399; font-size:14px; font-weight:800; }
+  .fin-val.down { color:#f87171; }
+  .fin-val.warn { color:#fbbf24; }
+  .fin-val.mid { color:#38bdf8; }
+  .fin-val.purple { color:#c084fc; }
+  .fin-comment { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .score-table { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:24px; }
+  .score-item { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:10px; padding:12px; text-align:center; }
+  .score-num { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .score-num.bad { color:#f87171; }
+  .score-num.warn { color:#fbbf24; }
+  .score-num.mid { color:#38bdf8; }
+  .score-num.good { color:#34d399; }
+  .score-num.purple { color:#c084fc; }
+  .score-name { color:#94a3b8; font-size:11px; margin-bottom:8px; }
+  .score-bar { height:6px; background:rgba(15,23,42,0.6); border-radius:3px; overflow:hidden; margin-bottom:4px; }
+  .score-fill { height:100%; border-radius:3px; }
+  .score-fill.bad { background:linear-gradient(90deg,#ef4444,#f87171); }
+  .score-fill.warn { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+  .score-fill.mid { background:linear-gradient(90deg,#0ea5e9,#38bdf8); }
+  .score-fill.good { background:linear-gradient(90deg,#10b981,#34d399); }
+  .score-fill.purple { background:linear-gradient(90deg,#a855f7,#c084fc); }
+  .score-out { font-size:10px; color:#64748b; }
+
+  .safety-bar { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; margin-bottom:24px; }
+  .safety-title { color:#f1f5f9; font-size:15px; font-weight:700; margin-bottom:12px; }
+  .safety-track { height:32px; background:rgba(15,23,42,0.6); border-radius:10px;
+    overflow:hidden; position:relative; border:1px solid rgba(148,163,184,0.2); display:flex; }
+  .safety-seg { display:flex; align-items:center; justify-content:center; font-weight:700; font-size:11px; color:#0f172a; }
+  .seg-deep { background:linear-gradient(90deg,#10b981,#34d399); flex:3; }
+  .seg-current { background:linear-gradient(90deg,#fbbf24,#f59e0b); flex:4; color:#1f2937; }
+  .seg-over { background:linear-gradient(90deg,#ef4444,#dc2626); flex:3; color:#fff; }
+  .safety-marks { display:flex; justify-content:space-between; margin-top:10px; font-size:11px; color:#94a3b8; }
+  .safety-marks span strong { color:#f1f5f9; }
+
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .risk-card { background:rgba(239,68,68,0.10); border:1px solid rgba(239,68,68,0.30);
+    border-left:4px solid #ef4444; border-radius:8px; padding:14px; }
+  .risk-card.warn { background:rgba(245,158,11,0.10); border-color:rgba(245,158,11,0.30); border-left-color:#f59e0b; }
+  .risk-card.info { background:rgba(168,85,247,0.10); border-color:rgba(168,85,247,0.30); border-left-color:#c084fc; }
+  .risk-title { color:#fca5a5; font-weight:700; font-size:13px; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .risk-card.warn .risk-title { color:#fbbf24; }
+  .risk-card.info .risk-title { color:#c084fc; }
+  .risk-desc { color:#cbd5e1; font-size:12px; line-height:1.55; }
+
+  .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+  .method-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:16px; position:relative; }
+  .method-card.best { border-left:4px solid #34d399; }
+  .method-card.good { border-left:4px solid #38bdf8; }
+  .method-card.mid { border-left:4px solid #fbbf24; }
+  .method-card.weak { border-left:4px solid #94a3b8; }
+  .method-card.bad { border-left:4px solid #f87171; }
+  .method-name { color:#f1f5f9; font-size:14px; font-weight:700; margin-bottom:6px; }
+  .method-author { color:#94a3b8; font-size:11px; margin-bottom:10px; }
+  .method-score { display:inline-block; padding:4px 10px; border-radius:8px; font-weight:800; font-size:15px; }
+  .method-score.good { background:rgba(16,185,129,0.22); color:#34d399; }
+  .method-score.mid { background:rgba(245,158,11,0.22); color:#fbbf24; }
+  .method-score.bad { background:rgba(239,68,68,0.22); color:#fca5a5; }
+  .method-desc { color:#cbd5e1; font-size:12px; line-height:1.55; margin-top:10px; }
+
+  .strategy-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:24px; }
+  .strategy-card { background:rgba(30,41,59,0.6); border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px; padding:18px; }
+  .strategy-card.target { border-left:4px solid #34d399; }
+  .strategy-card.stop { border-left:4px solid #ef4444; }
+  .strategy-card.position { border-left:4px solid #fbbf24; }
+  .strategy-card.cycle { border-left:4px solid #c084fc; }
+  .strategy-card.monitor { border-left:4px solid #38bdf8; }
+  .strategy-title { font-size:13px; color:#f1f5f9; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:8px; }
+  .strategy-content { color:#cbd5e1; font-size:12px; line-height:1.7; }
+  .strategy-content strong { color:#f1f5f9; }
+  .strategy-content .hl-ok { color:#34d399; font-weight:700; }
+  .strategy-content .hl-warn { color:#fbbf24; font-weight:700; }
+  .strategy-content .hl-danger { color:#f87171; font-weight:700; }
+  .strategy-content .hl-purple { color:#c084fc; font-weight:700; }
+  .strategy-content .hl-info { color:#38bdf8; font-weight:700; }
+
+  .final-verdict { background:linear-gradient(135deg, rgba(56,189,248,0.18), rgba(245,158,11,0.10), rgba(168,85,247,0.08));
+    border:1px solid rgba(56,189,248,0.45); border-radius:16px; padding:28px; margin-bottom:24px; text-align:center; }
+  .final-verdict h2 { font-size:24px; color:#7dd3fc; margin-bottom:8px; }
+  .final-verdict .rating { display:inline-block; background:linear-gradient(135deg,#0ea5e9,#0284c7);
+    color:#fff; font-size:30px; font-weight:900; padding:12px 36px; border-radius:16px; margin:14px 0; letter-spacing:4px; }
+  .final-verdict .comment { color:#cbd5e1; font-size:13px; max-width:820px; margin:12px auto 0; line-height:1.7; }
+
+  .conclusion { background:linear-gradient(135deg, rgba(56,189,248,0.10), rgba(168,85,247,0.10));
+    border:1px solid rgba(56,189,248,0.30); border-radius:12px; padding:22px; margin-bottom:24px; }
+  .conclusion-title { font-size:16px; font-weight:700; margin-bottom:14px; color:#f1f5f9; }
+  .conclusion-item { background:rgba(15,23,42,0.4); border-radius:8px; padding:11px 14px; margin-bottom:10px; border-left:3px solid #38bdf8; }
+  .conclusion-item .num { display:inline-block; background:#38bdf8; color:#0f172a; width:22px; height:22px;
+    border-radius:50%; text-align:center; line-height:22px; font-weight:700; margin-right:8px; font-size:11px; }
+  .conclusion-item p { display:inline; color:#e2e8f0; font-size:12px; }
+  .conclusion-item strong { color:#f1f5f9; }
+
+  .footer { text-align:center; color:#64748b; font-size:12px; margin-top:32px; padding:16px;
+    border-top: 1px solid rgba(148,163,184,0.10); line-height:1.7; }
+
+  @media (max-width:1024px) {
+    .dashboard { grid-template-columns:repeat(2,1fr); }
+    .risk-grid, .method-grid, .strategy-grid { grid-template-columns:1fr; }
+    .score-table { grid-template-columns:repeat(3,1fr); }
+    .fin-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🍊 好想你 (002582) · 11 方法论综合投资分析</h1>
+    <div class="subtitle">红枣健康食品 + 鸣鸣很忙 5.84% 股权 · 2026 前三季扣非仍亏 3,887 万 · PB 0.93x · 股息率 5.8% · 现价较 52 周高点 -36.1%</div>
+    <div class="badges">
+      <span class="badge badge-warning">🎯 综合评级：<b>持有观察</b>（4.61/10）</span>
+      <span class="badge badge-source">📅 数据日期：2026-11-05（14:59 盘中快照）</span>
+      <span class="badge badge-source">📊 10.21 元 · 总市值 45.71 亿 · PE-TTM 2.24x（失真）· PB 0.93x</span>
+      <span class="badge badge-purple">🧠 11 方法论 × 12 模块 · 权重归一化 ÷1.05</span>
+      <span class="badge badge-danger">⚠️ 核心变量：鸣鸣很忙股价 HK$322.8 · 持股占市值 81%</span>
+    </div>
+  </div>
+
+  <div class="data-note">
+    <strong>📌 数据来源与口径说明（截至 2026-11-05 14:59 盘中快照）：</strong><br>
+    ✅ 行情：<span class="info">10.21 元（+2.10%）</span>，昨收 10.00、今开 9.81、最高 10.33、最低 9.75，成交额 4.62 亿元，换手率 <span class="warn">13.38%</span>，振幅 5.80%；总市值 <span class="info">45.71 亿元</span>（总股本 4.4771 亿股）· 来源：腾讯财经实时行情 + 东方财富 push2 双源校验<br>
+    ✅ 估值内部自洽校验：45.71 ÷ 20.40（TTM 归母）= <span class="ok">2.24</span> = 行情 PE-TTM ✓；45.71 ÷ 8.66（2025 归母）= <span class="ok">5.28</span> = PE 静 ✓；45.71 ÷ 49.13（2026Q3 末归母权益）= <span class="ok">0.93</span> = PB ✓；45.71 ÷ 12.90（TTM 营收）= 3.54x PS<br>
+    ✅ TTM 归母推导：2025 全年 8.6608 + 2026 前三季 11.6964 − 2025 前三季 -0.0471 = <span class="info">20.4043 亿元</span>；TTM 营收 = 13.2778 + 10.2502 − 10.6247 = 12.9033 亿元<br>
+    ✅ 财务口径：<span class="warn">2026 年三季报（2026-10-30 披露）</span>——前三季营收 10.2502 亿（-3.53%）、归母 11.6964 亿（+24,939%，主因公允价值变动收益 15.78 亿）、扣非 <span class="danger">-0.3887 亿</span>、毛利率 32.85%、ROE 26.14%（含重估收益，失真）、经营现金流 0.82 亿（-58.66%）；数据取自东方财富 F10 财务指标与新财务报表，经新浪财经交叉核对<br>
+    ✅ 年度序列（东方财富 F10 年报口径）：2022 营收 14.0049 亿 / 归母 -1.8942 亿；2023 营收 17.2822 亿 / 归母 -0.5189 亿；2024 营收 16.3983 亿 / 归母 -0.7196 亿；2025 营收 13.2778 亿 / 归母 8.6608 亿（含鸣鸣很忙公允价值收益）/ 扣非 -0.6679 亿<br>
+    ✅ 鸣鸣很忙持股：公司及全资子公司合计持有 <span class="purple">1,257.62 万股</span>，占其 IPO 后总股本 <span class="purple">5.8355%</span>；2026-11-05 收盘价 HK$322.8、总市值 703.18 亿港元；按 0.916 汇率折算持股市值约 <span class="info">37.2 亿元</span>；2026Q3 账面价值 38.35 亿元（其他非流动金融资产）· 来源：鸣鸣很忙招股书、好想你 2026 三季报<br>
+    ✅ 分红：2025 年年度权益分派每 10 股派 6.00 元（含税），剔除回购股份后实际每股 0.5913 元，合计 2.647 亿元，2026 年 5 月实施；按现价股息率 <span class="ok">5.79%</span> · 来源：公司权益分派实施公告<br>
+    ✅ 治理：石聚彬直接持股 28.88%，一致行动人合计 32.02%；质押 4,700 万股，占其持股 36.35%、占总股本 11.89%；2025 年员工持股计划 914.29 万股（2.04%）；累计回购 652.35 万股（1.46%）· 来源：2026 三季报、2025 年员工持股计划公告<br>
+    ⚠️ <span class="warn">数据缺口</span>：① 2026 年股权激励计划的具体考核目标未在公开公告中独立核验，仅确认前三季股份支付费用 3,089.33 万元；② 鸣鸣很忙 Pre-IPO 股东的确切解禁日期未在好想你公告中明确披露；③ 北向资金自 2024-08 起改为季度披露，"近 30 日北向净流入"不可得；④ 2026Q3 单季毛利率、单季扣非未单独披露<br>
+    ⚠️ <span class="warn">同业数据</span>：三只松鼠、良品铺子、盐津铺子、洽洽食品、甘源食品、劲仔食品的 2026 前三季数据取自东方财富行情与财报快照，估值口径为 2026-11-05 盘中
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🧩</div>
+    <div class="text">
+      <h3>核心结论：这不是一家能用 PE 估值的公司，而是一个"红枣主业 + 零食量贩股权"的资产包</h3>
+      <p>
+        2026 前三季归母 11.70 亿元，其中公允价值变动收益 15.78 亿元、非经常性损益约 12.09 亿元，<b style="color:#f87171">扣非仍亏 3,887 万元</b>。真正的价值锚是：鸣鸣很忙 5.84% 股权（市值约 37.2 亿元，占当前总市值 <b style="color:#fbbf24">81%</b>）+ 净现金 4.05 亿元 + 长期股权投资 2.43 亿元 + 红枣主业净资产约 11.7 亿元。按持股市值重估，税前 NAV 约 12.4 元/股、税后 NAV 约 10.7 元/股；现价 10.21 元较税后 NAV 折价约 4%，<b style="color:#fbbf24">既没有明显泡沫，也没有安全边际</b>。评级"持有观察"，等回踩 8.5–9.0 元或主业扣非转正再谈买入。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">📇 模块 1 · 基础画像（30 秒速览）</div>
+  <div class="section-subtitle">深主板 · 食品饮料/休闲食品 · 2011-05-20 上市 · 总股本 4.4771 亿股 · 现价 10.21 元（2026-11-05 14:59）</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">当前股价</div>
+      <div class="value">10.21 元</div>
+      <div class="change">+2.10%</div>
+      <div class="label">开 9.81 / 高 10.33 / 低 9.75</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">总市值</div>
+      <div class="value">45.71 亿</div>
+      <div class="change">总股本 4.4771 亿</div>
+      <div class="label">全流通比例 76.9%</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">流通市值</div>
+      <div class="value">35.14 亿</div>
+      <div class="change">流通股 3.44 亿</div>
+      <div class="label">剩余为首发限售/高管锁定</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">PE-TTM</div>
+      <div class="value">2.24x</div>
+      <div class="change">TTM 归母 20.40 亿</div>
+      <div class="label">含 15.78 亿公允价值收益，失真</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">PB</div>
+      <div class="value">0.93x</div>
+      <div class="change">BVPS 10.97 元</div>
+      <div class="label">归母净资产 49.13 亿</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">股息率</div>
+      <div class="value">5.79%</div>
+      <div class="change">每股 0.5913 元</div>
+      <div class="label">2025 年度分红 2.647 亿</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">52 周区间</div>
+      <div class="value" style="font-size:16px;">8.32 – 15.98</div>
+      <div class="change">距高点 -36.1%</div>
+      <div class="label">距低点 +22.7%</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card warn">
+      <div class="name">2026 9M 营收</div>
+      <div class="value">10.25 亿</div>
+      <div class="change">-3.53%</div>
+      <div class="label">产品销售收入 9.60 亿（+7%）</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">2026 9M 归母</div>
+      <div class="value">11.70 亿</div>
+      <div class="change">+24,939%</div>
+      <div class="label">公允价值变动收益 15.78 亿</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">2026 9M 扣非</div>
+      <div class="value">-0.39 亿</div>
+      <div class="change">同比减亏 55%（调整后）</div>
+      <div class="label">主业仍未转正</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">毛利率</div>
+      <div class="value">32.85%</div>
+      <div class="change">+4.19pct YoY</div>
+      <div class="label">连续两年抬升</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">资产负债率</div>
+      <div class="value">33.76%</div>
+      <div class="change">较 2025 年末 +3.88pct</div>
+      <div class="label">短借 7.50 亿，净现金 4.05 亿</div>
+    </div>
+    <div class="index-card purple">
+      <div class="name">鸣鸣很忙持股</div>
+      <div class="value">5.84%</div>
+      <div class="change">1,257.62 万股</div>
+      <div class="label">市值约 37.2 亿，占自身市值 81%</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">股东户数</div>
+      <div class="value">5.78 万</div>
+      <div class="change">较 6 月末 +21.77%</div>
+      <div class="label">2026-09-30，筹码明显分散</div>
+    </div>
+  </div>
+
+  <div class="data-note" style="margin-top:14px;">
+    <strong>一句话画像：</strong>好想你是一家有 34 年历史的红枣深加工企业，2016 年收购百草味、2020 年卖给百事可乐获利约 21.6 亿元，2023 年又以 7 亿元入股零食量贩龙头"鸣鸣很忙"。<span class="warn">它更像一家"产业投资控股平台"：主业收入连续三年收缩、扣非连续五年亏损，但资产端持有一笔已上市、可交易的 37 亿元股权。</span>理解这一点，才能理解为什么 PE 只有 2.24 倍、PB 只有 0.93 倍，以及为什么这两个数字都不能直接当"便宜"用。
+  </div>
+
+  <div class="section-title warn">🎯 模块 2 · 综合评级（一句话定位）</div>
+  <div class="section-subtitle">11 方法论加权 4.61/10 · "资产有底、主业没底、价格在中间" —— 不是坏资产包，但现价买不到安全边际</div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权综合评级</h2>
+    <div class="rating">持有观察</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （鸣鸣很忙股权提供 37 亿元价值底 · 红枣主业扣非仍亏 · 现价约为税后 NAV 的 96%）
+    </div>
+    <div class="comment">
+      邓普顿 5.5、索罗斯 5.5、马克斯 5.0，是这只股票相对占优的三把尺子：股价较 52 周高点回撤 36%，市场情绪已从"鸣鸣很忙 IPO 狂欢"回到理性；鸣鸣很忙股价 → 好想你 NAV → 好想你股价的反身性链条仍然成立；红枣原料价格处于低位、行业成熟，周期位置不算差。费雪 4.8、格雷厄姆 4.5、巴菲特 4.2，说明"资产便宜"和"生意好"是两件事：PB 0.93 看似破净，但 49.13 亿元净资产中 38.35 亿元是股权资产，主业净资产约 11.7 亿元且连续五年扣非亏损；品牌有认知，却缺乏定价权和品类成长性。林奇 3.5 最低 —— 扣非为负，PEG 无从谈起。<br><br>
+      加权得分 <b style="color:#7dd3fc">4.61/10</b>（Σ得分×权重 = 4.845，÷1.05 = 4.614），对应评级<b style="color:#fbbf24">"持有观察"</b>，建议单股仓位 ≤3%、不追高，已持仓者以 8.45 元为收盘止损线。<b style="color:#34d399">这是一个"可以跟踪、不值得现在重仓"的资产包：向下有股权价值托底，向上需要主业或鸣鸣很忙股价再给一次惊喜。</b>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 为什么是"持有观察"，不是"买入"或"减持"？</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>为什么不是"买入"（6.5+）：</strong>买入需要"好资产 + 好价格"同时成立。这里资产端合格：鸣鸣很忙 5.84% 股权市值 37.2 亿元、净现金 4.05 亿元，税前 NAV 12.37 元、税后 NAV 10.68 元。但价格端不合格：现价 10.21 元虽较税后 NAV 折价 4%，却已把亏损中的红枣主业按约 9.6 亿元计价（约为其账面净资产 11.7 亿元的 82%），相当于"股权按市价、主业只打八折"的乐观假设；同时主业扣非 -0.39 亿元、收入 -3.53%，没有任何基本面催化剂能证明这个假设成立。用 9.4 元（主业按 50% 减值）作为保守锚，现价买入的期望回报为负。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>为什么不是"减持"（2.0–3.4）：</strong>资产端没有恶化，反而在增厚。鸣鸣很忙 2026-01 上市后，持股从 7 亿元成本变成 37 亿元市值，Q3 账面 38.35 亿元；公司账上仍有 9.23 亿元货币资金 + 2.61 亿元交易性金融资产，短借 7.50 亿元，净现金为正；2025 年度分红 2.647 亿元已实施，当前股息率 5.79%。即使主业继续亏损，公司也没有"活不下去"的现金流风险。邓普顿的"最坏时刻"标准不成立，减持缺乏依据。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>最终定位：</strong>"用资产价值定底、用主业修复定顶"的中间态。做法是<b style="color:#fbbf24">把 9.4 元（主业按 50% 减值）当作保守锚，把 10.7 元税后 NAV 当作中性锚，把 12.4 元税前 NAV 当作乐观锚</b>：8.5 元以下开始有安全边际，9.0–10.0 元是合理买入区，10.5 元以上不追；若鸣鸣很忙涨到 380 港元以上或主业扣非转正，再上调目标。当前 10.21 元处于"中性锚附近、保守锚之上"，持有可以，加仓不必。</p>
+    </div>
+  </div>
+
+  <div class="section-title danger">🎚️ 模块 3 · 估值：PE 2.24 倍是"会计幻觉"，真正的锚是 37 亿元股权</div>
+  <div class="section-subtitle">PE-TTM 2.24x（失真）· PB 0.93x · PS-TTM 3.54x · 股息率 5.79% · 税后 NAV 10.68 元 · 市值 / 持股市值 1.23x</div>
+
+  <div class="dashboard">
+    <div class="index-card danger">
+      <div class="name">PE-TTM</div>
+      <div class="value">2.24x</div>
+      <div class="change">TTM 归母 20.40 亿</div>
+      <div class="label">其中 15.78 亿为公允价值收益</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">PB</div>
+      <div class="value">0.93x</div>
+      <div class="change">BVPS 10.97 元</div>
+      <div class="label">49.13 亿净资产中 38.35 亿是股权</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">PS-TTM</div>
+      <div class="value">3.54x</div>
+      <div class="change">TTM 营收 12.90 亿</div>
+      <div class="label">亏损食品公司，3.5x PS 不算低</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">股息率</div>
+      <div class="value">5.79%</div>
+      <div class="change">每股 0.5913 元</div>
+      <div class="label">分红 2.647 亿，但 OCF 仅 0.82 亿</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">税后 NAV</div>
+      <div class="value">10.68 元</div>
+      <div class="change">47.82 亿元</div>
+      <div class="label">股权按市价 + 25% 处置税</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">市值 / 持股市值</div>
+      <div class="value">1.23x</div>
+      <div class="change">45.71 / 37.19</div>
+      <div class="label">市场为"其余全部资产"付 8.5 亿</div>
+    </div>
+    <div class="index-card mid">
+      <div class="name">PE（静 / 动）</div>
+      <div class="value" style="font-size:17px;">5.28 / 2.93</div>
+      <div class="change">静态口径 2025 归母</div>
+      <div class="label">动态按 2026 前三季年化</div>
+    </div>
+  </div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>估值维度</div>
+      <div>当前读数</div>
+      <div>解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PE-TTM 为何失真</div>
+      <div class="fin-val down">2.24x</div>
+      <div class="fin-comment">TTM 归母 20.40 亿元 = 2025 全年 8.66 + 2026 前三季 11.70 − 2025 前三季 -0.05。其中 2026 前三季公允价值变动收益 15.78 亿元、非经常性损益约 12.09 亿元，扣非为 <b>-0.39 亿元</b>。用 2.24 倍 PE 判断"便宜"是典型的会计幻觉：分子是市值，分母是一次性重估收益，两者都不可持续。真正有意义的盈利口径是扣非，而扣非为负，PE 无意义。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PB 0.93x 的含金量</div>
+      <div class="fin-val warn">0.93x / 49.13 亿</div>
+      <div class="fin-comment">归母净资产 49.13 亿元，其中鸣鸣很忙股权账面 38.35 亿元（占 78%），净现金 4.05 亿元，长期股权投资 2.43 亿元，红枣主业净资产约 11.7 亿元。PB 破净不是因为"实业资产便宜"，而是因为资产端大部分是已上市股权、且账面已按公允价值计量；用 PB 0.93 推导"清算价值"没有意义。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">PS-TTM</div>
+      <div class="fin-val warn">3.54x</div>
+      <div class="fin-comment">TTM 营收 12.90 亿元，对应 3.54 倍 PS。对比同业（2026 前三季营收年化口径）：三只松鼠 0.72x、良品铺子 0.68x、盐津铺子 1.84x、洽洽食品 1.39x、甘源食品 1.74x、劲仔食品 1.46x。好想你的 PS 是同业最高，原因是市值里包含了 37 亿元股权，而非主业享受高估值 —— 把股权剔除后，主业对应市值约 8.5 亿元 / 营收 12.9 亿元 = <b>0.66x PS</b>，反而低于多数同业。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股息率</div>
+      <div class="fin-val ok">5.79%</div>
+      <div class="fin-comment">2025 年度每 10 股派 6.00 元（含税），剔除回购股份后实际每股 0.5913 元，合计 2.647 亿元，约占 2025 归母 8.66 亿元的 30.6%。但 2026 前三季经营现金流仅 0.82 亿元、扣非 -0.39 亿元，<b>分红并非由经营现金流覆盖</b>，而是依赖股权重估带来的账面利润与账上现金。高股息是"资产变现能力的体现"，不是"主业造血能力的证明"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">市值 / 持股市值</div>
+      <div class="fin-val mid">1.23x</div>
+      <div class="fin-comment">总市值 45.71 亿元 ÷ 鸣鸣很忙持股市值 37.19 亿元 = 1.23 倍。换句话说，市场只愿意为"净现金 + 长期股权投资 + 红枣主业 + 其他资产"合计支付 8.52 亿元；扣除净现金 4.05 亿元、长投 2.43 亿元后，<b>红枣主业隐含估值约 2.0 亿元（税前口径）</b>。若按税后股权价值计算，主业隐含约 9.6 亿元。两种口径的差异，就是 7.55 亿元处置所得税由谁承担的问题。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">历史估值参照</div>
+      <div class="fin-val warn">不可比</div>
+      <div class="fin-comment">2020 年出售百草味确认 21.55 亿元投资收益，2025–2026 年鸣鸣很忙重估又贡献 8.66 亿 / 15.78 亿元公允价值收益。公司近六年利润表被两次大额资产重估反复"洗过"，历史 PE 分位数没有参考价值。可用的锚只有三个：<b>PB、股息率、SOTP</b>。</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🧮 SOTP 分部估值：把"资产包"拆开看</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>资产项</th><th>账面价值</th><th>重估价值</th><th>每股</th><th>计算说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="hl">鸣鸣很忙 5.8355% 股权</td><td>38.35 亿</td><td class="ok">37.19 亿</td><td class="ok">8.31 元</td><td>1,257.62 万股 × HK$322.8 × 0.916 汇率</td></tr>
+        <tr><td>减：股权处置所得税</td><td>—</td><td class="danger">-7.55 亿</td><td class="danger">-1.69 元</td><td>25% ×（37.19 − 7.00 成本）</td></tr>
+        <tr><td class="hl">鸣鸣很忙股权（税后）</td><td>38.35 亿</td><td class="ok">29.64 亿</td><td class="ok">6.62 元</td><td>按 25% 税率一次性处置假设</td></tr>
+        <tr><td>净现金</td><td>4.05 亿</td><td>4.05 亿</td><td>0.90 元</td><td>货币 9.23 + 交易性金融资产 2.61 − 短借 7.50 − 租赁负债 0.29</td></tr>
+        <tr><td>长期股权投资</td><td>2.43 亿</td><td>2.43 亿</td><td>0.54 元</td><td>参股公司权益法账面值，未做独立评估</td></tr>
+        <tr><td>红枣主业净资产</td><td>11.70 亿</td><td class="warn">11.70 亿</td><td class="warn">2.61 元</td><td>其他经营资产约 21.25 − 经营性负债约 9.67（含固定 7.89、在建 0.68、无形 1.04、存货 2.60、应收 1.23 等）</td></tr>
+        <tr><td class="hl"><b>税后 NAV 合计</b></td><td>—</td><td class="ok"><b>47.82 亿</b></td><td class="ok"><b>10.68 元</b></td><td>29.64 + 4.05 + 2.43 + 11.70</td></tr>
+        <tr><td class="hl">当前市值 / 股价</td><td>—</td><td class="warn">45.71 亿</td><td class="warn">10.21 元</td><td>较税后 NAV <b>-4.4%</b>；PB 0.93x</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      读法：现价 10.21 元 <b style="color:#fbbf24">略低于"股权按市价 + 主业按账面"的税后 NAV 10.68 元</b>，折价 4.4%。但"主业按账面"本身是乐观假设：红枣主业连续五年扣非亏损，若按 50% 减值（5.85 亿元），NAV 降至 9.38 元；若按 0 计价，NAV 仅 8.46 元。<b style="color:#34d399">资产价值提供了 8.5 元的硬底，但没有提供 10 元以上的安全边际。</b>
+    </div>
+  </div>
+
+  <div class="safety-bar">
+    <div class="safety-title">🛡️ 安全边际刻度：当前价格落在"合理区间上沿"</div>
+    <div class="safety-track">
+      <div class="safety-seg seg-deep">深度价值 &lt; 8.5 元</div>
+      <div class="safety-seg seg-current">合理区间 8.5 – 10.7 元（当前 10.21 元）</div>
+      <div class="safety-seg seg-over">高估区 &gt; 10.7 元</div>
+    </div>
+    <div class="safety-marks">
+      <span><strong>8.32 元</strong> 52 周低点</span>
+      <span><strong>8.46 元</strong> 主业归零</span>
+      <span><strong>9.38 元</strong> 主业五折</span>
+      <span><strong>10.21 元</strong> 现价</span>
+      <span><strong>10.68 元</strong> 税后 NAV</span>
+      <span><strong>12.37 元</strong> 税前 NAV</span>
+    </div>
+    <div style="margin-top:12px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      说明：区间划分以"鸣鸣很忙持股市值 + 净现金 + 长投 + 主业净资产"为基础。保守锚 8.46 元 = 股权税后价值 29.64 + 净现金 4.05 + 长投 2.43 + 主业 0；中性锚 10.68 元 = 主业按账面 11.70 亿元；乐观锚 12.37 元 = 不考虑 25% 处置所得税。现价 10.21 元位于中性锚下方 4.4%，但高于保守锚 20.7%。
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">📊 敏感性矩阵：鸣鸣很忙股价 × 红枣主业价值（元/股，税后口径）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>鸣鸣很忙股价</th><th>主业价值 0</th><th>主业 6 亿</th><th>主业 12 亿</th><th>主业 18 亿</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>HK$250（-22.5%）</td><td class="danger">7.05</td><td class="warn">8.39</td><td class="warn">9.73</td><td class="ok">11.08</td></tr>
+        <tr><td>HK$280（-13.3%）</td><td class="danger">7.64</td><td class="warn">8.98</td><td class="ok">10.32</td><td class="ok">11.66</td></tr>
+        <tr><td class="hl">HK$322.8（现价）</td><td class="danger">8.46</td><td class="warn">9.80</td><td class="ok">11.14</td><td class="ok">12.48</td></tr>
+        <tr><td>HK$360（+11.5%）</td><td class="warn">9.18</td><td class="ok">10.52</td><td class="ok">11.86</td><td class="ok">13.20</td></tr>
+        <tr><td>HK$400（+23.9%）</td><td class="ok">9.95</td><td class="ok">11.29</td><td class="ok">12.63</td><td class="ok">13.97</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      读法：现价 10.21 元落在"HK$322.8 × 主业 6–12 亿"之间，隐含主业价值约 <b style="color:#fbbf24">9.6 亿元</b>（账面 11.7 亿元的 82%）。这意味着市场既没有把主业当"零"、也没有给"成长溢价"，定价相对中性。<b>只要鸣鸣很忙跌到 HK$280 以下且主业没有改善，现价就会显得贵；反之，若鸣鸣很忙回到 HK$400，现价仍有 20% 以上空间。</b>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">⚖️</div>
+    <div class="text">
+      <h3>估值结论：合理，但没有便宜可占</h3>
+      <p>
+        用 PB 看，0.93 倍破净；用 PE 看，2.24 倍"便宜得离谱"；用 SOTP 看，现价 10.21 元较税后 NAV 10.68 元折价 4.4%。三个口径指向同一个结论：<b style="color:#34d399">当前价格大致等于"股权按市价 + 主业按账面八折"的价值，属于合理区间上沿</b>，不是泡沫，也不是深度价值。真正的安全边际要到 9.0 元以下（主业按五折）才出现；真正的上行空间则取决于鸣鸣很忙能否重回 380–400 港元，或红枣主业扣非转正。<b style="color:#fbbf24">在此之前，"持有"比"买入"更合适。</b>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title ok">🚀 模块 4 · 成长性维度（费雪 + 林奇）</div>
+  <div class="section-subtitle">2022–2025 营收 CAGR -1.76% · 2026 9M 产品收入 +7% · 糯香枣 +56% · 毛利率两年 +9.8pct · 但扣非仍亏 0.39 亿</div>
+
+  <div class="dashboard">
+    <div class="index-card warn">
+      <div class="name">2026 9M 营收</div>
+      <div class="value">10.25 亿</div>
+      <div class="change">-3.53%</div>
+      <div class="label">主动压缩低毛利原料销售</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">产品销售收入</div>
+      <div class="value">9.60 亿</div>
+      <div class="change">+7%</div>
+      <div class="label">占总营收 93.7%</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">糯香枣</div>
+      <div class="value">1.30 亿</div>
+      <div class="change">+56%</div>
+      <div class="label">2026 前三季，第二增长曲线</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">毛利率</div>
+      <div class="value">32.85%</div>
+      <div class="change">+4.19pct YoY</div>
+      <div class="label">2024 年 23.05% → 两年 +9.8pct</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">2025 营收</div>
+      <div class="value">13.28 亿</div>
+      <div class="change">-19.02%</div>
+      <div class="label">连续两年双位数下滑</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">营收 CAGR</div>
+      <div class="value">-1.76%</div>
+      <div class="change">2022 → 2025</div>
+      <div class="label">三年复合负增长</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">扣非净利</div>
+      <div class="value">-0.39 亿</div>
+      <div class="change">减亏约 55%（调整后）</div>
+      <div class="label">连续五年扣非亏损</div>
+    </div>
+  </div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>年度 / 期间</div>
+      <div>营收 · 归母 · 扣非</div>
+      <div>成长质量解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2022 年</div>
+      <div class="fin-val down">14.00 亿 · -1.89 亿 · -2.12 亿</div>
+      <div class="fin-comment">营收同比约 +9.3%，但归母、扣非双亏，毛利率仅 22.79%。这是出售百草味后的第二个完整年度：收入体量从 2020 年的 30 亿元腰斩，费用刚性、渠道重建，亏损扩大。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2023 年</div>
+      <div class="fin-val warn">17.28 亿 · -0.52 亿 · -0.59 亿</div>
+      <div class="fin-comment">营收 +23.4%，亏损大幅收窄，毛利率回升至 25.74%。恢复性增长来自线下客流回暖与礼盒销售，但净利率仍为负，说明规模尚未跨过盈亏平衡点。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2024 年</div>
+      <div class="fin-val down">16.40 亿 · -0.72 亿 · -0.80 亿</div>
+      <div class="fin-comment">营收 -5.1%，扣非亏损扩大至 -0.80 亿元，毛利率回落至 23.05%。休闲食品价格战、渠道分流（零食量贩）开始冲击传统商超与专卖店，公司进入"缩表保毛利"阶段。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2025 年</div>
+      <div class="fin-val warn">13.28 亿 · +8.66 亿 · -0.67 亿</div>
+      <div class="fin-comment">营收 -19.0%，但归母 +8.66 亿元 —— 几乎全部来自鸣鸣很忙股权的公允价值变动，扣非仍亏 0.67 亿元。毛利率跳升至 29.15%，主因高毛利产品占比提升与原料成本下行，而非收入增长。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2026 前三季</div>
+      <div class="fin-val warn">10.25 亿 · +11.70 亿 · -0.39 亿</div>
+      <div class="fin-comment">营收 -3.53%，但产品销售收入 9.60 亿元（+7%）、糯香枣 1.30 亿元（+56%）；毛利率 32.85%（+4.19pct）。归母 11.70 亿元中 15.78 亿元是公允价值收益，扣非 -0.39 亿元。收入下滑是主动压缩低毛利原料贸易，<b>结构在改善，总量仍未转正</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">2026 Q3 单季（推算）</div>
+      <div class="fin-val mid">3.18 亿 · +4.25 亿 · 未披露</div>
+      <div class="fin-comment">Q3 营收 = 前三季 10.25 − 中报 7.07 = 3.18 亿元，同比约 -14.8%；归母 = 11.70 − 7.44 = 4.25 亿元，主要来自鸣鸣很忙股价回升的重估收益；单季扣非未单独披露，是本期数据缺口。Q3 收入降幅扩大，说明传统渠道压力仍在。</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🧩 2026 前三季收入结构：总量在缩，结构在变</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>业务 / 渠道</th><th>2026 收入</th><th>同比</th><th>解读</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="hl">产品销售收入</td><td class="ok">9.60 亿</td><td class="ok">+7%</td><td>核心红枣制品，占总营收 93.7%，已恢复正增长</td></tr>
+        <tr><td class="hl">其中：糯香枣</td><td class="ok">1.30 亿</td><td class="ok">+56%</td><td>2025 年推出的战略单品，聚焦"软糯口感 + 年轻客群"</td></tr>
+        <tr><td>原料 / 其他业务</td><td class="warn">约 0.65 亿</td><td class="danger">约 -60%</td><td>主动压缩低毛利原料贸易，是总营收 -3.53% 的主因（推算）</td></tr>
+        <tr><td>专卖渠道（2026H1）</td><td>1.88 亿</td><td class="ok">+7.26%</td><td>门店体验与礼盒场景，基本盘稳定</td></tr>
+        <tr><td>山姆会员店（2026H1）</td><td class="warn">未披露</td><td class="ok">+47.73%</td><td>高势能渠道，验证产品力；但依赖单一 KA，议价权弱</td></tr>
+        <tr><td>胖东来（2026H1）</td><td class="warn">未披露</td><td class="ok">+66.16%</td><td>区域标杆商超，品牌背书效应强于收入贡献</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      口径说明：产品销售收入、糯香枣、专卖/山姆/胖东来增速来自公司 2026 年三季报与半年报经营讨论；原料/其他业务为"总营收 − 产品销售收入"推算，公司未单独披露。2026Q3 单季数据由累计值相减得到，可能与实际单季口径存在四舍五入差异。
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🔍</div>
+    <div class="text">
+      <h3>成长性的两个"真"与两个"疑"</h3>
+      <p>
+        <b style="color:#34d399">真一：产品端在恢复。</b>产品销售收入 +7%、糯香枣 +56%、山姆 +47.73%、胖东来 +66.16%，说明"红枣 + 健康零食"的产品策略在新渠道是有效的，不是靠降价换量。<br>
+        <b style="color:#34d399">真二：毛利率在修复。</b>从 2024 年 23.05% 提升到 2026 前三季 32.85%，两年 +9.8pct，主因高毛利产品占比提升、原料成本下行、低毛利贸易收缩。这是"结构升级"的真实证据。<br>
+        <b style="color:#fbbf24">疑一：总收入仍在下滑。</b>2025 年 -19.0%、2026 前三季 -3.53%、Q3 单季约 -14.8%，产品端的 +7% 被原料贸易收缩和传统渠道流失抵消。公司尚未证明"新渠道增量 > 老渠道减量"。<br>
+        <b style="color:#fbbf24">疑二：扣非连续五年为负。</b>2022–2025 年扣非分别为 -2.12 / -0.59 / -0.80 / -0.67 亿元，2026 前三季 -0.39 亿元。即便剔除 3,089 万元股份支付，调整后仍亏约 798 万元。减亏是真的，扭亏尚未发生；按当前速度，2027 年才可能看到单季扣非转正。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title ok">🛡️ 模块 5 · 护城河与生意本质（巴菲特 + 费雪）</div>
+  <div class="section-subtitle">34 年品牌 · 红枣品类第一联想 · 全渠道覆盖 · 但转换成本低、品类老化、主业 ROE 为负 —— 护城河"窄"</div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>护城河来源</div>
+      <div>强度评级</div>
+      <div>证据与反面检验</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">品牌认知（核心）</div>
+      <div class="fin-val warn">中强</div>
+      <div class="fin-comment">34 年历史，"好想你"几乎等同于"红枣"品类第一联想；第三方品牌价值评估约 237.67 亿元（非公司公告，仅作参考）。正面：礼盒场景、中老年客群、区域市场认知稳固。反面：红枣品类整体老化，年轻消费者转向坚果、烘焙、卤味等更丰富的零食；品牌认知没有转化为定价权，毛利率长期低于盐津铺子、甘源食品。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">产品创新</div>
+      <div class="fin-val warn">中等</div>
+      <div class="fin-comment">糯香枣 2026 前三季 1.30 亿元（+56%），枣夹核桃、清菲菲、红枣咖啡等延展产品持续迭代，说明产品团队有打造单品的能力。反面：红枣深加工技术门槛低，新品易被模仿；研发费用率不足 2%，远低于盐津铺子、甘源食品，创新更多是"口味/包装"而非"配方/工艺"壁垒。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">渠道能力</div>
+      <div class="fin-val ok">较强</div>
+      <div class="fin-comment">专卖店 + 商超 + 电商 + 零食量贩全渠道覆盖；2026H1 专卖渠道 1.88 亿元（+7.26%）、山姆 +47.73%、胖东来 +66.16%，证明团队能进入高势能渠道。反面：渠道红利属于零售商而非品牌商，山姆/胖东来/鸣鸣很忙掌握货架与定价权，公司议价能力弱；专卖店模式资产重、坪效低。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">原料与成本</div>
+      <div class="fin-val ok">较强</div>
+      <div class="fin-comment">新疆阿克苏自有/合作基地，红枣原料价格处于低位（2026 年阿克苏种植面积 147 万亩、同比减少 16 万亩，产量约 59 万吨），采购成本可控；自建工厂、垂直一体化带来制造优势。反面：农产品受天气、周期影响大，原料低价是行业性的，不是公司独占；一旦减产涨价，毛利率会迅速回吐。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">转换成本</div>
+      <div class="fin-val down">弱</div>
+      <div class="fin-comment">休闲食品是典型低转换成本品类：消费者在货架前决策，价格、口味、包装任一因素都能导致换品牌；B 端商超/零食量贩同时采购多个品牌，不存在"锁定"。这是好想你无法获得高 ROIC 的结构性原因。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">护城河 × ROE（反面检验）</div>
+      <div class="fin-val down">弱</div>
+      <div class="fin-comment">巴菲特要求"护城河最终体现为高 ROE 且低资本消耗"。公司 2026 前三季 ROE 26.14% 完全来自公允价值重估，扣非 ROE 为负；2022–2025 年扣非连续亏损，主业没有创造股东回报。护城河"有认知、无定价权"，只能算<b>窄护城河</b>，不能给高分。</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🏯</div>
+    <div class="text">
+      <h3>生意本质：品牌是"入场券"，不是"护城河"</h3>
+      <p>
+        好想你的品牌能让它进入山姆、胖东来、鸣鸣很忙的货架，也能让消费者在礼盒场景想起它 —— 这是真实的无形资产。但红枣零食的转换成本太低、品类天花板太低、渠道话语权在零售商手里，品牌无法转化为持续提价能力。结果是：<b style="color:#34d399">收入能维持 10–13 亿元体量、毛利率能修复到 30% 以上，但净利率很难回到两位数</b>。真正稀缺的资产不是红枣业务，而是 2023 年用 7 亿元换来的鸣鸣很忙 5.84% 股权 —— 那是投资能力，不是经营护城河。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title danger">💰 模块 6 · 财务质量体检（格雷厄姆 + 凯恩斯）</div>
+  <div class="section-subtitle">资产负债表干净 · 利润表被重估收益"污染" · 经营现金流 0.82 亿 · 分红 2.65 亿靠资产变现支撑</div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="name">毛利率</div>
+      <div class="value">32.85%</div>
+      <div class="change">+4.19pct YoY</div>
+      <div class="label">2024 年 23.05% → 连续两年抬升</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">资产负债率</div>
+      <div class="value">33.76%</div>
+      <div class="change">较 2025 年末 +3.88pct</div>
+      <div class="label">总负债 24.94 亿 / 总资产 73.87 亿</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">经营现金流（9M）</div>
+      <div class="value">0.82 亿</div>
+      <div class="change">-58.66%</div>
+      <div class="label">预缴所得税增加，公司口径调整后 +14%</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">OCF / 归母</div>
+      <div class="value">0.07</div>
+      <div class="change">0.82 / 11.70</div>
+      <div class="label">分母含 15.78 亿重估收益，失真</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">应收周转</div>
+      <div class="value">31.1 天</div>
+      <div class="change">应收 1.23 亿</div>
+      <div class="label">占 9M 营收 12.0%，健康</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">存货周转</div>
+      <div class="value">128.7 天</div>
+      <div class="change">存货 2.60 亿</div>
+      <div class="label">食品行业偏慢，需关注春节备货节奏</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">商誉</div>
+      <div class="value">0</div>
+      <div class="change">无商誉减值风险</div>
+      <div class="label">2016 年百草味商誉已随出售出表</div>
+    </div>
+  </div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>指标（2026-09-30）</div>
+      <div>读数</div>
+      <div>体检结论</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">营收 / 归母 / 扣非</div>
+      <div class="fin-val warn">10.25 / 11.70 / -0.39 亿</div>
+      <div class="fin-comment">营收 -3.53%、归母 +24,939%、扣非 -0.39 亿元。三个数字讲了三件事：主业在收缩、利润来自重估、经营仍在亏损。<b>看这家公司，归母净利润可以直接跳过，只看扣非和现金流。</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">毛利率序列</div>
+      <div class="fin-val ok">22.79% → 32.85%</div>
+      <div class="fin-comment">2022 22.79% → 2023 25.74% → 2024 23.05% → 2025 29.15% → 2026 前三季 32.85%。2024 年是低点，2025–2026 年连续两年抬升，累计 +9.8pct。驱动力：高毛利产品占比提升、原料成本下行、低毛利原料贸易收缩。毛利率修复是真实的，但净利率仍为负，说明费用端（尤其销售费用、股份支付）吃掉了毛利。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">经营现金流</div>
+      <div class="fin-val warn">0.82 亿（-58.66%）</div>
+      <div class="fin-comment">2024 年 0.86 亿、2025 年 1.13 亿、2026 前三季 0.82 亿。同比下降主因是公允价值收益带来的预缴所得税增加；公司口径剔除该因素后同比 +14%。即便按调整后口径，0.82 亿元的经营现金流也无法覆盖 2.647 亿元的年度分红，<b>分红需要动用账上现金或资产变现</b>。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资产负债率</div>
+      <div class="fin-val warn">33.76%</div>
+      <div class="fin-comment">2024 年末 27.88% → 2025 年末 29.88% → 2026Q3 33.76%，连续上升。负债端主要是短期借款 7.50 亿元、经营性负债约 9.67 亿元、递延所得税负债 7.48 亿元。负债率上升不是"失血"，而是"用低成本短债替代现金、同时保留股权资产"的主动选择；但短债 7.50 亿元与货币资金 9.23 亿元期限匹配度一般，需关注续贷。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">净现金</div>
+      <div class="fin-val ok">4.05 亿</div>
+      <div class="fin-comment">货币资金 9.23 亿 + 交易性金融资产 2.61 亿 − 短期借款 7.50 亿 − 租赁负债 0.29 亿 = 4.05 亿元，占市值 8.9%。没有长期借款、没有应付债券，资产负债表干净；即便主业继续亏损，公司也有足够现金维持运营和分红 2–3 年。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">应收 / 存货</div>
+      <div class="fin-val ok">1.23 亿 / 2.60 亿</div>
+      <div class="fin-comment">应收账款 1.23 亿元，占前三季营收 12.0%，周转 31.1 天，没有"放宽账期换收入"的迹象；存货 2.60 亿元，周转 128.7 天，对红枣类食品偏慢（需考虑春节备货），但绝对额可控，不存在大额减值风险。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">递延所得税负债</div>
+      <div class="fin-val danger">7.48 亿</div>
+      <div class="fin-comment">主要是鸣鸣很忙股权公允价值高于计税基础形成的暂时性差异，按 25% 税率确认。它不是"真负债"，但意味着<b>若未来处置股权，约 7.5 亿元现金要用来交税</b>；SOTP 估值必须扣除。若股价下跌，DTL 会相应转回，形成账面利润的"反向缓冲"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">分红覆盖倍数</div>
+      <div class="fin-val danger">0.31x</div>
+      <div class="fin-comment">2025 年度分红 2.647 亿元 ÷ 2026 前三季经营现金流 0.82 亿元 = 0.31 倍。即便年化经营现金流 1.1 亿元，覆盖率也只有 0.42 倍。<b>5.79% 的股息率不是"主业造血"的结果，而是"资产重估 + 账上现金"的结果</b>；一旦公司选择保留现金应对主业，分红可能下调。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">财务质量总评</div>
+      <div class="fin-val warn">干净但"利润含金量低"</div>
+      <div class="fin-comment">资产负债表：无商誉、无长债、净现金为正、应收存货健康 —— <b style="color:#34d399">干净</b>。利润表：归母被公允价值重估反复扭曲，扣非连续五年为负 —— <b style="color:#f87171">含金量低</b>。现金流量表：经营现金流为正但不足以覆盖分红 —— <b style="color:#fbbf24">紧平衡</b>。结论：不会爆雷，但也看不到内生增长。</div>
+    </div>
+  </div>
+
+  <div class="section-title warn">👔 模块 7 · 管理层与公司治理（费雪 15 问精简版）</div>
+  <div class="section-subtitle">石聚彬持股 28.88% · 一致行动人 32.02% · 质押占其持股 36.35% · 员工持股 2.04% · 两次经典资本运作（百草味、鸣鸣很忙）</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">实控人持股</div>
+      <div class="value">28.88%</div>
+      <div class="change">石聚彬</div>
+      <div class="label">创始人，1992 年创立品牌</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">一致行动人</div>
+      <div class="value">32.02%</div>
+      <div class="change">控制权稳固</div>
+      <div class="label">表决权集中，决策效率高</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">质押 / 其持股</div>
+      <div class="value">36.35%</div>
+      <div class="change">4,700 万股</div>
+      <div class="label">占总股本 11.89%，需跟踪平仓线</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">质押 / 总股本</div>
+      <div class="value">11.89%</div>
+      <div class="change">中等偏高</div>
+      <div class="label">股价大跌时存在补充质押压力</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">员工持股计划</div>
+      <div class="value">2.04%</div>
+      <div class="change">914.29 万股</div>
+      <div class="label">2025 年实施，绑定核心团队</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">累计回购</div>
+      <div class="value">1.46%</div>
+      <div class="change">652.35 万股</div>
+      <div class="label">用于激励/注销，释放积极信号</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">2025 分红率</div>
+      <div class="value">30.6%</div>
+      <div class="change">2.647 亿 / 8.66 亿</div>
+      <div class="label">分红慷慨，但 OCF 覆盖不足</div>
+    </div>
+  </div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>治理维度</div>
+      <div>现状</div>
+      <div>评价</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">实控人与管理层</div>
+      <div class="fin-val ok">石聚彬 28.88%</div>
+      <div class="fin-comment">创始人石聚彬 1992 年创立好想你，深耕红枣产业 30 余年，战略定力强、对产业理解深。正面：控制权稳固（一致行动人 32.02%），不存在敌意收购风险；管理层长期稳定。反面：创始人年龄与接班安排未明确披露，战略高度依赖个人判断。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股权质押</div>
+      <div class="fin-val warn">4,700 万股</div>
+      <div class="fin-comment">质押 4,700 万股，占其持股 36.35%、占总股本 11.89%。比例中等偏高：若股价持续下跌，可能触及质押平仓线（具体平仓价未披露），存在被动减持/补充质押风险。这是本报告将"质押比例"列为监测指标的原因。质押资金用途未在公告中详细披露，属于信息缺口。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股权激励</div>
+      <div class="fin-val ok">2.04% + 3,089 万费用</div>
+      <div class="fin-comment">2025 年员工持股计划持有 914.29 万股（2.04%），覆盖核心管理/业务团队；2026 前三季确认股份支付费用 3,089.33 万元，是扣非亏损的重要构成（剔除后调整后扣非约 -798 万元）。正面：激励与业绩绑定；反面：2026 年激励计划的具体考核目标未在公开公告中独立核验，无法判断目标是否激进。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">回购与分红</div>
+      <div class="fin-val warn">回购 1.46% / 分红 2.65 亿</div>
+      <div class="fin-comment">累计回购 652.35 万股（1.46%），用于员工持股/股权激励；2025 年度分红 2.647 亿元，按现价股息率 5.79%。正面：愿意与股东分享资产重估收益；反面：分红超过经营现金流，可持续性依赖资产变现，属于"慷慨但脆弱"的回报。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">资本运作记录</div>
+      <div class="fin-val ok">两次经典交易</div>
+      <div class="fin-comment">2016 年以约 9.6 亿元收购百草味，2020 年以 7.05 亿美元（约 50 亿元）卖给百事，确认投资收益约 21.55 亿元；2023 年 12 月以 7 亿元入股零食很忙（鸣鸣很忙前身），2026 年 1 月鸣鸣很忙港股 IPO，持股市值一度超过 45 亿元。<b>管理层"买资产、卖资产"的能力远强于"经营资产"的能力</b>，这是理解好想你的关键。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">治理总评</div>
+      <div class="fin-val warn">可信，但有折价项</div>
+      <div class="fin-comment">正面：创始人控股、控制权稳定、无商誉、近年未见重大违规公告（未穷尽核验）、持续回购与分红。反面：质押比例 36.35% 偏高、2026 年激励目标不透明、主业经营记录弱、分红与现金流不匹配。综合给"基本可信、需持续跟踪"，治理折价约 0.2–0.3 分（已体现在巴菲特/格雷厄姆评分中）。</div>
+    </div>
+  </div>
+
+  <div class="section-title">🌾 模块 8 · 行业与周期定位（马克斯 + 达里奥）</div>
+  <div class="section-subtitle">红枣原料处于低价区 · 阿克苏种植面积 147 万亩（-16 万亩）· 零食量贩渠道红利仍在 · 但红枣品类成熟、竞争同质化（阿克苏数据为公开行业报道口径，未独立核验）</div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="name">阿克苏种植面积</div>
+      <div class="value">147 万亩</div>
+      <div class="change">同比 -16 万亩</div>
+      <div class="label">2026 年，供给端开始收缩</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">阿克苏产量</div>
+      <div class="value">约 59 万吨</div>
+      <div class="change">同比基本持平</div>
+      <div class="label">单产提升抵消面积下降</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">红枣原料价格</div>
+      <div class="value">低位</div>
+      <div class="change">2025/26 产季供应充足</div>
+      <div class="label">利好毛利率，但不可持续</div>
+    </div>
+    <div class="index-card purple">
+      <div class="name">鸣鸣很忙门店</div>
+      <div class="value">3 万家</div>
+      <div class="change">2026-07-20</div>
+      <div class="label">零食量贩龙头，好想你持股 5.84%</div>
+    </div>
+    <div class="index-card purple">
+      <div class="name">鸣鸣很忙 GMV</div>
+      <div class="value">661 亿</div>
+      <div class="change">2025 前三季</div>
+      <div class="label">招股书口径，同比高增</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">休闲食品行业</div>
+      <div class="value">成熟期</div>
+      <div class="change">中低速增长</div>
+      <div class="label">量增来自渠道，价增困难</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">红枣品类</div>
+      <div class="value">老化</div>
+      <div class="change">年轻客群流失</div>
+      <div class="label">礼盒场景受消费降级影响</div>
+    </div>
+  </div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>行业维度</div>
+      <div>当前状态</div>
+      <div>对好想你的影响</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">周期位置（供给）</div>
+      <div class="fin-val ok">原料低价区</div>
+      <div class="fin-comment">2024–2025 年新疆红枣丰产，价格持续走低；2026 年阿克苏种植面积调减 16 万亩至 147 万亩，但单产提升、总产约 59 万吨基本持平，短期库存仍充足。<b>对好想你是成本顺风</b>：2026 前三季毛利率 +4.19pct，一部分来自原料降价。风险是若 2027 年减产涨价，毛利率可能回吐 2–3pct。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">需求端</div>
+      <div class="fin-val warn">成熟、分化</div>
+      <div class="fin-comment">休闲食品整体仍有个位数增长，但结构分化：坚果、烘焙、卤味、健康化零食增长，传统蜜饯/红枣瓜子类目停滞。红枣的核心场景是礼盒与中老年日常消费，受消费降级、年轻人偏好变化影响，<b>品类天花板低</b>。糯香枣、枣夹核桃等新品是"品类内创新"，不是"品类扩张"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">渠道变革</div>
+      <div class="fin-val ok">零食量贩红利</div>
+      <div class="fin-comment">鸣鸣很忙 2026 年 7 月门店突破 3 万家，2025 前三季 GMV 661 亿元，是休闲食品最大的增量渠道。好想你一方面通过产品进入量贩渠道，另一方面直接持有鸣鸣很忙 5.84% 股权，<b>是"渠道红利"的双重受益者</b>。但量贩渠道压价严重，品牌商毛利率会被压缩，利好的是股权价值而非产品利润。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">竞争格局</div>
+      <div class="fin-val danger">同质化</div>
+      <div class="fin-comment">休闲食品 CR5 低、进入门槛低：三只松鼠、良品铺子、盐津铺子、洽洽、甘源、劲仔各据细分品类，价格战常态化。红枣细分市场还有和田玉枣、楼兰枣等区域品牌，好想你虽是龙头，但市占率不足以形成定价权。<b>行业不给"品牌溢价"，只给"渠道效率"估值。</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">政策环境</div>
+      <div class="fin-val ok">中性偏暖</div>
+      <div class="fin-comment">新疆特色农产品、乡村振兴、农业产业化龙头等政策对上游种植/加工有支持；食品安全监管趋严，利好规范化龙头、淘汰小作坊。没有直接补贴利润的重大政策，也没有限制性政策。政策是"背景变量"，不是"催化剂"。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">产业链位置</div>
+      <div class="fin-val ok">一体化</div>
+      <div class="fin-comment">好想你覆盖"种植/采购 — 深加工 — 品牌 — 全渠道"，在红枣产业链中属于纵向一体化龙头。优势是成本可控、品质稳定；劣势是资产较重、产能利用率不足时折旧压力大（固定资产 7.89 亿元、在建 0.68 亿元）。<b>一体化在行业上行期是杠杆，在下行期是包袱。</b></div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">🌗</div>
+    <div class="text">
+      <h3>行业结论：成本顺风、需求逆风、渠道换挡</h3>
+      <p>
+        红枣原料处于低价区，是好想你毛利率修复的直接原因；但品类成熟、需求分化，收入端很难回到 2023 年 17 亿元的峰值。渠道端，零食量贩是唯一的增量，好想你通过"产品 + 股权"双线参与，<b style="color:#34d399">股权红利远大于产品红利</b>。因此，行业层面不支持"成长股"估值，只支持"稳定现金流 + 资产价值"估值 —— 这与本报告用 SOTP 而非 PE 定价的逻辑一致。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title warn">📈 模块 9 · 技术面与资金流（凯恩斯 + 索罗斯）</div>
+  <div class="section-subtitle">现价 10.21 元站上 MA20/60/120 · 仍低于 MA250 10.38 · 10-30 涨停放量 · 涨停后主力连续三日净流出 · 换手 13.38%</div>
+
+  <div class="dashboard">
+    <div class="index-card mid">
+      <div class="name">现价</div>
+      <div class="value">10.21 元</div>
+      <div class="change">+2.10%</div>
+      <div class="label">盘中 14:59 快照，成交 4.62 亿</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">MA20</div>
+      <div class="value">9.41 元</div>
+      <div class="change">现价 +8.5%</div>
+      <div class="label">短期均线多头</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">MA60</div>
+      <div class="value">9.96 元</div>
+      <div class="change">现价 +2.5%</div>
+      <div class="label">中期趋势修复</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">MA120</div>
+      <div class="value">9.81 元</div>
+      <div class="change">现价 +4.1%</div>
+      <div class="label">半年线已收复</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">MA250</div>
+      <div class="value">10.38 元</div>
+      <div class="change">现价 -1.6%</div>
+      <div class="label">年线仍未突破，长期压力位</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">52 周高点</div>
+      <div class="value">15.98 元</div>
+      <div class="change">距高点 -36.1%</div>
+      <div class="label">2026-01-23，IPO 情绪高点</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">52 周低点</div>
+      <div class="value">8.32 元</div>
+      <div class="change">距低点 +22.7%</div>
+      <div class="label">2026-06-30，价值底</div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="index-card ok">
+      <div class="name">近 1 周</div>
+      <div class="value">+12.96%</div>
+      <div class="change">涨停驱动</div>
+      <div class="label">短期最强阶段</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">近 1 月</div>
+      <div class="value">+7.59%</div>
+      <div class="change">跑赢大盘</div>
+      <div class="label">价值修复 + 情绪回暖</div>
+    </div>
+    <div class="index-card warn">
+      <div class="name">近 3 月</div>
+      <div class="value">+0.29%</div>
+      <div class="change">基本持平</div>
+      <div class="label">横盘震荡后突破</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">近 6 月</div>
+      <div class="value">-10.75%</div>
+      <div class="change">仍未回正</div>
+      <div class="label">中期趋势未反转</div>
+    </div>
+    <div class="index-card ok">
+      <div class="name">近 1 年</div>
+      <div class="value">+15.79%</div>
+      <div class="change">正收益</div>
+      <div class="label">主要来自 2025 年底部反弹</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">年初至今</div>
+      <div class="value">-5.63%</div>
+      <div class="change">跑输理财</div>
+      <div class="label">1 月 IPO 情绪退潮拖累</div>
+    </div>
+    <div class="index-card danger">
+      <div class="name">换手率</div>
+      <div class="value">13.38%</div>
+      <div class="change">成交 4.62 亿</div>
+      <div class="label">筹码高速换手，短线资金主导</div>
+    </div>
+  </div>
+
+  <div class="fin-table">
+    <div class="fin-row header">
+      <div>技术 / 资金维度</div>
+      <div>读数</div>
+      <div>解读</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">均线排列</div>
+      <div class="fin-val warn">短期多头 / 长期未确认</div>
+      <div class="fin-comment">现价 10.21 &gt; MA5 10.10 &gt; MA60 9.96 &gt; MA120 9.81 &gt; MA20 9.41；但 MA250 10.38 仍在现价上方。均线结构是"短期强、中期修复、长期未反转"：10 月以来连续收复 MA20/60/120，但年线未过，不能确认牛市。但 MA20 9.41 仍低于 MA60 9.96，尚未金叉，中期均线修复仍需时间。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">量能</div>
+      <div class="fin-val warn">脉冲式放量</div>
+      <div class="fin-comment">10-30 涨停日成交 60.99 万手，是此前日均 7–12 万手的 5–6 倍；11-02 进一步放大至 76.60 万手、成交额约 8 亿元；11-03 至 11-05 回落至 45–47 万手。放量集中在 3 天内，属于事件驱动的脉冲，不是持续增量资金。<b>若成交量跌破 20 万手，反弹大概率结束。</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">主力资金流</div>
+      <div class="fin-val warn">先入后出</div>
+      <div class="fin-comment">10-30 主力净流入 <b>+1.649 亿元</b>（占当日成交额 27.55%），是涨停的主要推手；11-02 至 11-04 连续三日净流出 -0.241 / -0.154 / -0.132 亿元，合计 -0.527 亿元；11-05 小幅回流 +0.0999 亿元。5 日合计仍净流入约 1.22 亿元，但"涨停后派发"的特征明显，追高性价比低。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">股东户数</div>
+      <div class="fin-val danger">5.78 万户（+21.77%）</div>
+      <div class="fin-comment">2026-09-30 股东户数 5.78 万户，较 6 月末增加 21.77%，户均持股下降。股价从 8.32 元反弹至 10 元附近的过程中，散户大量涌入、筹码分散，通常是短期见顶的领先指标之一。<b>筹码结构不支持"机构主导的趋势行情"。</b></div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">支撑位</div>
+      <div class="fin-val ok">9.60–9.80 / 9.38 / 8.32–8.45</div>
+      <div class="fin-comment">第一支撑 9.60–9.80 元（10 月平台密集区，MA10 9.59 位于其下沿）；第二支撑 9.38 元（红枣主业按 50% 减值的税后 NAV）；第三支撑 8.32–8.45 元（52 周低点 + 主业归零 NAV 8.46）。若跌破 8.45 元，说明"资产底"逻辑被市场否定，应止损。</div>
+    </div>
+    <div class="fin-row">
+      <div class="fin-name">压力位</div>
+      <div class="fin-val danger">10.50 / 11.00 / 12.88 / 15.98</div>
+      <div class="fin-comment">第一压力 10.50 元（11-02 盘中高点）；第二压力 11.00 元（整数关口 + 2025 年平台）；第三压力 12.88 元（2025 年反弹高点）；极限压力 15.98 元（52 周高点）。现价距第一压力仅 2.8%，短线赔率不佳。</div>
+    </div>
+  </div>
+
+  <div class="theme-banner warn">
+    <div class="icon">📉</div>
+    <div class="text">
+      <h3>技术面结论：反弹已走完第一段，反转还缺三个确认</h3>
+      <p>
+        10-30 涨停 + 11-02 放量冲高，是典型的"价值修复 + 事件驱动"反弹：股价从 8.32 元低点反弹 22.7%，收复 MA20/60/120，短期均线多头。但要确认反转，还缺三个信号：<b style="color:#fbbf24">① 站稳 MA250 10.38 元；② 成交量维持在 3 亿元以上、而非脉冲后迅速萎缩；③ 主力资金连续 5 日净流入</b>。目前只满足 ① 的一半（盘中触及 10.33 但未站稳），②③ 均不满足。叠加股东户数 +21.77%、涨停后主力净流出，<b style="color:#f87171">当前更像是"反弹中段"，不是"趋势起点"</b>。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title warn">🧠 模块 10 · 多方法论视角下的最终评级（核心）</div>
+  <div class="section-subtitle">11 种方法论独立打分 · 权重合计 105% · 加权得分 4.845 ÷ 1.05 = 4.61 · 对应"持有观察"</div>
+
+  <div class="score-table">
+    <div class="score-item">
+      <div class="score-num warn">4.5</div>
+      <div class="score-name">格雷厄姆</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:45%"></div></div>
+      <div class="score-out">深度价值 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4.8</div>
+      <div class="score-name">费雪</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:48%"></div></div>
+      <div class="score-out">成长投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num bad">3.5</div>
+      <div class="score-name">林奇</div>
+      <div class="score-bar"><div class="score-fill bad" style="width:35%"></div></div>
+      <div class="score-out">PEG / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">5.5</div>
+      <div class="score-name">邓普顿</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:55%"></div></div>
+      <div class="score-out">逆向投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num warn">4.0</div>
+      <div class="score-name">博格</div>
+      <div class="score-bar"><div class="score-fill warn" style="width:40%"></div></div>
+      <div class="score-out">指数投资 / 10</div>
+    </div>
+    <div class="score-item">
+      <div class="score-num mid">5.0</div>
+      <div class="score-name">马克斯</div>
+      <div class="score-bar"><div class="score-fill mid" style="width:50%"></div></div>
+      <div class="score-out">周期投资 / 10</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-title">🧮 11 方法论加权明细（权重合计 105%，已归一化）</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>方法论</th><th>代表人物</th><th>权重</th><th>得分</th><th>加权分</th><th>核心判断</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="hl">深度价值</td><td>格雷厄姆</td><td>15%</td><td class="warn">4.5</td><td>0.675</td><td>PB 0.93 破净，但利润不稳定、清算价值不可用，安全边际不足</td></tr>
+        <tr><td>成长投资</td><td>费雪</td><td>10%</td><td class="warn">4.8</td><td>0.480</td><td>品牌与产品创新有亮点，收入负增长、研发投入低，成长不可持续</td></tr>
+        <tr><td>PEG 投资</td><td>林奇</td><td>10%</td><td class="bad">3.5</td><td>0.350</td><td>扣非为负，PEG 无意义；营收 CAGR -1.76%，不满足成长股条件</td></tr>
+        <tr><td class="hl">逆向投资</td><td>邓普顿</td><td>15%</td><td class="mid">5.5</td><td>0.825</td><td>较 52 周高点 -36%，悲观情绪充分；资产价值提供底部支撑</td></tr>
+        <tr><td>指数投资</td><td>博格</td><td>5%</td><td class="warn">4.0</td><td>0.200</td><td>非宽基成分，股息率 5.79% 但分红不可持续，不适合作为底仓</td></tr>
+        <tr><td class="hl">周期投资</td><td>马克斯</td><td>15%</td><td class="mid">5.0</td><td>0.750</td><td>红枣原料低价、行业成熟，周期位置不差，但公司不是纯周期股</td></tr>
+        <tr><td>量化投资</td><td>西蒙斯</td><td>5%</td><td class="mid">5.0</td><td>0.250</td><td>短期动量强（1 月 +7.59%），中期仍负（6 月 -10.75%），信号混合</td></tr>
+        <tr><td>全天候配置</td><td>达里奥</td><td>5%</td><td class="warn">4.0</td><td>0.200</td><td>单一股票、单一股权资产，集中度高，不是组合分散工具</td></tr>
+        <tr><td>趋势跟随</td><td>凯恩斯</td><td>5%</td><td class="warn">4.2</td><td>0.210</td><td>换手 13.38%、股东户数 +21.77%，短线资金主导，追高易被套</td></tr>
+        <tr><td class="hl">反身性</td><td>索罗斯</td><td>5%</td><td class="mid">5.5</td><td>0.275</td><td>鸣鸣很忙股价 → 好想你 NAV → 好想你股价，反馈链条清晰且仍有效</td></tr>
+        <tr><td class="hl">护城河</td><td>巴菲特</td><td>15%</td><td class="warn">4.2</td><td>0.630</td><td>品牌有认知、无定价权；主业扣非 ROE 为负，护城河窄</td></tr>
+        <tr><td colspan="4" class="hl"><b>合计 / 归一化</b></td><td class="ok"><b>4.845 ÷ 1.05 = 4.61</b></td><td class="ok"><b>对应评级：持有观察（3.5–4.9）</b></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px; color:#94a3b8; font-size:11px; line-height:1.7;">
+      权重说明：格雷厄姆/邓普顿/马克斯/巴菲特各 15%，费雪/林奇各 10%，博格/西蒙斯/达里奥/凯恩斯/索罗斯各 5%，合计 105%；按工作空间统一口径除以 1.05 归一化，避免系统性高估 5%。若不归一化，加权分为 4.845，仍落在"持有观察"区间，但归一化后更接近门槛中枢。
+    </div>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card mid">
+      <div class="method-name">格雷厄姆 · 深度价值</div>
+      <div class="method-author">Benjamin Graham · 权重 15%</div>
+      <div class="method-score mid">4.5 / 10</div>
+      <div class="method-desc">PB 0.93、市值低于净资产，看似符合"烟蒂"标准；但净资产 78% 是已上市股权、11.7 亿元主业资产持续亏损，清算价值无法按账面兑现。PE 2.24 是重估收益造成的幻觉。给 4.5 分：资产有底，但谈不上"用四毛买一块"。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">费雪 · 成长投资</div>
+      <div class="method-author">Philip Fisher · 权重 10%</div>
+      <div class="method-score mid">4.8 / 10</div>
+      <div class="method-desc">品牌 34 年、糯香枣 +56%、山姆/胖东来渠道高增，说明产品与渠道有生命力；但营收连续两年下滑、研发费用率不足 2%、新品易模仿，不符合"长期复利型成长"标准。给 4.8 分：有创新火花，没有成长斜率。</div>
+    </div>
+    <div class="method-card bad">
+      <div class="method-name">林奇 · PEG</div>
+      <div class="method-author">Peter Lynch · 权重 10%</div>
+      <div class="method-score bad">3.5 / 10</div>
+      <div class="method-desc">扣非连续五年为负，PEG 的分母（盈利增速）不存在；营收 CAGR -1.76%，连"缓慢成长股"都算不上。用 2026 归母增速 +24,939% 算 PEG 会得到 0.0001 的荒谬结果。给 3.5 分：方法论不适用，只能给"资产折价"的基础分。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">邓普顿 · 逆向投资</div>
+      <div class="method-author">John Templeton · 权重 15%</div>
+      <div class="method-score good">5.5 / 10</div>
+      <div class="method-desc">股价较 52 周高点回撤 36.1%、较 IPO 情绪高点 15.98 元腰斩三分之一，市场对"主业亏损 + 分红不可持续"的悲观已充分定价；同时 37 亿元股权价值提供硬底。给 5.5 分：这是 11 种方法论里最贴合当前处境的一把尺子，但"便宜"不等于"催化剂"。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">博格 · 指数投资</div>
+      <div class="method-author">John Bogle · 权重 5%</div>
+      <div class="method-score bad">4.0 / 10</div>
+      <div class="method-desc">好想你不是宽基 ETF，也不具备"低成本、长期持有"的指数属性；股息率 5.79% 看似适合红利策略，但分红覆盖倍数仅 0.31x，可持续性存疑。给 4.0 分：可以作为"高股息卫星仓"观察，不能作为底仓。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">马克斯 · 周期投资</div>
+      <div class="method-author">Howard Marks · 权重 15%</div>
+      <div class="method-score mid">5.0 / 10</div>
+      <div class="method-desc">红枣原料处于低价区、行业成熟、公司主动收缩低毛利贸易，周期位置不算差；但好想你不是纯周期股，主业亏损是结构性的（品类老化、渠道分流），不是"等周期反转"就能解决。给 5.0 分：周期顺风能修毛利率，修不了商业模式。</div>
+    </div>
+    <div class="method-card mid">
+      <div class="method-name">西蒙斯 · 量化投资</div>
+      <div class="method-author">Jim Simons · 权重 5%</div>
+      <div class="method-score mid">5.0 / 10</div>
+      <div class="method-desc">短期动量因子转正：1 周 +12.96%、1 月 +7.59%、站上 MA20/60/120；中期动量仍负：6 月 -10.75%、年线 10.38 未破。波动率放大（振幅 5.80%、换手 13.38%），统计套利信号混合。给 5.0 分：短线有交易价值，中线趋势未确认。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">达里奥 · 全天候配置</div>
+      <div class="method-author">Ray Dalio · 权重 5%</div>
+      <div class="method-score bad">4.0 / 10</div>
+      <div class="method-desc">好想你的价值 81% 来自单一上市公司股权，与港股消费板块高度相关；剩下的主业与红枣周期相关。它不能分散宏观风险，反而是"消费 + 港股"的双重暴露。给 4.0 分：适合作为卫星仓，不适合作为全天候组合的稳定器。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">凯恩斯 · 趋势跟随</div>
+      <div class="method-author">John Keynes · 权重 5%</div>
+      <div class="method-score bad">4.2 / 10</div>
+      <div class="method-desc">"选美理论"视角：10-30 涨停、11-02 放量冲高，市场情绪短期被点燃；但换手 13.38%、股东户数 +21.77%、涨停后主力连续净流出，说明筹码从机构/大户流向散户，是典型的"情绪尾声"特征。给 4.2 分：可以短线参与，不适合中线追高。</div>
+    </div>
+    <div class="method-card best">
+      <div class="method-name">索罗斯 · 反身性</div>
+      <div class="method-author">George Soros · 权重 5%</div>
+      <div class="method-score good">5.5 / 10</div>
+      <div class="method-desc">这是好想你最独特的定价机制：鸣鸣很忙股价上涨 → 好想你持股市值/账面利润上升 → 好想你股价上涨 → 市场给予更高"投资能力溢价" → 进一步推高好想你股价。2026Q1 归母 11.11 亿元、Q2 回落、Q3 再回升，完美复刻了鸣鸣很忙的股价波动。给 5.5 分：反馈链条清晰，但方向由鸣鸣很忙决定，好想你是"被动 beta"。</div>
+    </div>
+    <div class="method-card weak">
+      <div class="method-name">巴菲特 · 护城河</div>
+      <div class="method-author">Warren Buffett · 权重 15%</div>
+      <div class="method-score bad">4.2 / 10</div>
+      <div class="method-desc">品牌有认知，但红枣零食转换成本低、渠道话语权在零售商、品类天花板低；主业扣非连续五年亏损，ROE 26.14% 是重估收益造成的假象。给 4.2 分：这是一家"投资能力 > 经营能力"的公司，不符合"伟大生意"标准，只符合"资产折价"标准。</div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <div class="conclusion-title">📌 方法论冲突处理与最终倾向</div>
+    <div class="conclusion-item">
+      <span class="num">1</span>
+      <p><strong>冲突点一：格雷厄姆 4.5（PB 破净）vs 费雪 4.8 / 林奇 3.5（没有成长）。</strong>格雷厄姆看到的是"资产打折"，费雪/林奇看到的是"生意在萎缩"。两者并不矛盾：好想你的资产确实值钱，但资产的价值不来自红枣主业，而来自鸣鸣很忙股权。用格雷厄姆的尺子量，它便宜；用费雪的尺子量，它没有成长。最终倾向于"资产价值定底、成长性定顶"。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">2</span>
+      <p><strong>冲突点二：索罗斯 5.5（反身性正反馈）vs 巴菲特 4.2（护城河窄）。</strong>索罗斯看到的是"股价与股权的正反馈"，巴菲特看到的是"主业没有护城河"。两者也统一于同一个事实：好想你的股价由"鸣鸣很忙"驱动，而不是由"红枣"驱动。这意味着它的 beta 属性远强于 alpha 属性，适合交易、不适合长期持有。</p>
+    </div>
+    <div class="conclusion-item">
+      <span class="num">3</span>
+      <p><strong>最终倾向：</strong>采纳<b style="color:#fbbf24">邓普顿（逆向）+ 索罗斯（反身性）+ 马克斯（周期）</b>三种方法论作为主要框架，权重合计 35%；用格雷厄姆/巴菲特做"下限检验"（资产是否托底、生意是否值得长期持有），用林奇/费雪做"上限检验"（成长是否支持更高估值）。结论：<b style="color:#34d399">下限成立、上限不成立 → 持有观察，不追高、不重仓、等回踩。</b></p>
+    </div>
+  </div>
+
+  <div class="final-verdict">
+    <h2>⚖️ 11 方法论加权最终评级</h2>
+    <div class="rating">持有观察</div>
+    <div style="color:#fbbf24; font-size:15px; font-weight:700; margin:8px 0;">
+      （4.61/10 · 资产有底、主业没底、价格在中间 · 建议仓位 ≤3%）
+    </div>
+    <div class="comment">
+      这是一份"防守型"的评级：向下，37 亿元鸣鸣很忙股权 + 4.05 亿元净现金 + 11.7 亿元主业净资产提供 8.5–10.7 元的价值区间；向上，红枣主业扣非仍亏、收入负增长、分红不可持续，缺乏把估值推到 12 元以上的基本面理由。现价 10.21 元处于价值区间上沿，<b style="color:#fbbf24">持有的赔率一般，买入的赔率不佳</b>。等两种情形之一出现再上调评级：① 股价回踩 8.5–9.0 元（安全边际出现）；② 2026 年报/2027 一季报扣非转正（基本面拐点出现）。
+    </div>
+  </div>
+
+  <div class="section-title ok">🎯 模块 11 · 操作策略与建议</div>
+  <div class="section-subtitle">仓位 ≤3% · 不追高 · 8.45 元收盘止损 · 12M 目标 7.6 / 9.8 / 12.2 元 · 24M 目标 7.1 / 11.0 / 13.7 元</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card position">
+      <div class="strategy-title">📦 1. 仓位建议</div>
+      <div class="strategy-content">
+        <strong>单股仓位 ≤3%</strong>（"持有观察"评级对应上限）。当前未持仓者：<span class="hl-warn">不新建仓</span>，等待 9.0 元以下或基本面拐点；已持仓者：若仓位超过 3%，在 10.5–11.0 元区间减至 3% 以内。<br><br>
+        理由：好想你 81% 的价值来自单一港股股权，波动率与鸣鸣很忙高度绑定；单股 3% 已能提供"资产折价 + 事件期权"的暴露，不需要更高。
+      </div>
+    </div>
+    <div class="strategy-card target">
+      <div class="strategy-title">🛒 2. 分批买入计划</div>
+      <div class="strategy-content">
+        <strong>第一档 9.00–9.20 元（30%）</strong>：回踩 10 月平台 + MA20 上方企稳；<br>
+        <strong>第二档 8.60–8.80 元（30%）</strong>：接近 52 周低点上方，对应税后 NAV 的 82%；<br>
+        <strong>第三档 8.45–8.55 元（20%）</strong>：仅在"缩量止跌 + 鸣鸣很忙企稳"时执行；<br>
+        <strong>预留 20%</strong>：留给 8.0 元以下或年报扣非转正后的确认。<br><br>
+        <span class="hl-danger">纪律：现价 10.21 元不追高；若跌破 8.45 元，取消所有买单。</span>
+      </div>
+    </div>
+    <div class="strategy-card stop">
+      <div class="strategy-title">🛑 3. 止损位</div>
+      <div class="strategy-content">
+        <strong>收盘止损：8.45 元</strong>（较现价 -17.2%）；<br>
+        <strong>硬止损：8.30 元</strong>（跌破 52 周低点 8.32 元，资产底逻辑失效）；<br>
+        <strong>事件止损：</strong>鸣鸣很忙单日跌超 10% 或跌破 HK$250，次日无条件减半。<br><br>
+        说明：8.45 元接近"主业归零 NAV 8.46 元"，跌破意味着市场连"股权 + 净现金"的价值都不认，继续持有的赔率极差。
+      </div>
+    </div>
+    <div class="strategy-card target">
+      <div class="strategy-title">🎯 4. 目标价（三情景）</div>
+      <div class="strategy-content">
+        <strong>12 个月：</strong><span class="hl-danger">保守 7.6 元</span> / <span class="hl-warn">中性 9.8 元</span> / <span class="hl-ok">乐观 12.2 元</span><br>
+        <strong>24 个月：</strong><span class="hl-danger">保守 7.1 元</span> / <span class="hl-warn">中性 11.0 元</span> / <span class="hl-ok">乐观 13.7 元</span><br><br>
+        假设：保守 = 鸣鸣很忙 HK$250–270 + 主业归零；中性 = HK$320–350 + 主业 6–9 亿元；乐观 = HK$380–420 + 主业 12–15 亿元。现价 10.21 元对应 12M 中性目标 -4.0%、乐观目标 +19.5%，<span class="hl-warn">赔率约 1:0.8，不具吸引力</span>。
+      </div>
+    </div>
+    <div class="strategy-card cycle">
+      <div class="strategy-title">⏳ 5. 持有周期</div>
+      <div class="strategy-content">
+        <strong>中线 6–12 个月</strong>，事件驱动型持有。核心跟踪节点：<br>
+        ① 2026 年报（2027-04）：扣非是否收窄至 -0.2 亿元以内；<br>
+        ② 2027 一季报（2027-04）：春节旺季 + 糯香枣放量；<br>
+        ③ 鸣鸣很忙季度业绩/解禁公告。<br><br>
+        <span class="hl-purple">不建议"长期持有"</span>：主业没有复利能力，股权价值也不会无限增长；持有逻辑是"折价修复 + 事件催化"，不是"陪伴伟大公司"。
+      </div>
+    </div>
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📡 6. 关键监测指标</div>
+      <div class="strategy-content">
+        <strong>① 鸣鸣很忙股价/持股市值：</strong>每周跟踪，HK$280 / 250 是警戒线；<br>
+        <strong>② 产品销售收入增速与毛利率：</strong>季度跟踪，产品收入需保持 +5% 以上、毛利率 ≥30%；<br>
+        <strong>③ 调整后扣非：</strong>剔除股份支付后，单季亏损需持续收窄，2027 年需转正；<br>
+        <strong>④ 分红与经营现金流：</strong>年度分红 ≤ 经营现金流 + 资产变现能力；<br>
+        <strong>⑤ 控股股东质押比例：</strong>超过 50% 或出现补充质押公告即减仓。
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card stop">
+      <div class="strategy-title">🚪 7. 卖出信号（满足任一即执行）</div>
+      <div class="strategy-content">
+        <strong>① 鸣鸣很忙跌破 HK$250</strong>，或持股市值跌破 30 亿元；<br>
+        <strong>② 2026 年报调整后扣非亏损扩大至 -0.5 亿元以上</strong>，且产品销售收入转负；<br>
+        <strong>③ 控股股东质押比例超过 50%</strong>，或出现减持/被动平仓公告；<br>
+        <strong>④ 年度分红下调超过 30%</strong>，或经营现金流转负；<br>
+        <strong>⑤ 股价升至 13 元以上（PB &gt; 1.18）</strong>，而鸣鸣很忙股价未同步上涨 —— 说明主业被过度定价，应减仓。<br><br>
+        <span class="hl-danger">补充：若发现公司挪用鸣鸣很忙股权质押融资、或大额对外投资偏离主业，视为治理红线，无条件清仓。</span>
+      </div>
+    </div>
+    <div class="strategy-card monitor">
+      <div class="strategy-title">📍 关键价格锚（一张表记住）</div>
+      <div class="strategy-content">
+        <strong>8.30 元</strong>：硬止损（52 周低点下方）<br>
+        <strong>8.45 元</strong>：收盘止损（主业归零 NAV 附近）<br>
+        <strong>8.46 元</strong>：主业按 0 计价的税后 NAV<br>
+        <strong>9.38 元</strong>：主业按 50% 减值的税后 NAV<br>
+        <strong>10.21 元</strong>：当前价格（合理区间上沿）<br>
+        <strong>10.38 元</strong>：MA250 年线，反转确认线<br>
+        <strong>10.68 元</strong>：主业按账面计价的税后 NAV<br>
+        <strong>12.37 元</strong>：税前 NAV（不考虑处置税）<br>
+        <strong>12.20 元</strong>：12 个月乐观目标
+      </div>
+    </div>
+  </div>
+
+  <div class="theme-banner">
+    <div class="icon">🧭</div>
+    <div class="text">
+      <h3>操作总结：用"资产底"防守，用"事件"进攻，但不要在中间位置下注</h3>
+      <p>
+        好想你的交易逻辑很清晰：<b style="color:#34d399">跌到 8.5–9.0 元，资产价值提供安全边际，可以分批买；涨到 12 元以上，乐观情景充分定价，应该减仓；10–11 元之间，多空赔率接近，持有可以、加仓不必。</b>当前 10.21 元正处在这个"中间位置"，且技术面刚经历涨停脉冲、主力资金开始流出，最优策略是<b style="color:#fbbf24">等</b> —— 等回踩、等年报、等鸣鸣很忙给出方向。
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title danger">⚠️ 模块 12 · 核心风险揭示（5 条）</div>
+  <div class="section-subtitle">每条风险均给出触发条件、影响幅度、应对策略；按"发生概率 × 影响"排序</div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">🔻 1. 鸣鸣很忙股价回撤（最大 beta）</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>鸣鸣很忙股价跌破 HK$280（较现价 -13%），或持股市值跌破 32 亿元；Pre-IPO 股东解禁后出现集中减持。<br>
+        <strong>影响幅度：</strong>持股市值每下跌 10%，税后 NAV 减少约 2.79 亿元、每股 -0.62 元；若跌至 HK$250，中性 NAV 从 10.68 元降至约 9.2 元（-14%），股价可能同步回踩 8.5–9.0 元。<br>
+        <strong>应对策略：</strong>HK$280 减仓 1/3，HK$250 减至底仓；跌破 8.45 元收盘止损。不要用"长期看好零食量贩"对抗短期估值回归。
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">🔻 2. 主业盈利修复不及预期</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026 年报调整后扣非亏损超过 -0.5 亿元；产品销售收入增速转负；毛利率跌破 30%。<br>
+        <strong>影响幅度：</strong>市场可能把红枣主业按 0 计价，税后 NAV 降至 8.46 元（较现价 -17%）；同时 PS 3.54x 失去支撑，估值向同业 0.7–1.8x 收敛。<br>
+        <strong>应对策略：</strong>不补仓、不摊薄；若年报确认恶化，在 9.5 元以上减仓，跌破 8.45 元止损。把仓位留给"扣非转正"的确认信号。
+      </div>
+    </div>
+    <div class="risk-card warn">
+      <div class="risk-title">🔻 3. 高分红不可持续</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>2026 年度经营现金流低于 0.5 亿元；或分红金额下调超过 30%；或公司为保运营缩减分红。<br>
+        <strong>影响幅度：</strong>当前 5.79% 股息率是估值的重要支撑，若分红减半，股息率降至 2.9%，高股息资金流出，股价可能下移 10–15%。<br>
+        <strong>应对策略：</strong>不因"高股息"买入；把分红覆盖倍数（OCF/分红）纳入季度跟踪；分红下调公告当日减仓 1/2。
+      </div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">🔻 4. 控股股东质押与治理风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>质押比例超过其持股的 50%；出现补充质押、被动平仓或减持公告；或公司发生偏离主业的重大投资。<br>
+        <strong>影响幅度：</strong>治理折价扩大，市场给予更低 PB（从 0.93 降至 0.8 以下），对应股价 8.8 元以下；极端情况下控制权稳定性受质疑。<br>
+        <strong>应对策略：</strong>把质押比例列为最高优先级监测指标；出现补充质押/减持公告即减仓 1/2，跌破 8.45 元清仓。
+      </div>
+    </div>
+    <div class="risk-card info">
+      <div class="risk-title">🔻 5. 估值认知、解禁与税务风险</div>
+      <div class="risk-desc">
+        <strong>触发条件：</strong>投资者用 PE 2.24x 判断"极度便宜"而买入；鸣鸣很忙 Pre-IPO 股份解禁；公司处置股权触发 25% 所得税。<br>
+        <strong>影响幅度：</strong>PE 2.24x 在 2027 年重估收益消失后会"跳升"至 30x 以上，形成"业绩变脸"错觉；处置税约 7.55 亿元（每股 -1.69 元）；解禁可能带来 5–10% 的短期抛压。<br>
+        <strong>应对策略：</strong>只用 PB / 股息率 / SOTP 定价，拒绝 PE 叙事；解禁前后降低仓位；把 7.55 亿元税负计入所有目标价。
+      </div>
+    </div>
+  </div>
+
+  <div class="data-note" style="margin-top:24px;">
+    <strong>📌 报告复核记录：</strong><br>
+    ✅ 行情与估值：腾讯财经 + 东方财富双源；PE/PB/PS 均通过"市值 ÷ 财务分母"反推校验<br>
+    ✅ 财务数据：东方财富 F10 2026 三季报（2026-10-30 披露）+ 新浪财经交叉核对；2022–2025 年报序列取自东方财富 F10<br>
+    ✅ 持股与分红：鸣鸣很忙招股书、好想你 2025 年度权益分派实施公告、2026 三季报<br>
+    ✅ 资金流：东方财富 push2his 日度主力净流入（2026-10-30 至 2026-11-05 共 5 个交易日）<br>
+    ⚠️ 未独立核验：2026 年股权激励考核目标、鸣鸣很忙 Pre-IPO 解禁确切日期、北向资金近 30 日数据、2026Q3 单季毛利率/扣非<br>
+    ⚠️ 本报告为研究底稿，不构成个性化投资建议；盘中数据收盘后可能变化，决策前请以最新收盘价复核。
+  </div>
+
+
+  <div class="footer">
+    好想你（002582）｜报告截止日 2026-11-05（周三盘中）｜11 方法论交叉验证 × 12 模块标准输出<br>
+    证据优先 · 缺口显式披露 · 不编造数据 · 不构成个性化投资建议<br>
+    数据源：公司公告（巨潮资讯/东方财富/新浪财经）+ 鸣鸣很忙招股书 + 公开行业资料；行情为盘中快照，收盘后可能变动
+  </div>
+
+</div>
+</body>
+</html>
